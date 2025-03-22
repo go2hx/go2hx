@@ -17,7 +17,7 @@ function _parseRules(_rules:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._intern
                                 var _e:stdgo.AnyInterface = __type__ == null ? (null : stdgo.AnyInterface) : __type__.__underlying__();
                                 return;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.internal.dag.Dag_t_syntaxerror.T_syntaxError))) {
-                                var _e:stdgo._internal.internal.dag.Dag_t_syntaxerror.T_syntaxError = __type__ == null ? (("" : stdgo.GoString) : stdgo._internal.internal.dag.Dag_t_syntaxerror.T_syntaxError) : __type__.__underlying__() == null ? (("" : stdgo.GoString) : stdgo._internal.internal.dag.Dag_t_syntaxerror.T_syntaxError) : __type__ == null ? (("" : stdgo.GoString) : stdgo._internal.internal.dag.Dag_t_syntaxerror.T_syntaxError) : __type__.__underlying__().value;
+                                var _e:stdgo._internal.internal.dag.Dag_t_syntaxerror.T_syntaxError = __type__ == null ? (("" : stdgo.GoString) : stdgo._internal.internal.dag.Dag_t_syntaxerror.T_syntaxError) : __type__.__underlying__() == null ? (("" : stdgo.GoString) : stdgo._internal.internal.dag.Dag_t_syntaxerror.T_syntaxError) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (("" : stdgo.GoString) : stdgo._internal.internal.dag.Dag_t_syntaxerror.T_syntaxError) : __type__.__underlying__().value);
                                 _err = stdgo.Go.asInterface(_e);
                             } else {
                                 var _e:stdgo.AnyInterface = __type__?.__underlying__();

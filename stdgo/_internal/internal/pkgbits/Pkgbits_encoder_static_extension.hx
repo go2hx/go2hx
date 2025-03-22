@@ -22,28 +22,28 @@ package stdgo._internal.internal.pkgbits;
         {
             final __type__ = stdgo._internal.go.constant.Constant_val.val(_val);
             if (stdgo.Go.typeEquals((__type__ : Bool))) {
-                var _v:Bool = __type__ == null ? false : __type__.__underlying__() == null ? false : __type__ == null ? false : __type__.__underlying__().value;
+                var _v:Bool = __type__ == null ? false : __type__.__underlying__() == null ? false : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? false : __type__.__underlying__().value);
                 @:check2r _w.code(stdgo.Go.asInterface((0 : stdgo._internal.internal.pkgbits.Pkgbits_codeval.CodeVal)));
                 @:check2r _w.bool_(_v);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoString))) {
-                var _v:stdgo.GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : __type__ == null ? "" : __type__.__underlying__().value;
+                var _v:stdgo.GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? "" : __type__.__underlying__().value);
                 @:check2r _w.code(stdgo.Go.asInterface((1 : stdgo._internal.internal.pkgbits.Pkgbits_codeval.CodeVal)));
                 @:check2r _w.string(_v?.__copy__());
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoInt64))) {
-                var _v:stdgo.GoInt64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoInt64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                 @:check2r _w.code(stdgo.Go.asInterface((2 : stdgo._internal.internal.pkgbits.Pkgbits_codeval.CodeVal)));
                 @:check2r _w.int64(_v);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>))) {
-                var _v:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>) : __type__.__underlying__().value;
+                var _v:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>) : __type__.__underlying__().value);
                 @:check2r _w.code(stdgo.Go.asInterface((3 : stdgo._internal.internal.pkgbits.Pkgbits_codeval.CodeVal)));
                 @:check2r _w._bigInt(_v);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>))) {
-                var _v:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>) : __type__.__underlying__().value;
+                var _v:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>) : __type__.__underlying__().value);
                 @:check2r _w.code(stdgo.Go.asInterface((4 : stdgo._internal.internal.pkgbits.Pkgbits_codeval.CodeVal)));
                 @:check2r _w._bigInt(@:check2r _v.num());
                 @:check2r _w._bigInt(@:check2r _v.denom());
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>))) {
-                var _v:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>) : __type__.__underlying__().value;
+                var _v:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>) : __type__.__underlying__().value);
                 @:check2r _w.code(stdgo.Go.asInterface((5 : stdgo._internal.internal.pkgbits.Pkgbits_codeval.CodeVal)));
                 @:check2r _w._bigFloat(_v);
             } else {

@@ -209,48 +209,48 @@ package stdgo._internal.internal.fuzz;
         {
             final __type__ = _vals[(_i : stdgo.GoInt)];
             if (stdgo.Go.typeEquals((__type__ : stdgo.GoInt))) {
-                var _v:stdgo.GoInt = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoInt = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface((@:check2r _m._mutateInt((_v : stdgo.GoInt64), (2147483647i64 : stdgo.GoInt64)) : stdgo.GoInt));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoInt8))) {
-                var _v:stdgo.GoInt8 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoInt8 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface((@:check2r _m._mutateInt((_v : stdgo.GoInt64), (127i64 : stdgo.GoInt64)) : stdgo.GoInt8));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoInt16))) {
-                var _v:stdgo.GoInt16 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoInt16 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface((@:check2r _m._mutateInt((_v : stdgo.GoInt64), (32767i64 : stdgo.GoInt64)) : stdgo.GoInt16));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoInt64))) {
-                var _v:stdgo.GoInt64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoInt64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface(@:check2r _m._mutateInt(_v, (2147483647i64 : stdgo.GoInt64)));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoUInt))) {
-                var _v:stdgo.GoUInt = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoUInt = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface((@:check2r _m._mutateUInt((_v : stdgo.GoUInt64), (4294967295i64 : stdgo.GoUInt64)) : stdgo.GoUInt));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoUInt16))) {
-                var _v:stdgo.GoUInt16 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoUInt16 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface((@:check2r _m._mutateUInt((_v : stdgo.GoUInt64), (65535i64 : stdgo.GoUInt64)) : stdgo.GoUInt16));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoUInt32))) {
-                var _v:stdgo.GoUInt32 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoUInt32 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface((@:check2r _m._mutateUInt((_v : stdgo.GoUInt64), (4294967295i64 : stdgo.GoUInt64)) : stdgo.GoUInt32));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoUInt64))) {
-                var _v:stdgo.GoUInt64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoUInt64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface(@:check2r _m._mutateUInt((_v : stdgo.GoUInt64), (4294967295i64 : stdgo.GoUInt64)));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoFloat32))) {
-                var _v:stdgo.GoFloat32 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoFloat32 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface((@:check2r _m._mutateFloat((_v : stdgo.GoFloat64), (3.4028234663852886e+38 : stdgo.GoFloat64)) : stdgo.GoFloat32));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoFloat64))) {
-                var _v:stdgo.GoFloat64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoFloat64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface(@:check2r _m._mutateFloat(_v, (1.7976931348623157e+308 : stdgo.GoFloat64)));
             } else if (stdgo.Go.typeEquals((__type__ : Bool))) {
-                var _v:Bool = __type__ == null ? false : __type__.__underlying__() == null ? false : __type__ == null ? false : __type__.__underlying__().value;
+                var _v:Bool = __type__ == null ? false : __type__.__underlying__() == null ? false : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? false : __type__.__underlying__().value);
                 if (@:check2r _m._rand((2 : stdgo.GoInt)) == ((1 : stdgo.GoInt))) {
                     _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface(!_v);
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoInt32))) {
-                var _v:stdgo.GoInt32 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoInt32 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface((@:check2r _m._mutateInt((_v : stdgo.GoInt64), (2147483647i64 : stdgo.GoInt64)) : stdgo.GoInt32));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoUInt8))) {
-                var _v:stdgo.GoUInt8 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoUInt8 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface((@:check2r _m._mutateUInt((_v : stdgo.GoUInt64), (255i64 : stdgo.GoUInt64)) : stdgo.GoUInt8));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoString))) {
-                var _v:stdgo.GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : __type__ == null ? "" : __type__.__underlying__().value;
+                var _v:stdgo.GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? "" : __type__.__underlying__().value);
                 if (((_v.length) > _maxPerVal : Bool)) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("cannot mutate bytes of length %d" : stdgo.GoString), stdgo.Go.toInterface((_v.length))));
                 };
@@ -263,7 +263,7 @@ package stdgo._internal.internal.fuzz;
                 @:check2r _m._mutateBytes((stdgo.Go.setRef((@:checkr _m ?? throw "null pointer dereference")._scratch) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>));
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface(((@:checkr _m ?? throw "null pointer dereference")._scratch : stdgo.GoString));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Slice<stdgo.GoUInt8>))) {
-                var _v:stdgo.Slice<stdgo.GoUInt8> = __type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__() == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__().value;
+                var _v:stdgo.Slice<stdgo.GoUInt8> = __type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__() == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__().value);
                 if (((_v.length) > _maxPerVal : Bool)) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("cannot mutate bytes of length %d" : stdgo.GoString), stdgo.Go.toInterface((_v.length))));
                 };

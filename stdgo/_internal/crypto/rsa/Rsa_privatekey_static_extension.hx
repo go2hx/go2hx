@@ -114,7 +114,7 @@ var _values = (stdgo.Go.setRef((@:checkr _priv ?? throw "null pointer dereferenc
         {
             final __type__ = _opts;
             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>))) {
-                var _opts:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>) : __type__.__underlying__().value;
+                var _opts:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>) : __type__.__underlying__().value);
                 if ((@:checkr _opts ?? throw "null pointer dereference").mGFHash == ((0u32 : stdgo._internal.crypto.Crypto_hash.Hash))) {
                     return ({
                         @:assignTranslate final __tmp__ = stdgo._internal.crypto.rsa.Rsa__decryptoaep._decryptOAEP((@:checkr _opts ?? throw "null pointer dereference").hash.new_(), (@:checkr _opts ?? throw "null pointer dereference").hash.new_(), _rand, _priv, _ciphertext, (@:checkr _opts ?? throw "null pointer dereference").label);
@@ -127,7 +127,7 @@ var _values = (stdgo.Go.setRef((@:checkr _priv ?? throw "null pointer dereferenc
                     });
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions>))) {
-                var _opts:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions>) : __type__.__underlying__().value;
+                var _opts:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions>) : __type__.__underlying__().value);
                 {
                     var _l = ((@:checkr _opts ?? throw "null pointer dereference").sessionKeyLen : stdgo.GoInt);
                     if ((_l > (0 : stdgo.GoInt) : Bool)) {

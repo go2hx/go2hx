@@ -320,66 +320,66 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         {
             final __type__ = _arg;
             if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<Bool>))) {
-                var _v:stdgo.Pointer<Bool> = __type__ == null ? (null : stdgo.Pointer<Bool>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<Bool>) : __type__ == null ? (null : stdgo.Pointer<Bool>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<Bool> = __type__ == null ? (null : stdgo.Pointer<Bool>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<Bool>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<Bool>) : __type__.__underlying__().value);
                 _v.value = @:check2r _s._scanBool(_verb);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoComplex64>))) {
-                var _v:stdgo.Pointer<stdgo.GoComplex64> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoComplex64>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoComplex64>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoComplex64>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoComplex64> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoComplex64>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoComplex64>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoComplex64>) : __type__.__underlying__().value);
                 _v.value = (@:check2r _s._scanComplex(_verb, (64 : stdgo.GoInt)) : stdgo.GoComplex64);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoComplex128>))) {
-                var _v:stdgo.Pointer<stdgo.GoComplex128> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoComplex128>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoComplex128>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoComplex128>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoComplex128> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoComplex128>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoComplex128>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoComplex128>) : __type__.__underlying__().value);
                 _v.value = @:check2r _s._scanComplex(_verb, (128 : stdgo.GoInt));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoInt>))) {
-                var _v:stdgo.Pointer<stdgo.GoInt> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoInt>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoInt> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoInt>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoInt>) : __type__.__underlying__().value);
                 _v.value = (@:check2r _s._scanInt(_verb, (32 : stdgo.GoInt)) : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoInt8>))) {
-                var _v:stdgo.Pointer<stdgo.GoInt8> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt8>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoInt8>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt8>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoInt8> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt8>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoInt8>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoInt8>) : __type__.__underlying__().value);
                 _v.value = (@:check2r _s._scanInt(_verb, (8 : stdgo.GoInt)) : stdgo.GoInt8);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoInt16>))) {
-                var _v:stdgo.Pointer<stdgo.GoInt16> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt16>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoInt16>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt16>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoInt16> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt16>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoInt16>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoInt16>) : __type__.__underlying__().value);
                 _v.value = (@:check2r _s._scanInt(_verb, (16 : stdgo.GoInt)) : stdgo.GoInt16);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoInt32>))) {
-                var _v:stdgo.Pointer<stdgo.GoInt32> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt32>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoInt32>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt32>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoInt32> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt32>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoInt32>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoInt32>) : __type__.__underlying__().value);
                 _v.value = (@:check2r _s._scanInt(_verb, (32 : stdgo.GoInt)) : stdgo.GoInt32);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoInt64>))) {
-                var _v:stdgo.Pointer<stdgo.GoInt64> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt64>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoInt64>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt64>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoInt64> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoInt64>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoInt64>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoInt64>) : __type__.__underlying__().value);
                 _v.value = @:check2r _s._scanInt(_verb, (64 : stdgo.GoInt));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoUInt>))) {
-                var _v:stdgo.Pointer<stdgo.GoUInt> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoUInt>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoUInt> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoUInt>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt>) : __type__.__underlying__().value);
                 _v.value = (@:check2r _s._scanUint(_verb, (32 : stdgo.GoInt)) : stdgo.GoUInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoUInt8>))) {
-                var _v:stdgo.Pointer<stdgo.GoUInt8> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt8>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoUInt8>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt8>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoUInt8> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt8>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoUInt8>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt8>) : __type__.__underlying__().value);
                 _v.value = (@:check2r _s._scanUint(_verb, (8 : stdgo.GoInt)) : stdgo.GoUInt8);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoUInt16>))) {
-                var _v:stdgo.Pointer<stdgo.GoUInt16> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt16>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoUInt16>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt16>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoUInt16> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt16>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoUInt16>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt16>) : __type__.__underlying__().value);
                 _v.value = (@:check2r _s._scanUint(_verb, (16 : stdgo.GoInt)) : stdgo.GoUInt16);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoUInt32>))) {
-                var _v:stdgo.Pointer<stdgo.GoUInt32> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt32>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoUInt32>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt32>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoUInt32> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt32>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoUInt32>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt32>) : __type__.__underlying__().value);
                 _v.value = (@:check2r _s._scanUint(_verb, (32 : stdgo.GoInt)) : stdgo.GoUInt32);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoUInt64>))) {
-                var _v:stdgo.Pointer<stdgo.GoUInt64> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt64>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoUInt64>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt64>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoUInt64> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt64>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoUInt64>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoUInt64>) : __type__.__underlying__().value);
                 _v.value = @:check2r _s._scanUint(_verb, (64 : stdgo.GoInt));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoUIntptr>))) {
-                var _v:stdgo.Pointer<stdgo.GoUIntptr> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoUIntptr>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoUIntptr>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoUIntptr>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoUIntptr> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoUIntptr>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoUIntptr>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoUIntptr>) : __type__.__underlying__().value);
                 _v.value = (new stdgo.GoUIntptr(@:check2r _s._scanUint(_verb, (32 : stdgo.GoInt))) : stdgo.GoUIntptr);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoFloat32>))) {
-                var _v:stdgo.Pointer<stdgo.GoFloat32> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoFloat32>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoFloat32>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoFloat32>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoFloat32> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoFloat32>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoFloat32>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoFloat32>) : __type__.__underlying__().value);
                 if (@:check2r _s._okVerb(_verb, ("beEfFgGv" : stdgo.GoString), ("float32" : stdgo.GoString))) {
                     @:check2r _s.skipSpace();
                     @:check2r _s._notEOF();
                     _v.value = (@:check2r _s._convertFloat(@:check2r _s._floatToken()?.__copy__(), (32 : stdgo.GoInt)) : stdgo.GoFloat32);
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoFloat64>))) {
-                var _v:stdgo.Pointer<stdgo.GoFloat64> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoFloat64>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoFloat64>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoFloat64>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoFloat64> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoFloat64>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoFloat64>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoFloat64>) : __type__.__underlying__().value);
                 if (@:check2r _s._okVerb(_verb, ("beEfFgGv" : stdgo.GoString), ("float64" : stdgo.GoString))) {
                     @:check2r _s.skipSpace();
                     @:check2r _s._notEOF();
                     _v.value = @:check2r _s._convertFloat(@:check2r _s._floatToken()?.__copy__(), (64 : stdgo.GoInt));
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoString>))) {
-                var _v:stdgo.Pointer<stdgo.GoString> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoString>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoString>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoString>) : __type__.__underlying__().value;
+                var _v:stdgo.Pointer<stdgo.GoString> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoString>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoString>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Pointer<stdgo.GoString>) : __type__.__underlying__().value);
                 _v.value = @:check2r _s._convertString(_verb)?.__copy__();
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>))) {
-                var _v:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>> = __type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__().value;
+                var _v:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>> = __type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__().value);
                 (_v : stdgo.Slice<stdgo.GoUInt8>).__setData__((@:check2r _s._convertString(_verb) : stdgo.Slice<stdgo.GoUInt8>));
             } else {
                 var _v:stdgo.AnyInterface = __type__?.__underlying__();

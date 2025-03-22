@@ -35,10 +35,10 @@ package stdgo._internal.debug.buildinfo;
         {
             final __type__ = (@:checkr (@:checkr _x ?? throw "null pointer dereference")._f ?? throw "null pointer dereference").optionalHeader;
             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32>))) {
-                var _oh:stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32>) : __type__.__underlying__().value;
+                var _oh:stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32>) : __type__.__underlying__().value);
                 return ((@:checkr _oh ?? throw "null pointer dereference").imageBase : stdgo.GoUInt64);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64>))) {
-                var _oh:stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64>) : __type__.__underlying__().value;
+                var _oh:stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64>) : __type__.__underlying__().value);
                 return (@:checkr _oh ?? throw "null pointer dereference").imageBase;
             };
         };

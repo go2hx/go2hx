@@ -1398,7 +1398,7 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 -- FAIL: TestRemoveAllDotDot
 
 === RUN  TestRemoveReadOnlyDir
-chmod: cannot access 'tmp_kr1kj3qqd5/x': No such file or directory
+chmod: cannot access 'tmp_vkahj44k6t/x': No such file or directory
 
 -- PASS: TestRemoveReadOnlyDir
 
@@ -1505,7 +1505,7 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 -- FAIL: TestSymlinkWithTrailingSlash
 
 === RUN  TestCreateTemp
-Exception: ENOENT: no such file or directory, open 'TestCreateTempBadDirtmp_ziqkp4by3i/_not_exists_/tmp_5no85dxykd'
+Exception: ENOENT: no such file or directory, open 'TestCreateTempBadDirtmp_ykcs0iefjn/_not_exists_/tmp_7wsco43b27'
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testcreatetemp_testCreateTemp [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:47451:25)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102574 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50597 column 82)

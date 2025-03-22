@@ -356,7 +356,7 @@ node:fs:1581
   const result = binding.readdir(
                          ^
 
-Error: EACCES: permission denied, scandir 'tmp_ft7bdjillx/a/bad'
+Error: EACCES: permission denied, scandir 'tmp_17o5wmrx7k/a/bad'
     at Object.readdirSync (node:fs:1581:26)
     at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:26046:30)
     at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:26052:7)
@@ -370,7 +370,7 @@ Error: EACCES: permission denied, scandir 'tmp_ft7bdjillx/a/bad'
   errno: -13,
   code: 'EACCES',
   syscall: 'scandir',
-  path: 'tmp_ft7bdjillx/a/bad'
+  path: 'tmp_17o5wmrx7k/a/bad'
 }
 
 Node.js v23.10.0

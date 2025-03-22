@@ -236,7 +236,7 @@ function isPortUsed(port: Int) {
 	try {
 		var cmd: String = switch (Sys.systemName()) {
 			case "Windows": 'netstat -a -n -o | findstr "LISTENING" | findstr ":$port "';
-			case "Mac": 'lsof -i:$port';
+			case "Mac": 'netstat -vanp tcp | grep ":$port[[:space:]]"';
 			default: 'netstat -tuln | grep ":$port[[:space:]]"';
 		}
 

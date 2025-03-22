@@ -8,7 +8,7 @@ test.go
 tests.md
 ./main
 ./bin
-bin/*
+bin/cpp/*
 ./debug
 ./export
 export/*

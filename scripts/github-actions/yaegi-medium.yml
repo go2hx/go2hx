@@ -33,6 +33,7 @@ steps:
         ./_internal/*
         ./stdgo/*
         ./go2hx.*.zip 
+        ./data/go4hx.*
       key: ${{ github.sha }}-build-${{ env.cache-name }}
   # run yaegi medium tests
   - name: clone yaegi

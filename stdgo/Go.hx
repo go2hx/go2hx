@@ -27,6 +27,19 @@ class Go {
 		});
 		#end
 	}
+	public static function fromAsInterfaceToValue(value:Dynamic):Dynamic {
+		if (value == null)
+			return null;
+		switch std.Type.typeof(value) {
+			case TClass(c):
+				final cl = std.Type.getClassName(c);
+				if (StringTools.endsWith(cl, "_asInterface")) {
+					return value.__underlying__().value;
+				}
+			default:
+		}
+		return value;
+	}
 	/**
 	 * Simulate builtin print
 	 * @param args 

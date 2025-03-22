@@ -4733,8 +4733,8 @@ private function toAnyInterface(x:Expr, t:GoType, info:Info,needWrapping:Bool=tr
 		t = getElem(t);
 	switch t {
 		case named(_, _, _, _):
-			if (!isInterface(t) && !isAnyInterface(t) && needWrapping)
-				x = wrapperExpr(t, x, info);
+			//if (!isInterface(t) && !isAnyInterface(t) && needWrapping)
+			//	x = wrapperExpr(t, x, info);
 		case basic(kind):
 			switch kind {
 				case untyped_nil_kind:

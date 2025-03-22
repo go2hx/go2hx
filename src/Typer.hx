@@ -2113,7 +2113,11 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 							// hard cast if interface to interface (typedef anon)
 							set = macro __type__ == null ? $defValue : cast __type__;
 						} else if (!isAnyInterface(types[0])) {
-							set = macro $set == null ? $defValue : stdgo.Go.fromAsInterfaceToValue($set.value);
+							if (isInterface(types[0])) {
+								set = macro $set == null ? $defValue : $set.value;
+							}else{
+								set = macro $set == null ? $defValue : stdgo.Go.fromAsInterfaceToValue($set.value);
+							}
 						}
 					} else {
 						// to AnyInterface
@@ -4735,8 +4739,9 @@ private function toAnyInterface(x:Expr, t:GoType, info:Info,needWrapping:Bool=tr
 		t = getElem(t);
 	switch t {
 		case named(_, _, _, _):
-			if (!isInterface(t) && !isAnyInterface(t) && needWrapping)
+			if (!isInterface(t) && !isAnyInterface(t) && needWrapping) {
 				x = wrapperExpr(t, x, info);
+			}
 		case basic(kind):
 			switch kind {
 				case untyped_nil_kind:

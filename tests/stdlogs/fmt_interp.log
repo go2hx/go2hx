@@ -7,13 +7,21 @@
 -- PASS: TestFmtInterface
 
 === RUN  TestSprintf
-Exception: Unexpected value #fun, expected instance
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.fmt_test._Fmt_test_testsprintf.Fmt_test_testsprintf_Fields_.testSprintf (./_internal/fmt_test/Fmt_test_testsprintf.hx line 4 column 23)
-Called from stdgo._internal.fmt._Fmt_sprintf.Fmt_sprintf_Fields_.sprintf (./stdgo/_internal/fmt/Fmt_sprintf.hx line 5 column 19)
-Called from stdgo._internal.fmt.T_pp_static_extension._doPrintf (./stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 179 column 31)
-Called from stdgo._internal.fmt.T_pp_static_extension._printArg (./stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 834 column 22)
-Called from stdgo._internal.reflect.Value_static_extension.isValid (./stdgo/_internal/reflect/Reflect_value_static_extension.hx line 459 column 29)
+Sprintf("%#v", {1 2 a [1 2]}) = "_internal.fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" want "fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}"
+Sprintf("%#v", 0x1) = "(func(*.testing.))(0xPTR)" want "(func(*testing.T))(0xPTR)"
+Sprintf("%#v", map[a:{<1> 2}]) = "map[string]_internal.fmt_test.B{\"a\":_internal.fmt_test.B{I:1, j:2}}" want "map[string]fmt_test.B{\"a\":fmt_test.B{I:1, j:2}}"
+Sprintf("%#v", {<nil>}) = "_internal.fmt_test.SI{I:interface {}(nil)}" want "fmt_test.SI{I:interface {}(nil)}"
+Sprintf("%#v", [1 2 3 4 5]) = "[5]_internal.fmt_test.renamedUint8{0x1, 0x2, 0x3, 0x4, 0x5}" want "[5]fmt_test.renamedUint8{0x1, 0x2, 0x3, 0x4, 0x5}"
+Sprintf("%#v", [1 2 3 4 5]) = "[]_internal.fmt_test.renamedUint8{0x1, 0x2, 0x3, 0x4, 0x5}" want "[]fmt_test.renamedUint8{0x1, 0x2, 0x3, 0x4, 0x5}"
+Sprintf("%d", true) = "%!d(_internal.fmt_test.renamedBool=true)" want "%!d(fmt_test.renamedBool=true)"
+Sprintf("%#v", {<v=F(7)> 8}) = "_internal.fmt_test.S{F:<v=F(7)>, G:GoString(8)}" want "fmt_test.S{F:<v=F(7)>, G:GoString(8)}"
+Sprintf("%T", <invalid reflect.Value>) = ".reflect.Value" want "reflect.Value"
+Sprintf("%T", (4-3i)) = "_internal.fmt_test.renamedComplex128" want "fmt_test.renamedComplex128"
+Sprintf("%#v", [X X X X X]) = "[]_internal.fmt_test.byteStringer{0x68, 0x65, 0x6c, 0x6c, 0x6f}" want "[]fmt_test.byteStringer{0x68, 0x65, 0x6c, 0x6c, 0x6f}"
+Sprintf("%#v", [X X X X X]) = "[]_internal.fmt_test.byteFormatter{X, X, X, X, X}" want "[]fmt_test.byteFormatter{X, X, X, X, X}"
+Sprintf("%☠", 0) = "%!☠(_internal.fmt_test.renamedInt=0)" want "%!☠(fmt_test.renamedInt=0)"
+Sprintf("%☠", {0}) = "{%!☠(_internal.fmt_test.renamedInt=0)}" want "{%!☠(fmt_test.renamedInt=0)}"
+Sprintf("%☠", &[<1> 2]) = "&[%!☠(_internal.fmt_test.I=1) %!☠(_internal.fmt_test.G=2)]" want "&[%!☠(fmt_test.I=1) %!☠(fmt_test.G=2)]"
 
 -- FAIL: TestSprintf
 

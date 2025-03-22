@@ -1,17 +1,11 @@
 <img src="logo.svg" width="270" align="right"/>
 
-# go2hx [![build](https://github.com/go2hx/go2hx/actions/workflows/main.yml/badge.svg)](https://github.com/go2hx/go2hx/actions/workflows/main.yml) [![Scc Count Badge](https://sloc.xyz/github/go2hx/go2hx/)](https://github.com/go2hx/go2hx/) [![Discord](https://img.shields.io/discord/162395145352904705.svg?logo=discord)](https://discord.gg/jgPcqC7DY2)
+# go2hx [![build](https://github.com/go2hx/go2hx/actions/workflows/main.yml/badge.svg)](https://github.com/go2hx/go2hx/actions/workflows/main.yml) [![Scc Count Badge](https://sloc.xyz/github/go2hx/go2hx/)](https://github.com/go2hx/go2hx/) [![Discord](https://img.shields.io/discord/162395145352904705.svg?logo=discord)](https://discord.gg/jgPcqC7DY2) [![Repo size](https://img.shields.io/github/repo-size/go2hx/go2hx)](https://github.com/go2hx/go2hx/)
 
-A Haxe compiler, that compiles Go code to Haxe.
+
+Import Go libraries into your Haxe projects.
 
 Spiritual successor to [Elliott Stoneham's compiler](#credits)
-
-This project aims to change the paradigm of the Haxe ecosystem by providing thousands of high quality tested libraries from Go.
-
-
-- In a manner that is easy to use for Haxe devs.
-- Allows Haxe to be used as a general purpose language.
-- Fulfill Haxe's promises of cross target compilable code. Write once run anywhere, now with the libraries to back it up.
 
 If you are interested in improving the Haxe ecosystem you may be interested in [contributing](#contributing)
 

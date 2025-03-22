@@ -320,7 +320,7 @@ function update() {
 						suite.success(task);
 					}
 				}else {
-					trace(task.excludeArgs);
+					//trace(task.excludeArgs);
 					final cmd = Main.runTarget(task.target,"golibs/" + task.out,task.excludeArgs,task.main).split(" ");
 					tasks.push({command:cmd[0], args: cmd.slice(1), target: task.target, path: task.path, runtime: true, out: "", main: "", excludeArgs: task.excludeArgs});
 				}
@@ -538,9 +538,10 @@ private function close() {
 	if (type == "")
 		return;
 	final testName = type + (sortMode == "" ? "" : "_" + sortMode) + "_" + target;
-	var output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
+	final filePath = 'tests/$testName.json';
+	var output:Array<String> = FileSystem.exists(filePath) ? Json.parse(File.getContent(filePath)) : [];
 	// remove targets that don't exist
-	output = output.filter(o -> ranTests.indexOf(o) == -1);
+	output = output.filter(o -> ranTests.indexOf(o) != -1);
 	log('--> $type');
 	log('      correct output: ' + calc(suite.correctCount, suite.count));
 	log('    incorrect output: ' + calc(suite.incorrectCount, suite.count));

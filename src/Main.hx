@@ -232,13 +232,46 @@ function close(code:Int=0, instance: Null<InstanceData> = null) {
 	Sys.exit(code);
 }
 
+function isPortUsed(port: Int) {
+	try {
+		var cmd: String = switch (Sys.systemName()) {
+			case "Windows": 'netstat -a -n -o | findstr "LISTENING" | findstr ":$port "';
+			case "Mac": 'lsof -i:$port';
+			default: 'netstat -tuln | grep ":$port[[:space:]]"';
+		}
+
+		#if js
+		final cmdRes: String = js.node.ChildProcess.execSync(cmd, {
+			shell: true
+		});
+		#else
+		final process = new sys.io.Process(cmd);
+		final cmdRes: String = process.stdout.readAll().toString();
+		#end
+		
+		return cmdRes.toLowerCase().indexOf('tcp') != -1;
+	} catch (e: Dynamic) {
+		return false;
+	}
+}
+	
 function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Void = null) {
 	Cache.setUseCache(instance.useCache);
 	if (!instance.cleanCache) Cache.loadCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath , '.go2hx_cache']));
 	
 	var port = instance.port;
-	if (port == 0)
-		port = 6114 + Std.random(800); // random range in case port is still bound from before
+	if (port == 0) {
+		port = 6114;
+		while (isPortUsed(port) && port < 6136) {
+			port++;
+		}
+	} else {
+		if (isPortUsed(port)) {
+			Sys.println('Port $port is already in use');
+			close(1, instance);
+		}
+	}
+
 	Sys.println('listening on local port: $port');
 	#if !js
 	server.bind(new sys.net.Host("127.0.0.1"), port);

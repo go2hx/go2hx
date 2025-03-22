@@ -233,16 +233,26 @@ function close(code:Int=0, instance: Null<InstanceData> = null) {
 }
 
 function isPortUsed(port: Int) {
-	var cmd: String = switch (Sys.systemName()) {
-		case "Windows": 'netstat -a -n -o | findstr $port';
-		case "Mac": 'lsof -i:$port';
-		default: 'netstat -tuln | grep $port';
-	}
+	try {
+		var cmd: String = switch (Sys.systemName()) {
+			case "Windows": 'netstat -a -n -o | findstr "LISTENING" | findstr ":$port "';
+			case "Mac": 'lsof -i:$port';
+			default: 'netstat -tuln | grep ":$port[[:space:]]"';
+		}
 
-	final process = new sys.io.Process(cmd);
-	final cmdRes = process.stdout.readAll().toString();
-	
-	return cmdRes.toLowerCase().indexOf('tcp') != -1;
+		#if js
+		final cmdRes: String = js.node.ChildProcess.execSync(cmd, {
+			shell: true
+		});
+		#else
+		final process = new sys.io.Process(cmd);
+		final cmdRes: String = process.stdout.readAll().toString();
+		#end
+		
+		return cmdRes.toLowerCase().indexOf('tcp') != -1;
+	} catch (e: Dynamic) {
+		return false;
+	}
 }
 	
 function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Void = null) {
@@ -252,7 +262,7 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 	var port = instance.port;
 	if (port == 0) {
 		port = 6114;
-		while (isPortUsed(port)) {
+		while (isPortUsed(port) && port < 6136) {
 			port++;
 		}
 	} else {

@@ -67,4 +67,6 @@ got error <invalid reflect.Value>; want %!v(MISSING)
 
 -- PASS: TestDecoderRaw
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestDecoderIssue3577

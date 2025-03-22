@@ -40,4 +40,6 @@ want %!s(MISSING)
 
 -- PASS: TestZeroRead
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestReader

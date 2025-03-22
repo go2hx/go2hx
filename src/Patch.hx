@@ -1933,6 +1933,7 @@ final list = [
 		// use go version of path for passing go tests
 		stdgo._internal.internal.reflect.Reflect.useHaxePath = false;
 		_m._numRun++;
+		var exitCodeReason = "";
 		for (test in _m._tests) {
 			var error = false;
 			final output = new StringBuf();
@@ -1952,7 +1953,9 @@ final list = [
             }
 			final dstr = (@:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time()) - stamp; // duration
 			if (t.failed() || error) {
-				stdgo.Go.println('\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
+				final reason = '\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : '');
+				stdgo.Go.println(reason);
+				exitCodeReason = reason;
 				_m._exitCode = 1;
 			} else if (chatty) {
 				if (t.skipped()) {
@@ -1965,6 +1968,7 @@ final list = [
 			stdgo.Go.println(output.toString());
 		}
 		trace("exitCode: " + _m._exitCode);
+		trace("exitCodeReason: " + exitCodeReason);
 		return _m._exitCode;
 	},
 	"testing:benchmark" => macro return new stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult(),

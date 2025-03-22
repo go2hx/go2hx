@@ -8,7 +8,7 @@
 
 === RUN  TestSprintf
 Exception: Unexpected value #fun, expected instance
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.fmt_test._Fmt_test_testsprintf.Fmt_test_testsprintf_Fields_.testSprintf (./_internal/fmt_test/Fmt_test_testsprintf.hx line 4 column 23)
 Called from stdgo._internal.fmt._Fmt_sprintf.Fmt_sprintf_Fields_.sprintf (./stdgo/_internal/fmt/Fmt_sprintf.hx line 5 column 19)
 Called from stdgo._internal.fmt.T_pp_static_extension._doPrintf (./stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 179 column 31)
@@ -28,7 +28,7 @@ Called from stdgo._internal.reflect.Value_static_extension.isValid (./stdgo/_int
 === RUN  TestCountMallocs
 skipping malloc count in short mode
 Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.fmt_test._Fmt_test_testcountmallocs.Fmt_test_testcountmallocs_Fields_.testCountMallocs (./_internal/fmt_test/Fmt_test_testcountmallocs.hx line 4 column 31)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 67 column 87)
 Called from stdgo._internal.testing.T_common_static_extension.skip (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61 column 9)
@@ -108,7 +108,7 @@ Sprintf("%#v", [1]_internal.fmt_test.flagPrinter) = "[1]_internal.fmt_test.flagP
 
 === RUN  TestAppendf
 Appendf allocated a new sliceException: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.fmt_test._Fmt_test_testappendf.Fmt_test_testappendf_Fields_.testAppendf (./_internal/fmt_test/Fmt_test_testappendf.hx line 10 column 33)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
 Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
@@ -118,7 +118,7 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 
 === RUN  TestAppend
 Append allocated a new sliceException: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.fmt_test._Fmt_test_testappend.Fmt_test_testappend_Fields_.testAppend (./_internal/fmt_test/Fmt_test_testappend.hx line 10 column 33)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
 Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
@@ -128,7 +128,7 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 
 === RUN  TestAppendln
 Appendln allocated a new sliceException: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.fmt_test._Fmt_test_testappendln.Fmt_test_testappendln_Fields_.testAppendln (./_internal/fmt_test/Fmt_test_testappendln.hx line 10 column 33)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
 Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
@@ -299,7 +299,7 @@ Sscanln: expected error; got none
 
 === RUN  TestScanInts
 bad scan: expected 801 got 0Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.fmt_test._Fmt_test_testscanints.Fmt_test_testscanints_Fields_.testScanInts (./_internal/fmt_test/Fmt_test_testscanints.hx line 4 column 9)
 Called from _internal.fmt_test._Fmt_test__testscanints.Fmt_test__testscanints_Fields_._testScanInts (./_internal/fmt_test/Fmt_test__testscanints.hx line 16 column 114)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
@@ -344,7 +344,7 @@ space vs newline no-percent 1110: expected error; got none
 
 === RUN  TestHexByte
 expected 0123 got 0000Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.fmt_test._Fmt_test_testhexbyte.Fmt_test_testhexbyte_Fields_.testHexByte (./_internal/fmt_test/Fmt_test_testhexbyte.hx line 12 column 76)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
 Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
@@ -360,4 +360,6 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 
 -- PASS: TestStringer
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestHexByte

@@ -1,6 +1,6 @@
 === RUN  TestGoToolLocation
 skipping test: 'go build' unavailable: <nil>Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.internal.testenv_test._Testenv_test_testgotoollocation.Testenv_test_testgotoollocation_Fields_.testGoToolLocation (./_internal/internal/testenv_test/Testenv_test_testgotoollocation.hx line 3 column 9)
 Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.Testenv_musthavegobuild_Fields_.mustHaveGoBuild (./stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 9 column 88)
 Called from stdgo._internal.testing.T__asInterface.skipf (./stdgo/_internal/testing/Testing_t__asinterface.hx line 53 column 98)
@@ -19,7 +19,7 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_
 === RUN  TestMustHaveExec
 - SUBRUN  MustHaveExec
 Exception: :os.executable is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.internal.testenv_test._Testenv_test_testmusthaveexec.Testenv_test_testmusthaveexec_Fields_.testMustHaveExec (./_internal/internal/testenv_test/Testenv_test_testmusthaveexec.hx line 4 column 19)
 Called from stdgo._internal.testing.T__static_extension.run (./stdgo/_internal/testing/Testing_t__static_extension.hx line 14 column 9)
 Called from local function #1 (./_internal/internal/testenv_test/Testenv_test_testmusthaveexec.hx line 5 column 13)
@@ -31,4 +31,6 @@ Called from stdgo._internal.os._Os_executable.Os_executable_Fields_.executable (
 
 -- FAIL: TestMustHaveExec
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestMustHaveExec

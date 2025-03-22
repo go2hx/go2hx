@@ -1,7 +1,7 @@
 === RUN  TestFuncPC
 ./stdgo/_internal/internal/abi/Abi_funcpcabi0.hx:3: funclit
 Exception: not implemented: funcPCABI0
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.internal.abi_test._Abi_test_testfuncpc.Abi_test_testfuncpc_Fields_.testFuncPC (./_internal/internal/abi_test/Abi_test_testfuncpc.hx line 4 column 25)
 Called from stdgo._internal.internal.abi._Abi_funcpctest.Abi_funcpctest_Fields_.funcPCTest (./stdgo/_internal/internal/abi/Abi_funcpctest.hx line 3 column 16)
 Called from stdgo._internal.internal.abi._Abi_funcpcabi0.Abi_funcpcabi0_Fields_.funcPCABI0 (./stdgo/_internal/internal/abi/Abi_funcpcabi0.hx line 4 column 9)
@@ -10,7 +10,7 @@ Called from stdgo._internal.internal.abi._Abi_funcpcabi0.Abi_funcpcabi0_Fields_.
 
 === RUN  TestFuncPCCompileError
 skipping test: 'go build' unavailable: <nil>Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.internal.abi_test._Abi_test_testfuncpccompileerror.Abi_test_testfuncpccompileerror_Fields_.testFuncPCCompileError (./_internal/internal/abi_test/Abi_test_testfuncpccompileerror.hx line 3 column 9)
 Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.Testenv_musthavegobuild_Fields_.mustHaveGoBuild (./stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 9 column 88)
 Called from stdgo._internal.testing.T__asInterface.skipf (./stdgo/_internal/testing/Testing_t__asinterface.hx line 53 column 98)
@@ -22,4 +22,6 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_
 
 -- PASS: TestFuncPCCompileError
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestFuncPC

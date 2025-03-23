@@ -422,11 +422,9 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 	});
 	#if js
 	@:privateAccess server.s.listen(port, () -> {
-		Sys.println("nodejs server started"); // NOTE: this is a trap! this is the connection callback...
+		port = server.getPort();
+		Sys.println('nodejs server listening on local port: ${port}');
 	});
-
-	port = server.getPort();
-	Sys.println('nodejs server listening on local port: ${port}');
 	#end
 }
 

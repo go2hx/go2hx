@@ -669,6 +669,11 @@ class GoObjectMap<K, V> extends GoAnyInterfaceMap<V> {
 		return super.get(key);
 	}
 
+	override function remove(key:Dynamic):Bool {
+		final key = new AnyInterface(key, t);
+		return super.remove(key);
+	}
+
 	override function keysLoop(node:TreeNode<Dynamic, V>, acc:Array<Dynamic>) {
 		if (node != null) {
 			keysLoop(node.left, acc);
@@ -703,7 +708,7 @@ class GoAnyInterfaceMap<V> extends BalancedTree<AnyInterface, V> {
 			case sliceType(_):
 				throw errorString("hash of unhashable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
 			default:
-				trace(gt);
+				//trace(gt);
 		}
 		return super.remove(key);
 	}

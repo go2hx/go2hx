@@ -94,6 +94,10 @@ class Tcp {
 		// acceptClient = null;
 		return new Stream(s, loop);
 	}
+
+	public function getPort():Int {
+		return s.address().port;
+	}
 }
 #elseif (sys || no_uv)
 class Stream {
@@ -173,6 +177,10 @@ class Tcp {
 		final s = acceptClient;
 		// acceptClient = null;
 		return new Stream(s, loop);
+	}
+
+	public function getPort():Int {
+		return s.host().port;
 	}
 }
 #end

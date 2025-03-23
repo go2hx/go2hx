@@ -16,48 +16,48 @@ package stdgo._internal.regexp.syntax;
                 if (__value__ == (0i32)) {
                     _pc_43 = ((@:checkr _p ?? throw "null pointer dereference").start : stdgo.GoUInt32);
                     _i_44 = (stdgo.Go.setRef((@:checkr _p ?? throw "null pointer dereference").inst[(_pc_43 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst>);
-                    _gotoNext = 3346382i32;
-                } else if (__value__ == (3346382i32)) {
+                    _gotoNext = 3597382i32;
+                } else if (__value__ == (3597382i32)) {
                     0i32;
                     loopBreak = false;
-                    _gotoNext = 3346389i32;
-                } else if (__value__ == (3346389i32)) {
+                    _gotoNext = 3597389i32;
+                } else if (__value__ == (3597389i32)) {
                     if (!loopBreak) {
-                        _gotoNext = 3346393i32;
+                        _gotoNext = 3597393i32;
                     } else {
-                        _gotoNext = 3346603i32;
+                        _gotoNext = 3597603i32;
                     };
-                } else if (__value__ == (3346393i32)) {
-                    _gotoNext = 3346397i32;
-                } else if (__value__ == (3346397i32)) {
+                } else if (__value__ == (3597393i32)) {
+                    _gotoNext = 3597397i32;
+                } else if (__value__ == (3597397i32)) {
                     {
                         final __value__ = (@:checkr _i_44 ?? throw "null pointer dereference").op;
                         if (__value__ == ((3 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
-                            _gotoNext = 3346413i32;
+                            _gotoNext = 3597413i32;
                         } else if (__value__ == ((5 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
-                            _gotoNext = 3346462i32;
+                            _gotoNext = 3597462i32;
                         } else if (__value__ == ((2 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) || __value__ == ((6 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
-                            _gotoNext = 3346501i32;
+                            _gotoNext = 3597501i32;
                         } else {
-                            _gotoNext = 3346541i32;
+                            _gotoNext = 3597541i32;
                         };
                     };
-                } else if (__value__ == (3346413i32)) {
+                } else if (__value__ == (3597413i32)) {
                     _flag_42 = (_flag_42 | (((@:checkr _i_44 ?? throw "null pointer dereference").arg : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp);
-                    _gotoNext = 3346570i32;
-                } else if (__value__ == (3346462i32)) {
+                    _gotoNext = 3597570i32;
+                } else if (__value__ == (3597462i32)) {
                     return (255 : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp);
-                    _gotoNext = 3346570i32;
-                } else if (__value__ == (3346501i32)) {
-                    _gotoNext = 3346570i32;
-                } else if (__value__ == (3346541i32)) {
+                    _gotoNext = 3597570i32;
+                } else if (__value__ == (3597501i32)) {
+                    _gotoNext = 3597570i32;
+                } else if (__value__ == (3597541i32)) {
                     loopBreak = true;
-                    _gotoNext = 3346389i32;
-                } else if (__value__ == (3346570i32)) {
+                    _gotoNext = 3597389i32;
+                } else if (__value__ == (3597570i32)) {
                     _pc_43 = (@:checkr _i_44 ?? throw "null pointer dereference").out;
                     _i_44 = (stdgo.Go.setRef((@:checkr _p ?? throw "null pointer dereference").inst[(_pc_43 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst>);
-                    _gotoNext = 3346389i32;
-                } else if (__value__ == (3346603i32)) {
+                    _gotoNext = 3597389i32;
+                } else if (__value__ == (3597603i32)) {
                     return _flag_42;
                     _gotoNext = -1i32;
                 };

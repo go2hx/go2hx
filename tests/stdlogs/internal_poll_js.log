@@ -5,10 +5,10 @@ Exception: __skip__
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:13121:26
 Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 13524 column 2)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testreaderror_testReadError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:13001:50)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44426 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44431 column 9)
 Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36632 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52570:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52571:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52575:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52576:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- SKIP: TestReadError
@@ -19,10 +19,10 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 Exception: XFDMutex:internal.poll.incref is not yet implemented
 Called from stdgo__$internal_internal_poll_XFDMutex_$static_$extension.incref (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 33258 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testmutexlock_testMutexLock [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:12266:65)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44426 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44431 column 9)
 Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36632 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52570:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52571:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52575:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52576:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -32,10 +32,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 Exception: XFDMutex:internal.poll.increfAndClose is not yet implemented
 Called from stdgo__$internal_internal_poll_XFDMutex_$static_$extension.increfAndClose (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 33255 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testmutexclose_testMutexClose [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:12184:65)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44426 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44431 column 9)
 Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36632 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52570:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52571:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52575:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52576:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -45,10 +45,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 Exception: XFDMutex:internal.poll.rWLock is not yet implemented
 Called from stdgo__$internal_internal_poll_XFDMutex_$static_$extension.rWLock (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 33249 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testmutexcloseunblock_testMutexCloseUnblock [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:12205:61)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44426 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44431 column 9)
 Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36632 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52570:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52571:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52575:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52576:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -58,10 +58,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 Exception: XFDMutex:internal.poll.incref is not yet implemented
 Called from stdgo__$internal_internal_poll_XFDMutex_$static_$extension.incref (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 33258 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testmutexpanic_testMutexPanic [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:12547:61)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44426 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44431 column 9)
 Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36632 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52570:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52571:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52575:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52576:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -70,10 +70,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 === RUN  TestMutexOverflowPanic
 wrong panic message <invalid reflect.Value>Exception: XFDMutex:internal.poll.incref is not yet implemented
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testmutexoverflowpanic_testMutexOverflowPanic [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:12435:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44426 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44431 column 9)
 Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36632 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52570:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52571:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52575:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52576:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
@@ -83,10 +83,10 @@ Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
 === RUN  TestMutexStress
 Exception: __fail__
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testmutexstress_testMutexStress [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:12866:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44426 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44431 column 9)
 Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36632 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52570:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52571:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52575:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52576:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
@@ -102,10 +102,10 @@ Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
 Exception: stdgo__$internal_internal_poll_Poll_$consume_consume is not a function
 Called from module TypeError: stdgo__$internal_internal_poll_Poll_$consume_consume is not a function
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testconsume_testConsume [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:12160:3)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44426 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 44431 column 9)
 Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36632 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52570:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52571:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52575:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52576:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)

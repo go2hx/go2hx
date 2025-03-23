@@ -6,8 +6,8 @@
     at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_sync.js:18289:17)
     at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_sync.js:18219:11)
     at stdgo__$internal_sync_Sync_$oncevalue_onceValue (/home/runner/work/go2hx/go2hx/golibs/std_sync.js:18748:23)
-    at /home/runner/work/go2hx/go2hx/golibs/std_sync.js:72039:64
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sync.js:74016:3)
+    at /home/runner/work/go2hx/go2hx/golibs/std_sync.js:72044:64
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sync.js:74021:3)
     at Module._compile (node:internal/modules/cjs/loader:1734:14)
     at Object..js (node:internal/modules/cjs/loader:1899:10)
     at Module.load (node:internal/modules/cjs/loader:1469:32)

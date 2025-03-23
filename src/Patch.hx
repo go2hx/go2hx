@@ -324,6 +324,7 @@ final list = [
 	// stdgo/strings
 	"strings.Builder:_copyCheck" => macro _b._addr = _b,
 	// stdgo/time
+	"time.tzdata:_loadFromEmbeddedTZData" => macro return {_0: "", _1: ""},
 	"time:_parseRFC3339" => macro {
 		return {_0: stdgo._internal.time.Time_now.now(), _1: true};
 	},

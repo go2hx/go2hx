@@ -11,7 +11,6 @@ import sys.thread.Mutex;
     capacity,
     __isSend__,
     __isGet__,
-    __reset__,
     __smartGet__,
     __get__,
     __send__,
@@ -30,7 +29,9 @@ import sys.thread.Mutex;
  *    Haxe: c.__send__(x) Go: c <- x
  */
 abstract Chan<T>(ChanData<T>) from ChanData<T> to ChanData<T> {
-
+    public function __reset__() {
+        this?.__reset__();
+    }
 }
 
 @:dox(hide)

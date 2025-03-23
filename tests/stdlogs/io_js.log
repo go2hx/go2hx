@@ -5,10 +5,10 @@ Called from stdgo_GoInt64.gt (/home/runner/work/go2hx/go2hx/golibs/std_io.js lin
 Called from .stdgo__$internal_io_Io_$_$copybuffer__copyBuffer (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 21408 column 24)
 Called from .stdgo__$internal_io_Io_$copy_copy (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 20765 column 16)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testcopy_testCopy [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:17784:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60909 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53040 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66393:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66394:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60923 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53054 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66407:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66408:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -29,10 +29,10 @@ Called from stdgo_GoInt64.gt (/home/runner/work/go2hx/go2hx/golibs/std_io.js lin
 Called from .stdgo__$internal_io_Io_$_$copybuffer__copyBuffer (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 21408 column 24)
 Called from .stdgo__$internal_io_Io_$copybuffer_copyBuffer (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 26257 column 16)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testcopybuffernil_testCopyBufferNil [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:17830:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60909 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53040 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66393:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66394:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60923 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53054 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66407:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66408:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -57,10 +57,10 @@ Called from stdgo_GoInt64.gt (/home/runner/work/go2hx/go2hx/golibs/std_io.js lin
 Called from .stdgo__$internal_io_Io_$_$copybuffer__copyBuffer (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 21408 column 24)
 Called from .stdgo__$internal_io_Io_$copy_copy (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 20765 column 16)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testcopyreaderrwriteerr_testCopyReadErrWriteErr [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:18216:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60909 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53040 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66393:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66394:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60923 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53054 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66407:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66408:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -122,10 +122,10 @@ Called from stdgo_GoInt64.gt (/home/runner/work/go2hx/go2hx/golibs/std_io.js lin
 Called from .stdgo__$internal_io_Io_$_$copybuffer__copyBuffer (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 21408 column 24)
 Called from .stdgo__$internal_io_Io_$copy_copy (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 20765 column 16)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testcopylargewriter_testCopyLargeWriter [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:17854:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60909 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53040 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66393:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66394:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60923 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53054 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66407:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66408:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -146,10 +146,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 ReadAt failed: <invalid reflect.Value>Exception: __fail__
 Called from ._work (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 19543 column 26)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testoffsetwriter_$writeat_testOffsetWriter_WriteAt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19552:4)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60909 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53040 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66393:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66394:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60923 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53054 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66407:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66408:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -163,12 +163,12 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 - SUBRUN  Write
 Exception: Cannot read properties of undefined (reading 'high')
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:19203:26
-Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 44672 column 2)
+Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 44686 column 2)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testoffsetwriter_$write_testOffsetWriter_Write [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19088:50)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60909 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53040 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66393:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66394:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60923 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53054 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66407:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66408:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestOffsetWriter_Write
@@ -267,14 +267,14 @@ final read got <invalid reflect.Value>
 
 === RUN  TestPipe3
 read: <invalid reflect.Value>Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61660 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61549 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:61103:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61674 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61563 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:61117:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testpipe3_testPipe3 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19677:21)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60909 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53040 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66393:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66394:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60923 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53054 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66407:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66408:3)
 
 -- FAIL: TestPipe3
 
@@ -308,14 +308,14 @@ write on closed pipe: <invalid reflect.Value> want %!v(MISSING)
 
 === RUN  TestWriteAfterWriterClose
 got: <invalid reflect.Value>; want: %!q(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61660 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61549 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:61103:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61674 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61563 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:61117:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testwriteafterwriterclose_testWriteAfterWriterClose [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:20534:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60909 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53040 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66393:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66394:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60923 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53054 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66407:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66408:3)
 
 -- FAIL: TestWriteAfterWriterClose
 

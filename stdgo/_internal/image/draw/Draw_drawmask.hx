@@ -7,13 +7,13 @@ function drawMask(_dst:stdgo._internal.image.draw.Draw_image.Image, _r:stdgo._in
         {
             final __type__ = _dst;
             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>))) {
-                var _dst0:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__().value;
+                var _dst0:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__().value);
                 if (_op == ((0 : stdgo._internal.image.draw.Draw_op.Op))) {
                     if (_mask == null) {
                         {
                             final __type__ = _src;
                             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>))) {
-                                var _src0:stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__.__underlying__().value;
+                                var _src0:stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__.__underlying__().value);
                                 var __tmp__ = @:check2r _src0.rGBA(), _sr:stdgo.GoUInt32 = __tmp__._0, _sg:stdgo.GoUInt32 = __tmp__._1, _sb:stdgo.GoUInt32 = __tmp__._2, _sa:stdgo.GoUInt32 = __tmp__._3;
                                 if (_sa == ((65535u32 : stdgo.GoUInt32))) {
                                     stdgo._internal.image.draw.Draw__drawfillsrc._drawFillSrc(_dst0, _r?.__copy__(), _sr, _sg, _sb, _sa);
@@ -22,24 +22,24 @@ function drawMask(_dst:stdgo._internal.image.draw.Draw_image.Image, _r:stdgo._in
                                 };
                                 return;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>))) {
-                                var _src0:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__().value;
+                                var _src0:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__().value);
                                 stdgo._internal.image.draw.Draw__drawcopyover._drawCopyOver(_dst0, _r?.__copy__(), _src0, _sp?.__copy__());
                                 return;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>))) {
-                                var _src0:stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__().value;
+                                var _src0:stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__().value);
                                 stdgo._internal.image.draw.Draw__drawnrgbaover._drawNRGBAOver(_dst0, _r?.__copy__(), _src0, _sp?.__copy__());
                                 return;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>))) {
-                                var _src0:stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : __type__.__underlying__().value;
+                                var _src0:stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : __type__.__underlying__().value);
                                 if (stdgo._internal.image.internal.imageutil.Imageutil_drawycbcr.drawYCbCr(_dst0, _r?.__copy__(), _src0, _sp?.__copy__())) {
                                     return;
                                 };
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>))) {
-                                var _src0:stdgo.Ref<stdgo._internal.image.Image_gray.Gray> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__().value;
+                                var _src0:stdgo.Ref<stdgo._internal.image.Image_gray.Gray> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__().value);
                                 stdgo._internal.image.draw.Draw__drawgray._drawGray(_dst0, _r?.__copy__(), _src0, _sp?.__copy__());
                                 return;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>))) {
-                                var _src0:stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>) : __type__.__underlying__().value;
+                                var _src0:stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>) : __type__.__underlying__().value);
                                 stdgo._internal.image.draw.Draw__drawcmyk._drawCMYK(_dst0, _r?.__copy__(), _src0, _sp?.__copy__());
                                 return;
                             };
@@ -54,15 +54,15 @@ function drawMask(_dst:stdgo._internal.image.draw.Draw_image.Image, _r:stdgo._in
                             {
                                 final __type__ = _src;
                                 if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>))) {
-                                    var _src0:stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__.__underlying__().value;
+                                    var _src0:stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__.__underlying__().value);
                                     stdgo._internal.image.draw.Draw__drawglyphover._drawGlyphOver(_dst0, _r?.__copy__(), _src0, _mask0, _mp?.__copy__());
                                     return;
                                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>))) {
-                                    var _src0:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__().value;
+                                    var _src0:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__().value);
                                     stdgo._internal.image.draw.Draw__drawrgbamaskover._drawRGBAMaskOver(_dst0, _r?.__copy__(), _src0, _sp?.__copy__(), _mask0, _mp?.__copy__());
                                     return;
                                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>))) {
-                                    var _src0:stdgo.Ref<stdgo._internal.image.Image_gray.Gray> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__().value;
+                                    var _src0:stdgo.Ref<stdgo._internal.image.Image_gray.Gray> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__().value);
                                     stdgo._internal.image.draw.Draw__drawgraymaskover._drawGrayMaskOver(_dst0, _r?.__copy__(), _src0, _sp?.__copy__(), _mask0, _mp?.__copy__());
                                     return;
                                 } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.image.Image_rgba64image.RGBA64Image))) {
@@ -78,31 +78,31 @@ function drawMask(_dst:stdgo._internal.image.draw.Draw_image.Image, _r:stdgo._in
                         {
                             final __type__ = _src;
                             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>))) {
-                                var _src0:stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__.__underlying__().value;
+                                var _src0:stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>) : __type__.__underlying__().value);
                                 var __tmp__ = @:check2r _src0.rGBA(), _sr:stdgo.GoUInt32 = __tmp__._0, _sg:stdgo.GoUInt32 = __tmp__._1, _sb:stdgo.GoUInt32 = __tmp__._2, _sa:stdgo.GoUInt32 = __tmp__._3;
                                 stdgo._internal.image.draw.Draw__drawfillsrc._drawFillSrc(_dst0, _r?.__copy__(), _sr, _sg, _sb, _sa);
                                 return;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>))) {
-                                var _src0:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__().value;
+                                var _src0:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__().value);
                                 var _d0 = (@:check2r _dst0.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
                                 var _s0 = (@:check2r _src0.pixOffset(_sp.x, _sp.y) : stdgo.GoInt);
                                 stdgo._internal.image.draw.Draw__drawcopysrc._drawCopySrc(((@:checkr _dst0 ?? throw "null pointer dereference").pix.__slice__(_d0) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _dst0 ?? throw "null pointer dereference").stride, _r?.__copy__(), ((@:checkr _src0 ?? throw "null pointer dereference").pix.__slice__(_s0) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _src0 ?? throw "null pointer dereference").stride, _sp?.__copy__(), ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt));
                                 return;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>))) {
-                                var _src0:stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__().value;
+                                var _src0:stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__().value);
                                 stdgo._internal.image.draw.Draw__drawnrgbasrc._drawNRGBASrc(_dst0, _r?.__copy__(), _src0, _sp?.__copy__());
                                 return;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>))) {
-                                var _src0:stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : __type__.__underlying__().value;
+                                var _src0:stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : __type__.__underlying__().value);
                                 if (stdgo._internal.image.internal.imageutil.Imageutil_drawycbcr.drawYCbCr(_dst0, _r?.__copy__(), _src0, _sp?.__copy__())) {
                                     return;
                                 };
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>))) {
-                                var _src0:stdgo.Ref<stdgo._internal.image.Image_gray.Gray> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__().value;
+                                var _src0:stdgo.Ref<stdgo._internal.image.Image_gray.Gray> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__().value);
                                 stdgo._internal.image.draw.Draw__drawgray._drawGray(_dst0, _r?.__copy__(), _src0, _sp?.__copy__());
                                 return;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>))) {
-                                var _src0:stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>) : __type__.__underlying__().value;
+                                var _src0:stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_cmyk.CMYK>) : __type__.__underlying__().value);
                                 stdgo._internal.image.draw.Draw__drawcmyk._drawCMYK(_dst0, _r?.__copy__(), _src0, _sp?.__copy__());
                                 return;
                             };
@@ -112,7 +112,7 @@ function drawMask(_dst:stdgo._internal.image.draw.Draw_image.Image, _r:stdgo._in
                 stdgo._internal.image.draw.Draw__drawrgba._drawRGBA(_dst0, _r?.__copy__(), _src, _sp?.__copy__(), _mask, _mp?.__copy__(), _op);
                 return;
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>))) {
-                var _dst0:stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>) : __type__.__underlying__().value;
+                var _dst0:stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>) : __type__.__underlying__().value);
                 if (((_op == (1 : stdgo._internal.image.draw.Draw_op.Op)) && (_mask == null) : Bool)) {
                     {
                         var __tmp__ = try {
@@ -149,7 +149,7 @@ _i1 = (_i1 + ((@:checkr _dst0 ?? throw "null pointer dereference").stride) : std
                     };
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>))) {
-                var _dst0:stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__().value;
+                var _dst0:stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__().value);
                 if (((_op == (1 : stdgo._internal.image.draw.Draw_op.Op)) && (_mask == null) : Bool)) {
                     {
                         var __tmp__ = try {
@@ -166,7 +166,7 @@ _i1 = (_i1 + ((@:checkr _dst0 ?? throw "null pointer dereference").stride) : std
                     };
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>))) {
-                var _dst0:stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>) : __type__.__underlying__().value;
+                var _dst0:stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>) : __type__.__underlying__().value);
                 if (((_op == (1 : stdgo._internal.image.draw.Draw_op.Op)) && (_mask == null) : Bool)) {
                     {
                         var __tmp__ = try {

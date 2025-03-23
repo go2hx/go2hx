@@ -109,6 +109,7 @@ Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_in
 Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 15)
 Called from stdgo._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (stdgo/_internal/encoding/binary/Binary_write.hx line 147)
+Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 63)
 Called from stdgo._internal.encoding.binary._Binary_testwritet.$Binary_testwritet_Fields_.testWriteT (stdgo/_internal/encoding/binary/Binary_testwritet.hx line 6)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 8)
@@ -203,7 +204,7 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 -- FAIL: TestNoFixedSize
 
 === RUN  TestNativeEndian
-./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#556836534390}) -> pointerType({get : function#5568365343B0})
+./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#561CEEE3B980}) -> pointerType({get : function#561CEEE3B9A0})
 Exception: Can't cast hl.types.ArrayDyn to stdgo.GoArrayData
 Called from stdgo._internal.encoding.binary._Binary_testnativeendian.$Binary_testnativeendian_Fields_.testNativeEndian (stdgo/_internal/encoding/binary/Binary_testnativeendian.hx line 9)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)

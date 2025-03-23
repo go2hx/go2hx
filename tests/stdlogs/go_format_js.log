@@ -1,14 +1,14 @@
 === RUN  TestNode
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131547 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131451 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:130783:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnode_testNode [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:46041:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130598 column 9)
-Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 116667 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137373:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137374:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131561 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131465 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:130797:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnode_testNode [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:46055:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130612 column 9)
+Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 116681 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137387:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137388:3)
 
 -- FAIL: TestNode
 
@@ -17,11 +17,11 @@ Exception: Cannot read properties of null (reading 'length')
 Called from module TypeError: Cannot read properties of null (reading 'length')
 Called from stdgo_Slice.__boundsCheck__ (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 32679 column 25)
 Called from stdgo_Slice.__get__ (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 32684 column 14)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnodenomodify_testNodeNoModify [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:109378:17)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130598 column 9)
-Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 116667 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137373:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137374:3)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnodenomodify_testNodeNoModify [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:109392:17)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130612 column 9)
+Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 116681 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137387:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137388:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
@@ -31,14 +31,14 @@ Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
 === RUN  TestSource
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131547 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131451 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:130783:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testsource_testSource [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:111579:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130598 column 9)
-Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 116667 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137373:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137374:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131561 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131465 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:130797:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testsource_testSource [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:111593:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130612 column 9)
+Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 116681 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137387:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137388:3)
 
 -- FAIL: TestSource
 

@@ -164,7 +164,7 @@ Exception: Unexpected value 0, expected instance
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testreadinvaliddestination.Binary_testreadinvaliddestination_Fields_.testReadInvalidDestination (./stdgo/_internal/encoding/binary/Binary_testreadinvaliddestination.hx line 3 column 9)
 Called from stdgo._internal.encoding.binary._Binary__testreadinvaliddestination.Binary__testreadinvaliddestination_Fields_._testReadInvalidDestination (./stdgo/_internal/encoding/binary/Binary__testreadinvaliddestination.hx line 5 column 24)
-Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (./stdgo/_internal/encoding/binary/Binary_read.hx line 20 column 79)
+Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (./stdgo/_internal/encoding/binary/Binary_read.hx line 20 column 13)
 
 -- FAIL: TestReadInvalidDestination
 

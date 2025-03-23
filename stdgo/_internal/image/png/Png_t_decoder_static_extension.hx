@@ -149,7 +149,7 @@ package stdgo._internal.image.png;
         {
             final __type__ = _dst;
             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_alpha.Alpha>))) {
-                var _target:stdgo.Ref<stdgo._internal.image.Image_alpha.Alpha> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_alpha.Alpha>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_alpha.Alpha>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_alpha.Alpha>) : __type__.__underlying__().value;
+                var _target:stdgo.Ref<stdgo._internal.image.Image_alpha.Alpha> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_alpha.Alpha>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_alpha.Alpha>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_alpha.Alpha>) : __type__.__underlying__().value);
                 _srcPix = (@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : stdgo.Ref<stdgo._internal.image.Image_alpha.Alpha>)) : stdgo.Ref<stdgo._internal.image.Image_alpha.Alpha>) ?? throw "null pointer dereference").pix;
                 {
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
@@ -161,7 +161,7 @@ package stdgo._internal.image.png;
                 };
                 _bytesPerPixel = (1 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_alpha16.Alpha16>))) {
-                var _target:stdgo.Ref<stdgo._internal.image.Image_alpha16.Alpha16> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_alpha16.Alpha16>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_alpha16.Alpha16>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_alpha16.Alpha16>) : __type__.__underlying__().value;
+                var _target:stdgo.Ref<stdgo._internal.image.Image_alpha16.Alpha16> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_alpha16.Alpha16>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_alpha16.Alpha16>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_alpha16.Alpha16>) : __type__.__underlying__().value);
                 _srcPix = (@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : stdgo.Ref<stdgo._internal.image.Image_alpha16.Alpha16>)) : stdgo.Ref<stdgo._internal.image.Image_alpha16.Alpha16>) ?? throw "null pointer dereference").pix;
                 {
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
@@ -173,7 +173,7 @@ package stdgo._internal.image.png;
                 };
                 _bytesPerPixel = (2 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>))) {
-                var _target:stdgo.Ref<stdgo._internal.image.Image_gray.Gray> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__().value;
+                var _target:stdgo.Ref<stdgo._internal.image.Image_gray.Gray> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) : __type__.__underlying__().value);
                 _srcPix = (@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>)) : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>) ?? throw "null pointer dereference").pix;
                 {
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
@@ -185,7 +185,7 @@ package stdgo._internal.image.png;
                 };
                 _bytesPerPixel = (1 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_gray16.Gray16>))) {
-                var _target:stdgo.Ref<stdgo._internal.image.Image_gray16.Gray16> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray16.Gray16>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray16.Gray16>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray16.Gray16>) : __type__.__underlying__().value;
+                var _target:stdgo.Ref<stdgo._internal.image.Image_gray16.Gray16> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray16.Gray16>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray16.Gray16>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_gray16.Gray16>) : __type__.__underlying__().value);
                 _srcPix = (@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : stdgo.Ref<stdgo._internal.image.Image_gray16.Gray16>)) : stdgo.Ref<stdgo._internal.image.Image_gray16.Gray16>) ?? throw "null pointer dereference").pix;
                 {
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
@@ -197,7 +197,7 @@ package stdgo._internal.image.png;
                 };
                 _bytesPerPixel = (2 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>))) {
-                var _target:stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__().value;
+                var _target:stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__().value);
                 _srcPix = (@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>)) : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) ?? throw "null pointer dereference").pix;
                 {
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
@@ -209,7 +209,7 @@ package stdgo._internal.image.png;
                 };
                 _bytesPerPixel = (4 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>))) {
-                var _target:stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>) : __type__.__underlying__().value;
+                var _target:stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>) : __type__.__underlying__().value);
                 _srcPix = (@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>)) : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>) ?? throw "null pointer dereference").pix;
                 {
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
@@ -221,7 +221,7 @@ package stdgo._internal.image.png;
                 };
                 _bytesPerPixel = (8 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>))) {
-                var _target:stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>) : __type__.__underlying__().value;
+                var _target:stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>) : __type__.__underlying__().value);
                 var _source = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>)) : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>);
                 _srcPix = (@:checkr _source ?? throw "null pointer dereference").pix;
                 {
@@ -237,7 +237,7 @@ package stdgo._internal.image.png;
                     (@:checkr _target ?? throw "null pointer dereference").palette = (@:checkr _source ?? throw "null pointer dereference").palette;
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>))) {
-                var _target:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__().value;
+                var _target:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__().value);
                 _srcPix = (@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>)) : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) ?? throw "null pointer dereference").pix;
                 {
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
@@ -249,7 +249,7 @@ package stdgo._internal.image.png;
                 };
                 _bytesPerPixel = (4 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_rgba64.RGBA64>))) {
-                var _target:stdgo.Ref<stdgo._internal.image.Image_rgba64.RGBA64> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba64.RGBA64>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba64.RGBA64>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba64.RGBA64>) : __type__.__underlying__().value;
+                var _target:stdgo.Ref<stdgo._internal.image.Image_rgba64.RGBA64> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba64.RGBA64>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba64.RGBA64>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba64.RGBA64>) : __type__.__underlying__().value);
                 _srcPix = (@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : stdgo.Ref<stdgo._internal.image.Image_rgba64.RGBA64>)) : stdgo.Ref<stdgo._internal.image.Image_rgba64.RGBA64>) ?? throw "null pointer dereference").pix;
                 {
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;

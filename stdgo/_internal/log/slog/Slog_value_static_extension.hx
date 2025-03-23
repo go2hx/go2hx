@@ -390,22 +390,22 @@ var _w = __1, _g = __0;
         {
             final __type__ = _v._any;
             if (stdgo.Go.typeEquals((__type__ : stdgo._internal.log.slog.Slog_kind.Kind))) {
-                var _x:stdgo._internal.log.slog.Slog_kind.Kind = __type__ == null ? ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_kind.Kind) : __type__.__underlying__() == null ? ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_kind.Kind) : __type__ == null ? ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_kind.Kind) : __type__.__underlying__().value;
+                var _x:stdgo._internal.log.slog.Slog_kind.Kind = __type__ == null ? ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_kind.Kind) : __type__.__underlying__() == null ? ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_kind.Kind) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_kind.Kind) : __type__.__underlying__().value);
                 return _x;
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.log.slog.Slog_t_stringptr.T_stringptr))) {
-                var _x:stdgo._internal.log.slog.Slog_t_stringptr.T_stringptr = __type__ == null ? (null : stdgo._internal.log.slog.Slog_t_stringptr.T_stringptr) : __type__.__underlying__() == null ? (null : stdgo._internal.log.slog.Slog_t_stringptr.T_stringptr) : __type__ == null ? (null : stdgo._internal.log.slog.Slog_t_stringptr.T_stringptr) : __type__.__underlying__().value;
+                var _x:stdgo._internal.log.slog.Slog_t_stringptr.T_stringptr = __type__ == null ? (null : stdgo._internal.log.slog.Slog_t_stringptr.T_stringptr) : __type__.__underlying__() == null ? (null : stdgo._internal.log.slog.Slog_t_stringptr.T_stringptr) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo._internal.log.slog.Slog_t_stringptr.T_stringptr) : __type__.__underlying__().value);
                 return (5 : stdgo._internal.log.slog.Slog_kind.Kind);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.log.slog.Slog_t_timelocation.T_timeLocation))) {
-                var _x:stdgo._internal.log.slog.Slog_t_timelocation.T_timeLocation = __type__ == null ? (null : stdgo._internal.log.slog.Slog_t_timelocation.T_timeLocation) : __type__.__underlying__() == null ? (null : stdgo._internal.log.slog.Slog_t_timelocation.T_timeLocation) : __type__ == null ? (null : stdgo._internal.log.slog.Slog_t_timelocation.T_timeLocation) : __type__.__underlying__().value;
+                var _x:stdgo._internal.log.slog.Slog_t_timelocation.T_timeLocation = __type__ == null ? (null : stdgo._internal.log.slog.Slog_t_timelocation.T_timeLocation) : __type__.__underlying__() == null ? (null : stdgo._internal.log.slog.Slog_t_timelocation.T_timeLocation) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo._internal.log.slog.Slog_t_timelocation.T_timeLocation) : __type__.__underlying__().value);
                 return (6 : stdgo._internal.log.slog.Slog_kind.Kind);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.log.slog.Slog_t_groupptr.T_groupptr))) {
-                var _x:stdgo._internal.log.slog.Slog_t_groupptr.T_groupptr = __type__ == null ? (null : stdgo._internal.log.slog.Slog_t_groupptr.T_groupptr) : __type__.__underlying__() == null ? (null : stdgo._internal.log.slog.Slog_t_groupptr.T_groupptr) : __type__ == null ? (null : stdgo._internal.log.slog.Slog_t_groupptr.T_groupptr) : __type__.__underlying__().value;
+                var _x:stdgo._internal.log.slog.Slog_t_groupptr.T_groupptr = __type__ == null ? (null : stdgo._internal.log.slog.Slog_t_groupptr.T_groupptr) : __type__.__underlying__() == null ? (null : stdgo._internal.log.slog.Slog_t_groupptr.T_groupptr) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo._internal.log.slog.Slog_t_groupptr.T_groupptr) : __type__.__underlying__().value);
                 return (8 : stdgo._internal.log.slog.Slog_kind.Kind);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.log.slog.Slog_logvaluer.LogValuer))) {
                 var _x:stdgo._internal.log.slog.Slog_logvaluer.LogValuer = __type__ == null ? (null : stdgo._internal.log.slog.Slog_logvaluer.LogValuer) : __type__.__underlying__() == null ? (null : stdgo._internal.log.slog.Slog_logvaluer.LogValuer) : __type__ == null ? (null : stdgo._internal.log.slog.Slog_logvaluer.LogValuer) : __type__.__underlying__().value;
                 return (9 : stdgo._internal.log.slog.Slog_kind.Kind);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.log.slog.Slog_t_kind.T_kind))) {
-                var _x:stdgo._internal.log.slog.Slog_t_kind.T_kind = __type__ == null ? ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_t_kind.T_kind) : __type__.__underlying__() == null ? ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_t_kind.T_kind) : __type__ == null ? ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_t_kind.T_kind) : __type__.__underlying__().value;
+                var _x:stdgo._internal.log.slog.Slog_t_kind.T_kind = __type__ == null ? ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_t_kind.T_kind) : __type__.__underlying__() == null ? ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_t_kind.T_kind) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_t_kind.T_kind) : __type__.__underlying__().value);
                 return (0 : stdgo._internal.log.slog.Slog_kind.Kind);
             } else {
                 var _x:stdgo.AnyInterface = __type__?.__underlying__();

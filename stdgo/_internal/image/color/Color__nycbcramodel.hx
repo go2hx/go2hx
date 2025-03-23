@@ -3,10 +3,10 @@ function _nYCbCrAModel(_c:stdgo._internal.image.color.Color_color.Color):stdgo._
         {
             final __type__ = _c;
             if (stdgo.Go.typeEquals((__type__ : stdgo._internal.image.color.Color_nycbcra.NYCbCrA))) {
-                var _c:stdgo._internal.image.color.Color_nycbcra.NYCbCrA = __type__ == null ? ({} : stdgo._internal.image.color.Color_nycbcra.NYCbCrA) : __type__.__underlying__() == null ? ({} : stdgo._internal.image.color.Color_nycbcra.NYCbCrA) : __type__ == null ? ({} : stdgo._internal.image.color.Color_nycbcra.NYCbCrA) : __type__.__underlying__().value;
+                var _c:stdgo._internal.image.color.Color_nycbcra.NYCbCrA = __type__ == null ? ({} : stdgo._internal.image.color.Color_nycbcra.NYCbCrA) : __type__.__underlying__() == null ? ({} : stdgo._internal.image.color.Color_nycbcra.NYCbCrA) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? ({} : stdgo._internal.image.color.Color_nycbcra.NYCbCrA) : __type__.__underlying__().value);
                 return stdgo.Go.asInterface(_c);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.image.color.Color_ycbcr.YCbCr))) {
-                var _c:stdgo._internal.image.color.Color_ycbcr.YCbCr = __type__ == null ? ({} : stdgo._internal.image.color.Color_ycbcr.YCbCr) : __type__.__underlying__() == null ? ({} : stdgo._internal.image.color.Color_ycbcr.YCbCr) : __type__ == null ? ({} : stdgo._internal.image.color.Color_ycbcr.YCbCr) : __type__.__underlying__().value;
+                var _c:stdgo._internal.image.color.Color_ycbcr.YCbCr = __type__ == null ? ({} : stdgo._internal.image.color.Color_ycbcr.YCbCr) : __type__.__underlying__() == null ? ({} : stdgo._internal.image.color.Color_ycbcr.YCbCr) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? ({} : stdgo._internal.image.color.Color_ycbcr.YCbCr) : __type__.__underlying__().value);
                 return stdgo.Go.asInterface((new stdgo._internal.image.color.Color_nycbcra.NYCbCrA(_c?.__copy__(), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color_nycbcra.NYCbCrA));
             };
         };

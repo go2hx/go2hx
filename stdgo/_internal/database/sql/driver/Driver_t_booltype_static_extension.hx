@@ -7,17 +7,17 @@ package stdgo._internal.database.sql.driver;
         {
             final __type__ = _src;
             if (stdgo.Go.typeEquals((__type__ : Bool))) {
-                var _s:Bool = __type__ == null ? false : __type__.__underlying__() == null ? false : __type__ == null ? false : __type__.__underlying__().value;
+                var _s:Bool = __type__ == null ? false : __type__.__underlying__() == null ? false : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? false : __type__.__underlying__().value);
                 return { _0 : stdgo.Go.toInterface(_s), _1 : (null : stdgo.Error) };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoString))) {
-                var _s:stdgo.GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : __type__ == null ? "" : __type__.__underlying__().value;
+                var _s:stdgo.GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? "" : __type__.__underlying__().value);
                 var __tmp__ = stdgo._internal.strconv.Strconv_parsebool.parseBool(_s?.__copy__()), _b:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : (null : stdgo._internal.database.sql.driver.Driver_value.Value), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("sql/driver: couldn\'t convert %q into type bool" : stdgo.GoString), stdgo.Go.toInterface(_s)) };
                 };
                 return { _0 : stdgo.Go.toInterface(_b), _1 : (null : stdgo.Error) };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Slice<stdgo.GoUInt8>))) {
-                var _s:stdgo.Slice<stdgo.GoUInt8> = __type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__() == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__().value;
+                var _s:stdgo.Slice<stdgo.GoUInt8> = __type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__() == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__().value);
                 var __tmp__ = stdgo._internal.strconv.Strconv_parsebool.parseBool((_s : stdgo.GoString)?.__copy__()), _b:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : (null : stdgo._internal.database.sql.driver.Driver_value.Value), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("sql/driver: couldn\'t convert %q into type bool" : stdgo.GoString), stdgo.Go.toInterface(_s)) };

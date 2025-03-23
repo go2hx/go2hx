@@ -8,7 +8,7 @@ function testDecodeCorrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):
             {
                 final __type__ = _err;
                 if (stdgo.Go.typeEquals((__type__ : stdgo._internal.encoding.ascii85.Ascii85_corruptinputerror.CorruptInputError))) {
-                    var _err:stdgo._internal.encoding.ascii85.Ascii85_corruptinputerror.CorruptInputError = __type__ == null ? ((0 : stdgo.GoInt64) : stdgo._internal.encoding.ascii85.Ascii85_corruptinputerror.CorruptInputError) : __type__.__underlying__() == null ? ((0 : stdgo.GoInt64) : stdgo._internal.encoding.ascii85.Ascii85_corruptinputerror.CorruptInputError) : __type__ == null ? ((0 : stdgo.GoInt64) : stdgo._internal.encoding.ascii85.Ascii85_corruptinputerror.CorruptInputError) : __type__.__underlying__().value;
+                    var _err:stdgo._internal.encoding.ascii85.Ascii85_corruptinputerror.CorruptInputError = __type__ == null ? ((0 : stdgo.GoInt64) : stdgo._internal.encoding.ascii85.Ascii85_corruptinputerror.CorruptInputError) : __type__.__underlying__() == null ? ((0 : stdgo.GoInt64) : stdgo._internal.encoding.ascii85.Ascii85_corruptinputerror.CorruptInputError) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? ((0 : stdgo.GoInt64) : stdgo._internal.encoding.ascii85.Ascii85_corruptinputerror.CorruptInputError) : __type__.__underlying__().value);
                     stdgo._internal.encoding.ascii85.Ascii85__testequal._testEqual(_t, ("Corruption in %q at offset %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_e._e), stdgo.Go.toInterface((_err : stdgo.GoInt)), stdgo.Go.toInterface(_e._p));
                 } else {
                     var _err:stdgo.Error = __type__ == null ? (null : stdgo.Error) : cast __type__;

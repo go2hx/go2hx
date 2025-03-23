@@ -102,13 +102,13 @@ function testFloatFormat(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Vo
             {
                 final __type__ = _test._value;
                 if (stdgo.Go.typeEquals((__type__ : stdgo.GoFloat32))) {
-                    var _v:stdgo.GoFloat32 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                    var _v:stdgo.GoFloat32 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                     @:check2r @:check2r _value.setPrec((24u32 : stdgo.GoUInt)).setFloat64((_v : stdgo.GoFloat64));
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoFloat64))) {
-                    var _v:stdgo.GoFloat64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                    var _v:stdgo.GoFloat64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? 0 : __type__.__underlying__().value);
                     @:check2r @:check2r _value.setPrec((53u32 : stdgo.GoUInt)).setFloat64(_v);
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoString))) {
-                    var _v:stdgo.GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : __type__ == null ? "" : __type__.__underlying__().value;
+                    var _v:stdgo.GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? "" : __type__.__underlying__().value);
                     @:check2r @:check2r _value.setPrec((512u32 : stdgo.GoUInt)).parse(_v?.__copy__(), (0 : stdgo.GoInt));
                 } else {
                     var _v:stdgo.AnyInterface = __type__?.__underlying__();

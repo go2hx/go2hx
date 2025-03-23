@@ -4,9 +4,9 @@
     |                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Uncaught exception Cannot call null
 
-     ->  ./stdgo/GoMap.hx:688: characters 7-15
+     ->  ./stdgo/GoMap.hx:693: characters 7-15
 
-     688 |   if (k1 == k2) {
+     693 |   if (k1 == k2) {
          |       ^^^^^^^^
          | Called from here
 

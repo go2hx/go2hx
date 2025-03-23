@@ -755,6 +755,9 @@ private class IntMap<V> {
 		map = new haxe.ds.IntMap<V>();
 	}
 
+	public function clear()
+		map.clear();
+
 	public function get(key:Int):V {
 		var v = map.get(key);
 		return v == null ? __defaultValue__() : v;

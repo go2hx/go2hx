@@ -62,6 +62,10 @@ function main() {
 		Sys.command("haxe scripts/build-interp.hxml --help");
 		return;
 	}
+	if (goCommand != "go") {
+		args.push("-gocmd");
+		args.push(goCommand);
+	};
 	if ((index = args.indexOf("-compiler_cpp")) != -1 || (index = args.indexOf("--compiler_cpp")) != -1) {
 		args.remove(args[index]);
 		setupCPP(rebuild, args);
@@ -232,10 +236,13 @@ var goCommand = "go";
 function build(rebuild:Bool) {
 	var process = new Process(goCommand, ["version"]);
 	var code = process.exitCode();
-	if (code != 0 || true) {
+	if (code != 0) {
+		// failed to find `go`
 		if (Sys.command("go" + goRequiredVersion + " version") == 0) {
+			// found specific version of go, use that!
 			goCommand = "go" + goRequiredVersion;
 		}else{
+			// didn't find specific version, grab a go binary from go2hx/go-binary, and then download the required version
 			Sys.println("go command not found");
 			goCommandNotFound();
 			downloadRequiredGoVersion();

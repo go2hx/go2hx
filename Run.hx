@@ -144,28 +144,123 @@ function deleteDirectoryRecursively(dir:String):Int {
 	#end
 }
 
+final goRequiredVersion = File.getContent(".gorc");
+
+function goCommandNotFound() {
+	Sys.println("Downloading Go binaries");
+	if (FileSystem.exists("git/go-binary")) {
+		Sys.setCwd("git/go-binary");
+		Sys.command("git pull");
+		Sys.setCwd("../..");
+	}else{
+		final command = "git clone https://github.com/go2hx/go-binary git/go-binary";
+		if (Sys.command(command) != 0) {
+			Sys.println("failed command: " + command);
+			Sys.exit(1);
+		}
+	}
+	setGoBinary();
+}
+
+function setGoBinary() {
+	// prebuilt binaries
+	var goarch = ""; // arch
+	var goos = ""; // os
+
+	function getArch(line:String):String {
+		return switch line {
+			case "x86_64":
+				"amd64";
+			case "arm64":
+				"arm64";
+			default:
+				throw "unknown arch: " + line;
+		}
+	}
+	var ext = "";
+	switch systemName.toLowerCase() {
+		case "linux":
+			goos = systemName.toLowerCase();
+			final process = new Process("uname -m");
+			if (process.exitCode(true) != 0)
+				return;
+			goarch = getArch(process.stdout.readLine());
+		case "mac":
+			goos = "darwin";
+			// check if silicon or intel
+			final process = new Process("uname -m");
+			if (process.exitCode(true) != 0)
+				return;
+			goarch = getArch(process.stdout.readLine());
+		case "windows":
+			goos = systemName;
+			ext = ".exe";
+			final process = new Process("echo %PROCESSOR_ARCHITECTURE%");
+			if (process.exitCode(true) != 0)
+				return;
+			goarch = getArch(process.stdout.readLine());
+		default:
+			Sys.println("Unknown systemName: " + systemName);
+			return;
+	}
+	// copy over binaries
+	Sys.println("Using prebuilt binary for " + goos + "/" + goarch);
+	goCommand = './git/go-binary/go.${goos}_$goarch' + ext;
+	switch systemName {
+		case "Mac", "Linux":
+			Sys.command('chmod +x $goCommand');
+	}
+}
+
+function downloadRequiredGoVersion() {
+	var command = goCommand + ' install golang.org/dl/go$goRequiredVersion@latest';
+	if (Sys.command(command) != 0) {
+		Sys.println("failed command: " + command);
+		Sys.exit(1);
+	}
+	goCommand = "go" + goRequiredVersion;
+	command = goCommand + " download";
+	if (Sys.command(command) != 0) {
+		trace("NOOOOO");
+		Sys.println("failed command: " + command);
+		Sys.exit(1);
+	}
+}
+
+var goCommand = "go";
+
 function build(rebuild:Bool) {
-	var process = new Process("go", ["version"]);
+	var process = new Process(goCommand, ["version"]);
 	var code = process.exitCode();
-	if (code != 0) {
-		Sys.println("go command not found");
-		return;
+	if (code != 0 || true) {
+		if (Sys.command("go" + goRequiredVersion + " version") == 0) {
+			goCommand = "go" + goRequiredVersion;
+		}else{
+			Sys.println("go command not found");
+			goCommandNotFound();
+			downloadRequiredGoVersion();
+		}
+	}else{
+		var foundVersion = process.stdout.readAll().toString();
+		var index = foundVersion.indexOf("go", 10);
+		if (index == -1) {
+			Sys.println("not valid to go version: " + foundVersion);
+			Sys.exit(1);
+		}
+		foundVersion = foundVersion.substr(index + 2, goRequiredVersion.length);
+		if (foundVersion != goRequiredVersion) {
+			Sys.println("go version, got: " + foundVersion + " wanted: " + goRequiredVersion);
+			downloadRequiredGoVersion();
+		}
 	}
 	process.close();
 
-	if (!FileSystem.exists("tools")) {
-		Sys.command("git clone https://github.com/go2hx/tools --depth=1");
-	} else {
-		if (rebuild) {
-			Sys.setCwd("tools");
-			Sys.command("git pull");
-			Sys.setCwd("..");
-		}
-	}
 	// run go compiler
 	if (!FileSystem.exists("go4hx") || rebuild) {
 		Sys.println("build go part of the compiler");
-		Sys.command("go build .");
+		final command = '$goCommand build .';
+		Sys.println(command);
+		Sys.command(command);
 	}
 }
 

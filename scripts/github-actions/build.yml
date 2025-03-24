@@ -6,6 +6,8 @@ strategy:
 runs-on: [ubuntu-latest]
 steps:
   - uses: actions/checkout@v4
+    with:
+      submodules: true
   # Get the cores 
   - name: Get number of cores (Ubuntu)
     if: startsWith(runner.os, 'Linux')

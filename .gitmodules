@@ -1,0 +1,3 @@
+[submodule "git/tools"]
+	path = git/tools
+	url = https://github.com/go2hx/tools.git

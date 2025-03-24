@@ -13,6 +13,8 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -65,6 +67,8 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
       - uses: actions/setup-go@v3
         continue-on-error: true
         with:
@@ -81,6 +85,8 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
@@ -115,6 +121,8 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
       - uses: actions/setup-go@v3
         continue-on-error: true
         with:
@@ -131,6 +139,8 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
@@ -169,6 +179,8 @@ jobs:
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
       - uses: actions/checkout@v4
+        with:
+          submodules: true
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
@@ -188,3 +200,34 @@ jobs:
             pull: --rebase --autostash
             add: ./tests
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+  test-os:
+    timeout-minutes: 15
+    needs: [setup]
+    runs-on: [ubuntu-latest, windows-latest, macos-latest, macos-13]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Install lix
+        run: npm i lix -g
+      - name: Run lix
+        run: npx lix download
+      # go2hx setup
+      - name: Build go2hx compiler
+        run: npx haxe --run Run build
+      - name: Set source
+        run: haxelib dev go2hx .
+      - name: Clean stdgo
+        run: npx haxe --run Run clean
+      - uses: actions/cache/restore@v4
+        id: setup-cache
+        with:
+          path: |
+            TypeInfoData_go2hx_hxb.hx
+            ./_internal/*
+            ./stdgo/*
+            ./go2hx.*.zip 
+            ./data/go4hx.*
+          key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: run compiler
+        run: haxelib run go2hx unicode --test --interp

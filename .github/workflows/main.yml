@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -70,7 +70,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         continue-on-error: true
@@ -89,7 +89,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
@@ -126,7 +126,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         continue-on-error: true
@@ -145,7 +145,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
@@ -186,7 +186,7 @@ jobs:
           go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
@@ -213,7 +213,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
@@ -244,7 +244,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
@@ -297,7 +297,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
@@ -350,7 +350,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
@@ -408,7 +408,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -478,7 +478,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -548,7 +548,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -619,7 +619,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
@@ -678,7 +678,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
@@ -737,7 +737,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
@@ -801,7 +801,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -871,7 +871,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -942,7 +942,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
@@ -1001,7 +1001,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
@@ -1060,7 +1060,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
@@ -1125,7 +1125,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -1192,7 +1192,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -1259,7 +1259,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')

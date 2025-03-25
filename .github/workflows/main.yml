@@ -21,10 +21,11 @@ jobs:
       - name: Get number of cores (macOS)
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         continue-on-error: true
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
@@ -66,10 +67,11 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         continue-on-error: true
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - run: git clone https://github.com/go2hx/tools --depth=1
       - name: Create vendor
         run: go mod vendor
@@ -82,9 +84,10 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
@@ -116,10 +119,11 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         continue-on-error: true
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - run: git clone https://github.com/go2hx/tools --depth=1
       - name: Create vendor
         run: go mod vendor
@@ -166,9 +170,10 @@ jobs:
       fail-fast: false
     runs-on: [ubuntu-latest]
     steps:
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: actions/checkout@v4
       - name: Install lix
         run: npm i lix -g
@@ -178,7 +183,7 @@ jobs:
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
       - name: clone go
-        run: git clone https://github.com/golang/go -b go1.21.3 --depth=1 ./tests/go
+        run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
       - name: Sort tests
         run: go run ./scripts/sortTests ci
       - name: Create test lists
@@ -195,9 +200,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: cedx/setup-hashlink@v6.0.0
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -245,9 +251,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
     
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -295,9 +302,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: actions/setup-node@v4
         with:
           node-version: 23
@@ -356,9 +364,10 @@ jobs:
           sudo rm -rf /opt/ghc
           sudo rm -rf "/usr/local/share/boost"
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: cedx/setup-hashlink@v6.0.0
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -390,7 +399,7 @@ jobs:
             ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
-        run: git clone https://github.com/golang/go -b go1.21.3 --depth=1 ./tests/go
+        run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
         run: go run ./scripts/sortTests ci
@@ -423,9 +432,10 @@ jobs:
           sudo rm -rf /opt/ghc
           sudo rm -rf "/usr/local/share/boost"
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
     
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -457,7 +467,7 @@ jobs:
             ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
-        run: git clone https://github.com/golang/go -b go1.21.3 --depth=1 ./tests/go
+        run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
         run: go run ./scripts/sortTests ci
@@ -490,9 +500,10 @@ jobs:
           sudo rm -rf /opt/ghc
           sudo rm -rf "/usr/local/share/boost"
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: actions/setup-node@v4
         with:
           node-version: 23
@@ -527,7 +538,7 @@ jobs:
             ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
-        run: git clone https://github.com/golang/go -b go1.21.3 --depth=1 ./tests/go
+        run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
         run: go run ./scripts/sortTests ci
@@ -552,9 +563,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: cedx/setup-hashlink@v6.0.0
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -608,9 +620,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
     
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -664,9 +677,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: actions/setup-node@v4
         with:
           node-version: 23
@@ -731,9 +745,10 @@ jobs:
           sudo rm -rf /opt/ghc
           sudo rm -rf "/usr/local/share/boost"
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: cedx/setup-hashlink@v6.0.0
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -765,7 +780,7 @@ jobs:
             ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
-        run: git clone https://github.com/golang/go -b go1.21.3 --depth=1 ./tests/go
+        run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
         run: go run ./scripts/sortTests ci
@@ -798,9 +813,10 @@ jobs:
           sudo rm -rf /opt/ghc
           sudo rm -rf "/usr/local/share/boost"
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: actions/setup-node@v4
         with:
           node-version: 23
@@ -835,7 +851,7 @@ jobs:
             ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
-        run: git clone https://github.com/golang/go -b go1.21.3 --depth=1 ./tests/go
+        run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
         run: go run ./scripts/sortTests ci
@@ -860,9 +876,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: cedx/setup-hashlink@v6.0.0
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -916,9 +933,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
     
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -972,9 +990,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: actions/setup-node@v4
         with:
           node-version: 23
@@ -1043,9 +1062,10 @@ jobs:
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
       # non self-host setup
         continue-on-error: true
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: cedx/setup-hashlink@v6.0.0
       - name: Install lix
         run: npm i lix -g
@@ -1107,9 +1127,10 @@ jobs:
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
       # non self-host setup
         continue-on-error: true
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
     
       - name: Install lix
         run: npm i lix -g
@@ -1171,9 +1192,10 @@ jobs:
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
       # non self-host setup
         continue-on-error: true
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: actions/setup-node@v4
         with:
           node-version: 23

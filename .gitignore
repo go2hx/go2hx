@@ -61,7 +61,6 @@ hxRuntime.hx
 main.hxml
 gen.txt
 .DS_Store
-tools
 tests/gobyexample
 tests/yaegi
 *.log

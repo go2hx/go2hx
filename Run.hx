@@ -222,10 +222,9 @@ function downloadRequiredGoVersion() {
 		Sys.println("failed command: " + command);
 		Sys.exit(1);
 	}
-	goCommand = "go" + goRequiredVersion;
+	goCommand = goCommand + goRequiredVersion;
 	command = goCommand + " download";
 	if (Sys.command(command) != 0) {
-		trace("NOOOOO");
 		Sys.println("failed command: " + command);
 		Sys.exit(1);
 	}

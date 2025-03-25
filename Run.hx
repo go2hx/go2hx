@@ -62,10 +62,6 @@ function main() {
 		Sys.command("haxe scripts/build-interp.hxml --help");
 		return;
 	}
-	if (goCommand != "go") {
-		args.push("-gocmd");
-		args.push(goCommand);
-	};
 	if ((index = args.indexOf("-compiler_cpp")) != -1 || (index = args.indexOf("--compiler_cpp")) != -1) {
 		args.remove(args[index]);
 		setupCPP(rebuild, args);
@@ -150,104 +146,30 @@ function deleteDirectoryRecursively(dir:String):Int {
 
 final goRequiredVersion = File.getContent(".gorc");
 
-function goCommandNotFound() {
-	Sys.println("Downloading Go binaries");
-	if (FileSystem.exists("git/go-binary")) {
-		Sys.setCwd("git/go-binary");
-		Sys.command("git pull");
-		Sys.setCwd("../..");
-	}else{
-		final command = "git clone https://github.com/go2hx/go-binary git/go-binary";
+function downloadRequiredGoVersion() {
+	final command = "goup install " + goRequiredVersion;
+	Sys.println(command);
+	if (Sys.command(command) != 0) {
+		Sys.println("goup install command failed");
+		Sys.exit(1);
+	}
+}
+
+
+function build(rebuild:Bool) {
+	if (Sys.command("goup version") != 0) {
+		final command = "curl -sSf https://raw.githubusercontent.com/owenthereal/goup/master/install.sh | sh -s -- '--skip-prompt'";
+		Sys.println("downloading goup");
 		if (Sys.command(command) != 0) {
-			Sys.println("failed command: " + command);
+			Sys.println("failed to install goup");
 			Sys.exit(1);
 		}
 	}
-	setGoBinary();
-}
-
-function setGoBinary() {
-	// prebuilt binaries
-	var goarch = ""; // arch
-	var goos = ""; // os
-
-	function getArch(line:String):String {
-		return switch line {
-			case "x86_64":
-				"amd64";
-			case "arm64":
-				"arm64";
-			default:
-				throw "unknown arch: " + line;
-		}
-	}
-	var ext = "";
-	switch systemName.toLowerCase() {
-		case "linux":
-			goos = systemName.toLowerCase();
-			final process = new Process("uname -m");
-			if (process.exitCode(true) != 0)
-				return;
-			goarch = getArch(process.stdout.readLine());
-		case "mac":
-			goos = "darwin";
-			// check if silicon or intel
-			final process = new Process("uname -m");
-			if (process.exitCode(true) != 0)
-				return;
-			goarch = getArch(process.stdout.readLine());
-		case "windows":
-			goos = systemName;
-			ext = ".exe";
-			final process = new Process("echo %PROCESSOR_ARCHITECTURE%");
-			if (process.exitCode(true) != 0)
-				return;
-			goarch = getArch(process.stdout.readLine());
-		default:
-			Sys.println("Unknown systemName: " + systemName);
-			return;
-	}
-	// copy over binaries
-	Sys.println("Using prebuilt binary for " + goos + "/" + goarch);
-	goCommand = './git/go-binary/go.${goos}_$goarch' + ext;
-	switch systemName {
-		case "Mac", "Linux":
-			Sys.command('chmod +x $goCommand');
-	}
-}
-
-function downloadRequiredGoVersion() {
-	var command = goCommand + ' install golang.org/dl/go$goRequiredVersion@latest';
-	Sys.println(command);
-	if (Sys.command(command) != 0) {
-		Sys.println("failed command: " + command);
-		Sys.exit(1);
-	}
-	goCommand = goCommand + goRequiredVersion;
-	command = goCommand + " download";
-	Sys.println(command);
-	if (Sys.command(command) != 0) {
-		Sys.println("failed command: " + command);
-		Sys.exit(1);
-	}
-}
-
-var goCommand = "go";
-
-function build(rebuild:Bool) {
-	var process = new Process(goCommand, ["version"]);
+	var process = new Process("go", ["version"]);
 	var code = process.exitCode();
 	if (code != 0) {
-		// failed to find `go`
-		if (Sys.command("go" + goRequiredVersion + " version") == 0) {
-			// found specific version of go, use that!
-			goCommand = "go" + goRequiredVersion;
-		}else{
-			// didn't find specific version, grab a go binary from go2hx/go-binary, and then download the required version
-			Sys.println("go command not found");
-			goCommandNotFound();
-			downloadRequiredGoVersion();
-		}
+		Sys.println("go command not found");
+		Sys.exit(1);
 	}else{
 		var foundVersion = process.stdout.readAll().toString();
 		var index = foundVersion.indexOf("go", 10);
@@ -266,7 +188,7 @@ function build(rebuild:Bool) {
 	// run go compiler
 	if (!FileSystem.exists("go4hx") || rebuild) {
 		Sys.println("build go part of the compiler");
-		final command = '$goCommand build .';
+		final command = 'go build .';
 		Sys.println(command);
 		Sys.command(command);
 	}

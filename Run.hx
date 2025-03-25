@@ -218,12 +218,14 @@ function setGoBinary() {
 
 function downloadRequiredGoVersion() {
 	var command = goCommand + ' install golang.org/dl/go$goRequiredVersion@latest';
+	Sys.println(command);
 	if (Sys.command(command) != 0) {
 		Sys.println("failed command: " + command);
 		Sys.exit(1);
 	}
 	goCommand = goCommand + goRequiredVersion;
 	command = goCommand + " download";
+	Sys.println(command);
 	if (Sys.command(command) != 0) {
 		Sys.println("failed command: " + command);
 		Sys.exit(1);

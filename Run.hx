@@ -164,7 +164,7 @@ function build(rebuild:Bool) {
 			Sys.println("failed to install goup");
 			Sys.exit(1);
 		}
-		Sys.command("sh -c \"source $HOME/.go/env\"");
+		Sys.command(". $HOME/.go/env");
 	}
 	var process = new Process("go", ["version"]);
 	var code = process.exitCode();

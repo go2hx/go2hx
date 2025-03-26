@@ -219,6 +219,8 @@ jobs:
           submodules: recursive
       - name: Install lix
         run: npm i lix -g
+      - name: Download specific Haxe version
+        run: npx lix install haxe b0b2997
       - name: Run lix
         run: npx lix download
       # go2hx setup

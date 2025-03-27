@@ -144,28 +144,58 @@ function deleteDirectoryRecursively(dir:String):Int {
 	#end
 }
 
+final goRequiredVersion = File.getContent(".gorc");
+
+function downloadRequiredGoVersion() {
+	final command = "goup install " + goRequiredVersion;
+	Sys.println(command);
+	if (Sys.command(command) != 0) {
+		Sys.println("goup install command failed");
+		Sys.exit(1);
+	}
+}
+
+
 function build(rebuild:Bool) {
+	if (Sys.command("goup version") != 0) {
+		final command = "curl -sSf https://raw.githubusercontent.com/owenthereal/goup/master/install.sh | sh -s -- '--skip-prompt'";
+		Sys.println("downloading goup");
+		if (Sys.command(command) != 0) {
+			Sys.println("failed to install goup");
+			Sys.exit(1);
+		}
+		switch Sys.systemName() {
+			case "Mac", "Linux":
+				Sys.command(". $HOME/.profile");
+		}
+		Sys.command(". $HOME/.go/env");
+	}
 	var process = new Process("go", ["version"]);
 	var code = process.exitCode();
 	if (code != 0) {
 		Sys.println("go command not found");
-		return;
+		Sys.exit(1);
+	}else{
+		var foundVersion = process.stdout.readAll().toString();
+		var index = foundVersion.indexOf("go", 10);
+		if (index == -1) {
+			Sys.println("not valid to go version: " + foundVersion);
+			Sys.exit(1);
+		}
+		foundVersion = foundVersion.substr(index + 2, goRequiredVersion.length);
+		if (foundVersion != goRequiredVersion) {
+			Sys.println("go version, got: " + foundVersion + " wanted: " + goRequiredVersion);
+			downloadRequiredGoVersion();
+		}
 	}
 	process.close();
 
-	if (!FileSystem.exists("tools")) {
-		Sys.command("git clone https://github.com/go2hx/tools --depth=1");
-	} else {
-		if (rebuild) {
-			Sys.setCwd("tools");
-			Sys.command("git pull");
-			Sys.setCwd("..");
-		}
-	}
 	// run go compiler
 	if (!FileSystem.exists("go4hx") || rebuild) {
 		Sys.println("build go part of the compiler");
-		Sys.command("go build .");
+		final command = 'go build .';
+		Sys.println(command);
+		Sys.command(command);
 	}
 }
 

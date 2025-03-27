@@ -164,6 +164,10 @@ function build(rebuild:Bool) {
 			Sys.println("failed to install goup");
 			Sys.exit(1);
 		}
+		switch Sys.systemName() {
+			case "Mac", "Linux":
+				Sys.command(". $HOME/.profile");
+		}
 		Sys.command(". $HOME/.go/env");
 	}
 	var process = new Process("go", ["version"]);

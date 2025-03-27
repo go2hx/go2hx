@@ -13,7 +13,7 @@ function interopGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<Type
         return [];
     }
     switch td.kind {
-        case TDAlias(_), TDClass(_, _, _, _, _):
+        case TDAlias(_), TDClass(_, _, _, _, _), TDStructure:
             if (StringTools.startsWith(td.name, "T_"))
                 return [];
             return [interopType(td, cl, path)];
@@ -38,7 +38,7 @@ function interopGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<Type
 					throw "FProp not supported";
 			}
         default:
-            throw "interop type not supported: " + td.kind;
+            throw "interop type not supported: " + td.kind + " " + path;
     }
 }
 

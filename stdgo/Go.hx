@@ -19,11 +19,12 @@ class Go {
 		}; __a__();", func);*/
 		#elseif (target.threaded)
 		sys.thread.Thread.createWithEventLoop(() -> {
-			try {
+			/*try {
 				func();
 			}catch(e) {
 				throw e;
-			}
+			}*/
+			func();
 		});
 		#end
 	}

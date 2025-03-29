@@ -623,7 +623,7 @@ final list = [
 				@:privateAccess _f.mutex.acquire();
 				final b = @:privateAccess _b.toBytes();
 				final i = @:privateAccess _f._input.readBytes(b, 0, b.length);
-				@:privateAccess _b.__bytes__ = bytes;
+				@:privateAccess _b.__bytes__ = b;
 				@:privateAccess _f.mutex.release();
 				return {_0: i, _1: null};
 			}

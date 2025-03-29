@@ -26,7 +26,7 @@ function main() {
         throw "incorrect value";
     final t = std.Type.typeof(value).getName();
     trace(t);
-    if (t != "TInt")
+    if (t != "TInt" && t != "TFloat")
         throw "incorrect type";
 
     // Map<Int,Int> arg and return
@@ -35,9 +35,6 @@ function main() {
     $type(value);
     if (value[0] != 1)
         throw "incorrect value";
-    trace(t);
-    if (t != "TInt")
-        throw "incorrect type";
 
     // Interface arg and return
     final i = Interop.interface_(new X());

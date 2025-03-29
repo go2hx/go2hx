@@ -112,6 +112,8 @@ jobs:
         run: haxelib run go2hx ./tests/interop --nolibwrap
       - name: Test interop
         run: haxe tests/interop.hxml
+      - name: Run interop
+        run: hl interop.hl
   pointer:
     timeout-minutes: 15
     strategy:

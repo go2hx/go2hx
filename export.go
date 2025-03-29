@@ -202,6 +202,9 @@ func main() {
 	cfg.Env = append(os.Environ(), "CGO_ENABLED=0")
 	cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm")
 	args := os.Args
+	if len(args) < 2 {
+		panic("The Haxe part of the compiler is supposed to invoke the Go part of the compiler")
+	}
 	if args[1] == "-goto" {
 		analysis.GotoParseTest()
 		return
@@ -778,6 +781,19 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			values := make([]map[string]interface{}, len(obj.Values))
 			for j := range obj.Values {
 				values[j] = parseData(obj.Values[j])
+			}
+			for j := range obj.Names {
+				if c, ok := checker.ObjectOf(obj.Names[j]).(*types.Const); ok {
+					basic, ok := checker.TypeOf(obj.Names[j]).Underlying().(*types.Basic)
+					if ok {
+						e := analysis.GetConstant(basic, c.Val(), nil)
+						if len(values) == 0 && j == 0 {
+							values = append(values, parseData(e))
+						} else {
+							values[j] = parseData(e)
+						}
+					}
+				}
 			}
 			data[i] = map[string]interface{}{
 				"id":      "ValueSpec",

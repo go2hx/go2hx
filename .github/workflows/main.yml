@@ -170,11 +170,11 @@ jobs:
       fail-fast: false
     runs-on: [ubuntu-latest]
     steps:
+      - uses: actions/checkout@v4
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
           go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
-      - uses: actions/checkout@v4
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
@@ -183,7 +183,7 @@ jobs:
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
       - name: clone go
-        run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
+        run: git clone https://github.com/golang/go -b go${{ env.VERSION }} --depth=1 ./tests/go
       - name: Sort tests
         run: go run ./scripts/sortTests ci
       - name: Create test lists

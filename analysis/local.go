@@ -13,6 +13,63 @@ import (
 	"golang.org/x/tools/go/packages"
 )
 
+func GetConstant(basic *types.Basic, value constant.Value, node ast.Node) (e ast.Expr) {
+	kind := basic.Kind()
+	info := basic.Info()
+	switch {
+	case info&types.IsInteger != 0:
+		if kind == types.Int64 || kind == types.Uint64 || kind == types.Uint || kind == types.Int {
+			if kind == types.Int64 || basic.Kind() == types.Int {
+				d, ok := constant.Int64Val(constant.ToInt(value))
+				if !ok {
+					log.Fatal("could not get exact int64: " + value.String())
+				}
+				e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
+			} else {
+				d, ok := constant.Uint64Val(constant.ToInt(value))
+				if !ok {
+					log.Fatal("could not get exact uint64: " + value.String())
+				}
+				e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
+			}
+		} else {
+			d, ok := constant.Int64Val(constant.ToInt(value))
+			if !ok {
+				// not exact
+				e = &ast.BasicLit{Kind: token.INT, Value: "0"}
+			} else {
+				e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
+			}
+		}
+	case info&types.IsFloat != 0:
+		f, _ := constant.Float64Val(value)
+		e = &ast.BasicLit{Kind: token.FLOAT, Value: fmt.Sprint(f)}
+	case info&types.IsBoolean != 0:
+		e = ast.NewIdent(strconv.FormatBool(constant.BoolVal(value)))
+	case info&types.IsComplex != 0:
+		r, _ := constant.Float64Val(constant.Real(value))
+		i, _ := constant.Float64Val(constant.Imag(value))
+		x := &ast.BasicLit{Kind: token.FLOAT, Value: fmt.Sprint(r)}
+		y := &ast.BasicLit{Kind: token.IMAG, Value: fmt.Sprint(i)}
+		m := &ast.BinaryExpr{Op: token.ADD, X: x, Y: y}
+		e = &ast.ParenExpr{X: m}
+	case info&types.IsString != 0:
+		s := value.ExactString()
+		if node != nil && s == `"gc"` {
+			switch node := node.(type) {
+			case *ast.SelectorExpr:
+				if node.Sel.Name == "Compiler" {
+					return nil
+				}
+			}
+		}
+		e = &ast.BasicLit{Kind: token.STRING, Value: s}
+	default:
+		log.Fatal("unknown constant type: " + value.ExactString())
+	}
+	return e
+}
+
 func ParseLocalConstants(file *ast.File, pkg *packages.Package, checker *types.Checker) {
 	apply := func(cursor *astutil.Cursor) bool {
 		switch node := cursor.Node().(type) {
@@ -24,60 +81,9 @@ func ParseLocalConstants(file *ast.File, pkg *packages.Package, checker *types.C
 				if !ok {
 					return false
 				}
-				var e ast.Expr
-				_ = basic
-				kind := basic.Kind()
-				info := basic.Info()
-				switch {
-				case info&types.IsInteger != 0:
-					if kind == types.Int64 || kind == types.Uint64 || kind == types.Uint || kind == types.Int {
-						if kind == types.Int64 || basic.Kind() == types.Int {
-							d, ok := constant.Int64Val(constant.ToInt(value))
-							if !ok {
-								log.Fatal("could not get exact int64: " + value.String())
-							}
-							e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
-						} else {
-							d, ok := constant.Uint64Val(constant.ToInt(value))
-							if !ok {
-								log.Fatal("could not get exact uint64: " + value.String())
-							}
-							e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
-						}
-					} else {
-						d, ok := constant.Int64Val(constant.ToInt(value))
-						if !ok {
-							// not exact
-							e = &ast.BasicLit{Kind: token.INT, Value: "0"}
-						} else {
-							e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
-						}
-					}
-				case info&types.IsFloat != 0:
-					f, _ := constant.Float64Val(value)
-					e = &ast.BasicLit{Kind: token.FLOAT, Value: fmt.Sprint(f)}
-				case info&types.IsBoolean != 0:
-					e = ast.NewIdent(strconv.FormatBool(constant.BoolVal(value)))
-				case info&types.IsComplex != 0:
-					r, _ := constant.Float64Val(constant.Real(value))
-					i, _ := constant.Float64Val(constant.Imag(value))
-					x := &ast.BasicLit{Kind: token.FLOAT, Value: fmt.Sprint(r)}
-					y := &ast.BasicLit{Kind: token.IMAG, Value: fmt.Sprint(i)}
-					m := &ast.BinaryExpr{Op: token.ADD, X: x, Y: y}
-					e = &ast.ParenExpr{X: m}
-				case info&types.IsString != 0:
-					s := value.ExactString()
-					if s == `"gc"` {
-						switch node := node.(type) {
-						case *ast.SelectorExpr:
-							if node.Sel.Name == "Compiler" {
-								return false
-							}
-						}
-					}
-					e = &ast.BasicLit{Kind: token.STRING, Value: s}
-				default:
-					log.Fatal("unknown constant type: " + value.ExactString())
+				e := GetConstant(basic, value, node)
+				if e == nil {
+					return false
 				}
 				checker.Types[e] = typeAndValue
 				cursor.Replace(e)

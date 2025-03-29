@@ -3,16 +3,24 @@ package;
 import go4hx.tests.interop.Interop;
 //import go4hx.tests.interop.go_dash_colorful
 import go4hx.tests.interop.a.A;
+import stdgo.Go;
 import go4hx.tests.interop.godashcolorful.Godashcolorful;
 import stdgo.encoding.binary.Binary;
 import stdgo.crypto.Crypto;
+import stdgo.GoByte;
+import stdgo.GoUInt16;
+import stdgo.Slice;
+import stdgo.GoString;
 
 function main() {
-    A.fooB();
+    if (A.mD5 == A.sHA1) {
+        throw "constants are the same";
+    }
+    A.fooB(A.sHA1);
     Godashcolorful.softPaletteEx;
     Binary.appendVarint;
     // float32 arg and return
-    final value = Interop.float32(10);
+    final value = Interop.float32(10.0);
     $type(value);
     if (value != 10)
         throw "incorrect value";
@@ -23,9 +31,9 @@ function main() {
 
     // Map<Int,Int> arg and return
     final m = [0 => 1, 1 => 2];
-    final value = Interop.map_(m);
+    final value = Interop.map_(stdgo.GoMap.fromIntMap(m, 0));
     $type(value);
-    if (value.get(0) != 1)
+    if (value[0] != 1)
         throw "incorrect value";
     trace(t);
     if (t != "TInt")
@@ -40,7 +48,7 @@ function main() {
     trace(err.error().toString());
 
 
-    final i:go4hx.tests.interop.Interop.T_byteOrder = Interop.interfaceByteOrder(new ByteOrder());
+    final i = Interop.interfaceByteOrder(new ByteOrder());
     //trace(Reflect.fields(i));
     trace(i.appendUint16([0,1,2], 3));
 
@@ -52,15 +60,20 @@ function main() {
 
 class ByteOrder {
     public function new() {}
-    public function appendUint16(b:Array<Int>, c:Int):Array<Int> {
+    // AppendUint16([]byte, uint16) []byte
+    public dynamic function appendUint16(b:Slice<GoByte>, c:GoUInt16):Slice<GoByte> {
         trace(b,c);
         return b;
     }
+    public function __underlying__()
+        return Go.toInterface(this);
 }
 
 class X {
     public function new() {}
-    public function run(s:{s: Array<String>}) {
+    public dynamic function run(s:{s: Slice<GoString>}) {
         trace("trigger! " + s);
     }
+    public function __underlying__()
+        return Go.toInterface(this);
 }

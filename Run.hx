@@ -175,8 +175,8 @@ var goCommand = "go";
 final home = Sys.getEnv(if (Sys.systemName() == "Windows") "UserProfile" else "HOME");
 
 function build(rebuild:Bool) {
-	var proc = new Process(executable(home + "/.go/bin/goup") + " version");
-	if (proc.exitCode(true) != 0) {
+	var process = new Process(executable(home + "/.go/bin/goup") + " version");
+	if (process.exitCode(true) != 0) {
 		final command = "curl -sSf https://raw.githubusercontent.com/owenthereal/goup/master/install.sh | sh -s -- '--skip-prompt'";
 		Sys.println("downloading goup");
 		if (Sys.command(command) != 0) {
@@ -188,7 +188,7 @@ function build(rebuild:Bool) {
 	process = new Process(goCommand, ["version"]);
 	var code = process.exitCode();
 	if (code != 0) {
-		downloadRequiredGoVersion();
+		installRequiredGoVersion();
 	}else{
 		var foundVersion = process.stdout.readAll().toString();
 		var index = foundVersion.indexOf("go", 10);

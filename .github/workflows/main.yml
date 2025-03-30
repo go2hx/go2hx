@@ -218,19 +218,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - name: Install lix
-        run: npm i lix -g
-      - name: Download specific Haxe version
-        run: npx lix install haxe b0b2997
-      - name: Run lix
-        run: npx lix download
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: latest  # Install 'haxe_latest.tar.gz' from https://build.haxe.org/builds/haxe/linux64/
+      - run: haxe -version
       # go2hx setup
       - name: Build go2hx compiler
-        run: npx haxe --run Run build
+        run: haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - name: Clean stdgo
-        run: npx haxe --run Run clean
+        run: haxe --run Run clean
       - uses: actions/cache/restore@v4
         id: setup-cache
         with:

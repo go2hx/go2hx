@@ -566,6 +566,8 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 							}
 						}
 						if (embedded) { // embedded method already exists create it for staticExtension
+							if (instance.externBool && !isTitle(field.name))
+								continue;
 							switch field.kind {
 								case FProp(_, _, TFunction(args, ret), _):
 									throw "use this prop";
@@ -8100,6 +8102,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							}),*/
 							kind: FProp("get", "never", ftype),
 						};
+						if (info.global.externBool && !isTitle(method.name))
+							continue; 
 						final fieldGet:Field = {
 							name: "get_" + methodName,
 							pos: null,

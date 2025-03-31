@@ -1,8 +1,8 @@
 [ERROR] ./stdgo/_internal/image/draw/Draw_testdraw.hx:134: characters 21-70
 
- 134 |                     stdgo._internal.image.draw.Draw__iterator_5012021._iterator_5012021++;
+ 134 |                     stdgo._internal.image.draw.Draw__iterator_5113695._iterator_5113695++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.image.draw.Draw__iterator_5012021
+     | Type not found : stdgo._internal.image.draw.Draw__iterator_5113695
 
 [ERROR] ./stdgo/_internal/compress/flate/Flate_t_decompressor_static_extension.hx:193: characters 21-60
 

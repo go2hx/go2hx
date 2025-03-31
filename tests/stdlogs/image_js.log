@@ -1,36 +1,36 @@
 [ERROR] ./_internal/image_test/Image_test_testdecode.hx:63: characters 21-70
 
-  63 |                     _internal.image_test.Image_test__iterator_5381559._iterator_5381559++;
+  63 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5381559
+     | Type not found : _internal.image_test.Image_test__iterator_5373877
 
 [ERROR] ./_internal/image_test/Image_test_testdecode.hx:82: characters 21-70
 
-  82 |                     _internal.image_test.Image_test__iterator_5381559._iterator_5381559++;
+  82 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5381559
+     | Type not found : _internal.image_test.Image_test__iterator_5373877
 
 [ERROR] ./_internal/image_test/Image_test_testdecode.hx:93: characters 21-70
 
-  93 |                     _internal.image_test.Image_test__iterator_5381559._iterator_5381559++;
+  93 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5381559
+     | Type not found : _internal.image_test.Image_test__iterator_5373877
 
 [ERROR] ./_internal/image_test/Image_test_testdecode.hx:126: characters 21-70
 
- 126 |                     _internal.image_test.Image_test__iterator_5381559._iterator_5381559++;
+ 126 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5381559
+     | Type not found : _internal.image_test.Image_test__iterator_5373877
 
 [ERROR] ./_internal/image_test/Image_test_testdecode.hx:150: characters 21-70
 
- 150 |                     _internal.image_test.Image_test__iterator_5381559._iterator_5381559++;
+ 150 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5381559
+     | Type not found : _internal.image_test.Image_test__iterator_5373877
 
 [ERROR] ./_internal/image_test/Image_test_testdecode.hx:160: characters 21-70
 
- 160 |                     _internal.image_test.Image_test__iterator_5381559._iterator_5381559++;
+ 160 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5381559
+     | Type not found : _internal.image_test.Image_test__iterator_5373877
 

@@ -565,12 +565,12 @@ func filterSpec(spec ast.Spec, f ast.Filter, export bool) bool {
 			return true
 		}
 	case *ast.TypeSpec:
-		if f(s.Name.Name) {
-			if export {
-				filterType(s.Type, f, export)
-			}
-			return true
+		//if f(s.Name.Name) {
+		if export {
+			filterType(s.Type, f, export)
 		}
+		return true
+		//}
 		if !export {
 			// For general filtering (not just exports),
 			// filter type even if name is not filtered
@@ -679,8 +679,9 @@ func filterFieldList(fields *ast.FieldList, filter ast.Filter, export bool) (rem
 		keepField := false
 		if len(f.Names) == 0 {
 			// anonymous field
-			name := fieldName(f.Type)
-			keepField = name != nil && filter(name.Name)
+			//name := fieldName(f.Type)
+			//keepField = name != nil && filter(name.Name)
+			keepField = true
 		} else {
 			n := len(f.Names)
 			f.Names = filterIdentList(f.Names, filter)

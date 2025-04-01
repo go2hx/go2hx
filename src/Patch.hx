@@ -577,6 +577,7 @@ final list = [
 					final l = new sys.net.Socket();
 					final addr = new stdgo._internal.net.Net_haxeaddr.HaxeAddr(network,host.toString(), port);
 					l.bind(host, port);
+					l.listen(0);
 					return {_0: new stdgo._internal.net.Net_haxelistener.HaxeListener(addr, l), _1: null};
 				case "udp", "udp4", "udp6":
 					throw "unimplemented network: " + network;
@@ -2245,13 +2246,20 @@ final addTypeDefs = [
 			this._socket = socket;
 		}
 		public dynamic function accept():{_0:stdgo._internal.net.Net_conn.Conn, _1: stdgo.Error} {
+			@:define("sys") {
+				final s = _socket.accept();
+				return {_0: new stdgo._internal.net.Net_haxeconn.HaxeConn(this._addr, s), _1: null};
+			}
 			return {_0: null, _1: null};
 		}
 		public dynamic function close():stdgo.Error {
+			@:define("sys") {
+				_socket.close();
+			}
 			return null;
 		}
 		public dynamic function addr():stdgo._internal.net.Net_addr.Addr {
-			return null;
+			return this._addr;
 		}
 		public function __underlying__():stdgo.AnyInterface
 			return stdgo.Go.toInterface(this);
@@ -2289,13 +2297,18 @@ final addTypeDefs = [
 		public function read(_b:stdgo.Slice<stdgo.GoByte>):{_0:stdgo.GoInt, _1:stdgo.Error} {
 			@:define("sys") {
 				final b = _b.toBytes();
-				_socket.input.readBytes(b, 0, b.length);
+				final i = _socket.input.readBytes(b, 0, b.length);
+				@:privateAccess _b.__bytes__ = b;
+				return {_0: i, _1: null};
 			}
 			return {_0: 0, _1: null};
 		}
 		public function write(_b:stdgo.Slice<stdgo.GoByte>):{_0:stdgo.GoInt, _1:stdgo.Error} {
 			@:define("sys") {
-				_socket.close();
+				final b = _b.toBytes();
+				final i = _socket.output.writeBytes(b, 0, b.length);
+				@:privateAccess _b.__bytes__ = b;
+				return {_0: i, _1: null};
 			}
 			return {_0: 0, _1: null};
 		}

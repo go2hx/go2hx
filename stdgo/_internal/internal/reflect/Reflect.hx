@@ -395,11 +395,17 @@ function implementsMethod(t:Type, v:Type):Bool {
 	//trace("n1:", vgt);
 	return switch gt {
 		case interfaceType(_, methods), named(_, methods, _, _):
-			if (methods == null || methods.length == 0) {
+			if (methods == null) {
 				return true;
 			}
 			switch vgt {
-				case interfaceType(_, methods2), named(_, methods2, _):
+				case interfaceType(_, methods2), named(_, methods2, _, _):
+					if (methods2 == null) {
+						return true;
+					}
+					if (methods.length == 0 && methods2.length == 0) {
+						return false;
+					}
 					if (methods.length > methods2.length) {
 						return false;
 					}

@@ -1,34 +1,6 @@
-[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:73: characters 49-92
+[ERROR] (macro) ./stdgo/_internal/compress/flate/Flate_t_decompressor_static_extension.hx:193: characters 21-60
 
-  73 |                     _magic_1 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
-     |                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.internal.xcoff.Xcoff__magic
-
-          | For optional function argument 'get'
-
-[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:73: characters 21-100
-
-  73 |                     _magic_1 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Void should be stdgo.GoUInt16
-
-[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:190: characters 46-85
-
- 190 |                     _l_16 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
-     |                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.internal.xcoff.Xcoff__l
-
-          | For optional function argument 'get'
-
-[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:190: characters 21-89
-
- 190 |                     _l_16 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Void should be stdgo.GoUInt32
-
-[ERROR] (macro) ./stdgo/_internal/go/types/Types_t_termlist_static_extension.hx:72: characters 108-113
-
-  72 |         return (_xl.__append__(...(_yl : Array<stdgo.Ref<stdgo._internal.go.types.Types_t_term.T_term>>)))._norm();
-     |                                                                                                            ^^^^^
-     | stdgo.Slice<stdgo.Ref<stdgo._internal.go.types.T_term>> has no field _norm
+ 193 |                     _stateInit_31 = (1i64 : stdgo.GoUInt64);
+     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | stdgo.GoUInt64 should be Int
 

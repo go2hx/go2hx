@@ -25,11 +25,13 @@ type InterfaceType interface {
 	Run(s struct{ S []string })
 }
 
+// This is an interface function
 func Interface(i InterfaceType) InterfaceType {
 	i.Run(struct{ S []string }{S: []string{"Go"}})
 	return i
 }
 
+// This is an error function
 func Error(err error) error {
 	return err
 }
@@ -43,6 +45,10 @@ type byteOrder interface {
 	AppendByteOrder
 }
 
+// This is a comment
 type AppendByteOrder interface {
+	// Test is this still shows up
 	AppendUint16([]byte, uint16) []byte
 }
+
+var unexported = 0

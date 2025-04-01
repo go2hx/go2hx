@@ -4420,7 +4420,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							final aType = typeof(expr.args[i + 1], info, false);
 							args[i] = assignTranslate(aType, eType, args[i], info);
 						}
-						return returnExpr(macro($e.__append__($a{args}))).expr;
+						var ct = toComplexType(t, info);
+						var e = macro $e.__append__($a{args});
+						if (!isInvalidComplexType(ct))
+							e = macro ($e : $ct);
+						return returnExpr(e).expr;
 					case "copy":
 						genArgs(false);
 						//return returnExpr(macro stdgo.Go.copySlice($a{args})).expr;
@@ -8360,8 +8364,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					default:
 				}
 			}
-			for (field in fields)
-				field.access.push(ADynamic);
+			//for (field in fields)
+			//	field.access.push(ADynamic);
 			var meta = [{name: ":interface", pos: null}];
 			// embedded interfaces
 			final implicits:Array<TypePath> = [];

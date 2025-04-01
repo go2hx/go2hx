@@ -1,6 +1,6 @@
-[ERROR] (macro) ./stdgo/_internal/go/ast/Ast__summary.hx:44: characters 21-58
+[ERROR] (macro) ./stdgo/_internal/go/ast/Ast__summary.hx:18: characters 21-57
 
- 44 |                     stdgo._internal.go.ast.Ast__loopbreak._loopBreak = true;
-    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | Type not found : stdgo._internal.go.ast.Ast__loopbreak
+ 18 |                     _maxLen_0 = (40i64 : stdgo.GoUInt64);
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | stdgo.GoUInt64 should be Int
 

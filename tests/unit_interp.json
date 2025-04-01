@@ -199,5 +199,6 @@
  "interp|interface20",
  "interp|switch22",
  "interp|map9",
- "interp|ptr0"
+ "interp|ptr0",
+ "interp|append3"
 ]

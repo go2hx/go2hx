@@ -1,11 +1,11 @@
 === RUN  TestGet
 Exception: T_:testing.setenv is not yet implemented
-Called from stdgo__$internal_testing_T_$_$static_$extension.setenv (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 13234 column 23)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebug_$test_Godebug_$test_$testget_testGet [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:12023:51)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 41623 column 9)
-Called from ._$internal_internal_godebugdottest_Godebugdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 33075 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:50105:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:50106:3)
+Called from stdgo__$internal_testing_T_$_$static_$extension.setenv (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 13221 column 23)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebug_$test_Godebug_$test_$testget_testGet [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:12010:51)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 41621 column 9)
+Called from ._$internal_internal_godebugdottest_Godebugdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 33062 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:50103:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:50104:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -13,27 +13,27 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 === RUN  TestMetrics
 NonDefault kind = <invalid reflect.Value>, want uint64Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 42374 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 42263 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:41817:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebug_$test_Godebug_$test_$testmetrics_testMetrics [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:12078:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 41623 column 9)
-Called from ._$internal_internal_godebugdottest_Godebugdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 33075 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:50105:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:50106:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 42372 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 42261 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:41815:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebug_$test_Godebug_$test_$testmetrics_testMetrics [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:12065:20)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 41621 column 9)
+Called from ._$internal_internal_godebugdottest_Godebugdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 33062 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:50103:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:50104:3)
 
 -- FAIL: TestMetrics
 
 === RUN  TestCmdBisect
 skipping test: 'go build' unavailable: <invalid reflect.Value>Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 42218 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 42233 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:41871:58
-Called from stdgo__$internal_testing_T_$_$asInterface.skipf (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 14556 column 54)
-Called from .stdgo__$internal_internal_testenv_Testenv_$musthavegobuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 14442 column 6)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebug_$test_Godebug_$test_$testcmdbisect_testCmdBisect [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:11905:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 41623 column 9)
-Called from ._$internal_internal_godebugdottest_Godebugdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 33075 column 59)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 42216 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 42231 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:41869:58
+Called from stdgo__$internal_testing_T_$_$asInterface.skipf (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 14543 column 54)
+Called from .stdgo__$internal_internal_testenv_Testenv_$musthavegobuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 14429 column 6)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebug_$test_Godebug_$test_$testcmdbisect_testCmdBisect [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:11892:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 41621 column 9)
+Called from ._$internal_internal_godebugdottest_Godebugdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 33062 column 59)
 
 -- SKIP: TestCmdBisect
 

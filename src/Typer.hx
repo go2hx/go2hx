@@ -3263,7 +3263,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					var y = typeExpr(stmt.rhs[i], info);
 					// check if empty
 					if (stmt.lhs[i].id == "Ident" && stmt.lhs[i].name == "_") {
-						exprs.push(y);
+						exprs.unshift(y);
 						continue;
 					}
 					var toType = typeof(stmt.lhs[i], info, false);

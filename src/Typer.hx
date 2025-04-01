@@ -986,9 +986,8 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 					if (obj.comm.tok == Ast.Token.DEFINE) {
 						e = macro var $varName = $e;
 					}else{
-						// varName = ""
 						e = assignTranslate(typeof(obj.comm.rhs[0], info, false), typeof(obj.comm.lhs[0], info, false), e, info, false);
-						//e = macro $i{varName} = $e;
+						e = macro $i{varName} = $e;
 					}
 				}
 				block = macro $b{[e, block]};
@@ -1613,13 +1612,13 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for s
 	if (assign) { // non var
 		switch body.expr {
 			case EBlock(exprs):
-				if (stmt.value != null && (stmt.value.id != "Ident" || stmt.value.name != "_")) {
-					value = removeCoalAndCheckType(value);
-					exprs.unshift(macro $value = __value__);
-				}
 				if (stmt.key != null && (stmt.key.id != "Ident" || stmt.key.name != "_")) {
 					key = removeCoalAndCheckType(key);
 					exprs.unshift(macro $key = __key__);
+				}
+				if (stmt.value != null && (stmt.value.id != "Ident" || stmt.value.name != "_")) {
+					value = removeCoalAndCheckType(value);
+					exprs.unshift(macro $value = __value__);
 				}
 			default:
 		}
@@ -5174,6 +5173,8 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 		// typeof(e.type, info, false, paths.copy());
 		case "Ellipsis":
 			typeof(e.type, info, false, paths.copy());
+		//case "Union":
+			
 		default:
 			throw info.panic() + "unknown typeof expr: " + e.id;
 	}
@@ -6891,16 +6892,18 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 			access.push(AInline);
 	}
-var identifierNames:Array<String> = [];
+	var identifierNames:Array<String> = [];
 	var nonGenericParams:Array<TypeParamDecl> = []; // params
 	if (nonGenericParams.length > 0) {
 		params = params.concat(nonGenericParams);
 	}
 	if ((decl.type.typeParams != null || recvGeneric)) {
 		// TODO: generic funcs
+		
 		/*for (param in decl.type.typeParams.list) {
 			trace(param.names.map(name -> name.name));
 			trace(param.type, Reflect.fields(param));
+			trace(typeof(param.type, info, false));
 		}*/
 		params = null;
 		if (patch == null) {

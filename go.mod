@@ -10,4 +10,4 @@ require (
 	golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f // indirect
 )
 
-replace golang.org/x/tools => ./tools
+replace golang.org/x/tools => ./git/tools

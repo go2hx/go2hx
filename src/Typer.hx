@@ -3612,6 +3612,13 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 							default:
 								final ct = info.returnType;
 								exprs.push(macro final __ret__:$ct = $expr);
+								if (info.returnNamed) {
+									for (i in 0...info.returnNames.length) {
+										final name = info.returnNames[i];
+										final fieldName = "_" + i; 
+										exprs.push(macro $i{name} = __ret__.$fieldName);
+									}
+								}
 								exprs.push(typeDeferReturn(info, false));
 								exprs.push(macro return __ret__);
 						}

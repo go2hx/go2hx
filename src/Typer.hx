@@ -6439,6 +6439,10 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 							if (ct != null) {
 								switch ct {
 									case TPath(p):
+										if (p.pack.length == 0) {
+											p.pack = p.name.split(".");
+											p.name = p.pack.pop();
+										}
 										p.pack.push(p.pack.pop() + "_static_extension");
 										p.name += "_static_extension";
 										x = macro @:selectorExprRecv $p{p.pack.concat([p.name])}; 
@@ -6454,6 +6458,10 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 					case TPath(p):
 						// p = {pack: [stdgo,_internal,time,Time_Time], name: Time, params: []}
 						// expected = time/Time_Time_static_extension/Time_static_extension 
+						if (p.pack.length == 0) {
+							p.pack = p.name.split(".");
+							p.name = p.pack.pop();
+						}
 						final last = p.pack.pop();
 						p.pack.push(last + "_static_extension");
 						p.pack.push(p.name + "_static_extension");

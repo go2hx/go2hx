@@ -988,7 +988,8 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 					}else{
 						// varName = ""
 						e = assignTranslate(typeof(obj.comm.rhs[0], info, false), typeof(obj.comm.lhs[0], info, false), e, info, false);
-						//e = macro $i{varName} = $e;
+						if (obj.comm.tok == Ast.Token.ASSIGN)
+							e = macro $i{varName} = $e;
 					}
 				}
 				block = macro $b{[e, block]};

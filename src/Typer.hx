@@ -8371,8 +8371,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					default:
 				}
 			}
-			//for (field in fields)
-			//	field.access.push(ADynamic);
+			for (field in fields)
+				field.access.push(ADynamic);
 			var meta = [{name: ":interface", pos: null}];
 			// embedded interfaces
 			final implicits:Array<TypePath> = [];

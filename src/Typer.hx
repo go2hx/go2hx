@@ -566,8 +566,6 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 							}
 						}
 						if (embedded) { // embedded method already exists create it for staticExtension
-							if (instance.externBool && !isTitle(field.name))
-								continue;
 							switch field.kind {
 								case FProp(_, _, TFunction(args, ret), _):
 									throw "use this prop";
@@ -3612,7 +3610,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 							default:
 								final ct = info.returnType;
 								exprs.push(macro final __ret__:$ct = $expr);
-								if (info.returnNamed) {
+								if (info.returnNames.length > 1 && info.returnNamed) {
 									for (i in 0...info.returnNames.length) {
 										final name = info.returnNames[i];
 										final fieldName = "_" + i; 
@@ -8110,8 +8108,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							}),*/
 							kind: FProp("get", "never", ftype),
 						};
-						if (info.global.externBool && !isTitle(method.name))
-							continue; 
 						final fieldGet:Field = {
 							name: "get_" + methodName,
 							pos: null,

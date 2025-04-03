@@ -4428,7 +4428,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							final aType = typeof(expr.args[i + 1], info, false);
 							args[i] = assignTranslate(aType, eType, args[i], info);
 						}
-						var ct = toComplexType(t, info);
+						var ct = toComplexType(typeof(expr, info, false), info);
 						var e = macro $e.__append__($a{args});
 						if (!isInvalidComplexType(ct))
 							e = macro ($e : $ct);

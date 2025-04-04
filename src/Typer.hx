@@ -4196,9 +4196,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			switch tupleArg.expr {
 				case EBlock(exprs):
 					exprs.unshift(fvar);
-					exprs.unshift(macro var __tmp__ = $tupleArg);
+					exprs.unshift(macro @:tupleArg var __tmp__ = $tupleArg);
 				default:
 					e = macro ({
+						@:tupleArg var __tmp__ = $tupleArg;
 						$fvar;
 						var __tmp__ = $tupleArg;
 						$e;

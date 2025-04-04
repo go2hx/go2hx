@@ -947,7 +947,7 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	function ifs(i:Int):Expr {
 		final obj:Ast.CommClause = stmt.body.list[i];
 		var varName = "";
-		if (obj != null && obj.comm != null && obj.comm.id == "AssignStmt") {
+		if (obj != null && obj.comm != null && obj.comm.id == "AssignStmt" && obj.comm.lhs[0].name != "_") {
 			varName = nameIdent(obj.comm.lhs[0].name, false, true, info);
 		}
 		var block = (obj == null || obj.body == null) ? macro {} : toExpr(typeStmtList(obj.body, info, false));
@@ -978,8 +978,13 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 				var expr:Ast.UnaryExpr = comm;
 				var e = typeExpr(expr.x, info);
 				final chanName = "__c__" + defineCount++;
-				defines.push(macro var $chanName = $e);
-				cond = macro $i{chanName} != null && $i{chanName}.__isGet__(true);
+				defines.push(macro var $chanName = null);
+				cond = macro {
+					if ($i{chanName} == null) {
+						$i{chanName} = $e;
+					}
+					$i{chanName} != null && $i{chanName}.__isGet__(true);
+				};
 				resets.push(macro $i{chanName}.__reset__());
 				e = macro $i{chanName}.__get__();
 				if (varName != "") {
@@ -988,7 +993,7 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 					}else{
 						// varName = ""
 						e = assignTranslate(typeof(obj.comm.rhs[0], info, false), typeof(obj.comm.lhs[0], info, false), e, info, false);
-						if (obj.comm.tok == Ast.Token.ASSIGN)
+						if (obj.comm.tok == Ast.Token.ASSIGN && varName != "")
 							e = macro $i{varName} = $e;
 					}
 				}

@@ -19,8 +19,10 @@ class GoArrayData<T> {
 	var isNumber32:Bool = false;
 	var isNumber64:Bool = false;
 	var isString:Bool = false;
+	var noArgs = false;
 
 	public inline function new(length:Int, capacity:Int, args:Rest<T>) {
+		noArgs = args.length == 0;
 		if (capacity != -1) {
 			final vectorLength = if (length > capacity) {
 				length;
@@ -29,7 +31,7 @@ class GoArrayData<T> {
 			}
 			this.length = length;
 			this.capacity = vectorLength;
-			vector = new haxe.ds.Vector<T>(vectorLength,);
+			vector = new haxe.ds.Vector<T>(vectorLength);
 			for (i in 0...args.length)
 				vector.set(i, args[i]);
 		}else if (args.length != 0) {
@@ -61,16 +63,22 @@ class GoArrayData<T> {
 	}
 
 	public inline function __setNumber32__():Slice<T> {
+		if (noArgs)
+			this.vector.fill(cast 0);
 		@:privateAccess this.isNumber32 = true;
 		return this;
 	}
 
 	public inline function __setNumber64__():Slice<T> {
+		if (noArgs)
+			this.vector.fill(cast 0i64);
 		@:privateAccess this.isNumber64 = true;
 		return this;
 	}
 
 	public inline function __setString__():Slice<T> {
+		if (noArgs)
+			this.vector.fill(cast ("" : stdgo.GoString));
 		@:privateAccess this.isString = true;
 		return this;
 	}

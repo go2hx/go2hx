@@ -220,7 +220,7 @@ class GoArrayData<T> {
 			#end
 		}else{
 			//return untyped cast haxe.io.Bytes.fastGet(bytes.getData(), index + offset);
-			#if !target.static
+			//#if !target.static
 			if (isNumber64) {
 				return vector.get(index + offset) ?? untyped haxe.Int64.make(0, 0);
 			} else if (isNumber32) {
@@ -230,9 +230,9 @@ class GoArrayData<T> {
 			} else {
 				return vector.get(index + offset);
 			}
-			#else
-			return vector.get(index + offset);
-			#end
+			// #else
+			// return vector.get(index + offset);
+			// #end
 		}
 	}
 

@@ -157,7 +157,7 @@ func ParseLocalTypes(file *ast.File, pkg *packages.Package, checker *types.Check
 			name, exists := structTypes[hash]
 			if !exists {
 				// TODO: add recv identifier into extra info
-				name = ast.NewIdent("_struct_" + strconv.Itoa(*countStruct))
+				name = ast.NewIdent(funcName + ":_struct_" + strconv.Itoa(*countStruct))
 				(*countStruct)++
 				structTypes[hash] = name
 				// add to file
@@ -165,7 +165,7 @@ func ParseLocalTypes(file *ast.File, pkg *packages.Package, checker *types.Check
 				gen.Tok = token.FUNC // set local
 				spec := ast.TypeSpec{}
 
-				spec.Name = ast.NewIdent(funcName + ":" + name.Name)
+				spec.Name = name
 				spec.Type = node
 				gen.Specs = []ast.Spec{&spec}
 				file.Decls = append(file.Decls, &gen)

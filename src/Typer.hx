@@ -6422,9 +6422,10 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			expr.x = expr.x.x;
 		switch expr.x.id {
 			case "Ident":
-				if (expr.x.name.indexOf(":") != -1)
-					expr.x.name = expr.x.name.substr(expr.x.name.indexOf(":") + 1);
-				trace(expr.x.name);
+				final index = expr.x.name.indexOf(":");
+				if (index != -1) {
+					expr.x.name = (expr.x.name : String).substr(index + 1);
+				}
 				x = macro @:selectorExpr $i{splitDepFullPathName(className(expr.x.name, info) + "_static_extension", info)};
 				final t = typeof(expr, info, false);
 				if (t != null) {

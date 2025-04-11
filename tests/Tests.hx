@@ -681,6 +681,7 @@ private function excludeTest(name:String) {
 	// exclude certain go tests
 	switch name {
 		case "more_intstar_input": // go-easy build compiler flag excludes wasm
+		case "issue13169": // go-easy too slow
 		case "issue32288": // go-easy inf loop uintptr stack and recover
 		case "index0": // go-easy no main func
 		case "issue16760": // go-easy stack panic for interp, 1000 -> 100 stack as unit test

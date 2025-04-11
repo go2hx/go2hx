@@ -263,9 +263,11 @@ final list = [
 		@:define("(sys || hxnodejs)") {
 			final isEval = @:define("eval", false) true;
 			if (!(@:privateAccess _f._output is sys.io.FileOutput) || isEval) {
-				if (_b.length == 0)
-					return {_0: 0, _1: null};
 				@:privateAccess _f.mutex.acquire();
+				if (_b.length == 0) {
+					@:privateAccess _f.mutex.release();
+					return {_0: 0, _1: null};
+				}
 				final b = _b.toBytes();
 				final i = @:privateAccess _f._output.writeBytes(b, 0, b.length);
 				@:privateAccess _f.mutex.release();
@@ -290,9 +292,11 @@ final list = [
 		return @:privateAccess _v._v;
 	},
 	"os.File:close" => macro {
+		@:privateAccess _f.mutex.acquire();
 		@:privateAccess _f._output.flush();
 		@:privateAccess _f._input.close();
 		@:privateAccess _f._output.close();
+		@:privateAccess _f.mutex.release();
 		return null;
 	},
 	"os:Getenv" => macro {
@@ -609,9 +613,11 @@ final list = [
 			return { _0 : 0, _1 : null };
 		}
 		@:define("(sys || hxnodejs)") {
+			@:privateAccess _f.mutex.acquire();
 			final input:sys.io.FileInput = cast @:privateAccess _f._input;
 			final pos = sys.io.FileSeek.createByIndex(_whence.toBasic());
 			@:privateAccess input.seek(_offset.toBasic().low, pos);
+			@:privateAccess _f.mutex.release();
 			return { _0 : input.tell(), _1 : null };
 		}
 		trace("not supported on non sys target");
@@ -2201,7 +2207,7 @@ final structs = [
 		@:local
 		var counter:stdgo.GoUInt = 0;
 		@:local
-		var mutex = @:define("target.threaded") new sys.thread.Semaphore(1);
+		var mutex = @:define("target.threaded") new sys.thread.Mutex();
 	},
 	"sync:Cond" => macro {
 		@:local

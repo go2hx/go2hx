@@ -791,7 +791,9 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 						if len(values) == 0 && j == 0 {
 							values = append(values, parseData(e))
 						} else {
-							values[j] = parseData(e)
+							if len(values) > j {
+								values[j] = parseData(e)
+							}
 						}
 					}
 				}

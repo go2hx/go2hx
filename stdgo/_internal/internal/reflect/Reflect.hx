@@ -393,13 +393,15 @@ function implementsMethod(t:Type, v:Type):Bool {
 	}
 	//trace("n0:", gt);
 	//trace("n1:", vgt);
+	if (!isInterface(gt) && !isInterface(vgt))
+		return false;
 	return switch gt {
 		case interfaceType(_, methods), named(_, methods, _, _):
 			if (methods == null || methods.length == 0) {
 				return true;
 			}
 			switch vgt {
-				case interfaceType(_, methods2), named(_, methods2, _):
+				case interfaceType(_, methods2), named(_, methods2, _, _):
 					if (methods.length > methods2.length) {
 						return false;
 					}

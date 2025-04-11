@@ -566,8 +566,6 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 							}
 						}
 						if (embedded) { // embedded method already exists create it for staticExtension
-							if (instance.externBool && !isTitle(field.name))
-								continue;
 							switch field.kind {
 								case FProp(_, _, TFunction(args, ret), _):
 									throw "use this prop";
@@ -949,7 +947,7 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	function ifs(i:Int):Expr {
 		final obj:Ast.CommClause = stmt.body.list[i];
 		var varName = "";
-		if (obj != null && obj.comm != null && obj.comm.id == "AssignStmt") {
+		if (obj != null && obj.comm != null && obj.comm.id == "AssignStmt" && obj.comm.lhs[0].name != "_") {
 			varName = nameIdent(obj.comm.lhs[0].name, false, true, info);
 		}
 		var block = (obj == null || obj.body == null) ? macro {} : toExpr(typeStmtList(obj.body, info, false));
@@ -980,16 +978,23 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 				var expr:Ast.UnaryExpr = comm;
 				var e = typeExpr(expr.x, info);
 				final chanName = "__c__" + defineCount++;
-				defines.push(macro var $chanName = $e);
-				cond = macro $i{chanName} != null && $i{chanName}.__isGet__(true);
+				defines.push(macro var $chanName = null);
+				cond = macro {
+					if ($i{chanName} == null) {
+						$i{chanName} = $e;
+					}
+					$i{chanName} != null && $i{chanName}.__isGet__(true);
+				};
 				resets.push(macro $i{chanName}.__reset__());
 				e = macro $i{chanName}.__get__();
 				if (varName != "") {
 					if (obj.comm.tok == Ast.Token.DEFINE) {
 						e = macro var $varName = $e;
 					}else{
+						// varName = ""
 						e = assignTranslate(typeof(obj.comm.rhs[0], info, false), typeof(obj.comm.lhs[0], info, false), e, info, false);
-						e = macro $i{varName} = $e;
+						if (obj.comm.tok == Ast.Token.ASSIGN && varName != "")
+							e = macro $i{varName} = $e;
 					}
 				}
 				block = macro $b{[e, block]};
@@ -1614,13 +1619,13 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for s
 	if (assign) { // non var
 		switch body.expr {
 			case EBlock(exprs):
-				if (stmt.key != null && (stmt.key.id != "Ident" || stmt.key.name != "_")) {
-					key = removeCoalAndCheckType(key);
-					exprs.unshift(macro $key = __key__);
-				}
 				if (stmt.value != null && (stmt.value.id != "Ident" || stmt.value.name != "_")) {
 					value = removeCoalAndCheckType(value);
 					exprs.unshift(macro $value = __value__);
+				}
+				if (stmt.key != null && (stmt.key.id != "Ident" || stmt.key.name != "_")) {
+					key = removeCoalAndCheckType(key);
+					exprs.unshift(macro $key = __key__);
 				}
 			default:
 		}
@@ -3262,7 +3267,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					var y = typeExpr(stmt.rhs[i], info);
 					// check if empty
 					if (stmt.lhs[i].id == "Ident" && stmt.lhs[i].name == "_") {
-						exprs.push(y);
+						exprs.unshift(y);
 						continue;
 					}
 					var toType = typeof(stmt.lhs[i], info, false);
@@ -3611,6 +3616,13 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 							default:
 								final ct = info.returnType;
 								exprs.push(macro final __ret__:$ct = $expr);
+								if (info.returnNames.length > 1 && info.returnNamed) {
+									for (i in 0...info.returnNames.length) {
+										final name = info.returnNames[i];
+										final fieldName = "_" + i; 
+										exprs.push(macro $i{name} = __ret__.$fieldName);
+									}
+								}
 								exprs.push(typeDeferReturn(info, false));
 								exprs.push(macro return __ret__);
 						}
@@ -4184,9 +4196,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			switch tupleArg.expr {
 				case EBlock(exprs):
 					exprs.unshift(fvar);
-					exprs.unshift(macro var __tmp__ = $tupleArg);
+					exprs.unshift(macro @:tupleArg var __tmp__ = $tupleArg);
 				default:
 					e = macro ({
+						@:tupleArg var __tmp__ = $tupleArg;
 						$fvar;
 						var __tmp__ = $tupleArg;
 						$e;
@@ -4421,7 +4434,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							final aType = typeof(expr.args[i + 1], info, false);
 							args[i] = assignTranslate(aType, eType, args[i], info);
 						}
-						var ct = toComplexType(t, info);
+						var ct = toComplexType(typeof(expr, info, false), info);
 						var e = macro $e.__append__($a{args});
 						if (!isInvalidComplexType(ct))
 							e = macro ($e : $ct);
@@ -6415,6 +6428,10 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			expr.x = expr.x.x;
 		switch expr.x.id {
 			case "Ident":
+				final index = expr.x.name.indexOf(":");
+				if (index != -1) {
+					expr.x.name = (expr.x.name : String).substr(index + 1);
+				}
 				x = macro @:selectorExpr $i{splitDepFullPathName(className(expr.x.name, info) + "_static_extension", info)};
 				final t = typeof(expr, info, false);
 				if (t != null) {
@@ -6432,6 +6449,10 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 							if (ct != null) {
 								switch ct {
 									case TPath(p):
+										if (p.pack.length == 0) {
+											p.pack = p.name.split(".");
+											p.name = p.pack.pop();
+										}
 										p.pack.push(p.pack.pop() + "_static_extension");
 										p.name += "_static_extension";
 										x = macro @:selectorExprRecv $p{p.pack.concat([p.name])}; 
@@ -6447,6 +6468,10 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 					case TPath(p):
 						// p = {pack: [stdgo,_internal,time,Time_Time], name: Time, params: []}
 						// expected = time/Time_Time_static_extension/Time_static_extension 
+						if (p.pack.length == 0) {
+							p.pack = p.name.split(".");
+							p.name = p.pack.pop();
+						}
 						final last = p.pack.pop();
 						p.pack.push(last + "_static_extension");
 						p.pack.push(p.name + "_static_extension");
@@ -8102,8 +8127,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							}),*/
 							kind: FProp("get", "never", ftype),
 						};
-						if (info.global.externBool && !isTitle(method.name))
-							continue; 
 						final fieldGet:Field = {
 							name: "get_" + methodName,
 							pos: null,
@@ -8367,8 +8390,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					default:
 				}
 			}
-			//for (field in fields)
-			//	field.access.push(ADynamic);
+			for (field in fields)
+				field.access.push(ADynamic);
 			var meta = [{name: ":interface", pos: null}];
 			// embedded interfaces
 			final implicits:Array<TypePath> = [];

@@ -96,8 +96,9 @@ class ChanData<T> {
     public function __isGet__(selectBool:Bool=false):Bool {
         mutex.acquire();
         if (buffered) {
+            final b = length > 0;
             mutex.release();
-            return length > 0;
+            return b;
         }
         final b = getBool || closed;
         if (selectBool)

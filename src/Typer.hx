@@ -6610,7 +6610,8 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 		}
 	}
 	final restrictedFields:Array<String> = [];
-	final fields = getStructFields(typeX, restrictedFields, true);
+	// onlyEmbeds = false
+	final fields = getStructFields(typeX, restrictedFields, false);
 	if (fields.length > 0) {
 		var chains:Array<String> = []; // chains together a field selectors
 		function recursion(path:String, fields:Array<FieldType>,depth:Int) {

@@ -44,8 +44,9 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	}
 
 	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
-		if (a == null || b == null) // null check
+		if (a == null || b == null) {// null check
 			return a == null && b == null;
+		}
 		var gt:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
 		var gt2:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess (b.type : Dynamic)._common();
 		if (gt.match(invalidType) || gt2.match(invalidType))
@@ -180,17 +181,19 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				var b:GoArray<Any> = bValue;
 				var t = new stdgo._internal.internal.reflect.Reflect._Type(elem);
 				for (i in 0...a.length.toBasic()) {
-					if (AnyInterface.notEquals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
+					if (AnyInterface.notEquals(new AnyInterface(a[i], t), new AnyInterface(b[i], t))) {
 						return false;
+					}
 				}
 				true;
 			case pointerType(_):
 				(aValue : Pointer<Dynamic>) == (bValue : Pointer<Dynamic>);
 			case sliceType(_), mapType(_, _), signature(_, _, _, _, _):
 				// Slice, map, and function types are not comparable. However, as a special case, a slice, map, or function value may be compared to the predeclared identifier 
-				// nil. Comparison of pointer, channel, and interface values to nil is also allowed and follows from the general rules above. 
-				if (aValue == null || bValue == null)
+				// nil. Comparison of pointer, channel, and interface values to nil is also allowed and follows from the general rules above.
+				/*if (aValue == null || bValue == null) {
 					return aValue == null && bValue == null;
+				}*/
 				throw errorString("comparing uncomparable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
 			default:
 				throw "unknown type equals: " + gt;

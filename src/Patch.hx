@@ -2300,7 +2300,7 @@ final addTypeDefs = [
 			this._socket = socket;
 			this._addr = addr;
 		}
-		public function read(_b:stdgo.Slice<stdgo.GoByte>):{_0:stdgo.GoInt, _1:stdgo.Error} {
+		public dynamic function read(_b:stdgo.Slice<stdgo.GoByte>):{_0:stdgo.GoInt, _1:stdgo.Error} {
 			@:define("sys") {
 				final b = _b.toBytes();
 				final i = _socket.input.readBytes(b, 0, b.length);
@@ -2309,7 +2309,7 @@ final addTypeDefs = [
 			}
 			return {_0: 0, _1: null};
 		}
-		public function write(_b:stdgo.Slice<stdgo.GoByte>):{_0:stdgo.GoInt, _1:stdgo.Error} {
+		public dynamic function write(_b:stdgo.Slice<stdgo.GoByte>):{_0:stdgo.GoInt, _1:stdgo.Error} {
 			@:define("sys") {
 				final b = _b.toBytes();
 				final i = _socket.output.writeBytes(b, 0, b.length);
@@ -2350,13 +2350,13 @@ final addTypeDefs = [
 	"os:JsOutput" => macro class JsOutput extends haxe.io.Output {
 		public function new() {}
 
-		override public function writeBytes(buf,pos,len) {
+		override dynamic public function writeBytes(buf,pos,len) {
 			if (pos == 0 && len == buf.length) {
 				stdgo.Go.print(buf.toString());
 			}
 			return 0;
 		}
-		override public function write(s) {
+		override dynamic public function write(s) {
 			stdgo.Go.print(s.toString());
 		}
 	},

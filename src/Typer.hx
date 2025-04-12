@@ -6386,7 +6386,7 @@ function getStructFields(type:GoType, restrictedFields:Array<String>, onlyEmbeds
 				fields.filter(field -> field.embedded);
 			}else{
 				final fields = fields.copy();
-				fields.sort((a,b) -> a.embedded == b.embedded ? 0 : a.embedded ? 1 : -1);
+				fields.sort((a,b) -> a.embedded == b.embedded ? 0 : (!a.embedded ? 1 : -1));
 				fields;
 			}
 		default:
@@ -6623,7 +6623,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 				if (restrictedFields.contains(field.name))
 					continue;
 				var setPath = path + field.name;
-				chains.push(setPath);
+				final chainPath = setPath;
 				setPath += ".";
 				var structFields = getStructFields(field.type.get(), restrictedFields);
 				if (isPointer(field.type.get())) {
@@ -6631,12 +6631,13 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 				}
 				if (structFields.length > 0)
  					recursion(setPath, structFields, depth+1);
+				chains.push(chainPath);
 			}
 		}
 		recursion("", fields, 0);
-		chains.sort((a, b) -> {
+		/*chains.sort((a, b) -> {
 			return a.split(".").length - b.split(".").length;
-		});
+		});*/
 		//trace(chains);
 		for (chain in chains) {
 			final field = chain.substr(chain.lastIndexOf(".") + 1);

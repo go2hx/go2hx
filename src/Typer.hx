@@ -6385,6 +6385,8 @@ function getStructFields(type:GoType, restrictedFields:Array<String>, onlyEmbeds
 			if (onlyEmbeds) {
 				fields.filter(field -> field.embedded);
 			}else{
+				final fields = fields.copy();
+				fields.sort((a,b) -> a.embedded == b.embedded ? 0 : a.embedded ? 1 : -1);
 				fields;
 			}
 		default:
@@ -6635,8 +6637,9 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 		chains.sort((a, b) -> {
 			return a.split(".").length - b.split(".").length;
 		});
+		//trace(chains);
 		for (chain in chains) {
-			var field = chain.substr(chain.lastIndexOf(".") + 1);
+			final field = chain.substr(chain.lastIndexOf(".") + 1);
 			if (field == sel) {
 				sel = chain;
 				break;

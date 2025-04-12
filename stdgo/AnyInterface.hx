@@ -188,12 +188,17 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				true;
 			case pointerType(_):
 				(aValue : Pointer<Dynamic>) == (bValue : Pointer<Dynamic>);
-			case sliceType(_), mapType(_, _), signature(_, _, _, _, _):
+			case sliceType(_):
+				(aValue : Slice<Dynamic>) == (bValue : Slice<Dynamic>);
+			case mapType(_, _), signature(_, _, _, _, _):
 				// Slice, map, and function types are not comparable. However, as a special case, a slice, map, or function value may be compared to the predeclared identifier 
 				// nil. Comparison of pointer, channel, and interface values to nil is also allowed and follows from the general rules above.
-				/*if (aValue == null || bValue == null) {
-					return aValue == null && bValue == null;
-				}*/
+				// if (aValue == null || bValue == null) {
+				// 	return aValue == null && bValue == null;
+				// }
+				// trace(gt);
+				// trace(gt2);
+				// trace(aValue == null,bValue == null, a == null, b == null);
 				throw errorString("comparing uncomparable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
 			default:
 				throw "unknown type equals: " + gt;

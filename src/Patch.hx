@@ -2350,13 +2350,13 @@ final addTypeDefs = [
 	"os:JsOutput" => macro class JsOutput extends haxe.io.Output {
 		public function new() {}
 
-		override dynamic public function writeBytes(buf,pos,len) {
+		override public function writeBytes(buf,pos,len) {
 			if (pos == 0 && len == buf.length) {
 				stdgo.Go.print(buf.toString());
 			}
 			return 0;
 		}
-		override dynamic public function write(s) {
+		override public function write(s) {
 			stdgo.Go.print(s.toString());
 		}
 	},

@@ -8447,7 +8447,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 												fields.push({
 													name: name,
 													pos: null,
-													access: [APublic],
+													access: [APublic,ADynamic],
 													kind: FFun({
 														args: [for (i in 0...args.length) ({name: '_$i', type: args[i]} : haxe.macro.Expr.FunctionArg)],
 														ret: ret,

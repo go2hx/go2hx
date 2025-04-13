@@ -988,7 +988,7 @@ final list = [
 		};
 	},
 	"reflect.Value:pointer" => macro {
-		if (@:privateAccess _v.value == null)
+		if (@:privateAccess _v.isNil())
 			return new stdgo.GoUIntptr(0);
 		var value = @:privateAccess _v.value.value;
 		return new stdgo.GoUIntptr(value != null ? 1 : 0);

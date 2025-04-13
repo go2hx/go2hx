@@ -1592,9 +1592,12 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for s
 	var x = typeExpr(stmt.x, info);
 	var xType = typeof(stmt.x, info, false);
 	var isChan = false;
+	var isArray = false;
 	switch getUnderlying(xType) {
 		case chanType(_, _):
 			isChan = true;
+		case arrayType(_, _):
+			isArray = true;
 		default:
 	}
 	x = destructureExpr(x, xType).x;
@@ -1637,6 +1640,9 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for s
 	}
 	if (isChan) {
 		return (macro for ($key in $x) $body).expr;
+	}
+	if (isArray) {
+		return (macro for ($key => $value in $x.__copy__()) $body).expr;
 	}
 	return (macro for ($key => $value in $x) $body).expr;
 }

@@ -260,6 +260,7 @@ function update() {
 		final taskString = task.command + " " + task.args.join(" ");
 		lastTaskLogs.push(taskString);
 		runningCount++;
+		// trace(task.command + " " + task.args.join(" "));
 		final ls = ChildProcess.spawn(task.command, task.args);
 		var timeoutTimer = new haxe.Timer((1000 * 60) * 12);
 		timeoutTimer.run = () -> {
@@ -277,9 +278,9 @@ function update() {
 			if (!noLogs) {
 				log(task.target + "|" + task.path + "|" + task.runtime + "|" + task.stamp());
 				Sys.print(data);
-				task.output += data;
 				log(data);
 			}
+			task.output += data;
 			timeout = 0;
 		});
 		ls.stderr.on('data', function(data) {

@@ -246,7 +246,7 @@ private class ChanIterator<T> {
      * For channels, the iteration values produced are the successive values sent on the channel until the channel is closed. If the channel is nil, the range expression blocks forever. 
      */
     public inline function hasNext() {
-        return @:privateAccess !chan.closed;
+        return @:privateAccess !chan.closed || chan.length > 0;
     }
 
     public inline function next() {

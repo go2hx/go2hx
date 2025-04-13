@@ -2318,7 +2318,7 @@ final addTypeDefs = [
 			}
 			return {_0: 0, _1: null};
 		}
-		public function close():stdgo.Error {
+		public dynamic function close():stdgo.Error {
 			@:define("sys") {
 				_socket.close();
 			}

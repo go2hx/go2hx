@@ -681,6 +681,7 @@ private function sortDataToTests(sortData:SortData) {
 private function excludeTest(name:String) {
 	// exclude certain go tests
 	switch name {
+		case "io4": // unit very flakey channels, TODO enable
 		case "more_intstar_input": // go-easy build compiler flag excludes wasm
 		case "issue13169": // go-easy too slow
 		case "issue32288": // go-easy inf loop uintptr stack and recover

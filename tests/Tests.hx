@@ -1,5 +1,4 @@
 import Main.InstanceData;
-import js.node.ChildProcess;
 import haxe.macro.Compiler;
 import haxe.Json;
 import sys.io.File;
@@ -260,8 +259,10 @@ function update() {
 		final taskString = task.command + " " + task.args.join(" ");
 		lastTaskLogs.push(taskString);
 		runningCount++;
-		// trace(task.command + " " + task.args.join(" "));
-		final ls = ChildProcess.spawn(task.command, task.args);
+		trace("task command: " + task.command + " " + task.args.join(" "));
+		final ls:js.node.child_process.ChildProcess = js.node.ChildProcess.spawn(task.command, task.args, {shell: true});
+		ls.stdout.setEncoding('utf8');
+		ls.stderr.setEncoding('utf8');
 		var timeoutTimer = new haxe.Timer((1000 * 60) * 12);
 		timeoutTimer.run = () -> {
 			runningCount--;
@@ -308,6 +309,7 @@ function update() {
 						if (correct) {
 							suite.correct(task);
 						}else{
+							Sys.println("command: " + task.command + " " + task.args.join(" "));
 							Sys.println("output:");
 							Sys.println(output);
 							Sys.println("wanted:");
@@ -541,8 +543,6 @@ private function close() {
 	final testName = type + (sortMode == "" ? "" : "_" + sortMode) + "_" + target;
 	final filePath = 'tests/$testName.json';
 	var output:Array<String> = FileSystem.exists(filePath) ? Json.parse(File.getContent(filePath)) : [];
-	// remove targets that don't exist
-	output = output.filter(o -> ranTests.indexOf(o) != -1);
 	log('--> $type');
 	log('      correct output: ' + calc(suite.correctCount, suite.count));
 	log('    incorrect output: ' + calc(suite.incorrectCount, suite.count));

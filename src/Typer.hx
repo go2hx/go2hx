@@ -6635,20 +6635,22 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			}
 		}
 		recursion("", fields, 0);
-		/*chains.sort((a, b) -> {
-			return a.split(".").length - b.split(".").length;
-		});*/
-		//trace(chains);
+		var fieldSize = 999999;
+		var setSel = sel;
 		for (chain in chains) {
+			final newFieldSize = chain.split(".").length;
 			final field = chain.substr(chain.lastIndexOf(".") + 1);
-			if (field == sel) {
-				sel = chain;
-				break;
+			//trace(newFieldSize, chain, );
+			if (field == sel && newFieldSize < fieldSize) {
+				fieldSize = newFieldSize;
+				setSel = chain;
+				// trace("set to chain: " + chain);
 			}
 		}
+		sel = setSel;
 	}
 	final e = macro $x.$sel;
-	//trace(printer.printExpr(e), kind, typeX);
+	// trace(printer.printExpr(e), kind, typeX);
 	return e.expr; // EField
 }
 

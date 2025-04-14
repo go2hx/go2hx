@@ -267,7 +267,8 @@ final list = [
 		}
 		final b = _b.toBytes();
 		final i = @:privateAccess _f._output.writeBytes(b, 0, b.length);
-		@:privateAccess _f._output.flush();
+		// fails on js
+		//@:privateAccess _f._output.flush();
 		@:privateAccess _f.mutex.release();
 		if (i != b.length)
 			return {_0: i, _1: stdgo._internal.errors.Errors_new_.new_("invalid write")};

@@ -387,11 +387,11 @@ abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	}
 
 	public function iterator() {
-		return new GoArrayDataIterator(this.__copy__());
+		return new GoArrayDataIterator(this);
 	}
 
 	public function keyValueIterator():KeyValueIterator<GoInt, T> {
-		return new GoArrayDataKeyValueIterator(this.__copy__());
+		return new GoArrayDataKeyValueIterator(this);
 	}
 
 	private function __boundsCheck__(i:Int) {

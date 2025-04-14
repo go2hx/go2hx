@@ -1533,7 +1533,16 @@ final list = [
 			case stdgo._internal.internal.reflect.Reflect.KindType.interface_:
 				if (value == null)
 					return new $newValue();
-				return new $newValue(value, @:privateAccess _v.value.type);
+				if (_v.numMethod() != 0) {
+					return new $newValue(
+						value, 
+						@:privateAccess _v.value.type
+					);
+				} else {
+					final any = @:privateAccess (_v.value.value : AnyInterface);
+					final type = any.type;
+					return @:privateAccess new $newValue(any, type);
+				}
 		};
 		throw new $newValueError("reflect.Value.Elem", k);
 	},

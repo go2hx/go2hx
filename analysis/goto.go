@@ -622,7 +622,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 					for i := range spec.Values {
 						spec.Values[i] = fs.changeVars(spec.Values[i])
 					}
-					if len(names) > 0 {
+					if len(names) > 0 && decl.Tok != token.CONST {
 						stmts = append(stmts, &ast.AssignStmt{Lhs: names, Rhs: spec.Values, Tok: token.ASSIGN})
 					}
 				default:

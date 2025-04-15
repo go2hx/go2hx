@@ -200,5 +200,10 @@
  "interp|switch22",
  "interp|map9",
  "interp|ptr0",
- "interp|append3"
+ "interp|append3",
+ "interp|chan12",
+ "interp|chan13",
+ "interp|interfaceEmbed",
+ "interp|io6",
+ "interp|method0"
 ]

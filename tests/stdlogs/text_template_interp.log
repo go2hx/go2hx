@@ -16,9 +16,9 @@
         |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-    ->  ./stdgo/_internal/text/template/Template__tval.hx:88: characters 33-147
+    ->  ./stdgo/_internal/text/template/Template__tval.hx:87: characters 44-158
 
-     88 |         var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("x" : stdgo.GoString)).parse(("test template" : stdgo.GoString));
-        |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     87 |         @:tupleArg var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("x" : stdgo.GoString)).parse(("test template" : stdgo.GoString));
+        |                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 

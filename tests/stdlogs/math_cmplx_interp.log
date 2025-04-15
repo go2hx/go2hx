@@ -110,6 +110,5 @@ Tan((-3.1217485503159922e+144+0i)) = (3.3913596505435195+0i), want (3.3913596505
 
 -- FAIL: TestTanHuge
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestTanHuge

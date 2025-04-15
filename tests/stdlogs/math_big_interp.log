@@ -1,12 +1,12 @@
-[ERROR] ./stdgo/AnyInterface.hx:49: characters 76-104
+[ERROR] ./stdgo/AnyInterface.hx:50: characters 76-104
 
- 49 |   var gt:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
+ 50 |   var gt:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
     |                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Uncaught exception Cannot call null
 
-     ->  ./stdgo/GoMap.hx:693: characters 7-15
+     ->  ./stdgo/GoMap.hx:700: characters 7-15
 
-     693 |   if (k1 == k2) {
+     700 |   if (k1 == k2) {
          |       ^^^^^^^^
          | Called from here
 
@@ -16,10 +16,10 @@
          |            ^^^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-     ->  ./stdgo/_internal/encoding/gob/Gob__bootstraptype.hx:13: characters 571-587
+     ->  ./stdgo/_internal/encoding/gob/Gob__bootstraptype.hx:13: characters 566-582
 
       13 | 
-         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^^^^^^^^^^^^^^^^
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^^^^^^^^^^^^^^^^
          | Called from here
 
      ->  ./stdgo/_internal/encoding/gob/Gob__tint.hx:2: characters 66-213

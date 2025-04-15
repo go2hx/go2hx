@@ -7,7 +7,7 @@
 -- PASS: TestMapFSChmodDot
 
 === RUN  TestSymlink
-writeFile tmp_i7h20bwyo6/hello: no such file or directory
+writeFile tmp_gysv89xp6v/hello: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from stdgo._internal.testing.fstest._Fstest_testsymlink.Fstest_testsymlink_Fields_.testSymlink (./stdgo/_internal/testing/fstest/Fstest_testsymlink.hx line 9 column 36)
@@ -31,6 +31,5 @@ Called from stdgo._internal.testing.fstest.T_fsTester_static_extension._checkDir
 
 -- FAIL: TestShuffledFS
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestShuffledFS

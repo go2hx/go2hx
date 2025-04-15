@@ -185,5 +185,12 @@
  "js|switch22",
  "js|map9",
  "js|ptr0",
- "js|append3"
+ "js|append3",
+ "js|base64DecoderIssue3577",
+ "js|base64chan",
+ "js|chan3",
+ "js|chan4",
+ "js|interfaceEmbed",
+ "js|io6",
+ "js|method0"
 ]

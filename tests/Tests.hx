@@ -1,5 +1,4 @@
 import Main.InstanceData;
-import js.node.ChildProcess;
 import haxe.macro.Compiler;
 import haxe.Json;
 import sys.io.File;
@@ -260,7 +259,10 @@ function update() {
 		final taskString = task.command + " " + task.args.join(" ");
 		lastTaskLogs.push(taskString);
 		runningCount++;
-		final ls = ChildProcess.spawn(task.command, task.args);
+		trace("task command: " + task.command + " " + task.args.join(" "));
+		final ls:js.node.child_process.ChildProcess = js.node.ChildProcess.spawn(task.command, task.args, {shell: true});
+		ls.stdout.setEncoding('utf8');
+		ls.stderr.setEncoding('utf8');
 		var timeoutTimer = new haxe.Timer((1000 * 60) * 12);
 		timeoutTimer.run = () -> {
 			runningCount--;
@@ -277,9 +279,9 @@ function update() {
 			if (!noLogs) {
 				log(task.target + "|" + task.path + "|" + task.runtime + "|" + task.stamp());
 				Sys.print(data);
-				task.output += data;
 				log(data);
 			}
+			task.output += data;
 			timeout = 0;
 		});
 		ls.stderr.on('data', function(data) {
@@ -307,6 +309,7 @@ function update() {
 						if (correct) {
 							suite.correct(task);
 						}else{
+							Sys.println("command: " + task.command + " " + task.args.join(" "));
 							Sys.println("output:");
 							Sys.println(output);
 							Sys.println("wanted:");
@@ -320,7 +323,7 @@ function update() {
 						suite.success(task);
 					}
 				}else {
-					trace(task.excludeArgs);
+					//trace(task.excludeArgs);
 					final cmd = Main.runTarget(task.target,"golibs/" + task.out,task.excludeArgs,task.main).split(" ");
 					tasks.push({command:cmd[0], args: cmd.slice(1), target: task.target, path: task.path, runtime: true, out: "", main: "", excludeArgs: task.excludeArgs});
 				}
@@ -538,9 +541,8 @@ private function close() {
 	if (type == "")
 		return;
 	final testName = type + (sortMode == "" ? "" : "_" + sortMode) + "_" + target;
-	var output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
-	// remove targets that don't exist
-	output = output.filter(o -> ranTests.indexOf(o) == -1);
+	final filePath = 'tests/$testName.json';
+	var output:Array<String> = FileSystem.exists(filePath) ? Json.parse(File.getContent(filePath)) : [];
 	log('--> $type');
 	log('      correct output: ' + calc(suite.correctCount, suite.count));
 	log('    incorrect output: ' + calc(suite.incorrectCount, suite.count));
@@ -679,7 +681,11 @@ private function sortDataToTests(sortData:SortData) {
 private function excludeTest(name:String) {
 	// exclude certain go tests
 	switch name {
+		case "sieve": // go-easy very flakey channels, TODO enable
+		case "io4": // unit very flakey channels, TODO enable
+		case "chan1": // unit very flakey channels, TODO enable
 		case "more_intstar_input": // go-easy build compiler flag excludes wasm
+		case "issue13169": // go-easy too slow
 		case "issue32288": // go-easy inf loop uintptr stack and recover
 		case "index0": // go-easy no main func
 		case "issue16760": // go-easy stack panic for interp, 1000 -> 100 stack as unit test

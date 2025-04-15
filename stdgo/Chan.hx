@@ -96,8 +96,9 @@ class ChanData<T> {
     public function __isGet__(selectBool:Bool=false):Bool {
         mutex.acquire();
         if (buffered) {
+            final b = length > 0;
             mutex.release();
-            return length > 0;
+            return b;
         }
         final b = getBool || closed;
         if (selectBool)
@@ -245,7 +246,7 @@ private class ChanIterator<T> {
      * For channels, the iteration values produced are the successive values sent on the channel until the channel is closed. If the channel is nil, the range expression blocks forever. 
      */
     public inline function hasNext() {
-        return @:privateAccess !chan.closed;
+        return @:privateAccess !chan.closed || chan.length > 0;
     }
 
     public inline function next() {
@@ -254,8 +255,35 @@ private class ChanIterator<T> {
     }
 }
 #else
+@:forward(
+    length,
+    capacity,
+    __isSend__,
+    __isGet__,
+    __smartGet__,
+    __get__,
+    __send__,
+    __close__,
+    keyValueIterator,
+    iterator
+)
+@:forward.new
+/**
+ *    Chan is a Go channel in Haxe
+ *    Channels are used in a goroutine context to send and get data
+ *    Channel are by default blocking for sending, waiting until a get on the other side is called
+ *    The syntax for channels is different for Go and Haxe:
+ *
+ *    Haxe: c.__get__ Go: <- c
+ *    Haxe: c.__send__(x) Go: c <- x
+ */
+abstract Chan<T>(ChanData<T>) from ChanData<T> to ChanData<T> {
+    public function __reset__() {
+        this?.__reset__();
+    }
+}
 // javascript implementation
-class Chan<T> {
+class ChanData<T> {
     public function new(length:GoInt, defaultValue:Void->T) {}
 
     public var capacity(get, never):GoInt;

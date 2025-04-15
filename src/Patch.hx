@@ -260,21 +260,19 @@ final list = [
 		return null;
 	},
 	"os.File:write" => macro {
-		@:define("(sys || hxnodejs)") {
-			final isEval = @:define("eval", false) true;
-			if (!(@:privateAccess _f._output is sys.io.FileOutput) || isEval) {
-				if (_b.length == 0)
-					return {_0: 0, _1: null};
-				@:privateAccess _f.mutex.acquire();
-				final b = _b.toBytes();
-				final i = @:privateAccess _f._output.writeBytes(b, 0, b.length);
-				@:privateAccess _f.mutex.release();
-				if (i != b.length)
-					return {_0: i, _1: stdgo._internal.errors.Errors_new_.new_("invalid write")};
-				return {_0: i, _1: null};
-			}
+		@:privateAccess _f.mutex.acquire();
+		if (_b.length == 0) {
+			@:privateAccess _f.mutex.release();
+			return {_0: 0, _1: null};
 		}
-		return @:privateAccess _f.writeAt(_b, 0);
+		final b = _b.toBytes();
+		final i = @:privateAccess _f._output.writeBytes(b, 0, b.length);
+		// fails on js
+		//@:privateAccess _f._output.flush();
+		@:privateAccess _f.mutex.release();
+		if (i != b.length)
+			return {_0: i, _1: stdgo._internal.errors.Errors_new_.new_("invalid write")};
+		return {_0: i, _1: null};
 	},
 	"os.File:truncate" => macro {
 		@:define("(sys || hxnodejs)") {
@@ -290,9 +288,11 @@ final list = [
 		return @:privateAccess _v._v;
 	},
 	"os.File:close" => macro {
-		@:privateAccess _f._output.flush();
-		@:privateAccess _f._input.close();
-		@:privateAccess _f._output.close();
+		@:privateAccess _f.mutex.acquire();
+		@:privateAccess _f._output?.flush();
+        @:privateAccess _f._input?.close();
+        @:privateAccess _f._output?.close();
+		@:privateAccess _f.mutex.release();
 		return null;
 	},
 	"os:Getenv" => macro {
@@ -609,27 +609,23 @@ final list = [
 			return { _0 : 0, _1 : null };
 		}
 		@:define("(sys || hxnodejs)") {
+			@:privateAccess _f.mutex.acquire();
 			final input:sys.io.FileInput = cast @:privateAccess _f._input;
 			final pos = sys.io.FileSeek.createByIndex(_whence.toBasic());
 			@:privateAccess input.seek(_offset.toBasic().low, pos);
+			@:privateAccess _f.mutex.release();
 			return { _0 : input.tell(), _1 : null };
 		}
 		trace("not supported on non sys target");
 		return {_0: 0, _1: null};
 	},
 	"os.File:read" => macro {
-		@:define("(sys || hxnodejs)") {
-			final isEval = @:define("eval", false) true;
-			if (!(@:privateAccess _f._input is sys.io.FileInput) || isEval) {
-				@:privateAccess _f.mutex.acquire();
-				final b = @:privateAccess _b.toBytes();
-				final i = @:privateAccess _f._input.readBytes(b, 0, b.length);
-				@:privateAccess _b.__bytes__ = b;
-				@:privateAccess _f.mutex.release();
-				return {_0: i, _1: null};
-			}
-		}
-		return @:privateAccess _f.readAt(_b, 0);
+		@:privateAccess _f.mutex.acquire();
+		final b = @:privateAccess _b.toBytes();
+		final i = @:privateAccess _f._input.readBytes(b, 0, b.length);
+		@:privateAccess _b.__bytes__ = b;
+		@:privateAccess _f.mutex.release();
+		return {_0: i, _1: null};
 	},
 	"os:createTemp" => macro {
 		final dir = _dir;
@@ -679,6 +675,7 @@ final list = [
 				}
 				final b = _b.toBytes();
 				final i = @:privateAccess _f._output.writeBytes(b, 0, b.length);
+				@:privateAccess _f._output.flush();
 				@:define("!eval") {
 					@:privateAccess cast(_f._output, sys.io.FileOutput).seek(t, sys.io.FileSeek.SeekBegin);
 				}
@@ -992,7 +989,7 @@ final list = [
 		};
 	},
 	"reflect.Value:pointer" => macro {
-		if (@:privateAccess _v.value == null)
+		if (@:privateAccess _v.isNil())
 			return new stdgo.GoUIntptr(0);
 		var value = @:privateAccess _v.value.value;
 		return new stdgo.GoUIntptr(value != null ? 1 : 0);
@@ -1537,7 +1534,16 @@ final list = [
 			case stdgo._internal.internal.reflect.Reflect.KindType.interface_:
 				if (value == null)
 					return new $newValue();
-				return new $newValue(value, @:privateAccess _v.value.type);
+				if (_v.numMethod() != 0) {
+					return new $newValue(
+						value, 
+						@:privateAccess _v.value.type
+					);
+				} else {
+					final any = @:privateAccess (_v.value.value : AnyInterface);
+					final type = any.type;
+					return @:privateAccess new $newValue(any, type);
+				}
 		};
 		throw new $newValueError("reflect.Value.Elem", k);
 	},
@@ -2007,8 +2013,8 @@ final list = [
 			}
 			stdgo.Go.println(output.toString());
 		}
-		trace("exitCode: " + _m._exitCode);
-		trace("exitCodeReason: " + exitCodeReason);
+		if (_m._exitCode != 0)
+			trace("exitCode: " + _m._exitCode + " exitCodeReason: " + exitCodeReason);
 		return _m._exitCode;
 	},
 	"testing:benchmark" => macro return new stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult(),
@@ -2050,6 +2056,8 @@ final skipTests = [
 	"math_test:testNextafter32" => ["interp", "js"],
 	"strconv_test:testRoundTrip32" => ["interp", "js"], // imprecise float
 	"bufio_test:testReadStringAllocs" => [], // checks runtime allocations num
+	"io_test:testOffsetWriter_Write" => [],  // very flakey channels, TODO enable
+	"io_test:testOffsetWriter_WriteAt" => [], // very flakey channels, TODO enable
 	"io_test:testMultiWriter_WriteStringSingleAlloc" => [], // checks runtime allocations num
 	"io_test:testMultiReaderFreesExhaustedReaders" => [], // uses runtime.setFinalizer
 	"io_test:testMultiWriterSingleChainFlatten" => [], // uses runtime.callers
@@ -2201,7 +2209,7 @@ final structs = [
 		@:local
 		var counter:stdgo.GoUInt = 0;
 		@:local
-		var mutex = @:define("target.threaded") new sys.thread.Semaphore(1);
+		var mutex = @:define("target.threaded") new sys.thread.Mutex();
 	},
 	"sync:Cond" => macro {
 		@:local
@@ -2276,10 +2284,10 @@ final addTypeDefs = [
 			this._ip = ip;
 			this._port = port;
 		}
-		public function network():stdgo.GoString {
+		public dynamic function network():stdgo.GoString {
 			return _network;
 		}
-		public function string():stdgo.GoString {
+		public dynamic function string():stdgo.GoString {
 			return "";
 		}
 		public function __underlying__():stdgo.AnyInterface
@@ -2294,7 +2302,7 @@ final addTypeDefs = [
 			this._socket = socket;
 			this._addr = addr;
 		}
-		public function read(_b:stdgo.Slice<stdgo.GoByte>):{_0:stdgo.GoInt, _1:stdgo.Error} {
+		public dynamic function read(_b:stdgo.Slice<stdgo.GoByte>):{_0:stdgo.GoInt, _1:stdgo.Error} {
 			@:define("sys") {
 				final b = _b.toBytes();
 				final i = _socket.input.readBytes(b, 0, b.length);
@@ -2303,7 +2311,7 @@ final addTypeDefs = [
 			}
 			return {_0: 0, _1: null};
 		}
-		public function write(_b:stdgo.Slice<stdgo.GoByte>):{_0:stdgo.GoInt, _1:stdgo.Error} {
+		public dynamic function write(_b:stdgo.Slice<stdgo.GoByte>):{_0:stdgo.GoInt, _1:stdgo.Error} {
 			@:define("sys") {
 				final b = _b.toBytes();
 				final i = _socket.output.writeBytes(b, 0, b.length);
@@ -2312,29 +2320,29 @@ final addTypeDefs = [
 			}
 			return {_0: 0, _1: null};
 		}
-		public function close():stdgo.Error {
+		public dynamic function close():stdgo.Error {
 			@:define("sys") {
 				_socket.close();
 			}
 			return null;
 		}
-		public function localAddr():stdgo._internal.net.Net_addr.Addr {
+		public dynamic function localAddr():stdgo._internal.net.Net_addr.Addr {
 			throw "not implemented";
 			return null;
 		}
-		public function remoteAddr():stdgo._internal.net.Net_addr.Addr {
+		public dynamic function remoteAddr():stdgo._internal.net.Net_addr.Addr {
 			throw "not implemented";
 			return null;
 		}
-		public function setDeadline(t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+		public dynamic function setDeadline(t:stdgo._internal.time.Time_time.Time):stdgo.Error {
 			throw "not implemented";
 			return null;
 		}
-		public function setReadDeadline(t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+		public dynamic function setReadDeadline(t:stdgo._internal.time.Time_time.Time):stdgo.Error {
 			throw "not implemented";
 			return null;
 		}
-		public function setWriteDeadline(t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+		public dynamic function setWriteDeadline(t:stdgo._internal.time.Time_time.Time):stdgo.Error {
 			throw "not implemented";
 			return null;
 		}

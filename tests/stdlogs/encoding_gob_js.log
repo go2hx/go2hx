@@ -1,17 +1,17 @@
-/home/runner/work/go2hx/go2hx/golibs/std_gob.js:33698
+/home/runner/work/go2hx/go2hx/golibs/std_gob.js:33728
 	var gt = a.type._common();
 	                ^
 
 TypeError: Cannot read properties of undefined (reading '_common')
-    at stdgo_AnyInterface.equals (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:33698:18)
-    at stdgo_GoObjectMap.compare (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:43373:25)
-    at stdgo_GoObjectMap.exists (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:43034:17)
-    at stdgo__$internal_encoding_gob_Gob_$_$bootstraptype__bootstrapType (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:49490:116)
-    at /home/runner/work/go2hx/go2hx/golibs/std_gob.js:111978:55
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:113695:3)
+    at stdgo_AnyInterface.equals (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:33728:18)
+    at stdgo_GoObjectMap.compare (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:43453:25)
+    at stdgo_GoObjectMap.exists (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:43114:17)
+    at stdgo__$internal_encoding_gob_Gob_$_$bootstraptype__bootstrapType (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:49571:116)
+    at /home/runner/work/go2hx/go2hx/golibs/std_gob.js:112113:55
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:113834:3)
     at Module._compile (node:internal/modules/cjs/loader:1734:14)
     at Object..js (node:internal/modules/cjs/loader:1899:10)
     at Module.load (node:internal/modules/cjs/loader:1469:32)
     at Function._load (node:internal/modules/cjs/loader:1286:12)
 
-Node.js v23.10.0
+Node.js v23.11.0

@@ -1,6 +1,54 @@
-[ERROR] (macro) ./stdgo/_internal/compress/flate/Flate_t_decompressor_static_extension.hx:193: characters 21-60
+[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:73: characters 49-92
 
- 193 |                     _stateInit_31 = (1i64 : stdgo.GoUInt64);
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | stdgo.GoUInt64 should be Int
+  73 |                     _magic_1 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+     |                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.internal.xcoff.Xcoff__magic
+
+          | For optional function argument 'get'
+
+[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:73: characters 21-100
+
+  73 |                     _magic_1 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Void should be stdgo.GoUInt16
+
+[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:190: characters 46-85
+
+ 190 |                     _l_16 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+     |                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.internal.xcoff.Xcoff__l
+
+          | For optional function argument 'get'
+
+[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:190: characters 21-89
+
+ 190 |                     _l_16 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Void should be stdgo.GoUInt32
+
+[ERROR] (macro) ./stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 108-109
+
+   4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
+     |                                                                                                            ^
+     | stdgo._internal.internal.reflect._Type should be stdgo._internal.go.types.Type_
+     | stdgo._internal.internal.reflect._Type has no field __underlying__
+     | For function argument '_t'
+
+      ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
+
+      513 |   return load("typeof", 1)(e);
+          |          ^^^^^^^^^^^^^^^^^^^^
+          | Called from here
+
+      ->  stdgo/Go.macro.hx:653: characters 11-31
+
+      653 |   var t = Context.typeof(expr);
+          |           ^^^^^^^^^^^^^^^^^^^^
+          | Called from here
+
+      ->  ./stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 42-111
+
+        4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
+          |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          | Called from here
 

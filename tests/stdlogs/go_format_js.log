@@ -1,107 +1,56 @@
 === RUN  TestNode
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131564 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131468 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:130800:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnode_testNode [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:46050:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130615 column 9)
-Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 116681 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137390:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137391:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131697 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131597 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:130929:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnode_testNode [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:46135:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130743 column 9)
+Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 116771 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137523:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137524:3)
 
 -- FAIL: TestNode
 
 === RUN  TestNodeNoModify
-Exception: Cannot read properties of null (reading 'length')
-Called from module TypeError: Cannot read properties of null (reading 'length')
-Called from stdgo_Slice.__boundsCheck__ (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 32666 column 25)
-Called from stdgo_Slice.__get__ (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 32671 column 14)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnodenomodify_testNodeNoModify [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:109392:17)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130615 column 9)
-Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 116681 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137390:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137391:3)
+Exception: Int32:sync.atomic_.add is not yet implemented
+Called from .stdgo__$internal_go_parser_Parser_$parsefile_parseFile (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 46457 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnodenomodify_testNodeNoModify [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:109457:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130743 column 9)
+Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 116771 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137523:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137524:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
 
 -- FAIL: TestNodeNoModify
 
 === RUN  TestSource
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131564 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131468 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:130800:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testsource_testSource [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:111593:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130615 column 9)
-Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 116681 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137390:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137391:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131697 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131597 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:130929:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testsource_testSource [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:111683:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130743 column 9)
+Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 116771 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137523:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137524:3)
 
 -- FAIL: TestSource
 
 === RUN  TestPartial
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
+Exception: Int32:sync.atomic_.add is not yet implemented
+Called from .stdgo__$internal_go_parser_Parser_$parsefile_parseFile (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 46457 column 25)
+Called from .stdgo__$internal_go_format_Format_$_$parse__parse (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 111716 column 16)
+Called from .stdgo__$internal_go_format_Format_$source_source (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 111697 column 16)
+Called from .stdgo__$internal_go_format_Format_$string_string (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 112046 column 16)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testpartial_testPartial [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:112034:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130743 column 9)
+Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 116771 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137523:1
 
 -- FAIL: TestPartial
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestPartial

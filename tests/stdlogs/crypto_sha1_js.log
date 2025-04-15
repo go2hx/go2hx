@@ -1,13 +1,13 @@
 === RUN  TestGolden
 sha1[<invalid reflect.Value>](%!s(MISSING)) = %!s(MISSING) want %!s(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 42659 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 42548 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:41904:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha1_Sha1_$testgolden_testGolden [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:11502:22)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 41710 column 9)
-Called from ._$internal_crypto_sha1dottest_Sha1dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 34299 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:53118:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:53119:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 42779 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 42664 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:42020:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha1_Sha1_$testgolden_testGolden [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:11421:22)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 41825 column 9)
+Called from ._$internal_crypto_sha1dottest_Sha1dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 34385 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:53238:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:53239:3)
 
 -- FAIL: TestGolden
 
@@ -26,14 +26,14 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 === RUN  TestBlockGeneric
 Exception: Cannot read properties of null (reading 'read')
 Called from module TypeError: Cannot read properties of null (reading 'read')
-Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 32139 column 20)
-Called from .stdgo__$internal_io_Io_$readfull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 32126 column 9)
-Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 32121 column 9)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha1_Sha1_$testblockgeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:32105:3)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 41710 column 9)
-Called from ._$internal_crypto_sha1dottest_Sha1dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 34299 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:53118:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:53119:3)
+Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 32179 column 21)
+Called from .stdgo__$internal_io_Io_$readfull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 32165 column 9)
+Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 32160 column 9)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha1_Sha1_$testblockgeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:32144:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 41825 column 9)
+Called from ._$internal_crypto_sha1dottest_Sha1dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 34385 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:53238:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:53239:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -48,6 +48,5 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 -- PASS: TestAllocations
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestBlockGeneric

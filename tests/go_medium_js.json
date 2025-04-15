@@ -80,5 +80,6 @@
  "js|bug243",
  "js|issue24419",
  "js|issue40629",
- "js|clear"
+ "js|clear",
+ "js|issue15992"
 ]

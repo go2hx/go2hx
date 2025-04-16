@@ -22,5 +22,5 @@ Called from stdgo._Slice.Slice_Impl_.__set__ (./stdgo/Slice.hx line 194 column 1
 
 -- FAIL: TestMarshalHash
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
 -- FAIL: TestMarshalHash

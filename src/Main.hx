@@ -213,7 +213,8 @@ function update() {
 
 function close(code:Int=0, instance: Null<InstanceData> = null) {
 	if (instance != null) {
-		Cache.saveCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']));
+		if (FileSystem.exists(instance.outputPath))
+			Cache.saveCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']));
 	}
 	
 	#if (debug && !nodejs)

@@ -4,6 +4,11 @@ import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
 
+final goRequiredVersion = File.getContent(".gorc");
+final home = Sys.getEnv(if (Sys.systemName() == "Windows") "UserProfile" else "HOME");
+final goCommand = executable(home + "/.go/go" + goRequiredVersion + "/bin/go");
+final goupCommand = executable(home + "/.go/bin/goup");
+
 function main() {
 	var index = 0;
 	final args = Sys.args();
@@ -12,6 +17,20 @@ function main() {
 		true;
 	} else {
 		false;
+	}
+	var index = args.indexOf("goup");
+	if (args.length > 0 && index != -1) {
+		final command = goupCommand + " " + args.slice(index + 1, args.length - 1).join(" ");
+		Sys.println(command);
+		Sys.command(command);
+		return;
+	}
+	index = args.indexOf("go");
+	if (args.length > 0 && index != -1) {
+		final command = goCommand + " " + args.slice(index + 1, args.length - 1).join(" ");
+		Sys.println(command);
+		Sys.command(command);
+		return;
 	}
 
 	if (args.length > 0 && args.indexOf("clean") != - 1) {
@@ -148,15 +167,19 @@ function deleteDirectoryRecursively(dir:String):Int {
 	#end
 }
 
-final goRequiredVersion = File.getContent(".gorc");
-
 function installRequiredGoVersion() {
-	final command = executable(home + "/.go/bin/goup") +  " install " + goRequiredVersion;
+	final command = goupCommand +  " install " + goRequiredVersion;
 	Sys.println(command);
 	Sys.println("Please wait a little...");
 	final proc = new Process(command);
 	if (proc.exitCode(true) != 0) {
+		final outMessage = proc.stdout.readAll().toString();
+		final errMessage = proc.stderr.readAll().toString();
+		if (errMessage.indexOf('msg="symlink') != -1)
+			return;
 		Sys.println("goup install command failed");
+		trace(outMessage);
+		trace(errMessage);
 		Sys.exit(1);
 	}
 }
@@ -165,14 +188,12 @@ function installRequiredGoVersion() {
 private function executable(path:String) {
 	return switch Sys.systemName() {
 		case "Windows":
-			path + ".exe";
+			'"' + path + '.exe"';
 		default:
 			path;
 	}
 }
 
-var goCommand = "go";
-final home = Sys.getEnv(if (Sys.systemName() == "Windows") "UserProfile" else "HOME");
 
 function build(rebuild:Bool) {
 	var process = new Process(executable(home + "/.go/bin/goup") + " version");
@@ -184,8 +205,7 @@ function build(rebuild:Bool) {
 			Sys.exit(1);
 		}
 	}
-	goCommand = executable(home + "/.go/go" + goRequiredVersion + "/bin/go");
-	process = new Process(goCommand, ["version"]);
+	process = new Process(goCommand + " version");
 	var code = process.exitCode();
 	if (code != 0) {
 		installRequiredGoVersion();

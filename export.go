@@ -200,7 +200,21 @@ func main() {
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
 	// set log output to log.out
 	cfg.Env = append(os.Environ(), "CGO_ENABLED=0")
-	cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm")
+	var err error
+	var b []byte
+	b, err = os.ReadFile(".gorc")
+
+	if err != nil {
+		println("require .gorc file")
+		panic(err)
+	}
+	home, err := os.UserHomeDir()
+	if err != nil {
+		println("finding home directory caused an error")
+		panic(err)
+	}
+	goroot := home + "/.go/go" + string(b)
+	cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm", "GOROOT="+goroot)
 	args := os.Args
 	if len(args) < 2 {
 		panic("The Haxe part of the compiler is supposed to invoke the Go part of the compiler")
@@ -215,7 +229,6 @@ func main() {
 	}
 	port := args[len(args)-1]
 	var excludesData []string
-	var err error
 	var logFile *os.File
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	logFile, err = os.OpenFile("log.out", os.O_RDWR|os.O_CREATE, 0666)
@@ -791,9 +804,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 						if len(values) == 0 && j == 0 {
 							values = append(values, parseData(e))
 						} else {
-							if len(values) > j {
-								values[j] = parseData(e)
-							}
+							values[j] = parseData(e)
 						}
 					}
 				}

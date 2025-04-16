@@ -80,6 +80,7 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-norun", "--norun"] => () -> instance.noRun = true, @doc("go test")
 		["-nocomments", "--nocomments"] => () -> instance.noComments = true, @doc("no comments")
 		["-test", "--test"] => () -> instance.test = true,
+		["-bench", "--bench"] => () -> instance.bench = true,
 		["-vartrace", "--vartrace", "-varTrace", "--varTrace"] => () -> instance.varTraceBool = true,
 		["-stack", "--stack"] => () -> instance.stackBool = true,
 		@doc("disable the usage of the build cache")
@@ -533,6 +534,10 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		commands.push("-D");
 		commands.push(define);
 	}
+	if (instance.bench) {
+		commands.push("-D");
+		commands.push("bench");
+	}
 	if (instance.target != "" && instance.target != "interp") {
 		final main = paths.length > 0 ? paths[0] : "";
 		for (command in buildTarget(instance.target, instance.targetOutput).split(" "))
@@ -771,6 +776,7 @@ class InstanceData {
 	public var useCache: Bool = true;
 	public var cleanCache: Bool = false;
 	public var test:Bool = false;
+	public var bench:Bool = false;
 
 	public var noCommentsBool:Bool = false;
 

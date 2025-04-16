@@ -1856,8 +1856,15 @@ final list = [
 		final args = @:define("(sys || hxnodejs)", []) Sys.args();
 		var testlist:Array<stdgo._internal.testing.Testing_internaltest.InternalTest> = [];
 		var runArgBool = false;
+		var benchBool = false;
+		if (haxe.macro.Compiler.getDefine("bench") != null)
+			benchBool = true;
 		var excludes:Array<String> = [];
 		for (i in 0...args.length) {
+			if (args[i] == "-bench" || args[i] == "--bench") {
+				benchBool = true;
+				continue;
+			}
 			if ((args[i] == "-run" || args[i] == "--run") && i < args.length - 1) {
 				final match = args[i + 1];
 				runArgBool = true;
@@ -1866,7 +1873,7 @@ final list = [
 						testlist.push(test);
 					}
 				}
-				break;
+				continue;
 			}
 		}
 		if (!runArgBool)
@@ -1881,6 +1888,7 @@ final list = [
 			}
 		}
 		var m = new stdgo._internal.testing.Testing_m.M(_deps, testlist, _benchmarks, _fuzzTargets, _examples);
+		@:privateAccess m.benchBool = benchBool;
 		return m;
 	},
 	"testing:testing" => macro return true,
@@ -1891,6 +1899,35 @@ final list = [
 		return 0;
 	},
 	"testing:verbose" => macro return false,
+	"testing.B:resetTimer" => macro {
+		if (_b._timerOn) {
+			/*runtime.ReadMemStats(&memStats)
+			b.startAllocs = memStats.Mallocs
+			b.startBytes = memStats.TotalAlloc*/
+			_b._common._start = stdgo._internal.time.Time_now.now();
+		}
+		_b._common._duration = 0;
+		_b._netAllocs = 0;
+		_b._netBytes = 0;
+	},
+	"testing.B:startTimer" => macro {
+		if (!_b._timerOn) {
+			_b._common._start = stdgo._internal.time.Time_now.now();
+			_b._timerOn = true;
+		}
+	},
+	"testing.B:stopTimer" => macro {
+		if (_b._timerOn) {
+			_b._common._duration += stdgo._internal.time.Time_since.since(_b._common._start);
+			_b._timerOn = false;
+		}
+	},
+	"testing.B:run" => macro {
+		stdgo.Go.println("- SUBRUN  " + _name.toString());
+		_b.n = 1;
+		_f(_b);
+		return true;
+	},
 	"testing.T_:run" => macro {
 		stdgo.Go.println("- SUBRUN  " + _name.toString());
 		_f(_t);
@@ -2013,6 +2050,39 @@ final list = [
 			}
 			stdgo.Go.println(output.toString());
 		}
+		if (@:privateAccess _m.benchBool) {
+			stdgo.Go.println("BENCHMARKING");
+			for (bench in _m._benchmarks) {
+				var b = new stdgo._internal.testing.Testing_b.B();
+				var error = false;
+				try {
+					b.resetTimer();
+					b.startTimer();
+					bench.f(b);
+					b.stopTimer();
+				} catch (e) {
+					stdgo.Go.println(e.details());
+					error = true;
+				}
+				for (f in b._common._cleanups) {
+					f();
+				}
+				if (error) {
+					final reason = '\n-- FAIL: ${bench.name.toString()}';
+					stdgo.Go.println(reason);
+					exitCodeReason = reason;
+					_m._exitCode = 1;
+				} else if (chatty) {
+					if (b.skipped()) {
+						stdgo.Go.println('\n-- SKIP: ${bench.name.toString()}');
+					} else {
+						final output = b._common._duration.string().toString();
+						// get allocs and memory here
+						stdgo.Go.println('\n-- BENCH: ${bench.name.toString()}' + ' ' + output);
+					}
+				}
+			}
+		}
 		if (_m._exitCode != 0)
 			trace("exitCode: " + _m._exitCode + " exitCodeReason: " + exitCodeReason);
 		return _m._exitCode;
@@ -2122,6 +2192,10 @@ final replace = [
 ];
 
 final structs = [
+	"testing:M" => macro {
+		@:local
+		var benchBool = false;
+	},
 	"testing:T_" => macro {
 		@:local
 		var output:StringBuf = null;

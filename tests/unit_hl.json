@@ -202,5 +202,11 @@
  "hl|interface20",
  "hl|switch22",
  "hl|ptr0",
- "hl|append3"
+ "hl|append3",
+ "hl|chan12",
+ "hl|chan13",
+ "hl|interfaceEmbed",
+ "hl|io6",
+ "hl|map9",
+ "hl|method0"
 ]

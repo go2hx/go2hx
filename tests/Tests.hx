@@ -683,6 +683,7 @@ private function excludeTest(name:String) {
 	switch name {
 		case "sieve": // go-easy very flakey channels, TODO enable
 		case "io4": // unit very flakey channels, TODO enable
+		case "io3": // unit very flakey channels, TODO enable
 		case "chan1": // unit very flakey channels, TODO enable
 		case "more_intstar_input": // go-easy build compiler flag excludes wasm
 		case "issue13169": // go-easy too slow

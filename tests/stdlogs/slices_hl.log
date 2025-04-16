@@ -412,6 +412,5 @@ Called from _internal.slicesdottest._Slicesdottest.$Slicesdottest_Fields_.main (
 
 -- FAIL: TestBinarySearchFunc
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestBinarySearchFunc

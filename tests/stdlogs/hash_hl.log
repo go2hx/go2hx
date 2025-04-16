@@ -26,6 +26,5 @@ Called from _internal.hashdottest._Hashdottest.$Hashdottest_Fields_.main (_inter
 
 -- FAIL: TestMarshalHash
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestMarshalHash

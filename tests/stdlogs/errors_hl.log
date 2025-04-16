@@ -49,12 +49,14 @@
 - SUBRUN  
 - SUBRUN  
 
--- FAIL: TestIs
+-- PASS: TestIs
 
 === RUN  TestAs
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 - SUBRUN  0:As(Errorf(..., <nil>), 0x1)
 - SUBRUN  1:As(Errorf(..., pitied the fool), errorT())
-Exception: __fail__
+got _internal.errors_test.errorT{s:""}, want _internal.errors_test.errorT{s:"T"}Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
@@ -70,6 +72,8 @@ Called from _internal.errorsdottest._Errorsdottest.$Errorsdottest_Fields_.main (
 - SUBRUN  <nil>(<nil>)
 - SUBRUN  *int(<nil>)
 - SUBRUN  string(error)
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 - SUBRUN  *string(0x1)
 ./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 
@@ -79,6 +83,5 @@ Called from _internal.errorsdottest._Errorsdottest.$Errorsdottest_Fields_.main (
 
 -- PASS: TestUnwrap
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestAs

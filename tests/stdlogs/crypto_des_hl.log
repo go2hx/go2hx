@@ -1,6 +1,6 @@
 === RUN  TestWeakKeys
 Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_I64
-Called from stdgo._internal.crypto.des._Des_testweakkeys.$Des_testweakkeys_Fields_.~testWeakKeys.0 (stdgo/GoArray.hx line 117)
+Called from stdgo._internal.crypto.des._Des_testweakkeys.$Des_testweakkeys_Fields_.~testWeakKeys.0 (stdgo/GoArray.hx line 125)
 Called from stdgo._internal.crypto.des._Des_testweakkeys.$Des_testweakkeys_Fields_.testWeakKeys (stdgo/_internal/crypto/des/Des_testweakkeys.hx line 11)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 7)
@@ -9,7 +9,7 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 
 === RUN  TestSemiWeakKeyPairs
 Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_I64
-Called from stdgo._internal.crypto.des._Des_testsemiweakkeypairs.$Des_testsemiweakkeypairs_Fields_.~testSemiWeakKeyPairs.0 (stdgo/GoArray.hx line 117)
+Called from stdgo._internal.crypto.des._Des_testsemiweakkeypairs.$Des_testsemiweakkeypairs_Fields_.~testSemiWeakKeyPairs.0 (stdgo/GoArray.hx line 125)
 Called from stdgo._internal.crypto.des._Des_testsemiweakkeypairs.$Des_testsemiweakkeypairs_Fields_.testSemiWeakKeyPairs (stdgo/_internal/crypto/des/Des_testsemiweakkeypairs.hx line 11)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 7)
@@ -18,7 +18,7 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 
 === RUN  TestDESEncryptBlock
 Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_I64
-Called from stdgo._internal.crypto.des._Des_testdesencryptblock.$Des_testdesencryptblock_Fields_.testDESEncryptBlock (stdgo/GoArray.hx line 117)
+Called from stdgo._internal.crypto.des._Des_testdesencryptblock.$Des_testdesencryptblock_Fields_.testDESEncryptBlock (stdgo/GoArray.hx line 125)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 7)
 
@@ -26,7 +26,7 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 
 === RUN  TestDESDecryptBlock
 Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_I64
-Called from stdgo._internal.crypto.des._Des_testdesdecryptblock.$Des_testdesdecryptblock_Fields_.testDESDecryptBlock (stdgo/GoArray.hx line 117)
+Called from stdgo._internal.crypto.des._Des_testdesdecryptblock.$Des_testdesdecryptblock_Fields_.testDESDecryptBlock (stdgo/GoArray.hx line 125)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 7)
 
@@ -160,6 +160,5 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 
 -- PASS: TestFinalPermute
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestSubstitutionTableKnownAnswerDecrypt

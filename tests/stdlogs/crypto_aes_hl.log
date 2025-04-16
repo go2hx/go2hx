@@ -69,6 +69,5 @@ Called from _internal.crypto.aesdottest._Aesdottest.$Aesdottest_Fields_.main (_i
 
 -- PASS: TestCTRAble
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestCipherDecrypt

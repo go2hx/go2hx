@@ -7,6 +7,7 @@
 -- PASS: TestMapFSChmodDot
 
 === RUN  TestSymlink
+writeFile tmp_0jxkzw992j/hello: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
@@ -22,7 +23,7 @@ Called from _internal.testing.fstestdottest._Fstestdottest.$Fstestdottest_Fields
 -- PASS: TestDash
 
 === RUN  TestShuffledFS
-Exception: Null access
+Exception: Null access .name
 Called from stdgo._internal.testing.fstest.$T_fsTester_static_extension._checkDir (stdgo/_internal/testing/fstest/Fstest_t_fstester_static_extension.hx line 672)
 Called from stdgo._internal.testing.fstest._Fstest__testfs.$Fstest__testfs_Fields_._testFS (stdgo/_internal/testing/fstest/Fstest__testfs.hx line 5)
 Called from stdgo._internal.testing.fstest._Fstest_testfs.$Fstest_testfs_Fields_.testFS (stdgo/_internal/testing/fstest/Fstest_testfs.hx line 5)
@@ -32,6 +33,5 @@ Called from _internal.testing.fstestdottest._Fstestdottest.$Fstestdottest_Fields
 
 -- FAIL: TestShuffledFS
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestShuffledFS

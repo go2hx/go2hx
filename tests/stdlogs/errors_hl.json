@@ -5,11 +5,11 @@
         "TestJoinReturnsNil",
         "TestJoin",
         "TestJoinErrorMethod",
+        "TestIs",
         "TestAsValidation",
         "TestUnwrap"
     ],
     "fails": [
-        "TestIs",
         "TestAs"
     ],
     "runs": [

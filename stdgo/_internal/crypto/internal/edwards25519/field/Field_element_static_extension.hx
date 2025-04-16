@@ -216,10 +216,10 @@ var _sv = __1, _sa = __0;
         var _t = ((_v : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element)?.__copy__() : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element);
         @:check2 _t._reduce();
         var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
-        for (_i => _l in (new stdgo.GoArray<stdgo.GoUInt64>(5, 5, ...[_t._l0, _t._l1, _t._l2, _t._l3, _t._l4]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)) {
+        for (_i => _l in (new stdgo.GoArray<stdgo.GoUInt64>(5, 5, ...[_t._l0, _t._l1, _t._l2, _t._l3, _t._l4]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>).__copy__()) {
             var _bitsOffset = (_i * (51 : stdgo.GoInt) : stdgo.GoInt);
             stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.putUint64((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_l << ((_bitsOffset % (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) : stdgo.GoUInt64));
-            for (_i => _bb in _buf) {
+            for (_i => _bb in _buf.__copy__()) {
                 var _off = ((_bitsOffset / (8 : stdgo.GoInt) : stdgo.GoInt) + _i : stdgo.GoInt);
                 if ((_off >= (_out.length) : Bool)) {
                     break;

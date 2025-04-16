@@ -104,7 +104,7 @@ package stdgo._internal.internal.zstd;
         (@:checkr _xh ?? throw "null pointer dereference")._v[(2 : stdgo.GoInt)] = (0i64 : stdgo.GoUInt64);
         (@:checkr _xh ?? throw "null pointer dereference")._v[(3 : stdgo.GoInt)] = (-7046029288634856825i64 : stdgo.GoUInt64);
         (@:checkr _xh ?? throw "null pointer dereference")._v[(3 : stdgo.GoInt)] = -(@:checkr _xh ?? throw "null pointer dereference")._v[(3 : stdgo.GoInt)];
-        for (_i => _ in (@:checkr _xh ?? throw "null pointer dereference")._buf) {
+        for (_i => _ in (@:checkr _xh ?? throw "null pointer dereference")._buf.__copy__()) {
             (@:checkr _xh ?? throw "null pointer dereference")._buf[(_i : stdgo.GoInt)] = (0 : stdgo.GoUInt8);
         };
         (@:checkr _xh ?? throw "null pointer dereference")._cnt = (0 : stdgo.GoInt);

@@ -35,21 +35,21 @@ package stdgo._internal.log.slog.internal.buffer;
     @:tdfield
     static public function writeByte( _b:stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>, _c:stdgo.GoUInt8):stdgo.Error {
         @:recv var _b:stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer> = _b;
-        (_b : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).__setData__(((_b : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).__append__(_c)));
+        (_b : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).__setData__(((_b : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).__append__(_c) : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer));
         return (null : stdgo.Error);
     }
     @:keep
     @:tdfield
     static public function writeString( _b:stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer> = _b;
-        (_b : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).__setData__(((_b : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).__append__(...(_s : Array<stdgo.GoUInt8>))));
+        (_b : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).__setData__(((_b : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).__append__(...(_s : Array<stdgo.GoUInt8>)) : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer));
         return { _0 : (_s.length), _1 : (null : stdgo.Error) };
     }
     @:keep
     @:tdfield
     static public function write( _b:stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer> = _b;
-        (_b : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).__setData__(((_b : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).__append__(...(_p : Array<stdgo.GoUInt8>))));
+        (_b : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).__setData__(((_b : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).__append__(...(_p : Array<stdgo.GoUInt8>)) : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer));
         return { _0 : (_p.length), _1 : (null : stdgo.Error) };
     }
     @:keep

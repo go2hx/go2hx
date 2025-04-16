@@ -85,9 +85,9 @@ package stdgo._internal.time;
     static public function marshalJSON( _t:stdgo._internal.time.Time_time.Time):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo._internal.time.Time_time.Time = _t?.__copy__();
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (37 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        _b = (_b.__append__((34 : stdgo.GoUInt8)));
+        _b = (_b.__append__((34 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         var __tmp__ = _t._appendStrictRFC3339(_b), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        _b = (_b.__append__((34 : stdgo.GoUInt8)));
+        _b = (_b.__append__((34 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_((("Time.MarshalJSON: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };
         };
@@ -194,7 +194,7 @@ _version,
 ((_offsetMin >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt16) : stdgo.GoUInt8),
 (_offsetMin : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         if (_version == ((2 : stdgo.GoUInt8))) {
-            _enc = (_enc.__append__((_offsetSec : stdgo.GoUInt8)));
+            _enc = (_enc.__append__((_offsetSec : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         return { _0 : _enc, _1 : (null : stdgo.Error) };
     }
@@ -693,33 +693,33 @@ _version,
         var __tmp__ = _t._locabs(), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, _abs:stdgo.GoUInt64 = __tmp__._2;
         var __tmp__ = stdgo._internal.time.Time__absdate._absDate(_abs, true), _year:stdgo.GoInt = __tmp__._0, _month:stdgo._internal.time.Time_month.Month = __tmp__._1, _day:stdgo.GoInt = __tmp__._2, __2:stdgo.GoInt = __tmp__._3;
         _b = stdgo._internal.time.Time__appendint._appendInt(_b, _year, (4 : stdgo.GoInt));
-        _b = (_b.__append__((45 : stdgo.GoUInt8)));
+        _b = (_b.__append__((45 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.time.Time__appendint._appendInt(_b, (_month : stdgo.GoInt), (2 : stdgo.GoInt));
-        _b = (_b.__append__((45 : stdgo.GoUInt8)));
+        _b = (_b.__append__((45 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.time.Time__appendint._appendInt(_b, _day, (2 : stdgo.GoInt));
-        _b = (_b.__append__((84 : stdgo.GoUInt8)));
+        _b = (_b.__append__((84 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         var __tmp__ = stdgo._internal.time.Time__absclock._absClock(_abs), _hour:stdgo.GoInt = __tmp__._0, _min:stdgo.GoInt = __tmp__._1, _sec:stdgo.GoInt = __tmp__._2;
         _b = stdgo._internal.time.Time__appendint._appendInt(_b, _hour, (2 : stdgo.GoInt));
-        _b = (_b.__append__((58 : stdgo.GoUInt8)));
+        _b = (_b.__append__((58 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.time.Time__appendint._appendInt(_b, _min, (2 : stdgo.GoInt));
-        _b = (_b.__append__((58 : stdgo.GoUInt8)));
+        _b = (_b.__append__((58 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.time.Time__appendint._appendInt(_b, _sec, (2 : stdgo.GoInt));
         if (_nanos) {
             var _std = (stdgo._internal.time.Time__stdfracsecond._stdFracSecond((35 : stdgo.GoInt), (9 : stdgo.GoInt), (46 : stdgo.GoInt)) : stdgo.GoInt);
             _b = stdgo._internal.time.Time__appendnano._appendNano(_b, _t.nanosecond(), _std);
         };
         if (_offset == ((0 : stdgo.GoInt))) {
-            return (_b.__append__((90 : stdgo.GoUInt8)));
+            return (_b.__append__((90 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         var _zone = (_offset / (60 : stdgo.GoInt) : stdgo.GoInt);
         if ((_zone < (0 : stdgo.GoInt) : Bool)) {
-            _b = (_b.__append__((45 : stdgo.GoUInt8)));
+            _b = (_b.__append__((45 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
             _zone = -_zone;
         } else {
-            _b = (_b.__append__((43 : stdgo.GoUInt8)));
+            _b = (_b.__append__((43 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         _b = stdgo._internal.time.Time__appendint._appendInt(_b, (_zone / (60 : stdgo.GoInt) : stdgo.GoInt), (2 : stdgo.GoInt));
-        _b = (_b.__append__((58 : stdgo.GoUInt8)));
+        _b = (_b.__append__((58 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.time.Time__appendint._appendInt(_b, (_zone % (60 : stdgo.GoInt) : stdgo.GoInt), (2 : stdgo.GoInt));
         return _b;
     }
@@ -732,7 +732,7 @@ var _year:stdgo.GoInt = (-1 : stdgo.GoInt), _month:stdgo._internal.time.Time_mon
         while (_layout != ((stdgo.Go.str() : stdgo.GoString))) {
             var __tmp__ = stdgo._internal.time.Time__nextstdchunk._nextStdChunk(_layout?.__copy__()), _prefix:stdgo.GoString = __tmp__._0, _std:stdgo.GoInt = __tmp__._1, _suffix:stdgo.GoString = __tmp__._2;
             if (_prefix != ((stdgo.Go.str() : stdgo.GoString))) {
-                _b = (_b.__append__(...(_prefix : Array<stdgo.GoUInt8>)));
+                _b = (_b.__append__(...(_prefix : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             };
             if (_std == ((0 : stdgo.GoInt))) {
                 break;
@@ -774,11 +774,11 @@ var _year:stdgo.GoInt = (-1 : stdgo.GoInt), _month:stdgo._internal.time.Time_mon
                             _b = stdgo._internal.time.Time__appendint._appendInt(_b, _year, (4 : stdgo.GoInt));
                             break;
                         } else if (__value__ == ((258 : stdgo.GoInt))) {
-                            _b = (_b.__append__(...(((_month.string() : stdgo.GoString).__slice__(0, (3 : stdgo.GoInt)) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                            _b = (_b.__append__(...(((_month.string() : stdgo.GoString).__slice__(0, (3 : stdgo.GoInt)) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                             break;
                         } else if (__value__ == ((257 : stdgo.GoInt))) {
                             var _m = ((_month.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
-                            _b = (_b.__append__(...(_m : Array<stdgo.GoUInt8>)));
+                            _b = (_b.__append__(...(_m : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                             break;
                         } else if (__value__ == ((259 : stdgo.GoInt))) {
                             _b = stdgo._internal.time.Time__appendint._appendInt(_b, (_month : stdgo.GoInt), (0 : stdgo.GoInt));
@@ -787,18 +787,18 @@ var _year:stdgo.GoInt = (-1 : stdgo.GoInt), _month:stdgo._internal.time.Time_mon
                             _b = stdgo._internal.time.Time__appendint._appendInt(_b, (_month : stdgo.GoInt), (2 : stdgo.GoInt));
                             break;
                         } else if (__value__ == ((262 : stdgo.GoInt))) {
-                            _b = (_b.__append__(...(((stdgo._internal.time.Time__absweekday._absWeekday(_abs).string() : stdgo.GoString).__slice__(0, (3 : stdgo.GoInt)) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                            _b = (_b.__append__(...(((stdgo._internal.time.Time__absweekday._absWeekday(_abs).string() : stdgo.GoString).__slice__(0, (3 : stdgo.GoInt)) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                             break;
                         } else if (__value__ == ((261 : stdgo.GoInt))) {
                             var _s = ((stdgo._internal.time.Time__absweekday._absWeekday(_abs).string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
-                            _b = (_b.__append__(...(_s : Array<stdgo.GoUInt8>)));
+                            _b = (_b.__append__(...(_s : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                             break;
                         } else if (__value__ == ((263 : stdgo.GoInt))) {
                             _b = stdgo._internal.time.Time__appendint._appendInt(_b, _day, (0 : stdgo.GoInt));
                             break;
                         } else if (__value__ == ((264 : stdgo.GoInt))) {
                             if ((_day < (10 : stdgo.GoInt) : Bool)) {
-                                _b = (_b.__append__((32 : stdgo.GoUInt8)));
+                                _b = (_b.__append__((32 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                             };
                             _b = stdgo._internal.time.Time__appendint._appendInt(_b, _day, (0 : stdgo.GoInt));
                             break;
@@ -807,9 +807,9 @@ var _year:stdgo.GoInt = (-1 : stdgo.GoInt), _month:stdgo._internal.time.Time_mon
                             break;
                         } else if (__value__ == ((266 : stdgo.GoInt))) {
                             if ((_yday < (100 : stdgo.GoInt) : Bool)) {
-                                _b = (_b.__append__((32 : stdgo.GoUInt8)));
+                                _b = (_b.__append__((32 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                                 if ((_yday < (10 : stdgo.GoInt) : Bool)) {
-                                    _b = (_b.__append__((32 : stdgo.GoUInt8)));
+                                    _b = (_b.__append__((32 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                                 };
                             };
                             _b = stdgo._internal.time.Time__appendint._appendInt(_b, _yday, (0 : stdgo.GoInt));
@@ -848,57 +848,57 @@ var _year:stdgo.GoInt = (-1 : stdgo.GoInt), _month:stdgo._internal.time.Time_mon
                             break;
                         } else if (__value__ == ((533 : stdgo.GoInt))) {
                             if ((_hour >= (12 : stdgo.GoInt) : Bool)) {
-                                _b = (_b.__append__(...((("PM" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                                _b = (_b.__append__(...((("PM" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                             } else {
-                                _b = (_b.__append__(...((("AM" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                                _b = (_b.__append__(...((("AM" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                             };
                             break;
                         } else if (__value__ == ((534 : stdgo.GoInt))) {
                             if ((_hour >= (12 : stdgo.GoInt) : Bool)) {
-                                _b = (_b.__append__(...((("pm" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                                _b = (_b.__append__(...((("pm" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                             } else {
-                                _b = (_b.__append__(...((("am" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                                _b = (_b.__append__(...((("am" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                             };
                             break;
                         } else if (__value__ == ((24 : stdgo.GoInt)) || __value__ == ((27 : stdgo.GoInt)) || __value__ == ((25 : stdgo.GoInt)) || __value__ == ((26 : stdgo.GoInt)) || __value__ == ((28 : stdgo.GoInt)) || __value__ == ((29 : stdgo.GoInt)) || __value__ == ((32 : stdgo.GoInt)) || __value__ == ((30 : stdgo.GoInt)) || __value__ == ((31 : stdgo.GoInt)) || __value__ == ((33 : stdgo.GoInt))) {
                             if (((_offset == (0 : stdgo.GoInt)) && (((((_std == ((24 : stdgo.GoInt)) || _std == ((27 : stdgo.GoInt)) : Bool) || _std == ((25 : stdgo.GoInt)) : Bool) || _std == ((26 : stdgo.GoInt)) : Bool) || (_std == (28 : stdgo.GoInt)) : Bool)) : Bool)) {
-                                _b = (_b.__append__((90 : stdgo.GoUInt8)));
+                                _b = (_b.__append__((90 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                                 break;
                             };
                             var _zone = (_offset / (60 : stdgo.GoInt) : stdgo.GoInt);
                             var _absoffset = (_offset : stdgo.GoInt);
                             if ((_zone < (0 : stdgo.GoInt) : Bool)) {
-                                _b = (_b.__append__((45 : stdgo.GoUInt8)));
+                                _b = (_b.__append__((45 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                                 _zone = -_zone;
                                 _absoffset = -_absoffset;
                             } else {
-                                _b = (_b.__append__((43 : stdgo.GoUInt8)));
+                                _b = (_b.__append__((43 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                             };
                             _b = stdgo._internal.time.Time__appendint._appendInt(_b, (_zone / (60 : stdgo.GoInt) : stdgo.GoInt), (2 : stdgo.GoInt));
                             if ((((_std == ((27 : stdgo.GoInt)) || _std == ((32 : stdgo.GoInt)) : Bool) || _std == ((28 : stdgo.GoInt)) : Bool) || (_std == (33 : stdgo.GoInt)) : Bool)) {
-                                _b = (_b.__append__((58 : stdgo.GoUInt8)));
+                                _b = (_b.__append__((58 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                             };
                             if (((_std != (31 : stdgo.GoInt)) && (_std != (26 : stdgo.GoInt)) : Bool)) {
                                 _b = stdgo._internal.time.Time__appendint._appendInt(_b, (_zone % (60 : stdgo.GoInt) : stdgo.GoInt), (2 : stdgo.GoInt));
                             };
                             if ((((_std == ((25 : stdgo.GoInt)) || _std == ((30 : stdgo.GoInt)) : Bool) || _std == ((33 : stdgo.GoInt)) : Bool) || (_std == (28 : stdgo.GoInt)) : Bool)) {
                                 if (((_std == (33 : stdgo.GoInt)) || (_std == (28 : stdgo.GoInt)) : Bool)) {
-                                    _b = (_b.__append__((58 : stdgo.GoUInt8)));
+                                    _b = (_b.__append__((58 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                                 };
                                 _b = stdgo._internal.time.Time__appendint._appendInt(_b, (_absoffset % (60 : stdgo.GoInt) : stdgo.GoInt), (2 : stdgo.GoInt));
                             };
                             break;
                         } else if (__value__ == ((23 : stdgo.GoInt))) {
                             if (_name != ((stdgo.Go.str() : stdgo.GoString))) {
-                                _b = (_b.__append__(...(_name : Array<stdgo.GoUInt8>)));
+                                _b = (_b.__append__(...(_name : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                                 break;
                             };
                             var _zone = (_offset / (60 : stdgo.GoInt) : stdgo.GoInt);
                             if ((_zone < (0 : stdgo.GoInt) : Bool)) {
-                                _b = (_b.__append__((45 : stdgo.GoUInt8)));
+                                _b = (_b.__append__((45 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                                 _zone = -_zone;
                             } else {
-                                _b = (_b.__append__((43 : stdgo.GoUInt8)));
+                                _b = (_b.__append__((43 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                             };
                             _b = stdgo._internal.time.Time__appendint._appendInt(_b, (_zone / (60 : stdgo.GoInt) : stdgo.GoInt), (2 : stdgo.GoInt));
                             _b = stdgo._internal.time.Time__appendint._appendInt(_b, (_zone % (60 : stdgo.GoInt) : stdgo.GoInt), (2 : stdgo.GoInt));
@@ -953,25 +953,25 @@ var _year:stdgo.GoInt = (-1 : stdgo.GoInt), _month:stdgo._internal.time.Time_mon
         var __tmp__ = stdgo._internal.time.Time__absdate._absDate(_abs, true), _year:stdgo.GoInt = __tmp__._0, _month:stdgo._internal.time.Time_month.Month = __tmp__._1, _day:stdgo.GoInt = __tmp__._2, __1:stdgo.GoInt = __tmp__._3;
         var __tmp__ = stdgo._internal.time.Time__absclock._absClock(_abs), _hour:stdgo.GoInt = __tmp__._0, _minute:stdgo.GoInt = __tmp__._1, _second:stdgo.GoInt = __tmp__._2;
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((("time.Date(9999, time.September, 31, 23, 59, 59, 999999999, time.Local)" : stdgo.GoString) : stdgo.GoString).length)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        _buf = (_buf.__append__(...((("time.Date(" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+        _buf = (_buf.__append__(...((("time.Date(" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         _buf = stdgo._internal.time.Time__appendint._appendInt(_buf, _year, (0 : stdgo.GoInt));
         if ((((1 : stdgo._internal.time.Time_month.Month) <= _month : Bool) && (_month <= (12 : stdgo._internal.time.Time_month.Month) : Bool) : Bool)) {
-            _buf = (_buf.__append__(...(((", time." : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
-            _buf = (_buf.__append__(...(stdgo._internal.time.Time__longmonthnames._longMonthNames[((_month - (1 : stdgo._internal.time.Time_month.Month) : stdgo._internal.time.Time_month.Month) : stdgo.GoInt)] : Array<stdgo.GoUInt8>)));
+            _buf = (_buf.__append__(...(((", time." : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+            _buf = (_buf.__append__(...(stdgo._internal.time.Time__longmonthnames._longMonthNames[((_month - (1 : stdgo._internal.time.Time_month.Month) : stdgo._internal.time.Time_month.Month) : stdgo.GoInt)] : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         } else {
             _buf = stdgo._internal.time.Time__appendint._appendInt(_buf, (_month : stdgo.GoInt), (0 : stdgo.GoInt));
         };
-        _buf = (_buf.__append__(...(((", " : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+        _buf = (_buf.__append__(...(((", " : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         _buf = stdgo._internal.time.Time__appendint._appendInt(_buf, _day, (0 : stdgo.GoInt));
-        _buf = (_buf.__append__(...(((", " : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+        _buf = (_buf.__append__(...(((", " : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         _buf = stdgo._internal.time.Time__appendint._appendInt(_buf, _hour, (0 : stdgo.GoInt));
-        _buf = (_buf.__append__(...(((", " : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+        _buf = (_buf.__append__(...(((", " : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         _buf = stdgo._internal.time.Time__appendint._appendInt(_buf, _minute, (0 : stdgo.GoInt));
-        _buf = (_buf.__append__(...(((", " : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+        _buf = (_buf.__append__(...(((", " : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         _buf = stdgo._internal.time.Time__appendint._appendInt(_buf, _second, (0 : stdgo.GoInt));
-        _buf = (_buf.__append__(...(((", " : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+        _buf = (_buf.__append__(...(((", " : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         _buf = stdgo._internal.time.Time__appendint._appendInt(_buf, _t.nanosecond(), (0 : stdgo.GoInt));
-        _buf = (_buf.__append__(...(((", " : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+        _buf = (_buf.__append__(...(((", " : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _loc = _t.location();
             {
@@ -980,17 +980,17 @@ var _year:stdgo.GoInt = (-1 : stdgo.GoInt), _month:stdgo._internal.time.Time_mon
                     final value = __value__;
                     (value == null || (value : Dynamic).__nil__);
                 })) {
-                    _buf = (_buf.__append__(...((("time.UTC" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                    _buf = (_buf.__append__(...((("time.UTC" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 } else if (__value__ == (stdgo._internal.time.Time_local.local)) {
-                    _buf = (_buf.__append__(...((("time.Local" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                    _buf = (_buf.__append__(...((("time.Local" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 } else {
-                    _buf = (_buf.__append__(...((("time.Location(" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
-                    _buf = (_buf.__append__(...(stdgo._internal.time.Time__quote._quote((@:checkr _loc ?? throw "null pointer dereference")._name?.__copy__()) : Array<stdgo.GoUInt8>)));
-                    _buf = (_buf.__append__((41 : stdgo.GoUInt8)));
+                    _buf = (_buf.__append__(...((("time.Location(" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+                    _buf = (_buf.__append__(...(stdgo._internal.time.Time__quote._quote((@:checkr _loc ?? throw "null pointer dereference")._name?.__copy__()) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+                    _buf = (_buf.__append__((41 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                 };
             };
         };
-        _buf = (_buf.__append__((41 : stdgo.GoUInt8)));
+        _buf = (_buf.__append__((41 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         return (_buf : stdgo.GoString)?.__copy__();
     }
     @:keep
@@ -1010,15 +1010,15 @@ var _m2 = __1, _m1 = __0;
             var __0 = (_m1 / (1000000000i64 : stdgo.GoUInt64) : stdgo.GoUInt64), __1 = (_m1 % (1000000000i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
 var _m1 = __1, _m0 = __0;
             var _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (24 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            _buf = (_buf.__append__(...(((" m=" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
-            _buf = (_buf.__append__(_sign));
+            _buf = (_buf.__append__(...(((" m=" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+            _buf = (_buf.__append__(_sign) : stdgo.Slice<stdgo.GoUInt8>);
             var _wid = (0 : stdgo.GoInt);
             if (_m0 != ((0i64 : stdgo.GoUInt64))) {
                 _buf = stdgo._internal.time.Time__appendint._appendInt(_buf, (_m0 : stdgo.GoInt), (0 : stdgo.GoInt));
                 _wid = (9 : stdgo.GoInt);
             };
             _buf = stdgo._internal.time.Time__appendint._appendInt(_buf, (_m1 : stdgo.GoInt), _wid);
-            _buf = (_buf.__append__((46 : stdgo.GoUInt8)));
+            _buf = (_buf.__append__((46 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
             _buf = stdgo._internal.time.Time__appendint._appendInt(_buf, (_m2 : stdgo.GoInt), (9 : stdgo.GoInt));
             _s = (_s + ((_buf : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };

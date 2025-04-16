@@ -70,7 +70,7 @@ var _overlaps = __1, _isZero = __0;
                 _largerThanA[(1 : stdgo.GoInt)].min.y--;
                 _largerThanA[(2 : stdgo.GoInt)].max.x++;
                 _largerThanA[(3 : stdgo.GoInt)].max.y++;
-                for (_i => _b in _largerThanA) {
+                for (_i => _b in _largerThanA.__copy__()) {
                     if (_b.empty()) {
                         continue;
                     };
@@ -103,7 +103,7 @@ var _overlaps = __1, _isZero = __0;
                 _smallerThanA[(1 : stdgo.GoInt)].min.y++;
                 _smallerThanA[(2 : stdgo.GoInt)].max.x--;
                 _smallerThanA[(3 : stdgo.GoInt)].max.y--;
-                for (_i => _b in _smallerThanA) {
+                for (_i => _b in _smallerThanA.__copy__()) {
                     if (((_in(_r?.__copy__(), _b?.__copy__()) == null) && (_in(_s?.__copy__(), _b?.__copy__()) == null) : Bool)) {
                         @:check2r _t.errorf(("Union: r=%s, s=%s, a=%s, b=%s, i=%d: union could be smaller" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(stdgo.Go.asInterface(_b)), stdgo.Go.toInterface(_i));
                     };

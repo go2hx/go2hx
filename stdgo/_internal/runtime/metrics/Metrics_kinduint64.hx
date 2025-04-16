@@ -1,2 +1,2 @@
 package stdgo._internal.runtime.metrics;
-final kindUint64 = (0 : stdgo._internal.runtime.metrics.Metrics_valuekind.ValueKind);
+final kindUint64 : stdgo._internal.runtime.metrics.Metrics_valuekind.ValueKind = 1i32;

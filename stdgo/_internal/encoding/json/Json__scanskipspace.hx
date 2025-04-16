@@ -1,2 +1,2 @@
 package stdgo._internal.encoding.json;
-final _scanSkipSpace = (11i64 : stdgo.GoUInt64);
+final _scanSkipSpace : stdgo.GoUInt64 = 9i32;

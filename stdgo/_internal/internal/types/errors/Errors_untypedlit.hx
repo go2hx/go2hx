@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final untypedLit = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final untypedLit : stdgo._internal.internal.types.errors.Errors_code.Code = 70i32;

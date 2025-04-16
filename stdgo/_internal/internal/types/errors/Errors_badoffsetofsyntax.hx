@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final badOffsetofSyntax = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final badOffsetofSyntax : stdgo._internal.internal.types.errors.Errors_code.Code = 98i32;

@@ -42,7 +42,7 @@ var _j = __1, _i = __0;
     @:tdfield
     static public function reset( _c:stdgo.Ref<stdgo._internal.crypto.rc4.Rc4_cipher.Cipher>):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.rc4.Rc4_cipher.Cipher> = _c;
-        for (_i => _ in (@:checkr _c ?? throw "null pointer dereference")._s) {
+        for (_i => _ in (@:checkr _c ?? throw "null pointer dereference")._s.__copy__()) {
             (@:checkr _c ?? throw "null pointer dereference")._s[(_i : stdgo.GoInt)] = (0u32 : stdgo.GoUInt32);
         };
         {

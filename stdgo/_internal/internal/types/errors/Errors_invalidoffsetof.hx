@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final invalidOffsetof = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final invalidOffsetof : stdgo._internal.internal.types.errors.Errors_code.Code = 99i32;

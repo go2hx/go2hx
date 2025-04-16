@@ -41,7 +41,7 @@ if ((_oldnew[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)].length) != ((1 : stdgo.GoIn
         };
         if (_allNewBytes) {
             var _r = ((new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[]).__setNumber32__() : stdgo._internal.strings.Strings_t_bytereplacer.T_byteReplacer)?.__copy__() : stdgo._internal.strings.Strings_t_bytereplacer.T_byteReplacer);
-            for (_i => _ in _r) {
+            for (_i => _ in _r.__copy__()) {
                 _r[(_i : stdgo.GoInt)] = (_i : stdgo.GoUInt8);
             };
             {
@@ -62,7 +62,7 @@ _r[(_o : stdgo.GoInt)] = _n;
                 var _o = (_oldnew[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)] : stdgo.GoUInt8);
 var _n = (_oldnew[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)].__copy__() : stdgo.GoString);
 if (_r._replacements[(_o : stdgo.GoInt)] == null) {
-                    _r._toReplace = (_r._toReplace.__append__(((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[_o]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString).__copy__()));
+                    _r._toReplace = (_r._toReplace.__append__(((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[_o]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString).__copy__()) : stdgo.Slice<stdgo.GoString>);
                 };
 _r._replacements[(_o : stdgo.GoInt)] = (_n : stdgo.Slice<stdgo.GoUInt8>);
                 _i = (_i - ((2 : stdgo.GoInt)) : stdgo.GoInt);

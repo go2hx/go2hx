@@ -37,6 +37,8 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>, _val
                     _err = __tmp__._1;
                     __tmp__;
                 };
+                _ok = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

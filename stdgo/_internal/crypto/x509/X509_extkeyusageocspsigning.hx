@@ -1,2 +1,2 @@
 package stdgo._internal.crypto.x509;
-final extKeyUsageOCSPSigning = (13 : stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage);
+final extKeyUsageOCSPSigning : stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage = 9i32;

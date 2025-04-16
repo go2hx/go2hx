@@ -28,7 +28,7 @@ function _readColonFile(_r:stdgo._internal.io.Io_reader.Reader, _fn:stdgo._inter
                     _wholeLine = _line;
                     break;
                 };
-                _wholeLine = (_wholeLine.__append__(...(_line : Array<stdgo.GoUInt8>)));
+                _wholeLine = (_wholeLine.__append__(...(_line : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 if ((!_isPrefix || (stdgo._internal.bytes.Bytes_count.count(_wholeLine, (new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(58 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>)) >= _readCols : Bool) : Bool)) {
                     break;
                 };

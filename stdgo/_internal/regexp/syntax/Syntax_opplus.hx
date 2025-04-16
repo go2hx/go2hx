@@ -1,2 +1,2 @@
 package stdgo._internal.regexp.syntax;
-final opPlus = (19 : stdgo._internal.regexp.syntax.Syntax_op.Op);
+final opPlus : stdgo._internal.regexp.syntax.Syntax_op.Op = 15i32;

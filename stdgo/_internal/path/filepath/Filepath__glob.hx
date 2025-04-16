@@ -31,6 +31,8 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
                             _e = __tmp__._1;
                             __tmp__;
                         };
+                        _m = __ret__._0;
+                        _e = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -40,7 +42,7 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
                     };
                 };
                 if (_matched) {
-                    _m = (_m.__append__(stdgo._internal.path.filepath.Filepath_join.join(_dir?.__copy__(), _n?.__copy__())?.__copy__()));
+                    _m = (_m.__append__(stdgo._internal.path.filepath.Filepath_join.join(_dir?.__copy__(), _n?.__copy__())?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 };
             };
             {

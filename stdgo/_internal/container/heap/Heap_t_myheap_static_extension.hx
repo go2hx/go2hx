@@ -27,7 +27,7 @@ package stdgo._internal.container.heap;
     @:tdfield
     static public function push( _h:stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap>, _v:stdgo.AnyInterface):Void {
         @:recv var _h:stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap> = _h;
-        (_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap).__setData__(((_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap).__append__((stdgo.Go.typeAssert((_v : stdgo.GoInt)) : stdgo.GoInt))));
+        (_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap).__setData__(((_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap).__append__((stdgo.Go.typeAssert((_v : stdgo.GoInt)) : stdgo.GoInt)) : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap));
     }
     @:keep
     @:tdfield

@@ -3,7 +3,7 @@ package stdgo._internal.sync;
     public var _state : stdgo.GoInt32 = 0;
     public var _sema : stdgo.GoUInt32 = 0;
     @:local
-    var mutex = #if target.threaded new sys.thread.Mutex() #else null #end;
+    var mutex = #if target.threaded new sys.thread.Semaphore(1) #else null #end;
     public function new(?_state:stdgo.GoInt32, ?_sema:stdgo.GoUInt32, ?mutex) {
         if (_state != null) this._state = _state;
         if (_sema != null) this._sema = _sema;

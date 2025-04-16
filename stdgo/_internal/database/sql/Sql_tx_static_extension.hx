@@ -108,7 +108,7 @@ package stdgo._internal.database.sql;
                 };
             } else {
                 @:check2r _stmt._removeClosedStmtLocked();
-                for (__19 => _v in (@:checkr _stmt ?? throw "null pointer dereference")._css) {
+                for (__119 => _v in (@:checkr _stmt ?? throw "null pointer dereference")._css) {
                     if (_v._dc == (_dc)) {
                         _si = (@:checkr _v._ds ?? throw "null pointer dereference")._si;
                         break;
@@ -147,7 +147,7 @@ package stdgo._internal.database.sql;
                 @:check2r (@:checkr _tx ?? throw "null pointer dereference")._db._addDep(stdgo.Go.asInterface(_parentStmt), stdgo.Go.toInterface(stdgo.Go.asInterface(_txs)));
             };
             (@:checkr _tx ?? throw "null pointer dereference")._stmts.lock();
-            (@:checkr _tx ?? throw "null pointer dereference")._stmts._v = ((@:checkr _tx ?? throw "null pointer dereference")._stmts._v.__append__(_txs));
+            (@:checkr _tx ?? throw "null pointer dereference")._stmts._v = ((@:checkr _tx ?? throw "null pointer dereference")._stmts._v.__append__(_txs) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_stmt.Stmt>>);
             (@:checkr _tx ?? throw "null pointer dereference")._stmts.unlock();
             {
                 for (defer in __deferstack__) {
@@ -230,7 +230,7 @@ package stdgo._internal.database.sql;
             return { _0 : null, _1 : _err };
         };
         (@:checkr _tx ?? throw "null pointer dereference")._stmts.lock();
-        (@:checkr _tx ?? throw "null pointer dereference")._stmts._v = ((@:checkr _tx ?? throw "null pointer dereference")._stmts._v.__append__(_stmt));
+        (@:checkr _tx ?? throw "null pointer dereference")._stmts._v = ((@:checkr _tx ?? throw "null pointer dereference")._stmts._v.__append__(_stmt) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_stmt.Stmt>>);
         (@:checkr _tx ?? throw "null pointer dereference")._stmts.unlock();
         return { _0 : _stmt, _1 : (null : stdgo.Error) };
     }
@@ -272,9 +272,14 @@ package stdgo._internal.database.sql;
         @:recv var _tx:stdgo.Ref<stdgo._internal.database.sql.Sql_tx.Tx> = _tx;
         {
             var __select__ = true;
-            var __c__0 = (@:checkr _tx ?? throw "null pointer dereference")._ctx.done();
+            var __c__0 = null;
             while (__select__) {
-                if (__c__0 != null && __c__0.__isGet__(true)) {
+                if ({
+                    if (__c__0 == null) {
+                        __c__0 = (@:checkr _tx ?? throw "null pointer dereference")._ctx.done();
+                    };
+                    __c__0 != null && __c__0.__isGet__(true);
+                }) {
                     __select__ = false;
                     {
                         __c__0.__get__();
@@ -321,7 +326,7 @@ package stdgo._internal.database.sql;
                 final __f__ = (@:checkr _tx ?? throw "null pointer dereference")._stmts.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            for (__19 => _stmt in (@:checkr _tx ?? throw "null pointer dereference")._stmts._v) {
+            for (__61 => _stmt in (@:checkr _tx ?? throw "null pointer dereference")._stmts._v) {
                 @:check2r _stmt.close();
             };
             {
@@ -396,9 +401,14 @@ package stdgo._internal.database.sql;
         @:recv var _tx:stdgo.Ref<stdgo._internal.database.sql.Sql_tx.Tx> = _tx;
         {
             var __select__ = true;
-            var __c__0 = _ctx.done();
+            var __c__0 = null;
             while (__select__) {
-                if (__c__0 != null && __c__0.__isGet__(true)) {
+                if ({
+                    if (__c__0 == null) {
+                        __c__0 = _ctx.done();
+                    };
+                    __c__0 != null && __c__0.__isGet__(true);
+                }) {
                     __select__ = false;
                     {
                         __c__0.__get__();

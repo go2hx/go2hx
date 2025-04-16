@@ -12,7 +12,7 @@ function _parseSANExtension(_der:_internal.vendor.golangdotorg.x.crypto.cryptoby
                             return stdgo._internal.errors.Errors_new_.new_(("x509: SAN rfc822Name is malformed" : stdgo.GoString));
                         };
                     };
-                    _emailAddresses = (_emailAddresses.__append__(_email?.__copy__()));
+                    _emailAddresses = (_emailAddresses.__append__(_email?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 } else if (__value__ == ((2 : stdgo.GoInt))) {
                     var _name = ((_data : stdgo.GoString)?.__copy__() : stdgo.GoString);
                     {
@@ -21,7 +21,7 @@ function _parseSANExtension(_der:_internal.vendor.golangdotorg.x.crypto.cryptoby
                             return stdgo._internal.errors.Errors_new_.new_(("x509: SAN dNSName is malformed" : stdgo.GoString));
                         };
                     };
-                    _dnsNames = (_dnsNames.__append__((_name : stdgo.GoString)?.__copy__()));
+                    _dnsNames = (_dnsNames.__append__((_name : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 } else if (__value__ == ((6 : stdgo.GoInt))) {
                     var _uriStr = ((_data : stdgo.GoString)?.__copy__() : stdgo.GoString);
                     {
@@ -42,12 +42,12 @@ function _parseSANExtension(_der:_internal.vendor.golangdotorg.x.crypto.cryptoby
                             };
                         };
                     };
-                    _uris = (_uris.__append__(_uri));
+                    _uris = (_uris.__append__(_uri) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_url.URL>>);
                 } else if (__value__ == ((7 : stdgo.GoInt))) {
                     {
                         final __value__ = (_data.length);
                         if (__value__ == ((4 : stdgo.GoInt)) || __value__ == ((16 : stdgo.GoInt))) {
-                            _ipAddresses = (_ipAddresses.__append__(_data));
+                            _ipAddresses = (_ipAddresses.__append__(_data) : stdgo.Slice<stdgo._internal.net.Net_ip.IP>);
                         } else {
                             return stdgo._internal.errors.Errors_new_.new_((("x509: cannot parse IP address of length " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa((_data.length))?.__copy__() : stdgo.GoString)?.__copy__());
                         };

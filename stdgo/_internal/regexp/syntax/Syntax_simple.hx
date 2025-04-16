@@ -1,2 +1,2 @@
 package stdgo._internal.regexp.syntax;
-final simple = (512 : stdgo._internal.regexp.syntax.Syntax_flags.Flags);
+final simple : stdgo._internal.regexp.syntax.Syntax_flags.Flags = 512i32;

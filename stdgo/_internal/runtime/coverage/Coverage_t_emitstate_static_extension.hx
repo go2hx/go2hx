@@ -23,7 +23,7 @@ package stdgo._internal.runtime.coverage;
         var _rdCounters = function(_actrs:stdgo.Slice<stdgo._internal.sync.atomic_.Atomic__uint32.Uint32>, _ctrs:stdgo.Slice<stdgo.GoUInt32>):stdgo.Slice<stdgo.GoUInt32> {
             _ctrs = (_ctrs.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt32>);
             for (_i => _ in _actrs) {
-                _ctrs = (_ctrs.__append__(@:check2 _actrs[(_i : stdgo.GoInt)].load()));
+                _ctrs = (_ctrs.__append__(@:check2 _actrs[(_i : stdgo.GoInt)].load()) : stdgo.Slice<stdgo.GoUInt32>);
             };
             return _ctrs;
         };

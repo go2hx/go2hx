@@ -188,7 +188,7 @@ package stdgo._internal.internal.pkgbits;
         };
         var _i = ((@:checkr _w ?? throw "null pointer dereference").relocs.length : stdgo.GoInt);
         (@:checkr _w ?? throw "null pointer dereference").relocMap[_e] = (_i : stdgo.GoUInt32);
-        (@:checkr _w ?? throw "null pointer dereference").relocs = ((@:checkr _w ?? throw "null pointer dereference").relocs.__append__(_e?.__copy__()));
+        (@:checkr _w ?? throw "null pointer dereference").relocs = ((@:checkr _w ?? throw "null pointer dereference").relocs.__append__(_e?.__copy__()) : stdgo.Slice<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt>);
         return _i;
     }
     @:keep

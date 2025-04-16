@@ -1,5 +1,10 @@
 package stdgo._internal.fmt;
 @:interface typedef Stringer = stdgo.StructType & {
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function string():stdgo.GoString;
+    public dynamic function string():stdgo.GoString;
 };

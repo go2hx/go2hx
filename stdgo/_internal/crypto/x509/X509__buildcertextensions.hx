@@ -79,10 +79,10 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             _ret[(_n : stdgo.GoInt)].id = stdgo._internal.crypto.x509.X509__oidextensionauthorityinfoaccess._oidExtensionAuthorityInfoAccess;
             var _aiaValues:stdgo.Slice<stdgo._internal.crypto.x509.X509_t_authorityinfoaccess.T_authorityInfoAccess> = (null : stdgo.Slice<stdgo._internal.crypto.x509.X509_t_authorityinfoaccess.T_authorityInfoAccess>);
             for (__1 => _name in (@:checkr _template ?? throw "null pointer dereference").oCSPServer) {
-                _aiaValues = (_aiaValues.__append__(({ method : stdgo._internal.crypto.x509.X509__oidauthorityinfoaccessocsp._oidAuthorityInfoAccessOcsp, location : ({ tag : (6 : stdgo.GoInt), class_ : (2 : stdgo.GoInt), bytes : (_name : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue) } : stdgo._internal.crypto.x509.X509_t_authorityinfoaccess.T_authorityInfoAccess)));
+                _aiaValues = (_aiaValues.__append__(({ method : stdgo._internal.crypto.x509.X509__oidauthorityinfoaccessocsp._oidAuthorityInfoAccessOcsp, location : ({ tag : (6 : stdgo.GoInt), class_ : (2 : stdgo.GoInt), bytes : (_name : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue) } : stdgo._internal.crypto.x509.X509_t_authorityinfoaccess.T_authorityInfoAccess)) : stdgo.Slice<stdgo._internal.crypto.x509.X509_t_authorityinfoaccess.T_authorityInfoAccess>);
             };
             for (__2 => _name in (@:checkr _template ?? throw "null pointer dereference").issuingCertificateURL) {
-                _aiaValues = (_aiaValues.__append__(({ method : stdgo._internal.crypto.x509.X509__oidauthorityinfoaccessissuers._oidAuthorityInfoAccessIssuers, location : ({ tag : (6 : stdgo.GoInt), class_ : (2 : stdgo.GoInt), bytes : (_name : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue) } : stdgo._internal.crypto.x509.X509_t_authorityinfoaccess.T_authorityInfoAccess)));
+                _aiaValues = (_aiaValues.__append__(({ method : stdgo._internal.crypto.x509.X509__oidauthorityinfoaccessissuers._oidAuthorityInfoAccessIssuers, location : ({ tag : (6 : stdgo.GoInt), class_ : (2 : stdgo.GoInt), bytes : (_name : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue) } : stdgo._internal.crypto.x509.X509_t_authorityinfoaccess.T_authorityInfoAccess)) : stdgo.Slice<stdgo._internal.crypto.x509.X509_t_authorityinfoaccess.T_authorityInfoAccess>);
             };
             {
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_aiaValues));
@@ -129,8 +129,8 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             var _ipAndMask = function(_ipNet:stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>):stdgo.Slice<stdgo.GoUInt8> {
                 var _maskedIP = ((@:checkr _ipNet ?? throw "null pointer dereference").iP.mask((@:checkr _ipNet ?? throw "null pointer dereference").mask) : stdgo._internal.net.Net_ip.IP);
                 var _ipAndMask = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((_maskedIP.length) + ((@:checkr _ipNet ?? throw "null pointer dereference").mask.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                _ipAndMask = (_ipAndMask.__append__(...(_maskedIP : Array<stdgo.GoUInt8>)));
-                _ipAndMask = (_ipAndMask.__append__(...((@:checkr _ipNet ?? throw "null pointer dereference").mask : Array<stdgo.GoUInt8>)));
+                _ipAndMask = (_ipAndMask.__append__(...(_maskedIP : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+                _ipAndMask = (_ipAndMask.__append__(...((@:checkr _ipNet ?? throw "null pointer dereference").mask : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 return _ipAndMask;
             };
             var _serialiseConstraints = function(_dns:stdgo.Slice<stdgo.GoString>, _ips:stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>, _emails:stdgo.Slice<stdgo.GoString>, _uriDomains:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
@@ -253,7 +253,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             var _crlDp:stdgo.Slice<stdgo._internal.crypto.x509.X509_t_distributionpoint.T_distributionPoint> = (null : stdgo.Slice<stdgo._internal.crypto.x509.X509_t_distributionpoint.T_distributionPoint>);
             for (__1 => _name in (@:checkr _template ?? throw "null pointer dereference").cRLDistributionPoints) {
                 var _dp = ({ distributionPoint : ({ fullName : (new stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue>(1, 1, ...[({ tag : (6 : stdgo.GoInt), class_ : (2 : stdgo.GoInt), bytes : (_name : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue)])) : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue>) } : stdgo._internal.crypto.x509.X509_t_distributionpointname.T_distributionPointName) } : stdgo._internal.crypto.x509.X509_t_distributionpoint.T_distributionPoint);
-                _crlDp = (_crlDp.__append__(_dp?.__copy__()));
+                _crlDp = (_crlDp.__append__(_dp?.__copy__()) : stdgo.Slice<stdgo._internal.crypto.x509.X509_t_distributionpoint.T_distributionPoint>);
             };
             {
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_crlDp));
@@ -266,7 +266,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             _n++;
         };
         return {
-            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : ((_ret.__slice__(0, _n) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>).__append__(...((@:checkr _template ?? throw "null pointer dereference").extraExtensions : Array<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>))), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : ((_ret.__slice__(0, _n) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>).__append__(...((@:checkr _template ?? throw "null pointer dereference").extraExtensions : Array<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>)) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : (null : stdgo.Error) };
             _ret = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

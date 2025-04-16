@@ -1,2 +1,2 @@
 package stdgo._internal.unicode;
-final maxCase = (2i64 : stdgo.GoUInt64);
+final maxCase : stdgo.GoUInt64 = 3i32;

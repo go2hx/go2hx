@@ -152,7 +152,7 @@ package stdgo._internal.runtime.coverage;
                             var __tmp__ = (_pmm != null && _pmm.__exists__(_key?.__copy__()) ? { _0 : _pmm[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoUInt32>), _1 : false }), _prev:stdgo.Slice<stdgo.GoUInt32> = __tmp__._0, _found:Bool = __tmp__._1;
                             if (_found) {
                                 {
-                                    var __tmp__ = @:check2r (@:checkr _ts ?? throw "null pointer dereference")._cm.mergeCounters(_data.counters, _prev), _err:stdgo.Error = __tmp__._0, __0:Bool = __tmp__._1;
+                                    var __tmp__ = @:check2r (@:checkr _ts ?? throw "null pointer dereference")._cm.mergeCounters(_data.counters, _prev), _err:stdgo.Error = __tmp__._0, __10:Bool = __tmp__._1;
                                     if (_err != null) {
                                         {
                                             final __ret__:stdgo.Error = stdgo._internal.fmt.Fmt_errorf.errorf(("processing counter data file %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_cdf), stdgo.Go.toInterface(_err));
@@ -234,7 +234,7 @@ package stdgo._internal.runtime.coverage;
                     };
                 };
             } : stdgo.GoString -> stdgo.Error);
-            for (__0 => _cdf in _p.counterDataFiles) {
+            for (__4 => _cdf in _p.counterDataFiles) {
                 {
                     var _err = (_readcdf(_cdf?.__copy__()) : stdgo.Error);
                     if (_err != null) {

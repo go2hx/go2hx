@@ -7,7 +7,7 @@ function _argsToAttrSlice(_args:stdgo.Slice<stdgo.AnyInterface>):stdgo.Slice<std
                 _attr = @:tmpset0 __tmp__._0?.__copy__();
                 _args = @:tmpset0 __tmp__._1;
             };
-            _attrs = (_attrs.__append__(_attr));
+            _attrs = (_attrs.__append__(_attr) : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
         };
         return _attrs;
     }

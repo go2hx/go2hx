@@ -61,7 +61,7 @@ package stdgo._internal.runtime.pprof;
     static public function _string( _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>, _tag:stdgo.GoInt, _x:stdgo.GoString):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf> = _b;
         @:check2r _b._length(_tag, (_x.length));
-        (@:checkr _b ?? throw "null pointer dereference")._data = ((@:checkr _b ?? throw "null pointer dereference")._data.__append__(...(_x : Array<stdgo.GoUInt8>)));
+        (@:checkr _b ?? throw "null pointer dereference")._data = ((@:checkr _b ?? throw "null pointer dereference")._data.__append__(...(_x : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     @:tdfield
@@ -149,9 +149,9 @@ package stdgo._internal.runtime.pprof;
     static public function _varint( _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>, _x:stdgo.GoUInt64):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf> = _b;
         while ((_x >= (128i64 : stdgo.GoUInt64) : Bool)) {
-            (@:checkr _b ?? throw "null pointer dereference")._data = ((@:checkr _b ?? throw "null pointer dereference")._data.__append__(((_x : stdgo.GoUInt8) | (128 : stdgo.GoUInt8) : stdgo.GoUInt8)));
+            (@:checkr _b ?? throw "null pointer dereference")._data = ((@:checkr _b ?? throw "null pointer dereference")._data.__append__(((_x : stdgo.GoUInt8) | (128 : stdgo.GoUInt8) : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
             _x = (_x >> ((7i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         };
-        (@:checkr _b ?? throw "null pointer dereference")._data = ((@:checkr _b ?? throw "null pointer dereference")._data.__append__((_x : stdgo.GoUInt8)));
+        (@:checkr _b ?? throw "null pointer dereference")._data = ((@:checkr _b ?? throw "null pointer dereference")._data.__append__((_x : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
     }
 }

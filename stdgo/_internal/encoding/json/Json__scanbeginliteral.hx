@@ -1,2 +1,2 @@
 package stdgo._internal.encoding.json;
-final _scanBeginLiteral = (11i64 : stdgo.GoUInt64);
+final _scanBeginLiteral : stdgo.GoUInt64 = 1i32;

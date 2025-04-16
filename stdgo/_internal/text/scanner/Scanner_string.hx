@@ -1,2 +1,2 @@
 package stdgo._internal.text.scanner;
-final string = (0i64 : stdgo.GoUInt64);
+final string : stdgo.GoUInt64 = -6i32;

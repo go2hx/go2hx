@@ -10,6 +10,6 @@ function _lookupTypeInfo(_rt:stdgo._internal.reflect.Reflect_type_.Type_):stdgo.
             { _0 : (stdgo.Go.typeAssert((@:check2 stdgo._internal.encoding.gob.Gob__typeinfomap._typeInfoMap.load() : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_typeinfo.T_typeInfo>>)) : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_typeinfo.T_typeInfo>>), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_typeinfo.T_typeInfo>>), _1 : false };
-        }, _m = __tmp__._0, __4 = __tmp__._1;
+        }, _m = __tmp__._0, __8 = __tmp__._1;
         return (_m[_rt] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_typeinfo.T_typeInfo>));
     }

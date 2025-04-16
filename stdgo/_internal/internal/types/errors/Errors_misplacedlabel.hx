@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final misplacedLabel = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final misplacedLabel : stdgo._internal.internal.types.errors.Errors_code.Code = 121i32;

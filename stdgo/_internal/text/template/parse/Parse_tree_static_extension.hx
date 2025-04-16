@@ -217,6 +217,7 @@ package stdgo._internal.text.template.parse;
     static public function _withControl( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>):stdgo._internal.text.template.parse.Parse_node.Node {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> = _t;
         return stdgo.Go.asInterface(({
+            @:tupleArg var __tmp__ = @:check2r _t._parseControl(false, ("with" : stdgo.GoString));
             var __f__ = @:check2r _t._newWith;
             var __tmp__ = @:check2r _t._parseControl(false, ("with" : stdgo.GoString));
             __f__((__tmp__._0 : stdgo._internal.text.template.parse.Parse_pos.Pos), (__tmp__._1 : stdgo.GoInt), (__tmp__._2 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>), (__tmp__._3 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>), (__tmp__._4 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>));
@@ -227,6 +228,7 @@ package stdgo._internal.text.template.parse;
     static public function _rangeControl( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>):stdgo._internal.text.template.parse.Parse_node.Node {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> = _t;
         var _r = ({
+            @:tupleArg var __tmp__ = @:check2r _t._parseControl(false, ("range" : stdgo.GoString));
             var __f__ = @:check2r _t._newRange;
             var __tmp__ = @:check2r _t._parseControl(false, ("range" : stdgo.GoString));
             __f__((__tmp__._0 : stdgo._internal.text.template.parse.Parse_pos.Pos), (__tmp__._1 : stdgo.GoInt), (__tmp__._2 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>), (__tmp__._3 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>), (__tmp__._4 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>));
@@ -238,6 +240,7 @@ package stdgo._internal.text.template.parse;
     static public function _ifControl( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>):stdgo._internal.text.template.parse.Parse_node.Node {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> = _t;
         return stdgo.Go.asInterface(({
+            @:tupleArg var __tmp__ = @:check2r _t._parseControl(true, ("if" : stdgo.GoString));
             var __f__ = @:check2r _t._newIf;
             var __tmp__ = @:check2r _t._parseControl(true, ("if" : stdgo.GoString));
             __f__((__tmp__._0 : stdgo._internal.text.template.parse.Parse_pos.Pos), (__tmp__._1 : stdgo.GoInt), (__tmp__._2 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>), (__tmp__._3 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>), (__tmp__._4 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>));
@@ -310,6 +313,11 @@ package stdgo._internal.text.template.parse;
                     _elseList = __tmp__._4;
                     __tmp__;
                 };
+                _pos = __ret__._0;
+                _line = __ret__._1;
+                _pipe = __ret__._2;
+                _list = __ret__._3;
+                _elseList = __ret__._4;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -392,11 +400,11 @@ package stdgo._internal.text.template.parse;
     static public function _pipeline( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>, _context:stdgo.GoString, _end:stdgo._internal.text.template.parse.Parse_t_itemtype.T_itemType):stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> = _t;
         var _pipe = (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
+        var _token_6:stdgo._internal.text.template.parse.Parse_t_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item);
+        var _next_5:stdgo._internal.text.template.parse.Parse_t_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item);
         var _tokenAfterVariable_4:stdgo._internal.text.template.parse.Parse_t_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item);
         var _v_3:stdgo._internal.text.template.parse.Parse_t_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item);
         var _token_2:stdgo._internal.text.template.parse.Parse_t_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item);
-        var _token_6:stdgo._internal.text.template.parse.Parse_t_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item);
-        var _next_5:stdgo._internal.text.template.parse.Parse_t_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item);
         var _gotoNext = 0i32;
         _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -433,13 +441,13 @@ package stdgo._internal.text.template.parse;
                 } else if (__value__ == (3618486i32)) {
                     (@:checkr _pipe ?? throw "null pointer dereference").isAssign = _next_5._typ == ((6 : stdgo._internal.text.template.parse.Parse_t_itemtype.T_itemType));
                     @:check2r _t._nextNonSpace();
-                    (@:checkr _pipe ?? throw "null pointer dereference").decl = ((@:checkr _pipe ?? throw "null pointer dereference").decl.__append__(@:check2r _t._newVariable(_v_3._pos, _v_3._val?.__copy__())));
-                    (@:checkr _t ?? throw "null pointer dereference")._vars = ((@:checkr _t ?? throw "null pointer dereference")._vars.__append__(_v_3._val?.__copy__()));
+                    (@:checkr _pipe ?? throw "null pointer dereference").decl = ((@:checkr _pipe ?? throw "null pointer dereference").decl.__append__(@:check2r _t._newVariable(_v_3._pos, _v_3._val?.__copy__())) : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>>);
+                    (@:checkr _t ?? throw "null pointer dereference")._vars = ((@:checkr _t ?? throw "null pointer dereference")._vars.__append__(_v_3._val?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     _gotoNext = 3619316i32;
                 } else if (__value__ == (3618700i32)) {
                     @:check2r _t._nextNonSpace();
-                    (@:checkr _pipe ?? throw "null pointer dereference").decl = ((@:checkr _pipe ?? throw "null pointer dereference").decl.__append__(@:check2r _t._newVariable(_v_3._pos, _v_3._val?.__copy__())));
-                    (@:checkr _t ?? throw "null pointer dereference")._vars = ((@:checkr _t ?? throw "null pointer dereference")._vars.__append__(_v_3._val?.__copy__()));
+                    (@:checkr _pipe ?? throw "null pointer dereference").decl = ((@:checkr _pipe ?? throw "null pointer dereference").decl.__append__(@:check2r _t._newVariable(_v_3._pos, _v_3._val?.__copy__())) : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>>);
+                    (@:checkr _t ?? throw "null pointer dereference")._vars = ((@:checkr _t ?? throw "null pointer dereference")._vars.__append__(_v_3._val?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     if (((_context == ("range" : stdgo.GoString)) && (((@:checkr _pipe ?? throw "null pointer dereference").decl.length) < (2 : stdgo.GoInt) : Bool) : Bool)) {
                         _gotoNext = 3618909i32;
                     } else {
@@ -814,6 +822,8 @@ package stdgo._internal.text.template.parse;
                     _err = __tmp__._1;
                     __tmp__;
                 };
+                _tree = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

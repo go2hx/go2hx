@@ -10,7 +10,7 @@ package stdgo._internal.net.url;
         var _buf:stdgo._internal.strings.Strings_builder.Builder = ({} : stdgo._internal.strings.Strings_builder.Builder);
         var _keys = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (_v.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_k => _ in _v) {
-            _keys = (_keys.__append__(_k?.__copy__()));
+            _keys = (_keys.__append__(_k?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         stdgo._internal.sort.Sort_strings.strings(_keys);
         for (__0 => _k in _keys) {
@@ -44,7 +44,7 @@ package stdgo._internal.net.url;
     @:tdfield
     static public function add( _v:stdgo._internal.net.url.Url_values.Values, _key:stdgo.GoString, _value:stdgo.GoString):Void {
         @:recv var _v:stdgo._internal.net.url.Url_values.Values = _v;
-        _v[_key] = ((_v[_key] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(_value?.__copy__()));
+        _v[_key] = ((_v[_key] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
     }
     @:keep
     @:tdfield

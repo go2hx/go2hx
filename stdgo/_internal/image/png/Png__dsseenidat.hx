@@ -1,2 +1,2 @@
 package stdgo._internal.image.png;
-final _dsSeenIDAT = (5i64 : stdgo.GoUInt64);
+final _dsSeenIDAT : stdgo.GoUInt64 = 4i32;

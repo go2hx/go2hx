@@ -22,13 +22,13 @@ function stop(_c:stdgo.Chan<stdgo._internal.os.Os_signal.Signal>):Void {
                 _n++;
             };
         };
-        stdgo._internal.os.signal.Signal__handlers._handlers._stopping = (stdgo._internal.os.signal.Signal__handlers._handlers._stopping.__append__((new stdgo._internal.os.signal.Signal_t_stopping.T_stopping(_c, _h) : stdgo._internal.os.signal.Signal_t_stopping.T_stopping)));
+        stdgo._internal.os.signal.Signal__handlers._handlers._stopping = (stdgo._internal.os.signal.Signal__handlers._handlers._stopping.__append__((new stdgo._internal.os.signal.Signal_t_stopping.T_stopping(_c, _h) : stdgo._internal.os.signal.Signal_t_stopping.T_stopping)) : stdgo.Slice<stdgo._internal.os.signal.Signal_t_stopping.T_stopping>);
         stdgo._internal.os.signal.Signal__handlers._handlers.unlock();
         stdgo._internal.os.signal.Signal__signalwaituntilidle._signalWaitUntilIdle();
         stdgo._internal.os.signal.Signal__handlers._handlers.lock();
         for (_i => _s in stdgo._internal.os.signal.Signal__handlers._handlers._stopping) {
             if (_s._c == (_c)) {
-                stdgo._internal.os.signal.Signal__handlers._handlers._stopping = ((stdgo._internal.os.signal.Signal__handlers._handlers._stopping.__slice__(0, _i) : stdgo.Slice<stdgo._internal.os.signal.Signal_t_stopping.T_stopping>).__append__(...((stdgo._internal.os.signal.Signal__handlers._handlers._stopping.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.os.signal.Signal_t_stopping.T_stopping>) : Array<stdgo._internal.os.signal.Signal_t_stopping.T_stopping>)));
+                stdgo._internal.os.signal.Signal__handlers._handlers._stopping = ((stdgo._internal.os.signal.Signal__handlers._handlers._stopping.__slice__(0, _i) : stdgo.Slice<stdgo._internal.os.signal.Signal_t_stopping.T_stopping>).__append__(...((stdgo._internal.os.signal.Signal__handlers._handlers._stopping.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.os.signal.Signal_t_stopping.T_stopping>) : Array<stdgo._internal.os.signal.Signal_t_stopping.T_stopping>)) : stdgo.Slice<stdgo._internal.os.signal.Signal_t_stopping.T_stopping>);
                 break;
             };
         };

@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final untypedNilUse = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final untypedNilUse : stdgo._internal.internal.types.errors.Errors_code.Code = 16i32;

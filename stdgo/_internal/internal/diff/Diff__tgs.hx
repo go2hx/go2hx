@@ -26,15 +26,15 @@ function _tgs(_x:stdgo.Slice<stdgo.GoString>, _y:stdgo.Slice<stdgo.GoString>):st
         for (_i => _s in _y) {
             if ((_m[_s] ?? (0 : stdgo.GoInt)) == ((-5 : stdgo.GoInt))) {
                 _m[_s] = (_yi.length);
-                _yi = (_yi.__append__(_i));
+                _yi = (_yi.__append__(_i) : stdgo.Slice<stdgo.GoInt>);
             };
         };
         for (_i => _s in _x) {
             {
                 var __tmp__ = (_m != null && _m.__exists__(_s?.__copy__()) ? { _0 : _m[_s?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), _j:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
                 if ((_ok && (_j >= (0 : stdgo.GoInt) : Bool) : Bool)) {
-                    _xi = (_xi.__append__(_i));
-                    _inv = (_inv.__append__(_j));
+                    _xi = (_xi.__append__(_i) : stdgo.Slice<stdgo.GoInt>);
+                    _inv = (_inv.__append__(_j) : stdgo.Slice<stdgo.GoInt>);
                 };
             };
         };

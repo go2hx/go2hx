@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final invalidLitField = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final invalidLitField : stdgo._internal.internal.types.errors.Errors_code.Code = 69i32;

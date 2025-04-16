@@ -1,2 +1,2 @@
 package stdgo._internal.syscall;
-final sOCK_RAW = @:invalid_type null;
+final sOCK_RAW : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

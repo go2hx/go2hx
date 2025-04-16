@@ -20,5 +20,5 @@ var _rhi = __1, _rlo = __0;
                 _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
             };
         };
-        return (_r.__append__(_lo, _hi));
+        return (_r.__append__(_lo, _hi) : stdgo.Slice<stdgo.GoInt32>);
     }

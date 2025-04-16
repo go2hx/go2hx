@@ -21,12 +21,12 @@ function _testFS(_fsys:stdgo._internal.io.fs.Fs_fs.FS, _expected:haxe.Rest<stdgo
             var _list:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
             for (_k => _ in _found) {
                 if (_k != (("." : stdgo.GoString))) {
-                    _list = (_list.__append__(_k?.__copy__()));
+                    _list = (_list.__append__(_k?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 };
             };
             stdgo._internal.sort.Sort_strings.strings(_list);
             if (((_list.length) > (15 : stdgo.GoInt) : Bool)) {
-                _list = ((_list.__slice__(0, (10 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>).__append__((("..." : stdgo.GoString) : stdgo.GoString)));
+                _list = ((_list.__slice__(0, (10 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>).__append__(("..." : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
             };
             @:check2 _t._errorf(("expected empty file system but found files:\n%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.strings.Strings_join.join(_list, ("\n" : stdgo.GoString))));
         };

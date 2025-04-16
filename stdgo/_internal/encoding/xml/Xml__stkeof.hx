@@ -1,2 +1,2 @@
 package stdgo._internal.encoding.xml;
-final _stkEOF = (2i64 : stdgo.GoUInt64);
+final _stkEOF : stdgo.GoUInt64 = 2i32;

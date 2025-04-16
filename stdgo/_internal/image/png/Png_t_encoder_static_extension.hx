@@ -77,7 +77,7 @@ package stdgo._internal.image.png;
             };
             var _b = (_m.bounds()?.__copy__() : stdgo._internal.image.Image_rectangle.Rectangle);
             var _sz = ((1 : stdgo.GoInt) + ((((_bitsPerPixel * _b.dx() : stdgo.GoInt) + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
-            for (_i => _ in (@:checkr _e ?? throw "null pointer dereference")._cr) {
+            for (_i => _ in (@:checkr _e ?? throw "null pointer dereference")._cr.__copy__()) {
                 if (((@:checkr _e ?? throw "null pointer dereference")._cr[(_i : stdgo.GoInt)].capacity < _sz : Bool)) {
                     (@:checkr _e ?? throw "null pointer dereference")._cr[(_i : stdgo.GoInt)] = (new stdgo.Slice<stdgo.GoUInt8>((_sz : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                 } else {

@@ -9,11 +9,11 @@ function _appendTimeCommon(_dst:stdgo.Slice<stdgo.GoUInt8>, _t:stdgo._internal.t
         _dst = stdgo._internal.encoding.asn1.Asn1__appendtwodigits._appendTwoDigits(_dst, _sec);
         var __tmp__ = _t.zone(), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1;
         if ((_offset / (60 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
-            return (_dst.__append__((90 : stdgo.GoUInt8)));
+            return (_dst.__append__((90 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         } else if ((_offset > (0 : stdgo.GoInt) : Bool)) {
-            _dst = (_dst.__append__((43 : stdgo.GoUInt8)));
+            _dst = (_dst.__append__((43 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         } else if ((_offset < (0 : stdgo.GoInt) : Bool)) {
-            _dst = (_dst.__append__((45 : stdgo.GoUInt8)));
+            _dst = (_dst.__append__((45 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         var _offsetMinutes = (_offset / (60 : stdgo.GoInt) : stdgo.GoInt);
         if ((_offsetMinutes < (0 : stdgo.GoInt) : Bool)) {

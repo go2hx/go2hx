@@ -1,2 +1,2 @@
 package stdgo._internal.encoding.gob;
-final _xGob : stdgo.GoUInt64 = (3i64 : stdgo.GoUInt64);
+final _xGob : stdgo.GoUInt64 = 1i32;

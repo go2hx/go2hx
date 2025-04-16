@@ -9,7 +9,7 @@ function toValidUTF8(_s:stdgo.Slice<stdgo.GoUInt8>, _replacement:stdgo.Slice<std
                 if ((_c < (128 : stdgo.GoUInt8) : Bool)) {
                     _i++;
                     _invalid = false;
-                    _b = (_b.__append__(_c));
+                    _b = (_b.__append__(_c) : stdgo.Slice<stdgo.GoUInt8>);
                     continue;
                 };
                 var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decoderune.decodeRune((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt32 = __tmp__._0, _wid:stdgo.GoInt = __tmp__._1;
@@ -17,12 +17,12 @@ function toValidUTF8(_s:stdgo.Slice<stdgo.GoUInt8>, _replacement:stdgo.Slice<std
                     _i++;
                     if (!_invalid) {
                         _invalid = true;
-                        _b = (_b.__append__(...(_replacement : Array<stdgo.GoUInt8>)));
+                        _b = (_b.__append__(...(_replacement : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                     };
                     continue;
                 };
                 _invalid = false;
-                _b = (_b.__append__(...((_s.__slice__(_i, (_i + _wid : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+                _b = (_b.__append__(...((_s.__slice__(_i, (_i + _wid : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 _i = (_i + (_wid) : stdgo.GoInt);
             };
         };

@@ -1,2 +1,2 @@
 package stdgo._internal.text.template.parse;
-final nodeWith = (22 : stdgo._internal.text.template.parse.Parse_nodetype.NodeType);
+final nodeWith : stdgo._internal.text.template.parse.Parse_nodetype.NodeType = 19i32;

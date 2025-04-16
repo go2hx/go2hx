@@ -28,7 +28,7 @@ function _parseASN1String(_tag:_internal.vendor.golangdotorg.x.crypto.cryptobyte
                 };
                 var _s = (new stdgo.Slice<stdgo.GoUInt16>((0 : stdgo.GoInt).toBasic(), ((_value.length) / (2 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>);
                 while (((_value.length) > (0 : stdgo.GoInt) : Bool)) {
-                    _s = (_s.__append__((((_value[(0 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) + (_value[(1 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16)));
+                    _s = (_s.__append__((((_value[(0 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) + (_value[(1 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16)) : stdgo.Slice<stdgo.GoUInt16>);
                     _value = (_value.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                 };
                 return { _0 : (stdgo._internal.unicode.utf16.Utf16_decode.decode(_s) : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };

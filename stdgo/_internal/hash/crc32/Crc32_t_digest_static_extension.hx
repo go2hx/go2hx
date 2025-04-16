@@ -5,7 +5,7 @@ package stdgo._internal.hash.crc32;
     static public function sum( _d:stdgo.Ref<stdgo._internal.hash.crc32.Crc32_t_digest.T_digest>, _in:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _d:stdgo.Ref<stdgo._internal.hash.crc32.Crc32_t_digest.T_digest> = _d;
         var _s = (@:check2r _d.sum32() : stdgo.GoUInt32);
-        return (_in.__append__(((_s >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_s >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_s >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), (_s : stdgo.GoUInt8)));
+        return (_in.__append__(((_s >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_s >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_s >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), (_s : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     @:tdfield
@@ -47,7 +47,7 @@ package stdgo._internal.hash.crc32;
     static public function marshalBinary( _d:stdgo.Ref<stdgo._internal.hash.crc32.Crc32_t_digest.T_digest>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.hash.crc32.Crc32_t_digest.T_digest> = _d;
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (12 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        _b = (_b.__append__(...((stdgo.Go.str("crc", 1) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+        _b = (_b.__append__(...((stdgo.Go.str("crc", 1) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.hash.crc32.Crc32__appenduint32._appendUint32(_b, stdgo._internal.hash.crc32.Crc32__tablesum._tableSum((@:checkr _d ?? throw "null pointer dereference")._tab));
         _b = stdgo._internal.hash.crc32.Crc32__appenduint32._appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._crc);
         return { _0 : _b, _1 : (null : stdgo.Error) };

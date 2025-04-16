@@ -1,5 +1,5 @@
 package stdgo._internal.encoding.hex;
-final _reverseHexTable : stdgo.GoString = (stdgo.Go.str(255,
+final _reverseHexTable : stdgo.GoString = stdgo.Go.str(255,
 255,
 255,
 255,
@@ -246,4 +246,4 @@ final _reverseHexTable : stdgo.GoString = (stdgo.Go.str(255,
 255,
 255,
 255,
-255) : stdgo.GoString);
+255);

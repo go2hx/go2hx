@@ -64,7 +64,7 @@ package stdgo._internal.image.gif;
             };
             if ((@:checkr _d ?? throw "null pointer dereference")._hasTransparentIndex) {
                 if (!_useLocalColorTable) {
-                    (@:checkr _m ?? throw "null pointer dereference").palette = ((new stdgo._internal.image.color.Color_palette.Palette(0, 0) : stdgo._internal.image.color.Color_palette.Palette).__append__(stdgo.Go.asInterface(...((@:checkr _d ?? throw "null pointer dereference")._globalColorTable : Array<stdgo._internal.image.color.Color_color.Color>))));
+                    (@:checkr _m ?? throw "null pointer dereference").palette = ((new stdgo._internal.image.color.Color_palette.Palette(0, 0) : stdgo._internal.image.color.Color_palette.Palette).__append__(stdgo.Go.asInterface(...((@:checkr _d ?? throw "null pointer dereference")._globalColorTable : Array<stdgo._internal.image.color.Color_color.Color>))) : stdgo._internal.image.color.Color_palette.Palette);
                 };
                 {
                     var _ti = ((@:checkr _d ?? throw "null pointer dereference")._transparentIndex : stdgo.GoInt);
@@ -186,9 +186,9 @@ package stdgo._internal.image.gif;
                 stdgo._internal.image.gif.Gif__uninterlace._uninterlace(_m);
             };
             if ((_keepAllFrames || ((@:checkr _d ?? throw "null pointer dereference")._image.length == (0 : stdgo.GoInt)) : Bool)) {
-                (@:checkr _d ?? throw "null pointer dereference")._image = ((@:checkr _d ?? throw "null pointer dereference")._image.__append__(_m));
-                (@:checkr _d ?? throw "null pointer dereference")._delay = ((@:checkr _d ?? throw "null pointer dereference")._delay.__append__((@:checkr _d ?? throw "null pointer dereference")._delayTime));
-                (@:checkr _d ?? throw "null pointer dereference")._disposal = ((@:checkr _d ?? throw "null pointer dereference")._disposal.__append__((@:checkr _d ?? throw "null pointer dereference")._disposalMethod));
+                (@:checkr _d ?? throw "null pointer dereference")._image = ((@:checkr _d ?? throw "null pointer dereference")._image.__append__(_m) : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>>);
+                (@:checkr _d ?? throw "null pointer dereference")._delay = ((@:checkr _d ?? throw "null pointer dereference")._delay.__append__((@:checkr _d ?? throw "null pointer dereference")._delayTime) : stdgo.Slice<stdgo.GoInt>);
+                (@:checkr _d ?? throw "null pointer dereference")._disposal = ((@:checkr _d ?? throw "null pointer dereference")._disposal.__append__((@:checkr _d ?? throw "null pointer dereference")._disposalMethod) : stdgo.Slice<stdgo.GoUInt8>);
             };
             (@:checkr _d ?? throw "null pointer dereference")._delayTime = (0 : stdgo.GoInt);
             (@:checkr _d ?? throw "null pointer dereference")._hasTransparentIndex = false;

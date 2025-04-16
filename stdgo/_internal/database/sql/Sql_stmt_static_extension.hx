@@ -12,7 +12,7 @@ package stdgo._internal.database.sql;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if ((@:checkr _s ?? throw "null pointer dereference")._css != null) {
-                for (__19 => _v in (@:checkr _s ?? throw "null pointer dereference")._css) {
+                for (__67 => _v in (@:checkr _s ?? throw "null pointer dereference")._css) {
                     @:check2r (@:checkr _s ?? throw "null pointer dereference")._db._noteUnusedDriverStatement(_v._dc, _v._ds);
                     @:check2r _v._dc._removeOpenStmt(_v._ds);
                 };
@@ -347,7 +347,7 @@ package stdgo._internal.database.sql;
         };
         var _cs = (new stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt(_dc, _si) : stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt);
         @:check2 (@:checkr _s ?? throw "null pointer dereference")._mu.lock();
-        (@:checkr _s ?? throw "null pointer dereference")._css = ((@:checkr _s ?? throw "null pointer dereference")._css.__append__(_cs?.__copy__()));
+        (@:checkr _s ?? throw "null pointer dereference")._css = ((@:checkr _s ?? throw "null pointer dereference")._css.__append__(_cs?.__copy__()) : stdgo.Slice<stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt>);
         @:check2 (@:checkr _s ?? throw "null pointer dereference")._mu.unlock();
         return { _0 : _cs._ds, _1 : (null : stdgo.Error) };
     }
@@ -406,7 +406,7 @@ package stdgo._internal.database.sql;
             };
         };
         @:check2 (@:checkr _s ?? throw "null pointer dereference")._mu.lock();
-        for (__19 => _v in (@:checkr _s ?? throw "null pointer dereference")._css) {
+        for (__135 => _v in (@:checkr _s ?? throw "null pointer dereference")._css) {
             if (_v._dc == (_dc)) {
                 @:check2 (@:checkr _s ?? throw "null pointer dereference")._mu.unlock();
                 return {

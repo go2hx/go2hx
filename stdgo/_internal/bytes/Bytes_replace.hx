@@ -5,7 +5,7 @@ function replace(_s:stdgo.Slice<stdgo.GoUInt8>, _old:stdgo.Slice<stdgo.GoUInt8>,
             _m = stdgo._internal.bytes.Bytes_count.count(_s, _old);
         };
         if (_m == ((0 : stdgo.GoInt))) {
-            return ((null : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_s : Array<stdgo.GoUInt8>)));
+            return ((null : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_s : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if (((_n < (0 : stdgo.GoInt) : Bool) || (_m < _n : Bool) : Bool)) {
             _n = _m;

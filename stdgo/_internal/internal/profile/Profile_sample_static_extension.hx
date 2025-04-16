@@ -10,12 +10,12 @@ package stdgo._internal.internal.profile;
         };
         var _labels = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), ((@:checkr _sample ?? throw "null pointer dereference").label.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_k => _v in (@:checkr _sample ?? throw "null pointer dereference").label) {
-            _labels = (_labels.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%q%q" : stdgo.GoString), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v))?.__copy__()));
+            _labels = (_labels.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%q%q" : stdgo.GoString), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v))?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         stdgo._internal.sort.Sort_strings.strings(_labels);
         var _numlabels = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), ((@:checkr _sample ?? throw "null pointer dereference").numLabel.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_k => _v in (@:checkr _sample ?? throw "null pointer dereference").numLabel) {
-            _numlabels = (_numlabels.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%q%x%x" : stdgo.GoString), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v), stdgo.Go.toInterface(((@:checkr _sample ?? throw "null pointer dereference").numUnit[_k] ?? (null : stdgo.Slice<stdgo.GoString>))))?.__copy__()));
+            _numlabels = (_numlabels.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%q%x%x" : stdgo.GoString), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v), stdgo.Go.toInterface(((@:checkr _sample ?? throw "null pointer dereference").numUnit[_k] ?? (null : stdgo.Slice<stdgo.GoString>))))?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         stdgo._internal.sort.Sort_strings.strings(_numlabels);
         return (new stdgo._internal.internal.profile.Profile_t_samplekey.T_sampleKey(stdgo._internal.strings.Strings_join.join(_ids, ("|" : stdgo.GoString))?.__copy__(), stdgo._internal.strings.Strings_join.join(_labels, (stdgo.Go.str() : stdgo.GoString)?.__copy__())?.__copy__(), stdgo._internal.strings.Strings_join.join(_numlabels, (stdgo.Go.str() : stdgo.GoString)?.__copy__())?.__copy__()) : stdgo._internal.internal.profile.Profile_t_samplekey.T_sampleKey);

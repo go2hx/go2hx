@@ -24,9 +24,9 @@ if (({
                 };
 if ((_all || (_val != _baseVal) : Bool)) {
                     if (_val) {
-                        _list = (_list.__append__(_name.__copy__()));
+                        _list = (_list.__append__(_name.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     } else {
-                        _list = (_list.__append__((("no" : stdgo.GoString) + _name.__copy__() : stdgo.GoString).__copy__()));
+                        _list = (_list.__append__((("no" : stdgo.GoString) + _name.__copy__() : stdgo.GoString).__copy__()) : stdgo.Slice<stdgo.GoString>);
                     };
                 };
                 _i++;

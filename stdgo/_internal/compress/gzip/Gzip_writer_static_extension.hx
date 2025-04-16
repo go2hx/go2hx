@@ -144,7 +144,7 @@ package stdgo._internal.compress.gzip;
         if (_needconv) {
             var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (_s.length)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             for (__1 => _v in _s) {
-                _b = (_b.__append__((_v : stdgo.GoUInt8)));
+                _b = (_b.__append__((_v : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
             };
             {
                 var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._w.write(_b);

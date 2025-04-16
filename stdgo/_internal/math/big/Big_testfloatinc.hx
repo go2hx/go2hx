@@ -1,7 +1,7 @@
 package stdgo._internal.math.big;
 function testFloatInc(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         {};
-        for (__8 => _prec in stdgo._internal.math.big.Big__preclist._precList) {
+        for (__8 => _prec in stdgo._internal.math.big.Big__preclist._precList.__copy__()) {
             if ((((1 : stdgo.GoInt) << _prec : stdgo.GoInt) < (10 : stdgo.GoInt) : Bool)) {
                 continue;
             };

@@ -12,6 +12,7 @@ function testClone(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
             @:check2r _t.fatal(stdgo.Go.toInterface(_err));
         };
         var _clone = ({
+            @:tupleArg var __tmp__ = @:check2r _root.clone();
             var __f__ = stdgo._internal.text.template.Template_must.must;
             var __tmp__ = @:check2r _root.clone();
             __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>), (__tmp__._1 : stdgo.Error));
@@ -31,10 +32,10 @@ function testClone(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
             @:check2r _t.fatal(stdgo.Go.toInterface(_err));
         };
         for (_k => _v in (@:checkr _clone ?? throw "null pointer dereference")._common._tmpl) {
-            if (((_k == (@:checkr _clone ?? throw "null pointer dereference").tree._lex._name) && (((@:checkr _v ?? throw "null pointer dereference")._common._tmpl[_k] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>)) != _clone) : Bool)) {
+            if (((_k == (@:checkr _clone ?? throw "null pointer dereference")._name) && (((@:checkr _v ?? throw "null pointer dereference")._common._tmpl[_k] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>)) != _clone) : Bool)) {
                 @:check2r _t.error(stdgo.Go.toInterface(("clone does not contain root" : stdgo.GoString)));
             };
-            if (_v != (((@:checkr _v ?? throw "null pointer dereference")._common._tmpl[(@:checkr _v ?? throw "null pointer dereference").tree._lex._name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>)))) {
+            if (_v != (((@:checkr _v ?? throw "null pointer dereference")._common._tmpl[(@:checkr _v ?? throw "null pointer dereference")._name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>)))) {
                 @:check2r _t.errorf(("clone does not contain self for %q" : stdgo.GoString), stdgo.Go.toInterface(_k));
             };
         };

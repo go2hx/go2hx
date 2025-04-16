@@ -85,8 +85,8 @@ package stdgo._internal.crypto.x509;
             return;
         };
         (@:checkr _s ?? throw "null pointer dereference")._haveSum[_rawSum224] = true;
-        (@:checkr _s ?? throw "null pointer dereference")._lazyCerts = ((@:checkr _s ?? throw "null pointer dereference")._lazyCerts.__append__(({ _rawSubject : (_rawSubject : stdgo.Slice<stdgo.GoUInt8>), _getCert : _getCert } : stdgo._internal.crypto.x509.X509_t_lazycert.T_lazyCert)));
-        (@:checkr _s ?? throw "null pointer dereference")._byName[_rawSubject] = (((@:checkr _s ?? throw "null pointer dereference")._byName[_rawSubject] ?? (null : stdgo.Slice<stdgo.GoInt>)).__append__((((@:checkr _s ?? throw "null pointer dereference")._lazyCerts.length) - (1 : stdgo.GoInt) : stdgo.GoInt)));
+        (@:checkr _s ?? throw "null pointer dereference")._lazyCerts = ((@:checkr _s ?? throw "null pointer dereference")._lazyCerts.__append__(({ _rawSubject : (_rawSubject : stdgo.Slice<stdgo.GoUInt8>), _getCert : _getCert } : stdgo._internal.crypto.x509.X509_t_lazycert.T_lazyCert)) : stdgo.Slice<stdgo._internal.crypto.x509.X509_t_lazycert.T_lazyCert>);
+        (@:checkr _s ?? throw "null pointer dereference")._byName[_rawSubject] = (((@:checkr _s ?? throw "null pointer dereference")._byName[_rawSubject] ?? (null : stdgo.Slice<stdgo.GoInt>)).__append__((((@:checkr _s ?? throw "null pointer dereference")._lazyCerts.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
     }
     @:keep
     @:tdfield
@@ -132,11 +132,11 @@ package stdgo._internal.crypto.x509;
             };
             var _kidMatch = (stdgo._internal.bytes.Bytes_equal.equal((@:checkr _candidate ?? throw "null pointer dereference").subjectKeyId, (@:checkr _cert ?? throw "null pointer dereference").authorityKeyId) : Bool);
             if (_kidMatch) {
-                _matchingKeyID = (_matchingKeyID.__append__(_candidate));
+                _matchingKeyID = (_matchingKeyID.__append__(_candidate) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>);
             } else if ((((((@:checkr _candidate ?? throw "null pointer dereference").subjectKeyId.length == (0 : stdgo.GoInt)) && (((@:checkr _cert ?? throw "null pointer dereference").authorityKeyId.length) > (0 : stdgo.GoInt) : Bool) : Bool)) || (((((@:checkr _candidate ?? throw "null pointer dereference").subjectKeyId.length) > (0 : stdgo.GoInt) : Bool) && ((@:checkr _cert ?? throw "null pointer dereference").authorityKeyId.length == (0 : stdgo.GoInt)) : Bool)) : Bool)) {
-                _oneKeyID = (_oneKeyID.__append__(_candidate));
+                _oneKeyID = (_oneKeyID.__append__(_candidate) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>);
             } else {
-                _mismatchKeyID = (_mismatchKeyID.__append__(_candidate));
+                _mismatchKeyID = (_mismatchKeyID.__append__(_candidate) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>);
             };
         };
         var _found = (((_matchingKeyID.length) + (_oneKeyID.length) : stdgo.GoInt) + (_mismatchKeyID.length) : stdgo.GoInt);
@@ -144,9 +144,9 @@ package stdgo._internal.crypto.x509;
             return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>);
         };
         var _candidates = (new stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>((0 : stdgo.GoInt).toBasic(), _found) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>);
-        _candidates = (_candidates.__append__(...(_matchingKeyID : Array<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>)));
-        _candidates = (_candidates.__append__(...(_oneKeyID : Array<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>)));
-        _candidates = (_candidates.__append__(...(_mismatchKeyID : Array<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>)));
+        _candidates = (_candidates.__append__(...(_matchingKeyID : Array<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>);
+        _candidates = (_candidates.__append__(...(_oneKeyID : Array<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>);
+        _candidates = (_candidates.__append__(...(_mismatchKeyID : Array<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>);
         return _candidates;
     }
     @:keep

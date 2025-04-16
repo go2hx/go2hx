@@ -5,7 +5,7 @@ function _appendQuotedWith(_buf:stdgo.Slice<stdgo.GoUInt8>, _s:stdgo.GoString, _
             _nBuf.__copyTo__(_buf);
             _buf = _nBuf;
         };
-        _buf = (_buf.__append__(_quote));
+        _buf = (_buf.__append__(_quote) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _width = (0 : stdgo.GoInt);
             while (((_s.length) > (0 : stdgo.GoInt) : Bool)) {
@@ -19,9 +19,9 @@ if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                     };
                 };
 if (((_width == (1 : stdgo.GoInt)) && (_r == (65533 : stdgo.GoInt32)) : Bool)) {
-                    _buf = (_buf.__append__(...((("\\x" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
-                    _buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[((_s[(0 : stdgo.GoInt)] >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)]));
-                    _buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[((_s[(0 : stdgo.GoInt)] & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
+                    _buf = (_buf.__append__(...((("\\x" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+                    _buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[((_s[(0 : stdgo.GoInt)] >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoUInt8>);
+                    _buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[((_s[(0 : stdgo.GoInt)] & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoUInt8>);
                     {
                         _s = (_s.__slice__(_width) : stdgo.GoString)?.__copy__();
                         continue;
@@ -31,6 +31,6 @@ _buf = stdgo._internal.strconv.Strconv__appendescapedrune._appendEscapedRune(_bu
                 _s = (_s.__slice__(_width) : stdgo.GoString)?.__copy__();
             };
         };
-        _buf = (_buf.__append__(_quote));
+        _buf = (_buf.__append__(_quote) : stdgo.Slice<stdgo.GoUInt8>);
         return _buf;
     }

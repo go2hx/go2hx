@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final wrongAssignCount = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final wrongAssignCount : stdgo._internal.internal.types.errors.Errors_code.Code = 17i32;

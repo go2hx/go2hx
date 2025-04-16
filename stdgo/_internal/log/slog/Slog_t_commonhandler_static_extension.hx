@@ -7,7 +7,7 @@ package stdgo._internal.log.slog;
         var _s = ({ _h : _h, _buf : _buf, _freeBuf : _freeBuf, _sep : _sep?.__copy__(), _prefix : stdgo._internal.log.slog.internal.buffer.Buffer_new_.new_() } : stdgo._internal.log.slog.Slog_t_handlestate.T_handleState);
         if ((@:checkr _h ?? throw "null pointer dereference")._opts.replaceAttr != null) {
             _s._groups = (stdgo.Go.typeAssert((@:check2 stdgo._internal.log.slog.Slog__grouppool._groupPool.get() : stdgo.Ref<stdgo.Slice<stdgo.GoString>>)) : stdgo.Ref<stdgo.Slice<stdgo.GoString>>);
-            (_s._groups : stdgo.Slice<stdgo.GoString>).__setData__(((_s._groups : stdgo.Slice<stdgo.GoString>).__append__(...(((@:checkr _h ?? throw "null pointer dereference")._groups.__slice__(0, (@:checkr _h ?? throw "null pointer dereference")._nOpenGroups) : stdgo.Slice<stdgo.GoString>) : Array<stdgo.GoString>))));
+            (_s._groups : stdgo.Slice<stdgo.GoString>).__setData__(((_s._groups : stdgo.Slice<stdgo.GoString>).__append__(...(((@:checkr _h ?? throw "null pointer dereference")._groups.__slice__(0, (@:checkr _h ?? throw "null pointer dereference")._nOpenGroups) : stdgo.Slice<stdgo.GoString>) : Array<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>));
         };
         return _s?.__copy__();
     }
@@ -142,7 +142,7 @@ package stdgo._internal.log.slog;
     static public function _withGroup( _h:stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler>, _name:stdgo.GoString):stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler> {
         @:recv var _h:stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler> = _h;
         var _h2 = @:check2r _h._clone();
-        (@:checkr _h2 ?? throw "null pointer dereference")._groups = ((@:checkr _h2 ?? throw "null pointer dereference")._groups.__append__(_name?.__copy__()));
+        (@:checkr _h2 ?? throw "null pointer dereference")._groups = ((@:checkr _h2 ?? throw "null pointer dereference")._groups.__append__(_name?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         return _h2;
     }
     @:keep

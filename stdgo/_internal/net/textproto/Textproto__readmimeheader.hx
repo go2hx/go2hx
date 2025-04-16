@@ -71,7 +71,7 @@ function _readMIMEHeader(_r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_re
                 _vv[(0 : stdgo.GoInt)] = _value?.__copy__();
                 _m[_key] = _vv;
             } else {
-                _m[_key] = (_vv.__append__(_value?.__copy__()));
+                _m[_key] = (_vv.__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
             if (_err != null) {
                 return { _0 : _m, _1 : _err };

@@ -1,2 +1,2 @@
 package stdgo._internal.internal.abi;
-final slice = (26u32 : stdgo._internal.internal.abi.Abi_kind.Kind);
+final slice : stdgo._internal.internal.abi.Abi_kind.Kind = 23i32;

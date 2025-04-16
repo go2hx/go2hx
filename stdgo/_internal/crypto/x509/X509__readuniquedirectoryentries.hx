@@ -7,7 +7,7 @@ function _readUniqueDirectoryEntries(_dir:stdgo.GoString):{ var _0 : stdgo.Slice
         var _uniq = (_files.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.io.fs.Fs_direntry.DirEntry>);
         for (__1 => _f in _files) {
             if (!stdgo._internal.crypto.x509.X509__issamedirsymlink._isSameDirSymlink(_f, _dir?.__copy__())) {
-                _uniq = (_uniq.__append__(_f));
+                _uniq = (_uniq.__append__(_f) : stdgo.Slice<stdgo._internal.io.fs.Fs_direntry.DirEntry>);
             };
         };
         return { _0 : _uniq, _1 : (null : stdgo.Error) };

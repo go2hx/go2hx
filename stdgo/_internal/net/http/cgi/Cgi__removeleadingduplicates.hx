@@ -16,7 +16,7 @@ function _removeLeadingDuplicates(_env:stdgo.Slice<stdgo.GoString>):stdgo.Slice<
                 };
             };
             if (!_found) {
-                _ret = (_ret.__append__(_e?.__copy__()));
+                _ret = (_ret.__append__(_e?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
         };
         return _ret;

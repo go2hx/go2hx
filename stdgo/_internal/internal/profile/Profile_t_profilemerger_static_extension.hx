@@ -27,7 +27,7 @@ package stdgo._internal.internal.profile;
         var _f = (stdgo.Go.setRef(({ iD : ((((@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").function_.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt64), name : (@:checkr _src ?? throw "null pointer dereference").name?.__copy__(), systemName : (@:checkr _src ?? throw "null pointer dereference").systemName?.__copy__(), filename : (@:checkr _src ?? throw "null pointer dereference").filename?.__copy__(), startLine : (@:checkr _src ?? throw "null pointer dereference").startLine } : stdgo._internal.internal.profile.Profile_function.Function)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>);
         (@:checkr _pm ?? throw "null pointer dereference")._functions[_k] = _f;
         (@:checkr _pm ?? throw "null pointer dereference")._functionsByID[(@:checkr _src ?? throw "null pointer dereference").iD] = _f;
-        (@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").function_ = ((@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").function_.__append__(_f));
+        (@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").function_ = ((@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").function_.__append__(_f) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>>);
         return _f;
     }
     @:keep
@@ -63,7 +63,7 @@ package stdgo._internal.internal.profile;
             };
         };
         var _m = (stdgo.Go.setRef(({ iD : ((((@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").mapping.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt64), start : (@:checkr _src ?? throw "null pointer dereference").start, limit : (@:checkr _src ?? throw "null pointer dereference").limit, offset : (@:checkr _src ?? throw "null pointer dereference").offset, file : (@:checkr _src ?? throw "null pointer dereference").file?.__copy__(), buildID : (@:checkr _src ?? throw "null pointer dereference").buildID?.__copy__(), hasFunctions : (@:checkr _src ?? throw "null pointer dereference").hasFunctions, hasFilenames : (@:checkr _src ?? throw "null pointer dereference").hasFilenames, hasLineNumbers : (@:checkr _src ?? throw "null pointer dereference").hasLineNumbers, hasInlineFrames : (@:checkr _src ?? throw "null pointer dereference").hasInlineFrames } : stdgo._internal.internal.profile.Profile_mapping.Mapping)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>);
-        (@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").mapping = ((@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").mapping.__append__(_m));
+        (@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").mapping = ((@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").mapping.__append__(_m) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>>);
         (@:checkr _pm ?? throw "null pointer dereference")._mappings[_mk] = _m;
         var _mi = (new stdgo._internal.internal.profile.Profile_t_mapinfo.T_mapInfo(_m, (0i64 : stdgo.GoInt64)) : stdgo._internal.internal.profile.Profile_t_mapinfo.T_mapInfo);
         (@:checkr _pm ?? throw "null pointer dereference")._mappingsByID[(@:checkr _src ?? throw "null pointer dereference").iD] = _mi?.__copy__();
@@ -101,7 +101,7 @@ package stdgo._internal.internal.profile;
         };
         (@:checkr _pm ?? throw "null pointer dereference")._locationsByID[(@:checkr _src ?? throw "null pointer dereference").iD] = _l;
         (@:checkr _pm ?? throw "null pointer dereference")._locations[_k] = _l;
-        (@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").location = ((@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").location.__append__(_l));
+        (@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").location = ((@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").location.__append__(_l) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
         return _l;
     }
     @:keep
@@ -153,7 +153,7 @@ package stdgo._internal.internal.profile;
         };
         (@:checkr _s ?? throw "null pointer dereference").value.__copyTo__((@:checkr _src ?? throw "null pointer dereference").value);
         (@:checkr _pm ?? throw "null pointer dereference")._samples[_k] = _s;
-        (@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").sample = ((@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").sample.__append__(_s));
+        (@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").sample = ((@:checkr (@:checkr _pm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").sample.__append__(_s) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>>);
         return _s;
     }
 }

@@ -1,7 +1,17 @@
 package stdgo._internal.internal.pkgbits;
 @:interface typedef Code = stdgo.StructType & {
+    /**
+        * Marker returns the SyncMarker for the Code's dynamic type.
+        
+        
+    **/
     @:interfacetypeffun
-    function marker():stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker;
+    public dynamic function marker():stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker;
+    /**
+        * Value returns the Code's ordinal value.
+        
+        
+    **/
     @:interfacetypeffun
-    function value():stdgo.GoInt;
+    public dynamic function value():stdgo.GoInt;
 };

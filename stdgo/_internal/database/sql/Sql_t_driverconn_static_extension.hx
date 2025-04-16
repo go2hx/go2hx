@@ -9,7 +9,7 @@ package stdgo._internal.database.sql;
         stdgo._internal.database.sql.Sql__withlock._withLock(stdgo.Go.asInterface(_dc), function():Void {
             _openStmt = (new stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>>((0 : stdgo.GoInt).toBasic(), ((@:checkr _dc ?? throw "null pointer dereference")._openStmt.length)) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>>);
             for (_ds => _ in (@:checkr _dc ?? throw "null pointer dereference")._openStmt) {
-                _openStmt = (_openStmt.__append__(_ds));
+                _openStmt = (_openStmt.__append__(_ds) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>>);
             };
             (@:checkr _dc ?? throw "null pointer dereference")._openStmt = (null : stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>, Bool>);
         });

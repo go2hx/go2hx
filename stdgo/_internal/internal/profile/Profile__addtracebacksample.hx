@@ -5,5 +5,5 @@ function _addTracebackSample(_l:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.p
             x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoString>);
             x.set(("source" : stdgo.GoString), _s);
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) } : stdgo._internal.internal.profile.Profile_sample.Sample)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>)));
+        } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) } : stdgo._internal.internal.profile.Profile_sample.Sample)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>>);
     }

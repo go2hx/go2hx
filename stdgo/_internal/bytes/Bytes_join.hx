@@ -4,7 +4,7 @@ function join(_s:stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>, _sep:stdgo.Slice<stdgo
             return (new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         };
         if ((_s.length) == ((1 : stdgo.GoInt))) {
-            return ((null : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_s[(0 : stdgo.GoInt)] : Array<stdgo.GoUInt8>)));
+            return ((null : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_s[(0 : stdgo.GoInt)] : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         var _n:stdgo.GoInt = (0 : stdgo.GoInt);
         if (((_sep.length) > (0 : stdgo.GoInt) : Bool)) {

@@ -1,5 +1,5 @@
 package stdgo._internal.encoding.base32;
-final _decodeMapInitialize : stdgo.GoString = (stdgo.Go.str(255,
+final _decodeMapInitialize : stdgo.GoString = stdgo.Go.str(255,
 255,
 255,
 255,
@@ -254,4 +254,4 @@ final _decodeMapInitialize : stdgo.GoString = (stdgo.Go.str(255,
 255,
 255,
 255,
-255) : stdgo.GoString);
+255);

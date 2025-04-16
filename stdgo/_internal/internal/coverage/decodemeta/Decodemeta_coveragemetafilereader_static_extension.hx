@@ -19,15 +19,15 @@ package stdgo._internal.internal.coverage.decodemeta;
         if ((_payload.capacity < (_len : stdgo.GoInt) : Bool)) {
             _payload = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _len).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         };
-        _payload = (_payload.__append__(...((new stdgo.Slice<stdgo.GoUInt8>((_len : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+        _payload = (_payload.__append__(...((new stdgo.Slice<stdgo.GoUInt8>((_len : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         {
-            var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference")._f.seek((_off : stdgo.GoInt64), (0 : stdgo.GoInt)), __7:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference")._f.seek((_off : stdgo.GoInt64), (0 : stdgo.GoInt)), __19:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
         };
         {
-            var __tmp__ = stdgo._internal.io.Io_readfull.readFull(stdgo.Go.asInterface((@:checkr _r ?? throw "null pointer dereference")._f), _payload), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.io.Io_readfull.readFull(stdgo.Go.asInterface((@:checkr _r ?? throw "null pointer dereference")._f), _payload), __22:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
@@ -80,7 +80,7 @@ package stdgo._internal.internal.coverage.decodemeta;
     static public function _rdUint64( _r:stdgo.Ref<stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetafilereader.CoverageMetaFileReader>):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetafilereader.CoverageMetaFileReader> = _r;
         (@:checkr _r ?? throw "null pointer dereference")._tmp = ((@:checkr _r ?? throw "null pointer dereference")._tmp.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        (@:checkr _r ?? throw "null pointer dereference")._tmp = ((@:checkr _r ?? throw "null pointer dereference")._tmp.__append__(...((new stdgo.Slice<stdgo.GoUInt8>((8 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+        (@:checkr _r ?? throw "null pointer dereference")._tmp = ((@:checkr _r ?? throw "null pointer dereference")._tmp.__append__(...((new stdgo.Slice<stdgo.GoUInt8>((8 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference")._fileRdr.read((@:checkr _r ?? throw "null pointer dereference")._tmp), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : (0i64 : stdgo.GoUInt64), _1 : _err };

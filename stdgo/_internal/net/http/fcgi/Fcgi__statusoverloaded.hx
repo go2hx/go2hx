@@ -1,2 +1,2 @@
 package stdgo._internal.net.http.fcgi;
-final _statusOverloaded = (3i64 : stdgo.GoUInt64);
+final _statusOverloaded : stdgo.GoUInt64 = 2i32;

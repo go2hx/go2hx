@@ -1,2 +1,2 @@
 package stdgo._internal.io.fs;
-final modeDevice = (524288u32 : stdgo._internal.io.fs.Fs_filemode.FileMode);
+final modeDevice : stdgo._internal.io.fs.Fs_filemode.FileMode = 67108864i32;

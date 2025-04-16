@@ -8,7 +8,7 @@ package stdgo._internal.archive.tar;
         var _ss:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         for (__1 => _s in _he) {
             if (_s != ((stdgo.Go.str() : stdgo.GoString))) {
-                _ss = (_ss.__append__(_s?.__copy__()));
+                _ss = (_ss.__append__(_s?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
         };
         if ((_ss.length) == ((0 : stdgo.GoInt))) {

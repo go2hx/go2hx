@@ -1,10 +1,10 @@
 package stdgo._internal.log.slog;
 function _appendEscapedJSONString(_buf:stdgo.Slice<stdgo.GoUInt8>, _s:stdgo.GoString):stdgo.Slice<stdgo.GoUInt8> {
         var _char = (function(_b:stdgo.GoUInt8):Void {
-            _buf = (_buf.__append__(_b));
+            _buf = (_buf.__append__(_b) : stdgo.Slice<stdgo.GoUInt8>);
         } : stdgo.GoUInt8 -> Void);
         var _str = (function(_s:stdgo.GoString):Void {
-            _buf = (_buf.__append__(...(_s : Array<stdgo.GoUInt8>)));
+            _buf = (_buf.__append__(...(_s : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         } : stdgo.GoString -> Void);
         var _start = (0 : stdgo.GoInt);
         {

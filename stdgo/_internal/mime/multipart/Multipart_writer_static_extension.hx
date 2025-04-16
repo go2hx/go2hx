@@ -86,7 +86,7 @@ package stdgo._internal.mime.multipart;
         };
         var _keys = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (_header.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_k => _ in _header) {
-            _keys = (_keys.__append__(_k?.__copy__()));
+            _keys = (_keys.__append__(_k?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         stdgo._internal.sort.Sort_strings.strings(_keys);
         for (__0 => _k in _keys) {

@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final missingInitBody = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final missingInitBody : stdgo._internal.internal.types.errors.Errors_code.Code = 37i32;

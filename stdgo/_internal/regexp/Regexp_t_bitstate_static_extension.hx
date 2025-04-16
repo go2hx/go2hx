@@ -5,7 +5,7 @@ package stdgo._internal.regexp;
     static public function _push( _b:stdgo.Ref<stdgo._internal.regexp.Regexp_t_bitstate.T_bitState>, _re:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>, _pc:stdgo.GoUInt32, _pos:stdgo.GoInt, _arg:Bool):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.regexp.Regexp_t_bitstate.T_bitState> = _b;
         if ((((@:checkr (@:checkr _re ?? throw "null pointer dereference")._prog ?? throw "null pointer dereference").inst[(_pc : stdgo.GoInt)].op != (5 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) && ((_arg || @:check2r _b._shouldVisit(_pc, _pos) : Bool)) : Bool)) {
-            (@:checkr _b ?? throw "null pointer dereference")._jobs = ((@:checkr _b ?? throw "null pointer dereference")._jobs.__append__(({ _pc : _pc, _arg : _arg, _pos : _pos } : stdgo._internal.regexp.Regexp_t_job.T_job)));
+            (@:checkr _b ?? throw "null pointer dereference")._jobs = ((@:checkr _b ?? throw "null pointer dereference")._jobs.__append__(({ _pc : _pc, _arg : _arg, _pos : _pos } : stdgo._internal.regexp.Regexp_t_job.T_job)) : stdgo.Slice<stdgo._internal.regexp.Regexp_t_job.T_job>);
         };
     }
     @:keep

@@ -8,7 +8,7 @@ function _literalRegexp(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.
                 (@:checkr _re ?? throw "null pointer dereference").rune = (_s : stdgo.Slice<stdgo.GoInt32>);
                 break;
             };
-            (@:checkr _re ?? throw "null pointer dereference").rune = ((@:checkr _re ?? throw "null pointer dereference").rune.__append__(_c));
+            (@:checkr _re ?? throw "null pointer dereference").rune = ((@:checkr _re ?? throw "null pointer dereference").rune.__append__(_c) : stdgo.Slice<stdgo.GoInt32>);
         };
         return _re;
     }

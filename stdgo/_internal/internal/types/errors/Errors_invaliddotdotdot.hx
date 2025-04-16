@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final invalidDotDotDot = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final invalidDotDotDot : stdgo._internal.internal.types.errors.Errors_code.Code = 81i32;

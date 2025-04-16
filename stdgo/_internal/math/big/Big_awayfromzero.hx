@@ -1,2 +1,2 @@
 package stdgo._internal.math.big;
-final awayFromZero = (5 : stdgo._internal.math.big.Big_roundingmode.RoundingMode);
+final awayFromZero : stdgo._internal.math.big.Big_roundingmode.RoundingMode = 3i32;

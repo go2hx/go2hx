@@ -7,6 +7,6 @@ function _decodeStrings(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_
                 return _err;
             };
         };
-        (_x : stdgo.Slice<stdgo.GoString>).__setData__(((_x : stdgo.Slice<stdgo.GoString>).__append__(_s?.__copy__())));
+        (_x : stdgo.Slice<stdgo.GoString>).__setData__(((_x : stdgo.Slice<stdgo.GoString>).__append__(_s?.__copy__()) : stdgo.Slice<stdgo.GoString>));
         return (null : stdgo.Error);
     }

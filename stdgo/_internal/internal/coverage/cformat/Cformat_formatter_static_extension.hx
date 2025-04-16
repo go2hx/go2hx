@@ -24,7 +24,7 @@ package stdgo._internal.internal.coverage.cformat;
             var _covStmts = ((0i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
             var _pkgs = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), ((@:checkr _fm ?? throw "null pointer dereference")._pm.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
             for (_importpath => _ in (@:checkr _fm ?? throw "null pointer dereference")._pm) {
-                _pkgs = (_pkgs.__append__(_importpath?.__copy__()));
+                _pkgs = (_pkgs.__append__(_importpath?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
             stdgo._internal.sort.Sort_strings.strings(_pkgs);
             for (__0 => _importpath in _pkgs) {
@@ -34,7 +34,7 @@ package stdgo._internal.internal.coverage.cformat;
                 };
                 var _units = (new stdgo.Slice<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu>((0 : stdgo.GoInt).toBasic(), ((@:checkr _p ?? throw "null pointer dereference")._unitTable.length), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > ((@:checkr _p ?? throw "null pointer dereference")._unitTable.length) ? (0 : stdgo.GoInt).toBasic() : ((@:checkr _p ?? throw "null pointer dereference")._unitTable.length) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu)]) : stdgo.Slice<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu>);
                 for (_u => _ in (@:checkr _p ?? throw "null pointer dereference")._unitTable) {
-                    _units = (_units.__append__(_u?.__copy__()));
+                    _units = (_units.__append__(_u?.__copy__()) : stdgo.Slice<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu>);
                 };
                 @:check2r _p._sortUnits(_units);
                 var _fname = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
@@ -186,7 +186,7 @@ package stdgo._internal.internal.coverage.cformat;
         @:recv var _fm:stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter> = _fm;
         var _pkgs = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), ((@:checkr _fm ?? throw "null pointer dereference")._pm.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_importpath => _ in (@:checkr _fm ?? throw "null pointer dereference")._pm) {
-            _pkgs = (_pkgs.__append__(_importpath?.__copy__()));
+            _pkgs = (_pkgs.__append__(_importpath?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         var _rep = (function(_cov:stdgo.GoUInt64, _tot:stdgo.GoUInt64):stdgo.Error {
             if (_tot != ((0i64 : stdgo.GoUInt64))) {
@@ -265,14 +265,14 @@ package stdgo._internal.internal.coverage.cformat;
         };
         var _pkgs = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), ((@:checkr _fm ?? throw "null pointer dereference")._pm.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_importpath => _ in (@:checkr _fm ?? throw "null pointer dereference")._pm) {
-            _pkgs = (_pkgs.__append__(_importpath?.__copy__()));
+            _pkgs = (_pkgs.__append__(_importpath?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         stdgo._internal.sort.Sort_strings.strings(_pkgs);
         for (__1 => _importpath in _pkgs) {
             var _p = ((@:checkr _fm ?? throw "null pointer dereference")._pm[_importpath] ?? (null : stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>));
             var _units = (new stdgo.Slice<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu>((0 : stdgo.GoInt).toBasic(), ((@:checkr _p ?? throw "null pointer dereference")._unitTable.length), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > ((@:checkr _p ?? throw "null pointer dereference")._unitTable.length) ? (0 : stdgo.GoInt).toBasic() : ((@:checkr _p ?? throw "null pointer dereference")._unitTable.length) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu)]) : stdgo.Slice<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu>);
             for (_u => _ in (@:checkr _p ?? throw "null pointer dereference")._unitTable) {
-                _units = (_units.__append__(_u?.__copy__()));
+                _units = (_units.__append__(_u?.__copy__()) : stdgo.Slice<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu>);
             };
             @:check2r _p._sortUnits(_units);
             for (__2 => _u in _units) {
@@ -302,7 +302,7 @@ package stdgo._internal.internal.coverage.cformat;
         var __tmp__ = ((@:checkr (@:checkr _fm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference")._funcTable != null && (@:checkr (@:checkr _fm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference")._funcTable.__exists__(_fkey?.__copy__()) ? { _0 : (@:checkr (@:checkr _fm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference")._funcTable[_fkey?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoUInt32), _1 : false }), _idx:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             _idx = ((@:checkr (@:checkr _fm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference")._funcs.length : stdgo.GoUInt32);
-            (@:checkr (@:checkr _fm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference")._funcs = ((@:checkr (@:checkr _fm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference")._funcs.__append__(_fkey?.__copy__()));
+            (@:checkr (@:checkr _fm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference")._funcs = ((@:checkr (@:checkr _fm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference")._funcs.__append__(_fkey?.__copy__()) : stdgo.Slice<stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile>);
             (@:checkr (@:checkr _fm ?? throw "null pointer dereference")._p ?? throw "null pointer dereference")._funcTable[_fkey] = _idx;
         };
         var _ukey = ({ _fnfid : _idx, coverableUnit : _unit?.__copy__() } : stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu);

@@ -15,7 +15,7 @@ function testDecodeSmallBuffer(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T
                         while (true) {
                             var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_bufferSize : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                             var __tmp__ = _decoder.read(_buf), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                            _allRead = (_allRead.__append__(...((_buf.__slice__((0 : stdgo.GoInt), _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+                            _allRead = (_allRead.__append__(...((_buf.__slice__((0 : stdgo.GoInt), _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                             if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
                                 break;
                             };

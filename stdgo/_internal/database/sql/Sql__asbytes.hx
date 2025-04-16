@@ -41,7 +41,7 @@ function _asBytes(_buf:stdgo.Slice<stdgo.GoUInt8>, _rv:stdgo._internal.reflect.R
             } else if (__value__ == ((24u32 : stdgo._internal.reflect.Reflect_kind.Kind))) {
                 var _s = ((_rv.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 return {
-                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; } = { _0 : (_buf.__append__(...(_s : Array<stdgo.GoUInt8>))), _1 : true };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; } = { _0 : (_buf.__append__(...(_s : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>), _1 : true };
                     _b = __tmp__._0;
                     _ok = __tmp__._1;
                     __tmp__;

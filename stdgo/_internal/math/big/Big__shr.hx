@@ -38,7 +38,7 @@ function _shr(_x:stdgo.Ref<stdgo._internal.math.big.Big_t_decimal.T_decimal>, _s
         while ((_n > (0u32 : stdgo._internal.math.big.Big_word.Word) : Bool)) {
             var _d = (_n >> _s : stdgo._internal.math.big.Big_word.Word);
             _n = (_n & (_mask) : stdgo._internal.math.big.Big_word.Word);
-            (@:checkr _x ?? throw "null pointer dereference")._mant = ((@:checkr _x ?? throw "null pointer dereference")._mant.__append__(((_d + (48u32 : stdgo._internal.math.big.Big_word.Word) : stdgo._internal.math.big.Big_word.Word) : stdgo.GoUInt8)));
+            (@:checkr _x ?? throw "null pointer dereference")._mant = ((@:checkr _x ?? throw "null pointer dereference")._mant.__append__(((_d + (48u32 : stdgo._internal.math.big.Big_word.Word) : stdgo._internal.math.big.Big_word.Word) : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
             _n = (_n * (10u32 : stdgo._internal.math.big.Big_word.Word) : stdgo._internal.math.big.Big_word.Word);
         };
         stdgo._internal.math.big.Big__trim._trim(_x);

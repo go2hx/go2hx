@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final duplicateMethod = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final duplicateMethod : stdgo._internal.internal.types.errors.Errors_code.Code = 34i32;

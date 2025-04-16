@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final invalidInstanceCycle = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final invalidInstanceCycle : stdgo._internal.internal.types.errors.Errors_code.Code = 140i32;

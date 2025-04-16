@@ -1,2 +1,2 @@
 package stdgo._internal.net.url;
-final _encodeZone = (7 : stdgo._internal.net.url.Url_t_encoding.T_encoding);
+final _encodeZone : stdgo._internal.net.url.Url_t_encoding.T_encoding = 4i32;

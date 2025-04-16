@@ -36,9 +36,14 @@ function _ctxDriverBegin(_ctx:stdgo._internal.context.Context_context.Context, _
         if (_err == null) {
             {
                 var __select__ = true;
-                var __c__0 = _ctx.done();
+                var __c__0 = null;
                 while (__select__) {
-                    if (__c__0 != null && __c__0.__isGet__(true)) {
+                    if ({
+                        if (__c__0 == null) {
+                            __c__0 = _ctx.done();
+                        };
+                        __c__0 != null && __c__0.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__0.__get__();

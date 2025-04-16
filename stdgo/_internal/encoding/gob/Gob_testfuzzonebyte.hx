@@ -31,14 +31,14 @@ function testFuzzOneByte(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Vo
                         };
                     };
                 };
-_indices = (_indices.__append__(_i));
+_indices = (_indices.__append__(_i) : stdgo.Slice<stdgo.GoInt>);
                 _i++;
             };
         };
         if (stdgo._internal.testing.Testing_short.short()) {
             _indices = (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (111 : stdgo.GoInt), (178 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         };
-        for (__4 => _i in _indices) {
+        for (__8 => _i in _indices) {
             {
                 var _j = (0 : stdgo.GoInt);
                 while ((_j < (256 : stdgo.GoInt) : Bool)) {

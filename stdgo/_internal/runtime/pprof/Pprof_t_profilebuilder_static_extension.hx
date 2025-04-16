@@ -14,7 +14,7 @@ package stdgo._internal.runtime.pprof;
     @:tdfield
     static public function _addMappingEntry( _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>, _lo:stdgo.GoUInt64, _hi:stdgo.GoUInt64, _offset:stdgo.GoUInt64, _file:stdgo.GoString, _buildID:stdgo.GoString, _fake:Bool):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder> = _b;
-        (@:checkr _b ?? throw "null pointer dereference")._mem = ((@:checkr _b ?? throw "null pointer dereference")._mem.__append__(({ _start : (new stdgo.GoUIntptr(_lo) : stdgo.GoUIntptr), _end : (new stdgo.GoUIntptr(_hi) : stdgo.GoUIntptr), _offset : _offset, _file : _file?.__copy__(), _buildID : _buildID?.__copy__(), _fake : _fake } : stdgo._internal.runtime.pprof.Pprof_t_memmap.T_memMap)));
+        (@:checkr _b ?? throw "null pointer dereference")._mem = ((@:checkr _b ?? throw "null pointer dereference")._mem.__append__(({ _start : (new stdgo.GoUIntptr(_lo) : stdgo.GoUIntptr), _end : (new stdgo.GoUIntptr(_hi) : stdgo.GoUIntptr), _offset : _offset, _file : _file?.__copy__(), _buildID : _buildID?.__copy__(), _fake : _fake } : stdgo._internal.runtime.pprof.Pprof_t_memmap.T_memMap)) : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_t_memmap.T_memMap>);
     }
     @:keep
     @:tdfield
@@ -40,7 +40,7 @@ package stdgo._internal.runtime.pprof;
             {};
             var _newFuncs = (new stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_t__emitlocation___localname___newfunc_20332.T__emitLocation___localname___newFunc_20332>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > (8 : stdgo.GoInt) ? (0 : stdgo.GoInt).toBasic() : (8 : stdgo.GoInt) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.runtime.pprof.Pprof_t__emitlocation___localname___newfunc_20332.T__emitLocation___localname___newFunc_20332)]) : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_t__emitlocation___localname___newfunc_20332.T__emitLocation___localname___newFunc_20332>);
             var _id = (((@:checkr _b ?? throw "null pointer dereference")._locs.length : stdgo.GoUInt64) + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-            (@:checkr _b ?? throw "null pointer dereference")._locs[_addr] = ({ _id : _id, _pcs : ((new stdgo.Slice<stdgo.GoUIntptr>(0, 0, ...[]) : stdgo.Slice<stdgo.GoUIntptr>).__append__(...((@:checkr _b ?? throw "null pointer dereference")._deck._pcs : Array<stdgo.GoUIntptr>))), _firstPCSymbolizeResult : (@:checkr _b ?? throw "null pointer dereference")._deck._firstPCSymbolizeResult, _firstPCFrames : ((new stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>(0, 0, ...[].concat([for (i in 0 ... (0 > 0 ? 0 : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.runtime.Runtime_frame.Frame)])) : stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>).__append__(...(((@:checkr _b ?? throw "null pointer dereference")._deck._frames.__slice__(0, (@:checkr _b ?? throw "null pointer dereference")._deck._firstPCFrames) : stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>) : Array<stdgo._internal.runtime.Runtime_frame.Frame>))) } : stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo);
+            (@:checkr _b ?? throw "null pointer dereference")._locs[_addr] = ({ _id : _id, _pcs : ((new stdgo.Slice<stdgo.GoUIntptr>(0, 0, ...[]) : stdgo.Slice<stdgo.GoUIntptr>).__append__(...((@:checkr _b ?? throw "null pointer dereference")._deck._pcs : Array<stdgo.GoUIntptr>)) : stdgo.Slice<stdgo.GoUIntptr>), _firstPCSymbolizeResult : (@:checkr _b ?? throw "null pointer dereference")._deck._firstPCSymbolizeResult, _firstPCFrames : ((new stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>(0, 0, ...[].concat([for (i in 0 ... (0 > 0 ? 0 : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.runtime.Runtime_frame.Frame)])) : stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>).__append__(...(((@:checkr _b ?? throw "null pointer dereference")._deck._frames.__slice__(0, (@:checkr _b ?? throw "null pointer dereference")._deck._firstPCFrames) : stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>) : Array<stdgo._internal.runtime.Runtime_frame.Frame>)) : stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>) } : stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo);
             var _start = (@:check2 (@:checkr _b ?? throw "null pointer dereference")._pb._startMessage() : stdgo._internal.runtime.pprof.Pprof_t_msgoffset.T_msgOffset);
             @:check2 (@:checkr _b ?? throw "null pointer dereference")._pb._uint64Opt((1 : stdgo.GoInt), _id);
             @:check2 (@:checkr _b ?? throw "null pointer dereference")._pb._uint64Opt((3 : stdgo.GoInt), (_firstFrame.pC : stdgo.GoUInt64));
@@ -49,7 +49,7 @@ package stdgo._internal.runtime.pprof;
                 if (_funcID == ((0i64 : stdgo.GoUInt64))) {
                     _funcID = (((@:checkr _b ?? throw "null pointer dereference")._funcs.length : stdgo.GoUInt64) + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
                     (@:checkr _b ?? throw "null pointer dereference")._funcs[_frame.function_] = (_funcID : stdgo.GoInt);
-                    _newFuncs = (_newFuncs.__append__(({ _id : _funcID, _name : stdgo._internal.runtime.pprof.Pprof__runtime_framesymbolname._runtime_FrameSymbolName((stdgo.Go.setRef(_frame) : stdgo.Ref<stdgo._internal.runtime.Runtime_frame.Frame>))?.__copy__(), _file : _frame.file?.__copy__(), _startLine : (stdgo._internal.runtime.pprof.Pprof__runtime_framestartline._runtime_FrameStartLine((stdgo.Go.setRef(_frame) : stdgo.Ref<stdgo._internal.runtime.Runtime_frame.Frame>)) : stdgo.GoInt64) } : stdgo._internal.runtime.pprof.Pprof_t__emitlocation___localname___newfunc_20332.T__emitLocation___localname___newFunc_20332)));
+                    _newFuncs = (_newFuncs.__append__(({ _id : _funcID, _name : stdgo._internal.runtime.pprof.Pprof__runtime_framesymbolname._runtime_FrameSymbolName((stdgo.Go.setRef(_frame) : stdgo.Ref<stdgo._internal.runtime.Runtime_frame.Frame>))?.__copy__(), _file : _frame.file?.__copy__(), _startLine : (stdgo._internal.runtime.pprof.Pprof__runtime_framestartline._runtime_FrameStartLine((stdgo.Go.setRef(_frame) : stdgo.Ref<stdgo._internal.runtime.Runtime_frame.Frame>)) : stdgo.GoInt64) } : stdgo._internal.runtime.pprof.Pprof_t__emitlocation___localname___newfunc_20332.T__emitLocation___localname___newFunc_20332)) : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_t__emitlocation___localname___newfunc_20332.T__emitLocation___localname___newFunc_20332>);
                 };
                 @:check2r _b._pbLine((4 : stdgo.GoInt), _funcID, (_frame.line : stdgo.GoInt64));
             };
@@ -159,10 +159,10 @@ package stdgo._internal.runtime.pprof;
                     {
                         var _id = (@:check2r _b._emitLocation() : stdgo.GoUInt64);
                         if ((_id > (0i64 : stdgo.GoUInt64) : Bool)) {
-                            _locs = (_locs.__append__(_id));
+                            _locs = (_locs.__append__(_id) : stdgo.Slice<stdgo.GoUInt64>);
                         };
                     };
-                    _locs = (_locs.__append__(_l._id));
+                    _locs = (_locs.__append__(_l._id) : stdgo.Slice<stdgo.GoUInt64>);
                     _stk = (_stk.__slice__((_l._pcs.length)) : stdgo.Slice<stdgo.GoUIntptr>);
                     continue;
                 };
@@ -172,7 +172,7 @@ package stdgo._internal.runtime.pprof;
                 {
                     var _id = (@:check2r _b._emitLocation() : stdgo.GoUInt64);
                     if ((_id > (0i64 : stdgo.GoUInt64) : Bool)) {
-                        _locs = (_locs.__append__(_id));
+                        _locs = (_locs.__append__(_id) : stdgo.Slice<stdgo.GoUInt64>);
                     };
                 };
                 _stk = (_stk.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUIntptr>);
@@ -188,13 +188,13 @@ package stdgo._internal.runtime.pprof;
             {
                 var _id = (@:check2r _b._emitLocation() : stdgo.GoUInt64);
                 if ((_id > (0i64 : stdgo.GoUInt64) : Bool)) {
-                    _locs = (_locs.__append__(_id));
+                    _locs = (_locs.__append__(_id) : stdgo.Slice<stdgo.GoUInt64>);
                 };
             };
             {
                 var __tmp__ = ((@:checkr _b ?? throw "null pointer dereference")._locs != null && (@:checkr _b ?? throw "null pointer dereference")._locs.__exists__(_addr) ? { _0 : (@:checkr _b ?? throw "null pointer dereference")._locs[_addr], _1 : true } : { _0 : ({} : stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo), _1 : false }), _l:stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
-                    _locs = (_locs.__append__(_l._id));
+                    _locs = (_locs.__append__(_l._id) : stdgo.Slice<stdgo.GoUInt64>);
                     _stk = (_stk.__slice__((_l._pcs.length)) : stdgo.Slice<stdgo.GoUIntptr>);
                 } else {
                     @:check2 (@:checkr _b ?? throw "null pointer dereference")._deck._tryAdd(_addr, _frames, _symbolizeResult);
@@ -205,7 +205,7 @@ package stdgo._internal.runtime.pprof;
         {
             var _id = (@:check2r _b._emitLocation() : stdgo.GoUInt64);
             if ((_id > (0i64 : stdgo.GoUInt64) : Bool)) {
-                _locs = (_locs.__append__(_id));
+                _locs = (_locs.__append__(_id) : stdgo.Slice<stdgo.GoUInt64>);
             };
         };
         return _newLocs = _locs;
@@ -373,7 +373,7 @@ _locs = @:check2r _b._appendLocsForStack((_locs.__slice__(0, (0 : stdgo.GoInt)) 
         var __tmp__ = ((@:checkr _b ?? throw "null pointer dereference")._stringMap != null && (@:checkr _b ?? throw "null pointer dereference")._stringMap.__exists__(_s?.__copy__()) ? { _0 : (@:checkr _b ?? throw "null pointer dereference")._stringMap[_s?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), _id:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             _id = ((@:checkr _b ?? throw "null pointer dereference")._strings.length);
-            (@:checkr _b ?? throw "null pointer dereference")._strings = ((@:checkr _b ?? throw "null pointer dereference")._strings.__append__(_s?.__copy__()));
+            (@:checkr _b ?? throw "null pointer dereference")._strings = ((@:checkr _b ?? throw "null pointer dereference")._strings.__append__(_s?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             (@:checkr _b ?? throw "null pointer dereference")._stringMap[_s] = _id;
         };
         return (_id : stdgo.GoInt64);

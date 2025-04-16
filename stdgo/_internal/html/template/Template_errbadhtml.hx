@@ -1,2 +1,2 @@
 package stdgo._internal.html.template;
-final errBadHTML = (12 : stdgo._internal.html.template.Template_errorcode.ErrorCode);
+final errBadHTML : stdgo._internal.html.template.Template_errorcode.ErrorCode = 2i32;

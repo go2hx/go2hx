@@ -6,7 +6,7 @@ function fieldsFunc(_s:stdgo.GoString, _f:stdgo.GoInt32 -> Bool):stdgo.Slice<std
         for (_end => _rune in _s) {
             if (_f(_rune)) {
                 if ((_start >= (0 : stdgo.GoInt) : Bool)) {
-                    _spans = (_spans.__append__((new stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921(_start, _end) : stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921)));
+                    _spans = (_spans.__append__((new stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921(_start, _end) : stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921)) : stdgo.Slice<stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921>);
                     _start = (-1 ^ _start);
                 };
             } else {
@@ -16,7 +16,7 @@ function fieldsFunc(_s:stdgo.GoString, _f:stdgo.GoInt32 -> Bool):stdgo.Slice<std
             };
         };
         if ((_start >= (0 : stdgo.GoInt) : Bool)) {
-            _spans = (_spans.__append__((new stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921(_start, (_s.length)) : stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921)));
+            _spans = (_spans.__append__((new stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921(_start, (_s.length)) : stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921)) : stdgo.Slice<stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921>);
         };
         var _a = (new stdgo.Slice<stdgo.GoString>((_spans.length : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_i => _span in _spans) {

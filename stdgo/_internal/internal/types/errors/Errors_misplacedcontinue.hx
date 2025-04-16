@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final misplacedContinue = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final misplacedContinue : stdgo._internal.internal.types.errors.Errors_code.Code = 111i32;

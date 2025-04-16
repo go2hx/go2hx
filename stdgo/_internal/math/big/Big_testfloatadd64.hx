@@ -4,7 +4,7 @@ function testFloatAdd64(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Voi
         {
             var _d = (0 : stdgo.GoInt);
             while ((_d <= (16 : stdgo.GoInt) : Bool)) {
-                for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)) {
+                for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>).__copy__()) {
                     var __0 = (3.602879701896395e+16 : stdgo.GoFloat64), __1 = (_d : stdgo.GoFloat64);
 var _y0 = __1, _x0 = __0;
                     if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {

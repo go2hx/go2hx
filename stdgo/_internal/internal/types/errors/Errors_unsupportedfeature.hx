@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final unsupportedFeature = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final unsupportedFeature : stdgo._internal.internal.types.errors.Errors_code.Code = 135i32;

@@ -33,7 +33,7 @@ function _parseCSRExtensions(_rawAttributes:stdgo.Slice<stdgo._internal.encoding
                 };
                 _requestedExts[_oidStr] = true;
             };
-            _ret = (_ret.__append__(...(_extensions : Array<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>)));
+            _ret = (_ret.__append__(...(_extensions : Array<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>)) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>);
         };
         return { _0 : _ret, _1 : (null : stdgo.Error) };
     }

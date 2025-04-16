@@ -27,7 +27,7 @@ package stdgo._internal.debug.dwarf;
             { _0 : (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_arraytype.ArrayType>), _1 : false };
         }, __3 = __tmp__._0, _ok = __tmp__._1;
         if (_ok) {
-            (@:checkr _tf ?? throw "null pointer dereference")._arraytypes = ((@:checkr _tf ?? throw "null pointer dereference")._arraytypes.__append__(_t));
+            (@:checkr _tf ?? throw "null pointer dereference")._arraytypes = ((@:checkr _tf ?? throw "null pointer dereference")._arraytypes.__append__(_t) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_type_.Type_>>);
         };
     }
 }

@@ -6,6 +6,7 @@ function testBlock(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
             @:check2r _t.fatal(stdgo.Go.toInterface(_err));
         };
         var __tmp__ = @:check2r ({
+            @:tupleArg var __tmp__ = @:check2r _tmpl.clone();
             var __f__ = stdgo._internal.text.template.Template_must.must;
             var __tmp__ = @:check2r _tmpl.clone();
             __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>), (__tmp__._1 : stdgo.Error));

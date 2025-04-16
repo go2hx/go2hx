@@ -16,10 +16,10 @@ package stdgo._internal.crypto.x509.pkix;
                         };
                     };
                 };
-                _rdns = (_rdns.__append__((new stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>(1, 1, ...[_atv?.__copy__()].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue)])) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>)));
+                _rdns = (_rdns.__append__((new stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>(1, 1, ...[_atv?.__copy__()].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue)])) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>)) : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence);
             };
         };
-        _rdns = (_rdns.__append__(...(_n.toRDNSequence() : Array<stdgo._internal.crypto.x509.pkix.Pkix_relativedistinguishednameset.RelativeDistinguishedNameSET>)));
+        _rdns = (_rdns.__append__(...(_n.toRDNSequence() : Array<stdgo._internal.crypto.x509.pkix.Pkix_relativedistinguishednameset.RelativeDistinguishedNameSET>)) : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence);
         return (_rdns.string() : stdgo.GoString)?.__copy__();
     }
     @:keep
@@ -41,7 +41,7 @@ package stdgo._internal.crypto.x509.pkix;
             _ret = _n._appendRDNs(_ret, (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_n.serialNumber?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>), stdgo._internal.crypto.x509.pkix.Pkix__oidserialnumber._oidSerialNumber);
         };
         for (__0 => _atv in _n.extraNames) {
-            _ret = (_ret.__append__((new stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>(1, 1, ...[_atv?.__copy__()].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue)])) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>)));
+            _ret = (_ret.__append__((new stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>(1, 1, ...[_atv?.__copy__()].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue)])) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>)) : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence);
         };
         return _ret;
     }
@@ -57,7 +57,7 @@ package stdgo._internal.crypto.x509.pkix;
             _s[(_i : stdgo.GoInt)].type = _oid;
             _s[(_i : stdgo.GoInt)].value = stdgo.Go.toInterface(_value);
         };
-        return (_in.__append__(_s));
+        return (_in.__append__(_s) : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence);
     }
     @:keep
     @:tdfield
@@ -68,7 +68,7 @@ package stdgo._internal.crypto.x509.pkix;
                 continue;
             };
             for (__1 => _atv in _rdn) {
-                (@:checkr _n ?? throw "null pointer dereference").names = ((@:checkr _n ?? throw "null pointer dereference").names.__append__(_atv?.__copy__()));
+                (@:checkr _n ?? throw "null pointer dereference").names = ((@:checkr _n ?? throw "null pointer dereference").names.__append__(_atv?.__copy__()) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>);
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((_atv.value : stdgo.GoString)) : stdgo.GoString), _1 : true };
                 } catch(_) {
@@ -86,19 +86,19 @@ package stdgo._internal.crypto.x509.pkix;
                         } else if (__value__ == ((5 : stdgo.GoInt))) {
                             (@:checkr _n ?? throw "null pointer dereference").serialNumber = _value?.__copy__();
                         } else if (__value__ == ((6 : stdgo.GoInt))) {
-                            (@:checkr _n ?? throw "null pointer dereference").country = ((@:checkr _n ?? throw "null pointer dereference").country.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").country = ((@:checkr _n ?? throw "null pointer dereference").country.__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                         } else if (__value__ == ((7 : stdgo.GoInt))) {
-                            (@:checkr _n ?? throw "null pointer dereference").locality = ((@:checkr _n ?? throw "null pointer dereference").locality.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").locality = ((@:checkr _n ?? throw "null pointer dereference").locality.__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                         } else if (__value__ == ((8 : stdgo.GoInt))) {
-                            (@:checkr _n ?? throw "null pointer dereference").province = ((@:checkr _n ?? throw "null pointer dereference").province.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").province = ((@:checkr _n ?? throw "null pointer dereference").province.__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                         } else if (__value__ == ((9 : stdgo.GoInt))) {
-                            (@:checkr _n ?? throw "null pointer dereference").streetAddress = ((@:checkr _n ?? throw "null pointer dereference").streetAddress.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").streetAddress = ((@:checkr _n ?? throw "null pointer dereference").streetAddress.__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                         } else if (__value__ == ((10 : stdgo.GoInt))) {
-                            (@:checkr _n ?? throw "null pointer dereference").organization = ((@:checkr _n ?? throw "null pointer dereference").organization.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").organization = ((@:checkr _n ?? throw "null pointer dereference").organization.__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                         } else if (__value__ == ((11 : stdgo.GoInt))) {
-                            (@:checkr _n ?? throw "null pointer dereference").organizationalUnit = ((@:checkr _n ?? throw "null pointer dereference").organizationalUnit.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").organizationalUnit = ((@:checkr _n ?? throw "null pointer dereference").organizationalUnit.__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                         } else if (__value__ == ((17 : stdgo.GoInt))) {
-                            (@:checkr _n ?? throw "null pointer dereference").postalCode = ((@:checkr _n ?? throw "null pointer dereference").postalCode.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").postalCode = ((@:checkr _n ?? throw "null pointer dereference").postalCode.__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                         };
                     };
                 };

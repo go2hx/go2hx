@@ -1,2 +1,2 @@
 package stdgo._internal.time;
-final may = (12 : stdgo._internal.time.Time_month.Month);
+final may : stdgo._internal.time.Time_month.Month = 5i32;

@@ -1,14 +1,14 @@
 package stdgo.net.http.internal.testcert;
-var localhostCert(get, set) : Array<std.UInt>;
-private function get_localhostCert():Array<std.UInt> return [for (i in stdgo._internal.net.http.internal.testcert.Testcert_localhostcert.localhostCert) i];
-private function set_localhostCert(v:Array<std.UInt>):Array<std.UInt> {
-        stdgo._internal.net.http.internal.testcert.Testcert_localhostcert.localhostCert = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+var localhostCert(get, set) : stdgo.Slice<stdgo.GoUInt8>;
+private function get_localhostCert():stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.net.http.internal.testcert.Testcert_localhostcert.localhostCert;
+private function set_localhostCert(v:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
+        stdgo._internal.net.http.internal.testcert.Testcert_localhostcert.localhostCert = v;
         return v;
     }
-var localhostKey(get, set) : Array<std.UInt>;
-private function get_localhostKey():Array<std.UInt> return [for (i in stdgo._internal.net.http.internal.testcert.Testcert_localhostkey.localhostKey) i];
-private function set_localhostKey(v:Array<std.UInt>):Array<std.UInt> {
-        stdgo._internal.net.http.internal.testcert.Testcert_localhostkey.localhostKey = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+var localhostKey(get, set) : stdgo.Slice<stdgo.GoUInt8>;
+private function get_localhostKey():stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.net.http.internal.testcert.Testcert_localhostkey.localhostKey;
+private function set_localhostKey(v:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
+        stdgo._internal.net.http.internal.testcert.Testcert_localhostkey.localhostKey = v;
         return v;
     }
 /**

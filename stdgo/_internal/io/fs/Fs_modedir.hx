@@ -1,2 +1,2 @@
 package stdgo._internal.io.fs;
-final modeDir : stdgo._internal.io.fs.Fs_filemode.FileMode = (524288u32 : stdgo._internal.io.fs.Fs_filemode.FileMode);
+final modeDir : stdgo._internal.io.fs.Fs_filemode.FileMode = 2147483648i32;

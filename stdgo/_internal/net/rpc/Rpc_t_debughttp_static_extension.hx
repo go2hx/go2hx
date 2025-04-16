@@ -9,10 +9,10 @@ package stdgo._internal.net.rpc;
             var _svc = (stdgo.Go.typeAssert((_svci : stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_service.T_service>)) : stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_service.T_service>);
             var _ds = (new stdgo._internal.net.rpc.Rpc_t_debugservice.T_debugService(_svc, (stdgo.Go.typeAssert((_snamei : stdgo.GoString)) : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo._internal.net.rpc.Rpc_t_debugmethod.T_debugMethod>((0 : stdgo.GoInt).toBasic(), ((@:checkr _svc ?? throw "null pointer dereference")._method.length), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > ((@:checkr _svc ?? throw "null pointer dereference")._method.length) ? (0 : stdgo.GoInt).toBasic() : ((@:checkr _svc ?? throw "null pointer dereference")._method.length) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.net.rpc.Rpc_t_debugmethod.T_debugMethod)]) : stdgo._internal.net.rpc.Rpc_t_methodarray.T_methodArray)) : stdgo._internal.net.rpc.Rpc_t_debugservice.T_debugService);
             for (_mname => _method in (@:checkr _svc ?? throw "null pointer dereference")._method) {
-                _ds.method = (_ds.method.__append__((new stdgo._internal.net.rpc.Rpc_t_debugmethod.T_debugMethod(_method, _mname?.__copy__()) : stdgo._internal.net.rpc.Rpc_t_debugmethod.T_debugMethod)));
+                _ds.method = (_ds.method.__append__((new stdgo._internal.net.rpc.Rpc_t_debugmethod.T_debugMethod(_method, _mname?.__copy__()) : stdgo._internal.net.rpc.Rpc_t_debugmethod.T_debugMethod)) : stdgo._internal.net.rpc.Rpc_t_methodarray.T_methodArray);
             };
             stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface(_ds.method));
-            _services = (_services.__append__(_ds?.__copy__()));
+            _services = (_services.__append__(_ds?.__copy__()) : stdgo._internal.net.rpc.Rpc_t_servicearray.T_serviceArray);
             return true;
         });
         stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface(_services));

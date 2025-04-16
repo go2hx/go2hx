@@ -32,9 +32,9 @@ package stdgo._internal.mime.quotedprintable;
                     };
                 } else if (_hasLF) {
                     if (_hasCR) {
-                        (@:checkr _r ?? throw "null pointer dereference")._line = ((@:checkr _r ?? throw "null pointer dereference")._line.__append__((13 : stdgo.GoUInt8), (10 : stdgo.GoUInt8)));
+                        (@:checkr _r ?? throw "null pointer dereference")._line = ((@:checkr _r ?? throw "null pointer dereference")._line.__append__((13 : stdgo.GoUInt8), (10 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                     } else {
-                        (@:checkr _r ?? throw "null pointer dereference")._line = ((@:checkr _r ?? throw "null pointer dereference")._line.__append__((10 : stdgo.GoUInt8)));
+                        (@:checkr _r ?? throw "null pointer dereference")._line = ((@:checkr _r ?? throw "null pointer dereference")._line.__append__((10 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                     };
                 };
                 continue;

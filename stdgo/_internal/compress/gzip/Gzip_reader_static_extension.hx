@@ -268,7 +268,7 @@ if ((@:checkr _z ?? throw "null pointer dereference")._buf[(_i : stdgo.GoInt)] =
                     if (_needConv) {
                         var _s = (new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), _i).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
                         for (__0 => _v in ((@:checkr _z ?? throw "null pointer dereference")._buf.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>)) {
-                            _s = (_s.__append__((_v : stdgo.GoInt32)));
+                            _s = (_s.__append__((_v : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
                         };
                         return { _0 : (_s : stdgo.GoString).__copy__(), _1 : (null : stdgo.Error) };
                     };

@@ -173,7 +173,7 @@ if (_ac == ((0 : stdgo.GoInt32))) {
         @:recv var _e:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder> = _e;
         {};
         @:check2r _e._writeMarkerHeader((219 : stdgo.GoUInt8), (132 : stdgo.GoInt));
-        for (_i => _ in (@:checkr _e ?? throw "null pointer dereference")._quant) {
+        for (_i => _ in (@:checkr _e ?? throw "null pointer dereference")._quant.__copy__()) {
             @:check2r _e._writeByte((_i : stdgo.GoUInt8));
             @:check2r _e._write(((@:checkr _e ?? throw "null pointer dereference")._quant[(_i : stdgo.GoInt)].__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         };

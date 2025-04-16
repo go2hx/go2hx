@@ -6,7 +6,7 @@ package stdgo._internal.sync;
     public var _readerCount : stdgo._internal.sync.atomic_.Atomic__int32.Int32 = ({} : stdgo._internal.sync.atomic_.Atomic__int32.Int32);
     public var _readerWait : stdgo._internal.sync.atomic_.Atomic__int32.Int32 = ({} : stdgo._internal.sync.atomic_.Atomic__int32.Int32);
     @:local
-    var mutex = #if target.threaded new sys.thread.Mutex() #else null #end;
+    var mutex = #if target.threaded new sys.thread.Semaphore(1) #else null #end;
     public function new(?_w:stdgo._internal.sync.Sync_mutex.Mutex, ?_writerSem:stdgo.GoUInt32, ?_readerSem:stdgo.GoUInt32, ?_readerCount:stdgo._internal.sync.atomic_.Atomic__int32.Int32, ?_readerWait:stdgo._internal.sync.atomic_.Atomic__int32.Int32, ?mutex) {
         if (_w != null) this._w = _w;
         if (_writerSem != null) this._writerSem = _writerSem;

@@ -105,6 +105,8 @@ package stdgo._internal.archive.zip;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _n = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -118,6 +120,8 @@ package stdgo._internal.archive.zip;
                     @:assignTranslate final __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._fw.write(_p);
                     { _0 : __tmp__._0, _1 : __tmp__._1 };
                 });
+                _n = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

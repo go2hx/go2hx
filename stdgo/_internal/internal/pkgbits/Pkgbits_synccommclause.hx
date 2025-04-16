@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final syncCommClause = (69 : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker);
+final syncCommClause : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker = 56i32;

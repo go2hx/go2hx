@@ -33,7 +33,7 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_fs.FS, _name:stdgo.GoString):{ 
             var _data = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (_size + (1 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             while (true) {
                 if (((_data.length) >= _data.capacity : Bool)) {
-                    var _d = ((_data.__slice__(0, _data.capacity) : stdgo.Slice<stdgo.GoUInt8>).__append__((0 : stdgo.GoUInt8)));
+                    var _d = ((_data.__slice__(0, _data.capacity) : stdgo.Slice<stdgo.GoUInt8>).__append__((0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                     _data = (_d.__slice__(0, (_data.length)) : stdgo.Slice<stdgo.GoUInt8>);
                 };
                 var __tmp__ = _file.read((_data.__slice__((_data.length), _data.capacity) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;

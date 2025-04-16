@@ -1,2 +1,2 @@
 package stdgo._internal.net.textproto;
-final _wstateBeginLine = (3i64 : stdgo.GoUInt64);
+final _wstateBeginLine : stdgo.GoUInt64 = 1i32;

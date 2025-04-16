@@ -6,7 +6,7 @@ function _defaultStart(_typ:stdgo._internal.reflect.Reflect_type_.Type_, _finfo:
             (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
         })) {
             _start.name = (@:checkr _startTemplate ?? throw "null pointer dereference").name?.__copy__();
-            _start.attr = (_start.attr.__append__(...((@:checkr _startTemplate ?? throw "null pointer dereference").attr : Array<stdgo._internal.encoding.xml.Xml_attr.Attr>)));
+            _start.attr = (_start.attr.__append__(...((@:checkr _startTemplate ?? throw "null pointer dereference").attr : Array<stdgo._internal.encoding.xml.Xml_attr.Attr>)) : stdgo.Slice<stdgo._internal.encoding.xml.Xml_attr.Attr>);
         } else if ((({
             final value = _finfo;
             (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));

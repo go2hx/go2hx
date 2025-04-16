@@ -112,7 +112,7 @@ package stdgo._internal.archive.zip;
                 };
                 var _idx = ((@:checkr _r ?? throw "null pointer dereference")._fileList.length : stdgo.GoInt);
                 var _entry = ({ _name : _name?.__copy__(), _file : _file, _isDir : _isDir } : stdgo._internal.archive.zip.Zip_t_filelistentry.T_fileListEntry);
-                (@:checkr _r ?? throw "null pointer dereference")._fileList = ((@:checkr _r ?? throw "null pointer dereference")._fileList.__append__(_entry?.__copy__()));
+                (@:checkr _r ?? throw "null pointer dereference")._fileList = ((@:checkr _r ?? throw "null pointer dereference")._fileList.__append__(_entry?.__copy__()) : stdgo.Slice<stdgo._internal.archive.zip.Zip_t_filelistentry.T_fileListEntry>);
                 if (_isDir) {
                     _knownDirs[_name] = _idx;
                 } else {
@@ -129,7 +129,7 @@ package stdgo._internal.archive.zip;
                                 (@:checkr _r ?? throw "null pointer dereference")._fileList[(_idx : stdgo.GoInt)]._isDup = true;
                             } else {
                                 var _entry = ({ _name : _dir?.__copy__(), _file : null, _isDir : true } : stdgo._internal.archive.zip.Zip_t_filelistentry.T_fileListEntry);
-                                (@:checkr _r ?? throw "null pointer dereference")._fileList = ((@:checkr _r ?? throw "null pointer dereference")._fileList.__append__(_entry?.__copy__()));
+                                (@:checkr _r ?? throw "null pointer dereference")._fileList = ((@:checkr _r ?? throw "null pointer dereference")._fileList.__append__(_entry?.__copy__()) : stdgo.Slice<stdgo._internal.archive.zip.Zip_t_filelistentry.T_fileListEntry>);
                             };
                         };
                     };
@@ -199,7 +199,7 @@ package stdgo._internal.archive.zip;
                 return _err;
             };
             (@:checkr _f ?? throw "null pointer dereference")._headerOffset = ((@:checkr _f ?? throw "null pointer dereference")._headerOffset + ((@:checkr _r ?? throw "null pointer dereference")._baseOffset) : stdgo.GoInt64);
-            (@:checkr _r ?? throw "null pointer dereference").file = ((@:checkr _r ?? throw "null pointer dereference").file.__append__(_f));
+            (@:checkr _r ?? throw "null pointer dereference").file = ((@:checkr _r ?? throw "null pointer dereference").file.__append__(_f) : stdgo.Slice<stdgo.Ref<stdgo._internal.archive.zip.Zip_file.File>>);
         };
         if (((@:checkr _r ?? throw "null pointer dereference").file.length : stdgo.GoUInt16) != (((@:checkr _end ?? throw "null pointer dereference")._directoryRecords : stdgo.GoUInt16))) {
             return _err;

@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final __2 = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final __2 : stdgo._internal.internal.types.errors.Errors_code.Code = 29i32;

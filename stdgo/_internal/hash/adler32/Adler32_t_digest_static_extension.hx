@@ -5,7 +5,7 @@ package stdgo._internal.hash.adler32;
     @:tdfield
     static public function sum( _d:stdgo.Pointer<stdgo._internal.hash.adler32.Adler32_t_digest.T_digest>, _in:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         var _s = (_d.value : stdgo.GoUInt32);
-        return (_in.__append__(((_s >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_s >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_s >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), (_s : stdgo.GoUInt8)));
+        return (_in.__append__(((_s >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_s >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_s >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), (_s : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     @:pointer
@@ -44,7 +44,7 @@ package stdgo._internal.hash.adler32;
     @:tdfield
     static public function marshalBinary( _d:stdgo.Pointer<stdgo._internal.hash.adler32.Adler32_t_digest.T_digest>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        _b = (_b.__append__(...((stdgo.Go.str("adl", 1) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+        _b = (_b.__append__(...((stdgo.Go.str("adl", 1) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.hash.adler32.Adler32__appenduint32._appendUint32(_b, (_d.value : stdgo.GoUInt32));
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }

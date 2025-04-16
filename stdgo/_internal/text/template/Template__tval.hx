@@ -84,6 +84,7 @@ x.set(("twelve" : stdgo.GoString), (12 : stdgo.GoInt));
     }, panicFunc : function():stdgo.GoString {
         throw stdgo.Go.toInterface(("test panic" : stdgo.GoString));
     }, tmpl : ({
+        @:tupleArg var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("x" : stdgo.GoString)).parse(("test template" : stdgo.GoString));
         var __f__ = stdgo._internal.text.template.Template_must.must;
         var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("x" : stdgo.GoString)).parse(("test template" : stdgo.GoString));
         __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>), (__tmp__._1 : stdgo.Error));

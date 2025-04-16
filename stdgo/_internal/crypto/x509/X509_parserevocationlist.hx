@@ -124,12 +124,12 @@ function parseRevocationList(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.R
                                 return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: malformed reasonCode extension" : stdgo.GoString)) };
                             };
                         };
-                        _rce.extensions = (_rce.extensions.__append__(_ext?.__copy__()));
+                        _rce.extensions = (_rce.extensions.__append__(_ext?.__copy__()) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>);
                     };
                 };
-                (@:checkr _rl ?? throw "null pointer dereference").revokedCertificateEntries = ((@:checkr _rl ?? throw "null pointer dereference").revokedCertificateEntries.__append__(_rce?.__copy__()));
+                (@:checkr _rl ?? throw "null pointer dereference").revokedCertificateEntries = ((@:checkr _rl ?? throw "null pointer dereference").revokedCertificateEntries.__append__(_rce?.__copy__()) : stdgo.Slice<stdgo._internal.crypto.x509.X509_revocationlistentry.RevocationListEntry>);
                 var _rcDeprecated = ({ serialNumber : _rce.serialNumber, revocationTime : _rce.revocationTime?.__copy__(), extensions : _rce.extensions } : stdgo._internal.crypto.x509.pkix.Pkix_revokedcertificate.RevokedCertificate);
-                (@:checkr _rl ?? throw "null pointer dereference").revokedCertificates = ((@:checkr _rl ?? throw "null pointer dereference").revokedCertificates.__append__(_rcDeprecated?.__copy__()));
+                (@:checkr _rl ?? throw "null pointer dereference").revokedCertificates = ((@:checkr _rl ?? throw "null pointer dereference").revokedCertificates.__append__(_rcDeprecated?.__copy__()) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_revokedcertificate.RevokedCertificate>);
             };
         };
         var _extensions:_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_string_.String_);
@@ -159,7 +159,7 @@ function parseRevocationList(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.R
                         return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: malformed crl number" : stdgo.GoString)) };
                     };
                 };
-                (@:checkr _rl ?? throw "null pointer dereference").extensions = ((@:checkr _rl ?? throw "null pointer dereference").extensions.__append__(_ext?.__copy__()));
+                (@:checkr _rl ?? throw "null pointer dereference").extensions = ((@:checkr _rl ?? throw "null pointer dereference").extensions.__append__(_ext?.__copy__()) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>);
             };
         };
         return { _0 : _rl, _1 : (null : stdgo.Error) };

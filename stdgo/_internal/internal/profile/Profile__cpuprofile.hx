@@ -23,7 +23,7 @@ function _cpuProfile(_b:stdgo.Slice<stdgo.GoUInt8>, _period:stdgo.GoInt64, _pars
             };
             if (_allSame) {
                 for (__1 => _s in (@:checkr _p ?? throw "null pointer dereference").sample) {
-                    (@:checkr _s ?? throw "null pointer dereference").location = (((@:checkr _s ?? throw "null pointer dereference").location.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>).__append__(...(((@:checkr _s ?? throw "null pointer dereference").location.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>) : Array<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>)));
+                    (@:checkr _s ?? throw "null pointer dereference").location = (((@:checkr _s ?? throw "null pointer dereference").location.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>).__append__(...(((@:checkr _s ?? throw "null pointer dereference").location.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>) : Array<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
                 };
             };
         };

@@ -58,7 +58,7 @@ function _makeOnePass(_p:stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassprog.T
                         } else if (__value__ == ((2 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) || __value__ == ((6 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
                             _ok = _check((@:checkr _inst ?? throw "null pointer dereference").inst.out, _m);
                             _m[(_pc : stdgo.GoInt)] = _m[((@:checkr _inst ?? throw "null pointer dereference").inst.out : stdgo.GoInt)];
-                            _onePassRunes[(_pc : stdgo.GoInt)] = ((new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>).__append__(...(_onePassRunes[((@:checkr _inst ?? throw "null pointer dereference").inst.out : stdgo.GoInt)] : Array<stdgo.GoInt32>)));
+                            _onePassRunes[(_pc : stdgo.GoInt)] = ((new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>).__append__(...(_onePassRunes[((@:checkr _inst ?? throw "null pointer dereference").inst.out : stdgo.GoInt)] : Array<stdgo.GoInt32>)) : stdgo.Slice<stdgo.GoInt32>);
                             (@:checkr _inst ?? throw "null pointer dereference").next = (new stdgo.Slice<stdgo.GoUInt32>((((_onePassRunes[(_pc : stdgo.GoInt)].length) / (2 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
                             for (_i => _ in (@:checkr _inst ?? throw "null pointer dereference").next) {
                                 (@:checkr _inst ?? throw "null pointer dereference").next[(_i : stdgo.GoInt)] = (@:checkr _inst ?? throw "null pointer dereference").inst.out;
@@ -67,7 +67,7 @@ function _makeOnePass(_p:stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassprog.T
                         } else if (__value__ == ((3 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
                             _ok = _check((@:checkr _inst ?? throw "null pointer dereference").inst.out, _m);
                             _m[(_pc : stdgo.GoInt)] = _m[((@:checkr _inst ?? throw "null pointer dereference").inst.out : stdgo.GoInt)];
-                            _onePassRunes[(_pc : stdgo.GoInt)] = ((new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>).__append__(...(_onePassRunes[((@:checkr _inst ?? throw "null pointer dereference").inst.out : stdgo.GoInt)] : Array<stdgo.GoInt32>)));
+                            _onePassRunes[(_pc : stdgo.GoInt)] = ((new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>).__append__(...(_onePassRunes[((@:checkr _inst ?? throw "null pointer dereference").inst.out : stdgo.GoInt)] : Array<stdgo.GoInt32>)) : stdgo.Slice<stdgo.GoInt32>);
                             (@:checkr _inst ?? throw "null pointer dereference").next = (new stdgo.Slice<stdgo.GoUInt32>((((_onePassRunes[(_pc : stdgo.GoInt)].length) / (2 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
                             for (_i => _ in (@:checkr _inst ?? throw "null pointer dereference").next) {
                                 (@:checkr _inst ?? throw "null pointer dereference").next[(_i : stdgo.GoInt)] = (@:checkr _inst ?? throw "null pointer dereference").inst.out;
@@ -90,17 +90,17 @@ function _makeOnePass(_p:stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassprog.T
                             var _runes = (new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
                             if ((((@:checkr _inst ?? throw "null pointer dereference").inst.rune.length == (1 : stdgo.GoInt)) && ((((@:checkr _inst ?? throw "null pointer dereference").inst.arg : stdgo._internal.regexp.syntax.Syntax_flags.Flags) & (1 : stdgo._internal.regexp.syntax.Syntax_flags.Flags) : stdgo._internal.regexp.syntax.Syntax_flags.Flags) != (0 : stdgo._internal.regexp.syntax.Syntax_flags.Flags)) : Bool)) {
                                 var _r0 = ((@:checkr _inst ?? throw "null pointer dereference").inst.rune[(0 : stdgo.GoInt)] : stdgo.GoInt32);
-                                _runes = (_runes.__append__(_r0, _r0));
+                                _runes = (_runes.__append__(_r0, _r0) : stdgo.Slice<stdgo.GoInt32>);
                                 {
                                     var _r1 = (stdgo._internal.unicode.Unicode_simplefold.simpleFold(_r0) : stdgo.GoInt32);
                                     while (_r1 != (_r0)) {
-                                        _runes = (_runes.__append__(_r1, _r1));
+                                        _runes = (_runes.__append__(_r1, _r1) : stdgo.Slice<stdgo.GoInt32>);
                                         _r1 = stdgo._internal.unicode.Unicode_simplefold.simpleFold(_r1);
                                     };
                                 };
                                 stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface((_runes : stdgo._internal.regexp.Regexp_t_runeslice.T_runeSlice)));
                             } else {
-                                _runes = (_runes.__append__(...((@:checkr _inst ?? throw "null pointer dereference").inst.rune : Array<stdgo.GoInt32>)));
+                                _runes = (_runes.__append__(...((@:checkr _inst ?? throw "null pointer dereference").inst.rune : Array<stdgo.GoInt32>)) : stdgo.Slice<stdgo.GoInt32>);
                             };
                             _onePassRunes[(_pc : stdgo.GoInt)] = _runes;
                             (@:checkr _inst ?? throw "null pointer dereference").next = (new stdgo.Slice<stdgo.GoUInt32>((((_onePassRunes[(_pc : stdgo.GoInt)].length) / (2 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
@@ -118,17 +118,17 @@ function _makeOnePass(_p:stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassprog.T
                             var _runes = (new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
                             if ((((@:checkr _inst ?? throw "null pointer dereference").inst.arg : stdgo._internal.regexp.syntax.Syntax_flags.Flags) & (1 : stdgo._internal.regexp.syntax.Syntax_flags.Flags) : stdgo._internal.regexp.syntax.Syntax_flags.Flags) != ((0 : stdgo._internal.regexp.syntax.Syntax_flags.Flags))) {
                                 var _r0 = ((@:checkr _inst ?? throw "null pointer dereference").inst.rune[(0 : stdgo.GoInt)] : stdgo.GoInt32);
-                                _runes = (_runes.__append__(_r0, _r0));
+                                _runes = (_runes.__append__(_r0, _r0) : stdgo.Slice<stdgo.GoInt32>);
                                 {
                                     var _r1 = (stdgo._internal.unicode.Unicode_simplefold.simpleFold(_r0) : stdgo.GoInt32);
                                     while (_r1 != (_r0)) {
-                                        _runes = (_runes.__append__(_r1, _r1));
+                                        _runes = (_runes.__append__(_r1, _r1) : stdgo.Slice<stdgo.GoInt32>);
                                         _r1 = stdgo._internal.unicode.Unicode_simplefold.simpleFold(_r1);
                                     };
                                 };
                                 stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface((_runes : stdgo._internal.regexp.Regexp_t_runeslice.T_runeSlice)));
                             } else {
-                                _runes = (_runes.__append__((@:checkr _inst ?? throw "null pointer dereference").inst.rune[(0 : stdgo.GoInt)], (@:checkr _inst ?? throw "null pointer dereference").inst.rune[(0 : stdgo.GoInt)]));
+                                _runes = (_runes.__append__((@:checkr _inst ?? throw "null pointer dereference").inst.rune[(0 : stdgo.GoInt)], (@:checkr _inst ?? throw "null pointer dereference").inst.rune[(0 : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt32>);
                             };
                             _onePassRunes[(_pc : stdgo.GoInt)] = _runes;
                             (@:checkr _inst ?? throw "null pointer dereference").next = (new stdgo.Slice<stdgo.GoUInt32>((((_onePassRunes[(_pc : stdgo.GoInt)].length) / (2 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
@@ -143,7 +143,7 @@ function _makeOnePass(_p:stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassprog.T
                                 break;
                             };
                             @:check2r _instQueue._insert((@:checkr _inst ?? throw "null pointer dereference").inst.out);
-                            _onePassRunes[(_pc : stdgo.GoInt)] = ((new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>).__append__(...(stdgo._internal.regexp.Regexp__anyrune._anyRune : Array<stdgo.GoInt32>)));
+                            _onePassRunes[(_pc : stdgo.GoInt)] = ((new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>).__append__(...(stdgo._internal.regexp.Regexp__anyrune._anyRune : Array<stdgo.GoInt32>)) : stdgo.Slice<stdgo.GoInt32>);
                             (@:checkr _inst ?? throw "null pointer dereference").next = (new stdgo.Slice<stdgo.GoUInt32>(1, 1, ...[(@:checkr _inst ?? throw "null pointer dereference").inst.out]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
                             break;
                         } else if (__value__ == ((10 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
@@ -152,7 +152,7 @@ function _makeOnePass(_p:stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassprog.T
                                 break;
                             };
                             @:check2r _instQueue._insert((@:checkr _inst ?? throw "null pointer dereference").inst.out);
-                            _onePassRunes[(_pc : stdgo.GoInt)] = ((new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>).__append__(...(stdgo._internal.regexp.Regexp__anyrunenotnl._anyRuneNotNL : Array<stdgo.GoInt32>)));
+                            _onePassRunes[(_pc : stdgo.GoInt)] = ((new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>).__append__(...(stdgo._internal.regexp.Regexp__anyrunenotnl._anyRuneNotNL : Array<stdgo.GoInt32>)) : stdgo.Slice<stdgo.GoInt32>);
                             (@:checkr _inst ?? throw "null pointer dereference").next = (new stdgo.Slice<stdgo.GoUInt32>((((_onePassRunes[(_pc : stdgo.GoInt)].length) / (2 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
                             for (_i => _ in (@:checkr _inst ?? throw "null pointer dereference").next) {
                                 (@:checkr _inst ?? throw "null pointer dereference").next[(_i : stdgo.GoInt)] = (@:checkr _inst ?? throw "null pointer dereference").inst.out;

@@ -10,7 +10,7 @@ function _parseFiles(_t:stdgo.Ref<stdgo._internal.html.template.Template_templat
         if ((_filenames.length) == ((0 : stdgo.GoInt))) {
             return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: no files named in call to ParseFiles" : stdgo.GoString)) };
         };
-        for (__6 => _filename in _filenames) {
+        for (__14 => _filename in _filenames) {
             var __tmp__ = _readFile(_filename?.__copy__()), _name:stdgo.GoString = __tmp__._0, _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
                 return { _0 : null, _1 : _err };

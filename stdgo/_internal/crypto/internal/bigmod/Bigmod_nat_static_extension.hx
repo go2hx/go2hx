@@ -60,7 +60,7 @@ stdgo._internal.crypto.internal.bigmod.Bigmod_newnat.newNat()]) : stdgo.GoArray<
                 @:check2r _out._montgomeryMul(_out, _out, _m);
                 @:check2r _out._montgomeryMul(_out, _out, _m);
                 var _k = ((((_b >> _j : stdgo.GoUInt8)) & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoUInt);
-                for (_i => _ in _table) {
+                for (_i => _ in _table.__copy__()) {
                     @:check2r _tmp._assign(stdgo._internal.crypto.internal.bigmod.Bigmod__cteq._ctEq(_k, ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt)), _table[(_i : stdgo.GoInt)]);
                 };
                 @:check2r _tmp._montgomeryMul(_out, _tmp, _m);

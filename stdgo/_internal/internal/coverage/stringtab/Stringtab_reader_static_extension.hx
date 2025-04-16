@@ -22,7 +22,7 @@ package stdgo._internal.internal.coverage.stringtab;
             var _idx = (0 : stdgo.GoInt);
             while ((_idx < _numEntries : Bool)) {
                 var _slen = (@:check2r (@:checkr _str ?? throw "null pointer dereference")._r.readULEB128() : stdgo.GoUInt64);
-(@:checkr _str ?? throw "null pointer dereference")._strs = ((@:checkr _str ?? throw "null pointer dereference")._strs.__append__(@:check2r (@:checkr _str ?? throw "null pointer dereference")._r.readString((_slen : stdgo.GoInt64)).__copy__()));
+(@:checkr _str ?? throw "null pointer dereference")._strs = ((@:checkr _str ?? throw "null pointer dereference")._strs.__append__(@:check2r (@:checkr _str ?? throw "null pointer dereference")._r.readString((_slen : stdgo.GoInt64)).__copy__()) : stdgo.Slice<stdgo.GoString>);
                 _idx++;
             };
         };

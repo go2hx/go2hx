@@ -16,7 +16,7 @@ function _decodeInt64s(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_b
                         return _err;
                     };
                 };
-                (_x : stdgo.Slice<stdgo.GoInt64>).__setData__(((_x : stdgo.Slice<stdgo.GoInt64>).__append__((_u : stdgo.GoInt64))));
+                (_x : stdgo.Slice<stdgo.GoInt64>).__setData__(((_x : stdgo.Slice<stdgo.GoInt64>).__append__((_u : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoInt64>));
             };
             return (null : stdgo.Error);
         };
@@ -27,6 +27,6 @@ function _decodeInt64s(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_b
                 return _err;
             };
         };
-        (_x : stdgo.Slice<stdgo.GoInt64>).__setData__(((_x : stdgo.Slice<stdgo.GoInt64>).__append__(_i)));
+        (_x : stdgo.Slice<stdgo.GoInt64>).__setData__(((_x : stdgo.Slice<stdgo.GoInt64>).__append__(_i) : stdgo.Slice<stdgo.GoInt64>));
         return (null : stdgo.Error);
     }

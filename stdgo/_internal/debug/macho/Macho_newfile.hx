@@ -80,7 +80,7 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_segment.Segment> = (null : st
                         };
                         (@:checkr _l ?? throw "null pointer dereference").path = stdgo._internal.debug.macho.Macho__cstring._cstring((_cmddat.__slice__(_hdr.path) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
                         (@:checkr _l ?? throw "null pointer dereference").loadBytes = (_cmddat : stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes);
-                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface(_l)));
+                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface(_l)) : stdgo.Slice<stdgo._internal.debug.macho.Macho_load.Load>);
                     } else if (__value__ == ((12u32 : stdgo._internal.debug.macho.Macho_loadcmd.LoadCmd))) {
                         var _hdr:stdgo._internal.debug.macho.Macho_dylibcmd.DylibCmd = ({} : stdgo._internal.debug.macho.Macho_dylibcmd.DylibCmd);
                         var _b = stdgo._internal.bytes.Bytes_newreader.newReader(_cmddat);
@@ -99,7 +99,7 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_segment.Segment> = (null : st
                         (@:checkr _l ?? throw "null pointer dereference").currentVersion = _hdr.currentVersion;
                         (@:checkr _l ?? throw "null pointer dereference").compatVersion = _hdr.compatVersion;
                         (@:checkr _l ?? throw "null pointer dereference").loadBytes = (_cmddat : stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes);
-                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface(_l)));
+                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface(_l)) : stdgo.Slice<stdgo._internal.debug.macho.Macho_load.Load>);
                     } else if (__value__ == ((2u32 : stdgo._internal.debug.macho.Macho_loadcmd.LoadCmd))) {
                         var _hdr:stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd = ({} : stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd);
                         var _b = stdgo._internal.bytes.Bytes_newreader.newReader(_cmddat);
@@ -127,7 +127,7 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_segment.Segment> = (null : st
                         if (_err != null) {
                             return { _0 : null, _1 : _err };
                         };
-                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface(_st)));
+                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface(_st)) : stdgo.Slice<stdgo._internal.debug.macho.Macho_load.Load>);
                         (@:checkr _f ?? throw "null pointer dereference").symtab = _st;
                     } else if (__value__ == ((11u32 : stdgo._internal.debug.macho.Macho_loadcmd.LoadCmd))) {
                         var _hdr:stdgo._internal.debug.macho.Macho_dysymtabcmd.DysymtabCmd = ({} : stdgo._internal.debug.macho.Macho_dysymtabcmd.DysymtabCmd);
@@ -163,7 +163,7 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_segment.Segment> = (null : st
                         (@:checkr _st ?? throw "null pointer dereference").loadBytes = (_cmddat : stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes);
                         (@:checkr _st ?? throw "null pointer dereference").dysymtabCmd = _hdr.__copy__();
                         (@:checkr _st ?? throw "null pointer dereference").indirectSyms = _x;
-                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface(_st)));
+                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface(_st)) : stdgo.Slice<stdgo._internal.debug.macho.Macho_load.Load>);
                         (@:checkr _f ?? throw "null pointer dereference").dysymtab = _st;
                     } else if (__value__ == ((1u32 : stdgo._internal.debug.macho.Macho_loadcmd.LoadCmd))) {
                         var _seg32:stdgo._internal.debug.macho.Macho_segment32.Segment32 = ({} : stdgo._internal.debug.macho.Macho_segment32.Segment32);
@@ -187,7 +187,7 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_segment.Segment> = (null : st
                         (@:checkr _s ?? throw "null pointer dereference").segmentHeader.prot = _seg32.prot;
                         (@:checkr _s ?? throw "null pointer dereference").segmentHeader.nsect = _seg32.nsect;
                         (@:checkr _s ?? throw "null pointer dereference").segmentHeader.flag = _seg32.flag;
-                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface(_s)));
+                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface(_s)) : stdgo.Slice<stdgo._internal.debug.macho.Macho_load.Load>);
                         {
                             var _i = (0 : stdgo.GoInt);
                             while ((_i < ((@:checkr _s ?? throw "null pointer dereference").segmentHeader.nsect : stdgo.GoInt) : Bool)) {
@@ -239,7 +239,7 @@ var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.macho.Macho_section.Secti
                         (@:checkr _s ?? throw "null pointer dereference").segmentHeader.prot = _seg64.prot;
                         (@:checkr _s ?? throw "null pointer dereference").segmentHeader.nsect = _seg64.nsect;
                         (@:checkr _s ?? throw "null pointer dereference").segmentHeader.flag = _seg64.flag;
-                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface(_s)));
+                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface(_s)) : stdgo.Slice<stdgo._internal.debug.macho.Macho_load.Load>);
                         {
                             var _i = (0 : stdgo.GoInt);
                             while ((_i < ((@:checkr _s ?? throw "null pointer dereference").segmentHeader.nsect : stdgo.GoInt) : Bool)) {
@@ -270,7 +270,7 @@ var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.macho.Macho_section.Secti
                             };
                         };
                     } else {
-                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface((_cmddat : stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes))));
+                        (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface((_cmddat : stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes))) : stdgo.Slice<stdgo._internal.debug.macho.Macho_load.Load>);
                     };
                 };
 if (({

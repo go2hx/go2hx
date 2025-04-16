@@ -25,17 +25,17 @@ function diff(_oldName:stdgo.GoString, _old:stdgo.Slice<stdgo.GoUInt8>, _newName
                 _end._y++;
             };
             for (__1 => _s in (_x.__slice__(_done._x, _start._x) : stdgo.Slice<stdgo.GoString>)) {
-                _ctext = (_ctext.__append__((("-" : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__()));
+                _ctext = (_ctext.__append__((("-" : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 _count._x++;
             };
             for (__2 => _s in (_y.__slice__(_done._y, _start._y) : stdgo.Slice<stdgo.GoString>)) {
-                _ctext = (_ctext.__append__((("+" : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__()));
+                _ctext = (_ctext.__append__((("+" : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 _count._y++;
             };
             {};
             if (((((_end._x < (_x.length) : Bool) || (_end._y < (_y.length) : Bool) : Bool)) && ((((_end._x - _start._x : stdgo.GoInt) < (3 : stdgo.GoInt) : Bool) || ((((_ctext.length) > (0 : stdgo.GoInt) : Bool) && ((_end._x - _start._x : stdgo.GoInt) < (6 : stdgo.GoInt) : Bool) : Bool)) : Bool)) : Bool)) {
                 for (__3 => _s in (_x.__slice__(_start._x, _end._x) : stdgo.Slice<stdgo.GoString>)) {
-                    _ctext = (_ctext.__append__(((" " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__()));
+                    _ctext = (_ctext.__append__(((" " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     _count._x++;
                     _count._y++;
                 };
@@ -48,7 +48,7 @@ function diff(_oldName:stdgo.GoString, _old:stdgo.Slice<stdgo.GoUInt8>, _newName
                     _n = (3 : stdgo.GoInt);
                 };
                 for (__3 => _s in (_x.__slice__(_start._x, (_start._x + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>)) {
-                    _ctext = (_ctext.__append__(((" " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__()));
+                    _ctext = (_ctext.__append__(((" " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     _count._x++;
                     _count._y++;
                 };
@@ -72,7 +72,7 @@ function diff(_oldName:stdgo.GoString, _old:stdgo.Slice<stdgo.GoUInt8>, _newName
             };
             _chunk = (new stdgo._internal.internal.diff.Diff_t_pair.T_pair((_end._x - (3 : stdgo.GoInt) : stdgo.GoInt), (_end._y - (3 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.internal.diff.Diff_t_pair.T_pair);
             for (__3 => _s in (_x.__slice__(_chunk._x, _end._x) : stdgo.Slice<stdgo.GoString>)) {
-                _ctext = (_ctext.__append__(((" " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__()));
+                _ctext = (_ctext.__append__(((" " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 _count._x++;
                 _count._y++;
             };

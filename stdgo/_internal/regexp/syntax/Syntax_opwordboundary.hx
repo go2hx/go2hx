@@ -1,2 +1,2 @@
 package stdgo._internal.regexp.syntax;
-final opWordBoundary = (19 : stdgo._internal.regexp.syntax.Syntax_op.Op);
+final opWordBoundary : stdgo._internal.regexp.syntax.Syntax_op.Op = 11i32;

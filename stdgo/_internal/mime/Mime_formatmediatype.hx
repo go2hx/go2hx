@@ -19,7 +19,7 @@ function formatMediaType(_t:stdgo.GoString, _param:stdgo.GoMap<stdgo.GoString, s
         };
         var _attrs = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (_param.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_a => _ in _param) {
-            _attrs = (_attrs.__append__(_a?.__copy__()));
+            _attrs = (_attrs.__append__(_a?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         stdgo._internal.sort.Sort_strings.strings(_attrs);
         for (__0 => _attribute in _attrs) {

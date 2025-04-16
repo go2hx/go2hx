@@ -6,13 +6,13 @@ package stdgo._internal.log.slog;
         @:recv var _s:stdgo.Ref<stdgo._internal.log.slog.Slog_source.Source> = _s;
         var _as:stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr> = (null : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
         if ((@:checkr _s ?? throw "null pointer dereference").function_ != ((stdgo.Go.str() : stdgo.GoString))) {
-            _as = (_as.__append__(stdgo._internal.log.slog.Slog_string.string(("function" : stdgo.GoString), (@:checkr _s ?? throw "null pointer dereference").function_?.__copy__())));
+            _as = (_as.__append__(stdgo._internal.log.slog.Slog_string.string(("function" : stdgo.GoString), (@:checkr _s ?? throw "null pointer dereference").function_?.__copy__())) : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
         };
         if ((@:checkr _s ?? throw "null pointer dereference").file != ((stdgo.Go.str() : stdgo.GoString))) {
-            _as = (_as.__append__(stdgo._internal.log.slog.Slog_string.string(("file" : stdgo.GoString), (@:checkr _s ?? throw "null pointer dereference").file?.__copy__())));
+            _as = (_as.__append__(stdgo._internal.log.slog.Slog_string.string(("file" : stdgo.GoString), (@:checkr _s ?? throw "null pointer dereference").file?.__copy__())) : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
         };
         if ((@:checkr _s ?? throw "null pointer dereference").line != ((0 : stdgo.GoInt))) {
-            _as = (_as.__append__(stdgo._internal.log.slog.Slog_int_.int_(("line" : stdgo.GoString), (@:checkr _s ?? throw "null pointer dereference").line)));
+            _as = (_as.__append__(stdgo._internal.log.slog.Slog_int_.int_(("line" : stdgo.GoString), (@:checkr _s ?? throw "null pointer dereference").line)) : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
         };
         return stdgo._internal.log.slog.Slog_groupvalue.groupValue(...(_as : Array<stdgo._internal.log.slog.Slog_attr.Attr>))?.__copy__();
     }

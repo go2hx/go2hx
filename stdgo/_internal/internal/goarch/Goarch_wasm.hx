@@ -1,2 +1,2 @@
 package stdgo._internal.internal.goarch;
-final wASM = (10 : stdgo._internal.internal.goarch.Goarch_archfamilytype.ArchFamilyType);
+final wASM : stdgo._internal.internal.goarch.Goarch_archfamilytype.ArchFamilyType = 10i32;

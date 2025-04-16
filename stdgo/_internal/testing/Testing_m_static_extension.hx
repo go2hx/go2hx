@@ -57,8 +57,7 @@ package stdgo._internal.testing;
             };
             stdgo.Go.println(output.toString());
         };
-        trace("exitCode: " + _m._exitCode);
-        trace("exitCodeReason: " + exitCodeReason);
+        if (_m._exitCode != 0) trace("exitCode: " + _m._exitCode + " exitCodeReason: " + exitCodeReason);
         return _m._exitCode;
     }
 }

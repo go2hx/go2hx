@@ -1,2 +1,2 @@
 package stdgo._internal.time;
-final _stdYear = (276i64 : stdgo.GoUInt64);
+final _stdYear : stdgo.GoUInt64 = 276i32;

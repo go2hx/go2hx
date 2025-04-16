@@ -114,7 +114,7 @@ package stdgo._internal.internal.dag;
                     break;
                 };
             };
-            _list = (_list.__append__(_tok?.__copy__()));
+            _list = (_list.__append__(_tok?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             _tok = @:check2r _p._nextToken()?.__copy__();
             if (_tok != (("," : stdgo.GoString))) {
                 return {

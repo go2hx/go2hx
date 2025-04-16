@@ -18,7 +18,7 @@ package stdgo._internal.hash.fnv;
     @:tdfield
     static public function marshalBinary( _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_t_sum32.T_sum32>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        _b = (_b.__append__(...((stdgo.Go.str("fnv", 1) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+        _b = (_b.__append__(...((stdgo.Go.str("fnv", 1) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.hash.fnv.Fnv__appenduint32._appendUint32(_b, (_s.value : stdgo.GoUInt32));
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }
@@ -27,7 +27,7 @@ package stdgo._internal.hash.fnv;
     @:tdfield
     static public function sum( _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_t_sum32.T_sum32>, _in:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         var _v = (_s.value : stdgo.GoUInt32);
-        return (_in.__append__(((_v >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_v >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), (_v : stdgo.GoUInt8)));
+        return (_in.__append__(((_v >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), ((_v >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), (_v : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     @:pointer

@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final invalidRangeExpr = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final invalidRangeExpr : stdgo._internal.internal.types.errors.Errors_code.Code = 109i32;

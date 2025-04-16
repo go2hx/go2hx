@@ -5,5 +5,5 @@ function _setTypeId(_typ:stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType):V
         };
         var _nextId = (stdgo._internal.encoding.gob.Gob__idtotypeslice._idToTypeSlice.length : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId);
         _typ._setId(_nextId);
-        stdgo._internal.encoding.gob.Gob__idtotypeslice._idToTypeSlice = (stdgo._internal.encoding.gob.Gob__idtotypeslice._idToTypeSlice.__append__(_typ));
+        stdgo._internal.encoding.gob.Gob__idtotypeslice._idToTypeSlice = (stdgo._internal.encoding.gob.Gob__idtotypeslice._idToTypeSlice.__append__(_typ) : stdgo.Slice<stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType>);
     }

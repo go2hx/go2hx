@@ -397,7 +397,7 @@ package stdgo._internal.flag;
             {
                 var __tmp__ = stdgo._internal.flag.Flag__iszerovalue._isZeroValue(_flag, (@:checkr _flag ?? throw "null pointer dereference").defValue?.__copy__()), _isZero:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    _isZeroValueErrs = (_isZeroValueErrs.__append__(_err));
+                    _isZeroValueErrs = (_isZeroValueErrs.__append__(_err) : stdgo.Slice<stdgo.Error>);
                 } else if (!_isZero) {
                     {
                         var __tmp__ = try {

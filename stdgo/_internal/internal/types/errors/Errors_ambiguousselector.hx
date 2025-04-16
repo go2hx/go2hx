@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final ambiguousSelector = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final ambiguousSelector : stdgo._internal.internal.types.errors.Errors_code.Code = 72i32;

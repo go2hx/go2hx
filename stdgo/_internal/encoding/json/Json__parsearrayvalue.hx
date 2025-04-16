@@ -1,2 +1,2 @@
 package stdgo._internal.encoding.json;
-final _parseArrayValue = (2i64 : stdgo.GoUInt64);
+final _parseArrayValue : stdgo.GoUInt64 = 2i32;

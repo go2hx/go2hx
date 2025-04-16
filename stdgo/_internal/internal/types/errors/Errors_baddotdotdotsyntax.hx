@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final badDotDotDotSyntax = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final badDotDotDotSyntax : stdgo._internal.internal.types.errors.Errors_code.Code = 77i32;

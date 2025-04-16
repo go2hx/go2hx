@@ -5,7 +5,7 @@ function benchmarkAnchoredLiteralLongNonMatch(_b:stdgo.Ref<stdgo._internal.testi
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (15 : stdgo.GoInt) : Bool)) {
-                _x = (_x.__append__(...(_x : Array<stdgo.GoUInt8>)));
+                _x = (_x.__append__(...(_x : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 _i++;
             };
         };

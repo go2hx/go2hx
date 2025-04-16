@@ -9,13 +9,13 @@ function writeImportcfg(_t:stdgo._internal.testing.Testing_tb.TB, _dstPath:stdgo
         };
         if (((_pkgs.length) > (0 : stdgo.GoInt) : Bool)) {
             var _cmd = stdgo._internal.internal.testenv.Testenv_command.command(_t, stdgo._internal.internal.testenv.Testenv_gotoolpath.goToolPath(_t)?.__copy__(), ("list" : stdgo.GoString), ("-export" : stdgo.GoString), ("-deps" : stdgo.GoString), ("-f" : stdgo.GoString), ("{{if ne .ImportPath \"command-line-arguments\"}}{{if .Export}}{{.ImportPath}}={{.Export}}{{end}}{{end}}" : stdgo.GoString));
-            (@:checkr _cmd ?? throw "null pointer dereference").args = ((@:checkr _cmd ?? throw "null pointer dereference").args.__append__(...(_pkgs : Array<stdgo.GoString>)));
+            (@:checkr _cmd ?? throw "null pointer dereference").args = ((@:checkr _cmd ?? throw "null pointer dereference").args.__append__(...(_pkgs : Array<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>);
             (@:checkr _cmd ?? throw "null pointer dereference").stderr = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.strings.Strings_builder.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>));
             var __tmp__ = @:check2r _cmd.output(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("%v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((@:checkr _cmd ?? throw "null pointer dereference").stderr));
             };
-            for (__0 => _line in stdgo._internal.strings.Strings_split.split((_out : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString))) {
+            for (__24 => _line in stdgo._internal.strings.Strings_split.split((_out : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString))) {
                 if (_line == ((stdgo.Go.str() : stdgo.GoString))) {
                     continue;
                 };

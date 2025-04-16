@@ -13,7 +13,7 @@ package stdgo._internal.debug.macho;
                     { _0 : (null : stdgo.Ref<stdgo._internal.debug.macho.Macho_dylib.Dylib>), _1 : false };
                 }, _lib = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
-                    _all = (_all.__append__((@:checkr _lib ?? throw "null pointer dereference").name?.__copy__()));
+                    _all = (_all.__append__((@:checkr _lib ?? throw "null pointer dereference").name?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 };
             };
         };
@@ -36,7 +36,7 @@ package stdgo._internal.debug.macho;
         var _dt = (@:checkr _f ?? throw "null pointer dereference").dysymtab;
         var _all:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         for (__4 => _s in ((@:checkr _st ?? throw "null pointer dereference").syms.__slice__((@:checkr _dt ?? throw "null pointer dereference").dysymtabCmd.iundefsym, ((@:checkr _dt ?? throw "null pointer dereference").dysymtabCmd.iundefsym + (@:checkr _dt ?? throw "null pointer dereference").dysymtabCmd.nundefsym : stdgo.GoUInt32)) : stdgo.Slice<stdgo._internal.debug.macho.Macho_symbol.Symbol>)) {
-            _all = (_all.__append__(_s.name?.__copy__()));
+            _all = (_all.__append__(_s.name?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         return { _0 : _all, _1 : (null : stdgo.Error) };
     }
@@ -171,7 +171,7 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
     @:tdfield
     static public function _pushSection( _f:stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>, _sh:stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>, _r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Error {
         @:recv var _f:stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File> = _f;
-        (@:checkr _f ?? throw "null pointer dereference").sections = ((@:checkr _f ?? throw "null pointer dereference").sections.__append__(_sh));
+        (@:checkr _f ?? throw "null pointer dereference").sections = ((@:checkr _f ?? throw "null pointer dereference").sections.__append__(_sh) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>>);
         (@:checkr _sh ?? throw "null pointer dereference")._sr = stdgo._internal.io.Io_newsectionreader.newSectionReader(_r, ((@:checkr _sh ?? throw "null pointer dereference").sectionHeader.offset : stdgo.GoInt64), ((@:checkr _sh ?? throw "null pointer dereference").sectionHeader.size : stdgo.GoInt64));
         (@:checkr _sh ?? throw "null pointer dereference").readerAt = stdgo.Go.asInterface((@:checkr _sh ?? throw "null pointer dereference")._sr);
         if (((@:checkr _sh ?? throw "null pointer dereference").sectionHeader.nreloc > (0u32 : stdgo.GoUInt32) : Bool)) {
@@ -267,7 +267,7 @@ var _name = (stdgo._internal.debug.macho.Macho__cstring._cstring((_strtab.__slic
 if ((stdgo._internal.strings.Strings_contains.contains(_name.__copy__(), ("." : stdgo.GoString)) && (_name[(0 : stdgo.GoInt)] == (95 : stdgo.GoUInt8)) : Bool)) {
                     _name = (_name.__slice__((1 : stdgo.GoInt)) : stdgo.GoString).__copy__();
                 };
-_symtab = (_symtab.__append__(({ name : _name.__copy__(), type : _n.type, sect : _n.sect, desc : _n.desc, value : _n.value } : stdgo._internal.debug.macho.Macho_symbol.Symbol)));
+_symtab = (_symtab.__append__(({ name : _name.__copy__(), type : _n.type, sect : _n.sect, desc : _n.desc, value : _n.value } : stdgo._internal.debug.macho.Macho_symbol.Symbol)) : stdgo.Slice<stdgo._internal.debug.macho.Macho_symbol.Symbol>);
                 _i++;
             };
         };

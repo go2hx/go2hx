@@ -39,6 +39,6 @@ package stdgo._internal.net.textproto;
     static public function add( _h:stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader, _key:stdgo.GoString, _value:stdgo.GoString):Void {
         @:recv var _h:stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader = _h;
         _key = stdgo._internal.net.textproto.Textproto_canonicalmimeheaderkey.canonicalMIMEHeaderKey(_key?.__copy__())?.__copy__();
-        _h[_key] = ((_h[_key] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(_value?.__copy__()));
+        _h[_key] = ((_h[_key] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
     }
 }

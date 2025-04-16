@@ -1,2 +1,2 @@
 package stdgo._internal.regexp.syntax;
-final instRune = (10 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp);
+final instRune : stdgo._internal.regexp.syntax.Syntax_instop.InstOp = 7i32;

@@ -67,7 +67,7 @@ for (__0 => _i in _indices) {
                     if (((_m != null) && (_prev <= _i : Bool) : Bool)) {
                         _m[(0 : stdgo.GoInt)] = _i;
                         _m[(1 : stdgo.GoInt)] = (_m[(1 : stdgo.GoInt)] + (_i) : stdgo.GoInt);
-                        _result = (_result.__append__(_m));
+                        _result = (_result.__append__(_m) : stdgo.Slice<stdgo.Slice<stdgo.GoInt>>);
                         _prev = _m[(1 : stdgo.GoInt)];
                     };
                 };

@@ -300,7 +300,7 @@ package stdgo._internal.net.http.cookiejar;
                 };
                 _e.lastAccess = _now?.__copy__();
                 _submap[_id] = _e?.__copy__();
-                _selected = (_selected.__append__(_e?.__copy__()));
+                _selected = (_selected.__append__(_e?.__copy__()) : stdgo.Slice<stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>);
                 _modified = true;
             };
             if (_modified) {
@@ -324,7 +324,7 @@ package stdgo._internal.net.http.cookiejar;
                 return (_s[(_i : stdgo.GoInt)]._seqNum < _s[(_j : stdgo.GoInt)]._seqNum : Bool);
             });
             for (__0 => _e in _selected) {
-                _cookies = (_cookies.__append__((stdgo.Go.setRef(({ name : _e.name?.__copy__(), value : _e.value?.__copy__() } : stdgo._internal.net.http.Http_cookie.Cookie)) : stdgo.Ref<stdgo._internal.net.http.Http_cookie.Cookie>)));
+                _cookies = (_cookies.__append__((stdgo.Go.setRef(({ name : _e.name?.__copy__(), value : _e.value?.__copy__() } : stdgo._internal.net.http.Http_cookie.Cookie)) : stdgo.Ref<stdgo._internal.net.http.Http_cookie.Cookie>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_cookie.Cookie>>);
             };
             {
                 for (defer in __deferstack__) {

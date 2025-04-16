@@ -1,2 +1,2 @@
 package stdgo._internal.log.syslog;
-final lOG_MAIL = (184 : stdgo._internal.log.syslog.Syslog_priority.Priority);
+final lOG_MAIL : stdgo._internal.log.syslog.Syslog_priority.Priority = 16i32;

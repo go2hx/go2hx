@@ -19,7 +19,7 @@ function testFloatSetFloat64(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>
 stdgo._internal.math.Math_inf.inf((-1 : stdgo.GoInt)),
 stdgo._internal.math.Math_inf.inf((0 : stdgo.GoInt)),
 -stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt))]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>)) {
-                for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)) {
+                for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>).__copy__()) {
                     if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                         _want = -_want;
                     };

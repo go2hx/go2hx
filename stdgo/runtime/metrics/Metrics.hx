@@ -1,126 +1,18 @@
 package stdgo.runtime.metrics;
-final kindBad : ValueKind = stdgo._internal.runtime.metrics.Metrics_kindbad.kindBad;
-final kindUint64 = stdgo._internal.runtime.metrics.Metrics_kinduint64.kindUint64;
-final kindFloat64 = stdgo._internal.runtime.metrics.Metrics_kindfloat64.kindFloat64;
-final kindFloat64Histogram = stdgo._internal.runtime.metrics.Metrics_kindfloat64histogram.kindFloat64Histogram;
-@:structInit @:using(stdgo.runtime.metrics.Metrics.Description_static_extension) abstract Description(stdgo._internal.runtime.metrics.Metrics_description.Description) from stdgo._internal.runtime.metrics.Metrics_description.Description to stdgo._internal.runtime.metrics.Metrics_description.Description {
-    public var name(get, set) : String;
-    function get_name():String return this.name;
-    function set_name(v:String):String {
-        this.name = (v : stdgo.GoString);
-        return v;
-    }
-    public var description(get, set) : String;
-    function get_description():String return this.description;
-    function set_description(v:String):String {
-        this.description = (v : stdgo.GoString);
-        return v;
-    }
-    public var kind(get, set) : ValueKind;
-    function get_kind():ValueKind return this.kind;
-    function set_kind(v:ValueKind):ValueKind {
-        this.kind = v;
-        return v;
-    }
-    public var cumulative(get, set) : Bool;
-    function get_cumulative():Bool return this.cumulative;
-    function set_cumulative(v:Bool):Bool {
-        this.cumulative = v;
-        return v;
-    }
-    public function new(?name:String, ?description:String, ?kind:ValueKind, ?cumulative:Bool) this = new stdgo._internal.runtime.metrics.Metrics_description.Description((name : stdgo.GoString), (description : stdgo.GoString), kind, cumulative);
-    public function __underlying__() return stdgo.Go.toInterface(this);
-    public function __copy__() return this.__copy__();
-}
-@:structInit @:using(stdgo.runtime.metrics.Metrics.Float64Histogram_static_extension) abstract Float64Histogram(stdgo._internal.runtime.metrics.Metrics_float64histogram.Float64Histogram) from stdgo._internal.runtime.metrics.Metrics_float64histogram.Float64Histogram to stdgo._internal.runtime.metrics.Metrics_float64histogram.Float64Histogram {
-    public var counts(get, set) : Array<haxe.UInt64>;
-    function get_counts():Array<haxe.UInt64> return [for (i in this.counts) i];
-    function set_counts(v:Array<haxe.UInt64>):Array<haxe.UInt64> {
-        this.counts = ([for (i in v) (i : stdgo.GoUInt64)] : stdgo.Slice<stdgo.GoUInt64>);
-        return v;
-    }
-    public var buckets(get, set) : Array<StdTypes.Float>;
-    function get_buckets():Array<StdTypes.Float> return [for (i in this.buckets) i];
-    function set_buckets(v:Array<StdTypes.Float>):Array<StdTypes.Float> {
-        this.buckets = ([for (i in v) (i : stdgo.GoFloat64)] : stdgo.Slice<stdgo.GoFloat64>);
-        return v;
-    }
-    public function new(?counts:Array<haxe.UInt64>, ?buckets:Array<StdTypes.Float>) this = new stdgo._internal.runtime.metrics.Metrics_float64histogram.Float64Histogram(([for (i in counts) (i : stdgo.GoUInt64)] : stdgo.Slice<stdgo.GoUInt64>), ([for (i in buckets) (i : stdgo.GoFloat64)] : stdgo.Slice<stdgo.GoFloat64>));
-    public function __underlying__() return stdgo.Go.toInterface(this);
-    public function __copy__() return this.__copy__();
-}
-@:structInit @:using(stdgo.runtime.metrics.Metrics.Sample_static_extension) abstract Sample(stdgo._internal.runtime.metrics.Metrics_sample.Sample) from stdgo._internal.runtime.metrics.Metrics_sample.Sample to stdgo._internal.runtime.metrics.Metrics_sample.Sample {
-    public var name(get, set) : String;
-    function get_name():String return this.name;
-    function set_name(v:String):String {
-        this.name = (v : stdgo.GoString);
-        return v;
-    }
-    public var value(get, set) : Value;
-    function get_value():Value return this.value;
-    function set_value(v:Value):Value {
-        this.value = v;
-        return v;
-    }
-    public function new(?name:String, ?value:Value) this = new stdgo._internal.runtime.metrics.Metrics_sample.Sample((name : stdgo.GoString), value);
-    public function __underlying__() return stdgo.Go.toInterface(this);
-    public function __copy__() return this.__copy__();
-}
-@:structInit @:using(stdgo.runtime.metrics.Metrics.Value_static_extension) abstract Value(stdgo._internal.runtime.metrics.Metrics_value.Value) from stdgo._internal.runtime.metrics.Metrics_value.Value to stdgo._internal.runtime.metrics.Metrics_value.Value {
-    public var _kind(get, set) : ValueKind;
-    function get__kind():ValueKind return this._kind;
-    function set__kind(v:ValueKind):ValueKind {
-        this._kind = v;
-        return v;
-    }
-    public var _scalar(get, set) : haxe.UInt64;
-    function get__scalar():haxe.UInt64 return this._scalar;
-    function set__scalar(v:haxe.UInt64):haxe.UInt64 {
-        this._scalar = (v : stdgo.GoUInt64);
-        return v;
-    }
-    public var _pointer(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer;
-    function get__pointer():stdgo._internal.unsafe.Unsafe.UnsafePointer return this._pointer;
-    function set__pointer(v:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo._internal.unsafe.Unsafe.UnsafePointer {
-        this._pointer = v;
-        return v;
-    }
-    public function new(?_kind:ValueKind, ?_scalar:haxe.UInt64, ?_pointer:stdgo._internal.unsafe.Unsafe.UnsafePointer) this = new stdgo._internal.runtime.metrics.Metrics_value.Value(_kind, (_scalar : stdgo.GoUInt64), _pointer);
-    public function __underlying__() return stdgo.Go.toInterface(this);
-    public function __copy__() return this.__copy__();
-}
+var kindBad : ValueKind = 0i32;
+var kindUint64 : ValueKind = 1i32;
+var kindFloat64 : ValueKind = 2i32;
+var kindFloat64Histogram : ValueKind = 3i32;
+typedef Description = stdgo._internal.runtime.metrics.Metrics_description.Description;
+typedef Float64Histogram = stdgo._internal.runtime.metrics.Metrics_float64histogram.Float64Histogram;
+typedef Sample = stdgo._internal.runtime.metrics.Metrics_sample.Sample;
+typedef Value = stdgo._internal.runtime.metrics.Metrics_value.Value;
 typedef ValueKind = stdgo._internal.runtime.metrics.Metrics_valuekind.ValueKind;
 typedef DescriptionPointer = stdgo._internal.runtime.metrics.Metrics_descriptionpointer.DescriptionPointer;
-class Description_static_extension {
-
-}
 typedef Float64HistogramPointer = stdgo._internal.runtime.metrics.Metrics_float64histogrampointer.Float64HistogramPointer;
-class Float64Histogram_static_extension {
-
-}
 typedef SamplePointer = stdgo._internal.runtime.metrics.Metrics_samplepointer.SamplePointer;
-class Sample_static_extension {
-
-}
 typedef ValuePointer = stdgo._internal.runtime.metrics.Metrics_valuepointer.ValuePointer;
-class Value_static_extension {
-    static public function float64Histogram(_v:Value):Float64Histogram {
-        return stdgo._internal.runtime.metrics.Metrics_value_static_extension.Value_static_extension.float64Histogram(_v);
-    }
-    static public function float64(_v:Value):StdTypes.Float {
-        return stdgo._internal.runtime.metrics.Metrics_value_static_extension.Value_static_extension.float64(_v);
-    }
-    static public function uint64(_v:Value):haxe.UInt64 {
-        return stdgo._internal.runtime.metrics.Metrics_value_static_extension.Value_static_extension.uint64(_v);
-    }
-    static public function kind(_v:Value):ValueKind {
-        return stdgo._internal.runtime.metrics.Metrics_value_static_extension.Value_static_extension.kind(_v);
-    }
-}
 typedef ValueKindPointer = stdgo._internal.runtime.metrics.Metrics_valuekindpointer.ValueKindPointer;
-class ValueKind_static_extension {
-
-}
 /**
     * 
     * Package metrics provides a stable interface to access implementation-defined
@@ -519,9 +411,7 @@ class Metrics {
     /**
         * All returns a slice of containing metric descriptions for all supported metrics.
     **/
-    static public inline function all():Array<Description> {
-        return [for (i in stdgo._internal.runtime.metrics.Metrics_all.all()) i];
-    }
+    static public inline function all():stdgo.Slice<stdgo._internal.runtime.metrics.Metrics_description.Description> return stdgo._internal.runtime.metrics.Metrics_all.all();
     /**
         * Read populates each Value field in the given slice of metric samples.
         * 
@@ -542,8 +432,5 @@ class Metrics {
         * Sample values with names not appearing in All will have their Value populated
         * as KindBad to indicate that the name is unknown.
     **/
-    static public inline function read(_m:Array<Sample>):Void {
-        final _m = ([for (i in _m) i] : stdgo.Slice<stdgo._internal.runtime.metrics.Metrics_sample.Sample>);
-        stdgo._internal.runtime.metrics.Metrics_read.read(_m);
-    }
+    static public inline function read(_m:stdgo.Slice<stdgo._internal.runtime.metrics.Metrics_sample.Sample>):Void stdgo._internal.runtime.metrics.Metrics_read.read(_m);
 }

@@ -1,2 +1,2 @@
 package stdgo._internal.math.big;
-final toZero = (5 : stdgo._internal.math.big.Big_roundingmode.RoundingMode);
+final toZero : stdgo._internal.math.big.Big_roundingmode.RoundingMode = 2i32;

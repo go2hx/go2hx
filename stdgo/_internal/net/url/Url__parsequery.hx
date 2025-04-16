@@ -34,7 +34,7 @@ function _parseQuery(_m:stdgo._internal.net.url.Url_values.Values, _query:stdgo.
                 };
                 continue;
             };
-            _m[_key] = ((_m[_key] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(_value?.__copy__()));
+            _m[_key] = ((_m[_key] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         return _err;
     }

@@ -4,6 +4,12 @@ function testExecError_CustomError(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.text.template.Template_customerror.CustomError() : stdgo._internal.text.template.Template_customerror.CustomError)) : stdgo.Ref<stdgo._internal.text.template.Template_customerror.CustomError>)) };
         } : () -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; });
         var _tmpl = ({
+            @:tupleArg var __tmp__ = @:check2r @:check2r stdgo._internal.text.template.Template_new_.new_(("top" : stdgo.GoString)).funcs((({
+                final x = new stdgo.GoMap.GoStringMap<stdgo.AnyInterface>();
+                x.__defaultValue__ = () -> (null : stdgo.AnyInterface);
+                x.set(("err" : stdgo.GoString), stdgo.Go.toInterface(_failingFunc));
+                x;
+            } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>) : stdgo._internal.text.template.Template_funcmap.FuncMap)).parse(("{{ err }}" : stdgo.GoString));
             var __f__ = stdgo._internal.text.template.Template_must.must;
             var __tmp__ = @:check2r @:check2r stdgo._internal.text.template.Template_new_.new_(("top" : stdgo.GoString)).funcs((({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.AnyInterface>();

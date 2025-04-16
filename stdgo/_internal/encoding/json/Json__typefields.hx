@@ -94,9 +94,9 @@ if (((_name != ((stdgo.Go.str() : stdgo.GoString)) || !_sf.anonymous : Bool) || 
                             _nameEscBuf = stdgo._internal.encoding.json.Json__appendhtmlescape._appendHTMLEscape((_nameEscBuf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _field._nameBytes);
                             _field._nameEscHTML = ((("\"" : stdgo.GoString) + (_nameEscBuf : stdgo.GoString).__copy__() : stdgo.GoString) + ("\":" : stdgo.GoString).__copy__() : stdgo.GoString).__copy__();
                             _field._nameNonEsc = ((("\"" : stdgo.GoString) + _field._name.__copy__() : stdgo.GoString) + ("\":" : stdgo.GoString).__copy__() : stdgo.GoString).__copy__();
-                            _fields = (_fields.__append__(_field.__copy__()));
+                            _fields = (_fields.__append__(_field.__copy__()) : stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>);
                             if (((_count[_f._typ] ?? (0 : stdgo.GoInt)) > (1 : stdgo.GoInt) : Bool)) {
-                                _fields = (_fields.__append__(_fields[((_fields.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]));
+                                _fields = (_fields.__append__(_fields[((_fields.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>);
                             };
                             {
                                 _i++;
@@ -105,7 +105,7 @@ if (((_name != ((stdgo.Go.str() : stdgo.GoString)) || !_sf.anonymous : Bool) || 
                         };
 (@:typeIncDecStmt_escapeParens _nextCount[_ft] != null ? _nextCount[_ft]++ : (0 : stdgo.GoInt));
 if ((_nextCount[_ft] ?? (0 : stdgo.GoInt)) == ((1 : stdgo.GoInt))) {
-                            _next = (_next.__append__(({ _name : _ft.name().__copy__(), _index : _index, _typ : _ft } : stdgo._internal.encoding.json.Json_t_field.T_field)));
+                            _next = (_next.__append__(({ _name : _ft.name().__copy__(), _index : _index, _typ : _ft } : stdgo._internal.encoding.json.Json_t_field.T_field)) : stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>);
                         };
                         _i++;
                     };
@@ -143,7 +143,7 @@ if (_fj._name != (_name)) {
                     };
                 };
 if (_advance == ((1 : stdgo.GoInt))) {
-                    _out = (_out.__append__(_fi.__copy__()));
+                    _out = (_out.__append__(_fi.__copy__()) : stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>);
                     {
                         _i = (_i + (_advance) : stdgo.GoInt);
                         continue;
@@ -151,7 +151,7 @@ if (_advance == ((1 : stdgo.GoInt))) {
                 };
 var __tmp__ = stdgo._internal.encoding.json.Json__dominantfield._dominantField((_fields.__slice__(_i, (_i + _advance : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>)), _dominant:stdgo._internal.encoding.json.Json_t_field.T_field = __tmp__._0, _ok:Bool = __tmp__._1;
 if (_ok) {
-                    _out = (_out.__append__(_dominant.__copy__()));
+                    _out = (_out.__append__(_dominant.__copy__()) : stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>);
                 };
                 _i = (_i + (_advance) : stdgo.GoInt);
             };

@@ -16,7 +16,7 @@ var _dirSlash = __1, _dir = __0;
                     var _subExpected:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
                     for (__3 => _name in _expected) {
                         if (stdgo._internal.strings.Strings_hasprefix.hasPrefix(_name?.__copy__(), _dirSlash?.__copy__())) {
-                            _subExpected = (_subExpected.__append__((_name.__slice__((_dirSlash.length)) : stdgo.GoString)?.__copy__()));
+                            _subExpected = (_subExpected.__append__((_name.__slice__((_dirSlash.length)) : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                         };
                     };
                     var __tmp__ = stdgo._internal.io.fs.Fs_sub.sub(_fsys, _dir?.__copy__()), _sub:stdgo._internal.io.fs.Fs_fs.FS = __tmp__._0, _err:stdgo.Error = __tmp__._1;

@@ -53,7 +53,7 @@ var _length = (@:check2 _p._parseNumeric(_s._entry(_i)._length()) : stdgo.GoInt6
 if (_p._err != null) {
                         return { _0 : null, _1 : _p._err };
                     };
-_spd = (_spd.__append__(({ offset : _offset, length_ : _length } : stdgo._internal.archive.tar.Tar_t_sparseentry.T_sparseEntry)));
+_spd = (_spd.__append__(({ offset : _offset, length_ : _length } : stdgo._internal.archive.tar.Tar_t_sparseentry.T_sparseEntry)) : stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas);
                     _i++;
                 };
             };

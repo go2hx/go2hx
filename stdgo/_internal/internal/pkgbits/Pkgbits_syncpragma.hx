@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final syncPragma = (69 : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker);
+final syncPragma : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker = 33i32;

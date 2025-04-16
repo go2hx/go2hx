@@ -1,2 +1,2 @@
 package stdgo._internal.crypto.x509;
-final dSA = (4 : stdgo._internal.crypto.x509.X509_publickeyalgorithm.PublicKeyAlgorithm);
+final dSA : stdgo._internal.crypto.x509.X509_publickeyalgorithm.PublicKeyAlgorithm = 2i32;

@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final unusedLabel = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final unusedLabel : stdgo._internal.internal.types.errors.Errors_code.Code = 122i32;

@@ -211,14 +211,14 @@ stdgo._internal.crypto.internal.nistec.Nistec_newp384point.newP384Point()]) : st
     static public function _bytesCompressed( _p:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p384point.P384Point>, _out:stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _p:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p384point.P384Point> = _p;
         if (@:check2r (@:checkr _p ?? throw "null pointer dereference")._z.isZero() == ((1 : stdgo.GoInt))) {
-            return ((_out.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__((0 : stdgo.GoUInt8)));
+            return ((_out.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__((0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         var _zinv = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>).invert((@:checkr _p ?? throw "null pointer dereference")._z);
         var _x = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>).mul((@:checkr _p ?? throw "null pointer dereference")._x, _zinv);
         var _y = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>).mul((@:checkr _p ?? throw "null pointer dereference")._y, _zinv);
-        var _buf = ((_out.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__((2 : stdgo.GoUInt8)));
+        var _buf = ((_out.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__((2 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         _buf[(0 : stdgo.GoInt)] = (_buf[(0 : stdgo.GoInt)] | ((@:check2r _y.bytes()[(47 : stdgo.GoInt)] & (1 : stdgo.GoUInt8) : stdgo.GoUInt8)) : stdgo.GoUInt8);
-        _buf = (_buf.__append__(...(@:check2r _x.bytes() : Array<stdgo.GoUInt8>)));
+        _buf = (_buf.__append__(...(@:check2r _x.bytes() : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         return _buf;
     }
     @:keep
@@ -237,7 +237,7 @@ stdgo._internal.crypto.internal.nistec.Nistec_newp384point.newP384Point()]) : st
         };
         var _zinv = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>).invert((@:checkr _p ?? throw "null pointer dereference")._z);
         var _x = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>).mul((@:checkr _p ?? throw "null pointer dereference")._x, _zinv);
-        return { _0 : ((_out.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(@:check2r _x.bytes() : Array<stdgo.GoUInt8>))), _1 : (null : stdgo.Error) };
+        return { _0 : ((_out.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(@:check2r _x.bytes() : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
     }
     @:keep
     @:tdfield
@@ -251,14 +251,14 @@ stdgo._internal.crypto.internal.nistec.Nistec_newp384point.newP384Point()]) : st
     static public function _bytes( _p:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p384point.P384Point>, _out:stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _p:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p384point.P384Point> = _p;
         if (@:check2r (@:checkr _p ?? throw "null pointer dereference")._z.isZero() == ((1 : stdgo.GoInt))) {
-            return ((_out.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__((0 : stdgo.GoUInt8)));
+            return ((_out.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__((0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         var _zinv = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>).invert((@:checkr _p ?? throw "null pointer dereference")._z);
         var _x = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>).mul((@:checkr _p ?? throw "null pointer dereference")._x, _zinv);
         var _y = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>).mul((@:checkr _p ?? throw "null pointer dereference")._y, _zinv);
-        var _buf = ((_out.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__((4 : stdgo.GoUInt8)));
-        _buf = (_buf.__append__(...(@:check2r _x.bytes() : Array<stdgo.GoUInt8>)));
-        _buf = (_buf.__append__(...(@:check2r _y.bytes() : Array<stdgo.GoUInt8>)));
+        var _buf = ((_out.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__((4 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
+        _buf = (_buf.__append__(...(@:check2r _x.bytes() : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+        _buf = (_buf.__append__(...(@:check2r _y.bytes() : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         return _buf;
     }
     @:keep

@@ -1,2 +1,2 @@
 package stdgo._internal.log.slog;
-final _keyComponentSep : stdgo.GoInt32 = (46 : stdgo.GoInt32);
+final _keyComponentSep : stdgo.GoInt32 = 46i32;

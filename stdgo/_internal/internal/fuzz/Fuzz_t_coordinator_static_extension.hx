@@ -242,7 +242,7 @@ package stdgo._internal.internal.fuzz;
                 _e.data = (null : stdgo.Slice<stdgo.GoUInt8>);
             };
             (@:checkr _c ?? throw "null pointer dereference")._corpus._hashes[_h] = true;
-            (@:checkr _c ?? throw "null pointer dereference")._corpus._entries = ((@:checkr _c ?? throw "null pointer dereference")._corpus._entries.__append__(_e?.__copy__()));
+            (@:checkr _c ?? throw "null pointer dereference")._corpus._entries = ((@:checkr _c ?? throw "null pointer dereference")._corpus._entries.__append__(_e?.__copy__()) : stdgo.Slice<stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry>);
         };
         return { _0 : _noDupes, _1 : (null : stdgo.Error) };
     }

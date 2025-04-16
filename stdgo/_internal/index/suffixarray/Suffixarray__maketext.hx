@@ -20,7 +20,7 @@ function _makeText(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; 
                         if (_err != null) {
                             return _err;
                         };
-                        _data = (_data.__append__(...(_file : Array<stdgo.GoUInt8>)));
+                        _data = (_data.__append__(...(_file : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                     };
                     return (null : stdgo.Error);
                 }) : stdgo.Error);

@@ -1,2 +1,2 @@
 package stdgo._internal.archive.tar;
-final typeLink : stdgo.GoInt32 = (49 : stdgo.GoInt32);
+final typeLink : stdgo.GoInt32 = 49i32;

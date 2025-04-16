@@ -21,7 +21,7 @@ function _unmarshalCorpusFile(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Sl
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.AnyInterface>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("malformed line %q: %v" : stdgo.GoString), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_err)) };
             };
-            _vals = (_vals.__append__(_v));
+            _vals = (_vals.__append__(_v) : stdgo.Slice<stdgo.AnyInterface>);
         };
         return { _0 : _vals, _1 : (null : stdgo.Error) };
     }

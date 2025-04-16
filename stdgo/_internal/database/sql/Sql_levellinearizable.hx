@@ -1,2 +1,2 @@
 package stdgo._internal.database.sql;
-final levelLinearizable = (7 : stdgo._internal.database.sql.Sql_isolationlevel.IsolationLevel);
+final levelLinearizable : stdgo._internal.database.sql.Sql_isolationlevel.IsolationLevel = 7i32;

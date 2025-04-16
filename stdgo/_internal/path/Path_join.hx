@@ -12,9 +12,9 @@ function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString {
         for (__1 => _e in _elem) {
             if ((((_buf.length) > (0 : stdgo.GoInt) : Bool) || (_e != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                 if (((_buf.length) > (0 : stdgo.GoInt) : Bool)) {
-                    _buf = (_buf.__append__((47 : stdgo.GoUInt8)));
+                    _buf = (_buf.__append__((47 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                 };
-                _buf = (_buf.__append__(...(_e : Array<stdgo.GoUInt8>)));
+                _buf = (_buf.__append__(...(_e : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             };
         };
         return stdgo._internal.path.Path_clean.clean((_buf : stdgo.GoString)?.__copy__())?.__copy__();

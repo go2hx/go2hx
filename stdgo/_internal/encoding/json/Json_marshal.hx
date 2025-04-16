@@ -20,7 +20,7 @@ function marshal(_v:stdgo.AnyInterface):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; v
                     return __ret__;
                 };
             };
-            var _buf = ((null : stdgo.Slice<stdgo.GoUInt8>).__append__(...(@:check2r _e.bytes() : Array<stdgo.GoUInt8>)));
+            var _buf = ((null : stdgo.Slice<stdgo.GoUInt8>).__append__(...(@:check2r _e.bytes() : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _buf, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {

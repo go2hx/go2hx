@@ -1,2 +1,2 @@
 package stdgo._internal.internal.zstd;
-final _seqOffset = (2 : stdgo._internal.internal.zstd.Zstd_t_seqcode.T_seqCode);
+final _seqOffset : stdgo._internal.internal.zstd.Zstd_t_seqcode.T_seqCode = 1i32;

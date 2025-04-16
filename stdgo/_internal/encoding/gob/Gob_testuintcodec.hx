@@ -9,7 +9,7 @@ function testUintCodec(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void
             };
             var _b = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>);
             var _encState = stdgo._internal.encoding.gob.Gob__newencoderstate._newEncoderState(_b);
-            for (__4 => _tt in stdgo._internal.encoding.gob.Gob__encodet._encodeT) {
+            for (__8 => _tt in stdgo._internal.encoding.gob.Gob__encodet._encodeT) {
                 @:check2r _b.reset();
                 @:check2r _encState._encodeUint(_tt._x);
                 if (!stdgo._internal.bytes.Bytes_equal.equal(_tt._b, @:check2r _b.bytes())) {

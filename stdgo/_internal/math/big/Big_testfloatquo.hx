@@ -7,13 +7,13 @@ function testFloatQuo(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void 
             while ((_i < (8 : stdgo.GoInt) : Bool)) {
                 var _bits = (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(_preci - (1 : stdgo.GoInt) : stdgo.GoInt)]).__setNumber32__() : stdgo._internal.math.big.Big_bits.Bits);
 if ((_i & (3 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-                    _bits = (_bits.__append__((0 : stdgo.GoInt)));
+                    _bits = (_bits.__append__((0 : stdgo.GoInt)) : stdgo._internal.math.big.Big_bits.Bits);
                 };
 if ((_i & (2 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-                    _bits = (_bits.__append__((-1 : stdgo.GoInt)));
+                    _bits = (_bits.__append__((-1 : stdgo.GoInt)) : stdgo._internal.math.big.Big_bits.Bits);
                 };
 if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-                    _bits = (_bits.__append__(-_precf));
+                    _bits = (_bits.__append__(-_precf) : stdgo._internal.math.big.Big_bits.Bits);
                 };
 var _z = _bits.float_();
 var _y = stdgo._internal.math.big.Big_newfloat.newFloat((3.141592653589793e+123 : stdgo.GoFloat64));
@@ -25,7 +25,7 @@ var _x = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big
                         @:check2r _t.errorf(("got acc = %s; want exact" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)));
                     };
                 };
-for (__8 => _mode in (new stdgo.GoArray<stdgo._internal.math.big.Big_roundingmode.RoundingMode>(3, 3, ...[(2 : stdgo._internal.math.big.Big_roundingmode.RoundingMode), (0 : stdgo._internal.math.big.Big_roundingmode.RoundingMode), (3 : stdgo._internal.math.big.Big_roundingmode.RoundingMode)]).__setNumber32__() : stdgo.GoArray<stdgo._internal.math.big.Big_roundingmode.RoundingMode>)) {
+for (__8 => _mode in (new stdgo.GoArray<stdgo._internal.math.big.Big_roundingmode.RoundingMode>(3, 3, ...[(2 : stdgo._internal.math.big.Big_roundingmode.RoundingMode), (0 : stdgo._internal.math.big.Big_roundingmode.RoundingMode), (3 : stdgo._internal.math.big.Big_roundingmode.RoundingMode)]).__setNumber32__() : stdgo.GoArray<stdgo._internal.math.big.Big_roundingmode.RoundingMode>).__copy__()) {
                     {
                         var _d = (-5 : stdgo.GoInt);
                         while ((_d < (5 : stdgo.GoInt) : Bool)) {

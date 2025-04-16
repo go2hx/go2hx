@@ -6,18 +6,18 @@ package stdgo._internal.testing.fstest;
         @:recv var _t:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_fstester.T_fsTester> = _t;
         var _bad = (new stdgo.Slice<stdgo.GoString>(2, 2, ...[(("/" : stdgo.GoString) + _file?.__copy__() : stdgo.GoString)?.__copy__(), (_file + ("/." : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>);
         if (_file == (("." : stdgo.GoString))) {
-            _bad = (_bad.__append__((("/" : stdgo.GoString) : stdgo.GoString)));
+            _bad = (_bad.__append__(("/" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
         };
         {
             var _i = (stdgo._internal.strings.Strings_index.index(_file?.__copy__(), ("/" : stdgo.GoString)) : stdgo.GoInt);
             if ((_i >= (0 : stdgo.GoInt) : Bool)) {
-                _bad = (_bad.__append__((((_file.__slice__(0, _i) : stdgo.GoString) + ("//" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (((_file.__slice__(0, _i) : stdgo.GoString) + ("/./" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (((_file.__slice__(0, _i) : stdgo.GoString) + ("\\" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (((_file.__slice__(0, _i) : stdgo.GoString) + ("/../" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _file?.__copy__() : stdgo.GoString)?.__copy__()));
+                _bad = (_bad.__append__((((_file.__slice__(0, _i) : stdgo.GoString) + ("//" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (((_file.__slice__(0, _i) : stdgo.GoString) + ("/./" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (((_file.__slice__(0, _i) : stdgo.GoString) + ("\\" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (((_file.__slice__(0, _i) : stdgo.GoString) + ("/../" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _file?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
         };
         {
             var _i = (stdgo._internal.strings.Strings_lastindex.lastIndex(_file?.__copy__(), ("/" : stdgo.GoString)) : stdgo.GoInt);
             if ((_i >= (0 : stdgo.GoInt) : Bool)) {
-                _bad = (_bad.__append__((((_file.__slice__(0, _i) : stdgo.GoString) + ("//" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (((_file.__slice__(0, _i) : stdgo.GoString) + ("/./" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (((_file.__slice__(0, _i) : stdgo.GoString) + ("\\" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), ((_file + ("/../" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()));
+                _bad = (_bad.__append__((((_file.__slice__(0, _i) : stdgo.GoString) + ("//" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (((_file.__slice__(0, _i) : stdgo.GoString) + ("/./" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (((_file.__slice__(0, _i) : stdgo.GoString) + ("\\" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), ((_file + ("/../" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
         };
         for (__2 => _b in _bad) {
@@ -56,7 +56,7 @@ package stdgo._internal.testing.fstest;
         @:recv var _t:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_fstester.T_fsTester> = _t;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            (@:checkr _t ?? throw "null pointer dereference")._files = ((@:checkr _t ?? throw "null pointer dereference")._files.__append__(_file?.__copy__()));
+            (@:checkr _t ?? throw "null pointer dereference")._files = ((@:checkr _t ?? throw "null pointer dereference")._files.__append__(_file?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             var __tmp__ = (@:checkr _t ?? throw "null pointer dereference")._fsys.open(_file?.__copy__()), _f:stdgo._internal.io.fs.Fs_file.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 @:check2r _t._errorf(("%s: Open: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_err));
@@ -214,16 +214,16 @@ package stdgo._internal.testing.fstest;
             var _entry1 = (_old[_entry2.name()] ?? (null : stdgo._internal.io.fs.Fs_direntry.DirEntry) : stdgo._internal.io.fs.Fs_direntry.DirEntry);
             if (_entry1 == null) {
                 _checkMode(_entry2);
-                _diffs = (_diffs.__append__((("+ " : stdgo.GoString) + stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry2)?.__copy__() : stdgo.GoString)?.__copy__()));
+                _diffs = (_diffs.__append__((("+ " : stdgo.GoString) + stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry2)?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 continue;
             };
             if (stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry1) != (stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry2))) {
-                _diffs = (_diffs.__append__((("- " : stdgo.GoString) + stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry1)?.__copy__() : stdgo.GoString)?.__copy__(), (("+ " : stdgo.GoString) + stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry2)?.__copy__() : stdgo.GoString)?.__copy__()));
+                _diffs = (_diffs.__append__((("- " : stdgo.GoString) + stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry1)?.__copy__() : stdgo.GoString)?.__copy__(), (("+ " : stdgo.GoString) + stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry2)?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
             if (_old != null) _old.__remove__(_entry2.name());
         };
         for (__4 => _entry1 in _old) {
-            _diffs = (_diffs.__append__((("- " : stdgo.GoString) + stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry1)?.__copy__() : stdgo.GoString)?.__copy__()));
+            _diffs = (_diffs.__append__((("- " : stdgo.GoString) + stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry1)?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         if ((_diffs.length) == ((0 : stdgo.GoInt))) {
             return;
@@ -321,21 +321,21 @@ package stdgo._internal.testing.fstest;
                 var _pattern:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
                 for (_j => _r in _e) {
                     if (((((_r == ((42 : stdgo.GoInt32)) || _r == ((63 : stdgo.GoInt32)) : Bool) || _r == ((92 : stdgo.GoInt32)) : Bool) || _r == ((91 : stdgo.GoInt32)) : Bool) || (_r == (45 : stdgo.GoInt32)) : Bool)) {
-                        _pattern = (_pattern.__append__((92 : stdgo.GoInt32), _r));
+                        _pattern = (_pattern.__append__((92 : stdgo.GoInt32), _r) : stdgo.Slice<stdgo.GoInt32>);
                         continue;
                     };
                     {
                         final __value__ = (((_i + _j : stdgo.GoInt)) % (5 : stdgo.GoInt) : stdgo.GoInt);
                         if (__value__ == ((0 : stdgo.GoInt))) {
-                            _pattern = (_pattern.__append__(_r));
+                            _pattern = (_pattern.__append__(_r) : stdgo.Slice<stdgo.GoInt32>);
                         } else if (__value__ == ((1 : stdgo.GoInt))) {
-                            _pattern = (_pattern.__append__((91 : stdgo.GoInt32), _r, (93 : stdgo.GoInt32)));
+                            _pattern = (_pattern.__append__((91 : stdgo.GoInt32), _r, (93 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
                         } else if (__value__ == ((2 : stdgo.GoInt))) {
-                            _pattern = (_pattern.__append__((91 : stdgo.GoInt32), _r, (45 : stdgo.GoInt32), _r, (93 : stdgo.GoInt32)));
+                            _pattern = (_pattern.__append__((91 : stdgo.GoInt32), _r, (45 : stdgo.GoInt32), _r, (93 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
                         } else if (__value__ == ((3 : stdgo.GoInt))) {
-                            _pattern = (_pattern.__append__((91 : stdgo.GoInt32), (92 : stdgo.GoInt32), _r, (93 : stdgo.GoInt32)));
+                            _pattern = (_pattern.__append__((91 : stdgo.GoInt32), (92 : stdgo.GoInt32), _r, (93 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
                         } else if (__value__ == ((4 : stdgo.GoInt))) {
-                            _pattern = (_pattern.__append__((91 : stdgo.GoInt32), (92 : stdgo.GoInt32), _r, (45 : stdgo.GoInt32), (92 : stdgo.GoInt32), _r, (93 : stdgo.GoInt32)));
+                            _pattern = (_pattern.__append__((91 : stdgo.GoInt32), (92 : stdgo.GoInt32), _r, (45 : stdgo.GoInt32), (92 : stdgo.GoInt32), _r, (93 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
                         };
                     };
                 };
@@ -372,7 +372,7 @@ if ((_have && _haveNot : Bool)) {
         var _want:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         for (__4 => _d in _list) {
             if (stdgo._internal.strings.Strings_containsrune.containsRune(_d.name()?.__copy__(), _c)) {
-                _want = (_want.__append__(stdgo._internal.path.Path_join.join(_dir?.__copy__(), _d.name()?.__copy__())?.__copy__()));
+                _want = (_want.__append__(stdgo._internal.path.Path_join.join(_dir?.__copy__(), _d.name()?.__copy__())?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
         };
         var __tmp__ = (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _t ?? throw "null pointer dereference")._fsys) : stdgo._internal.io.fs.Fs_globfs.GlobFS)) : stdgo._internal.io.fs.Fs_globfs.GlobFS).glob(_glob?.__copy__()), _names:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -397,10 +397,10 @@ if ((_have && _haveNot : Bool)) {
                     _names = @:binopAssign __tmp__1;
                 };
             } else if ((((_want.length) > (0 : stdgo.GoInt) : Bool) && (((_names.length == (0 : stdgo.GoInt)) || (_want[(0 : stdgo.GoInt)] < _names[(0 : stdgo.GoInt)] : Bool) : Bool)) : Bool)) {
-                _problems = (_problems.__append__((("missing: " : stdgo.GoString) + _want[(0 : stdgo.GoInt)]?.__copy__() : stdgo.GoString)?.__copy__()));
+                _problems = (_problems.__append__((("missing: " : stdgo.GoString) + _want[(0 : stdgo.GoInt)]?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 _want = (_want.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
             } else {
-                _problems = (_problems.__append__((("extra: " : stdgo.GoString) + _names[(0 : stdgo.GoInt)]?.__copy__() : stdgo.GoString)?.__copy__()));
+                _problems = (_problems.__append__((("extra: " : stdgo.GoString) + _names[(0 : stdgo.GoInt)]?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 _names = (_names.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
             };
         };
@@ -412,7 +412,7 @@ if ((_have && _haveNot : Bool)) {
         @:recv var _t:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_fstester.T_fsTester> = _t;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            (@:checkr _t ?? throw "null pointer dereference")._dirs = ((@:checkr _t ?? throw "null pointer dereference")._dirs.__append__(_dir?.__copy__()));
+            (@:checkr _t ?? throw "null pointer dereference")._dirs = ((@:checkr _t ?? throw "null pointer dereference")._dirs.__append__(_dir?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             var _d = (@:check2r _t._openDir(_dir?.__copy__()) : stdgo._internal.io.fs.Fs_readdirfile.ReadDirFile);
             if (_d == null) {
                 return;
@@ -535,7 +535,7 @@ if ((_have && _haveNot : Bool)) {
                         return;
                     };
                 };
-                _list2 = (_list2.__append__(...(_frag : Array<stdgo._internal.io.fs.Fs_direntry.DirEntry>)));
+                _list2 = (_list2.__append__(...(_frag : Array<stdgo._internal.io.fs.Fs_direntry.DirEntry>)) : stdgo.Slice<stdgo._internal.io.fs.Fs_direntry.DirEntry>);
                 if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
                     break;
                 };
@@ -702,8 +702,8 @@ if ((_have && _haveNot : Bool)) {
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _t:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_fstester.T_fsTester> = _t;
         if ((((@:checkr _t ?? throw "null pointer dereference")._errText.length) > (0 : stdgo.GoInt) : Bool)) {
-            (@:checkr _t ?? throw "null pointer dereference")._errText = ((@:checkr _t ?? throw "null pointer dereference")._errText.__append__((10 : stdgo.GoUInt8)));
+            (@:checkr _t ?? throw "null pointer dereference")._errText = ((@:checkr _t ?? throw "null pointer dereference")._errText.__append__((10 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        (@:checkr _t ?? throw "null pointer dereference")._errText = ((@:checkr _t ?? throw "null pointer dereference")._errText.__append__(...(stdgo._internal.fmt.Fmt_sprintf.sprintf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>)) : Array<stdgo.GoUInt8>)));
+        (@:checkr _t ?? throw "null pointer dereference")._errText = ((@:checkr _t ?? throw "null pointer dereference")._errText.__append__(...(stdgo._internal.fmt.Fmt_sprintf.sprintf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>)) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
     }
 }

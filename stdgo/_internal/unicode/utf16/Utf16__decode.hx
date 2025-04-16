@@ -15,7 +15,7 @@ function _decode(_s:stdgo.Slice<stdgo.GoUInt16>, _buf:stdgo.Slice<stdgo.GoInt32>
                         _ar = (65533 : stdgo.GoInt32);
                     };
                 };
-_buf = (_buf.__append__(_ar));
+_buf = (_buf.__append__(_ar) : stdgo.Slice<stdgo.GoInt32>);
                 _i++;
             };
         };

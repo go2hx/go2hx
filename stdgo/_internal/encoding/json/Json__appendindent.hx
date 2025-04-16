@@ -26,19 +26,19 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.G
                     _dst = stdgo._internal.encoding.json.Json__appendnewline._appendNewline(_dst, _prefix?.__copy__(), _indent?.__copy__(), _depth);
                 };
                 if (_v == ((0 : stdgo.GoInt))) {
-                    _dst = (_dst.__append__(_c));
+                    _dst = (_dst.__append__(_c) : stdgo.Slice<stdgo.GoUInt8>);
                     continue;
                 };
                 {
                     final __value__ = _c;
                     if (__value__ == ((123 : stdgo.GoUInt8)) || __value__ == ((91 : stdgo.GoUInt8))) {
                         _needIndent = true;
-                        _dst = (_dst.__append__(_c));
+                        _dst = (_dst.__append__(_c) : stdgo.Slice<stdgo.GoUInt8>);
                     } else if (__value__ == ((44 : stdgo.GoUInt8))) {
-                        _dst = (_dst.__append__(_c));
+                        _dst = (_dst.__append__(_c) : stdgo.Slice<stdgo.GoUInt8>);
                         _dst = stdgo._internal.encoding.json.Json__appendnewline._appendNewline(_dst, _prefix?.__copy__(), _indent?.__copy__(), _depth);
                     } else if (__value__ == ((58 : stdgo.GoUInt8))) {
-                        _dst = (_dst.__append__(_c, (32 : stdgo.GoUInt8)));
+                        _dst = (_dst.__append__(_c, (32 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                     } else if (__value__ == ((125 : stdgo.GoUInt8)) || __value__ == ((93 : stdgo.GoUInt8))) {
                         if (_needIndent) {
                             _needIndent = false;
@@ -46,9 +46,9 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.G
                             _depth--;
                             _dst = stdgo._internal.encoding.json.Json__appendnewline._appendNewline(_dst, _prefix?.__copy__(), _indent?.__copy__(), _depth);
                         };
-                        _dst = (_dst.__append__(_c));
+                        _dst = (_dst.__append__(_c) : stdgo.Slice<stdgo.GoUInt8>);
                     } else {
-                        _dst = (_dst.__append__(_c));
+                        _dst = (_dst.__append__(_c) : stdgo.Slice<stdgo.GoUInt8>);
                     };
                 };
             };

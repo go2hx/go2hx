@@ -90,7 +90,7 @@ package stdgo._internal.net.rpc;
                 _err = stdgo._internal.io.Io_errunexpectedeof.errUnexpectedEOF;
             };
         };
-        for (__0 => _call in (@:checkr _client ?? throw "null pointer dereference")._pending) {
+        for (__8 => _call in (@:checkr _client ?? throw "null pointer dereference")._pending) {
             (@:checkr _call ?? throw "null pointer dereference").error = _err;
             @:check2r _call._done();
         };

@@ -34,7 +34,7 @@ function testIssue20044(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Voi
                     _err = @:tmpset0 __tmp__._1;
                 };
                 if ((_n > (0 : stdgo.GoInt) : Bool)) {
-                    _res = (_res.__append__(...((_dbuf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+                    _res = (_res.__append__(...((_dbuf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 };
             };
             stdgo._internal.encoding.base32.Base32__testequal._testEqual(_t, ("Decoding of %q = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface((_input : stdgo.GoString)), stdgo.Go.toInterface((_res : stdgo.GoString)), stdgo.Go.toInterface(_tc._res));

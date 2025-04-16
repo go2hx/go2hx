@@ -32,7 +32,7 @@ package stdgo._internal.html.template;
         var _tmpl = @:check2r _e._arbitraryTemplate();
         for (__6 => _t in (@:checkr _e ?? throw "null pointer dereference")._derived) {
             {
-                var __tmp__ = @:check2r (@:checkr _tmpl ?? throw "null pointer dereference")._text.addParseTree(@:check2r _t.name()?.__copy__(), (@:checkr _t ?? throw "null pointer dereference").tree), __31:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = @:check2r (@:checkr _tmpl ?? throw "null pointer dereference")._text.addParseTree(@:check2r _t.name()?.__copy__(), (@:checkr _t ?? throw "null pointer dereference").tree), __39:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     throw stdgo.Go.toInterface(("error adding derived template" : stdgo.GoString));
                 };
@@ -407,7 +407,7 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
                                 {
                                     final __value__ = _c._urlPart;
                                     if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (0 : stdgo._internal.html.template.Template_t_urlpart.T_urlPart)))) {
-                                        _s = (_s.__append__((("_html_template_urlfilter" : stdgo.GoString) : stdgo.GoString)));
+                                        _s = (_s.__append__(("_html_template_urlfilter" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                                         @:fallthrough {
                                             __switchIndex__ = 1;
                                             __run__ = true;
@@ -418,15 +418,15 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
                                         {
                                             final __value__ = _c._state;
                                             if (__value__ == ((20 : stdgo._internal.html.template.Template_t_state.T_state)) || __value__ == ((21 : stdgo._internal.html.template.Template_t_state.T_state))) {
-                                                _s = (_s.__append__((("_html_template_cssescaper" : stdgo.GoString) : stdgo.GoString)));
+                                                _s = (_s.__append__(("_html_template_cssescaper" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                                             } else {
-                                                _s = (_s.__append__((("_html_template_urlnormalizer" : stdgo.GoString) : stdgo.GoString)));
+                                                _s = (_s.__append__(("_html_template_urlnormalizer" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                                             };
                                         };
                                         break;
                                         break;
                                     } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == (2 : stdgo._internal.html.template.Template_t_urlpart.T_urlPart)))) {
-                                        _s = (_s.__append__((("_html_template_urlescaper" : stdgo.GoString) : stdgo.GoString)));
+                                        _s = (_s.__append__(("_html_template_urlescaper" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                                         break;
                                         break;
                                     } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && (__value__ == (3 : stdgo._internal.html.template.Template_t_urlpart.T_urlPart)))) {
@@ -443,44 +443,44 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
                         };
                         break;
                     } else if (__value__ == ((10 : stdgo._internal.html.template.Template_t_state.T_state))) {
-                        _s = (_s.__append__((("_html_template_jsvalescaper" : stdgo.GoString) : stdgo.GoString)));
+                        _s = (_s.__append__(("_html_template_jsvalescaper" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                         _c._jsCtx = (1 : stdgo._internal.html.template.Template_t_jsctx.T_jsCtx);
                         break;
                     } else if (__value__ == ((11 : stdgo._internal.html.template.Template_t_state.T_state)) || __value__ == ((12 : stdgo._internal.html.template.Template_t_state.T_state))) {
-                        _s = (_s.__append__((("_html_template_jsstrescaper" : stdgo.GoString) : stdgo.GoString)));
+                        _s = (_s.__append__(("_html_template_jsstrescaper" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                         break;
                     } else if (__value__ == ((13 : stdgo._internal.html.template.Template_t_state.T_state))) {
                         if (@:check2r stdgo._internal.html.template.Template__debugallowactionjstmpl._debugAllowActionJSTmpl.value() == (("1" : stdgo.GoString))) {
                             @:check2r stdgo._internal.html.template.Template__debugallowactionjstmpl._debugAllowActionJSTmpl.incNonDefault();
-                            _s = (_s.__append__((("_html_template_jsstrescaper" : stdgo.GoString) : stdgo.GoString)));
+                            _s = (_s.__append__(("_html_template_jsstrescaper" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                         } else {
                             return ({ _state : (27 : stdgo._internal.html.template.Template_t_state.T_state), _err : stdgo._internal.html.template.Template__errorf._errorf((12 : stdgo._internal.html.template.Template_errorcode.ErrorCode), stdgo.Go.asInterface(_n), (@:checkr _n ?? throw "null pointer dereference").line, ("%s appears in a JS template literal" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_n))) } : stdgo._internal.html.template.Template_t_context.T_context);
                         };
                         break;
                     } else if (__value__ == ((14 : stdgo._internal.html.template.Template_t_state.T_state))) {
-                        _s = (_s.__append__((("_html_template_jsregexpescaper" : stdgo.GoString) : stdgo.GoString)));
+                        _s = (_s.__append__(("_html_template_jsregexpescaper" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                         break;
                     } else if (__value__ == ((19 : stdgo._internal.html.template.Template_t_state.T_state))) {
-                        _s = (_s.__append__((("_html_template_cssvaluefilter" : stdgo.GoString) : stdgo.GoString)));
+                        _s = (_s.__append__(("_html_template_cssvaluefilter" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                         break;
                     } else if (__value__ == ((0 : stdgo._internal.html.template.Template_t_state.T_state))) {
-                        _s = (_s.__append__((("_html_template_htmlescaper" : stdgo.GoString) : stdgo.GoString)));
+                        _s = (_s.__append__(("_html_template_htmlescaper" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                         break;
                     } else if (__value__ == ((6 : stdgo._internal.html.template.Template_t_state.T_state))) {
-                        _s = (_s.__append__((("_html_template_rcdataescaper" : stdgo.GoString) : stdgo.GoString)));
+                        _s = (_s.__append__(("_html_template_rcdataescaper" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                         break;
                     } else if (__value__ == ((7 : stdgo._internal.html.template.Template_t_state.T_state))) {
                         break;
                     } else if (__value__ == ((2 : stdgo._internal.html.template.Template_t_state.T_state)) || __value__ == ((1 : stdgo._internal.html.template.Template_t_state.T_state))) {
                         _c._state = (2 : stdgo._internal.html.template.Template_t_state.T_state);
-                        _s = (_s.__append__((("_html_template_htmlnamefilter" : stdgo.GoString) : stdgo.GoString)));
+                        _s = (_s.__append__(("_html_template_htmlnamefilter" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                         break;
                     } else if (__value__ == ((9 : stdgo._internal.html.template.Template_t_state.T_state))) {
-                        _s = (_s.__append__((("_html_template_srcsetescaper" : stdgo.GoString) : stdgo.GoString)));
+                        _s = (_s.__append__(("_html_template_srcsetescaper" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                         break;
                     } else {
                         if (stdgo._internal.html.template.Template__iscomment._isComment(_c._state)) {
-                            _s = (_s.__append__((("_html_template_commentescaper" : stdgo.GoString) : stdgo.GoString)));
+                            _s = (_s.__append__(("_html_template_commentescaper" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
                         } else {
                             throw stdgo.Go.toInterface((("unexpected state " : stdgo.GoString) + (_c._state.string() : stdgo.GoString)?.__copy__() : stdgo.GoString));
                         };
@@ -492,9 +492,9 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
         {
             final __value__ = _c._delim;
             if (__value__ == ((0 : stdgo._internal.html.template.Template_t_delim.T_delim))) {} else if (__value__ == ((3 : stdgo._internal.html.template.Template_t_delim.T_delim))) {
-                _s = (_s.__append__((("_html_template_nospaceescaper" : stdgo.GoString) : stdgo.GoString)));
+                _s = (_s.__append__(("_html_template_nospaceescaper" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
             } else {
-                _s = (_s.__append__((("_html_template_attrescaper" : stdgo.GoString) : stdgo.GoString)));
+                _s = (_s.__append__(("_html_template_attrescaper" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
             };
         };
         @:check2r _e._editActionNode(_n, _s);
@@ -512,7 +512,7 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.text.template.parse.Parse_breaknode.BreakNode>))) {
                 var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_breaknode.BreakNode> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_breaknode.BreakNode>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_breaknode.BreakNode>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_breaknode.BreakNode>) : __type__.__underlying__().value);
                 _c._n = stdgo.Go.asInterface(_n);
-                (@:checkr (@:checkr _e ?? throw "null pointer dereference")._rangeContext ?? throw "null pointer dereference")._breaks = ((@:checkr (@:checkr _e ?? throw "null pointer dereference")._rangeContext ?? throw "null pointer dereference")._breaks.__append__(_c?.__copy__()));
+                (@:checkr (@:checkr _e ?? throw "null pointer dereference")._rangeContext ?? throw "null pointer dereference")._breaks = ((@:checkr (@:checkr _e ?? throw "null pointer dereference")._rangeContext ?? throw "null pointer dereference")._breaks.__append__(_c?.__copy__()) : stdgo.Slice<stdgo._internal.html.template.Template_t_context.T_context>);
                 return ({ _state : (28 : stdgo._internal.html.template.Template_t_state.T_state) } : stdgo._internal.html.template.Template_t_context.T_context);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commentnode.CommentNode>))) {
                 var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_commentnode.CommentNode> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commentnode.CommentNode>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commentnode.CommentNode>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commentnode.CommentNode>) : __type__.__underlying__().value);
@@ -520,7 +520,7 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode>))) {
                 var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode>) : __type__.__underlying__().value);
                 _c._n = stdgo.Go.asInterface(_n);
-                (@:checkr (@:checkr _e ?? throw "null pointer dereference")._rangeContext ?? throw "null pointer dereference")._continues = ((@:checkr (@:checkr _e ?? throw "null pointer dereference")._rangeContext ?? throw "null pointer dereference")._breaks.__append__(_c?.__copy__()));
+                (@:checkr (@:checkr _e ?? throw "null pointer dereference")._rangeContext ?? throw "null pointer dereference")._continues = ((@:checkr (@:checkr _e ?? throw "null pointer dereference")._rangeContext ?? throw "null pointer dereference")._breaks.__append__(_c?.__copy__()) : stdgo.Slice<stdgo._internal.html.template.Template_t_context.T_context>);
                 return ({ _state : (28 : stdgo._internal.html.template.Template_t_state.T_state) } : stdgo._internal.html.template.Template_t_context.T_context);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ifnode.IfNode>))) {
                 var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ifnode.IfNode> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ifnode.IfNode>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ifnode.IfNode>) : stdgo.Go.fromAsInterfaceToValue(__type__ == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ifnode.IfNode>) : __type__.__underlying__().value);

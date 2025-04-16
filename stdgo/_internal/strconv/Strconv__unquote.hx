@@ -40,7 +40,7 @@ function _unquote(_in:stdgo.GoString, _unescape:Bool):{ var _0 : stdgo.GoString;
                                 var _i = (("`" : stdgo.GoString).length : stdgo.GoInt);
                                 while ((_i < (_end - ((("`" : stdgo.GoString) : stdgo.GoString).length) : stdgo.GoInt) : Bool)) {
                                     if (_in[(_i : stdgo.GoInt)] != ((13 : stdgo.GoUInt8))) {
-                                        _buf = (_buf.__append__(_in[(_i : stdgo.GoInt)]));
+                                        _buf = (_buf.__append__(_in[(_i : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoUInt8>);
                                     };
                                     _i++;
                                 };
@@ -101,11 +101,11 @@ function _unquote(_in:stdgo.GoString, _unescape:Bool):{ var _0 : stdgo.GoString;
                             _in = _rem?.__copy__();
                             if (_unescape) {
                                 if (((_r < (128 : stdgo.GoInt32) : Bool) || !_multibyte : Bool)) {
-                                    _buf = (_buf.__append__((_r : stdgo.GoUInt8)));
+                                    _buf = (_buf.__append__((_r : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                                 } else {
                                     var _arr:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
                                     var _n = (stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune((_arr.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _r) : stdgo.GoInt);
-                                    _buf = (_buf.__append__(...((_arr.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+                                    _buf = (_buf.__append__(...((_arr.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                                 };
                             };
                             if (_quote == ((39 : stdgo.GoUInt8))) {

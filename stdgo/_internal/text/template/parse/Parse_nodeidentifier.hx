@@ -1,2 +1,2 @@
 package stdgo._internal.text.template.parse;
-final nodeIdentifier = (22 : stdgo._internal.text.template.parse.Parse_nodetype.NodeType);
+final nodeIdentifier : stdgo._internal.text.template.parse.Parse_nodetype.NodeType = 9i32;

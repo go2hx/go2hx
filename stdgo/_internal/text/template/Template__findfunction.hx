@@ -26,6 +26,9 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                                 _ok = __tmp__._2;
                                 __tmp__;
                             };
+                            _v = __ret__._0;
+                            _isBuiltin = __ret__._1;
+                            _ok = __ret__._2;
                             for (defer in __deferstack__) {
                                 if (defer.ran) continue;
                                 defer.ran = true;
@@ -47,6 +50,9 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                             _ok = __tmp__._2;
                             __tmp__;
                         };
+                        _v = __ret__._0;
+                        _isBuiltin = __ret__._1;
+                        _ok = __ret__._2;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -64,6 +70,9 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                     _ok = __tmp__._2;
                     __tmp__;
                 };
+                _v = __ret__._0;
+                _isBuiltin = __ret__._1;
+                _ok = __ret__._2;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

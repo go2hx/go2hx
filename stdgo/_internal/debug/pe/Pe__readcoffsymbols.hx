@@ -34,7 +34,7 @@ if (_naux == ((0 : stdgo.GoInt))) {
                         return { _0 : (null : stdgo.Slice<stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("fail to read symbol table: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
                     };
                 };
-_syms = (_syms.__append__(_sym.__copy__()));
+_syms = (_syms.__append__(_sym.__copy__()) : stdgo.Slice<stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol>);
                 _k++;
             };
         };

@@ -1,2 +1,2 @@
 package stdgo._internal.syscall.js;
-final _typeFlagString = @:invalid_type null;
+final _typeFlagString : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

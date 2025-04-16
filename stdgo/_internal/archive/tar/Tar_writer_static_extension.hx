@@ -192,7 +192,7 @@ var _realSize = __1, _realName = __0;
         if ((((_paxHdrs.length) > (0 : stdgo.GoInt) : Bool) || _isGlobal : Bool)) {
             var _keys:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
             for (_k => _ in _paxHdrs) {
-                _keys = (_keys.__append__(_k?.__copy__()));
+                _keys = (_keys.__append__(_k?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
             stdgo._internal.sort.Sort_strings.strings(_keys);
             var _buf:stdgo._internal.strings.Strings_builder.Builder = ({} : stdgo._internal.strings.Strings_builder.Builder);

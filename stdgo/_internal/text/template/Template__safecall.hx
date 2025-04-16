@@ -40,6 +40,8 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_value.Value, _args:stdgo
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _val = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -55,6 +57,8 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_value.Value, _args:stdgo
                     _err = __tmp__._1;
                     __tmp__;
                 };
+                _val = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

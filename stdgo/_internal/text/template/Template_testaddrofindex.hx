@@ -3,6 +3,7 @@ function testAddrOfIndex(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Vo
         var _texts = (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("{{range .}}{{.String}}{{end}}" : stdgo.GoString), ("{{with index . 0}}{{.String}}{{end}}" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (__8 => _text in _texts) {
             var _tmpl = ({
+                @:tupleArg var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_text?.__copy__());
                 var __f__ = stdgo._internal.text.template.Template_must.must;
                 var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_text?.__copy__());
                 __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>), (__tmp__._1 : stdgo.Error));

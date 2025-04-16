@@ -13,7 +13,7 @@ function _parseCertificatePoliciesExtension(_der:_internal.vendor.golangdotorg.x
             if (!@:check2 _cp.readASN1ObjectIdentifier((stdgo.Go.setRef(_oid) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>))) {
                 return { _0 : (null : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid certificate policies" : stdgo.GoString)) };
             };
-            _oids = (_oids.__append__(_oid));
+            _oids = (_oids.__append__(_oid) : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>);
         };
         return { _0 : _oids, _1 : (null : stdgo.Error) };
     }

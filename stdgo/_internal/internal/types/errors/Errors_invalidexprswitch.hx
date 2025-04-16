@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final invalidExprSwitch = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final invalidExprSwitch : stdgo._internal.internal.types.errors.Errors_code.Code = 117i32;

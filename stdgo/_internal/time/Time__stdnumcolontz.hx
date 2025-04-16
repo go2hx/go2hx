@@ -1,2 +1,2 @@
 package stdgo._internal.time;
-final _stdNumColonTZ = (35i64 : stdgo.GoUInt64);
+final _stdNumColonTZ : stdgo.GoUInt64 = 32i32;

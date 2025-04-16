@@ -11,10 +11,15 @@ function notifyContext(_parent:stdgo._internal.context.Context_context.Context, 
                 var a = function():Void {
                     {
                         var __select__ = true;
-                        var __c__0 = (@:checkr _c ?? throw "null pointer dereference")._ch;
-var __c__1 = (@:checkr _c ?? throw "null pointer dereference").done();
+                        var __c__0 = null;
+var __c__1 = null;
                         while (__select__) {
-                            if (__c__0 != null && __c__0.__isGet__(true)) {
+                            if ({
+                                if (__c__0 == null) {
+                                    __c__0 = (@:checkr _c ?? throw "null pointer dereference")._ch;
+                                };
+                                __c__0 != null && __c__0.__isGet__(true);
+                            }) {
                                 __select__ = false;
                                 {
                                     __c__0.__get__();
@@ -22,7 +27,12 @@ var __c__1 = (@:checkr _c ?? throw "null pointer dereference").done();
                                         (@:checkr _c ?? throw "null pointer dereference")._cancel();
                                     };
                                 };
-                            } else if (__c__1 != null && __c__1.__isGet__(true)) {
+                            } else if ({
+                                if (__c__1 == null) {
+                                    __c__1 = (@:checkr _c ?? throw "null pointer dereference").done();
+                                };
+                                __c__1 != null && __c__1.__isGet__(true);
+                            }) {
                                 __select__ = false;
                                 {
                                     __c__1.__get__();

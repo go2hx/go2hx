@@ -6,7 +6,7 @@ package stdgo._internal.internal.dag;
         @:recv var _g:stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph> = _g;
         var _edges = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (16 : stdgo.GoInt)).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_k => _ in ((@:checkr _g ?? throw "null pointer dereference")._edges[_from] ?? (null : stdgo.GoMap<stdgo.GoString, Bool>))) {
-            _edges = (_edges.__append__(_k?.__copy__()));
+            _edges = (_edges.__append__(_k?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_edges), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
             return (((@:checkr _g ?? throw "null pointer dereference")._byLabel[_edges[(_i : stdgo.GoInt)]] ?? (0 : stdgo.GoInt)) < ((@:checkr _g ?? throw "null pointer dereference")._byLabel[_edges[(_j : stdgo.GoInt)]] ?? (0 : stdgo.GoInt)) : Bool);
@@ -42,7 +42,7 @@ package stdgo._internal.internal.dag;
             };
         };
         (@:checkr _g ?? throw "null pointer dereference")._byLabel[_label] = ((@:checkr _g ?? throw "null pointer dereference").nodes.length);
-        (@:checkr _g ?? throw "null pointer dereference").nodes = ((@:checkr _g ?? throw "null pointer dereference").nodes.__append__(_label?.__copy__()));
+        (@:checkr _g ?? throw "null pointer dereference").nodes = ((@:checkr _g ?? throw "null pointer dereference").nodes.__append__(_label?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         (@:checkr _g ?? throw "null pointer dereference")._edges[_label] = ({
             final x = new stdgo.GoMap.GoStringMap<Bool>();
             x.__defaultValue__ = () -> false;
@@ -87,7 +87,7 @@ package stdgo._internal.internal.dag;
                 _visit(_to?.__copy__());
             };
             _marks[_n] = true;
-            _topo = (_topo.__append__(_n?.__copy__()));
+            _topo = (_topo.__append__(_n?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         for (__0 => _root in (@:checkr _g ?? throw "null pointer dereference").nodes) {
             _visit(_root?.__copy__());

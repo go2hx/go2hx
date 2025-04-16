@@ -9,11 +9,11 @@ function parse(_dag:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.interna
         var _errors:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         var _errorf = function(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):Void {
             var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
-            _errors = (_errors.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(_format?.__copy__(), ...(_a : Array<stdgo.AnyInterface>))?.__copy__()));
+            _errors = (_errors.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(_format?.__copy__(), ...(_a : Array<stdgo.AnyInterface>))?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         for (__0 => _r in _rules) {
             if (_r._op == (("!<" : stdgo.GoString))) {
-                _disallowed = (_disallowed.__append__(_r?.__copy__()));
+                _disallowed = (_disallowed.__append__(_r?.__copy__()) : stdgo.Slice<stdgo._internal.internal.dag.Dag_t_rule.T_rule>);
                 continue;
             };
             for (__1 => _def in _r._def) {

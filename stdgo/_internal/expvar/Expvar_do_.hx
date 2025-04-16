@@ -7,8 +7,8 @@ function do_(_f:stdgo._internal.expvar.Expvar_keyvalue.KeyValue -> Void):Void {
                 final __f__ = @:check2 stdgo._internal.expvar.Expvar__varkeysmu._varKeysMu.rUnlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            for (__4 => _k in stdgo._internal.expvar.Expvar__varkeys._varKeys) {
-                var __tmp__ = @:check2 stdgo._internal.expvar.Expvar__vars._vars.load(stdgo.Go.toInterface(_k)), _val:stdgo.AnyInterface = __tmp__._0, __5:Bool = __tmp__._1;
+            for (__12 => _k in stdgo._internal.expvar.Expvar__varkeys._varKeys) {
+                var __tmp__ = @:check2 stdgo._internal.expvar.Expvar__vars._vars.load(stdgo.Go.toInterface(_k)), _val:stdgo.AnyInterface = __tmp__._0, __17:Bool = __tmp__._1;
                 _f((new stdgo._internal.expvar.Expvar_keyvalue.KeyValue(_k?.__copy__(), (stdgo.Go.typeAssert((_val : stdgo._internal.expvar.Expvar_var.Var)) : stdgo._internal.expvar.Expvar_var.Var)) : stdgo._internal.expvar.Expvar_keyvalue.KeyValue));
             };
             {

@@ -9,10 +9,7 @@ class Html {
         * UnescapeString(EscapeString(s)) == s always holds, but the converse isn't
         * always true.
     **/
-    static public inline function escapeString(_s:String):String {
-        final _s = (_s : stdgo.GoString);
-        return stdgo._internal.html.Html_escapestring.escapeString(_s);
-    }
+    static public inline function escapeString(_s:stdgo.GoString):stdgo.GoString return stdgo._internal.html.Html_escapestring.escapeString(_s);
     /**
         * UnescapeString unescapes entities like "&lt;" to become "<". It unescapes a
         * larger range of entities than EscapeString escapes. For example, "&aacute;"
@@ -20,8 +17,5 @@ class Html {
         * UnescapeString(EscapeString(s)) == s always holds, but the converse isn't
         * always true.
     **/
-    static public inline function unescapeString(_s:String):String {
-        final _s = (_s : stdgo.GoString);
-        return stdgo._internal.html.Html_unescapestring.unescapeString(_s);
-    }
+    static public inline function unescapeString(_s:stdgo.GoString):stdgo.GoString return stdgo._internal.html.Html_unescapestring.unescapeString(_s);
 }

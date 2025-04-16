@@ -5,7 +5,7 @@ package stdgo._internal.net.url;
     static public function joinPath( _u:stdgo.Ref<stdgo._internal.net.url.Url_url.URL>, _elem:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo._internal.net.url.Url_url.URL> {
         var _elem = new stdgo.Slice<stdgo.GoString>(_elem.length, 0, ..._elem);
         @:recv var _u:stdgo.Ref<stdgo._internal.net.url.Url_url.URL> = _u;
-        _elem = ((new stdgo.Slice<stdgo.GoString>(1, 1, ...[@:check2r _u.escapedPath()?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>).__append__(...(_elem : Array<stdgo.GoString>)));
+        _elem = ((new stdgo.Slice<stdgo.GoString>(1, 1, ...[@:check2r _u.escapedPath()?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>).__append__(...(_elem : Array<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>);
         var _p:stdgo.GoString = ("" : stdgo.GoString);
         if (!stdgo._internal.strings.Strings_hasprefix.hasPrefix(_elem[(0 : stdgo.GoInt)]?.__copy__(), ("/" : stdgo.GoString))) {
             _elem[(0 : stdgo.GoInt)] = (("/" : stdgo.GoString) + _elem[(0 : stdgo.GoInt)]?.__copy__() : stdgo.GoString)?.__copy__();

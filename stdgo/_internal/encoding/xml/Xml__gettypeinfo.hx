@@ -35,8 +35,8 @@ if (_f.anonymous) {
                             })) {
                                 (@:checkr _tinfo ?? throw "null pointer dereference")._xmlname = (@:checkr _inner ?? throw "null pointer dereference")._xmlname;
                             };
-                            for (__0 => _finfo in (@:checkr _inner ?? throw "null pointer dereference")._fields) {
-                                _finfo._idx = ((new stdgo.Slice<stdgo.GoInt>(1, 1, ...[_i]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>).__append__(...(_finfo._idx : Array<stdgo.GoInt>)));
+                            for (__4 => _finfo in (@:checkr _inner ?? throw "null pointer dereference")._fields) {
+                                _finfo._idx = ((new stdgo.Slice<stdgo.GoInt>(1, 1, ...[_i]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>).__append__(...(_finfo._idx : Array<stdgo.GoInt>)) : stdgo.Slice<stdgo.GoInt>);
                                 {
                                     var _err = (stdgo._internal.encoding.xml.Xml__addfieldinfo._addFieldInfo(_typ, _tinfo, (stdgo.Go.setRef(_finfo) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>)) : stdgo.Error);
                                     if (_err != null) {
@@ -71,6 +71,6 @@ if (_f.name == (("XMLName" : stdgo.GoString))) {
                 };
             };
         };
-        var __tmp__ = @:check2 stdgo._internal.encoding.xml.Xml__tinfomap._tinfoMap.loadOrStore(stdgo.Go.toInterface(_typ), stdgo.Go.toInterface(stdgo.Go.asInterface(_tinfo))), _ti:stdgo.AnyInterface = __tmp__._0, __0:Bool = __tmp__._1;
+        var __tmp__ = @:check2 stdgo._internal.encoding.xml.Xml__tinfomap._tinfoMap.loadOrStore(stdgo.Go.toInterface(_typ), stdgo.Go.toInterface(stdgo.Go.asInterface(_tinfo))), _ti:stdgo.AnyInterface = __tmp__._0, __8:Bool = __tmp__._1;
         return { _0 : (stdgo.Go.typeAssert((_ti : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo>)) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo>), _1 : (null : stdgo.Error) };
     }

@@ -1,2 +1,2 @@
 package stdgo._internal.log;
-final ldate : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
+final ldate : stdgo.GoUInt64 = 1i32;

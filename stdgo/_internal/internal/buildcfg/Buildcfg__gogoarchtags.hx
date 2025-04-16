@@ -9,7 +9,7 @@ function _gogoarchTags():stdgo.Slice<stdgo.GoString> {
                 {
                     var _i = (1 : stdgo.GoInt);
                     while ((_i <= stdgo._internal.internal.buildcfg.Buildcfg_goamd64.gOAMD64 : Bool)) {
-                        _list = (_list.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s.v%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.internal.buildcfg.Buildcfg_goarch.gOARCH), stdgo.Go.toInterface(_i)).__copy__()));
+                        _list = (_list.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s.v%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.internal.buildcfg.Buildcfg_goarch.gOARCH), stdgo.Go.toInterface(_i)).__copy__()) : stdgo.Slice<stdgo.GoString>);
                         _i++;
                     };
                 };
@@ -19,7 +19,7 @@ function _gogoarchTags():stdgo.Slice<stdgo.GoString> {
                 {
                     var _i = (5 : stdgo.GoInt);
                     while ((_i <= stdgo._internal.internal.buildcfg.Buildcfg_goarm.gOARM : Bool)) {
-                        _list = (_list.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s.%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.internal.buildcfg.Buildcfg_goarch.gOARCH), stdgo.Go.toInterface(_i)).__copy__()));
+                        _list = (_list.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s.%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.internal.buildcfg.Buildcfg_goarch.gOARCH), stdgo.Go.toInterface(_i)).__copy__()) : stdgo.Slice<stdgo.GoString>);
                         _i++;
                     };
                 };
@@ -33,7 +33,7 @@ function _gogoarchTags():stdgo.Slice<stdgo.GoString> {
                 {
                     var _i = (8 : stdgo.GoInt);
                     while ((_i <= stdgo._internal.internal.buildcfg.Buildcfg_goppc64.gOPPC64 : Bool)) {
-                        _list = (_list.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s.power%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.internal.buildcfg.Buildcfg_goarch.gOARCH), stdgo.Go.toInterface(_i)).__copy__()));
+                        _list = (_list.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s.power%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.internal.buildcfg.Buildcfg_goarch.gOARCH), stdgo.Go.toInterface(_i)).__copy__()) : stdgo.Slice<stdgo.GoString>);
                         _i++;
                     };
                 };
@@ -41,10 +41,10 @@ function _gogoarchTags():stdgo.Slice<stdgo.GoString> {
             } else if (__value__ == (("wasm" : stdgo.GoString))) {
                 var _list:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
                 if (stdgo._internal.internal.buildcfg.Buildcfg_gowasm.gOWASM.satConv) {
-                    _list = (_list.__append__((stdgo._internal.internal.buildcfg.Buildcfg_goarch.gOARCH + (".satconv" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()));
+                    _list = (_list.__append__((stdgo._internal.internal.buildcfg.Buildcfg_goarch.gOARCH + (".satconv" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 };
                 if (stdgo._internal.internal.buildcfg.Buildcfg_gowasm.gOWASM.signExt) {
-                    _list = (_list.__append__((stdgo._internal.internal.buildcfg.Buildcfg_goarch.gOARCH + (".signext" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()));
+                    _list = (_list.__append__((stdgo._internal.internal.buildcfg.Buildcfg_goarch.gOARCH + (".signext" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 };
                 return _list;
             };

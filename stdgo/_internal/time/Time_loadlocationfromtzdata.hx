@@ -170,7 +170,7 @@ _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
             };
         };
         if ((_tx.length) == ((0 : stdgo.GoInt))) {
-            _tx = (_tx.__append__(({ _when : (-9223372036854775808i64 : stdgo.GoInt64), _index : (0 : stdgo.GoUInt8) } : stdgo._internal.time.Time_t_zonetrans.T_zoneTrans)));
+            _tx = (_tx.__append__(({ _when : (-9223372036854775808i64 : stdgo.GoInt64), _index : (0 : stdgo.GoUInt8) } : stdgo._internal.time.Time_t_zonetrans.T_zoneTrans)) : stdgo.Slice<stdgo._internal.time.Time_t_zonetrans.T_zoneTrans>);
         };
         var _l = (stdgo.Go.setRef(({ _zone : _zones, _tx : _tx, _name : _name?.__copy__(), _extend : _extend?.__copy__() } : stdgo._internal.time.Time_location.Location)) : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         var __tmp__ = stdgo._internal.time.Time__now._now(), _sec:stdgo.GoInt64 = __tmp__._0, __1:stdgo.GoInt32 = __tmp__._1, __2:stdgo.GoInt64 = __tmp__._2;

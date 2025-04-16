@@ -41,9 +41,9 @@ for (_j => _tv in _rdn) {
                             };
                         };
                         if (_escape) {
-                            _escaped = (_escaped.__append__((92 : stdgo.GoInt32), _c));
+                            _escaped = (_escaped.__append__((92 : stdgo.GoInt32), _c) : stdgo.Slice<stdgo.GoInt32>);
                         } else {
-                            _escaped = (_escaped.__append__(_c));
+                            _escaped = (_escaped.__append__(_c) : stdgo.Slice<stdgo.GoInt32>);
                         };
                     };
                     _s = (_s + (((_typeName + ("=" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_escaped : stdgo.GoString)?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);

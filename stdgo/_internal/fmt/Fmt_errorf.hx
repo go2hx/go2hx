@@ -37,7 +37,7 @@ function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.
                             { _0 : (null : stdgo.Error), _1 : false };
                         }, _e = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
-                            _errs = (_errs.__append__(_e));
+                            _errs = (_errs.__append__(_e) : stdgo.Slice<stdgo.Error>);
                         };
                     };
                 };

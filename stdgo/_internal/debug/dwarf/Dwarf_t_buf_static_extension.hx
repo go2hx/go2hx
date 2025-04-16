@@ -127,7 +127,7 @@ package stdgo._internal.debug.dwarf;
                                     _addrBase = @:tmpset0 __tmp__._0;
                                 };
                             } else if (_a._tag == ((17u32 : stdgo._internal.debug.dwarf.Dwarf_tag.Tag))) {
-                                _delay = (_delay.__append__((new stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177(_i, _off, (27u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format)) : stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177)));
+                                _delay = (_delay.__append__((new stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177(_i, _off, (27u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format)) : stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177)) : stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177>);
                                 break;
                             };
                             var _err:stdgo.Error = (null : stdgo.Error);
@@ -298,7 +298,7 @@ package stdgo._internal.debug.dwarf;
                                     _strBase = @:tmpset0 __tmp__._0;
                                 };
                             } else if (_a._tag == ((17u32 : stdgo._internal.debug.dwarf.Dwarf_tag.Tag))) {
-                                _delay = (_delay.__append__((new stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177(_i, _off, (26u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format)) : stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177)));
+                                _delay = (_delay.__append__((new stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177(_i, _off, (26u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format)) : stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177)) : stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177>);
                                 break;
                             };
                             _val = stdgo.Go.toInterface(_resolveStrx((_strBase : stdgo.GoUInt64), _off));
@@ -354,7 +354,7 @@ package stdgo._internal.debug.dwarf;
                                     _rnglistsBase = @:tmpset0 __tmp__._0;
                                 };
                             } else if (_a._tag == ((17u32 : stdgo._internal.debug.dwarf.Dwarf_tag.Tag))) {
-                                _delay = (_delay.__append__((new stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177(_i, _off, (35u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format)) : stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177)));
+                                _delay = (_delay.__append__((new stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177(_i, _off, (35u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format)) : stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177)) : stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177>);
                                 break;
                             };
                             _val = stdgo.Go.toInterface(_resolveRnglistx((_rnglistsBase : stdgo.GoUInt64), _off));

@@ -57,7 +57,7 @@ package stdgo._internal.internal.coverage.encodemeta;
     static public function _wrUint32( _b:stdgo.Ref<stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder>, _w:stdgo._internal.io.Io_writeseeker.WriteSeeker, _v:stdgo.GoUInt32):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder> = _b;
         (@:checkr _b ?? throw "null pointer dereference")._tmp = ((@:checkr _b ?? throw "null pointer dereference")._tmp.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        (@:checkr _b ?? throw "null pointer dereference")._tmp = ((@:checkr _b ?? throw "null pointer dereference")._tmp.__append__(...((new stdgo.Slice<stdgo.GoUInt8>(4, 4, ...[(0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+        (@:checkr _b ?? throw "null pointer dereference")._tmp = ((@:checkr _b ?? throw "null pointer dereference")._tmp.__append__(...((new stdgo.Slice<stdgo.GoUInt8>(4, 4, ...[(0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.putUint32((@:checkr _b ?? throw "null pointer dereference")._tmp, _v);
         {
             var __tmp__ = _w.write((@:checkr _b ?? throw "null pointer dereference")._tmp), _nw:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -131,7 +131,7 @@ _foff = (_foff + (((@:checkr _b ?? throw "null pointer dereference")._funcs[(_id
         (@:checkr _b ?? throw "null pointer dereference")._tmp = stdgo._internal.internal.coverage.uleb128.Uleb128_appenduleb128.appendUleb128((@:checkr _b ?? throw "null pointer dereference")._tmp, _lit);
         _fd._encoded = stdgo._internal.bytes.Bytes_clone.clone((@:checkr _b ?? throw "null pointer dereference")._tmp);
         var _rv = ((@:checkr _b ?? throw "null pointer dereference")._funcs.length : stdgo.GoUInt);
-        (@:checkr _b ?? throw "null pointer dereference")._funcs = ((@:checkr _b ?? throw "null pointer dereference")._funcs.__append__(_fd?.__copy__()));
+        (@:checkr _b ?? throw "null pointer dereference")._funcs = ((@:checkr _b ?? throw "null pointer dereference")._funcs.__append__(_fd?.__copy__()) : stdgo.Slice<stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc>);
         return _rv;
     }
 }

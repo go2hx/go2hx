@@ -18,7 +18,7 @@ var _id = __1, _b = __0;
                     };
                 } else {
                     if (((_c < (128 : stdgo.GoUInt8) : Bool) && stdgo._internal.html.template.Template__iscssnmchar._isCSSNmchar((_c : stdgo.GoInt32)) : Bool)) {
-                        _id = (_id.__append__(_c));
+                        _id = (_id.__append__(_c) : stdgo.Slice<stdgo.GoUInt8>);
                     };
                 };
             };

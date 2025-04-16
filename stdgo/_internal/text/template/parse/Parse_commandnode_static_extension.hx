@@ -58,7 +58,7 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function _append( _c:stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>, _arg:stdgo._internal.text.template.parse.Parse_node.Node):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode> = _c;
-        (@:checkr _c ?? throw "null pointer dereference").args = ((@:checkr _c ?? throw "null pointer dereference").args.__append__(_arg));
+        (@:checkr _c ?? throw "null pointer dereference").args = ((@:checkr _c ?? throw "null pointer dereference").args.__append__(_arg) : stdgo.Slice<stdgo._internal.text.template.parse.Parse_node.Node>);
     }
     @:embedded
     @:embeddededffieldsffun

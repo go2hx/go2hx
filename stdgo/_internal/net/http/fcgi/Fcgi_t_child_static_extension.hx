@@ -71,7 +71,7 @@ package stdgo._internal.net.http.fcgi;
                 return (null : stdgo.Error);
             } else if (__value__ == ((4 : stdgo._internal.net.http.fcgi.Fcgi_t_rectype.T_recType))) {
                 if (((@:check2r _rec._content().length) > (0 : stdgo.GoInt) : Bool)) {
-                    (@:checkr _req ?? throw "null pointer dereference")._rawParams = ((@:checkr _req ?? throw "null pointer dereference")._rawParams.__append__(...(@:check2r _rec._content() : Array<stdgo.GoUInt8>)));
+                    (@:checkr _req ?? throw "null pointer dereference")._rawParams = ((@:checkr _req ?? throw "null pointer dereference")._rawParams.__append__(...(@:check2r _rec._content() : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                     return (null : stdgo.Error);
                 };
                 @:check2r _req._parseParams();

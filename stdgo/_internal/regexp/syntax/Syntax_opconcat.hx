@@ -1,2 +1,2 @@
 package stdgo._internal.regexp.syntax;
-final opConcat = (19 : stdgo._internal.regexp.syntax.Syntax_op.Op);
+final opConcat : stdgo._internal.regexp.syntax.Syntax_op.Op = 18i32;

@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final invalidShiftCount = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final invalidShiftCount : stdgo._internal.internal.types.errors.Errors_code.Code = 56i32;

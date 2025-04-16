@@ -49,6 +49,8 @@ package stdgo._internal.net.http.httputil;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _resp = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -72,6 +74,8 @@ package stdgo._internal.net.http.httputil;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _resp = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -100,6 +104,8 @@ package stdgo._internal.net.http.httputil;
                             _err = __tmp__._1;
                             __tmp__;
                         };
+                        _resp = __ret__._0;
+                        _err = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -128,6 +134,8 @@ package stdgo._internal.net.http.httputil;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _resp = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -147,6 +155,8 @@ package stdgo._internal.net.http.httputil;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _resp = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -162,6 +172,8 @@ package stdgo._internal.net.http.httputil;
                     _err = __tmp__._1;
                     __tmp__;
                 };
+                _resp = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

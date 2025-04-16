@@ -1,2 +1,2 @@
 package stdgo._internal.encoding.json;
-final _tokenTopValue : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
+final _tokenTopValue : stdgo.GoUInt64 = 0i32;

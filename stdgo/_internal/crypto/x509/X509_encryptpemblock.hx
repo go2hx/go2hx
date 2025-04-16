@@ -26,7 +26,7 @@ function encryptPEMBlock(_rand:stdgo._internal.io.Io_reader.Reader, _blockType:s
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _pad : Bool)) {
-                _encrypted = (_encrypted.__append__((_pad : stdgo.GoUInt8)));
+                _encrypted = (_encrypted.__append__((_pad : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                 _i++;
             };
         };

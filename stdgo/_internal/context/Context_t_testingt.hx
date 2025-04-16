@@ -1,37 +1,122 @@
 package stdgo._internal.context;
 @:interface typedef T_testingT = stdgo.StructType & {
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function deadline():{ var _0 : stdgo._internal.time.Time_time.Time; var _1 : Bool; };
+    public dynamic function deadline():{ var _0 : stdgo._internal.time.Time_time.Time; var _1 : Bool; };
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function error(_args:haxe.Rest<stdgo.AnyInterface>):Void;
+    public dynamic function error(_args:haxe.Rest<stdgo.AnyInterface>):Void;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function errorf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
+    public dynamic function errorf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function fail():Void;
+    public dynamic function fail():Void;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function failNow():Void;
+    public dynamic function failNow():Void;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function failed():Bool;
+    public dynamic function failed():Bool;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function fatal(_args:haxe.Rest<stdgo.AnyInterface>):Void;
+    public dynamic function fatal(_args:haxe.Rest<stdgo.AnyInterface>):Void;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function fatalf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
+    public dynamic function fatalf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function helper():Void;
+    public dynamic function helper():Void;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function log(_args:haxe.Rest<stdgo.AnyInterface>):Void;
+    public dynamic function log(_args:haxe.Rest<stdgo.AnyInterface>):Void;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function logf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
+    public dynamic function logf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function name():stdgo.GoString;
+    public dynamic function name():stdgo.GoString;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function parallel():Void;
+    public dynamic function parallel():Void;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function skip(_args:haxe.Rest<stdgo.AnyInterface>):Void;
+    public dynamic function skip(_args:haxe.Rest<stdgo.AnyInterface>):Void;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function skipNow():Void;
+    public dynamic function skipNow():Void;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function skipf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
+    public dynamic function skipf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
+    /**
+        
+        
+        
+    **/
     @:interfacetypeffun
-    function skipped():Bool;
+    public dynamic function skipped():Bool;
 };

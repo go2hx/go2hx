@@ -56,14 +56,14 @@ function createRevocationList(_rand:stdgo._internal.io.Io_reader.Reader, _templa
                     if (_ext.id.equal(stdgo._internal.crypto.x509.X509__oidextensionreasoncode._oidExtensionReasonCode)) {
                         return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: template contains entry with ReasonCode ExtraExtension; use ReasonCode field instead" : stdgo.GoString)) };
                     };
-                    _exts = (_exts.__append__(_ext?.__copy__()));
+                    _exts = (_exts.__append__(_ext?.__copy__()) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>);
                 };
                 if (_rce.reasonCode != ((0 : stdgo.GoInt))) {
                     var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface((_rce.reasonCode : stdgo._internal.encoding.asn1.Asn1_enumerated.Enumerated))), _reasonBytes:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                     };
-                    _exts = (_exts.__append__(({ id : stdgo._internal.crypto.x509.X509__oidextensionreasoncode._oidExtensionReasonCode, value : _reasonBytes } : stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension)));
+                    _exts = (_exts.__append__(({ id : stdgo._internal.crypto.x509.X509__oidextensionreasoncode._oidExtensionReasonCode, value : _reasonBytes } : stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension)) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>);
                 };
                 if (((_exts.length) > (0 : stdgo.GoInt) : Bool)) {
                     _rc.extensions = _exts;
@@ -94,7 +94,7 @@ function createRevocationList(_rand:stdgo._internal.io.Io_reader.Reader, _templa
             _tbsCertList.revokedCertificates = _revokedCerts;
         };
         if ((((@:checkr _template ?? throw "null pointer dereference").extraExtensions.length) > (0 : stdgo.GoInt) : Bool)) {
-            _tbsCertList.extensions = (_tbsCertList.extensions.__append__(...((@:checkr _template ?? throw "null pointer dereference").extraExtensions : Array<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>)));
+            _tbsCertList.extensions = (_tbsCertList.extensions.__append__(...((@:checkr _template ?? throw "null pointer dereference").extraExtensions : Array<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>)) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>);
         };
         var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_tbsCertList))), _tbsCertListContents:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {

@@ -69,11 +69,11 @@ function _parseGoCount(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo
                 })) {
                     _loc = (stdgo.Go.setRef(({ address : _addr } : stdgo._internal.internal.profile.Profile_location.Location)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>);
                     _locations[_addr] = _loc;
-                    (@:checkr _p ?? throw "null pointer dereference").location = ((@:checkr _p ?? throw "null pointer dereference").location.__append__(_loc));
+                    (@:checkr _p ?? throw "null pointer dereference").location = ((@:checkr _p ?? throw "null pointer dereference").location.__append__(_loc) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
                 };
-                _locs = (_locs.__append__(_loc));
+                _locs = (_locs.__append__(_loc) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
             };
-            (@:checkr _p ?? throw "null pointer dereference").sample = ((@:checkr _p ?? throw "null pointer dereference").sample.__append__((stdgo.Go.setRef(({ location : _locs, value : (new stdgo.Slice<stdgo.GoInt64>(1, 1, ...[_n]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>) } : stdgo._internal.internal.profile.Profile_sample.Sample)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>)));
+            (@:checkr _p ?? throw "null pointer dereference").sample = ((@:checkr _p ?? throw "null pointer dereference").sample.__append__((stdgo.Go.setRef(({ location : _locs, value : (new stdgo.Slice<stdgo.GoInt64>(1, 1, ...[_n]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>) } : stdgo._internal.internal.profile.Profile_sample.Sample)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>>);
         };
         {
             _err = stdgo._internal.internal.profile.Profile__parseadditionalsections._parseAdditionalSections(stdgo._internal.strings.Strings_trimspace.trimSpace(_line?.__copy__())?.__copy__(), _r, _p);

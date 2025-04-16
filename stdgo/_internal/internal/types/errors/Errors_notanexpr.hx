@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final notAnExpr = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final notAnExpr : stdgo._internal.internal.types.errors.Errors_code.Code = 42i32;

@@ -228,7 +228,7 @@ var _s = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_section.Section)) 
                                 return { _0 : null, _1 : _err };
                             };
                         };
-                        _names = (_names.__append__((@:checkr _sh ?? throw "null pointer dereference").name));
+                        _names = (_names.__append__((@:checkr _sh ?? throw "null pointer dereference").name) : stdgo.Slice<stdgo.GoUInt32>);
                         (@:checkr _s ?? throw "null pointer dereference").sectionHeader = ({ type : ((@:checkr _sh ?? throw "null pointer dereference").type : stdgo._internal.debug.elf.Elf_sectiontype.SectionType), flags : ((@:checkr _sh ?? throw "null pointer dereference").flags : stdgo._internal.debug.elf.Elf_sectionflag.SectionFlag), addr : ((@:checkr _sh ?? throw "null pointer dereference").addr : stdgo.GoUInt64), offset : ((@:checkr _sh ?? throw "null pointer dereference").off : stdgo.GoUInt64), fileSize : ((@:checkr _sh ?? throw "null pointer dereference").size : stdgo.GoUInt64), link : (@:checkr _sh ?? throw "null pointer dereference").link, info : (@:checkr _sh ?? throw "null pointer dereference").info, addralign : ((@:checkr _sh ?? throw "null pointer dereference").addralign : stdgo.GoUInt64), entsize : ((@:checkr _sh ?? throw "null pointer dereference").entsize : stdgo.GoUInt64) } : stdgo._internal.debug.elf.Elf_sectionheader.SectionHeader);
                     } else if (__value__ == ((2 : stdgo._internal.debug.elf.Elf_class_.Class_))) {
                         var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_section64.Section64)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_section64.Section64>);
@@ -238,7 +238,7 @@ var _s = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_section.Section)) 
                                 return { _0 : null, _1 : _err };
                             };
                         };
-                        _names = (_names.__append__((@:checkr _sh ?? throw "null pointer dereference").name));
+                        _names = (_names.__append__((@:checkr _sh ?? throw "null pointer dereference").name) : stdgo.Slice<stdgo.GoUInt32>);
                         (@:checkr _s ?? throw "null pointer dereference").sectionHeader = ({ type : ((@:checkr _sh ?? throw "null pointer dereference").type : stdgo._internal.debug.elf.Elf_sectiontype.SectionType), flags : ((@:checkr _sh ?? throw "null pointer dereference").flags : stdgo._internal.debug.elf.Elf_sectionflag.SectionFlag), offset : (@:checkr _sh ?? throw "null pointer dereference").off, fileSize : (@:checkr _sh ?? throw "null pointer dereference").size, addr : (@:checkr _sh ?? throw "null pointer dereference").addr, link : (@:checkr _sh ?? throw "null pointer dereference").link, info : (@:checkr _sh ?? throw "null pointer dereference").info, addralign : (@:checkr _sh ?? throw "null pointer dereference").addralign, entsize : (@:checkr _sh ?? throw "null pointer dereference").entsize } : stdgo._internal.debug.elf.Elf_sectionheader.SectionHeader);
                     };
                 };
@@ -282,7 +282,7 @@ if (((@:checkr _s ?? throw "null pointer dereference").sectionHeader.flags & (20
                         };
                     };
                 };
-(@:checkr _f ?? throw "null pointer dereference").sections = ((@:checkr _f ?? throw "null pointer dereference").sections.__append__(_s));
+(@:checkr _f ?? throw "null pointer dereference").sections = ((@:checkr _f ?? throw "null pointer dereference").sections.__append__(_s) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.elf.Elf_section.Section>>);
                 _i++;
             };
         };

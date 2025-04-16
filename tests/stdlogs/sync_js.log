@@ -1,13 +1,13 @@
 
-/home/runner/work/go2hx/go2hx/golibs/std_sync.js:18756
+/home/runner/work/go2hx/go2hx/golibs/std_sync.js:18758
 	throw haxe_Exception.thrown("generic function is not supported");
 	^
 <ref *1> Error: generic function is not supported
-    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_sync.js:18297:17)
-    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_sync.js:18227:11)
-    at stdgo__$internal_sync_Sync_$oncevalue_onceValue (/home/runner/work/go2hx/go2hx/golibs/std_sync.js:18756:23)
-    at /home/runner/work/go2hx/go2hx/golibs/std_sync.js:72086:64
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sync.js:74063:3)
+    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_sync.js:18299:17)
+    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_sync.js:18229:11)
+    at stdgo__$internal_sync_Sync_$oncevalue_onceValue (/home/runner/work/go2hx/go2hx/golibs/std_sync.js:18758:23)
+    at /home/runner/work/go2hx/go2hx/golibs/std_sync.js:72164:64
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sync.js:74141:3)
     at Module._compile (node:internal/modules/cjs/loader:1734:14)
     at Object..js (node:internal/modules/cjs/loader:1899:10)
     at Module.load (node:internal/modules/cjs/loader:1469:32)

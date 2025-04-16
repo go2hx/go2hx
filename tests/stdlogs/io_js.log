@@ -198,14 +198,14 @@ final read got <invalid reflect.Value>
 
 === RUN  TestPipe3
 read: <invalid reflect.Value>Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61057 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60942 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:60496:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testpipe3_testPipe3 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19001:21)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60301 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52435 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65796:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65797:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61125 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61010 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:60564:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testpipe3_testPipe3 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19003:21)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60326 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52456 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65874:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65875:3)
 
 -- FAIL: TestPipe3
 
@@ -239,14 +239,14 @@ write on closed pipe: <invalid reflect.Value> want %!v(MISSING)
 
 === RUN  TestWriteAfterWriterClose
 got: <invalid reflect.Value>; want: %!q(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61057 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60942 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:60496:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testwriteafterwriterclose_testWriteAfterWriterClose [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19858:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60301 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52435 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65796:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65797:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61125 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61010 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:60564:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testwriteafterwriterclose_testWriteAfterWriterClose [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19860:20)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60326 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52456 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65874:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65875:3)
 
 -- FAIL: TestWriteAfterWriterClose
 
@@ -334,5 +334,5 @@ got: <invalid reflect.Value>; want: %!q(MISSING)
 
 -- FAIL: TestPipeConcurrent
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
 -- FAIL: TestPipeConcurrent

@@ -209,7 +209,7 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 -- FAIL: TestNoFixedSize
 
 === RUN  TestNativeEndian
-./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#55A969A4EC80}) -> pointerType({get : function#55A969A4ECA0})
+./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#559322BB7C80}) -> pointerType({get : function#559322BB7CA0})
 Exception: Can't cast hl.types.ArrayDyn to stdgo.GoArrayData
 Called from stdgo._internal.encoding.binary._Binary_testnativeendian.$Binary_testnativeendian_Fields_.testNativeEndian (stdgo/_internal/encoding/binary/Binary_testnativeendian.hx line 9)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)

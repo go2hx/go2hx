@@ -122,6 +122,7 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 		return b
 	}
 	cfg.Tests = testBool
+	os.Setenv("GOCMD", goCommand)
 	initial, err := packages.Load(cfg, &types.StdSizes{WordSize: 4, MaxAlign: 8}, args...)
 	if err != nil {
 		log.Fatal("load error: " + err.Error())
@@ -195,6 +196,7 @@ var cfg = &packages.Config{
 }
 
 var r = rand.New(rand.NewSource(99))
+var goCommand = ""
 
 func main() {
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
@@ -214,6 +216,7 @@ func main() {
 		panic(err)
 	}
 	goroot := home + "/.go/go" + string(b)
+	goCommand = goroot + "/bin/go"
 	cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm", "GOROOT="+goroot)
 	args := os.Args
 	if len(args) < 2 {

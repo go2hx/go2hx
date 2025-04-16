@@ -1,2 +1,2 @@
 package stdgo._internal.crypto.x509;
-final _intermediateCertificate = (2i64 : stdgo.GoUInt64);
+final _intermediateCertificate : stdgo.GoUInt64 = 1i32;

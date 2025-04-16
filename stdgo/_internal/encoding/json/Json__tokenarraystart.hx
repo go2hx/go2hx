@@ -1,2 +1,2 @@
 package stdgo._internal.encoding.json;
-final _tokenArrayStart = (8i64 : stdgo.GoUInt64);
+final _tokenArrayStart : stdgo.GoUInt64 = 1i32;

@@ -8,7 +8,7 @@ function _writeMetaData(_w:stdgo._internal.io.Io_writer.Writer, _metalist:stdgo.
             (@:checkr _bufHdr ?? throw "null pointer dereference").data = (new stdgo.GoUIntptr((stdgo.Go.toInterface(_e.p) : stdgo._internal.unsafe.Unsafe.UnsafePointer)) : stdgo.GoUIntptr);
             (@:checkr _bufHdr ?? throw "null pointer dereference").len = (_e.len : stdgo.GoInt);
             (@:checkr _bufHdr ?? throw "null pointer dereference").cap = (_e.len : stdgo.GoInt);
-            _blobs = (_blobs.__append__(_sd));
+            _blobs = (_blobs.__append__(_sd) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
         };
         return @:check2r _mfw.write(_finalHash?.__copy__(), _blobs, _cmode, _gran);
     }

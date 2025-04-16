@@ -1,8 +1,20 @@
 package stdgo._internal.net;
 @:interface typedef Error = stdgo.StructType & {
-    > stdgo.Error,
+    /**
+        
+        
+        * Is the error a timeout?
+    **/
     @:interfacetypeffun
-    function timeout():Bool;
+    public dynamic function timeout():Bool;
+    /**
+        * Deprecated: Temporary errors are not well-defined.
+        * Most "temporary" errors are timeouts, and the few exceptions are surprising.
+        * Do not use this method.
+        
+        
+    **/
     @:interfacetypeffun
-    function temporary():Bool;
+    public dynamic function temporary():Bool;
+    public dynamic function error():stdgo.GoString;
 };

@@ -55,7 +55,7 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		used.
 		If `key` is `null`, the result is unspecified.
 	**/
-	@:arrayAccess public inline function __get__(key:K)
+	@:op([]) public inline function __get__(key:K)
 		return this?.get(key);
 
 	/**
@@ -117,6 +117,13 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		this.clear();
 	}
 
+	public static inline function fromIntMap<K,V>(map:haxe.ds.IntMap<V>, defaultValue:V):GoMap<K,V> {
+		final m = new IntMap<V>();
+		@:privateAccess m.map = map;
+		m.__defaultValue__ = () -> defaultValue;
+		return cast m;
+	}
+
 	@:from static inline function fromGoUIntptrMap<V>(map:GoUIntptrMap<V>):GoMap<GoUIntptr, V> {
 		return cast map;
 	}
@@ -144,12 +151,12 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		return new GoStringMap<V>();
 	}
 
-	@:from static inline function fromIntMap<V>(map:GoIntMap<V>):GoMap<GoInt, V> {
+	@:from static inline function fromGoIntMap<V>(map:GoIntMap<V>):GoMap<GoInt, V> {
 		return cast map;
 	}
 
 	@:to
-	static inline function toIntMap<K:GoInt, V>(t:IMap<K, V>):GoIntMap<V> {
+	static inline function toGoIntMap<K:GoInt, V>(t:IMap<K, V>):GoIntMap<V> {
 		return new GoIntMap<V>();
 	}
 
@@ -669,6 +676,11 @@ class GoObjectMap<K, V> extends GoAnyInterfaceMap<V> {
 		return super.get(key);
 	}
 
+	override function remove(key:Dynamic):Bool {
+		final key = new AnyInterface(key, t);
+		return super.remove(key);
+	}
+
 	override function keysLoop(node:TreeNode<Dynamic, V>, acc:Array<Dynamic>) {
 		if (node != null) {
 			keysLoop(node.left, acc);
@@ -703,7 +715,7 @@ class GoAnyInterfaceMap<V> extends BalancedTree<AnyInterface, V> {
 			case sliceType(_):
 				throw errorString("hash of unhashable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
 			default:
-				trace(gt);
+				//trace(gt);
 		}
 		return super.remove(key);
 	}
@@ -754,6 +766,9 @@ private class IntMap<V> {
 	public function new() {
 		map = new haxe.ds.IntMap<V>();
 	}
+
+	public function clear()
+		map.clear();
 
 	public function get(key:Int):V {
 		var v = map.get(key);

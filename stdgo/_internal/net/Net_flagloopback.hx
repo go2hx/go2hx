@@ -1,2 +1,2 @@
 package stdgo._internal.net;
-final flagLoopback = ((0 : stdgo.GoUInt) : stdgo._internal.net.Net_flags.Flags);
+final flagLoopback : stdgo._internal.net.Net_flags.Flags = ((0 : stdgo.GoUInt) : stdgo._internal.net.Net_flags.Flags);

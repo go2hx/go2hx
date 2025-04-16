@@ -9,7 +9,7 @@ function profiles():stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_pr
             };
             var _all = (new stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>>((0 : stdgo.GoInt).toBasic(), (stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m.length)) : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>>);
             for (__0 => _p in stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m) {
-                _all = (_all.__append__(_p));
+                _all = (_all.__append__(_p) : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>>);
             };
             stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_all), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
                 return ((@:checkr _all[(_i : stdgo.GoInt)] ?? throw "null pointer dereference")._name < (@:checkr _all[(_j : stdgo.GoInt)] ?? throw "null pointer dereference")._name : Bool);

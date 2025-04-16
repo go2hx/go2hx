@@ -4,7 +4,7 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function copy( _c:stdgo.Ref<stdgo._internal.text.template.parse.Parse_chainnode.ChainNode>):stdgo._internal.text.template.parse.Parse_node.Node {
         @:recv var _c:stdgo.Ref<stdgo._internal.text.template.parse.Parse_chainnode.ChainNode> = _c;
-        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _tr : (@:checkr _c ?? throw "null pointer dereference")._tr, nodeType : (3 : stdgo._internal.text.template.parse.Parse_nodetype.NodeType), pos : (@:checkr _c ?? throw "null pointer dereference").pos, node : (@:checkr _c ?? throw "null pointer dereference").node, field : ((new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>).__append__(...((@:checkr _c ?? throw "null pointer dereference").field : Array<stdgo.GoString>))) } : stdgo._internal.text.template.parse.Parse_chainnode.ChainNode)) : stdgo.Ref<stdgo._internal.text.template.parse.Parse_chainnode.ChainNode>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _tr : (@:checkr _c ?? throw "null pointer dereference")._tr, nodeType : (3 : stdgo._internal.text.template.parse.Parse_nodetype.NodeType), pos : (@:checkr _c ?? throw "null pointer dereference").pos, node : (@:checkr _c ?? throw "null pointer dereference").node, field : ((new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>).__append__(...((@:checkr _c ?? throw "null pointer dereference").field : Array<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>) } : stdgo._internal.text.template.parse.Parse_chainnode.ChainNode)) : stdgo.Ref<stdgo._internal.text.template.parse.Parse_chainnode.ChainNode>));
     }
     @:keep
     @:tdfield
@@ -54,7 +54,7 @@ package stdgo._internal.text.template.parse;
         if (_field == ((stdgo.Go.str() : stdgo.GoString))) {
             throw stdgo.Go.toInterface(("empty field" : stdgo.GoString));
         };
-        (@:checkr _c ?? throw "null pointer dereference").field = ((@:checkr _c ?? throw "null pointer dereference").field.__append__(_field?.__copy__()));
+        (@:checkr _c ?? throw "null pointer dereference").field = ((@:checkr _c ?? throw "null pointer dereference").field.__append__(_field?.__copy__()) : stdgo.Slice<stdgo.GoString>);
     }
     @:embedded
     @:embeddededffieldsffun

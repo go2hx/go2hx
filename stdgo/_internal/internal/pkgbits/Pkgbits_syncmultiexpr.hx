@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final syncMultiExpr = (69 : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker);
+final syncMultiExpr : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker = 67i32;

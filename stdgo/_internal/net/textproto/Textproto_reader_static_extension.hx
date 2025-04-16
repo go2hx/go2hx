@@ -59,7 +59,7 @@ package stdgo._internal.net.textproto;
                 };
                 _line = (_line.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             };
-            _v = (_v.__append__(_line?.__copy__()));
+            _v = (_v.__append__(_line?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         return { _0 : _v, _1 : _err };
     }
@@ -200,14 +200,14 @@ package stdgo._internal.net.textproto;
                 return { _0 : stdgo._internal.net.textproto.Textproto__trim._trim(_line), _1 : (null : stdgo.Error) };
             };
         };
-        (@:checkr _r ?? throw "null pointer dereference")._buf = (((@:checkr _r ?? throw "null pointer dereference")._buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(stdgo._internal.net.textproto.Textproto__trim._trim(_line) : Array<stdgo.GoUInt8>)));
+        (@:checkr _r ?? throw "null pointer dereference")._buf = (((@:checkr _r ?? throw "null pointer dereference")._buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(stdgo._internal.net.textproto.Textproto__trim._trim(_line) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         while ((@:check2r _r._skipSpace() > (0 : stdgo.GoInt) : Bool)) {
             var __tmp__ = @:check2r _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 break;
             };
-            (@:checkr _r ?? throw "null pointer dereference")._buf = ((@:checkr _r ?? throw "null pointer dereference")._buf.__append__((32 : stdgo.GoUInt8)));
-            (@:checkr _r ?? throw "null pointer dereference")._buf = ((@:checkr _r ?? throw "null pointer dereference")._buf.__append__(...(stdgo._internal.net.textproto.Textproto__trim._trim(_line) : Array<stdgo.GoUInt8>)));
+            (@:checkr _r ?? throw "null pointer dereference")._buf = ((@:checkr _r ?? throw "null pointer dereference")._buf.__append__((32 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
+            (@:checkr _r ?? throw "null pointer dereference")._buf = ((@:checkr _r ?? throw "null pointer dereference")._buf.__append__(...(stdgo._internal.net.textproto.Textproto__trim._trim(_line) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         return { _0 : (@:checkr _r ?? throw "null pointer dereference")._buf, _1 : (null : stdgo.Error) };
     }
@@ -242,7 +242,7 @@ package stdgo._internal.net.textproto;
             if (((_line == null) && !_more : Bool)) {
                 return { _0 : _l, _1 : (null : stdgo.Error) };
             };
-            _line = (_line.__append__(...(_l : Array<stdgo.GoUInt8>)));
+            _line = (_line.__append__(...(_l : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             if (!_more) {
                 break;
             };

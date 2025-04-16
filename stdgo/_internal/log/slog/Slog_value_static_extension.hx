@@ -114,7 +114,7 @@ _v = _v.logValuer().logValue().__copy__();
         {
             final __value__ = _v.kind();
             if (__value__ == ((5 : stdgo._internal.log.slog.Slog_kind.Kind))) {
-                return (_dst.__append__(...(_v._str() : Array<stdgo.GoUInt8>)));
+                return (_dst.__append__(...(_v._str() : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             } else if (__value__ == ((4 : stdgo._internal.log.slog.Slog_kind.Kind))) {
                 return stdgo._internal.strconv.Strconv_appendint.appendInt(_dst, (_v._num : stdgo.GoInt64), (10 : stdgo.GoInt));
             } else if (__value__ == ((7 : stdgo._internal.log.slog.Slog_kind.Kind))) {
@@ -124,9 +124,9 @@ _v = _v.logValuer().logValue().__copy__();
             } else if (__value__ == ((1 : stdgo._internal.log.slog.Slog_kind.Kind))) {
                 return stdgo._internal.strconv.Strconv_appendbool.appendBool(_dst, _v._bool());
             } else if (__value__ == ((2 : stdgo._internal.log.slog.Slog_kind.Kind))) {
-                return (_dst.__append__(...((_v._duration().string() : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                return (_dst.__append__(...((_v._duration().string() : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             } else if (__value__ == ((6 : stdgo._internal.log.slog.Slog_kind.Kind))) {
-                return (_dst.__append__(...((_v._time().string() : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                return (_dst.__append__(...((_v._time().string() : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             } else if (__value__ == ((8 : stdgo._internal.log.slog.Slog_kind.Kind))) {
                 return stdgo._internal.fmt.Fmt_append.append(_dst, stdgo.Go.toInterface(_v._group()));
             } else if (__value__ == ((0 : stdgo._internal.log.slog.Slog_kind.Kind)) || __value__ == ((9 : stdgo._internal.log.slog.Slog_kind.Kind))) {

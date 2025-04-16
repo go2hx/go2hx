@@ -1,2 +1,2 @@
 package stdgo._internal.debug.dwarf;
-final classLocListPtr = (17 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_);
+final classLocListPtr : stdgo._internal.debug.dwarf.Dwarf_class_.Class_ = 7i32;

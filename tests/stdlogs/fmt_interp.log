@@ -8,6 +8,8 @@
 
 === RUN  TestSprintf
 Sprintf("%#v", {1 2 a [1 2]}) = "_internal.fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" want "fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}"
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 Sprintf("%#v", 0x1) = "(func(*.testing.))(0xPTR)" want "(func(*testing.T))(0xPTR)"
 Sprintf("%#v", map[a:{<1> 2}]) = "map[string]_internal.fmt_test.B{\"a\":_internal.fmt_test.B{I:1, j:2}}" want "map[string]fmt_test.B{\"a\":fmt_test.B{I:1, j:2}}"
 Sprintf("%#v", {<nil>}) = "_internal.fmt_test.SI{I:interface {}(nil)}" want "fmt_test.SI{I:interface {}(nil)}"
@@ -17,8 +19,32 @@ Sprintf("%d", true) = "%!d(_internal.fmt_test.renamedBool=true)" want "%!d(fmt_t
 Sprintf("%#v", {<v=F(7)> 8}) = "_internal.fmt_test.S{F:<v=F(7)>, G:GoString(8)}" want "fmt_test.S{F:<v=F(7)>, G:GoString(8)}"
 Sprintf("%T", <invalid reflect.Value>) = ".reflect.Value" want "reflect.Value"
 Sprintf("%T", (4-3i)) = "_internal.fmt_test.renamedComplex128" want "fmt_test.renamedComplex128"
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 Sprintf("%#v", [X X X X X]) = "[]_internal.fmt_test.byteStringer{0x68, 0x65, 0x6c, 0x6c, 0x6f}" want "[]fmt_test.byteStringer{0x68, 0x65, 0x6c, 0x6c, 0x6f}"
 Sprintf("%#v", [X X X X X]) = "[]_internal.fmt_test.byteFormatter{X, X, X, X, X}" want "[]fmt_test.byteFormatter{X, X, X, X, X}"
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 Sprintf("%☠", 0) = "%!☠(_internal.fmt_test.renamedInt=0)" want "%!☠(fmt_test.renamedInt=0)"
 Sprintf("%☠", {0}) = "{%!☠(_internal.fmt_test.renamedInt=0)}" want "{%!☠(fmt_test.renamedInt=0)}"
 Sprintf("%☠", &[<1> 2]) = "&[%!☠(_internal.fmt_test.I=1) %!☠(_internal.fmt_test.G=2)]" want "&[%!☠(fmt_test.I=1) %!☠(fmt_test.G=2)]"
@@ -90,6 +116,7 @@ Sprintf("%#v", &s) = `&_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, wan
 -- PASS: TestPanics
 
 === RUN  TestBadVerbRecursion
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 
 -- PASS: TestBadVerbRecursion
 
@@ -101,7 +128,7 @@ Sprintf("%#v", &s) = `&_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, wan
 expected:
 	"%!s(<nil>) %!s(*fmt_test.A=<nil>) %!s(<nil>) {} %!s(<nil>)"
 got:
-	"%!s(<nil>) &{} %!s(<nil>) {} %!s(<nil>)"
+	"%!s(<nil>) %!s(*_internal.fmt_test.A_55372=<nil>) %!s(<nil>) {} %!s(<nil>)"
 
 -- FAIL: TestNilDoesNotBecomeTyped
 
@@ -153,35 +180,12 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 -- PASS: TestScanln
 
 === RUN  TestScanf
-Sscanf("\"1155\"\n", "%q"): parsed 0 field, want 1
-Sscanf("X27", "X %d"): unexpected success
-Sscanf("X27 ", "X %d"): unexpected success
-Sscanf("27 X", "%dX"): unexpected success
-Sscanf(" 27 X", "%dX"): unexpected success
-Sscanf("27X", "%d X"): unexpected success
-Sscanf(" 27X", "%d X"): unexpected success
-Sscanf("X27X", "X %d X"): unexpected success
-Sscanf("X27 X", "X %d X"): unexpected success
-Sscanf("X 27X", "X %d X"): unexpected success
-Sscanf("X27X", "X %s X"): unexpected success
-Sscanf("X27 X", "X %s X"): unexpected success
-Sscanf("X 27X", "X %s X"): unexpected success
-Sscanf("X27X", "X%sX"): unexpected success
-Sscanf("X27 X", "X%sX"): unexpected success
-Sscanf("X 27X", "X%sX"): unexpected success
-Sscanf("X 27 X", "X%sX"): unexpected success
-Sscanf("X27 X", "X%dX"): unexpected success
-Sscanf("X 27 X", "X%dX"): unexpected success
-Sscanf(" X27X", "X%dX"): unexpected success
-Sscanf(" X27X ", "X%dX"): unexpected success
-Sscanf("X!", "X %c"): unexpected success
-Sscanf("X\n", "X %c"): unexpected success
-Sscanf("X27X", " X%dX"): unexpected success
-Sscanf("X27X ", " X%dX"): unexpected success
-Sscanf(" X27X", "X%dX "): unexpected success
-Sscanf(" X27X ", "X%dX "): unexpected success
-Sscanf("X27X", " X%dX "): unexpected success
-Sscanf("X27X ", " X%dX "): unexpected success
+Exception: array out of bounds, index: 0 length: 0
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testscanf.Fmt_test_testscanf_Fields_.testScanf (./_internal/fmt_test/Fmt_test_testscanf.hx line 4 column 27)
+Called from stdgo._internal.fmt._Fmt_sscanf.Fmt_sscanf_Fields_.sscanf (./stdgo/_internal/fmt/Fmt_sscanf.hx line 5 column 16)
+Called from stdgo._internal.fmt._Fmt_fscanf.Fmt_fscanf_Fields_.fscanf (./stdgo/_internal/fmt/Fmt_fscanf.hx line 7 column 37)
+Called from stdgo._internal.fmt.T_ss_static_extension._doScanf (./stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 126 column 21)
 
 -- FAIL: TestScanf
 
@@ -224,7 +228,11 @@ Sscan <empty> expected error; got none
 -- FAIL: TestScanEmpty
 
 === RUN  TestScanNotPointer
-expected error scanning non-pointer
+Exception: Unexpected value 0, expected instance
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testscannotpointer.Fmt_test_testscannotpointer_Fields_.testScanNotPointer (./_internal/fmt_test/Fmt_test_testscannotpointer.hx line 5 column 23)
+Called from stdgo._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (./stdgo/_internal/fmt/Fmt_fscan.hx line 7 column 37)
+Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 291 column 21)
 
 -- FAIL: TestScanNotPointer
 
@@ -368,6 +376,5 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 
 -- PASS: TestStringer
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestHexByte

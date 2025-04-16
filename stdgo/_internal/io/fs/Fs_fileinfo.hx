@@ -1,15 +1,45 @@
 package stdgo._internal.io.fs;
 @:interface typedef FileInfo = stdgo.StructType & {
+    /**
+        
+        
+        * base name of the file
+    **/
     @:interfacetypeffun
-    function name():stdgo.GoString;
+    public dynamic function name():stdgo.GoString;
+    /**
+        
+        
+        * length in bytes for regular files; system-dependent for others
+    **/
     @:interfacetypeffun
-    function size():stdgo.GoInt64;
+    public dynamic function size():stdgo.GoInt64;
+    /**
+        
+        
+        * file mode bits
+    **/
     @:interfacetypeffun
-    function mode():stdgo._internal.io.fs.Fs_filemode.FileMode;
+    public dynamic function mode():stdgo._internal.io.fs.Fs_filemode.FileMode;
+    /**
+        
+        
+        * modification time
+    **/
     @:interfacetypeffun
-    function modTime():stdgo._internal.time.Time_time.Time;
+    public dynamic function modTime():stdgo._internal.time.Time_time.Time;
+    /**
+        
+        
+        * abbreviation for Mode().IsDir()
+    **/
     @:interfacetypeffun
-    function isDir():Bool;
+    public dynamic function isDir():Bool;
+    /**
+        
+        
+        * underlying data source (can return nil)
+    **/
     @:interfacetypeffun
-    function sys():stdgo.AnyInterface;
+    public dynamic function sys():stdgo.AnyInterface;
 };

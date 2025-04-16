@@ -613,6 +613,8 @@ package stdgo._internal.database.sql;
                             _ok = __tmp__._1;
                             __tmp__;
                         };
+                        _doClose = __ret__._0;
+                        _ok = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -634,6 +636,8 @@ package stdgo._internal.database.sql;
                             _ok = __tmp__._1;
                             __tmp__;
                         };
+                        _doClose = __ret__._0;
+                        _ok = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -652,6 +656,8 @@ package stdgo._internal.database.sql;
                         _ok = __tmp__._1;
                         __tmp__;
                     };
+                    _doClose = __ret__._0;
+                    _ok = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -667,6 +673,8 @@ package stdgo._internal.database.sql;
                     _ok = __tmp__._1;
                     __tmp__;
                 };
+                _doClose = __ret__._0;
+                _ok = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -765,11 +773,16 @@ package stdgo._internal.database.sql;
         };
         {
             var __select__ = true;
-            var __c__0 = _ctx.done();
-var __c__1 = _txctxDone;
-var __c__2 = _closectx.done();
+            var __c__0 = null;
+var __c__1 = null;
+var __c__2 = null;
             while (__select__) {
-                if (__c__0 != null && __c__0.__isGet__(true)) {
+                if ({
+                    if (__c__0 == null) {
+                        __c__0 = _ctx.done();
+                    };
+                    __c__0 != null && __c__0.__isGet__(true);
+                }) {
                     __select__ = false;
                     {
                         __c__0.__get__();
@@ -778,7 +791,12 @@ var __c__2 = _closectx.done();
                             @:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.store((stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>));
                         };
                     };
-                } else if (__c__1 != null && __c__1.__isGet__(true)) {
+                } else if ({
+                    if (__c__1 == null) {
+                        __c__1 = _txctxDone;
+                    };
+                    __c__1 != null && __c__1.__isGet__(true);
+                }) {
                     __select__ = false;
                     {
                         __c__1.__get__();
@@ -787,7 +805,12 @@ var __c__2 = _closectx.done();
                             @:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.store((stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>));
                         };
                     };
-                } else if (__c__2 != null && __c__2.__isGet__(true)) {
+                } else if ({
+                    if (__c__2 == null) {
+                        __c__2 = _closectx.done();
+                    };
+                    __c__2 != null && __c__2.__isGet__(true);
+                }) {
                     __select__ = false;
                     {
                         __c__2.__get__();

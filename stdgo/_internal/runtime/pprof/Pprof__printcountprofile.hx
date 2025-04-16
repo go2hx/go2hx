@@ -36,7 +36,7 @@ function _printCountProfile(_w:stdgo._internal.io.Io_writer.Writer, _debug:stdgo
                 var _k = (_key(_p.stack(_i), _p.label(_i)).__copy__() : stdgo.GoString);
 if ((_count[_k] ?? (0 : stdgo.GoInt)) == ((0 : stdgo.GoInt))) {
                     _index[_k] = _i;
-                    _keys = (_keys.__append__(_k.__copy__()));
+                    _keys = (_keys.__append__(_k.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 };
 (@:typeIncDecStmt_escapeParens _count[_k] != null ? _count[_k]++ : (0 : stdgo.GoInt));
                 _i++;

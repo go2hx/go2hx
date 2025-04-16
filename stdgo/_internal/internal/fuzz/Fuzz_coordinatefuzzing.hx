@@ -88,7 +88,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_context.Context,
             };
             var _dir = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             var _binPath = (stdgo._internal.os.Os_args.args[(0 : stdgo.GoInt)]?.__copy__() : stdgo.GoString);
-            var _args = ((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-test.fuzzworker" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>).__append__(...((stdgo._internal.os.Os_args.args.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>) : Array<stdgo.GoString>)));
+            var _args = ((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-test.fuzzworker" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>).__append__(...((stdgo._internal.os.Os_args.args.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>) : Array<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>);
             var _env = stdgo._internal.os.Os_environ_.environ_();
             var _errC = (new stdgo.Chan<stdgo.Error>(0, () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
             var _workers = (new stdgo.Slice<stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_worker.T_worker>>((_opts.parallel : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_worker.T_worker>>);
@@ -157,14 +157,19 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_context.Context,
                 };
                 {
                     var __select__ = true;
-                    var __c__0 = _doneC;
-var __c__1 = _errC;
-var __c__2 = (@:checkr _c ?? throw "null pointer dereference")._resultC;
+                    var __c__0 = null;
+var __c__1 = null;
+var __c__2 = null;
 var __c__3 = _inputC;
 var __c__4 = _minimizeC;
-var __c__5 = (@:checkr _statTicker ?? throw "null pointer dereference").c;
+var __c__5 = null;
                     while (__select__) {
-                        if (__c__0 != null && __c__0.__isGet__(true)) {
+                        if ({
+                            if (__c__0 == null) {
+                                __c__0 = _doneC;
+                            };
+                            __c__0 != null && __c__0.__isGet__(true);
+                        }) {
                             __select__ = false;
                             {
                                 __c__0.__get__();
@@ -172,7 +177,12 @@ var __c__5 = (@:checkr _statTicker ?? throw "null pointer dereference").c;
                                     _stop(_ctx.err());
                                 };
                             };
-                        } else if (__c__1 != null && __c__1.__isGet__(true)) {
+                        } else if ({
+                            if (__c__1 == null) {
+                                __c__1 = _errC;
+                            };
+                            __c__1 != null && __c__1.__isGet__(true);
+                        }) {
                             __select__ = false;
                             {
                                 var _err = __c__1.__get__();
@@ -192,7 +202,12 @@ var __c__5 = (@:checkr _statTicker ?? throw "null pointer dereference").c;
                                     };
                                 };
                             };
-                        } else if (__c__2 != null && __c__2.__isGet__(true)) {
+                        } else if ({
+                            if (__c__2 == null) {
+                                __c__2 = (@:checkr _c ?? throw "null pointer dereference")._resultC;
+                            };
+                            __c__2 != null && __c__2.__isGet__(true);
+                        }) {
                             __select__ = false;
                             {
                                 var _result = __c__2.__get__();
@@ -306,7 +321,12 @@ var __c__5 = (@:checkr _statTicker ?? throw "null pointer dereference").c;
                                     @:check2r _c._sentMinimizeInput(_minimizeInput?.__copy__());
                                 };
                             };
-                        } else if (__c__5 != null && __c__5.__isGet__(true)) {
+                        } else if ({
+                            if (__c__5 == null) {
+                                __c__5 = (@:checkr _statTicker ?? throw "null pointer dereference").c;
+                            };
+                            __c__5 != null && __c__5.__isGet__(true);
+                        }) {
                             __select__ = false;
                             {
                                 __c__5.__get__();

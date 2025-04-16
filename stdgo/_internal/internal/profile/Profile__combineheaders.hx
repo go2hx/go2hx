@@ -29,7 +29,7 @@ function _combineHeaders(_srcs:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.pr
                 {
                     var _seen = (_seenComments[_c] ?? false : Bool);
                     if (!_seen) {
-                        _comments = (_comments.__append__(_c?.__copy__()));
+                        _comments = (_comments.__append__(_c?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                         _seenComments[_c] = true;
                     };
                 };

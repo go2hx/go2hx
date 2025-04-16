@@ -45,7 +45,7 @@ package stdgo._internal.internal.profile;
                     };
                 };
             };
-            _lines = (_lines.__append__(_ln?.__copy__()));
+            _lines = (_lines.__append__(_ln?.__copy__()) : stdgo.Slice<stdgo._internal.internal.profile.Profile_line.Line>);
         };
         return _lines;
     }

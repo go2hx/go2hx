@@ -1,2 +1,2 @@
 package stdgo._internal.internal.coverage;
-final ctrModeRegOnly = (5 : stdgo._internal.internal.coverage.Coverage_countermode.CounterMode);
+final ctrModeRegOnly : stdgo._internal.internal.coverage.Coverage_countermode.CounterMode = 4i32;

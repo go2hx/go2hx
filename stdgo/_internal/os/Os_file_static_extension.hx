@@ -65,9 +65,11 @@ package stdgo._internal.os;
     @:tdfield
     static public function close( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>):stdgo.Error {
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
-        @:privateAccess _f._output.flush();
-        @:privateAccess _f._input.close();
-        @:privateAccess _f._output.close();
+        @:privateAccess _f.mutex.acquire();
+        @:privateAccess _f._output?.flush();
+        @:privateAccess _f._input?.close();
+        @:privateAccess _f._output?.close();
+        @:privateAccess _f.mutex.release();
         return null;
     }
     @:keep
@@ -100,9 +102,11 @@ package stdgo._internal.os;
             return { _0 : 0, _1 : null };
         } #else null #end;
         #if (sys || hxnodejs) {
+            @:privateAccess _f.mutex.acquire();
             final input:sys.io.FileInput = cast @:privateAccess _f._input;
             final pos = sys.io.FileSeek.createByIndex(_whence.toBasic());
             @:privateAccess input.seek(_offset.toBasic().low, pos);
+            @:privateAccess _f.mutex.release();
             return { _0 : input.tell(), _1 : null };
         } #else null #end;
         trace("not supported on non sys target");
@@ -121,7 +125,9 @@ package stdgo._internal.os;
                     t = @:privateAccess cast(_f._output, sys.io.FileOutput).tell();
                     @:privateAccess cast(_f._output, sys.io.FileOutput).seek(_off.toBasic().low, sys.io.FileSeek.SeekBegin);
                 } #else null #end;
-                final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
+                final b = _b.toBytes();
+                final i = @:privateAccess _f._output.writeBytes(b, 0, b.length);
+                @:privateAccess _f._output.flush();
                 #if !eval {
                     @:privateAccess cast(_f._output, sys.io.FileOutput).seek(t, sys.io.FileSeek.SeekBegin);
                 } #else null #end;
@@ -139,18 +145,16 @@ package stdgo._internal.os;
     @:tdfield
     static public function write( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
-        #if (sys || hxnodejs) {
-            final isEval = #if eval true #else false #end;
-            if (!(@:privateAccess _f._output is sys.io.FileOutput) || isEval) {
-                if (_b.length == 0) return { _0 : 0, _1 : null };
-                @:privateAccess _f.mutex.acquire();
-                final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
-                @:privateAccess _f.mutex.release();
-                if (i != _b.length.toBasic()) return { _0 : i, _1 : stdgo._internal.errors.Errors_new_.new_("invalid write") };
-                return { _0 : i, _1 : null };
-            };
-        } #else null #end;
-        return @:privateAccess _f.writeAt(_b, 0);
+        @:privateAccess _f.mutex.acquire();
+        if (_b.length == 0) {
+            @:privateAccess _f.mutex.release();
+            return { _0 : 0, _1 : null };
+        };
+        final b = _b.toBytes();
+        final i = @:privateAccess _f._output.writeBytes(b, 0, b.length);
+        @:privateAccess _f.mutex.release();
+        if (i != b.length) return { _0 : i, _1 : stdgo._internal.errors.Errors_new_.new_("invalid write") };
+        return { _0 : i, _1 : null };
     }
     @:keep
     @:tdfield
@@ -176,13 +180,13 @@ package stdgo._internal.os;
                     t = @:privateAccess cast(_f._input, sys.io.FileInput).tell();
                     @:privateAccess cast(_f._input, sys.io.FileInput).seek(offset, sys.io.FileSeek.SeekBegin);
                 } #else null #end;
-                var n = @:privateAccess _f._input.readBytes(b, 0, _b.length.toBasic());
+                var n = @:privateAccess _f._input.readBytes(b, 0, b.length);
                 #if !eval {
                     @:privateAccess cast(_f._input, sys.io.FileInput).seek(t, sys.io.FileSeek.SeekBegin);
                 } #else null #end;
                 @:privateAccess _b.__bytes__ = b;
                 var err = null;
-                if (n < _b.length.toBasic()) {
+                if (n < b.length) {
                     err = stdgo._internal.io.Io_eof.eOF;
                 };
                 @:privateAccess _f.mutex.release();
@@ -199,17 +203,12 @@ package stdgo._internal.os;
     @:tdfield
     static public function read( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
-        #if (sys || hxnodejs) {
-            final isEval = #if eval true #else false #end;
-            if (!(@:privateAccess _f._input is sys.io.FileInput) || isEval) {
-                @:privateAccess _f.mutex.acquire();
-                final bytes = @:privateAccess _f._input.read(_b.length);
-                @:privateAccess _b.__bytes__ = bytes;
-                @:privateAccess _f.mutex.release();
-                return { _0 : bytes.length, _1 : null };
-            };
-        } #else null #end;
-        return @:privateAccess _f.readAt(_b, 0);
+        @:privateAccess _f.mutex.acquire();
+        final b = @:privateAccess _b.toBytes();
+        final i = @:privateAccess _f._input.readBytes(b, 0, b.length);
+        @:privateAccess _b.__bytes__ = b;
+        @:privateAccess _f.mutex.release();
+        return { _0 : i, _1 : null };
     }
     @:keep
     @:tdfield

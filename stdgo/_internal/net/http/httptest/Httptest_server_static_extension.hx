@@ -32,7 +32,7 @@ package stdgo._internal.net.http.httptest;
                     final __value__ = _cs;
                     if (__value__ == ((0 : stdgo._internal.net.http.Http_connstate.ConnState))) {
                         {
-                            var __tmp__ = ((@:checkr _s ?? throw "null pointer dereference")._conns != null && (@:checkr _s ?? throw "null pointer dereference")._conns.__exists__(_c) ? { _0 : (@:checkr _s ?? throw "null pointer dereference")._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_connstate.ConnState), _1 : false }), __0:stdgo._internal.net.http.Http_connstate.ConnState = __tmp__._0, _exists:Bool = __tmp__._1;
+                            var __tmp__ = ((@:checkr _s ?? throw "null pointer dereference")._conns != null && (@:checkr _s ?? throw "null pointer dereference")._conns.__exists__(_c) ? { _0 : (@:checkr _s ?? throw "null pointer dereference")._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_connstate.ConnState), _1 : false }), __208:stdgo._internal.net.http.Http_connstate.ConnState = __tmp__._0, _exists:Bool = __tmp__._1;
                             if (_exists) {
                                 throw stdgo.Go.toInterface(("invalid state transition" : stdgo.GoString));
                             };
@@ -76,7 +76,7 @@ package stdgo._internal.net.http.httptest;
                         };
                     } else if (__value__ == ((3 : stdgo._internal.net.http.Http_connstate.ConnState)) || __value__ == ((4 : stdgo._internal.net.http.Http_connstate.ConnState))) {
                         {
-                            var __tmp__ = ((@:checkr _s ?? throw "null pointer dereference")._conns != null && (@:checkr _s ?? throw "null pointer dereference")._conns.__exists__(_c) ? { _0 : (@:checkr _s ?? throw "null pointer dereference")._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_connstate.ConnState), _1 : false }), __0:stdgo._internal.net.http.Http_connstate.ConnState = __tmp__._0, _ok:Bool = __tmp__._1;
+                            var __tmp__ = ((@:checkr _s ?? throw "null pointer dereference")._conns != null && (@:checkr _s ?? throw "null pointer dereference")._conns.__exists__(_c) ? { _0 : (@:checkr _s ?? throw "null pointer dereference")._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_connstate.ConnState), _1 : false }), __208:stdgo._internal.net.http.Http_connstate.ConnState = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (_ok) {
                                 if ((@:checkr _s ?? throw "null pointer dereference")._conns != null) (@:checkr _s ?? throw "null pointer dereference")._conns.__remove__(_c);
                                 {
@@ -251,16 +251,26 @@ package stdgo._internal.net.http.httptest;
                 while ((_i < _nconn : Bool)) {
                     {
                         var __select__ = true;
-                        var __c__0 = _ch;
-var __c__1 = (@:checkr _timer ?? throw "null pointer dereference").c;
+                        var __c__0 = null;
+var __c__1 = null;
                         while (__select__) {
-                            if (__c__0 != null && __c__0.__isGet__(true)) {
+                            if ({
+                                if (__c__0 == null) {
+                                    __c__0 = _ch;
+                                };
+                                __c__0 != null && __c__0.__isGet__(true);
+                            }) {
                                 __select__ = false;
                                 {
                                     __c__0.__get__();
                                     {};
                                 };
-                            } else if (__c__1 != null && __c__1.__isGet__(true)) {
+                            } else if ({
+                                if (__c__1 == null) {
+                                    __c__1 = (@:checkr _timer ?? throw "null pointer dereference").c;
+                                };
+                                __c__1 != null && __c__1.__isGet__(true);
+                            }) {
                                 __select__ = false;
                                 {
                                     __c__1.__get__();

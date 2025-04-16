@@ -59,7 +59,7 @@ function _scanExponent(_r:stdgo._internal.io.Io_bytescanner.ByteScanner, _base2o
         };
         if (((_err == null) && (((_ch == (43 : stdgo.GoUInt8)) || (_ch == (45 : stdgo.GoUInt8)) : Bool)) : Bool)) {
             if (_ch == ((45 : stdgo.GoUInt8))) {
-                _digits = (_digits.__append__((45 : stdgo.GoUInt8)));
+                _digits = (_digits.__append__((45 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
             };
             {
                 var __tmp__ = _r.readByte();
@@ -72,7 +72,7 @@ function _scanExponent(_r:stdgo._internal.io.Io_bytescanner.ByteScanner, _base2o
         var _hasDigits = (false : Bool);
         while (_err == null) {
             if ((((48 : stdgo.GoUInt8) <= _ch : Bool) && (_ch <= (57 : stdgo.GoUInt8) : Bool) : Bool)) {
-                _digits = (_digits.__append__(_ch));
+                _digits = (_digits.__append__(_ch) : stdgo.Slice<stdgo.GoUInt8>);
                 _prev = (48 : stdgo.GoInt32);
                 _hasDigits = true;
             } else if (((_ch == (95 : stdgo.GoUInt8)) && _sepOk : Bool)) {

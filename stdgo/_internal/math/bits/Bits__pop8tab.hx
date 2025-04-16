@@ -1,5 +1,5 @@
 package stdgo._internal.math.bits;
-final _pop8tab : stdgo.GoString = (stdgo.Go.str(0,
+final _pop8tab : stdgo.GoString = stdgo.Go.str(0,
 1,
 1,
 2,
@@ -252,4 +252,4 @@ final _pop8tab : stdgo.GoString = (stdgo.Go.str(0,
 6,
 "\x07",
 6,
-"\x07\x07\x08") : stdgo.GoString);
+"\x07\x07\x08");

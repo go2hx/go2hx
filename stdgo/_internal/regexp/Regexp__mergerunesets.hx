@@ -27,10 +27,10 @@ function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _right
                 if (((_ix > (0 : stdgo.GoInt) : Bool) && (((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value : stdgo.GoInt)] <= _merged[(_ix : stdgo.GoInt)] : Bool) : Bool)) {
                     return false;
                 };
-                _merged = (_merged.__append__(((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value : stdgo.GoInt)], ((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value + (1 : stdgo.GoInt) : stdgo.GoInt)]));
+                _merged = (_merged.__append__(((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value : stdgo.GoInt)], ((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value + (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt32>);
                 _newLow.value = (_newLow.value + ((2 : stdgo.GoInt)) : stdgo.GoInt);
                 _ix = (_ix + ((2 : stdgo.GoInt)) : stdgo.GoInt);
-                _next = (_next.__append__(_pc));
+                _next = (_next.__append__(_pc) : stdgo.Slice<stdgo.GoUInt32>);
                 return true;
             };
             while (((_lx < _leftLen : Bool) || (_rx < _rightLen : Bool) : Bool)) {

@@ -1,2 +1,2 @@
 package stdgo._internal.text.template.parse;
-final nodeNil = (22 : stdgo._internal.text.template.parse.Parse_nodetype.NodeType);
+final nodeNil : stdgo._internal.text.template.parse.Parse_nodetype.NodeType = 12i32;

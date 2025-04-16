@@ -29,7 +29,7 @@ Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_
 -- FAIL: TestCFBVectors
 
 === RUN  TestCFBInverse
-Exception: Null access
+Exception: Null access .read
 Called from _internal.crypto.cipher_test._Cipher_test_testcfbinverse.$Cipher_test_testcfbinverse_Fields_.testCFBInverse (_internal/crypto/cipher_test/Cipher_test_testcfbinverse.hx line 10)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_.main (_internal/crypto/cipherdottest/Cipherdottest.hx line 7)
@@ -71,7 +71,6 @@ Called from stdgo._internal.crypto.aes.T_aesCipher_asInterface.encrypt (stdgo/_i
 Called from stdgo._internal.crypto.cipher._Cipher__newgcmwithnonceandtagsize.$Cipher__newgcmwithnonceandtagsize_Fields_._newGCMWithNonceAndTagSize (stdgo/_internal/crypto/cipher/Cipher__newgcmwithnonceandtagsize.hx line 23)
 Called from stdgo._internal.crypto.cipher._Cipher_newgcm.$Cipher_newgcm_Fields_.newGCM (stdgo/_internal/crypto/cipher/Cipher_newgcm.hx line 3)
 Called from _internal.crypto.cipher_test._Cipher_test_testaesgcm.$Cipher_test_testaesgcm_Fields_.testAESGCM (_internal/crypto/cipher_test/Cipher_test_testaesgcm.hx line 44)
-Called from stdgo._internal.crypto.cipher.$T_ctr_static_extension.xORKeyStream (stdgo/_internal/crypto/cipher/Cipher_t_ctr_static_extension.hx line 11)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_.main (_internal/crypto/cipherdottest/Cipherdottest.hx line 7)
 
@@ -98,6 +97,7 @@ Exception: crypto/aes: invalid buffer overlap
 Called from stdgo._internal.crypto.aes.$T_aesCipher_static_extension.encrypt (stdgo/_internal/crypto/aes/Aes_t_aescipher_static_extension.hx line 29)
 Called from stdgo._internal.crypto.aes.T_aesCipher_asInterface.encrypt (stdgo/_internal/crypto/aes/Aes_t_aescipher_asinterface.hx line 8)
 Called from stdgo._internal.crypto.cipher._Cipher__newgcmwithnonceandtagsize.$Cipher__newgcmwithnonceandtagsize_Fields_._newGCMWithNonceAndTagSize (stdgo/_internal/crypto/cipher/Cipher__newgcmwithnonceandtagsize.hx line 23)
+Called from stdgo._internal.crypto.aes.T_aesCipher_asInterface.encrypt (stdgo/_internal/crypto/aes/Aes_t_aescipher_asinterface.hx line 8)
 Called from stdgo._internal.crypto.cipher._Cipher_newgcmwithnoncesize.$Cipher_newgcmwithnoncesize_Fields_.newGCMWithNonceSize (stdgo/_internal/crypto/cipher/Cipher_newgcmwithnoncesize.hx line 3)
 Called from _internal.crypto.cipher_test._Cipher_test_testgcmcounterwrap.$Cipher_test_testgcmcounterwrap_Fields_.testGCMCounterWrap (_internal/crypto/cipher_test/Cipher_test_testgcmcounterwrap.hx line 12)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
@@ -128,6 +128,5 @@ Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_
 
 -- FAIL: TestOFB
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestOFB

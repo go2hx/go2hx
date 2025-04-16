@@ -1,2 +1,2 @@
 package stdgo._internal.time;
-final october = (12 : stdgo._internal.time.Time_month.Month);
+final october : stdgo._internal.time.Time_month.Month = 10i32;

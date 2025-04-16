@@ -56,13 +56,13 @@ package stdgo._internal.fmt;
                                     break;
                                     break;
                                 } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (__value__ == ((112 : stdgo.GoUInt8)) || __value__ == ((80 : stdgo.GoUInt8))))) {
-                                    _tail = (_tail.__append__(...((_num.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+                                    _tail = (_tail.__append__(...((_num.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                                     _num = (_num.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>);
                                     break;
                                     break;
                                 } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == ((101 : stdgo.GoUInt8)) || __value__ == ((69 : stdgo.GoUInt8))))) {
                                     if (((_verb != (120 : stdgo.GoInt32)) && (_verb != (88 : stdgo.GoInt32)) : Bool)) {
-                                        _tail = (_tail.__append__(...((_num.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+                                        _tail = (_tail.__append__(...((_num.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                                         _num = (_num.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>);
                                         break;
                                     };
@@ -92,13 +92,13 @@ package stdgo._internal.fmt;
                 if (((_num.length == (2 : stdgo.GoInt)) && (_num[(1 : stdgo.GoInt)] == (48 : stdgo.GoUInt8)) : Bool)) {
                     _digits--;
                 };
-                _num = (_num.__append__((46 : stdgo.GoUInt8)));
+                _num = (_num.__append__((46 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
             };
             while ((_digits > (0 : stdgo.GoInt) : Bool)) {
-                _num = (_num.__append__((48 : stdgo.GoUInt8)));
+                _num = (_num.__append__((48 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                 _digits--;
             };
-            _num = (_num.__append__(...(_tail : Array<stdgo.GoUInt8>)));
+            _num = (_num.__append__(...(_tail : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if (((@:checkr _f ?? throw "null pointer dereference")._fmtFlags._plus || (_num[(0 : stdgo.GoInt)] != (43 : stdgo.GoUInt8)) : Bool)) {
             if ((((@:checkr _f ?? throw "null pointer dereference")._fmtFlags._zero && (@:checkr _f ?? throw "null pointer dereference")._fmtFlags._widPresent : Bool) && ((@:checkr _f ?? throw "null pointer dereference")._wid > (_num.length) : Bool) : Bool)) {
@@ -198,16 +198,16 @@ package stdgo._internal.fmt;
         };
         var _buf = ((@:checkr _f ?? throw "null pointer dereference")._buf : stdgo._internal.fmt.Fmt_t_buffer.T_buffer);
         if ((@:checkr _f ?? throw "null pointer dereference")._fmtFlags._sharp) {
-            _buf = (_buf.__append__((48 : stdgo.GoUInt8), _digits[(16 : stdgo.GoInt)]));
+            _buf = (_buf.__append__((48 : stdgo.GoUInt8), _digits[(16 : stdgo.GoInt)]) : stdgo._internal.fmt.Fmt_t_buffer.T_buffer);
         };
         var _c:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _length : Bool)) {
                 if (((@:checkr _f ?? throw "null pointer dereference")._fmtFlags._space && (_i > (0 : stdgo.GoInt) : Bool) : Bool)) {
-                    _buf = (_buf.__append__((32 : stdgo.GoUInt8)));
+                    _buf = (_buf.__append__((32 : stdgo.GoUInt8)) : stdgo._internal.fmt.Fmt_t_buffer.T_buffer);
                     if ((@:checkr _f ?? throw "null pointer dereference")._fmtFlags._sharp) {
-                        _buf = (_buf.__append__((48 : stdgo.GoUInt8), _digits[(16 : stdgo.GoInt)]));
+                        _buf = (_buf.__append__((48 : stdgo.GoUInt8), _digits[(16 : stdgo.GoInt)]) : stdgo._internal.fmt.Fmt_t_buffer.T_buffer);
                     };
                 };
 if (_b != null) {
@@ -215,7 +215,7 @@ if (_b != null) {
                 } else {
                     _c = _s[(_i : stdgo.GoInt)];
                 };
-_buf = (_buf.__append__(_digits[((_c >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)], _digits[((_c & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
+_buf = (_buf.__append__(_digits[((_c >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)], _digits[((_c & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]) : stdgo._internal.fmt.Fmt_t_buffer.T_buffer);
                 _i++;
             };
         };

@@ -114,7 +114,7 @@ package stdgo._internal.compress.bzip2;
         var _bufIndex = (0 : stdgo.GoInt);
         var _repeat = (0 : stdgo.GoInt);
         var _repeatPower = (0 : stdgo.GoInt);
-        for (_i => _ in (@:checkr _bz2 ?? throw "null pointer dereference")._c) {
+        for (_i => _ in (@:checkr _bz2 ?? throw "null pointer dereference")._c.__copy__()) {
             (@:checkr _bz2 ?? throw "null pointer dereference")._c[(_i : stdgo.GoInt)] = (0u32 : stdgo.GoUInt);
         };
         var _decoded = (0 : stdgo.GoInt);

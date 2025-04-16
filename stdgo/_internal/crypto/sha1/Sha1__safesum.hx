@@ -27,6 +27,8 @@ function _safeSum(_h:stdgo._internal.hash.Hash_hash.Hash):{ var _0 : stdgo.Slice
                     _err = __tmp__._1;
                     __tmp__;
                 };
+                _sum = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

@@ -28,7 +28,7 @@ function _setMimeTypes(_lowerExt:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _m
                         _exts = (stdgo.Go.typeAssert((_ei : stdgo.Slice<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>);
                     };
                 };
-                @:check2 stdgo._internal.mime.Mime__extensions._extensions.store(stdgo.Go.toInterface(_justType), stdgo.Go.toInterface((_exts.__append__(_k?.__copy__()))));
+                @:check2 stdgo._internal.mime.Mime__extensions._extensions.store(stdgo.Go.toInterface(_justType), stdgo.Go.toInterface((_exts.__append__(_k?.__copy__()) : stdgo.Slice<stdgo.GoString>)));
             };
             {
                 for (defer in __deferstack__) {

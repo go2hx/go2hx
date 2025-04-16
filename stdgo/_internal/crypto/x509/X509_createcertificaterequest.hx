@@ -59,7 +59,7 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_reader.Reader, _te
         for (__1 => _attr in (@:checkr _template ?? throw "null pointer dereference").attributes) {
             var _values = (new stdgo.Slice<stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>>((_attr.value.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>>);
             _values.__copyTo__(_attr.value);
-            _attributes = (_attributes.__append__(({ type : _attr.type, value : _values } : stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalueset.AttributeTypeAndValueSET)));
+            _attributes = (_attributes.__append__(({ type : _attr.type, value : _values } : stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalueset.AttributeTypeAndValueSET)) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalueset.AttributeTypeAndValueSET>);
         };
         var _extensionsAppended = (false : Bool);
         if (((_extensions.length) > (0 : stdgo.GoInt) : Bool)) {
@@ -79,12 +79,12 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_reader.Reader, _te
                     };
                 };
                 var _newValue = (new stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>((0 : stdgo.GoInt).toBasic(), ((_atvSet.value[(0 : stdgo.GoInt)].length) + (_extensions.length) : stdgo.GoInt), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > ((_atvSet.value[(0 : stdgo.GoInt)].length) + (_extensions.length) : stdgo.GoInt) ? (0 : stdgo.GoInt).toBasic() : ((_atvSet.value[(0 : stdgo.GoInt)].length) + (_extensions.length) : stdgo.GoInt) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue)]) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>);
-                _newValue = (_newValue.__append__(...(_atvSet.value[(0 : stdgo.GoInt)] : Array<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>)));
+                _newValue = (_newValue.__append__(...(_atvSet.value[(0 : stdgo.GoInt)] : Array<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>)) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>);
                 for (__4 => _e in _extensions) {
                     if ((_specifiedExtensions[(_e.id.string() : stdgo.GoString)] ?? false)) {
                         continue;
                     };
-                    _newValue = (_newValue.__append__(({ type : _e.id, value : stdgo.Go.toInterface(_e.value) } : stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue)));
+                    _newValue = (_newValue.__append__(({ type : _e.id, value : stdgo.Go.toInterface(_e.value) } : stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue)) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>);
                 };
                 _atvSet.value[(0 : stdgo.GoInt)] = _newValue;
                 _extensionsAppended = true;
@@ -118,7 +118,7 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_reader.Reader, _te
                     };
                 };
             };
-            _rawAttributes = (_rawAttributes.__append__(_rawValue?.__copy__()));
+            _rawAttributes = (_rawAttributes.__append__(_rawValue?.__copy__()) : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue>);
         };
         var _asn1Subject = (@:checkr _template ?? throw "null pointer dereference").rawSubject;
         if ((_asn1Subject.length) == ((0 : stdgo.GoInt))) {

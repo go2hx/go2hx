@@ -165,6 +165,5 @@ Called from stdgo._internal.io._Io_readatleast.Io_readatleast_Fields_.readAtLeas
 
 -- PASS: TestAllocations
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestBlockGeneric

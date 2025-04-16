@@ -3,6 +3,24 @@
 -- PASS: TestDefault
 
 === RUN  TestAll
+log output should match "^XXXhello 23 world$" is "hello 23 world"
+log output should match "^XXXhello 23 world$" is "hello 23 world"
+log output should match "^[0-9][0-9]:[0-9][0-9]:[0-9][0-9] XXXhello 23 world$" is "08:23:34 hello 23 world"
+log output should match "^[0-9][0-9]:[0-9][0-9]:[0-9][0-9] XXXhello 23 world$" is "08:23:34 hello 23 world"
+log output should match "^.*/[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "???:0: hello 23 world"
+log output should match "^.*/[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "???:0: hello 23 world"
+log output should match "^[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "???:0: hello 23 world"
+log output should match "^[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "???:0: hello 23 world"
+log output should match "^[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "???:0: hello 23 world"
+log output should match "^[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "???:0: hello 23 world"
+log output should match "^XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "2025/04/16 08:23:34.410696 ???:0: hello 23 world"
+log output should match "^XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "2025/04/16 08:23:34.410696 ???:0: hello 23 world"
+log output should match "^XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "2025/04/16 08:23:34.410696 ???:0: hello 23 world"
+log output should match "^XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "2025/04/16 08:23:34.410696 ???:0: hello 23 world"
+log output should match "^[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): XXXhello 23 world$" is "2025/04/16 08:23:34.410696 ???:0: hello 23 world"
+log output should match "^[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): XXXhello 23 world$" is "2025/04/16 08:23:34.410696 ???:0: hello 23 world"
+log output should match "^[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): XXXhello 23 world$" is "2025/04/16 08:23:34.410696 ???:0: hello 23 world"
+log output should match "^[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): XXXhello 23 world$" is "2025/04/16 08:23:34.410696 ???:0: hello 23 world"
 
 -- FAIL: TestAll
 
@@ -19,14 +37,19 @@
 -- PASS: TestOutputRace
 
 === RUN  TestFlagAndPrefixSetting
+Prefix: expected "Test:" got ""
+Prefix: expected "Reality:" got ""
+message did not match pattern
 
 -- FAIL: TestFlagAndPrefixSetting
 
 === RUN  TestUTCFlag
+got "2025/04/16 08:23:34 hello\n"; want "Test:2025/04/16 08:23:35 hello\n"
 
 -- FAIL: TestUTCFlag
 
 === RUN  TestEmptyPrintCreatesLine
+expected 2 headers, got 0
 
 -- FAIL: TestEmptyPrintCreatesLine
 
@@ -35,6 +58,5 @@
 
 -- PASS: TestDiscard
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestEmptyPrintCreatesLine

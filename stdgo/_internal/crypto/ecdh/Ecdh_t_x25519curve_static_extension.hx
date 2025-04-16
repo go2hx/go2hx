@@ -18,7 +18,7 @@ package stdgo._internal.crypto.ecdh;
         if ((_key.length) != (stdgo._internal.crypto.ecdh.Ecdh__x25519publickeysize._x25519PublicKeySize)) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("crypto/ecdh: invalid public key" : stdgo.GoString)) };
         };
-        return { _0 : (stdgo.Go.setRef(({ _curve : stdgo.Go.asInterface(_c), _publicKey : ((new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_key : Array<stdgo.GoUInt8>))) } : stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey)) : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>), _1 : (null : stdgo.Error) };
+        return { _0 : (stdgo.Go.setRef(({ _curve : stdgo.Go.asInterface(_c), _publicKey : ((new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_key : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey)) : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>), _1 : (null : stdgo.Error) };
     }
     @:keep
     @:tdfield
@@ -39,7 +39,7 @@ package stdgo._internal.crypto.ecdh;
         if ((_key.length) != (stdgo._internal.crypto.ecdh.Ecdh__x25519privatekeysize._x25519PrivateKeySize)) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("crypto/ecdh: invalid private key size" : stdgo.GoString)) };
         };
-        return { _0 : (stdgo.Go.setRef(({ _curve : stdgo.Go.asInterface(_c), _privateKey : ((new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_key : Array<stdgo.GoUInt8>))) } : stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey)) : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>), _1 : (null : stdgo.Error) };
+        return { _0 : (stdgo.Go.setRef(({ _curve : stdgo.Go.asInterface(_c), _privateKey : ((new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_key : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey)) : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>), _1 : (null : stdgo.Error) };
     }
     @:keep
     @:tdfield

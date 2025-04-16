@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final syncRangeStmt = (69 : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker);
+final syncRangeStmt : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker = 54i32;

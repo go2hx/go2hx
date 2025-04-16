@@ -28,7 +28,7 @@ function _genericFtoa(_dst:stdgo.Slice<stdgo.GoUInt8>, _val:stdgo.GoFloat64, _fm
                 } else {
                     _s = ("+Inf" : stdgo.GoString);
                 };
-                return (_dst.__append__(...(_s : Array<stdgo.GoUInt8>)));
+                return (_dst.__append__(...(_s : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             } else if (__value__ == ((0 : stdgo.GoInt))) {
                 _exp++;
             } else {

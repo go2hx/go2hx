@@ -240,7 +240,7 @@ if (_err != null) {
 if (_gt._id() == ((0 : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId))) {
                                     stdgo._internal.encoding.gob.Gob__settypeid._setTypeId(_gt);
                                 };
-(@:checkr _st ?? throw "null pointer dereference").field = ((@:checkr _st ?? throw "null pointer dereference").field.__append__((new stdgo._internal.encoding.gob.Gob_t_fieldtype.T_fieldType(_f.name.__copy__(), _gt._id()) : stdgo._internal.encoding.gob.Gob_t_fieldtype.T_fieldType)));
+(@:checkr _st ?? throw "null pointer dereference").field = ((@:checkr _st ?? throw "null pointer dereference").field.__append__((new stdgo._internal.encoding.gob.Gob_t_fieldtype.T_fieldType(_f.name.__copy__(), _gt._id()) : stdgo._internal.encoding.gob.Gob_t_fieldtype.T_fieldType)) : stdgo.Slice<stdgo._internal.encoding.gob.Gob_t_fieldtype.T_fieldType>);
                                 _i++;
                             };
                         };

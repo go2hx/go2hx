@@ -11,7 +11,7 @@ function _decodeCSS(_s:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
                 _i = (_s.length);
             };
             {
-                final __tmp__0 = (_b.__append__(...((_s.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+                final __tmp__0 = (_b.__append__(...((_s.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 final __tmp__1 = (_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>);
                 _b = @:binopAssign __tmp__0;
                 _s = @:binopAssign __tmp__1;
@@ -43,7 +43,7 @@ function _decodeCSS(_s:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
             } else {
                 var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decoderune.decodeRune((_s.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __6:stdgo.GoInt32 = __tmp__._0, _n:stdgo.GoInt = __tmp__._1;
                 {
-                    final __tmp__0 = (_b.__append__(...((_s.__slice__((1 : stdgo.GoInt), ((1 : stdgo.GoInt) + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+                    final __tmp__0 = (_b.__append__(...((_s.__slice__((1 : stdgo.GoInt), ((1 : stdgo.GoInt) + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                     final __tmp__1 = (_s.__slice__(((1 : stdgo.GoInt) + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                     _b = @:binopAssign __tmp__0;
                     _s = @:binopAssign __tmp__1;

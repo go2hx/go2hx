@@ -184,6 +184,8 @@ package stdgo._internal.mime.multipart;
                             _err = __tmp__._1;
                             __tmp__;
                         };
+                        _0 = __ret__._0;
+                        _err = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -200,6 +202,8 @@ package stdgo._internal.mime.multipart;
                             _err = __tmp__._1;
                             __tmp__;
                         };
+                        _0 = __ret__._0;
+                        _err = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -225,6 +229,8 @@ package stdgo._internal.mime.multipart;
                             _err = __tmp__._1;
                             __tmp__;
                         };
+                        _0 = __ret__._0;
+                        _err = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -244,6 +250,8 @@ package stdgo._internal.mime.multipart;
                                 _err = __tmp__._1;
                                 __tmp__;
                             };
+                            _0 = __ret__._0;
+                            _err = __ret__._1;
                             for (defer in __deferstack__) {
                                 if (defer.ran) continue;
                                 defer.ran = true;
@@ -261,6 +269,8 @@ package stdgo._internal.mime.multipart;
                                 _err = __tmp__._1;
                                 __tmp__;
                             };
+                            _0 = __ret__._0;
+                            _err = __ret__._1;
                             for (defer in __deferstack__) {
                                 if (defer.ran) continue;
                                 defer.ran = true;
@@ -269,7 +279,7 @@ package stdgo._internal.mime.multipart;
                             return __ret__;
                         };
                     };
-                    (@:checkr _form ?? throw "null pointer dereference").value[_name] = (((@:checkr _form ?? throw "null pointer dereference").value[_name] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__((@:check2 _b.string() : stdgo.GoString)?.__copy__()));
+                    (@:checkr _form ?? throw "null pointer dereference").value[_name] = (((@:checkr _form ?? throw "null pointer dereference").value[_name] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__((@:check2 _b.string() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     continue;
                 };
                 {};
@@ -284,6 +294,8 @@ package stdgo._internal.mime.multipart;
                             _err = __tmp__._1;
                             __tmp__;
                         };
+                        _0 = __ret__._0;
+                        _err = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -305,6 +317,8 @@ package stdgo._internal.mime.multipart;
                             _err = __tmp__._1;
                             __tmp__;
                         };
+                        _0 = __ret__._0;
+                        _err = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -331,6 +345,8 @@ package stdgo._internal.mime.multipart;
                                     _err = __tmp__._1;
                                     __tmp__;
                                 };
+                                _0 = __ret__._0;
+                                _err = __ret__._1;
                                 for (defer in __deferstack__) {
                                     if (defer.ran) continue;
                                     defer.ran = true;
@@ -351,6 +367,8 @@ package stdgo._internal.mime.multipart;
                                     _err = __tmp__._1;
                                     __tmp__;
                                 };
+                                _0 = __ret__._0;
+                                _err = __ret__._1;
                                 for (defer in __deferstack__) {
                                     if (defer.ran) continue;
                                     defer.ran = true;
@@ -373,6 +391,8 @@ package stdgo._internal.mime.multipart;
                                 _err = __tmp__._1;
                                 __tmp__;
                             };
+                            _0 = __ret__._0;
+                            _err = __ret__._1;
                             for (defer in __deferstack__) {
                                 if (defer.ran) continue;
                                 defer.ran = true;
@@ -396,6 +416,8 @@ package stdgo._internal.mime.multipart;
                                         _err = __tmp__._1;
                                         __tmp__;
                                     };
+                                    _0 = __ret__._0;
+                                    _err = __ret__._1;
                                     for (defer in __deferstack__) {
                                         if (defer.ran) continue;
                                         defer.ran = true;
@@ -413,7 +435,7 @@ package stdgo._internal.mime.multipart;
                     _maxFileMemoryBytes = (_maxFileMemoryBytes - (_n) : stdgo.GoInt64);
                     _maxMemoryBytes = (_maxMemoryBytes - (_n) : stdgo.GoInt64);
                 };
-                (@:checkr _form ?? throw "null pointer dereference").file[_name] = (((@:checkr _form ?? throw "null pointer dereference").file[_name] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>)).__append__(_fh));
+                (@:checkr _form ?? throw "null pointer dereference").file[_name] = (((@:checkr _form ?? throw "null pointer dereference").file[_name] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>)).__append__(_fh) : stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>);
             };
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = {
@@ -422,6 +444,8 @@ package stdgo._internal.mime.multipart;
                     _err = __tmp__._1;
                     __tmp__;
                 };
+                _0 = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

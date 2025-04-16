@@ -149,7 +149,7 @@ function _parseCertificate(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref
                             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: certificate contains duplicate extensions" : stdgo.GoString)) };
                         };
                         _seenExts[_oidStr] = true;
-                        (@:checkr _cert ?? throw "null pointer dereference").extensions = ((@:checkr _cert ?? throw "null pointer dereference").extensions.__append__(_ext?.__copy__()));
+                        (@:checkr _cert ?? throw "null pointer dereference").extensions = ((@:checkr _cert ?? throw "null pointer dereference").extensions.__append__(_ext?.__copy__()) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>);
                     };
                     _err = stdgo._internal.crypto.x509.X509__processextensions._processExtensions(_cert);
                     if (_err != null) {

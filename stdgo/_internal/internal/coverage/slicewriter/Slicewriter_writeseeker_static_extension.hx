@@ -63,7 +63,7 @@ package stdgo._internal.internal.coverage.slicewriter;
         var _amt = (_p.length : stdgo.GoInt);
         var _towrite = ((@:checkr _sws ?? throw "null pointer dereference")._payload.__slice__((@:checkr _sws ?? throw "null pointer dereference")._off) : stdgo.Slice<stdgo.GoUInt8>);
         if (((_towrite.length) < _amt : Bool)) {
-            (@:checkr _sws ?? throw "null pointer dereference")._payload = ((@:checkr _sws ?? throw "null pointer dereference")._payload.__append__(...((new stdgo.Slice<stdgo.GoUInt8>((_amt - (_towrite.length) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+            (@:checkr _sws ?? throw "null pointer dereference")._payload = ((@:checkr _sws ?? throw "null pointer dereference")._payload.__append__(...((new stdgo.Slice<stdgo.GoUInt8>((_amt - (_towrite.length) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             _towrite = ((@:checkr _sws ?? throw "null pointer dereference")._payload.__slice__((@:checkr _sws ?? throw "null pointer dereference")._off) : stdgo.Slice<stdgo.GoUInt8>);
         };
         _towrite.__copyTo__(_p);

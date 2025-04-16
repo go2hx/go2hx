@@ -1,2 +1,2 @@
 package stdgo._internal.log.syslog;
-final lOG_DEBUG = (7 : stdgo._internal.log.syslog.Syslog_priority.Priority);
+final lOG_DEBUG : stdgo._internal.log.syslog.Syslog_priority.Priority = 7i32;

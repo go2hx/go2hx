@@ -1,2 +1,2 @@
 package stdgo._internal.crypto.x509;
-final extKeyUsageMicrosoftServerGatedCrypto = (13 : stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage);
+final extKeyUsageMicrosoftServerGatedCrypto : stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage = 10i32;

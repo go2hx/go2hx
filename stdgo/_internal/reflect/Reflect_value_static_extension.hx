@@ -354,7 +354,7 @@ stdgo._internal.internal.reflect.Reflect._set(_v);
     @:tdfield
     static public function pointer( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoUIntptr {
         @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
-        if (@:privateAccess _v.value == null) return new stdgo.GoUIntptr(0);
+        if (@:privateAccess _v.isNil()) return new stdgo.GoUIntptr(0);
         var value = @:privateAccess _v.value.value;
         return new stdgo.GoUIntptr(value != null ? 1 : 0);
     }
@@ -725,7 +725,13 @@ return value;
             };
             case stdgo._internal.internal.reflect.Reflect.KindType.interface_:
                 if (value == null) return new stdgo._internal.reflect.Reflect_value.Value();
-return new stdgo._internal.reflect.Reflect_value.Value(value, @:privateAccess _v.value.type);
+if (_v.numMethod() != 0) {
+                return new stdgo._internal.reflect.Reflect_value.Value(value, @:privateAccess _v.value.type);
+            } else {
+                final any = @:privateAccess (_v.value.value : AnyInterface);
+                final type = any.type;
+                return @:privateAccess new stdgo._internal.reflect.Reflect_value.Value(any, type);
+            };
         };
         throw new stdgo._internal.reflect.Reflect_valueerror.ValueError("reflect.Value.Elem", k);
     }

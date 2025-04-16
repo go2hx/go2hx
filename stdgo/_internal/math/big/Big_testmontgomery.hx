@@ -7,10 +7,10 @@ function testMontgomery(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Voi
             var _y = (stdgo._internal.math.big.Big__natfromstring._natFromString(_test._y?.__copy__()) : stdgo._internal.math.big.Big_t_nat.T_nat);
             var _m = (stdgo._internal.math.big.Big__natfromstring._natFromString(_test._m?.__copy__()) : stdgo._internal.math.big.Big_t_nat.T_nat);
             while (((_x.length) < (_m.length) : Bool)) {
-                _x = (_x.__append__((0u32 : stdgo._internal.math.big.Big_word.Word)));
+                _x = (_x.__append__((0u32 : stdgo._internal.math.big.Big_word.Word)) : stdgo._internal.math.big.Big_t_nat.T_nat);
             };
             while (((_y.length) < (_m.length) : Bool)) {
-                _y = (_y.__append__((0u32 : stdgo._internal.math.big.Big_word.Word)));
+                _y = (_y.__append__((0u32 : stdgo._internal.math.big.Big_word.Word)) : stdgo._internal.math.big.Big_t_nat.T_nat);
             };
             if ((_x._cmp(_m) > (0 : stdgo.GoInt) : Bool)) {
                 var __tmp__ = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._div(null, _x, _m), __8:stdgo._internal.math.big.Big_t_nat.T_nat = __tmp__._0, _r:stdgo._internal.math.big.Big_t_nat.T_nat = __tmp__._1;

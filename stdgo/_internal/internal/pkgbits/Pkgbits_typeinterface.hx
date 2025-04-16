@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final typeInterface = (11 : stdgo._internal.internal.pkgbits.Pkgbits_codetype.CodeType);
+final typeInterface : stdgo._internal.internal.pkgbits.Pkgbits_codetype.CodeType = 9i32;

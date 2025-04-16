@@ -113,7 +113,7 @@ package stdgo._internal.log.slog;
                 if (_a.key != ((stdgo.Go.str() : stdgo.GoString))) {
                     @:check2r _s._openGroup(_a.key?.__copy__());
                 };
-                for (__765 => _aa in _attrs) {
+                for (__781 => _aa in _attrs) {
                     @:check2r _s._appendAttr(_aa?.__copy__());
                 };
                 if (_a.key != ((stdgo.Go.str() : stdgo.GoString))) {
@@ -158,7 +158,7 @@ package stdgo._internal.log.slog;
             final value = (@:checkr _s ?? throw "null pointer dereference")._groups;
             (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
         })) {
-            ((@:checkr _s ?? throw "null pointer dereference")._groups : stdgo.Slice<stdgo.GoString>).__setData__((((@:checkr _s ?? throw "null pointer dereference")._groups : stdgo.Slice<stdgo.GoString>).__append__(_name?.__copy__())));
+            ((@:checkr _s ?? throw "null pointer dereference")._groups : stdgo.Slice<stdgo.GoString>).__setData__((((@:checkr _s ?? throw "null pointer dereference")._groups : stdgo.Slice<stdgo.GoString>).__append__(_name?.__copy__()) : stdgo.Slice<stdgo.GoString>));
         };
     }
     @:keep

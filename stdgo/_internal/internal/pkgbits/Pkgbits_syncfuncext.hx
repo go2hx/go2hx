@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final syncFuncExt = (69 : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker);
+final syncFuncExt : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker = 30i32;

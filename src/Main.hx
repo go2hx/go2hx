@@ -232,17 +232,17 @@ function close(code:Int=0, instance: Null<InstanceData> = null) {
 	server.close();
 	Sys.exit(code);
 }
-
+	
 function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Void = null) {
 	Cache.setUseCache(instance.useCache);
 	if (!instance.cleanCache) Cache.loadCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath , '.go2hx_cache']));
 	
 	var port = instance.port;
-	if (port == 0)
-		port = 6114 + Std.random(800); // random range in case port is still bound from before
-	Sys.println('listening on local port: $port');
+
 	#if !js
 	server.bind(new sys.net.Host("127.0.0.1"), port);
+	port = server.getPort();
+	Sys.println('listening on local port: ${port}');
 	#else
 	var processCountIndex = 0;
 	var resetCount = 0;
@@ -423,7 +423,8 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 	});
 	#if js
 	@:privateAccess server.s.listen(port, () -> {
-		Sys.println("nodejs server started");
+		port = server.getPort();
+		Sys.println('nodejs server listening on local port: ${port}');
 	});
 	#end
 }

@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final invalidInitCycle = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final invalidInitCycle : stdgo._internal.internal.types.errors.Errors_code.Code = 9i32;

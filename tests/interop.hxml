@@ -4,4 +4,4 @@
 -lib go2hx
 #-lib interop
 -m Main
---interp
+--hl interop.hl

@@ -80,23 +80,23 @@ package stdgo._internal.net.netip;
                 _b = _p._ip._appendTo4(_b);
             } else {
                 if (_p._ip.is4In6()) {
-                    _b = (_b.__append__(...((("[::ffff:" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                    _b = (_b.__append__(...((("[::ffff:" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                     _b = _p._ip.unmap()._appendTo4(_b);
                     {
                         var _z = (_p._ip.zone()?.__copy__() : stdgo.GoString);
                         if (_z != ((stdgo.Go.str() : stdgo.GoString))) {
-                            _b = (_b.__append__((37 : stdgo.GoUInt8)));
-                            _b = (_b.__append__(...(_z : Array<stdgo.GoUInt8>)));
+                            _b = (_b.__append__((37 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
+                            _b = (_b.__append__(...(_z : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                         };
                     };
                 } else {
-                    _b = (_b.__append__((91 : stdgo.GoUInt8)));
+                    _b = (_b.__append__((91 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                     _b = _p._ip._appendTo6(_b);
                 };
-                _b = (_b.__append__((93 : stdgo.GoUInt8)));
+                _b = (_b.__append__((93 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
             };
         };
-        _b = (_b.__append__((58 : stdgo.GoUInt8)));
+        _b = (_b.__append__((58 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.strconv.Strconv_appenduint.appendUint(_b, (_p._port : stdgo.GoUInt64), (10 : stdgo.GoInt));
         return _b;
     }
@@ -111,9 +111,9 @@ package stdgo._internal.net.netip;
             } else if (__value__ == (stdgo._internal.net.netip.Netip__z4._z4)) {
                 var _a = _p._ip.as4()?.__copy__();
                 var _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (21 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                for (_i => _ in _a) {
+                for (_i => _ in _a.__copy__()) {
                     _buf = stdgo._internal.strconv.Strconv_appenduint.appendUint(_buf, (_a[(_i : stdgo.GoInt)] : stdgo.GoUInt64), (10 : stdgo.GoInt));
-                    _buf = (_buf.__append__(("...:" : stdgo.GoString)[(_i : stdgo.GoInt)]));
+                    _buf = (_buf.__append__(("...:" : stdgo.GoString)[(_i : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoUInt8>);
                 };
                 _buf = stdgo._internal.strconv.Strconv_appenduint.appendUint(_buf, (_p._port : stdgo.GoUInt64), (10 : stdgo.GoInt));
                 return (_buf : stdgo.GoString)?.__copy__();

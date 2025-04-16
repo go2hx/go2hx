@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final syncDeclNames = (69 : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker);
+final syncDeclNames : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker = 47i32;

@@ -27,6 +27,8 @@ function readFile(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.run
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _info = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -41,6 +43,8 @@ function readFile(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.run
             };
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo>; var _1 : stdgo.Error; } = stdgo._internal.debug.buildinfo.Buildinfo_read.read(stdgo.Go.asInterface(_f));
+                _info = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

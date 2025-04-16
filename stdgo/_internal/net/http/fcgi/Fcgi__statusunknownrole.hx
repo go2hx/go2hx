@@ -1,2 +1,2 @@
 package stdgo._internal.net.http.fcgi;
-final _statusUnknownRole = (3i64 : stdgo.GoUInt64);
+final _statusUnknownRole : stdgo.GoUInt64 = 3i32;

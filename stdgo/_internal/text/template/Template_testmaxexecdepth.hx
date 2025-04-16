@@ -4,6 +4,7 @@ function testMaxExecDepth(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):V
             @:check2r _t.skip(stdgo.Go.toInterface(("skipping in -short mode" : stdgo.GoString)));
         };
         var _tmpl = ({
+            @:tupleArg var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(("{{template \"tmpl\" .}}" : stdgo.GoString));
             var __f__ = stdgo._internal.text.template.Template_must.must;
             var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(("{{template \"tmpl\" .}}" : stdgo.GoString));
             __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>), (__tmp__._1 : stdgo.Error));

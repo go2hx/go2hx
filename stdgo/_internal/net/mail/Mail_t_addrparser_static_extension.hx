@@ -163,10 +163,10 @@ package stdgo._internal.net.mail;
     static public function _consumeAtom( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser>, _dot:Bool, _permissive:Bool):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser> = _p;
         var _atom = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var _size_7:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _r_6:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var loopBreak = false;
         var _i_5:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _size_7:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _r_6:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -380,11 +380,11 @@ package stdgo._internal.net.mail;
                     };
                     _gotoNext = 4211439i32;
                 } else if (__value__ == (4211439i32)) {
-                    _qsb_1 = (_qsb_1.__append__(_r_3));
+                    _qsb_1 = (_qsb_1.__append__(_r_3) : stdgo.Slice<stdgo.GoInt32>);
                     _escaped_2 = false;
                     _gotoNext = 4211791i32;
                 } else if (__value__ == (4211482i32)) {
-                    _qsb_1 = (_qsb_1.__append__(_r_3));
+                    _qsb_1 = (_qsb_1.__append__(_r_3) : stdgo.Slice<stdgo.GoInt32>);
                     _gotoNext = 4211791i32;
                 } else if (__value__ == (4211633i32)) {
                     loopBreak = true;
@@ -460,7 +460,7 @@ package stdgo._internal.net.mail;
             if ((_isPrevEncoded && _isEncoded : Bool)) {
                 _words[((_words.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (_words[((_words.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] + (_word)?.__copy__() : stdgo.GoString);
             } else {
-                _words = (_words.__append__(_word?.__copy__()));
+                _words = (_words.__append__(_word?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
             _isPrevEncoded = _isEncoded;
         };
@@ -515,6 +515,8 @@ package stdgo._internal.net.mail;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _spec = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -550,6 +552,8 @@ package stdgo._internal.net.mail;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _spec = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -566,6 +570,8 @@ package stdgo._internal.net.mail;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _spec = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -584,6 +590,8 @@ package stdgo._internal.net.mail;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _spec = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -605,6 +613,8 @@ package stdgo._internal.net.mail;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _spec = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -620,6 +630,8 @@ package stdgo._internal.net.mail;
                     _err = __tmp__._1;
                     __tmp__;
                 };
+                _spec = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -697,7 +709,7 @@ package stdgo._internal.net.mail;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address>>), _1 : _err };
             };
-            _group = (_group.__append__(...(_addrs : Array<stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address>>)));
+            _group = (_group.__append__(...(_addrs : Array<stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address>>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address>>);
             if (!@:check2r _p._skipCFWS()) {
                 return { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address>>), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: misformatted parenthetical comment" : stdgo.GoString)) };
             };
@@ -819,7 +831,7 @@ package stdgo._internal.net.mail;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address>>), _1 : _err };
             };
-            _list = (_list.__append__(...(_addrs : Array<stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address>>)));
+            _list = (_list.__append__(...(_addrs : Array<stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address>>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address>>);
             if (!@:check2r _p._skipCFWS()) {
                 return { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address>>), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: misformatted parenthetical comment" : stdgo.GoString)) };
             };

@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final misplacedBreak = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final misplacedBreak : stdgo._internal.internal.types.errors.Errors_code.Code = 110i32;

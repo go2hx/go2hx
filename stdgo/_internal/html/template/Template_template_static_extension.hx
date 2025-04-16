@@ -253,7 +253,7 @@ package stdgo._internal.html.template;
             (@:checkr _ns ?? throw "null pointer dereference")._esc = stdgo._internal.html.template.Template__makeescaper._makeEscaper(_ns)?.__copy__();
             var _ret = (stdgo.Go.setRef((new stdgo._internal.html.template.Template_template.Template((null : stdgo.Error), _textClone, (@:checkr _textClone ?? throw "null pointer dereference").tree, _ns) : stdgo._internal.html.template.Template_template.Template)) : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>);
             (@:checkr _ret ?? throw "null pointer dereference")._nameSpace._set[@:check2r _ret.name()] = _ret;
-            for (__30 => _x in @:check2r _textClone.templates()) {
+            for (__78 => _x in @:check2r _textClone.templates()) {
                 var _name = (@:check2r _x.name()?.__copy__() : stdgo.GoString);
                 var _src = ((@:checkr _t ?? throw "null pointer dereference")._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>));
                 if ((({
@@ -451,7 +451,7 @@ package stdgo._internal.html.template;
                 final __f__ = @:check2 (@:checkr (@:checkr _t ?? throw "null pointer dereference")._nameSpace ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            for (__22 => _v in @:check2r _ret.templates()) {
+            for (__54 => _v in @:check2r _ret.templates()) {
                 var _name = (@:check2r _v.name()?.__copy__() : stdgo.GoString);
                 var _tmpl = ((@:checkr _t ?? throw "null pointer dereference")._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>));
                 if (({
@@ -557,6 +557,8 @@ package stdgo._internal.html.template;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _tmpl = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -573,6 +575,8 @@ package stdgo._internal.html.template;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _tmpl = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -595,6 +599,8 @@ package stdgo._internal.html.template;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _tmpl = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -619,6 +625,8 @@ package stdgo._internal.html.template;
                     _err = __tmp__._1;
                     __tmp__;
                 };
+                _tmpl = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -928,8 +936,8 @@ package stdgo._internal.html.template;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _m = (new stdgo.Slice<stdgo.Ref<stdgo._internal.html.template.Template_template.Template>>((0 : stdgo.GoInt).toBasic(), ((@:checkr _ns ?? throw "null pointer dereference")._set.length)) : stdgo.Slice<stdgo.Ref<stdgo._internal.html.template.Template_template.Template>>);
-            for (__6 => _v in (@:checkr _ns ?? throw "null pointer dereference")._set) {
-                _m = (_m.__append__(_v));
+            for (__14 => _v in (@:checkr _ns ?? throw "null pointer dereference")._set) {
+                _m = (_m.__append__(_v) : stdgo.Slice<stdgo.Ref<stdgo._internal.html.template.Template_template.Template>>);
             };
             {
                 for (defer in __deferstack__) {

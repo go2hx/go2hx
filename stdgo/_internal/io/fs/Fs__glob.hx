@@ -18,7 +18,7 @@ function _glob(_fs:stdgo._internal.io.fs.Fs_fs.FS, _dir:stdgo.GoString, _pattern
                 };
             };
             if (_matched) {
-                _m = (_m.__append__(stdgo._internal.path.Path_join.join(_dir?.__copy__(), _n?.__copy__())?.__copy__()));
+                _m = (_m.__append__(stdgo._internal.path.Path_join.join(_dir?.__copy__(), _n?.__copy__())?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
         };
         return { _0 : _m, _1 : _e };

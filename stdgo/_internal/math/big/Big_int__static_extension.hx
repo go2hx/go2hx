@@ -298,9 +298,9 @@ package stdgo._internal.math.big;
             final value = _x;
             (value == null || (value : Dynamic).__nil__);
         })) {
-            return (_buf.__append__(...((("<nil>" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+            return (_buf.__append__(...((("<nil>" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        return (_buf.__append__(...((@:checkr _x ?? throw "null pointer dereference")._abs._itoa((@:checkr _x ?? throw "null pointer dereference")._neg, _base) : Array<stdgo.GoUInt8>)));
+        return (_buf.__append__(...((@:checkr _x ?? throw "null pointer dereference")._abs._itoa((@:checkr _x ?? throw "null pointer dereference")._neg, _base) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     @:tdfield

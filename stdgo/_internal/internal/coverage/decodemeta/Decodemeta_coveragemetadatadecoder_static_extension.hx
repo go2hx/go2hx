@@ -9,7 +9,7 @@ package stdgo._internal.internal.coverage.decodemeta;
         };
         var _funcOffsetLocation = (((44u32 : stdgo.GoUInt32) + ((4u32 : stdgo.GoUInt32) * _fidx : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt64);
         {
-            var __tmp__ = @:check2r (@:checkr _d ?? throw "null pointer dereference")._r.seek(_funcOffsetLocation, (0 : stdgo.GoInt)), __8:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _d ?? throw "null pointer dereference")._r.seek(_funcOffsetLocation, (0 : stdgo.GoInt)), __16:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -20,7 +20,7 @@ package stdgo._internal.internal.coverage.decodemeta;
         };
         var _floc = (_foff : stdgo.GoInt64);
         {
-            var __tmp__ = @:check2r (@:checkr _d ?? throw "null pointer dereference")._r.seek(_floc, (0 : stdgo.GoInt)), __11:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _d ?? throw "null pointer dereference")._r.seek(_floc, (0 : stdgo.GoInt)), __31:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -37,7 +37,7 @@ package stdgo._internal.internal.coverage.decodemeta;
         {
             var _k = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
             while ((_k < _numUnits : Bool)) {
-                (@:checkr _f ?? throw "null pointer dereference").units = ((@:checkr _f ?? throw "null pointer dereference").units.__append__(({ stLine : (@:check2r (@:checkr _d ?? throw "null pointer dereference")._r.readULEB128() : stdgo.GoUInt32), stCol : (@:check2r (@:checkr _d ?? throw "null pointer dereference")._r.readULEB128() : stdgo.GoUInt32), enLine : (@:check2r (@:checkr _d ?? throw "null pointer dereference")._r.readULEB128() : stdgo.GoUInt32), enCol : (@:check2r (@:checkr _d ?? throw "null pointer dereference")._r.readULEB128() : stdgo.GoUInt32), nxStmts : (@:check2r (@:checkr _d ?? throw "null pointer dereference")._r.readULEB128() : stdgo.GoUInt32) } : stdgo._internal.internal.coverage.Coverage_coverableunit.CoverableUnit)));
+                (@:checkr _f ?? throw "null pointer dereference").units = ((@:checkr _f ?? throw "null pointer dereference").units.__append__(({ stLine : (@:check2r (@:checkr _d ?? throw "null pointer dereference")._r.readULEB128() : stdgo.GoUInt32), stCol : (@:check2r (@:checkr _d ?? throw "null pointer dereference")._r.readULEB128() : stdgo.GoUInt32), enLine : (@:check2r (@:checkr _d ?? throw "null pointer dereference")._r.readULEB128() : stdgo.GoUInt32), enCol : (@:check2r (@:checkr _d ?? throw "null pointer dereference")._r.readULEB128() : stdgo.GoUInt32), nxStmts : (@:check2r (@:checkr _d ?? throw "null pointer dereference")._r.readULEB128() : stdgo.GoUInt32) } : stdgo._internal.internal.coverage.Coverage_coverableunit.CoverableUnit)) : stdgo.Slice<stdgo._internal.internal.coverage.Coverage_coverableunit.CoverableUnit>);
                 _k++;
             };
         };
@@ -75,7 +75,7 @@ package stdgo._internal.internal.coverage.decodemeta;
         @:recv var _d:stdgo.Ref<stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetadatadecoder.CoverageMetaDataDecoder> = _d;
         var _stringTableLocation = (((44u32 : stdgo.GoUInt32) + ((4u32 : stdgo.GoUInt32) * (@:checkr _d ?? throw "null pointer dereference")._hdr.numFuncs : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt64);
         {
-            var __tmp__ = @:check2r (@:checkr _d ?? throw "null pointer dereference")._r.seek(_stringTableLocation, (0 : stdgo.GoInt)), __8:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _d ?? throw "null pointer dereference")._r.seek(_stringTableLocation, (0 : stdgo.GoInt)), __16:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };

@@ -3,14 +3,14 @@ function cleanCmdEnv(_cmd:stdgo.Ref<stdgo._internal.os.exec.Exec_cmd.Cmd>):stdgo
         if ((@:checkr _cmd ?? throw "null pointer dereference").env != null) {
             throw stdgo.Go.toInterface(("environment already set" : stdgo.GoString));
         };
-        for (__0 => _env in stdgo._internal.os.Os_environ_.environ_()) {
+        for (__6 => _env in stdgo._internal.os.Os_environ_.environ_()) {
             if (stdgo._internal.strings.Strings_hasprefix.hasPrefix(_env?.__copy__(), ("GODEBUG=" : stdgo.GoString))) {
                 continue;
             };
             if (stdgo._internal.strings.Strings_hasprefix.hasPrefix(_env?.__copy__(), ("GOTRACEBACK=" : stdgo.GoString))) {
                 continue;
             };
-            (@:checkr _cmd ?? throw "null pointer dereference").env = ((@:checkr _cmd ?? throw "null pointer dereference").env.__append__(_env?.__copy__()));
+            (@:checkr _cmd ?? throw "null pointer dereference").env = ((@:checkr _cmd ?? throw "null pointer dereference").env.__append__(_env?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         return _cmd;
     }

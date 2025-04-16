@@ -24,7 +24,7 @@ function _parsePAX(_r:stdgo._internal.io.Io_reader.Reader):{ var _0 : stdgo.GoMa
                     if ((((((((_sparseMap.length) % (2 : stdgo.GoInt) : stdgo.GoInt) == (0 : stdgo.GoInt)) && (_key != ("GNU.sparse.offset" : stdgo.GoString)) : Bool)) || (((((_sparseMap.length) % (2 : stdgo.GoInt) : stdgo.GoInt) == (1 : stdgo.GoInt)) && (_key != ("GNU.sparse.numbytes" : stdgo.GoString)) : Bool)) : Bool) || stdgo._internal.strings.Strings_contains.contains(_value?.__copy__(), ("," : stdgo.GoString)) : Bool)) {
                         return { _0 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _1 : stdgo._internal.archive.tar.Tar_errheader.errHeader };
                     };
-                    _sparseMap = (_sparseMap.__append__(_value?.__copy__()));
+                    _sparseMap = (_sparseMap.__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 } else {
                     _paxHdrs[_key] = _value?.__copy__();
                 };

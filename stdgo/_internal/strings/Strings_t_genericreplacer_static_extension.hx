@@ -121,7 +121,7 @@ package stdgo._internal.strings;
             _s = (_s + ((stdgo._internal.strings.Strings_repeat.repeat(("." : stdgo.GoString), _depth) + (@:checkr _t ?? throw "null pointer dereference")._prefix?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
             _s = (_s + (@:check2r _r._printNode((@:checkr _t ?? throw "null pointer dereference")._next, (_depth + ((@:checkr _t ?? throw "null pointer dereference")._prefix.length) : stdgo.GoInt)))?.__copy__() : stdgo.GoString);
         } else if ((@:checkr _t ?? throw "null pointer dereference")._table != null) {
-            for (_b => _m in (@:checkr _r ?? throw "null pointer dereference")._mapping) {
+            for (_b => _m in (@:checkr _r ?? throw "null pointer dereference")._mapping.__copy__()) {
                 if ((((_m : stdgo.GoInt) != (@:checkr _r ?? throw "null pointer dereference")._tableSize) && ({
                     final value = (@:checkr _t ?? throw "null pointer dereference")._table[(_m : stdgo.GoInt)];
                     (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));

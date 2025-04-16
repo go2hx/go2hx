@@ -23,7 +23,7 @@ function _loadMimeGlobsFile(_filename:stdgo.GoString):stdgo.Error {
                     continue;
                 };
                 {
-                    var __tmp__ = @:check2 stdgo._internal.mime.Mime__mimetypes._mimeTypes.load(stdgo.Go.toInterface(_extension)), __0:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = @:check2 stdgo._internal.mime.Mime__mimetypes._mimeTypes.load(stdgo.Go.toInterface(_extension)), __4:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         continue;
                     };

@@ -25,7 +25,7 @@ function readData(_r:stdgo._internal.io.Io_reader.Reader, _n:stdgo.GoUInt64):{ v
                 };
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
-            _buf = (_buf.__append__(...((_buf1.__slice__(0, _next) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+            _buf = (_buf.__append__(...((_buf1.__slice__(0, _next) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             _n = (_n - (_next) : stdgo.GoUInt64);
         };
         return { _0 : _buf, _1 : (null : stdgo.Error) };

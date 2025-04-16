@@ -9,7 +9,7 @@ function _parseFS(_t:stdgo.Ref<stdgo._internal.text.template.Template_template.T
             if ((_list.length) == ((0 : stdgo.GoInt))) {
                 return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("template: pattern matches no files: %#q" : stdgo.GoString), stdgo.Go.toInterface(_pattern)) };
             };
-            _filenames = (_filenames.__append__(...(_list : Array<stdgo.GoString>)));
+            _filenames = (_filenames.__append__(...(_list : Array<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>);
         };
         return stdgo._internal.text.template.Template__parsefiles._parseFiles(_t, stdgo._internal.text.template.Template__readfilefs._readFileFS(_fsys), ...(_filenames : Array<stdgo.GoString>));
     }

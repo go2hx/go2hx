@@ -1,2 +1,2 @@
 package stdgo._internal.log;
-final lshortfile = (64i64 : stdgo.GoUInt64);
+final lshortfile : stdgo.GoUInt64 = 16i32;

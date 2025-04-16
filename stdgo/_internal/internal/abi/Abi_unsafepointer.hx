@@ -1,2 +1,2 @@
 package stdgo._internal.internal.abi;
-final unsafePointer = (26u32 : stdgo._internal.internal.abi.Abi_kind.Kind);
+final unsafePointer : stdgo._internal.internal.abi.Abi_kind.Kind = 26i32;

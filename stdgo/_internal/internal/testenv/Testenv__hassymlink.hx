@@ -41,6 +41,8 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                                     _reason = __tmp__._1;
                                     __tmp__;
                                 };
+                                _ok = __ret__._0;
+                                _reason = __ret__._1;
                                 for (defer in __deferstack__) {
                                     if (defer.ran) continue;
                                     defer.ran = true;
@@ -61,6 +63,8 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                                         _reason = __tmp__._1;
                                         __tmp__;
                                     };
+                                    _ok = __ret__._0;
+                                    _reason = __ret__._1;
                                     for (defer in __deferstack__) {
                                         if (defer.ran) continue;
                                         defer.ran = true;
@@ -76,6 +80,8 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                                     _reason = __tmp__._1;
                                     __tmp__;
                                 };
+                                _ok = __ret__._0;
+                                _reason = __ret__._1;
                                 for (defer in __deferstack__) {
                                     if (defer.ran) continue;
                                     defer.ran = true;
@@ -94,6 +100,8 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                     _reason = __tmp__._1;
                     __tmp__;
                 };
+                _ok = __ret__._0;
+                _reason = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

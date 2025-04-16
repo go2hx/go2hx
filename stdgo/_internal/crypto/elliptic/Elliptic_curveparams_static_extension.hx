@@ -117,6 +117,7 @@ _byte = (_byte << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt8);
         stdgo._internal.crypto.elliptic.Elliptic__panicifnotoncurve._panicIfNotOnCurve(stdgo.Go.asInterface(_curve), _x1, _y1);
         var _z1 = stdgo._internal.crypto.elliptic.Elliptic__zforaffine._zForAffine(_x1, _y1);
         return ({
+            @:tupleArg var __tmp__ = @:check2r _curve._doubleJacobian(_x1, _y1, _z1);
             var __f__ = @:check2r _curve._affineFromJacobian;
             var __tmp__ = @:check2r _curve._doubleJacobian(_x1, _y1, _z1);
             __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (__tmp__._1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (__tmp__._2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
@@ -208,6 +209,7 @@ var _z3 = __2, _y3 = __1, _x3 = __0;
         var _z1 = stdgo._internal.crypto.elliptic.Elliptic__zforaffine._zForAffine(_x1, _y1);
         var _z2 = stdgo._internal.crypto.elliptic.Elliptic__zforaffine._zForAffine(_x2, _y2);
         return ({
+            @:tupleArg var __tmp__ = @:check2r _curve._addJacobian(_x1, _y1, _z1, _x2, _y2, _z2);
             var __f__ = @:check2r _curve._affineFromJacobian;
             var __tmp__ = @:check2r _curve._addJacobian(_x1, _y1, _z1, _x2, _y2, _z2);
             __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (__tmp__._1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (__tmp__._2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));

@@ -1,46 +1,8 @@
 package stdgo.internal.txtar;
-@:structInit @:using(stdgo.internal.txtar.Txtar.Archive_static_extension) abstract Archive(stdgo._internal.internal.txtar.Txtar_archive.Archive) from stdgo._internal.internal.txtar.Txtar_archive.Archive to stdgo._internal.internal.txtar.Txtar_archive.Archive {
-    public var comment(get, set) : Array<std.UInt>;
-    function get_comment():Array<std.UInt> return [for (i in this.comment) i];
-    function set_comment(v:Array<std.UInt>):Array<std.UInt> {
-        this.comment = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return v;
-    }
-    public var files(get, set) : Array<File>;
-    function get_files():Array<File> return [for (i in this.files) i];
-    function set_files(v:Array<File>):Array<File> {
-        this.files = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.txtar.Txtar_file.File>);
-        return v;
-    }
-    public function new(?comment:Array<std.UInt>, ?files:Array<File>) this = new stdgo._internal.internal.txtar.Txtar_archive.Archive(([for (i in comment) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in files) i] : stdgo.Slice<stdgo._internal.internal.txtar.Txtar_file.File>));
-    public function __underlying__() return stdgo.Go.toInterface(this);
-    public function __copy__() return this.__copy__();
-}
-@:structInit @:using(stdgo.internal.txtar.Txtar.File_static_extension) abstract File(stdgo._internal.internal.txtar.Txtar_file.File) from stdgo._internal.internal.txtar.Txtar_file.File to stdgo._internal.internal.txtar.Txtar_file.File {
-    public var name(get, set) : String;
-    function get_name():String return this.name;
-    function set_name(v:String):String {
-        this.name = (v : stdgo.GoString);
-        return v;
-    }
-    public var data(get, set) : Array<std.UInt>;
-    function get_data():Array<std.UInt> return [for (i in this.data) i];
-    function set_data(v:Array<std.UInt>):Array<std.UInt> {
-        this.data = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return v;
-    }
-    public function new(?name:String, ?data:Array<std.UInt>) this = new stdgo._internal.internal.txtar.Txtar_file.File((name : stdgo.GoString), ([for (i in data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
-    public function __underlying__() return stdgo.Go.toInterface(this);
-    public function __copy__() return this.__copy__();
-}
+typedef Archive = stdgo._internal.internal.txtar.Txtar_archive.Archive;
+typedef File = stdgo._internal.internal.txtar.Txtar_file.File;
 typedef ArchivePointer = stdgo._internal.internal.txtar.Txtar_archivepointer.ArchivePointer;
-class Archive_static_extension {
-
-}
 typedef FilePointer = stdgo._internal.internal.txtar.Txtar_filepointer.FilePointer;
-class File_static_extension {
-
-}
 /**
     * Package txtar implements a trivial text-based file archive format.
     * 
@@ -77,26 +39,14 @@ class Txtar {
         * a.Comment and all a.File[i].Data contain no file marker lines,
         * and all a.File[i].Name is non-empty.
     **/
-    static public inline function format(_a:Archive):Array<std.UInt> {
-        final _a = (_a : stdgo.Ref<stdgo._internal.internal.txtar.Txtar_archive.Archive>);
-        return [for (i in stdgo._internal.internal.txtar.Txtar_format.format(_a)) i];
-    }
+    static public inline function format(_a:stdgo.Ref<stdgo._internal.internal.txtar.Txtar_archive.Archive>):stdgo.Slice<stdgo.GoUInt8> return stdgo._internal.internal.txtar.Txtar_format.format(_a);
     /**
         * ParseFile parses the named file as an archive.
     **/
-    static public inline function parseFile(_file:String):stdgo.Tuple<Archive, stdgo.Error> {
-        final _file = (_file : stdgo.GoString);
-        return {
-            final obj = stdgo._internal.internal.txtar.Txtar_parsefile.parseFile(_file);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
+    static public inline function parseFile(_file:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.internal.txtar.Txtar_archive.Archive>; var _1 : stdgo.Error; } return stdgo._internal.internal.txtar.Txtar_parsefile.parseFile(_file);
     /**
         * Parse parses the serialized form of an Archive.
         * The returned Archive holds slices of data.
     **/
-    static public inline function parse(_data:Array<std.UInt>):Archive {
-        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.internal.txtar.Txtar_parse.parse(_data);
-    }
+    static public inline function parse(_data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Ref<stdgo._internal.internal.txtar.Txtar_archive.Archive> return stdgo._internal.internal.txtar.Txtar_parse.parse(_data);
 }

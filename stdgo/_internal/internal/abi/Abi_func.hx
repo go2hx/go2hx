@@ -1,2 +1,2 @@
 package stdgo._internal.internal.abi;
-final func = (26u32 : stdgo._internal.internal.abi.Abi_kind.Kind);
+final func : stdgo._internal.internal.abi.Abi_kind.Kind = 19i32;

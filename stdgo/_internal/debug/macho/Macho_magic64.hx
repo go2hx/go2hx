@@ -1,2 +1,2 @@
 package stdgo._internal.debug.macho;
-final magic64 : stdgo.GoUInt32 = (-17958193u32 : stdgo.GoUInt32);
+final magic64 : stdgo.GoUInt32 = 4277009103i32;

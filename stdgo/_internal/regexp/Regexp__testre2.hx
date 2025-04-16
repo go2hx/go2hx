@@ -49,7 +49,7 @@ if (_line == ((stdgo.Go.str() : stdgo.GoString))) {
                             @:check2r _t.fatalf(("%s:%d: unquote %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_err));
                         };
                         if (_inStrings) {
-                            _str = (_str.__append__(_q.__copy__()));
+                            _str = (_str.__append__(_q.__copy__()) : stdgo.Slice<stdgo.GoString>);
                             {
                                 _lineno++;
                                 continue;

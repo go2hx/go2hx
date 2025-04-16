@@ -169,7 +169,7 @@ if ((_pruneBeneath[_id] ?? false)) {
         @:recv var _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile> = _p;
         var _names:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         for (__0 => _fn in (@:checkr _p ?? throw "null pointer dereference").function_) {
-            _names = (_names.__append__((@:checkr _fn ?? throw "null pointer dereference").systemName?.__copy__()));
+            _names = (_names.__append__((@:checkr _fn ?? throw "null pointer dereference").systemName?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         var __tmp__ = _d(_names), _demangled:stdgo.GoMap<stdgo.GoString, stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -266,15 +266,15 @@ if ((_pruneBeneath[_id] ?? false)) {
             (@:checkr _p ?? throw "null pointer dereference").period = (@:checkr _pb ?? throw "null pointer dereference").period;
         };
         (@:checkr _p ?? throw "null pointer dereference").durationNanos = ((@:checkr _p ?? throw "null pointer dereference").durationNanos + ((@:checkr _pb ?? throw "null pointer dereference").durationNanos) : stdgo.GoInt64);
-        (@:checkr _p ?? throw "null pointer dereference").mapping = ((@:checkr _p ?? throw "null pointer dereference").mapping.__append__(...((@:checkr _pb ?? throw "null pointer dereference").mapping : Array<stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>>)));
+        (@:checkr _p ?? throw "null pointer dereference").mapping = ((@:checkr _p ?? throw "null pointer dereference").mapping.__append__(...((@:checkr _pb ?? throw "null pointer dereference").mapping : Array<stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>>);
         for (_i => _m in (@:checkr _p ?? throw "null pointer dereference").mapping) {
             (@:checkr _m ?? throw "null pointer dereference").iD = ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt64);
         };
-        (@:checkr _p ?? throw "null pointer dereference").location = ((@:checkr _p ?? throw "null pointer dereference").location.__append__(...((@:checkr _pb ?? throw "null pointer dereference").location : Array<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>)));
+        (@:checkr _p ?? throw "null pointer dereference").location = ((@:checkr _p ?? throw "null pointer dereference").location.__append__(...((@:checkr _pb ?? throw "null pointer dereference").location : Array<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
         for (_i => _l in (@:checkr _p ?? throw "null pointer dereference").location) {
             (@:checkr _l ?? throw "null pointer dereference").iD = ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt64);
         };
-        (@:checkr _p ?? throw "null pointer dereference").function_ = ((@:checkr _p ?? throw "null pointer dereference").function_.__append__(...((@:checkr _pb ?? throw "null pointer dereference").function_ : Array<stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>>)));
+        (@:checkr _p ?? throw "null pointer dereference").function_ = ((@:checkr _p ?? throw "null pointer dereference").function_.__append__(...((@:checkr _pb ?? throw "null pointer dereference").function_ : Array<stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>>);
         for (_i => _f in (@:checkr _p ?? throw "null pointer dereference").function_) {
             (@:checkr _f ?? throw "null pointer dereference").iD = ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt64);
         };
@@ -285,7 +285,7 @@ if ((_pruneBeneath[_id] ?? false)) {
                 };
             };
         };
-        (@:checkr _p ?? throw "null pointer dereference").sample = ((@:checkr _p ?? throw "null pointer dereference").sample.__append__(...((@:checkr _pb ?? throw "null pointer dereference").sample : Array<stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>>)));
+        (@:checkr _p ?? throw "null pointer dereference").sample = ((@:checkr _p ?? throw "null pointer dereference").sample.__append__(...((@:checkr _pb ?? throw "null pointer dereference").sample : Array<stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>>);
         return @:check2r _p.checkValid();
     }
     @:keep
@@ -299,22 +299,22 @@ if ((_pruneBeneath[_id] ?? false)) {
                 final value = _pt;
                 (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
             })) {
-                _ss = (_ss.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("PeriodType: %s %s" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _pt ?? throw "null pointer dereference").type), stdgo.Go.toInterface((@:checkr _pt ?? throw "null pointer dereference").unit))?.__copy__()));
+                _ss = (_ss.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("PeriodType: %s %s" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _pt ?? throw "null pointer dereference").type), stdgo.Go.toInterface((@:checkr _pt ?? throw "null pointer dereference").unit))?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
         };
-        _ss = (_ss.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("Period: %d" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _p ?? throw "null pointer dereference").period))?.__copy__()));
+        _ss = (_ss.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("Period: %d" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _p ?? throw "null pointer dereference").period))?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         if ((@:checkr _p ?? throw "null pointer dereference").timeNanos != ((0i64 : stdgo.GoInt64))) {
-            _ss = (_ss.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("Time: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.time.Time_unix.unix((0i64 : stdgo.GoInt64), (@:checkr _p ?? throw "null pointer dereference").timeNanos))))?.__copy__()));
+            _ss = (_ss.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("Time: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.time.Time_unix.unix((0i64 : stdgo.GoInt64), (@:checkr _p ?? throw "null pointer dereference").timeNanos))))?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         if ((@:checkr _p ?? throw "null pointer dereference").durationNanos != ((0i64 : stdgo.GoInt64))) {
-            _ss = (_ss.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("Duration: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(((@:checkr _p ?? throw "null pointer dereference").durationNanos : stdgo._internal.time.Time_duration.Duration))))?.__copy__()));
+            _ss = (_ss.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("Duration: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(((@:checkr _p ?? throw "null pointer dereference").durationNanos : stdgo._internal.time.Time_duration.Duration))))?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
-        _ss = (_ss.__append__((("Samples:" : stdgo.GoString) : stdgo.GoString)));
+        _ss = (_ss.__append__(("Samples:" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
         var _sh1:stdgo.GoString = ("" : stdgo.GoString);
         for (__0 => _s in (@:checkr _p ?? throw "null pointer dereference").sampleType) {
             _sh1 = (_sh1 + stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s/%s " : stdgo.GoString), stdgo.Go.toInterface((@:checkr _s ?? throw "null pointer dereference").type), stdgo.Go.toInterface((@:checkr _s ?? throw "null pointer dereference").unit))?.__copy__() : stdgo.GoString)?.__copy__();
         };
-        _ss = (_ss.__append__(stdgo._internal.strings.Strings_trimspace.trimSpace(_sh1?.__copy__())?.__copy__()));
+        _ss = (_ss.__append__(stdgo._internal.strings.Strings_trimspace.trimSpace(_sh1?.__copy__())?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         for (__1 => _s in (@:checkr _p ?? throw "null pointer dereference").sample) {
             var _sv:stdgo.GoString = ("" : stdgo.GoString);
             for (__2 => _v in (@:checkr _s ?? throw "null pointer dereference").value) {
@@ -324,24 +324,24 @@ if ((_pruneBeneath[_id] ?? false)) {
             for (__3 => _l in (@:checkr _s ?? throw "null pointer dereference").location) {
                 _sv = (_sv + stdgo._internal.fmt.Fmt_sprintf.sprintf(("%d " : stdgo.GoString), stdgo.Go.toInterface((@:checkr _l ?? throw "null pointer dereference").iD))?.__copy__() : stdgo.GoString)?.__copy__();
             };
-            _ss = (_ss.__append__(_sv?.__copy__()));
+            _ss = (_ss.__append__(_sv?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             {};
             if ((((@:checkr _s ?? throw "null pointer dereference").label.length) > (0 : stdgo.GoInt) : Bool)) {
                 var _ls = (("                " : stdgo.GoString) : stdgo.GoString);
                 for (_k => _v in (@:checkr _s ?? throw "null pointer dereference").label) {
                     _ls = (_ls + stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s:%v " : stdgo.GoString), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v))?.__copy__() : stdgo.GoString)?.__copy__();
                 };
-                _ss = (_ss.__append__(_ls?.__copy__()));
+                _ss = (_ss.__append__(_ls?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
             if ((((@:checkr _s ?? throw "null pointer dereference").numLabel.length) > (0 : stdgo.GoInt) : Bool)) {
                 var _ls = (("                " : stdgo.GoString) : stdgo.GoString);
                 for (_k => _v in (@:checkr _s ?? throw "null pointer dereference").numLabel) {
                     _ls = (_ls + stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s:%v " : stdgo.GoString), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v))?.__copy__() : stdgo.GoString)?.__copy__();
                 };
-                _ss = (_ss.__append__(_ls?.__copy__()));
+                _ss = (_ss.__append__(_ls?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
         };
-        _ss = (_ss.__append__((("Locations" : stdgo.GoString) : stdgo.GoString)));
+        _ss = (_ss.__append__(("Locations" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
         for (__2 => _l in (@:checkr _p ?? throw "null pointer dereference").location) {
             var _locStr = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%6d: %#x " : stdgo.GoString), stdgo.Go.toInterface((@:checkr _l ?? throw "null pointer dereference").iD), stdgo.Go.toInterface((@:checkr _l ?? throw "null pointer dereference").address))?.__copy__() : stdgo.GoString);
             {
@@ -354,7 +354,7 @@ if ((_pruneBeneath[_id] ?? false)) {
                 };
             };
             if (((@:checkr _l ?? throw "null pointer dereference").line.length) == ((0 : stdgo.GoInt))) {
-                _ss = (_ss.__append__(_locStr?.__copy__()));
+                _ss = (_ss.__append__(_locStr?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
             for (_li => _ in (@:checkr _l ?? throw "null pointer dereference").line) {
                 var _lnStr = (("??" : stdgo.GoString) : stdgo.GoString);
@@ -370,11 +370,11 @@ if ((_pruneBeneath[_id] ?? false)) {
                         };
                     };
                 };
-                _ss = (_ss.__append__((_locStr + _lnStr?.__copy__() : stdgo.GoString)?.__copy__()));
+                _ss = (_ss.__append__((_locStr + _lnStr?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 _locStr = ("             " : stdgo.GoString);
             };
         };
-        _ss = (_ss.__append__((("Mappings" : stdgo.GoString) : stdgo.GoString)));
+        _ss = (_ss.__append__(("Mappings" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
         for (__3 => _m in (@:checkr _p ?? throw "null pointer dereference").mapping) {
             var _bits = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             if ((@:checkr _m ?? throw "null pointer dereference").hasFunctions) {
@@ -389,7 +389,7 @@ if ((_pruneBeneath[_id] ?? false)) {
             if ((@:checkr _m ?? throw "null pointer dereference").hasInlineFrames) {
                 _bits = (_bits + (("[IN]" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             };
-            _ss = (_ss.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%d: %#x/%#x/%#x %s %s %s" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").iD), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").start), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").limit), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").offset), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").file), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").buildID), stdgo.Go.toInterface(_bits))?.__copy__()));
+            _ss = (_ss.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%d: %#x/%#x/%#x %s %s %s" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").iD), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").start), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").limit), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").offset), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").file), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").buildID), stdgo.Go.toInterface(_bits))?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         return (stdgo._internal.strings.Strings_join.join(_ss, ("\n" : stdgo.GoString)) + ("\n" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
     }
@@ -755,7 +755,7 @@ break;
                     if ((_idx >= (0 : stdgo.GoInt) : Bool)) {
                         var _attr = ((_l.__slice__(0, _idx) : stdgo.GoString)?.__copy__() : stdgo.GoString);
                         var _value = ((_l.__slice__((_idx + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString);
-                        _attrs = (_attrs.__append__((("$" : stdgo.GoString) + stdgo._internal.strings.Strings_trimspace.trimSpace(_attr?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__(), stdgo._internal.strings.Strings_trimspace.trimSpace(_value?.__copy__())?.__copy__()));
+                        _attrs = (_attrs.__append__((("$" : stdgo.GoString) + stdgo._internal.strings.Strings_trimspace.trimSpace(_attr?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__(), stdgo._internal.strings.Strings_trimspace.trimSpace(_value?.__copy__())?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                         _r = stdgo._internal.strings.Strings_newreplacer.newReplacer(...(_attrs : Array<stdgo.GoString>));
                     };
                     continue;
@@ -772,7 +772,7 @@ break;
                 (@:checkr (@:checkr _p ?? throw "null pointer dereference").mapping[(0 : stdgo.GoInt)] ?? throw "null pointer dereference").file = (@:checkr _m ?? throw "null pointer dereference").file?.__copy__();
                 continue;
             };
-            (@:checkr _p ?? throw "null pointer dereference").mapping = ((@:checkr _p ?? throw "null pointer dereference").mapping.__append__(_m));
+            (@:checkr _p ?? throw "null pointer dereference").mapping = ((@:checkr _p ?? throw "null pointer dereference").mapping.__append__(_m) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>>);
         };
         @:check2r _p._remapLocationIDs();
         @:check2r _p._remapFunctionIDs();
@@ -831,7 +831,7 @@ break;
                     continue;
                 };
                 (@:checkr _fn ?? throw "null pointer dereference").iD = (((_fns.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt64);
-                _fns = (_fns.__append__(_fn));
+                _fns = (_fns.__append__(_fn) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>>);
                 _seen[_fn] = true;
             };
         };
@@ -853,7 +853,7 @@ break;
                     continue;
                 };
                 (@:checkr _l ?? throw "null pointer dereference").iD = (((_locs.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt64);
-                _locs = (_locs.__append__(_l));
+                _locs = (_locs.__append__(_l) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
                 _seen[_l] = true;
             };
         };
@@ -870,7 +870,7 @@ break;
             _fm = (_fm || _focused : Bool);
             _im = (_im || _ignored : Bool);
             if ((_focused && !_ignored : Bool)) {
-                _samples = (_samples.__append__(_s));
+                _samples = (_samples.__append__(_s) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>>);
             };
         };
         (@:checkr _p ?? throw "null pointer dereference").sample = _samples;
@@ -925,7 +925,7 @@ break;
                     var _locs:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
                     for (__2 => _loc in (@:checkr _sample ?? throw "null pointer dereference").location) {
                         if (!(_hidden[(@:checkr _loc ?? throw "null pointer dereference").iD] ?? false)) {
-                            _locs = (_locs.__append__(_loc));
+                            _locs = (_locs.__append__(_loc) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
                         };
                     };
                     if ((_locs.length) == ((0 : stdgo.GoInt))) {
@@ -933,7 +933,7 @@ break;
                     };
                     (@:checkr _sample ?? throw "null pointer dereference").location = _locs;
                 };
-                _s = (_s.__append__(_sample));
+                _s = (_s.__append__(_sample) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>>);
             };
         };
         (@:checkr _p ?? throw "null pointer dereference").sample = _s;
@@ -1051,9 +1051,9 @@ break;
                         _value = @:tmpset0 __tmp__._0?.__copy__();
                         _err = @:tmpset0 __tmp__._1;
                     };
-                    _labels[_key] = ((_labels[_key] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(_value?.__copy__()));
+                    _labels[_key] = ((_labels[_key] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 } else {
-                    _numLabels[_key] = ((_numLabels[_key] ?? (null : stdgo.Slice<stdgo.GoInt64>)).__append__(_l._numX));
+                    _numLabels[_key] = ((_numLabels[_key] ?? (null : stdgo.Slice<stdgo.GoInt64>)).__append__(_l._numX) : stdgo.Slice<stdgo.GoInt64>);
                 };
             };
             if (((_labels.length) > (0 : stdgo.GoInt) : Bool)) {
@@ -1064,7 +1064,7 @@ break;
             };
             (@:checkr _s ?? throw "null pointer dereference").location = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
             for (__6 => _lid in (@:checkr _s ?? throw "null pointer dereference")._locationIDX) {
-                (@:checkr _s ?? throw "null pointer dereference").location = ((@:checkr _s ?? throw "null pointer dereference").location.__append__((_locations[_lid] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>))));
+                (@:checkr _s ?? throw "null pointer dereference").location = ((@:checkr _s ?? throw "null pointer dereference").location.__append__((_locations[_lid] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>))) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
             };
             (@:checkr _s ?? throw "null pointer dereference")._locationIDX = (null : stdgo.Slice<stdgo.GoUInt64>);
         };
@@ -1112,7 +1112,7 @@ break;
                 _c = @:tmpset0 __tmp__._0?.__copy__();
                 _err = @:tmpset0 __tmp__._1;
             };
-            (@:checkr _p ?? throw "null pointer dereference").comments = ((@:checkr _p ?? throw "null pointer dereference").comments.__append__(_c?.__copy__()));
+            (@:checkr _p ?? throw "null pointer dereference").comments = ((@:checkr _p ?? throw "null pointer dereference").comments.__append__(_c?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         (@:checkr _p ?? throw "null pointer dereference")._commentX = (null : stdgo.Slice<stdgo.GoInt64>);
         {
@@ -1177,29 +1177,29 @@ break;
             (@:checkr _s ?? throw "null pointer dereference")._labelX = (null : stdgo.Slice<stdgo._internal.internal.profile.Profile_label.Label>);
             var _keys:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
             for (_k => _ in (@:checkr _s ?? throw "null pointer dereference").label) {
-                _keys = (_keys.__append__(_k?.__copy__()));
+                _keys = (_keys.__append__(_k?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
             stdgo._internal.sort.Sort_strings.strings(_keys);
             for (__2 => _k in _keys) {
                 var _vs = ((@:checkr _s ?? throw "null pointer dereference").label[_k] ?? (null : stdgo.Slice<stdgo.GoString>));
                 for (__3 => _v in _vs) {
-                    (@:checkr _s ?? throw "null pointer dereference")._labelX = ((@:checkr _s ?? throw "null pointer dereference")._labelX.__append__(({ _keyX : stdgo._internal.internal.profile.Profile__addstring._addString(_strings, _k?.__copy__()), _strX : stdgo._internal.internal.profile.Profile__addstring._addString(_strings, _v?.__copy__()) } : stdgo._internal.internal.profile.Profile_label.Label)));
+                    (@:checkr _s ?? throw "null pointer dereference")._labelX = ((@:checkr _s ?? throw "null pointer dereference")._labelX.__append__(({ _keyX : stdgo._internal.internal.profile.Profile__addstring._addString(_strings, _k?.__copy__()), _strX : stdgo._internal.internal.profile.Profile__addstring._addString(_strings, _v?.__copy__()) } : stdgo._internal.internal.profile.Profile_label.Label)) : stdgo.Slice<stdgo._internal.internal.profile.Profile_label.Label>);
                 };
             };
             var _numKeys:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
             for (_k => _ in (@:checkr _s ?? throw "null pointer dereference").numLabel) {
-                _numKeys = (_numKeys.__append__(_k?.__copy__()));
+                _numKeys = (_numKeys.__append__(_k?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
             stdgo._internal.sort.Sort_strings.strings(_numKeys);
             for (__3 => _k in _numKeys) {
                 var _vs = ((@:checkr _s ?? throw "null pointer dereference").numLabel[_k] ?? (null : stdgo.Slice<stdgo.GoInt64>));
                 for (__4 => _v in _vs) {
-                    (@:checkr _s ?? throw "null pointer dereference")._labelX = ((@:checkr _s ?? throw "null pointer dereference")._labelX.__append__(({ _keyX : stdgo._internal.internal.profile.Profile__addstring._addString(_strings, _k?.__copy__()), _numX : _v } : stdgo._internal.internal.profile.Profile_label.Label)));
+                    (@:checkr _s ?? throw "null pointer dereference")._labelX = ((@:checkr _s ?? throw "null pointer dereference")._labelX.__append__(({ _keyX : stdgo._internal.internal.profile.Profile__addstring._addString(_strings, _k?.__copy__()), _numX : _v } : stdgo._internal.internal.profile.Profile_label.Label)) : stdgo.Slice<stdgo._internal.internal.profile.Profile_label.Label>);
                 };
             };
             (@:checkr _s ?? throw "null pointer dereference")._locationIDX = (null : stdgo.Slice<stdgo.GoUInt64>);
             for (__4 => _l in (@:checkr _s ?? throw "null pointer dereference").location) {
-                (@:checkr _s ?? throw "null pointer dereference")._locationIDX = ((@:checkr _s ?? throw "null pointer dereference")._locationIDX.__append__((@:checkr _l ?? throw "null pointer dereference").iD));
+                (@:checkr _s ?? throw "null pointer dereference")._locationIDX = ((@:checkr _s ?? throw "null pointer dereference")._locationIDX.__append__((@:checkr _l ?? throw "null pointer dereference").iD) : stdgo.Slice<stdgo.GoUInt64>);
             };
         };
         for (__2 => _m in (@:checkr _p ?? throw "null pointer dereference").mapping) {

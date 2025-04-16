@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final relocName = (9 : stdgo._internal.internal.pkgbits.Pkgbits_relockind.RelocKind);
+final relocName : stdgo._internal.internal.pkgbits.Pkgbits_relockind.RelocKind = 4i32;

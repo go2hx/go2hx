@@ -18,5 +18,5 @@ function _appendCmd(_cmds:stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.pa
                 };
             };
         };
-        return (_cmds.__append__(_cmd));
+        return (_cmds.__append__(_cmd) : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>>);
     }

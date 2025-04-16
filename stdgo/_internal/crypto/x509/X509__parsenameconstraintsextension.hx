@@ -73,7 +73,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                                 };
                             };
                         };
-                        _dnsNames = (_dnsNames.__append__(_domain?.__copy__()));
+                        _dnsNames = (_dnsNames.__append__(_domain?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     } else if (__value__ == (_ipTag)) {
                         var _l = (_value.length : stdgo.GoInt);
                         var _ip:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>), _mask:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
@@ -108,7 +108,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                                 __tmp__;
                             };
                         };
-                        _ips = (_ips.__append__((stdgo.Go.setRef(({ iP : (_ip : stdgo._internal.net.Net_ip.IP), mask : (_mask : stdgo._internal.net.Net_ipmask.IPMask) } : stdgo._internal.net.Net_ipnet.IPNet)) : stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>)));
+                        _ips = (_ips.__append__((stdgo.Go.setRef(({ iP : (_ip : stdgo._internal.net.Net_ip.IP), mask : (_mask : stdgo._internal.net.Net_ipmask.IPMask) } : stdgo._internal.net.Net_ipnet.IPNet)) : stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>);
                     } else if (__value__ == (_emailTag)) {
                         var _constraint = ((_value : stdgo.GoString)?.__copy__() : stdgo.GoString);
                         {
@@ -160,7 +160,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                                 };
                             };
                         };
-                        _emails = (_emails.__append__(_constraint?.__copy__()));
+                        _emails = (_emails.__append__(_constraint?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     } else if (__value__ == (_uriTag)) {
                         var _domain = ((_value : stdgo.GoString)?.__copy__() : stdgo.GoString);
                         {
@@ -206,7 +206,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                                 };
                             };
                         };
-                        _uriDomains = (_uriDomains.__append__(_domain?.__copy__()));
+                        _uriDomains = (_uriDomains.__append__(_domain?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     } else {
                         _unhandled = true;
                     };

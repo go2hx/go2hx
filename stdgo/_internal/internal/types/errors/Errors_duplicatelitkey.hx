@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final duplicateLitKey = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final duplicateLitKey : stdgo._internal.internal.types.errors.Errors_code.Code = 60i32;

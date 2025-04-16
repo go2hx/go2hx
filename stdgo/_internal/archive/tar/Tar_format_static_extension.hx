@@ -9,7 +9,7 @@ package stdgo._internal.archive.tar;
             var _f2 = ((1 : stdgo._internal.archive.tar.Tar_format.Format) : stdgo._internal.archive.tar.Tar_format.Format);
             while ((_f2 < (32 : stdgo._internal.archive.tar.Tar_format.Format) : Bool)) {
                 if (_f._has(_f2)) {
-                    _ss = (_ss.__append__((stdgo._internal.archive.tar.Tar__formatnames._formatNames[_f2] ?? ("" : stdgo.GoString)).__copy__()));
+                    _ss = (_ss.__append__((stdgo._internal.archive.tar.Tar__formatnames._formatNames[_f2] ?? ("" : stdgo.GoString)).__copy__()) : stdgo.Slice<stdgo.GoString>);
                 };
                 _f2 = (_f2 << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.archive.tar.Tar_format.Format);
             };

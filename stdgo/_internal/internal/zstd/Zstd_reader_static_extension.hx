@@ -39,7 +39,7 @@ package stdgo._internal.internal.zstd;
         };
         if (((_buf.length) >= (@:checkr _r ?? throw "null pointer dereference")._windowSize : Bool)) {
             var _from = ((_buf.length) - (@:checkr _r ?? throw "null pointer dereference")._windowSize : stdgo.GoInt);
-            (@:checkr _r ?? throw "null pointer dereference")._window = (((@:checkr _r ?? throw "null pointer dereference")._window.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...((_buf.__slice__(_from) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+            (@:checkr _r ?? throw "null pointer dereference")._window = (((@:checkr _r ?? throw "null pointer dereference")._window.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...((_buf.__slice__(_from) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             return;
         };
         var _keep = ((@:checkr _r ?? throw "null pointer dereference")._windowSize - (_buf.length) : stdgo.GoInt);
@@ -47,7 +47,7 @@ package stdgo._internal.internal.zstd;
             var _remove = (((@:checkr _r ?? throw "null pointer dereference")._window.length) - _keep : stdgo.GoInt);
             ((@:checkr _r ?? throw "null pointer dereference")._window.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(((@:checkr _r ?? throw "null pointer dereference")._window.__slice__(_remove) : stdgo.Slice<stdgo.GoUInt8>));
         };
-        (@:checkr _r ?? throw "null pointer dereference")._window = ((@:checkr _r ?? throw "null pointer dereference")._window.__append__(...(_buf : Array<stdgo.GoUInt8>)));
+        (@:checkr _r ?? throw "null pointer dereference")._window = ((@:checkr _r ?? throw "null pointer dereference")._window.__append__(...(_buf : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     @:tdfield
@@ -55,7 +55,7 @@ package stdgo._internal.internal.zstd;
         @:recv var _r:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader> = _r;
         if (((@:checkr _r ?? throw "null pointer dereference")._buffer.capacity < _size : Bool)) {
             var _need = (_size - (@:checkr _r ?? throw "null pointer dereference")._buffer.capacity : stdgo.GoInt);
-            (@:checkr _r ?? throw "null pointer dereference")._buffer = (((@:checkr _r ?? throw "null pointer dereference")._buffer.__slice__(0, (@:checkr _r ?? throw "null pointer dereference")._buffer.capacity) : stdgo.Slice<stdgo.GoUInt8>).__append__(...((new stdgo.Slice<stdgo.GoUInt8>((_need : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+            (@:checkr _r ?? throw "null pointer dereference")._buffer = (((@:checkr _r ?? throw "null pointer dereference")._buffer.__slice__(0, (@:checkr _r ?? throw "null pointer dereference")._buffer.capacity) : stdgo.Slice<stdgo.GoUInt8>).__append__(...((new stdgo.Slice<stdgo.GoUInt8>((_need : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__slice__(0, _size) : stdgo.Slice<stdgo.GoUInt8>);
     }
@@ -214,25 +214,25 @@ package stdgo._internal.internal.zstd;
     @:tdfield
     static public function _readFrameHeader( _r:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader>):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader> = _r;
-        var _windowSize_17:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _descriptor_5:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _err_3:stdgo.Error = (null : stdgo.Error);
-        var _windowDescriptorSize_8:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _magic_2:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _windowDescriptor_11:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _fcsFieldSize_7:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _singleSegment_6:Bool = false;
         var _err_4:stdgo.Error = (null : stdgo.Error);
-        var _relativeOffset_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _fb_18:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _windowLog_14:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _mantissa_13:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _windowBase_15:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _exponent_12:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _err_10:stdgo.Error = (null : stdgo.Error);
         var _headerSize_9:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_1:stdgo.Error = (null : stdgo.Error);
+        var _singleSegment_6:Bool = false;
+        var _exponent_12:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _fcsFieldSize_7:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _fb_18:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _err_10:stdgo.Error = (null : stdgo.Error);
+        var _relativeOffset_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _windowAdd_16:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _windowBase_15:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _windowLog_14:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _windowDescriptor_11:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _magic_2:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _err_1:stdgo.Error = (null : stdgo.Error);
+        var _windowSize_17:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _mantissa_13:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _windowDescriptorSize_8:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_3:stdgo.Error = (null : stdgo.Error);
         var _gotoNext = 0i32;
         _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -604,7 +604,7 @@ package stdgo._internal.internal.zstd;
         var _out3 = (_out2 + _regeneratedStreamSize : stdgo.GoInt);
         var _out4 = (_out3 + _regeneratedStreamSize : stdgo.GoInt);
         var _regeneratedStreamSize4 = (_regeneratedSize - (_regeneratedStreamSize * (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
-        _outbuf = (_outbuf.__append__(...((new stdgo.Slice<stdgo.GoUInt8>((_regeneratedSize : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+        _outbuf = (_outbuf.__append__(...((new stdgo.Slice<stdgo.GoUInt8>((_regeneratedSize : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         var _huffTable = (@:checkr _r ?? throw "null pointer dereference")._huffmanTable;
         var _huffBits = ((@:checkr _r ?? throw "null pointer dereference")._huffmanTableBits : stdgo.GoUInt32);
         var _huffMask = ((((1u32 : stdgo.GoUInt32) << _huffBits : stdgo.GoUInt32)) - (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
@@ -674,7 +674,7 @@ _rbr3._cnt = (_rbr3._cnt - (((_t3 & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : s
 var _t:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
 var _idx = (((_rbr._bits >> ((_rbr._cnt - _huffBits : stdgo.GoUInt32)) : stdgo.GoUInt32)) & _huffMask : stdgo.GoUInt32);
 _t = _huffTable[(_idx : stdgo.GoInt)];
-_outbuf = (_outbuf.__append__(((_t >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8)));
+_outbuf = (_outbuf.__append__(((_t >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
 _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdgo.GoUInt32)) : stdgo.GoUInt32);
                 _i++;
             };
@@ -795,7 +795,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
             if (((_off + _regeneratedSize : stdgo.GoInt) > (_data.length) : Bool)) {
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : @:check2r _r._makeError(_off, ("raw literal size too large" : stdgo.GoString)) };
             };
-            _outbuf = (_outbuf.__append__(...((_data.__slice__(_off, (_off + _regeneratedSize : stdgo.GoInt)) : stdgo._internal.internal.zstd.Zstd_t_block.T_block) : Array<stdgo.GoUInt8>)));
+            _outbuf = (_outbuf.__append__(...((_data.__slice__(_off, (_off + _regeneratedSize : stdgo.GoInt)) : stdgo._internal.internal.zstd.Zstd_t_block.T_block) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             _off = (_off + (_regeneratedSize) : stdgo.GoInt);
         } else {
             if ((_off >= (_data.length) : Bool)) {
@@ -806,7 +806,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < _regeneratedSize : Bool)) {
-                    _outbuf = (_outbuf.__append__(_rle));
+                    _outbuf = (_outbuf.__append__(_rle) : stdgo.Slice<stdgo.GoUInt8>);
                     _i++;
                 };
             };
@@ -1427,10 +1427,10 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
             };
             var _from = (_lenWindow - _windowOffset : stdgo.GoUInt32);
             if (((_from + _match : stdgo.GoUInt32) <= _lenWindow : Bool)) {
-                (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...(((@:checkr _r ?? throw "null pointer dereference")._window.__slice__(_from, (_from + _match : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+                (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...(((@:checkr _r ?? throw "null pointer dereference")._window.__slice__(_from, (_from + _match : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 return (null : stdgo.Error);
             };
-            (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...(((@:checkr _r ?? throw "null pointer dereference")._window.__slice__(_from) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+            (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...(((@:checkr _r ?? throw "null pointer dereference")._window.__slice__(_from) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             var _copied = (_lenWindow - _from : stdgo.GoUInt32);
             _offset = (_offset - (_copied) : stdgo.GoUInt32);
             _match = (_match - (_copied) : stdgo.GoUInt32);
@@ -1440,7 +1440,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
         };
         var _from = (_lenBlock - _offset : stdgo.GoUInt32);
         if ((_offset >= _match : Bool)) {
-            (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...(((@:checkr _r ?? throw "null pointer dereference")._buffer.__slice__(_from, (_from + _match : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+            (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...(((@:checkr _r ?? throw "null pointer dereference")._buffer.__slice__(_from, (_from + _match : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             return (null : stdgo.Error);
         };
         while ((_match > (0u32 : stdgo.GoUInt32) : Bool)) {
@@ -1450,7 +1450,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
             } else {
                 _copy = _offset;
             };
-            (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...(((@:checkr _r ?? throw "null pointer dereference")._buffer.__slice__(_from, (_from + _copy : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+            (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...(((@:checkr _r ?? throw "null pointer dereference")._buffer.__slice__(_from, (_from + _copy : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             _match = (_match - (_copy) : stdgo.GoUInt32);
             _from = (_from + (_copy) : stdgo.GoUInt32);
         };
@@ -1573,7 +1573,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
                 return @:check2 _rbr._makeError(("literal byte overflow" : stdgo.GoString));
             };
             if ((_literal > (0u32 : stdgo.GoUInt32) : Bool)) {
-                (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...((_litbuf.__slice__(0, _literal) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+                (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...((_litbuf.__slice__(0, _literal) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 _litbuf = (_litbuf.__slice__(_literal) : stdgo.Slice<stdgo.GoUInt8>);
             };
             if ((_match > (0u32 : stdgo.GoUInt32) : Bool)) {
@@ -1586,7 +1586,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
             };
         };
         if (((_litbuf.length) > (0 : stdgo.GoInt) : Bool)) {
-            (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...(_litbuf : Array<stdgo.GoUInt8>)));
+            (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...(_litbuf : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if (_rbr._cnt != ((0u32 : stdgo.GoUInt32))) {
             return @:check2r _r._makeError(_off, ("extraneous data after sequences" : stdgo.GoString));
@@ -1727,7 +1727,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
             (@:checkr _r ?? throw "null pointer dereference")._compressedBuf = ((@:checkr _r ?? throw "null pointer dereference")._compressedBuf.__slice__(0, _blockSize) : stdgo.Slice<stdgo.GoUInt8>);
         } else {
             var _need = (_blockSize - ((@:checkr _r ?? throw "null pointer dereference")._compressedBuf.length) : stdgo.GoInt);
-            (@:checkr _r ?? throw "null pointer dereference")._compressedBuf = ((@:checkr _r ?? throw "null pointer dereference")._compressedBuf.__append__(...((new stdgo.Slice<stdgo.GoUInt8>((_need : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+            (@:checkr _r ?? throw "null pointer dereference")._compressedBuf = ((@:checkr _r ?? throw "null pointer dereference")._compressedBuf.__append__(...((new stdgo.Slice<stdgo.GoUInt8>((_need : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         {
             var __tmp__ = stdgo._internal.io.Io_readfull.readFull((@:checkr _r ?? throw "null pointer dereference")._r, (@:checkr _r ?? throw "null pointer dereference")._compressedBuf), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1755,7 +1755,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
             if ((_litbuf.length) == ((0 : stdgo.GoInt))) {
                 return @:check2r _r._makeError(_off, ("no sequences and no literals" : stdgo.GoString));
             };
-            (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...(_litbuf : Array<stdgo.GoUInt8>)));
+            (@:checkr _r ?? throw "null pointer dereference")._buffer = ((@:checkr _r ?? throw "null pointer dereference")._buffer.__append__(...(_litbuf : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             return (null : stdgo.Error);
         };
         return @:check2r _r._execSeqs(_data, _off, _litbuf, _seqCount);

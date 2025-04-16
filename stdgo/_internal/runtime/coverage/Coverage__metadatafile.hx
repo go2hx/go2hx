@@ -1,2 +1,2 @@
 package stdgo._internal.runtime.coverage;
-final _metaDataFile = (4i64 : stdgo.GoUInt64);
+final _metaDataFile : stdgo.GoUInt64 = 2i32;

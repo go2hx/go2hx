@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final mismatchedPkgName = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final mismatchedPkgName : stdgo._internal.internal.types.errors.Errors_code.Code = 3i32;

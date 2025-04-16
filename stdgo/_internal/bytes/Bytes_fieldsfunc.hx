@@ -17,7 +17,7 @@ function fieldsFunc(_s:stdgo.Slice<stdgo.GoUInt8>, _f:stdgo.GoInt32 -> Bool):std
                 };
                 if (_f(_r)) {
                     if ((_start >= (0 : stdgo.GoInt) : Bool)) {
-                        _spans = (_spans.__append__((new stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914(_start, _i) : stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914)));
+                        _spans = (_spans.__append__((new stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914(_start, _i) : stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914)) : stdgo.Slice<stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914>);
                         _start = (-1 : stdgo.GoInt);
                     };
                 } else {
@@ -29,7 +29,7 @@ function fieldsFunc(_s:stdgo.Slice<stdgo.GoUInt8>, _f:stdgo.GoInt32 -> Bool):std
             };
         };
         if ((_start >= (0 : stdgo.GoInt) : Bool)) {
-            _spans = (_spans.__append__((new stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914(_start, (_s.length)) : stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914)));
+            _spans = (_spans.__append__((new stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914(_start, (_s.length)) : stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914)) : stdgo.Slice<stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914>);
         };
         var _a = (new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>((_spans.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
         for (_i => _span in _spans) {

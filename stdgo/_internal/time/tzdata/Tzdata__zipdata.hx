@@ -1,5 +1,5 @@
 package stdgo._internal.time.tzdata;
-final _zipdata : stdgo.GoString = (stdgo.Go.str("PK",
+final _zipdata : stdgo.GoString = stdgo.Go.str("PK",
 3,
 4,
 0,
@@ -342893,4 +342893,4 @@ final _zipdata : stdgo.GoString = (stdgo.Go.str("PK",
 5,
 0,
 0,
-0) : stdgo.GoString);
+0);

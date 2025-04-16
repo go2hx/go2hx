@@ -22,14 +22,14 @@ package stdgo._internal.encoding.gob;
             return ("<nil>" : stdgo.GoString);
         };
         {
-            var __tmp__ = (_seen != null && _seen.__exists__((@:checkr _s ?? throw "null pointer dereference").commonType.id) ? { _0 : _seen[(@:checkr _s ?? throw "null pointer dereference").commonType.id], _1 : true } : { _0 : false, _1 : false }), __4:Bool = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = (_seen != null && _seen.__exists__((@:checkr _s ?? throw "null pointer dereference").commonType.id) ? { _0 : _seen[(@:checkr _s ?? throw "null pointer dereference").commonType.id], _1 : true } : { _0 : false, _1 : false }), __8:Bool = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return (@:checkr _s ?? throw "null pointer dereference").commonType.name?.__copy__();
             };
         };
         _seen[(@:checkr _s ?? throw "null pointer dereference").commonType.id] = true;
         var _str = (((@:checkr _s ?? throw "null pointer dereference").commonType.name + (" = struct { " : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
-        for (__5 => _f in (@:checkr _s ?? throw "null pointer dereference").field) {
+        for (__9 => _f in (@:checkr _s ?? throw "null pointer dereference").field) {
             _str = (_str + (stdgo._internal.fmt.Fmt_sprintf.sprintf((("%s %s; " : stdgo.GoString) : stdgo.GoString), stdgo.Go.toInterface(_f.name), stdgo.Go.toInterface(_f.id._gobType()._safeString(_seen))))?.__copy__() : stdgo.GoString);
         };
         _str = (_str + (("}" : stdgo.GoString))?.__copy__() : stdgo.GoString);

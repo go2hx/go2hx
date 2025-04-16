@@ -114,6 +114,10 @@ package stdgo._internal.internal.fuzz;
                         _err = __tmp__._3;
                         __tmp__;
                     };
+                    _entryOut = __ret__._0;
+                    _resp = __ret__._1;
+                    _isInternalError = __ret__._2;
+                    _err = __ret__._3;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -135,6 +139,10 @@ package stdgo._internal.internal.fuzz;
                         _err = __tmp__._3;
                         __tmp__;
                     };
+                    _entryOut = __ret__._0;
+                    _resp = __ret__._1;
+                    _isInternalError = __ret__._2;
+                    _err = __ret__._3;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -157,6 +165,10 @@ package stdgo._internal.internal.fuzz;
                         _err = __tmp__._3;
                         __tmp__;
                     };
+                    _entryOut = __ret__._0;
+                    _resp = __ret__._1;
+                    _isInternalError = __ret__._2;
+                    _err = __ret__._3;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -180,6 +192,10 @@ package stdgo._internal.internal.fuzz;
                         _err = __tmp__._3;
                         __tmp__;
                     };
+                    _entryOut = __ret__._0;
+                    _resp = __ret__._1;
+                    _isInternalError = __ret__._2;
+                    _err = __ret__._3;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -207,6 +223,10 @@ package stdgo._internal.internal.fuzz;
                         _err = __tmp__._3;
                         __tmp__;
                     };
+                    _entryOut = __ret__._0;
+                    _resp = __ret__._1;
+                    _isInternalError = __ret__._2;
+                    _err = __ret__._3;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -228,6 +248,10 @@ package stdgo._internal.internal.fuzz;
                             _err = __tmp__._3;
                             __tmp__;
                         };
+                        _entryOut = __ret__._0;
+                        _resp = __ret__._1;
+                        _isInternalError = __ret__._2;
+                        _err = __ret__._3;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -264,6 +288,10 @@ package stdgo._internal.internal.fuzz;
                     _err = __tmp__._3;
                     __tmp__;
                 };
+                _entryOut = __ret__._0;
+                _resp = __ret__._1;
+                _isInternalError = __ret__._2;
+                _err = __ret__._3;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -347,6 +375,9 @@ package stdgo._internal.internal.fuzz;
                         _retErr = __tmp__._2;
                         __tmp__;
                     };
+                    _entryOut = __ret__._0;
+                    _resp = __ret__._1;
+                    _retErr = __ret__._2;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -374,6 +405,9 @@ package stdgo._internal.internal.fuzz;
                         _retErr = __tmp__._2;
                         __tmp__;
                     };
+                    _entryOut = __ret__._0;
+                    _resp = __ret__._1;
+                    _retErr = __ret__._2;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -398,6 +432,9 @@ package stdgo._internal.internal.fuzz;
                         _retErr = __tmp__._2;
                         __tmp__;
                     };
+                    _entryOut = __ret__._0;
+                    _resp = __ret__._1;
+                    _retErr = __ret__._2;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -428,6 +465,9 @@ package stdgo._internal.internal.fuzz;
                             _retErr = __tmp__._2;
                             __tmp__;
                         };
+                        _entryOut = __ret__._0;
+                        _resp = __ret__._1;
+                        _retErr = __ret__._2;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -447,6 +487,9 @@ package stdgo._internal.internal.fuzz;
                                 _retErr = __tmp__._2;
                                 __tmp__;
                             };
+                            _entryOut = __ret__._0;
+                            _resp = __ret__._1;
+                            _retErr = __ret__._2;
                             for (defer in __deferstack__) {
                                 if (defer.ran) continue;
                                 defer.ran = true;
@@ -484,6 +527,9 @@ package stdgo._internal.internal.fuzz;
                                 _retErr = __tmp__._2;
                                 __tmp__;
                             };
+                            _entryOut = __ret__._0;
+                            _resp = __ret__._1;
+                            _retErr = __ret__._2;
                             for (defer in __deferstack__) {
                                 if (defer.ran) continue;
                                 defer.ran = true;
@@ -517,6 +563,9 @@ package stdgo._internal.internal.fuzz;
                     _retErr = __tmp__._2;
                     __tmp__;
                 };
+                _entryOut = __ret__._0;
+                _resp = __ret__._1;
+                _retErr = __ret__._2;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

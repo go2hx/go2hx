@@ -9,7 +9,7 @@ _o = (_o & ((127 : stdgo.GoUInt8)) : stdgo.GoUInt8);
 if (_i != ((0 : stdgo.GoInt))) {
                     _o = (_o | ((128 : stdgo.GoUInt8)) : stdgo.GoUInt8);
                 };
-_dst = (_dst.__append__(_o));
+_dst = (_dst.__append__(_o) : stdgo.Slice<stdgo.GoUInt8>);
                 _i--;
             };
         };

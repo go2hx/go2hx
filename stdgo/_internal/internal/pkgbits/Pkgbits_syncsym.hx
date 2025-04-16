@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final syncSym = (69 : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker);
+final syncSym : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker = 26i32;

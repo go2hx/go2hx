@@ -1,2 +1,2 @@
 package stdgo._internal.html.template;
-final errNoSuchTemplate = (12 : stdgo._internal.html.template.Template_errorcode.ErrorCode);
+final errNoSuchTemplate : stdgo._internal.html.template.Template_errorcode.ErrorCode = 5i32;

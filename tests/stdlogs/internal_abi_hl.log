@@ -10,7 +10,7 @@ Called from _internal.internal.abidottest._Abidottest.$Abidottest_Fields_.main (
 -- FAIL: TestFuncPC
 
 === RUN  TestFuncPCCompileError
-Exception: __skip__
+skipping test: 'go build' unavailable: <nil>Exception: __skip__
 Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
 Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53)
 Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_t_.hx line 75)
@@ -24,6 +24,5 @@ Called from _internal.internal.abidottest._Abidottest.$Abidottest_Fields_.main (
 
 -- PASS: TestFuncPCCompileError
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestFuncPC

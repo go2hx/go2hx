@@ -108,7 +108,7 @@ _linktab[(_off : stdgo.GoInt)] = _chunk;
             };
         };
         if (false) {
-            for (_i => _chunk in (@:checkr _h ?? throw "null pointer dereference")._chunks) {
+            for (_i => _chunk in (@:checkr _h ?? throw "null pointer dereference")._chunks.__copy__()) {
                 if (_chunk == ((0u32 : stdgo.GoUInt32))) {
                     if (((_code == (1 : stdgo.GoInt)) && ((_i % (2 : stdgo.GoInt) : stdgo.GoInt) == (1 : stdgo.GoInt)) : Bool)) {
                         continue;

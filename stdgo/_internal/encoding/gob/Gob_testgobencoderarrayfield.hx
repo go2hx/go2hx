@@ -4,7 +4,7 @@ function testGobEncoderArrayField(_t:stdgo.Ref<stdgo._internal.testing.Testing_t
         var _enc = stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo.Go.asInterface(_b));
         var _a:stdgo._internal.encoding.gob.Gob_gobtestarrayencdec.GobTestArrayEncDec = ({} : stdgo._internal.encoding.gob.Gob_gobtestarrayencdec.GobTestArrayEncDec);
         _a.x = (17 : stdgo.GoInt);
-        for (_i => _ in _a.a._a) {
+        for (_i => _ in _a.a._a.__copy__()) {
             _a.a._a[(_i : stdgo.GoInt)] = (_i : stdgo.GoUInt8);
         };
         var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_gobtestarrayencdec.GobTestArrayEncDec>)))) : stdgo.Error);
@@ -17,7 +17,7 @@ function testGobEncoderArrayField(_t:stdgo.Ref<stdgo._internal.testing.Testing_t
         if (_err != null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(("decode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
-        for (_i => _v in (@:checkr _x ?? throw "null pointer dereference").a._a) {
+        for (_i => _v in (@:checkr _x ?? throw "null pointer dereference").a._a.__copy__()) {
             if (_v != ((_i : stdgo.GoUInt8))) {
                 @:check2r _t.errorf(("expected %x got %x" : stdgo.GoString), stdgo.Go.toInterface((_i : stdgo.GoUInt8)), stdgo.Go.toInterface(_v));
                 break;

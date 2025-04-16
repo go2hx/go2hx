@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final typeStruct = (11 : stdgo._internal.internal.pkgbits.Pkgbits_codetype.CodeType);
+final typeStruct : stdgo._internal.internal.pkgbits.Pkgbits_codetype.CodeType = 8i32;

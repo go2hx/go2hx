@@ -1,2 +1,2 @@
 package stdgo._internal.text.template.parse;
-final _itemLeftDelim = (34 : stdgo._internal.text.template.parse.Parse_t_itemtype.T_itemType);
+final _itemLeftDelim : stdgo._internal.text.template.parse.Parse_t_itemtype.T_itemType = 11i32;

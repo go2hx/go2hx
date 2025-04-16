@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final syncRType = (69 : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker);
+final syncRType : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker = 68i32;

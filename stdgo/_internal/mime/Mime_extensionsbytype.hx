@@ -9,7 +9,7 @@ function extensionsByType(_typ:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoSt
         if (!_ok) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
         };
-        var _ret = ((null : stdgo.Slice<stdgo.GoString>).__append__(...((stdgo.Go.typeAssert((_s : stdgo.Slice<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>) : Array<stdgo.GoString>)));
+        var _ret = ((null : stdgo.Slice<stdgo.GoString>).__append__(...((stdgo.Go.typeAssert((_s : stdgo.Slice<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>) : Array<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>);
         stdgo._internal.sort.Sort_strings.strings(_ret);
         return { _0 : _ret, _1 : (null : stdgo.Error) };
     }

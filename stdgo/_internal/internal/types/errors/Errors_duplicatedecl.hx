@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final duplicateDecl = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final duplicateDecl : stdgo._internal.internal.types.errors.Errors_code.Code = 10i32;

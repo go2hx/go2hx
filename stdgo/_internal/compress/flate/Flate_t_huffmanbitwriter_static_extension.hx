@@ -135,7 +135,7 @@ package stdgo._internal.compress.flate;
         if ((@:checkr _w ?? throw "null pointer dereference")._err != null) {
             return;
         };
-        _tokens = (_tokens.__append__((256u32 : stdgo._internal.compress.flate.Flate_t_token.T_token)));
+        _tokens = (_tokens.__append__((256u32 : stdgo._internal.compress.flate.Flate_t_token.T_token)) : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
         var __tmp__ = @:check2r _w._indexTokens(_tokens), _numLiterals:stdgo.GoInt = __tmp__._0, _numOffsets:stdgo.GoInt = __tmp__._1;
         @:check2r _w._generateCodegen(_numLiterals, _numOffsets, (@:checkr _w ?? throw "null pointer dereference")._literalEncoding, (@:checkr _w ?? throw "null pointer dereference")._offsetEncoding);
         @:check2r (@:checkr _w ?? throw "null pointer dereference")._codegenEncoding._generate(((@:checkr _w ?? throw "null pointer dereference")._codegenFreq.__slice__(0) : stdgo.Slice<stdgo.GoInt32>), (7 : stdgo.GoInt32));
@@ -158,7 +158,7 @@ package stdgo._internal.compress.flate;
         if ((@:checkr _w ?? throw "null pointer dereference")._err != null) {
             return;
         };
-        _tokens = (_tokens.__append__((256u32 : stdgo._internal.compress.flate.Flate_t_token.T_token)));
+        _tokens = (_tokens.__append__((256u32 : stdgo._internal.compress.flate.Flate_t_token.T_token)) : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
         var __tmp__ = @:check2r _w._indexTokens(_tokens), _numLiterals:stdgo.GoInt = __tmp__._0, _numOffsets:stdgo.GoInt = __tmp__._1;
         var _extraBits:stdgo.GoInt = (0 : stdgo.GoInt);
         var __tmp__ = @:check2r _w._storedSize(_input), _storedSize:stdgo.GoInt = __tmp__._0, _storable:Bool = __tmp__._1;
@@ -346,7 +346,7 @@ package stdgo._internal.compress.flate;
     @:tdfield
     static public function _generateCodegen( _w:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>, _numLiterals:stdgo.GoInt, _numOffsets:stdgo.GoInt, _litEnc:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>, _offEnc:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>):Void {
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter> = _w;
-        for (_i => _ in (@:checkr _w ?? throw "null pointer dereference")._codegenFreq) {
+        for (_i => _ in (@:checkr _w ?? throw "null pointer dereference")._codegenFreq.__copy__()) {
             (@:checkr _w ?? throw "null pointer dereference")._codegenFreq[(_i : stdgo.GoInt)] = (0 : stdgo.GoInt32);
         };
         var _codegen = (@:checkr _w ?? throw "null pointer dereference")._codegen;

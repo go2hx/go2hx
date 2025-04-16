@@ -26,5 +26,6 @@
  "interp|internal/platform",
  "interp|crypto",
  "interp|bufio",
- "interp|encoding/base32"
+ "interp|encoding/base32",
+ "interp|io"
 ]

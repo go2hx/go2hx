@@ -27,8 +27,8 @@ package stdgo._internal.runtime.pprof;
                 };
             };
         };
-        (@:checkr _d ?? throw "null pointer dereference")._pcs = ((@:checkr _d ?? throw "null pointer dereference")._pcs.__append__(_pc));
-        (@:checkr _d ?? throw "null pointer dereference")._frames = ((@:checkr _d ?? throw "null pointer dereference")._frames.__append__(...(_frames : Array<stdgo._internal.runtime.Runtime_frame.Frame>)));
+        (@:checkr _d ?? throw "null pointer dereference")._pcs = ((@:checkr _d ?? throw "null pointer dereference")._pcs.__append__(_pc) : stdgo.Slice<stdgo.GoUIntptr>);
+        (@:checkr _d ?? throw "null pointer dereference")._frames = ((@:checkr _d ?? throw "null pointer dereference")._frames.__append__(...(_frames : Array<stdgo._internal.runtime.Runtime_frame.Frame>)) : stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>);
         (@:checkr _d ?? throw "null pointer dereference")._symbolizeResult = ((@:checkr _d ?? throw "null pointer dereference")._symbolizeResult | (_symbolizeResult) : stdgo._internal.runtime.pprof.Pprof_t_symbolizeflag.T_symbolizeFlag);
         if (((@:checkr _d ?? throw "null pointer dereference")._pcs.length) == ((1 : stdgo.GoInt))) {
             (@:checkr _d ?? throw "null pointer dereference")._firstPCFrames = ((@:checkr _d ?? throw "null pointer dereference")._frames.length);

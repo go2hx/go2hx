@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final syncExprType = (69 : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker);
+final syncExprType : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker = 37i32;

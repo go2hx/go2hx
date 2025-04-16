@@ -70,7 +70,7 @@ if (_i == ((0u32 : stdgo.GoUInt32))) {
                         return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_formaterror.FormatError(_offset, stdgo._internal.fmt.Fmt_sprintf.sprintf(("Mach-O type for architecture #%d (type=%#x) does not match first (type=%#x)" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface(_fa.file.fileHeader.type)), stdgo.Go.toInterface(stdgo.Go.asInterface(_machoType))).__copy__(), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_formaterror.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_formaterror.FormatError>)) };
                     };
                 };
-_ff.arches = (_ff.arches.__append__(_fa.__copy__()));
+_ff.arches = (_ff.arches.__append__(_fa.__copy__()) : stdgo.Slice<stdgo._internal.debug.macho.Macho_fatarch.FatArch>);
                 _i++;
             };
         };

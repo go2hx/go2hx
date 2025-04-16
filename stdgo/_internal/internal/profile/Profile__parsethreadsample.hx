@@ -38,7 +38,7 @@ function _parseThreadSample(_b:stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buff
                 _sameAsPrevious = true;
                 continue;
             };
-            _addrs = (_addrs.__append__(...(stdgo._internal.internal.profile.Profile__parsehexaddresses._parseHexAddresses(_l?.__copy__()) : Array<stdgo.GoUInt64>)));
+            _addrs = (_addrs.__append__(...(stdgo._internal.internal.profile.Profile__parsehexaddresses._parseHexAddresses(_l?.__copy__()) : Array<stdgo.GoUInt64>)) : stdgo.Slice<stdgo.GoUInt64>);
         };
         if (_sameAsPrevious) {
             return {

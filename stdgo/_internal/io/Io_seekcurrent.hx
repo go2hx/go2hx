@@ -1,2 +1,2 @@
 package stdgo._internal.io;
-final seekCurrent : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+final seekCurrent : stdgo.GoUInt64 = 1i32;

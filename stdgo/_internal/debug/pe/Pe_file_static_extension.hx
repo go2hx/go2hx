@@ -87,7 +87,7 @@ package stdgo._internal.debug.pe;
             if (_dt.originalFirstThunk == ((0u32 : stdgo.GoUInt32))) {
                 break;
             };
-            _ida = (_ida.__append__(_dt?.__copy__()));
+            _ida = (_ida.__append__(_dt?.__copy__()) : stdgo.Slice<stdgo._internal.debug.pe.Pe_importdirectory.ImportDirectory>);
         };
         var __tmp__ = @:check2r _ds.data(), _names:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __4:stdgo.Error = __tmp__._1;
         var _all:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
@@ -110,7 +110,7 @@ package stdgo._internal.debug.pe;
                     };
                     if (((_va & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) > (0i64 : stdgo.GoUInt64) : Bool)) {} else {
                         var __tmp__ = stdgo._internal.debug.pe.Pe__getstring._getString(_names, ((((_va : stdgo.GoUInt32) - (@:checkr _ds ?? throw "null pointer dereference").sectionHeader.virtualAddress : stdgo.GoUInt32) + (2u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)), _fn:stdgo.GoString = __tmp__._0, __6:Bool = __tmp__._1;
-                        _all = (_all.__append__(((_fn + (":" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _dt._dll?.__copy__() : stdgo.GoString)?.__copy__()));
+                        _all = (_all.__append__(((_fn + (":" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _dt._dll?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     };
                 } else {
                     var _va = (stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.uint32((_d.__slice__((0 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
@@ -120,7 +120,7 @@ package stdgo._internal.debug.pe;
                     };
                     if (((_va & (-2147483648u32 : stdgo.GoUInt32) : stdgo.GoUInt32) > (0u32 : stdgo.GoUInt32) : Bool)) {} else {
                         var __tmp__ = stdgo._internal.debug.pe.Pe__getstring._getString(_names, (((_va - (@:checkr _ds ?? throw "null pointer dereference").sectionHeader.virtualAddress : stdgo.GoUInt32) + (2u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)), _fn:stdgo.GoString = __tmp__._0, __6:Bool = __tmp__._1;
-                        _all = (_all.__append__(((_fn + (":" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _dt._dll?.__copy__() : stdgo.GoString)?.__copy__()));
+                        _all = (_all.__append__(((_fn + (":" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _dt._dll?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     };
                 };
             };

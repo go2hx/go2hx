@@ -6,7 +6,7 @@ function _buildCSRExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X50
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
             };
-            _ret = (_ret.__append__(({ id : stdgo._internal.crypto.x509.X509__oidextensionsubjectaltname._oidExtensionSubjectAltName, value : _sanBytes } : stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension)));
+            _ret = (_ret.__append__(({ id : stdgo._internal.crypto.x509.X509__oidextensionsubjectaltname._oidExtensionSubjectAltName, value : _sanBytes } : stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension)) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>);
         };
-        return { _0 : (_ret.__append__(...((@:checkr _template ?? throw "null pointer dereference").extraExtensions : Array<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>))), _1 : (null : stdgo.Error) };
+        return { _0 : (_ret.__append__(...((@:checkr _template ?? throw "null pointer dereference").extraExtensions : Array<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>)) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : (null : stdgo.Error) };
     }

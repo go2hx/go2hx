@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final objType = (5 : stdgo._internal.internal.pkgbits.Pkgbits_codeobj.CodeObj);
+final objType : stdgo._internal.internal.pkgbits.Pkgbits_codeobj.CodeObj = 2i32;

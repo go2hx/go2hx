@@ -1,2 +1,2 @@
 package stdgo._internal.unicode;
-final _pLu = (128i64 : stdgo.GoUInt64);
+final _pLu : stdgo.GoUInt64 = 32i32;

@@ -66,6 +66,5 @@ Called from stdgo._internal.crypto.aes.T_aesCipher_static_extension.decrypt (./s
 
 -- PASS: TestCTRAble
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestCipherDecrypt

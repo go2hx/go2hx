@@ -1,5 +1,5 @@
 package stdgo.internal.goversion;
-final version : haxe.UInt64 = stdgo._internal.internal.goversion.Goversion_version.version;
+var version : stdgo.GoUInt64 = 21i32;
 class Goversion {
 
 }

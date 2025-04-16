@@ -1,5 +1,5 @@
 package stdgo._internal.math.bits;
-final _rev8tab : stdgo.GoString = (stdgo.Go.str(0,
+final _rev8tab : stdgo.GoString = stdgo.Go.str(0,
 128,
 "@",
 192,
@@ -254,4 +254,4 @@ final _rev8tab : stdgo.GoString = (stdgo.Go.str(0,
 "?",
 191,
 127,
-255) : stdgo.GoString);
+255);

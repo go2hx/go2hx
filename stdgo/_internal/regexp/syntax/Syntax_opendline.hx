@@ -1,2 +1,2 @@
 package stdgo._internal.regexp.syntax;
-final opEndLine = (19 : stdgo._internal.regexp.syntax.Syntax_op.Op);
+final opEndLine : stdgo._internal.regexp.syntax.Syntax_op.Op = 8i32;

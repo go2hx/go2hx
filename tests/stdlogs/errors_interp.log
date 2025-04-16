@@ -33,10 +33,8 @@
 - SUBRUN  
 - SUBRUN  
 - SUBRUN  
-Is(uncomparable error, uncomparable error) = true, want false
 - SUBRUN  
 - SUBRUN  
-Is(uncomparable error, uncomparable error) = true, want false
 - SUBRUN  
 - SUBRUN  
 - SUBRUN  
@@ -51,9 +49,11 @@ Is(uncomparable error, uncomparable error) = true, want false
 - SUBRUN  
 - SUBRUN  
 
--- FAIL: TestIs
+-- PASS: TestIs
 
 === RUN  TestAs
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 - SUBRUN  0:As(Errorf(..., <nil>), 0x1)
 - SUBRUN  1:As(Errorf(..., pitied the fool), errorT())
 got _internal.errors_test.errorT{s:""}, want _internal.errors_test.errorT{s:"T"}Exception: __fail__
@@ -71,6 +71,8 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 - SUBRUN  <nil>(<nil>)
 - SUBRUN  *int(<nil>)
 - SUBRUN  string(error)
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 - SUBRUN  *string(0x1)
 ./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 
@@ -80,6 +82,5 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 
 -- PASS: TestUnwrap
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestAs

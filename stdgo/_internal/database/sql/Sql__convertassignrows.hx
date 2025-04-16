@@ -31,7 +31,7 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                         })) {
                             return stdgo._internal.database.sql.Sql__errnilptr._errNilPtr;
                         };
-                        (_d : stdgo._internal.database.sql.Sql_rawbytes.RawBytes).__setData__(((((_d : stdgo._internal.database.sql.Sql_rawbytes.RawBytes)).__slice__(0, (0 : stdgo.GoInt)) : stdgo._internal.database.sql.Sql_rawbytes.RawBytes).__append__(...(_s : Array<stdgo.GoUInt8>))));
+                        (_d : stdgo._internal.database.sql.Sql_rawbytes.RawBytes).__setData__(((((_d : stdgo._internal.database.sql.Sql_rawbytes.RawBytes)).__slice__(0, (0 : stdgo.GoInt)) : stdgo._internal.database.sql.Sql_rawbytes.RawBytes).__append__(...(_s : Array<stdgo.GoUInt8>)) : stdgo._internal.database.sql.Sql_rawbytes.RawBytes));
                         return (null : stdgo.Error);
                     };
                 };
@@ -125,6 +125,7 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                     if (stdgo.Go.typeEquals((__type__ : stdgo._internal.database.sql.Sql_t_decimalcompose.T_decimalCompose))) {
                         var _d:stdgo._internal.database.sql.Sql_t_decimalcompose.T_decimalCompose = __type__ == null ? (null : stdgo._internal.database.sql.Sql_t_decimalcompose.T_decimalCompose) : __type__.__underlying__() == null ? (null : stdgo._internal.database.sql.Sql_t_decimalcompose.T_decimalCompose) : __type__ == null ? (null : stdgo._internal.database.sql.Sql_t_decimalcompose.T_decimalCompose) : __type__.__underlying__().value;
                         return ({
+                            @:tupleArg var __tmp__ = _s.decompose((null : stdgo.Slice<stdgo.GoUInt8>));
                             var __f__ = _d.compose;
                             var __tmp__ = _s.decompose((null : stdgo.Slice<stdgo.GoUInt8>));
                             __f__((__tmp__._0 : stdgo.GoUInt8), (__tmp__._1 : Bool), (__tmp__._2 : stdgo.Slice<stdgo.GoUInt8>), (__tmp__._3 : stdgo.GoInt32));

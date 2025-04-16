@@ -1,2 +1,2 @@
 package stdgo._internal.html.template;
-final errEndContext = (12 : stdgo._internal.html.template.Template_errorcode.ErrorCode);
+final errEndContext : stdgo._internal.html.template.Template_errorcode.ErrorCode = 4i32;

@@ -19,7 +19,7 @@ function _readFile(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; 
                     _err = @:tmpset0 __tmp__._1;
                 };
                 if ((_n > (0 : stdgo.GoInt) : Bool)) {
-                    _ret = (_ret.__append__(...((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+                    _ret = (_ret.__append__(...((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 };
                 if (((_n == (0 : stdgo.GoInt)) || (_err != null) : Bool)) {
                     break;

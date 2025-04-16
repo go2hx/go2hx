@@ -98,7 +98,7 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_request.Req
                     {
                         var __select__ = true;
                         var __c__0 = (@:checkr _dr ?? throw "null pointer dereference")._c;
-var __c__1 = _quitReadCh;
+var __c__1 = null;
                         while (__select__) {
                             if ((@:checkr _dr ?? throw "null pointer dereference")._c != null && __c__0.__isSend__(true)) {
                                 __select__ = false;
@@ -106,7 +106,12 @@ var __c__1 = _quitReadCh;
                                     __c__0.__send__(stdgo._internal.strings.Strings_newreader.newReader(("HTTP/1.1 204 No Content\r\nConnection: close\r\n\r\n" : stdgo.GoString)));
                                     {};
                                 };
-                            } else if (__c__1 != null && __c__1.__isGet__(true)) {
+                            } else if ({
+                                if (__c__1 == null) {
+                                    __c__1 = _quitReadCh;
+                                };
+                                __c__1 != null && __c__1.__isGet__(true);
+                            }) {
                                 __select__ = false;
                                 {
                                     __c__1.__get__();
@@ -124,7 +129,7 @@ __c__1.__reset__();
                 };
                 a();
             }));
-            var __tmp__ = @:check2r _t.roundTrip(_reqSend), __0:stdgo.Ref<stdgo._internal.net.http.Http_response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _t.roundTrip(_reqSend), __8:stdgo.Ref<stdgo._internal.net.http.Http_response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             (@:checkr _req ?? throw "null pointer dereference").body = _save;
             if (_err != null) {
                 @:check2r _pw.close();

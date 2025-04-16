@@ -1,2 +1,2 @@
 package stdgo._internal.encoding.xml;
-final _fOmitEmpty = (128 : stdgo._internal.encoding.xml.Xml_t_fieldflags.T_fieldFlags);
+final _fOmitEmpty : stdgo._internal.encoding.xml.Xml_t_fieldflags.T_fieldFlags = 128i32;

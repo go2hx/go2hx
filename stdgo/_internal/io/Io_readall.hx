@@ -11,7 +11,7 @@ function readAll(_r:stdgo._internal.io.Io_reader.Reader):{ var _0 : stdgo.Slice<
                 return { _0 : _b, _1 : _err };
             };
             if ((_b.length) == (_b.capacity)) {
-                _b = ((_b.__append__((0 : stdgo.GoUInt8))).__slice__(0, (_b.length)) : stdgo.Slice<stdgo.GoUInt8>);
+                _b = ((_b.__append__((0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>).__slice__(0, (_b.length)) : stdgo.Slice<stdgo.GoUInt8>);
             };
         };
     }

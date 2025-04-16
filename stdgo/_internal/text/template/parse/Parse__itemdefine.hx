@@ -1,2 +1,2 @@
 package stdgo._internal.text.template.parse;
-final _itemDefine = (34 : stdgo._internal.text.template.parse.Parse_t_itemtype.T_itemType);
+final _itemDefine : stdgo._internal.text.template.parse.Parse_t_itemtype.T_itemType = 27i32;

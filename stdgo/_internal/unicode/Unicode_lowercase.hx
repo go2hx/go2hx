@@ -1,2 +1,2 @@
 package stdgo._internal.unicode;
-final lowerCase = (2i64 : stdgo.GoUInt64);
+final lowerCase : stdgo.GoUInt64 = 1i32;

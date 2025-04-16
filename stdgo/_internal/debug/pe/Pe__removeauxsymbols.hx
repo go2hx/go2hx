@@ -16,7 +16,7 @@ function _removeAuxSymbols(_allsyms:stdgo.Slice<stdgo._internal.debug.pe.Pe_coff
             };
             _aux = _sym.numberOfAuxSymbols;
             var _s = (stdgo.Go.setRef(({ name : _name?.__copy__(), value : _sym.value, sectionNumber : _sym.sectionNumber, type : _sym.type, storageClass : _sym.storageClass } : stdgo._internal.debug.pe.Pe_symbol.Symbol)) : stdgo.Ref<stdgo._internal.debug.pe.Pe_symbol.Symbol>);
-            _syms = (_syms.__append__(_s));
+            _syms = (_syms.__append__(_s) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_symbol.Symbol>>);
         };
         return { _0 : _syms, _1 : (null : stdgo.Error) };
     }

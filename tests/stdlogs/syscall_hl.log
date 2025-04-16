@@ -26,6 +26,7 @@ Called from _internal.syscalldottest._Syscalldottest.$Syscalldottest_Fields_.mai
 -- FAIL: TestExecErrPermutedFds
 
 === RUN  TestGettimeofday
+not implemented on js
 Exception: __skip__
 Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
 Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61)
@@ -38,6 +39,5 @@ Called from _internal.syscalldottest._Syscalldottest.$Syscalldottest_Fields_.mai
 
 -- PASS: TestGettimeofday
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestExecErrPermutedFds

@@ -11,7 +11,7 @@ function _mkCharClass(_f:stdgo.GoInt32 -> Bool):stdgo.GoString {
                     };
                 } else {
                     if ((_lo >= (0 : stdgo.GoInt32) : Bool)) {
-                        (@:checkr _re ?? throw "null pointer dereference").rune = ((@:checkr _re ?? throw "null pointer dereference").rune.__append__(_lo, (_i - (1 : stdgo.GoInt32) : stdgo.GoInt32)));
+                        (@:checkr _re ?? throw "null pointer dereference").rune = ((@:checkr _re ?? throw "null pointer dereference").rune.__append__(_lo, (_i - (1 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
                         _lo = (-1 : stdgo.GoInt32);
                     };
                 };
@@ -19,7 +19,7 @@ function _mkCharClass(_f:stdgo.GoInt32 -> Bool):stdgo.GoString {
             };
         };
         if ((_lo >= (0 : stdgo.GoInt32) : Bool)) {
-            (@:checkr _re ?? throw "null pointer dereference").rune = ((@:checkr _re ?? throw "null pointer dereference").rune.__append__(_lo, (1114111 : stdgo.GoInt32)));
+            (@:checkr _re ?? throw "null pointer dereference").rune = ((@:checkr _re ?? throw "null pointer dereference").rune.__append__(_lo, (1114111 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
         };
         return stdgo._internal.regexp.syntax.Syntax__dump._dump(_re)?.__copy__();
     }

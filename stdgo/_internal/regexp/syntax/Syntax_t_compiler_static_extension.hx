@@ -138,7 +138,7 @@ package stdgo._internal.regexp.syntax;
     static public function _inst( _c:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_t_compiler.T_compiler>, _op:stdgo._internal.regexp.syntax.Syntax_instop.InstOp):stdgo._internal.regexp.syntax.Syntax_t_frag.T_frag {
         @:recv var _c:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_t_compiler.T_compiler> = _c;
         var _f = ({ _i : ((@:checkr (@:checkr _c ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").inst.length : stdgo.GoUInt32), _nullable : true } : stdgo._internal.regexp.syntax.Syntax_t_frag.T_frag);
-        (@:checkr (@:checkr _c ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").inst = ((@:checkr (@:checkr _c ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").inst.__append__(({ op : _op } : stdgo._internal.regexp.syntax.Syntax_inst.Inst)));
+        (@:checkr (@:checkr _c ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").inst = ((@:checkr (@:checkr _c ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").inst.__append__(({ op : _op } : stdgo._internal.regexp.syntax.Syntax_inst.Inst)) : stdgo.Slice<stdgo._internal.regexp.syntax.Syntax_inst.Inst>);
         return _f?.__copy__();
     }
     @:keep

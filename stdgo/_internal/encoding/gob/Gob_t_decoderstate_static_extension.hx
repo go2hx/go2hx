@@ -40,7 +40,7 @@ package stdgo._internal.encoding.gob;
         if (((_buf.length) < _n : Bool)) {
             stdgo._internal.encoding.gob.Gob__errorf._errorf(("invalid uint data length %d: exceeds input size %d" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface((_buf.length)));
         };
-        for (__4 => _b in (_buf.__slice__((0 : stdgo.GoInt), _n) : stdgo.Slice<stdgo.GoUInt8>)) {
+        for (__8 => _b in (_buf.__slice__((0 : stdgo.GoInt), _n) : stdgo.Slice<stdgo.GoUInt8>)) {
             _x = ((_x << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | (_b : stdgo.GoUInt64) : stdgo.GoUInt64);
         };
         @:check2r (@:checkr _state ?? throw "null pointer dereference")._b.drop(_n);

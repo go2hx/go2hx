@@ -9,6 +9,7 @@ function testEvalFieldErrors(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>
         for (__8 => _tc in _tests) {
             @:check2r _t.run(_tc._name?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
                 var _tmpl = ({
+                    @:tupleArg var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tc._src?.__copy__());
                     var __f__ = stdgo._internal.text.template.Template_must.must;
                     var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tc._src?.__copy__());
                     __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>), (__tmp__._1 : stdgo.Error));

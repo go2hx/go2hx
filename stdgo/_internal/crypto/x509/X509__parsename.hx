@@ -33,9 +33,9 @@ function _parseName(_raw:_internal.vendor.golangdotorg.x.crypto.cryptobyte.Crypt
                 if (_err != null) {
                     return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: invalid RDNSequence: invalid attribute value: %s" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
                 };
-                _rdnSet = (_rdnSet.__append__(_attr?.__copy__()));
+                _rdnSet = (_rdnSet.__append__(_attr?.__copy__()) : stdgo._internal.crypto.x509.pkix.Pkix_relativedistinguishednameset.RelativeDistinguishedNameSET);
             };
-            _rdnSeq = (_rdnSeq.__append__(_rdnSet));
+            _rdnSeq = (_rdnSeq.__append__(_rdnSet) : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence);
         };
         return { _0 : (stdgo.Go.setRef(_rdnSeq) : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence>), _1 : (null : stdgo.Error) };
     }

@@ -30,7 +30,7 @@ function _readHeader(_r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader
                 continue;
             };
             var _value = (stdgo._internal.strings.Strings_trimleft.trimLeft(_v?.__copy__(), (" \t" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            _m[_key] = ((_m[_key] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(_value?.__copy__()));
+            _m[_key] = ((_m[_key] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(_value?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             if (_err != null) {
                 return { _0 : _m, _1 : _err };
             };

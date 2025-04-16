@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testIssue6866(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
-        for (__8 => _prec in stdgo._internal.math.big.Big__preclist._precList) {
+        for (__8 => _prec in stdgo._internal.math.big.Big__preclist._precList.__copy__()) {
             var _two = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>).setPrec(_prec).setInt64((2i64 : stdgo.GoInt64));
             var _one = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>).setPrec(_prec).setInt64((1i64 : stdgo.GoInt64));
             var _three = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>).setPrec(_prec).setInt64((3i64 : stdgo.GoInt64));

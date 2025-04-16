@@ -11,6 +11,7 @@ package stdgo._internal.internal.lazytemplate;
     static public function _build( _r:stdgo.Ref<stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template> = _r;
         (@:checkr _r ?? throw "null pointer dereference")._tmpl = ({
+            @:tupleArg var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_((@:checkr _r ?? throw "null pointer dereference")._name?.__copy__()).parse((@:checkr _r ?? throw "null pointer dereference")._text?.__copy__());
             var __f__ = stdgo._internal.text.template.Template_must.must;
             var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_((@:checkr _r ?? throw "null pointer dereference")._name?.__copy__()).parse((@:checkr _r ?? throw "null pointer dereference")._text?.__copy__());
             __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>), (__tmp__._1 : stdgo.Error));

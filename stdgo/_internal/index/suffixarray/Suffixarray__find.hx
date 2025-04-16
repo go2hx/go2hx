@@ -10,7 +10,7 @@ function _find(_src:stdgo.GoString, _s:stdgo.GoString, _n:stdgo.GoInt):stdgo.Sli
                         break;
                     };
                     _i = (_i + ((_j + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
-                    _res = (_res.__append__(_i));
+                    _res = (_res.__append__(_i) : stdgo.Slice<stdgo.GoInt>);
                 };
             };
         };

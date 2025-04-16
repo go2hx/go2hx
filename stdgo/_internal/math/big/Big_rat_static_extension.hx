@@ -98,11 +98,11 @@ package stdgo._internal.math.big;
         if (@:check2r _x.isInt()) {
             _buf = @:check2 (@:checkr _x ?? throw "null pointer dereference")._a.append(_buf, (10 : stdgo.GoInt));
             if ((_prec > (0 : stdgo.GoInt) : Bool)) {
-                _buf = (_buf.__append__((46 : stdgo.GoUInt8)));
+                _buf = (_buf.__append__((46 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                 {
                     var _i = (_prec : stdgo.GoInt);
                     while ((_i > (0 : stdgo.GoInt) : Bool)) {
-                        _buf = (_buf.__append__((48 : stdgo.GoUInt8)));
+                        _buf = (_buf.__append__((48 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                         _i--;
                     };
                 };
@@ -125,20 +125,20 @@ package stdgo._internal.math.big;
             };
         };
         if ((@:checkr _x ?? throw "null pointer dereference")._a._neg) {
-            _buf = (_buf.__append__((45 : stdgo.GoUInt8)));
+            _buf = (_buf.__append__((45 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        _buf = (_buf.__append__(...(_q._utoa((10 : stdgo.GoInt)) : Array<stdgo.GoUInt8>)));
+        _buf = (_buf.__append__(...(_q._utoa((10 : stdgo.GoInt)) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         if ((_prec > (0 : stdgo.GoInt) : Bool)) {
-            _buf = (_buf.__append__((46 : stdgo.GoUInt8)));
+            _buf = (_buf.__append__((46 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
             var _rs = _r._utoa((10 : stdgo.GoInt));
             {
                 var _i = (_prec - (_rs.length) : stdgo.GoInt);
                 while ((_i > (0 : stdgo.GoInt) : Bool)) {
-                    _buf = (_buf.__append__((48 : stdgo.GoUInt8)));
+                    _buf = (_buf.__append__((48 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                     _i--;
                 };
             };
-            _buf = (_buf.__append__(...(_rs : Array<stdgo.GoUInt8>)));
+            _buf = (_buf.__append__(...(_rs : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         return (_buf : stdgo.GoString)?.__copy__();
     }
@@ -157,11 +157,11 @@ package stdgo._internal.math.big;
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat> = _x;
         var _buf:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         _buf = @:check2 (@:checkr _x ?? throw "null pointer dereference")._a.append(_buf, (10 : stdgo.GoInt));
-        _buf = (_buf.__append__((47 : stdgo.GoUInt8)));
+        _buf = (_buf.__append__((47 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         if (((@:checkr _x ?? throw "null pointer dereference")._b._abs.length) != ((0 : stdgo.GoInt))) {
             _buf = @:check2 (@:checkr _x ?? throw "null pointer dereference")._b.append(_buf, (10 : stdgo.GoInt));
         } else {
-            _buf = (_buf.__append__((49 : stdgo.GoUInt8)));
+            _buf = (_buf.__append__((49 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         return _buf;
     }

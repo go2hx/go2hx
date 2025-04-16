@@ -41,7 +41,7 @@ function _collectPodsImpl(_files:stdgo.Slice<stdgo.GoString>, _dirIndices:stdgo.
                                 _idx = _dirIndices[(_k : stdgo.GoInt)];
                             };
                             var _fo = ({ _file : _f?.__copy__(), _origin : _idx, _pid : _pid } : stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations);
-                            _v._elements = (_v._elements.__append__(_fo?.__copy__()));
+                            _v._elements = (_v._elements.__append__(_fo?.__copy__()) : stdgo.Slice<stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations>);
                             _mm[_tag] = _v?.__copy__();
                         } else {
                             if (_warn) {
@@ -68,11 +68,11 @@ function _collectPodsImpl(_files:stdgo.Slice<stdgo.GoString>, _dirIndices:stdgo.
             });
             var _pod = ({ metaFile : _p._mf?.__copy__(), counterDataFiles : (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (_p._elements.length)).__setString__() : stdgo.Slice<stdgo.GoString>), origins : (new stdgo.Slice<stdgo.GoInt>((0 : stdgo.GoInt).toBasic(), (_p._elements.length)).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), processIDs : (new stdgo.Slice<stdgo.GoInt>((0 : stdgo.GoInt).toBasic(), (_p._elements.length)).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.internal.coverage.pods.Pods_pod.Pod);
             for (__2 => _e in _p._elements) {
-                _pod.counterDataFiles = (_pod.counterDataFiles.__append__(_e._file?.__copy__()));
-                _pod.origins = (_pod.origins.__append__(_e._origin));
-                _pod.processIDs = (_pod.processIDs.__append__(_e._pid));
+                _pod.counterDataFiles = (_pod.counterDataFiles.__append__(_e._file?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+                _pod.origins = (_pod.origins.__append__(_e._origin) : stdgo.Slice<stdgo.GoInt>);
+                _pod.processIDs = (_pod.processIDs.__append__(_e._pid) : stdgo.Slice<stdgo.GoInt>);
             };
-            _pods = (_pods.__append__(_pod?.__copy__()));
+            _pods = (_pods.__append__(_pod?.__copy__()) : stdgo.Slice<stdgo._internal.internal.coverage.pods.Pods_pod.Pod>);
         };
         stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_pods), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
             return (_pods[(_i : stdgo.GoInt)].metaFile < _pods[(_j : stdgo.GoInt)].metaFile : Bool);

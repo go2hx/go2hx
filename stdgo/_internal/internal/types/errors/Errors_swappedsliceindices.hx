@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final swappedSliceIndices = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final swappedSliceIndices : stdgo._internal.internal.types.errors.Errors_code.Code = 53i32;

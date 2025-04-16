@@ -9,7 +9,7 @@ function _appendFoldedName(_out:stdgo.Slice<stdgo.GoUInt8>, _in:stdgo.Slice<stdg
                         if ((((97 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (122 : stdgo.GoUInt8) : Bool) : Bool)) {
                             _c = (_c - ((32 : stdgo.GoUInt8)) : stdgo.GoUInt8);
                         };
-                        _out = (_out.__append__(_c));
+                        _out = (_out.__append__(_c) : stdgo.Slice<stdgo.GoUInt8>);
                         _i++;
                         continue;
                     };

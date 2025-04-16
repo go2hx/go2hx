@@ -3,14 +3,23 @@
 -- PASS: TestWriteLogger
 
 === RUN  TestWriteLogger_errorOnWrite
+WriteLogger mismatch
+	got:  "write: : Write Error!\n"
+	want: "lw: write: : Write Error!\n"
 
 -- FAIL: TestWriteLogger_errorOnWrite
 
 === RUN  TestReadLogger
+ReadLogger mismatch
+	got:  "read: 48656c6c6f2c20576f726c6421\n"
+	want: "lr: read: 48656c6c6f2c20576f726c6421\n"
 
 -- FAIL: TestReadLogger
 
 === RUN  TestReadLogger_errorOnRead
+ReadLogger mismatch
+	got:  "read : io failure\n"
+	want: "lr: read : io failure\n"
 
 -- FAIL: TestReadLogger_errorOnRead
 
@@ -61,6 +70,5 @@
 
 -- PASS: TestTruncateWriter
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestReadLogger_errorOnRead

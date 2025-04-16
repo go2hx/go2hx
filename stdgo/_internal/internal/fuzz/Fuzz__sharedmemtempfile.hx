@@ -34,6 +34,8 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
                             _err = __tmp__._1;
                             __tmp__;
                         };
+                        _m = __ret__._0;
+                        _err = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -46,6 +48,8 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
             var _removeOnClose = (true : Bool);
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_sharedmem.T_sharedMem>; var _1 : stdgo.Error; } = stdgo._internal.internal.fuzz.Fuzz__sharedmemmapfile._sharedMemMapFile(_f, _totalSize, _removeOnClose);
+                _m = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

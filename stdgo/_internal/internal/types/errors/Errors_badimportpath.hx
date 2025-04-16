@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final badImportPath = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final badImportPath : stdgo._internal.internal.types.errors.Errors_code.Code = 5i32;

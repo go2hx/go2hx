@@ -7,6 +7,47 @@
 -- PASS: TestFmtInterface
 
 === RUN  TestSprintf
+Sprintf("%#v", {1 2 a [1 2]}) = "_internal.fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" want "fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}"
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+Sprintf("%#v", 0x1) = "(func(*.testing.))(0xPTR)" want "(func(*testing.T))(0xPTR)"
+Sprintf("%#v", map[a:{<1> 2}]) = "map[string]_internal.fmt_test.B{\"a\":_internal.fmt_test.B{I:1, j:2}}" want "map[string]fmt_test.B{\"a\":fmt_test.B{I:1, j:2}}"
+Sprintf("%#v", {<nil>}) = "_internal.fmt_test.SI{I:interface {}(nil)}" want "fmt_test.SI{I:interface {}(nil)}"
+Sprintf("%#v", [1 2 3 4 5]) = "[5]_internal.fmt_test.renamedUint8{0x1, 0x2, 0x3, 0x4, 0x5}" want "[5]fmt_test.renamedUint8{0x1, 0x2, 0x3, 0x4, 0x5}"
+Sprintf("%#v", [1 2 3 4 5]) = "[]_internal.fmt_test.renamedUint8{0x1, 0x2, 0x3, 0x4, 0x5}" want "[]fmt_test.renamedUint8{0x1, 0x2, 0x3, 0x4, 0x5}"
+Sprintf("%d", true) = "%!d(_internal.fmt_test.renamedBool=true)" want "%!d(fmt_test.renamedBool=true)"
+Sprintf("%#v", {<v=F(7)> 8}) = "_internal.fmt_test.S{F:<v=F(7)>, G:GoString(8)}" want "fmt_test.S{F:<v=F(7)>, G:GoString(8)}"
+Sprintf("%T", <invalid reflect.Value>) = ".reflect.Value" want "reflect.Value"
+Sprintf("%T", (4-3i)) = "_internal.fmt_test.renamedComplex128" want "fmt_test.renamedComplex128"
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+Sprintf("%#v", [X X X X X]) = "[]_internal.fmt_test.byteStringer{0x68, 0x65, 0x6c, 0x6c, 0x6f}" want "[]fmt_test.byteStringer{0x68, 0x65, 0x6c, 0x6c, 0x6f}"
+Sprintf("%#v", [X X X X X]) = "[]_internal.fmt_test.byteFormatter{X, X, X, X, X}" want "[]fmt_test.byteFormatter{X, X, X, X, X}"
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+Sprintf("%☠", 0) = "%!☠(_internal.fmt_test.renamedInt=0)" want "%!☠(fmt_test.renamedInt=0)"
+Sprintf("%☠", {0}) = "{%!☠(_internal.fmt_test.renamedInt=0)}" want "{%!☠(fmt_test.renamedInt=0)}"
+Sprintf("%☠", &[<1> 2]) = "&[%!☠(_internal.fmt_test.I=1) %!☠(_internal.fmt_test.G=2)]" want "&[%!☠(fmt_test.I=1) %!☠(fmt_test.G=2)]"
 
 -- FAIL: TestSprintf
 
@@ -19,6 +60,7 @@
 -- PASS: TestReorder
 
 === RUN  TestCountMallocs
+skipping malloc count in short mode
 Exception: __skip__
 Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
 Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61)
@@ -36,6 +78,8 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 -- PASS: TestFlagParser
 
 === RUN  TestStructPrinter
+Sprintf("%#v", s) = `_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, want `fmt_test.T{a:"abc", b:"def", c:123}`
+Sprintf("%#v", &s) = `&_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, want `&fmt_test.T{a:"abc", b:"def", c:123}`
 
 -- FAIL: TestStructPrinter
 
@@ -73,6 +117,7 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 -- PASS: TestPanics
 
 === RUN  TestBadVerbRecursion
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 
 -- PASS: TestBadVerbRecursion
 
@@ -81,10 +126,15 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 -- PASS: TestIsSpace
 
 === RUN  TestNilDoesNotBecomeTyped
+expected:
+	"%!s(<nil>) %!s(*fmt_test.A=<nil>) %!s(<nil>) {} %!s(<nil>)"
+got:
+	"%!s(<nil>) %!s(*_internal.fmt_test.A_55372=<nil>) %!s(<nil>) {} %!s(<nil>)"
 
 -- FAIL: TestNilDoesNotBecomeTyped
 
 === RUN  TestFormatterFlags
+Sprintf("%#v", [1]_internal.fmt_test.flagPrinter) = "[1]_internal.fmt_test.flagPrinter{[%#v]}", want "[1]fmt_test.flagPrinter{[%#v]}"
 
 -- FAIL: TestFormatterFlags
 
@@ -93,7 +143,7 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 -- PASS: TestParsenum
 
 === RUN  TestAppendf
-Exception: __fail__
+Appendf allocated a new sliceException: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
@@ -104,7 +154,7 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 -- FAIL: TestAppendf
 
 === RUN  TestAppend
-Exception: __fail__
+Append allocated a new sliceException: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
@@ -115,7 +165,7 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 -- FAIL: TestAppend
 
 === RUN  TestAppendln
-Exception: __fail__
+Appendln allocated a new sliceException: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
@@ -145,6 +195,17 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 -- FAIL: TestScanf
 
 === RUN  TestScanOverflow
+expected overflow scanning "128"
+expected overflow scanning "32768"
+expected overflow scanning "-129"
+expected overflow scanning "-32769"
+expected overflow scanning "256"
+expected overflow scanning "65536"
+expected overflow scanning "1e100"
+expected overflow scanning "1e500"
+expected overflow scanning "(1e100+0i)"
+expected overflow scanning "(1+1e100i)"
+expected overflow scanning "(1-1e500i)"
 
 -- FAIL: TestScanOverflow
 
@@ -161,10 +222,13 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 -- PASS: TestScanfMulti
 
 === RUN  TestScanMultiple
+Sscan expected error; got none: %!s(nil=<nil>)
 
 -- FAIL: TestScanMultiple
 
 === RUN  TestScanEmpty
+Sscan <one item> expected error; got none
+Sscan <empty> expected error; got none
 
 -- FAIL: TestScanEmpty
 
@@ -179,22 +243,62 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 -- FAIL: TestScanNotPointer
 
 === RUN  TestScanlnNoNewline
+expected error scanning string missing newline
 
 -- FAIL: TestScanlnNoNewline
 
 === RUN  TestScanlnWithMiddleNewline
+expected error scanning string with extra newline
 
 -- FAIL: TestScanlnWithMiddleNewline
 
 === RUN  TestEOF
+expected error scanning empty string
 
 -- FAIL: TestEOF
 
 === RUN  TestEOFAtEndOfInput
+Sscanf expected EOF; got %!q(nil=<nil>)
+Sscan expected EOF; got %!q(nil=<nil>)
+Sscan expected EOF; got %!q(nil=<nil>)
 
 -- FAIL: TestEOFAtEndOfInput
 
 === RUN  TestEOFAllTypes
+#0: %s *string not eof on empty string: %!s(nil=<nil>)
+#0: %s *string not eof on trailing blanks: %!s(nil=<nil>)
+#1: %q *string not eof on empty string: %!s(nil=<nil>)
+#1: %q *string not eof on trailing blanks: %!s(nil=<nil>)
+#2: %x *string not eof on empty string: %!s(nil=<nil>)
+#2: %x *string not eof on trailing blanks: %!s(nil=<nil>)
+#3: %v *string not eof on empty string: %!s(nil=<nil>)
+#3: %v *string not eof on trailing blanks: %!s(nil=<nil>)
+#4: %v *[]uint8 not eof on empty string: %!s(nil=<nil>)
+#4: %v *[]uint8 not eof on trailing blanks: %!s(nil=<nil>)
+#5: %v *int not eof on empty string: %!s(nil=<nil>)
+#5: %v *int not eof on trailing blanks: %!s(nil=<nil>)
+#6: %v *uint not eof on empty string: %!s(nil=<nil>)
+#6: %v *uint not eof on trailing blanks: %!s(nil=<nil>)
+#7: %v *bool not eof on empty string: %!s(nil=<nil>)
+#7: %v *bool not eof on trailing blanks: %!s(nil=<nil>)
+#8: %v *float32 not eof on empty string: %!s(nil=<nil>)
+#8: %v *float32 not eof on trailing blanks: %!s(nil=<nil>)
+#9: %v *complex64 not eof on empty string: %!s(nil=<nil>)
+#9: %v *complex64 not eof on trailing blanks: %!s(nil=<nil>)
+#10: %v *_internal.fmt_test.renamedString not eof on empty string: %!s(nil=<nil>)
+#10: %v *_internal.fmt_test.renamedString not eof on trailing blanks: %!s(nil=<nil>)
+#11: %v *_internal.fmt_test.renamedBytes not eof on empty string: %!s(nil=<nil>)
+#11: %v *_internal.fmt_test.renamedBytes not eof on trailing blanks: %!s(nil=<nil>)
+#12: %v *_internal.fmt_test.renamedInt not eof on empty string: %!s(nil=<nil>)
+#12: %v *_internal.fmt_test.renamedInt not eof on trailing blanks: %!s(nil=<nil>)
+#13: %v *_internal.fmt_test.renamedUint not eof on empty string: %!s(nil=<nil>)
+#13: %v *_internal.fmt_test.renamedUint not eof on trailing blanks: %!s(nil=<nil>)
+#14: %v *_internal.fmt_test.renamedBool not eof on empty string: %!s(nil=<nil>)
+#14: %v *_internal.fmt_test.renamedBool not eof on trailing blanks: %!s(nil=<nil>)
+#15: %v *_internal.fmt_test.renamedFloat32 not eof on empty string: %!s(nil=<nil>)
+#15: %v *_internal.fmt_test.renamedFloat32 not eof on trailing blanks: %!s(nil=<nil>)
+#16: %v *_internal.fmt_test.renamedComplex64 not eof on empty string: %!s(nil=<nil>)
+#16: %v *_internal.fmt_test.renamedComplex64 not eof on trailing blanks: %!s(nil=<nil>)
 
 -- FAIL: TestEOFAllTypes
 
@@ -203,6 +307,7 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 -- PASS: TestUnreadRuneWithBufio
 
 === RUN  TestMultiLine
+Sscanln: expected error; got none
 
 -- FAIL: TestMultiLine
 
@@ -215,3 +320,4 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 -- PASS: TestScanStateCount
 
 === RUN  TestScanInts
+Segmentation fault (core dumped)

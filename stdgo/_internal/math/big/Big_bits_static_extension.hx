@@ -63,7 +63,7 @@ package stdgo._internal.math.big;
                 if (_b == ((_r + (1 : stdgo.GoInt) : stdgo.GoInt))) {
                     _bit0 = (1u32 : stdgo.GoUInt);
                 };
-                _z = (_z.__append__(_b));
+                _z = (_z.__append__(_b) : stdgo._internal.math.big.Big_bits.Bits);
             };
         };
         var _f = _z.float_();
@@ -96,7 +96,7 @@ package stdgo._internal.math.big;
         var _z:stdgo._internal.math.big.Big_bits.Bits = (new stdgo._internal.math.big.Big_bits.Bits(0, 0) : stdgo._internal.math.big.Big_bits.Bits);
         for (_b => _set in _m) {
             if (_set) {
-                _z = (_z.__append__(_b));
+                _z = (_z.__append__(_b) : stdgo._internal.math.big.Big_bits.Bits);
             };
         };
         stdgo._internal.sort.Sort_ints.ints((_z : stdgo.Slice<stdgo.GoInt>));
@@ -109,7 +109,7 @@ package stdgo._internal.math.big;
         var _p:stdgo._internal.math.big.Big_bits.Bits = (new stdgo._internal.math.big.Big_bits.Bits(0, 0) : stdgo._internal.math.big.Big_bits.Bits);
         for (__8 => _x in _x) {
             for (__9 => _y in _y) {
-                _p = (_p.__append__((_x + _y : stdgo.GoInt)));
+                _p = (_p.__append__((_x + _y : stdgo.GoInt)) : stdgo._internal.math.big.Big_bits.Bits);
             };
         };
         return _p;
@@ -118,6 +118,6 @@ package stdgo._internal.math.big;
     @:tdfield
     static public function _add( _x:stdgo._internal.math.big.Big_bits.Bits, _y:stdgo._internal.math.big.Big_bits.Bits):stdgo._internal.math.big.Big_bits.Bits {
         @:recv var _x:stdgo._internal.math.big.Big_bits.Bits = _x;
-        return (_x.__append__(...(_y : Array<stdgo.GoInt>)));
+        return (_x.__append__(...(_y : Array<stdgo.GoInt>)) : stdgo._internal.math.big.Big_bits.Bits);
     }
 }

@@ -13,7 +13,7 @@ package stdgo._internal.runtime.pprof;
         @:check2 (@:checkr _p ?? throw "null pointer dereference")._mu.lock();
         var _all = (new stdgo.Slice<stdgo.Slice<stdgo.GoUIntptr>>((0 : stdgo.GoInt).toBasic(), ((@:checkr _p ?? throw "null pointer dereference")._m.length)) : stdgo.Slice<stdgo.Slice<stdgo.GoUIntptr>>);
         for (__0 => _stk in (@:checkr _p ?? throw "null pointer dereference")._m) {
-            _all = (_all.__append__(_stk));
+            _all = (_all.__append__(_stk) : stdgo.Slice<stdgo.Slice<stdgo.GoUIntptr>>);
         };
         @:check2 (@:checkr _p ?? throw "null pointer dereference")._mu.unlock();
         stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_all), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {

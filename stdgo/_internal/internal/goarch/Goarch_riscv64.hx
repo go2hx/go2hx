@@ -1,2 +1,2 @@
 package stdgo._internal.internal.goarch;
-final rISCV64 = (10 : stdgo._internal.internal.goarch.Goarch_archfamilytype.ArchFamilyType);
+final rISCV64 : stdgo._internal.internal.goarch.Goarch_archfamilytype.ArchFamilyType = 8i32;

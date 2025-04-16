@@ -1,2 +1,2 @@
 package stdgo._internal.regexp.syntax;
-final opAnyCharNotNL = (19 : stdgo._internal.regexp.syntax.Syntax_op.Op);
+final opAnyCharNotNL : stdgo._internal.regexp.syntax.Syntax_op.Op = 5i32;

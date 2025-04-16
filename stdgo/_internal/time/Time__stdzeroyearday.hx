@@ -1,2 +1,2 @@
 package stdgo._internal.time;
-final _stdZeroYearDay = (267i64 : stdgo.GoUInt64);
+final _stdZeroYearDay : stdgo.GoUInt64 = 267i32;

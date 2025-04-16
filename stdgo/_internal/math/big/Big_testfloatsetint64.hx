@@ -1,7 +1,7 @@
 package stdgo._internal.math.big;
 function testFloatSetInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         for (__8 => _want in (new stdgo.Slice<stdgo.GoInt64>(8, 8, ...[(0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (2i64 : stdgo.GoInt64), (10i64 : stdgo.GoInt64), (100i64 : stdgo.GoInt64), (4294967295i64 : stdgo.GoInt64), (4294967296i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>)) {
-            for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)) {
+            for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>).__copy__()) {
                 if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _want = -_want;
                 };

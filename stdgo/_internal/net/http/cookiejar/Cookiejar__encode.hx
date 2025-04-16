@@ -9,14 +9,14 @@ var _remaining = __1, _b = __0;
         for (__0 => _r in _s) {
             if ((_r < (128 : stdgo.GoInt32) : Bool)) {
                 _b++;
-                _output = (_output.__append__((_r : stdgo.GoUInt8)));
+                _output = (_output.__append__((_r : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
             } else {
                 _remaining++;
             };
         };
         var _h = (_b : stdgo.GoInt32);
         if ((_b > (0 : stdgo.GoInt32) : Bool)) {
-            _output = (_output.__append__((45 : stdgo.GoUInt8)));
+            _output = (_output.__append__((45 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         while (_remaining != ((0 : stdgo.GoInt32))) {
             var _m = ((2147483647 : stdgo.GoInt32) : stdgo.GoInt32);
@@ -54,12 +54,12 @@ if ((_t < (1 : stdgo.GoInt32) : Bool)) {
 if ((_q < _t : Bool)) {
                             break;
                         };
-_output = (_output.__append__(stdgo._internal.net.http.cookiejar.Cookiejar__encodedigit._encodeDigit((_t + (((_q - _t : stdgo.GoInt32)) % (((36 : stdgo.GoInt32) - _t : stdgo.GoInt32)) : stdgo.GoInt32) : stdgo.GoInt32))));
+_output = (_output.__append__(stdgo._internal.net.http.cookiejar.Cookiejar__encodedigit._encodeDigit((_t + (((_q - _t : stdgo.GoInt32)) % (((36 : stdgo.GoInt32) - _t : stdgo.GoInt32)) : stdgo.GoInt32) : stdgo.GoInt32))) : stdgo.Slice<stdgo.GoUInt8>);
 _q = (((_q - _t : stdgo.GoInt32)) / (((36 : stdgo.GoInt32) - _t : stdgo.GoInt32)) : stdgo.GoInt32);
                         _k = (_k + ((36 : stdgo.GoInt32)) : stdgo.GoInt32);
                     };
                 };
-                _output = (_output.__append__(stdgo._internal.net.http.cookiejar.Cookiejar__encodedigit._encodeDigit(_q)));
+                _output = (_output.__append__(stdgo._internal.net.http.cookiejar.Cookiejar__encodedigit._encodeDigit(_q)) : stdgo.Slice<stdgo.GoUInt8>);
                 _bias = stdgo._internal.net.http.cookiejar.Cookiejar__adapt._adapt(_delta, (_h + (1 : stdgo.GoInt32) : stdgo.GoInt32), _h == (_b));
                 _delta = (0 : stdgo.GoInt32);
                 _h++;

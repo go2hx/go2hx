@@ -1,5 +1,5 @@
 package stdgo._internal.html.template;
-final _htmlSpaceAndASCIIAlnumBytes : stdgo.GoString = (stdgo.Go.str(0,
+final _htmlSpaceAndASCIIAlnumBytes : stdgo.GoString = stdgo.Go.str(0,
 "6",
 0,
 0,
@@ -14,4 +14,4 @@ final _htmlSpaceAndASCIIAlnumBytes : stdgo.GoString = (stdgo.Go.str(0,
 254,
 255,
 255,
-"\x07") : stdgo.GoString);
+"\x07");

@@ -1,2 +1,2 @@
 package stdgo._internal.debug.dwarf;
-final tagTemplateAlias : stdgo._internal.debug.dwarf.Dwarf_tag.Tag = (67u32 : stdgo._internal.debug.dwarf.Dwarf_tag.Tag);
+final tagTemplateAlias : stdgo._internal.debug.dwarf.Dwarf_tag.Tag = 67i32;

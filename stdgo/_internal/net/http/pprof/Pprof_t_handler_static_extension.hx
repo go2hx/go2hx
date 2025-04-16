@@ -36,10 +36,15 @@ package stdgo._internal.net.http.pprof;
             };
             {
                 var __select__ = true;
-                var __c__0 = @:check2r _r.context().done();
-var __c__1 = (@:checkr _t ?? throw "null pointer dereference").c;
+                var __c__0 = null;
+var __c__1 = null;
                 while (__select__) {
-                    if (__c__0 != null && __c__0.__isGet__(true)) {
+                    if ({
+                        if (__c__0 == null) {
+                            __c__0 = @:check2r _r.context().done();
+                        };
+                        __c__0 != null && __c__0.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__0.__get__();
@@ -60,7 +65,12 @@ var __c__1 = (@:checkr _t ?? throw "null pointer dereference").c;
                                 };
                             };
                         };
-                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
+                    } else if ({
+                        if (__c__1 == null) {
+                            __c__1 = (@:checkr _t ?? throw "null pointer dereference").c;
+                        };
+                        __c__1 != null && __c__1.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__1.__get__();

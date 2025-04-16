@@ -1,5 +1,5 @@
 package stdgo._internal.runtime.internal.sys;
-final _ntz8tab : stdgo.GoString = (stdgo.Go.str("\x08",
+final _ntz8tab : stdgo.GoString = stdgo.Go.str("\x08",
 0,
 1,
 0,
@@ -254,4 +254,4 @@ final _ntz8tab : stdgo.GoString = (stdgo.Go.str("\x08",
 2,
 0,
 1,
-0) : stdgo.GoString);
+0);

@@ -78,7 +78,7 @@ package stdgo._internal.internal.coverage.stringtab;
         };
         var _idx = ((@:checkr _stw ?? throw "null pointer dereference")._strs.length : stdgo.GoUInt32);
         (@:checkr _stw ?? throw "null pointer dereference")._stab[_s] = _idx;
-        (@:checkr _stw ?? throw "null pointer dereference")._strs = ((@:checkr _stw ?? throw "null pointer dereference")._strs.__append__(_s?.__copy__()));
+        (@:checkr _stw ?? throw "null pointer dereference")._strs = ((@:checkr _stw ?? throw "null pointer dereference")._strs.__append__(_s?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         return _idx;
     }
     @:keep

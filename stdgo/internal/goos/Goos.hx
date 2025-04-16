@@ -1,24 +1,24 @@
 package stdgo.internal.goos;
-final isUnix : Bool = stdgo._internal.internal.goos.Goos_isunix.isUnix;
-final gOOS : String = stdgo._internal.internal.goos.Goos_goos.gOOS;
-final isAix : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isaix.isAix;
-final isAndroid : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isandroid.isAndroid;
-final isDarwin : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isdarwin.isDarwin;
-final isDragonfly : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isdragonfly.isDragonfly;
-final isFreebsd : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isfreebsd.isFreebsd;
-final isHurd : haxe.UInt64 = stdgo._internal.internal.goos.Goos_ishurd.isHurd;
-final isIllumos : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isillumos.isIllumos;
-final isIos : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isios.isIos;
-final isJs : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isjs.isJs;
-final isLinux : haxe.UInt64 = stdgo._internal.internal.goos.Goos_islinux.isLinux;
-final isNacl : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isnacl.isNacl;
-final isNetbsd : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isnetbsd.isNetbsd;
-final isOpenbsd : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isopenbsd.isOpenbsd;
-final isPlan9 : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isplan9.isPlan9;
-final isSolaris : haxe.UInt64 = stdgo._internal.internal.goos.Goos_issolaris.isSolaris;
-final isWasip1 : haxe.UInt64 = stdgo._internal.internal.goos.Goos_iswasip1.isWasip1;
-final isWindows : haxe.UInt64 = stdgo._internal.internal.goos.Goos_iswindows.isWindows;
-final isZos : haxe.UInt64 = stdgo._internal.internal.goos.Goos_iszos.isZos;
+var isUnix : Bool = false;
+var gOOS : stdgo.GoString = ("js" : stdgo.GoString);
+var isAix : stdgo.GoUInt64 = 0i32;
+var isAndroid : stdgo.GoUInt64 = 0i32;
+var isDarwin : stdgo.GoUInt64 = 0i32;
+var isDragonfly : stdgo.GoUInt64 = 0i32;
+var isFreebsd : stdgo.GoUInt64 = 0i32;
+var isHurd : stdgo.GoUInt64 = 0i32;
+var isIllumos : stdgo.GoUInt64 = 0i32;
+var isIos : stdgo.GoUInt64 = 0i32;
+var isJs : stdgo.GoUInt64 = 1i32;
+var isLinux : stdgo.GoUInt64 = 0i32;
+var isNacl : stdgo.GoUInt64 = 0i32;
+var isNetbsd : stdgo.GoUInt64 = 0i32;
+var isOpenbsd : stdgo.GoUInt64 = 0i32;
+var isPlan9 : stdgo.GoUInt64 = 0i32;
+var isSolaris : stdgo.GoUInt64 = 0i32;
+var isWasip1 : stdgo.GoUInt64 = 0i32;
+var isWindows : stdgo.GoUInt64 = 0i32;
+var isZos : stdgo.GoUInt64 = 0i32;
 /**
     * package goos contains GOOS-specific constants.
 **/

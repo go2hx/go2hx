@@ -35,8 +35,8 @@ function encode(_w:stdgo._internal.io.Io_writer.Writer, _m:stdgo._internal.image
         } else {
             _scale = ((200 : stdgo.GoInt) - (_quality * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
         };
-        for (_i => _ in _e._quant) {
-            for (_j => _ in _e._quant[(_i : stdgo.GoInt)]) {
+        for (_i => _ in _e._quant.__copy__()) {
+            for (_j => _ in _e._quant[(_i : stdgo.GoInt)].__copy__()) {
                 var _x = (stdgo._internal.image.jpeg.Jpeg__unscaledquant._unscaledQuant[(_i : stdgo.GoInt)][(_j : stdgo.GoInt)] : stdgo.GoInt);
                 _x = ((((_x * _scale : stdgo.GoInt) + (50 : stdgo.GoInt) : stdgo.GoInt)) / (100 : stdgo.GoInt) : stdgo.GoInt);
                 if ((_x < (1 : stdgo.GoInt) : Bool)) {

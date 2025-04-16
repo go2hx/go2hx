@@ -9,7 +9,7 @@ function drivers():stdgo.Slice<stdgo.GoString> {
             };
             var _list = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (stdgo._internal.database.sql.Sql__drivers._drivers.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
             for (_name => _ in stdgo._internal.database.sql.Sql__drivers._drivers) {
-                _list = (_list.__append__(_name?.__copy__()));
+                _list = (_list.__append__(_name?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
             stdgo._internal.sort.Sort_strings.strings(_list);
             {

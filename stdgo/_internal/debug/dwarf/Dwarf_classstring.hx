@@ -1,2 +1,2 @@
 package stdgo._internal.debug.dwarf;
-final classString = (17 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_);
+final classString : stdgo._internal.debug.dwarf.Dwarf_class_.Class_ = 12i32;

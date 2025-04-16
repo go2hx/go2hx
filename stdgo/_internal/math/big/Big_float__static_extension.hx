@@ -152,7 +152,7 @@ package stdgo._internal.math.big;
     static public function _fmtP( _x:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, _buf:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = _x;
         if ((@:checkr _x ?? throw "null pointer dereference")._form == ((0 : stdgo._internal.math.big.Big_t_form.T_form))) {
-            return (_buf.__append__((48 : stdgo.GoUInt8)));
+            return (_buf.__append__((48 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if ((false && ((@:checkr _x ?? throw "null pointer dereference")._form != (1 : stdgo._internal.math.big.Big_t_form.T_form)) : Bool)) {
             throw stdgo.Go.toInterface(("non-finite float" : stdgo.GoString));
@@ -163,11 +163,11 @@ package stdgo._internal.math.big;
             _i++;
         };
         _m = (_m.__slice__(_i) : stdgo._internal.math.big.Big_t_nat.T_nat);
-        _buf = (_buf.__append__(...((("0x." : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
-        _buf = (_buf.__append__(...(stdgo._internal.bytes.Bytes_trimright.trimRight(_m._utoa((16 : stdgo.GoInt)), ("0" : stdgo.GoString)) : Array<stdgo.GoUInt8>)));
-        _buf = (_buf.__append__((112 : stdgo.GoUInt8)));
+        _buf = (_buf.__append__(...((("0x." : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+        _buf = (_buf.__append__(...(stdgo._internal.bytes.Bytes_trimright.trimRight(_m._utoa((16 : stdgo.GoInt)), ("0" : stdgo.GoString)) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+        _buf = (_buf.__append__((112 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         if (((@:checkr _x ?? throw "null pointer dereference")._exp >= (0 : stdgo.GoInt32) : Bool)) {
-            _buf = (_buf.__append__((43 : stdgo.GoUInt8)));
+            _buf = (_buf.__append__((43 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         return stdgo._internal.strconv.Strconv_appendint.appendInt(_buf, ((@:checkr _x ?? throw "null pointer dereference")._exp : stdgo.GoInt64), (10 : stdgo.GoInt));
     }
@@ -176,18 +176,18 @@ package stdgo._internal.math.big;
     static public function _fmtX( _x:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, _buf:stdgo.Slice<stdgo.GoUInt8>, _prec:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = _x;
         if ((@:checkr _x ?? throw "null pointer dereference")._form == ((0 : stdgo._internal.math.big.Big_t_form.T_form))) {
-            _buf = (_buf.__append__(...((("0x0" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+            _buf = (_buf.__append__(...((("0x0" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             if ((_prec > (0 : stdgo.GoInt) : Bool)) {
-                _buf = (_buf.__append__((46 : stdgo.GoUInt8)));
+                _buf = (_buf.__append__((46 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                 {
                     var _i = (0 : stdgo.GoInt);
                     while ((_i < _prec : Bool)) {
-                        _buf = (_buf.__append__((48 : stdgo.GoUInt8)));
+                        _buf = (_buf.__append__((48 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                         _i++;
                     };
                 };
             };
-            _buf = (_buf.__append__(...((("p+00" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+            _buf = (_buf.__append__(...((("p+00" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             return _buf;
         };
         if ((false && ((@:checkr _x ?? throw "null pointer dereference")._form != (1 : stdgo._internal.math.big.Big_t_form.T_form)) : Bool)) {
@@ -214,20 +214,20 @@ package stdgo._internal.math.big;
         if ((false && (_hm[(0 : stdgo.GoInt)] != (49 : stdgo.GoUInt8)) : Bool)) {
             throw stdgo.Go.toInterface((("incorrect mantissa: " : stdgo.GoString) + (_hm : stdgo.GoString)?.__copy__() : stdgo.GoString));
         };
-        _buf = (_buf.__append__(...((("0x1" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+        _buf = (_buf.__append__(...((("0x1" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         if (((_hm.length) > (1 : stdgo.GoInt) : Bool)) {
-            _buf = (_buf.__append__((46 : stdgo.GoUInt8)));
-            _buf = (_buf.__append__(...((_hm.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+            _buf = (_buf.__append__((46 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
+            _buf = (_buf.__append__(...((_hm.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        _buf = (_buf.__append__((112 : stdgo.GoUInt8)));
+        _buf = (_buf.__append__((112 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         if ((_exp64 >= (0i64 : stdgo.GoInt64) : Bool)) {
-            _buf = (_buf.__append__((43 : stdgo.GoUInt8)));
+            _buf = (_buf.__append__((43 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         } else {
             _exp64 = -_exp64;
-            _buf = (_buf.__append__((45 : stdgo.GoUInt8)));
+            _buf = (_buf.__append__((45 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if ((_exp64 < (10i64 : stdgo.GoInt64) : Bool)) {
-            _buf = (_buf.__append__((48 : stdgo.GoUInt8)));
+            _buf = (_buf.__append__((48 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         return stdgo._internal.strconv.Strconv_appendint.appendInt(_buf, _exp64, (10 : stdgo.GoInt));
     }
@@ -236,7 +236,7 @@ package stdgo._internal.math.big;
     static public function _fmtB( _x:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, _buf:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = _x;
         if ((@:checkr _x ?? throw "null pointer dereference")._form == ((0 : stdgo._internal.math.big.Big_t_form.T_form))) {
-            return (_buf.__append__((48 : stdgo.GoUInt8)));
+            return (_buf.__append__((48 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if ((false && ((@:checkr _x ?? throw "null pointer dereference")._form != (1 : stdgo._internal.math.big.Big_t_form.T_form)) : Bool)) {
             throw stdgo.Go.toInterface(("non-finite float" : stdgo.GoString));
@@ -250,11 +250,11 @@ package stdgo._internal.math.big;
                 _m = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._shr(_m, ((_w - (@:checkr _x ?? throw "null pointer dereference")._prec : stdgo.GoUInt32) : stdgo.GoUInt));
             };
         };
-        _buf = (_buf.__append__(...(_m._utoa((10 : stdgo.GoInt)) : Array<stdgo.GoUInt8>)));
-        _buf = (_buf.__append__((112 : stdgo.GoUInt8)));
+        _buf = (_buf.__append__(...(_m._utoa((10 : stdgo.GoInt)) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+        _buf = (_buf.__append__((112 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         var _e = (((@:checkr _x ?? throw "null pointer dereference")._exp : stdgo.GoInt64) - ((@:checkr _x ?? throw "null pointer dereference")._prec : stdgo.GoInt64) : stdgo.GoInt64);
         if ((_e >= (0i64 : stdgo.GoInt64) : Bool)) {
-            _buf = (_buf.__append__((43 : stdgo.GoUInt8)));
+            _buf = (_buf.__append__((43 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         return stdgo._internal.strconv.Strconv_appendint.appendInt(_buf, _e, (10 : stdgo.GoInt));
     }
@@ -263,13 +263,13 @@ package stdgo._internal.math.big;
     static public function append( _x:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, _buf:stdgo.Slice<stdgo.GoUInt8>, _fmt:stdgo.GoUInt8, _prec:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = _x;
         if ((@:checkr _x ?? throw "null pointer dereference")._neg) {
-            _buf = (_buf.__append__((45 : stdgo.GoUInt8)));
+            _buf = (_buf.__append__((45 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if ((@:checkr _x ?? throw "null pointer dereference")._form == ((2 : stdgo._internal.math.big.Big_t_form.T_form))) {
             if (!(@:checkr _x ?? throw "null pointer dereference")._neg) {
-                _buf = (_buf.__append__((43 : stdgo.GoUInt8)));
+                _buf = (_buf.__append__((43 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
             };
-            return (_buf.__append__(...((("Inf" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+            return (_buf.__append__(...((("Inf" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         {
             final __value__ = _fmt;
@@ -344,7 +344,7 @@ package stdgo._internal.math.big;
         if ((@:checkr _x ?? throw "null pointer dereference")._neg) {
             _buf = (_buf.__slice__(0, ((_buf.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        return (_buf.__append__((37 : stdgo.GoUInt8), _fmt));
+        return (_buf.__append__((37 : stdgo.GoUInt8), _fmt) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     @:tdfield

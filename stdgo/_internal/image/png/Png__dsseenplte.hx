@@ -1,2 +1,2 @@
 package stdgo._internal.image.png;
-final _dsSeenPLTE = (5i64 : stdgo.GoUInt64);
+final _dsSeenPLTE : stdgo.GoUInt64 = 2i32;

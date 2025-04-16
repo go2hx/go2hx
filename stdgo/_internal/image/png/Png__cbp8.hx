@@ -1,2 +1,2 @@
 package stdgo._internal.image.png;
-final _cbP8 = (15i64 : stdgo.GoUInt64);
+final _cbP8 : stdgo.GoUInt64 = 10i32;

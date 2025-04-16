@@ -1,2 +1,2 @@
 package stdgo._internal.io.fs;
-final modeTemporary = (524288u32 : stdgo._internal.io.fs.Fs_filemode.FileMode);
+final modeTemporary : stdgo._internal.io.fs.Fs_filemode.FileMode = 268435456i32;

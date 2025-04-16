@@ -26,19 +26,19 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function writeString( _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>, _s:stdgo.GoString):Void {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer> = _e;
-        (@:checkr _e ?? throw "null pointer dereference")._data = ((@:checkr _e ?? throw "null pointer dereference")._data.__append__(...(_s : Array<stdgo.GoUInt8>)));
+        (@:checkr _e ?? throw "null pointer dereference")._data = ((@:checkr _e ?? throw "null pointer dereference")._data.__append__(...(_s : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     @:tdfield
     static public function write( _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer> = _e;
-        (@:checkr _e ?? throw "null pointer dereference")._data = ((@:checkr _e ?? throw "null pointer dereference")._data.__append__(...(_p : Array<stdgo.GoUInt8>)));
+        (@:checkr _e ?? throw "null pointer dereference")._data = ((@:checkr _e ?? throw "null pointer dereference")._data.__append__(...(_p : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         return { _0 : (_p.length), _1 : (null : stdgo.Error) };
     }
     @:keep
     @:tdfield
     static public function _writeByte( _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>, _c:stdgo.GoUInt8):Void {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer> = _e;
-        (@:checkr _e ?? throw "null pointer dereference")._data = ((@:checkr _e ?? throw "null pointer dereference")._data.__append__(_c));
+        (@:checkr _e ?? throw "null pointer dereference")._data = ((@:checkr _e ?? throw "null pointer dereference")._data.__append__(_c) : stdgo.Slice<stdgo.GoUInt8>);
     }
 }

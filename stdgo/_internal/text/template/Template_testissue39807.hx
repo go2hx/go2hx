@@ -26,7 +26,7 @@ stdgo.Go.routine(() -> ({
                             {
                                 var _j = (0 : stdgo.GoInt);
                                 while ((_j < _numTemplates : Bool)) {
-                                    var __tmp__ = @:check2r _tplFoo.addParseTree(@:check2r _tplBar.name().__copy__(), (@:checkr _tplBar ?? throw "null pointer dereference").tree), __48:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                                    var __tmp__ = @:check2r _tplFoo.addParseTree(@:check2r _tplBar.name().__copy__(), (@:checkr _tplBar ?? throw "null pointer dereference").tree), __56:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
 if (_err != null) {
                                         @:check2r _t.error(stdgo.Go.toInterface(_err));
                                     };

@@ -73,24 +73,24 @@ package stdgo._internal.net.http.cgi;
             {
                 var __tmp__ = stdgo._internal.net.Net_splithostport.splitHostPort((@:checkr _req ?? throw "null pointer dereference").remoteAddr?.__copy__()), _remoteIP:stdgo.GoString = __tmp__._0, _remotePort:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                 if (_err == null) {
-                    _env = (_env.__append__((("REMOTE_ADDR=" : stdgo.GoString) + _remoteIP?.__copy__() : stdgo.GoString)?.__copy__(), (("REMOTE_HOST=" : stdgo.GoString) + _remoteIP?.__copy__() : stdgo.GoString)?.__copy__(), (("REMOTE_PORT=" : stdgo.GoString) + _remotePort?.__copy__() : stdgo.GoString)?.__copy__()));
+                    _env = (_env.__append__((("REMOTE_ADDR=" : stdgo.GoString) + _remoteIP?.__copy__() : stdgo.GoString)?.__copy__(), (("REMOTE_HOST=" : stdgo.GoString) + _remoteIP?.__copy__() : stdgo.GoString)?.__copy__(), (("REMOTE_PORT=" : stdgo.GoString) + _remotePort?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 } else {
-                    _env = (_env.__append__((("REMOTE_ADDR=" : stdgo.GoString) + (@:checkr _req ?? throw "null pointer dereference").remoteAddr?.__copy__() : stdgo.GoString)?.__copy__(), (("REMOTE_HOST=" : stdgo.GoString) + (@:checkr _req ?? throw "null pointer dereference").remoteAddr?.__copy__() : stdgo.GoString)?.__copy__()));
+                    _env = (_env.__append__((("REMOTE_ADDR=" : stdgo.GoString) + (@:checkr _req ?? throw "null pointer dereference").remoteAddr?.__copy__() : stdgo.GoString)?.__copy__(), (("REMOTE_HOST=" : stdgo.GoString) + (@:checkr _req ?? throw "null pointer dereference").remoteAddr?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 };
             };
             {
-                var __tmp__ = stdgo._internal.net.Net_splithostport.splitHostPort((@:checkr _req ?? throw "null pointer dereference").host?.__copy__()), _hostDomain:stdgo.GoString = __tmp__._0, __0:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                var __tmp__ = stdgo._internal.net.Net_splithostport.splitHostPort((@:checkr _req ?? throw "null pointer dereference").host?.__copy__()), _hostDomain:stdgo.GoString = __tmp__._0, __16:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                 if (_err == null) {
-                    _env = (_env.__append__((("SERVER_NAME=" : stdgo.GoString) + _hostDomain?.__copy__() : stdgo.GoString)?.__copy__()));
+                    _env = (_env.__append__((("SERVER_NAME=" : stdgo.GoString) + _hostDomain?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 } else {
-                    _env = (_env.__append__((("SERVER_NAME=" : stdgo.GoString) + (@:checkr _req ?? throw "null pointer dereference").host?.__copy__() : stdgo.GoString)?.__copy__()));
+                    _env = (_env.__append__((("SERVER_NAME=" : stdgo.GoString) + (@:checkr _req ?? throw "null pointer dereference").host?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 };
             };
             if (({
                 final value = (@:checkr _req ?? throw "null pointer dereference").tLS;
                 (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
             })) {
-                _env = (_env.__append__((("HTTPS=on" : stdgo.GoString) : stdgo.GoString)));
+                _env = (_env.__append__(("HTTPS=on" : stdgo.GoString)) : stdgo.Slice<stdgo.GoString>);
             };
             for (_k => _v in (@:checkr _req ?? throw "null pointer dereference").header) {
                 _k = stdgo._internal.strings.Strings_map_.map_(stdgo._internal.net.http.cgi.Cgi__uppercaseandunderscore._upperCaseAndUnderscore, _k?.__copy__())?.__copy__();
@@ -101,40 +101,40 @@ package stdgo._internal.net.http.cgi;
                 if (_k == (("COOKIE" : stdgo.GoString))) {
                     _joinStr = ("; " : stdgo.GoString);
                 };
-                _env = (_env.__append__((((("HTTP_" : stdgo.GoString) + _k?.__copy__() : stdgo.GoString) + ("=" : stdgo.GoString)?.__copy__() : stdgo.GoString) + stdgo._internal.strings.Strings_join.join(_v, _joinStr?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__()));
+                _env = (_env.__append__((((("HTTP_" : stdgo.GoString) + _k?.__copy__() : stdgo.GoString) + ("=" : stdgo.GoString)?.__copy__() : stdgo.GoString) + stdgo._internal.strings.Strings_join.join(_v, _joinStr?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
             if (((@:checkr _req ?? throw "null pointer dereference").contentLength > (0i64 : stdgo.GoInt64) : Bool)) {
-                _env = (_env.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("CONTENT_LENGTH=%d" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _req ?? throw "null pointer dereference").contentLength))?.__copy__()));
+                _env = (_env.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("CONTENT_LENGTH=%d" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _req ?? throw "null pointer dereference").contentLength))?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
             {
                 var _ctype = ((@:checkr _req ?? throw "null pointer dereference").header.get(("Content-Type" : stdgo.GoString))?.__copy__() : stdgo.GoString);
                 if (_ctype != ((stdgo.Go.str() : stdgo.GoString))) {
-                    _env = (_env.__append__((("CONTENT_TYPE=" : stdgo.GoString) + _ctype?.__copy__() : stdgo.GoString)?.__copy__()));
+                    _env = (_env.__append__((("CONTENT_TYPE=" : stdgo.GoString) + _ctype?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 };
             };
             var _envPath = (stdgo._internal.os.Os_getenv.getenv(("PATH" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             if (_envPath == ((stdgo.Go.str() : stdgo.GoString))) {
                 _envPath = ("/bin:/usr/bin:/usr/ucb:/usr/bsd:/usr/local/bin" : stdgo.GoString);
             };
-            _env = (_env.__append__((("PATH=" : stdgo.GoString) + _envPath?.__copy__() : stdgo.GoString)?.__copy__()));
-            for (__1 => _e in (@:checkr _h ?? throw "null pointer dereference").inheritEnv) {
+            _env = (_env.__append__((("PATH=" : stdgo.GoString) + _envPath?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+            for (__25 => _e in (@:checkr _h ?? throw "null pointer dereference").inheritEnv) {
                 {
                     var _v = (stdgo._internal.os.Os_getenv.getenv(_e?.__copy__())?.__copy__() : stdgo.GoString);
                     if (_v != ((stdgo.Go.str() : stdgo.GoString))) {
-                        _env = (_env.__append__(((_e + ("=" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _v?.__copy__() : stdgo.GoString)?.__copy__()));
+                        _env = (_env.__append__(((_e + ("=" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _v?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     };
                 };
             };
-            for (__2 => _e in stdgo._internal.net.http.cgi.Cgi__osdefaultinheritenv._osDefaultInheritEnv) {
+            for (__26 => _e in stdgo._internal.net.http.cgi.Cgi__osdefaultinheritenv._osDefaultInheritEnv) {
                 {
                     var _v = (stdgo._internal.os.Os_getenv.getenv(_e?.__copy__())?.__copy__() : stdgo.GoString);
                     if (_v != ((stdgo.Go.str() : stdgo.GoString))) {
-                        _env = (_env.__append__(((_e + ("=" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _v?.__copy__() : stdgo.GoString)?.__copy__()));
+                        _env = (_env.__append__(((_e + ("=" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _v?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     };
                 };
             };
             if ((@:checkr _h ?? throw "null pointer dereference").env != null) {
-                _env = (_env.__append__(...((@:checkr _h ?? throw "null pointer dereference").env : Array<stdgo.GoString>)));
+                _env = (_env.__append__(...((@:checkr _h ?? throw "null pointer dereference").env : Array<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>);
             };
             _env = stdgo._internal.net.http.cgi.Cgi__removeleadingduplicates._removeLeadingDuplicates(_env);
             var _cwd:stdgo.GoString = ("" : stdgo.GoString), _path:stdgo.GoString = ("" : stdgo.GoString);
@@ -155,7 +155,7 @@ package stdgo._internal.net.http.cgi;
                 _rw.writeHeader((500 : stdgo.GoInt));
                 @:check2r _h._printf(("CGI error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             } : stdgo.Error -> Void);
-            var _cmd = (stdgo.Go.setRef(({ path : _path?.__copy__(), args : ((new stdgo.Slice<stdgo.GoString>(1, 1, ...[(@:checkr _h ?? throw "null pointer dereference").path?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>).__append__(...((@:checkr _h ?? throw "null pointer dereference").args : Array<stdgo.GoString>))), dir : _cwd?.__copy__(), env : _env, stderr : @:check2r _h._stderr() } : stdgo._internal.os.exec.Exec_cmd.Cmd)) : stdgo.Ref<stdgo._internal.os.exec.Exec_cmd.Cmd>);
+            var _cmd = (stdgo.Go.setRef(({ path : _path?.__copy__(), args : ((new stdgo.Slice<stdgo.GoString>(1, 1, ...[(@:checkr _h ?? throw "null pointer dereference").path?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>).__append__(...((@:checkr _h ?? throw "null pointer dereference").args : Array<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>), dir : _cwd?.__copy__(), env : _env, stderr : @:check2r _h._stderr() } : stdgo._internal.os.exec.Exec_cmd.Cmd)) : stdgo.Ref<stdgo._internal.os.exec.Exec_cmd.Cmd>);
             if ((@:checkr _req ?? throw "null pointer dereference").contentLength != ((0i64 : stdgo.GoInt64))) {
                 (@:checkr _cmd ?? throw "null pointer dereference").stdin = (@:checkr _req ?? throw "null pointer dereference").body;
             };
@@ -314,7 +314,7 @@ package stdgo._internal.net.http.cgi;
                 _statusCode = (200 : stdgo.GoInt);
             };
             for (_k => _vv in _headers) {
-                for (__3 => _v in _vv) {
+                for (__85 => _v in _vv) {
                     _rw.header().add(_k?.__copy__(), _v?.__copy__());
                 };
             };

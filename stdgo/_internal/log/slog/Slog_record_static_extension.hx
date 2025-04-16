@@ -30,7 +30,7 @@ package stdgo._internal.log.slog;
                 if ((@:checkr _r ?? throw "null pointer dereference")._back == null) {
                     (@:checkr _r ?? throw "null pointer dereference")._back = (new stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>((0 : stdgo.GoInt).toBasic(), stdgo._internal.log.slog.Slog__countattrs._countAttrs(_args), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > stdgo._internal.log.slog.Slog__countattrs._countAttrs(_args) ? (0 : stdgo.GoInt).toBasic() : stdgo._internal.log.slog.Slog__countattrs._countAttrs(_args) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.log.slog.Slog_attr.Attr)]) : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
                 };
-                (@:checkr _r ?? throw "null pointer dereference")._back = ((@:checkr _r ?? throw "null pointer dereference")._back.__append__(_a));
+                (@:checkr _r ?? throw "null pointer dereference")._back = ((@:checkr _r ?? throw "null pointer dereference")._back.__append__(_a) : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
             };
         };
     }
@@ -65,7 +65,7 @@ if (_a.value._isEmptyGroup()) {
         (@:checkr _r ?? throw "null pointer dereference")._back = stdgo._internal.slices.Slices_grow.grow((@:checkr _r ?? throw "null pointer dereference")._back, (((_attrs.__slice__(_i) : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>).length) - _ne : stdgo.GoInt));
         for (__850 => _a in (_attrs.__slice__(_i) : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>)) {
             if (!_a.value._isEmptyGroup()) {
-                (@:checkr _r ?? throw "null pointer dereference")._back = ((@:checkr _r ?? throw "null pointer dereference")._back.__append__(_a));
+                (@:checkr _r ?? throw "null pointer dereference")._back = ((@:checkr _r ?? throw "null pointer dereference")._back.__append__(_a) : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
             };
         };
     }

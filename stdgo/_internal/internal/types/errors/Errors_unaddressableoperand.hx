@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final unaddressableOperand = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final unaddressableOperand : stdgo._internal.internal.types.errors.Errors_code.Code = 49i32;

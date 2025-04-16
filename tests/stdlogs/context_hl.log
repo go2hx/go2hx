@@ -50,6 +50,7 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 -- FAIL: TestCustomContextAfterFuncUnregisterAfterFunc
 
 === RUN  TestDeadlineExceededIsNetError
+DeadlineExceeded does not implement net.Error
 Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
@@ -172,7 +173,7 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 
 === RUN  TestSimultaneousCancels
 Exception: :context.background is not yet implemented
-Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.testSimultaneousCancels (_internal/context_test/Context_test_testsimultaneouscancels.hx line 161)
+Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.testSimultaneousCancels (_internal/context_test/Context_test_testsimultaneouscancels.hx line 181)
 Called from stdgo._internal.context._Context_background.$Context_background_Fields_.background (stdgo/_internal/context/Context_background.hx line 2)
 Called from _internal.context_test._Context_test_testvalues.$Context_test_testvalues_Fields_.testValues (_internal/context_test/Context_test_testvalues.hx line 35)
 Called from stdgo._internal.context._Context_background.$Context_background_Fields_.background (stdgo/_internal/context/Context_background.hx line 2)
@@ -184,7 +185,7 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 
 === RUN  TestInterlockedCancels
 Exception: :context.background is not yet implemented
-Called from _internal.context_test._Context_test_testinterlockedcancels.$Context_test_testinterlockedcancels_Fields_.testInterlockedCancels (_internal/context_test/Context_test_testinterlockedcancels.hx line 97)
+Called from _internal.context_test._Context_test_testinterlockedcancels.$Context_test_testinterlockedcancels_Fields_.testInterlockedCancels (_internal/context_test/Context_test_testinterlockedcancels.hx line 107)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 7)
 
@@ -192,8 +193,8 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 
 === RUN  TestLayersCancel
 Exception: :context.background is not yet implemented
-Called from _internal.context_test._Context_test__testlayers.$Context_test__testlayers_Fields_._testLayers (_internal/context_test/Context_test__testlayers.hx line 199)
-Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.testSimultaneousCancels (_internal/context_test/Context_test_testsimultaneouscancels.hx line 161)
+Called from _internal.context_test._Context_test__testlayers.$Context_test__testlayers_Fields_._testLayers (_internal/context_test/Context_test__testlayers.hx line 219)
+Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.testSimultaneousCancels (_internal/context_test/Context_test_testsimultaneouscancels.hx line 181)
 Called from stdgo._internal.context._Context_background.$Context_background_Fields_.background (stdgo/_internal/context/Context_background.hx line 2)
 Called from _internal.context_test._Context_test_testvalues.$Context_test_testvalues_Fields_.testValues (_internal/context_test/Context_test_testvalues.hx line 35)
 Called from _internal.context_test._Context_test_testlayerscancel.$Context_test_testlayerscancel_Fields_.testLayersCancel (_internal/context_test/Context_test_testlayerscancel.hx line 3)
@@ -204,8 +205,8 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 
 === RUN  TestLayersTimeout
 Exception: :context.background is not yet implemented
-Called from _internal.context_test._Context_test__testlayers.$Context_test__testlayers_Fields_._testLayers (_internal/context_test/Context_test__testlayers.hx line 199)
-Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.testSimultaneousCancels (_internal/context_test/Context_test_testsimultaneouscancels.hx line 161)
+Called from _internal.context_test._Context_test__testlayers.$Context_test__testlayers_Fields_._testLayers (_internal/context_test/Context_test__testlayers.hx line 219)
+Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.testSimultaneousCancels (_internal/context_test/Context_test_testsimultaneouscancels.hx line 181)
 Called from stdgo._internal.context._Context_background.$Context_background_Fields_.background (stdgo/_internal/context/Context_background.hx line 2)
 Called from _internal.context_test._Context_test_testvalues.$Context_test_testvalues_Fields_.testValues (_internal/context_test/Context_test_testvalues.hx line 35)
 Called from _internal.context_test._Context_test_testlayerstimeout.$Context_test_testlayerstimeout_Fields_.testLayersTimeout (_internal/context_test/Context_test_testlayerstimeout.hx line 3)
@@ -233,6 +234,7 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 -- FAIL: TestWithCancelSimultaneouslyCanceledParent
 
 === RUN  TestWithValueChecksKey
+panic = ":context.background is not yet implemented"; want "nil key"
 
 -- FAIL: TestWithValueChecksKey
 
@@ -241,6 +243,7 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 -- PASS: TestInvalidDerivedFail
 
 === RUN  TestDeadlineExceededSupportsTimeout
+DeadlineExceeded does not support Timeout interface
 Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
@@ -300,7 +303,7 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 
 === RUN  TestAfterFuncCalledAfterTimeout
 Exception: :context.background is not yet implemented
-Called from _internal.context_test._Context_test_testafterfunccalledaftertimeout.$Context_test_testafterfunccalledaftertimeout_Fields_.testAfterFuncCalledAfterTimeout (_internal/context_test/Context_test_testafterfunccalledaftertimeout.hx line 88)
+Called from _internal.context_test._Context_test_testafterfunccalledaftertimeout.$Context_test_testafterfunccalledaftertimeout_Fields_.testAfterFuncCalledAfterTimeout (_internal/context_test/Context_test_testafterfunccalledaftertimeout.hx line 98)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 7)
 
@@ -326,12 +329,11 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 
 === RUN  TestAfterFuncCalledAsynchronously
 Exception: :context.background is not yet implemented
-Called from _internal.context_test._Context_test_testafterfunccalledasynchronously.$Context_test_testafterfunccalledasynchronously_Fields_.testAfterFuncCalledAsynchronously (_internal/context_test/Context_test_testafterfunccalledasynchronously.hx line 89)
+Called from _internal.context_test._Context_test_testafterfunccalledasynchronously.$Context_test_testafterfunccalledasynchronously_Fields_.testAfterFuncCalledAsynchronously (_internal/context_test/Context_test_testafterfunccalledasynchronously.hx line 99)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 7)
 
 -- FAIL: TestAfterFuncCalledAsynchronously
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestAfterFuncCalledAsynchronously

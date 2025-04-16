@@ -19,7 +19,7 @@ stdgo.Go.toInterface(((1.2345f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f6
 stdgo.Go.toInterface(((1.2345678f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 2.3456789f64) : stdgo.GoComplex128)),
 stdgo.Go.toInterface(((("hello" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)),
 stdgo.Go.toInterface((("hello" : stdgo.GoString) : stdgo.GoString))]) : stdgo.Slice<stdgo.AnyInterface>);
-        for (__4 => _value in _values) {
+        for (__8 => _value in _values) {
             var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
             var _enc = stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo.Go.asInterface(_b));
             var _err = (@:check2r _enc.encode(_value) : stdgo.Error);

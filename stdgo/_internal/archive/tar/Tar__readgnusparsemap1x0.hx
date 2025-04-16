@@ -10,7 +10,7 @@ function _readGNUSparseMap1x0(_r:stdgo._internal.io.Io_reader.Reader):{ var _0 :
                     };
                 };
                 @:check2 _buf.write((_blk.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
-                for (__2 => _c in _blk) {
+                for (__2 => _c in _blk.__copy__()) {
                     if (_c == ((10 : stdgo.GoUInt8))) {
                         _cntNewline++;
                     };
@@ -48,7 +48,7 @@ var __tmp__ = stdgo._internal.strconv.Strconv_parseint.parseInt(_nextToken().__c
 if (((_err1 != null) || (_err2 != null) : Bool)) {
                     return { _0 : null, _1 : stdgo._internal.archive.tar.Tar_errheader.errHeader };
                 };
-_spd = (_spd.__append__(({ offset : _offset, length_ : _length } : stdgo._internal.archive.tar.Tar_t_sparseentry.T_sparseEntry)));
+_spd = (_spd.__append__(({ offset : _offset, length_ : _length } : stdgo._internal.archive.tar.Tar_t_sparseentry.T_sparseEntry)) : stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas);
                 _i++;
             };
         };

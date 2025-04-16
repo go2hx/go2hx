@@ -10,18 +10,18 @@ package stdgo._internal.fmt;
     @:tdfield
     static public function _writeByte( _b:stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer>, _c:stdgo.GoUInt8):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer> = _b;
-        (_b : stdgo._internal.fmt.Fmt_t_buffer.T_buffer).__setData__(((_b : stdgo._internal.fmt.Fmt_t_buffer.T_buffer).__append__(_c)));
+        (_b : stdgo._internal.fmt.Fmt_t_buffer.T_buffer).__setData__(((_b : stdgo._internal.fmt.Fmt_t_buffer.T_buffer).__append__(_c) : stdgo._internal.fmt.Fmt_t_buffer.T_buffer));
     }
     @:keep
     @:tdfield
     static public function _writeString( _b:stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer>, _s:stdgo.GoString):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer> = _b;
-        (_b : stdgo._internal.fmt.Fmt_t_buffer.T_buffer).__setData__(((_b : stdgo._internal.fmt.Fmt_t_buffer.T_buffer).__append__(...(_s : Array<stdgo.GoUInt8>))));
+        (_b : stdgo._internal.fmt.Fmt_t_buffer.T_buffer).__setData__(((_b : stdgo._internal.fmt.Fmt_t_buffer.T_buffer).__append__(...(_s : Array<stdgo.GoUInt8>)) : stdgo._internal.fmt.Fmt_t_buffer.T_buffer));
     }
     @:keep
     @:tdfield
     static public function _write( _b:stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer>, _p:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer> = _b;
-        (_b : stdgo._internal.fmt.Fmt_t_buffer.T_buffer).__setData__(((_b : stdgo._internal.fmt.Fmt_t_buffer.T_buffer).__append__(...(_p : Array<stdgo.GoUInt8>))));
+        (_b : stdgo._internal.fmt.Fmt_t_buffer.T_buffer).__setData__(((_b : stdgo._internal.fmt.Fmt_t_buffer.T_buffer).__append__(...(_p : Array<stdgo.GoUInt8>)) : stdgo._internal.fmt.Fmt_t_buffer.T_buffer));
     }
 }

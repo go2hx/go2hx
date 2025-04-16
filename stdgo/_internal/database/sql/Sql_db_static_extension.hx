@@ -38,12 +38,12 @@ package stdgo._internal.database.sql;
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _dc ?? throw "null pointer dereference")._ci) : stdgo._internal.database.sql.driver.Driver_sessionresetter.SessionResetter)) : stdgo._internal.database.sql.driver.Driver_sessionresetter.SessionResetter), _1 : true };
             } catch(_) {
                 { _0 : (null : stdgo._internal.database.sql.driver.Driver_sessionresetter.SessionResetter), _1 : false };
-            }, __19 = __tmp__._0, _hasSessionResetter = __tmp__._1;
+            }, __27 = __tmp__._0, _hasSessionResetter = __tmp__._1;
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _dc ?? throw "null pointer dereference")._ci) : stdgo._internal.database.sql.driver.Driver_validator.Validator)) : stdgo._internal.database.sql.driver.Driver_validator.Validator), _1 : true };
             } catch(_) {
                 { _0 : (null : stdgo._internal.database.sql.driver.Driver_validator.Validator), _1 : false };
-            }, __20 = __tmp__._0, _hasConnectionValidator = __tmp__._1;
+            }, __36 = __tmp__._0, _hasConnectionValidator = __tmp__._1;
             _keepConnOnRollback = (_hasSessionResetter && _hasConnectionValidator : Bool);
             {
                 var __tmp__ = stdgo._internal.database.sql.Sql__ctxdriverbegin._ctxDriverBegin(_ctx, _opts, (@:checkr _dc ?? throw "null pointer dereference")._ci);
@@ -293,6 +293,8 @@ package stdgo._internal.database.sql;
                                 _err = __tmp__._1;
                                 __tmp__;
                             };
+                            _res = __ret__._0;
+                            _err = __ret__._1;
                             for (defer in __deferstack__) {
                                 if (defer.ran) continue;
                                 defer.ran = true;
@@ -308,6 +310,8 @@ package stdgo._internal.database.sql;
                             _err = __tmp__._1;
                             __tmp__;
                         };
+                        _res = __ret__._0;
+                        _err = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -333,6 +337,8 @@ package stdgo._internal.database.sql;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _res = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -351,6 +357,8 @@ package stdgo._internal.database.sql;
                     @:assignTranslate final __tmp__ = stdgo._internal.database.sql.Sql__resultfromstatement._resultFromStatement(_ctx, (@:checkr _dc ?? throw "null pointer dereference")._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
                     { _0 : __tmp__._0, _1 : __tmp__._1 };
                 });
+                _res = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -613,8 +621,8 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
                 var _req:stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest> = (null : stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>);
                 var _reqKey:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
                 for (__key__ => __value__ in (@:checkr _db ?? throw "null pointer dereference")._connRequests) {
-                    _req = __value__;
                     _reqKey = __key__;
+                    _req = __value__;
                     break;
                 };
                 if ((@:checkr _db ?? throw "null pointer dereference")._connRequests != null) (@:checkr _db ?? throw "null pointer dereference")._connRequests.__remove__(_reqKey);
@@ -625,7 +633,7 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
                 return true;
             } else if (((_err == null) && !(@:checkr _db ?? throw "null pointer dereference")._closed : Bool)) {
                 if ((@:check2r _db._maxIdleConnsLocked() > ((@:checkr _db ?? throw "null pointer dereference")._freeConn.length) : Bool)) {
-                    (@:checkr _db ?? throw "null pointer dereference")._freeConn = ((@:checkr _db ?? throw "null pointer dereference")._freeConn.__append__(_dc));
+                    (@:checkr _db ?? throw "null pointer dereference")._freeConn = ((@:checkr _db ?? throw "null pointer dereference")._freeConn.__append__(_dc) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>>);
                     @:check2r _db._startCleanerLocked();
                     return true;
                 };
@@ -660,7 +668,7 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
         };
         (@:checkr _dc ?? throw "null pointer dereference")._inUse = false;
         (@:checkr _dc ?? throw "null pointer dereference")._returnedAt = stdgo._internal.database.sql.Sql__nowfunc._nowFunc()?.__copy__();
-        for (__19 => _fn in (@:checkr _dc ?? throw "null pointer dereference")._onPut) {
+        for (__75 => _fn in (@:checkr _dc ?? throw "null pointer dereference")._onPut) {
             _fn();
         };
         (@:checkr _dc ?? throw "null pointer dereference")._onPut = (null : stdgo.Slice<() -> Void>);
@@ -694,7 +702,7 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
             if ((@:checkr _c ?? throw "null pointer dereference")._inUse) {
                 (@:checkr _c ?? throw "null pointer dereference")._onPut = ((@:checkr _c ?? throw "null pointer dereference")._onPut.__append__(function():Void {
                     @:check2r _ds.close();
-                }));
+                }) : stdgo.Slice<() -> Void>);
             } else {
                 @:check2r _c.lock();
                 var _fc = ((@:checkr _c ?? throw "null pointer dereference")._finalClosed : Bool);
@@ -768,9 +776,14 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
         };
         {
             var __select__ = true;
-            var __c__0 = _ctx.done();
+            var __c__0 = null;
             while (__select__) {
-                if (__c__0 != null && __c__0.__isGet__(true)) {
+                if ({
+                    if (__c__0 == null) {
+                        __c__0 = _ctx.done();
+                    };
+                    __c__0 != null && __c__0.__isGet__(true);
+                }) {
                     __select__ = false;
                     {
                         __c__0.__get__();
@@ -819,9 +832,14 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
             var _waitStart = (stdgo._internal.database.sql.Sql__nowfunc._nowFunc()?.__copy__() : stdgo._internal.time.Time_time.Time);
             {
                 var __select__ = true;
-                var __c__0 = _ctx.done();
+                var __c__0 = null;
                 while (__select__) {
-                    if (__c__0 != null && __c__0.__isGet__(true)) {
+                    if ({
+                        if (__c__0 == null) {
+                            __c__0 = _ctx.done();
+                        };
+                        __c__0 != null && __c__0.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__0.__get__();
@@ -987,10 +1005,15 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
         while (true) {
             {
                 var __select__ = true;
-                var __c__0 = _ctx.done();
-var __c__1 = (@:checkr _db ?? throw "null pointer dereference")._openerCh;
+                var __c__0 = null;
+var __c__1 = null;
                 while (__select__) {
-                    if (__c__0 != null && __c__0.__isGet__(true)) {
+                    if ({
+                        if (__c__0 == null) {
+                            __c__0 = _ctx.done();
+                        };
+                        __c__0 != null && __c__0.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__0.__get__();
@@ -998,7 +1021,12 @@ var __c__1 = (@:checkr _db ?? throw "null pointer dereference")._openerCh;
                                 return;
                             };
                         };
-                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
+                    } else if ({
+                        if (__c__1 == null) {
+                            __c__1 = (@:checkr _db ?? throw "null pointer dereference")._openerCh;
+                        };
+                        __c__1 != null && __c__1.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__1.__get__();
@@ -1152,7 +1180,7 @@ if ((@:checkr _c ?? throw "null pointer dereference")._returnedAt.before(_idleSi
                 while ((_i < ((@:checkr _db ?? throw "null pointer dereference")._freeConn.length) : Bool)) {
                     var _c = (@:checkr _db ?? throw "null pointer dereference")._freeConn[(_i : stdgo.GoInt)];
 if ((@:checkr _c ?? throw "null pointer dereference")._createdAt.before(_expiredSince.__copy__())) {
-                        _closing = (_closing.__append__(_c));
+                        _closing = (_closing.__append__(_c) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>>);
                         var _last = (((@:checkr _db ?? throw "null pointer dereference")._freeConn.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
                         ((@:checkr _db ?? throw "null pointer dereference")._freeConn.__slice__(_i) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>>).__copyTo__(((@:checkr _db ?? throw "null pointer dereference")._freeConn.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>>));
                         (@:checkr _db ?? throw "null pointer dereference")._freeConn[(_last : stdgo.GoInt)] = null;
@@ -1183,16 +1211,26 @@ if ((@:checkr _c ?? throw "null pointer dereference")._createdAt.before(_expired
         while (true) {
             {
                 var __select__ = true;
-                var __c__0 = (@:checkr _t ?? throw "null pointer dereference").c;
-var __c__1 = (@:checkr _db ?? throw "null pointer dereference")._cleanerCh;
+                var __c__0 = null;
+var __c__1 = null;
                 while (__select__) {
-                    if (__c__0 != null && __c__0.__isGet__(true)) {
+                    if ({
+                        if (__c__0 == null) {
+                            __c__0 = (@:checkr _t ?? throw "null pointer dereference").c;
+                        };
+                        __c__0 != null && __c__0.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__0.__get__();
                             {};
                         };
-                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
+                    } else if ({
+                        if (__c__1 == null) {
+                            __c__1 = (@:checkr _db ?? throw "null pointer dereference")._cleanerCh;
+                        };
+                        __c__1 != null && __c__1.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__1.__get__();
@@ -1214,7 +1252,7 @@ __c__1.__reset__();
             };
             var __tmp__ = @:check2r _db._connectionCleanerRunLocked(_d), _d:stdgo._internal.time.Time_duration.Duration = __tmp__._0, _closing:stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>> = __tmp__._1;
             @:check2 (@:checkr _db ?? throw "null pointer dereference")._mu.unlock();
-            for (__19 => _c in _closing) {
+            for (__75 => _c in _closing) {
                 @:check2r _c.close();
             };
             if ((_d < (1000000000i64 : stdgo._internal.time.Time_duration.Duration) : Bool)) {
@@ -1223,9 +1261,14 @@ __c__1.__reset__();
             if (!@:check2r _t.stop()) {
                 {
                     var __select__ = true;
-                    var __c__0 = (@:checkr _t ?? throw "null pointer dereference").c;
+                    var __c__0 = null;
                     while (__select__) {
-                        if (__c__0 != null && __c__0.__isGet__(true)) {
+                        if ({
+                            if (__c__0 == null) {
+                                __c__0 = (@:checkr _t ?? throw "null pointer dereference").c;
+                            };
+                            __c__0 != null && __c__0.__isGet__(true);
+                        }) {
                             __select__ = false;
                             {
                                 __c__0.__get__();
@@ -1414,7 +1457,7 @@ __c__1.__reset__();
         };
         (@:checkr _db ?? throw "null pointer dereference")._maxIdleClosed = ((@:checkr _db ?? throw "null pointer dereference")._maxIdleClosed + ((_closing.length : stdgo.GoInt64)) : stdgo.GoInt64);
         @:check2 (@:checkr _db ?? throw "null pointer dereference")._mu.unlock();
-        for (__19 => _c in _closing) {
+        for (__91 => _c in _closing) {
             @:check2r _c.close();
         };
     }
@@ -1461,16 +1504,16 @@ __c__1.__reset__();
         };
         var _err:stdgo.Error = (null : stdgo.Error);
         var _fns = (new stdgo.Slice<() -> stdgo.Error>((0 : stdgo.GoInt).toBasic(), ((@:checkr _db ?? throw "null pointer dereference")._freeConn.length)) : stdgo.Slice<() -> stdgo.Error>);
-        for (__19 => _dc in (@:checkr _db ?? throw "null pointer dereference")._freeConn) {
-            _fns = (_fns.__append__(@:check2r _dc._closeDBLocked()));
+        for (__59 => _dc in (@:checkr _db ?? throw "null pointer dereference")._freeConn) {
+            _fns = (_fns.__append__(@:check2r _dc._closeDBLocked()) : stdgo.Slice<() -> stdgo.Error>);
         };
         (@:checkr _db ?? throw "null pointer dereference")._freeConn = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>>);
         (@:checkr _db ?? throw "null pointer dereference")._closed = true;
-        for (__20 => _req in (@:checkr _db ?? throw "null pointer dereference")._connRequests) {
+        for (__84 => _req in (@:checkr _db ?? throw "null pointer dereference")._connRequests) {
             if (_req != null) _req.__close__();
         };
         @:check2 (@:checkr _db ?? throw "null pointer dereference")._mu.unlock();
-        for (__21 => _fn in _fns) {
+        for (__93 => _fn in _fns) {
             var _err1 = (_fn() : stdgo.Error);
             if (_err1 != null) {
                 _err = _err1;

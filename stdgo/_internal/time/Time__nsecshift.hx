@@ -1,2 +1,2 @@
 package stdgo._internal.time;
-final _nsecShift : stdgo.GoUInt64 = (30i64 : stdgo.GoUInt64);
+final _nsecShift : stdgo.GoUInt64 = 30i32;

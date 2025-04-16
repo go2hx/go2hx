@@ -9,9 +9,14 @@ package stdgo._internal.internal.fuzz;
         };
         {
             var __select__ = true;
-            var __c__0 = (@:checkr _w ?? throw "null pointer dereference")._termC;
+            var __c__0 = null;
             while (__select__) {
-                if (__c__0 != null && __c__0.__isGet__(true)) {
+                if ({
+                    if (__c__0 == null) {
+                        __c__0 = (@:checkr _w ?? throw "null pointer dereference")._termC;
+                    };
+                    __c__0 != null && __c__0.__isGet__(true);
+                }) {
                     __select__ = false;
                     {
                         __c__0.__get__();
@@ -53,10 +58,15 @@ package stdgo._internal.internal.fuzz;
         while (true) {
             {
                 var __select__ = true;
-                var __c__0 = (@:checkr _w ?? throw "null pointer dereference")._termC;
-var __c__1 = (@:checkr _t ?? throw "null pointer dereference").c;
+                var __c__0 = null;
+var __c__1 = null;
                 while (__select__) {
-                    if (__c__0 != null && __c__0.__isGet__(true)) {
+                    if ({
+                        if (__c__0 == null) {
+                            __c__0 = (@:checkr _w ?? throw "null pointer dereference")._termC;
+                        };
+                        __c__0 != null && __c__0.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__0.__get__();
@@ -68,7 +78,12 @@ var __c__1 = (@:checkr _t ?? throw "null pointer dereference").c;
                                 return (@:checkr _w ?? throw "null pointer dereference")._waitErr;
                             };
                         };
-                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
+                    } else if ({
+                        if (__c__1 == null) {
+                            __c__1 = (@:checkr _t ?? throw "null pointer dereference").c;
+                        };
+                        __c__1 != null && __c__1.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__1.__get__();
@@ -298,6 +313,8 @@ __c__1.__reset__();
                             _err = __tmp__._1;
                             __tmp__;
                         };
+                        _min = __ret__._0;
+                        _err = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -313,6 +330,8 @@ __c__1.__reset__();
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _min = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -329,6 +348,8 @@ __c__1.__reset__();
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _min = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -344,6 +365,8 @@ __c__1.__reset__();
                     _err = __tmp__._1;
                     __tmp__;
                 };
+                _min = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -420,12 +443,17 @@ __c__1.__reset__();
             };
             {
                 var __select__ = true;
-                var __c__0 = _ctx.done();
-var __c__1 = (@:checkr _w ?? throw "null pointer dereference")._termC;
-var __c__2 = (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._inputC;
-var __c__3 = (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._minimizeC;
+                var __c__0 = null;
+var __c__1 = null;
+var __c__2 = null;
+var __c__3 = null;
                 while (__select__) {
-                    if (__c__0 != null && __c__0.__isGet__(true)) {
+                    if ({
+                        if (__c__0 == null) {
+                            __c__0 = _ctx.done();
+                        };
+                        __c__0 != null && __c__0.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__0.__get__();
@@ -437,7 +465,12 @@ var __c__3 = (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordi
                                 return _ctx.err();
                             };
                         };
-                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
+                    } else if ({
+                        if (__c__1 == null) {
+                            __c__1 = (@:checkr _w ?? throw "null pointer dereference")._termC;
+                        };
+                        __c__1 != null && __c__1.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__1.__get__();
@@ -462,7 +495,12 @@ var __c__3 = (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordi
                                 return stdgo._internal.fmt.Fmt_errorf.errorf(("fuzzing process hung or terminated unexpectedly: %w" : stdgo.GoString), stdgo.Go.toInterface(_err));
                             };
                         };
-                    } else if (__c__2 != null && __c__2.__isGet__(true)) {
+                    } else if ({
+                        if (__c__2 == null) {
+                            __c__2 = (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._inputC;
+                        };
+                        __c__2 != null && __c__2.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             var _input = __c__2.__get__();
@@ -494,7 +532,12 @@ var __c__3 = (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordi
                                 (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._resultC.__send__(_result?.__copy__());
                             };
                         };
-                    } else if (__c__3 != null && __c__3.__isGet__(true)) {
+                    } else if ({
+                        if (__c__3 == null) {
+                            __c__3 = (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._minimizeC;
+                        };
+                        __c__3 != null && __c__3.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             var _input = __c__3.__get__();

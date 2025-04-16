@@ -1,2 +1,2 @@
 package stdgo._internal.regexp.syntax;
-final instCapture = (10 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp);
+final instCapture : stdgo._internal.regexp.syntax.Syntax_instop.InstOp = 2i32;

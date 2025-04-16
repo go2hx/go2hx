@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final noNewVar = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final noNewVar : stdgo._internal.internal.types.errors.Errors_code.Code = 19i32;

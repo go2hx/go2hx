@@ -84,7 +84,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	@:to
 	public static function toBytes(slice:Slice<GoByte>):haxe.io.Bytes {
 		if (slice != null && slice.__bytes__ != null) {
-			return slice.__bytes__;
+			return slice.__bytes__.sub(0, slice.length);
 		}
 		final bytes = haxe.io.Bytes.alloc(slice.length.toBasic());
 		for (i in 0...bytes.length)

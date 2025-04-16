@@ -6,8 +6,5 @@ class Fdtest {
     /**
         * Exists returns true if fd is a valid file descriptor.
     **/
-    static public inline function exists(_fd:stdgo.GoUIntptr):Bool {
-        final _fd = (_fd : stdgo.GoUIntptr);
-        return stdgo._internal.os.exec.internal.fdtest.Fdtest_exists.exists(_fd);
-    }
+    static public inline function exists(_fd:stdgo.GoUIntptr):Bool return stdgo._internal.os.exec.internal.fdtest.Fdtest_exists.exists(_fd);
 }

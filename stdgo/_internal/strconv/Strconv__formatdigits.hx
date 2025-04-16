@@ -27,5 +27,5 @@ function _formatDigits(_dst:stdgo.Slice<stdgo.GoUInt8>, _shortest:Bool, _neg:Boo
                 return stdgo._internal.strconv.Strconv__fmtf._fmtF(_dst, _neg, _digs?.__copy__(), stdgo._internal.strconv.Strconv__max._max((_prec - _digs._dp : stdgo.GoInt), (0 : stdgo.GoInt)));
             };
         };
-        return (_dst.__append__((37 : stdgo.GoUInt8), _fmt));
+        return (_dst.__append__((37 : stdgo.GoUInt8), _fmt) : stdgo.Slice<stdgo.GoUInt8>);
     }

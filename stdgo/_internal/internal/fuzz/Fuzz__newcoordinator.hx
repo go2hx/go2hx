@@ -45,7 +45,7 @@ function _newCoordinator(_opts:stdgo._internal.internal.fuzz.Fuzz_coordinatefuzz
             stdgo._internal.fmt.Fmt_fprintf.fprintf((@:checkr _c ?? throw "null pointer dereference")._opts.log, ("warning: starting with empty corpus\n" : stdgo.GoString));
             var _vals:stdgo.Slice<stdgo.AnyInterface> = (null : stdgo.Slice<stdgo.AnyInterface>);
             for (__8 => _t in _opts.types) {
-                _vals = (_vals.__append__(stdgo._internal.internal.fuzz.Fuzz__zerovalue._zeroValue(_t)));
+                _vals = (_vals.__append__(stdgo._internal.internal.fuzz.Fuzz__zerovalue._zeroValue(_t)) : stdgo.Slice<stdgo.AnyInterface>);
             };
             var _data = stdgo._internal.internal.fuzz.Fuzz__marshalcorpusfile._marshalCorpusFile(...(_vals : Array<stdgo.AnyInterface>));
             var _h = stdgo._internal.crypto.sha256.Sha256_sum256.sum256(_data)?.__copy__();

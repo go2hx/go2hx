@@ -1,2 +1,2 @@
 package stdgo._internal.log.slog;
-final kindUint64 = (9 : stdgo._internal.log.slog.Slog_kind.Kind);
+final kindUint64 : stdgo._internal.log.slog.Slog_kind.Kind = 7i32;

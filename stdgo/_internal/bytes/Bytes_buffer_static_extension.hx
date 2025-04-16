@@ -40,7 +40,7 @@ package stdgo._internal.bytes;
         @:recv var _b:stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer> = _b;
         var _line = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         var __tmp__ = @:check2r _b._readSlice(_delim), _slice:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        _line = (_line.__append__(...(_slice : Array<stdgo.GoUInt8>)));
+        _line = (_line.__append__(...(_slice : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _line, _1 : _err };
             _line = __tmp__._0;

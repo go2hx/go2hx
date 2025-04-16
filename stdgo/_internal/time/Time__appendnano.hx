@@ -6,7 +6,7 @@ function _appendNano(_b:stdgo.Slice<stdgo.GoUInt8>, _nanosec:stdgo.GoInt, _std:s
             return _b;
         };
         var _dot = (stdgo._internal.time.Time__separator._separator(_std) : stdgo.GoUInt8);
-        _b = (_b.__append__(_dot));
+        _b = (_b.__append__(_dot) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.time.Time__appendint._appendInt(_b, _nanosec, (9 : stdgo.GoInt));
         if ((_n < (9 : stdgo.GoInt) : Bool)) {
             _b = (_b.__slice__(0, (((_b.length) - (9 : stdgo.GoInt) : stdgo.GoInt) + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);

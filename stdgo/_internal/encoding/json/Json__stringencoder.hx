@@ -10,7 +10,7 @@ function _stringEncoder(_e:stdgo.Ref<stdgo._internal.encoding.json.Json_t_encode
             };
             var _b = @:check2r _e.availableBuffer();
             _b = stdgo._internal.encoding.json.Json__mayappendquote._mayAppendQuote(_b, _opts._quoted);
-            _b = (_b.__append__(...(_numStr : Array<stdgo.GoUInt8>)));
+            _b = (_b.__append__(...(_numStr : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             _b = stdgo._internal.encoding.json.Json__mayappendquote._mayAppendQuote(_b, _opts._quoted);
             @:check2r _e.write(_b);
             return;

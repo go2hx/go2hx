@@ -47,7 +47,7 @@ function _listGroupsFromReader(_u:stdgo.Ref<stdgo._internal.os.user.User_user.Us
             if (((_err != null) || (_numGid == _primaryGid) : Bool)) {
                 continue;
             };
-            _groups = (_groups.__append__(_gid?.__copy__()));
+            _groups = (_groups.__append__(_gid?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         return { _0 : _groups, _1 : (null : stdgo.Error) };
     }

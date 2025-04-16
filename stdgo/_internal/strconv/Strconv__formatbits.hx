@@ -72,7 +72,7 @@ _a[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ("000102030405060708091011121314151
             _a[(_i : stdgo.GoInt)] = (45 : stdgo.GoUInt8);
         };
         if (_append_) {
-            _d = (_dst.__append__(...((_a.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+            _d = (_dst.__append__(...((_a.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             return { _0 : _d, _1 : _s };
         };
         _s = ((_a.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();

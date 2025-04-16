@@ -25,7 +25,7 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
                     _exts = (stdgo.Go.typeAssert((_ei : stdgo.Slice<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>);
                 };
             };
-            for (__0 => _v in _exts) {
+            for (__12 => _v in _exts) {
                 if (_v == (_extLower)) {
                     {
                         final __ret__:stdgo.Error = (null : stdgo.Error);
@@ -38,7 +38,7 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
                     };
                 };
             };
-            @:check2 stdgo._internal.mime.Mime__extensions._extensions.store(stdgo.Go.toInterface(_justType), stdgo.Go.toInterface((_exts.__append__(_extLower?.__copy__()))));
+            @:check2 stdgo._internal.mime.Mime__extensions._extensions.store(stdgo.Go.toInterface(_justType), stdgo.Go.toInterface((_exts.__append__(_extLower?.__copy__()) : stdgo.Slice<stdgo.GoString>)));
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {

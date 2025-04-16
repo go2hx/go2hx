@@ -41,9 +41,9 @@ package stdgo._internal.crypto.sha256;
         var _d0 = ((_d : stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest)?.__copy__() : stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest);
         var _hash = @:check2 _d0._checkSum()?.__copy__();
         if (_d0._is224) {
-            return (_in.__append__(...((_hash.__slice__(0, (28 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+            return (_in.__append__(...((_hash.__slice__(0, (28 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        return (_in.__append__(...((_hash.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+        return (_in.__append__(...((_hash.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     @:tdfield
@@ -179,9 +179,9 @@ package stdgo._internal.crypto.sha256;
         @:recv var _d:stdgo.Ref<stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest> = _d;
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (108 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         if ((@:checkr _d ?? throw "null pointer dereference")._is224) {
-            _b = (_b.__append__(...((stdgo.Go.str("sha", 2) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+            _b = (_b.__append__(...((stdgo.Go.str("sha", 2) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         } else {
-            _b = (_b.__append__(...((stdgo.Go.str("sha", 3) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+            _b = (_b.__append__(...((stdgo.Go.str("sha", 3) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         _b = stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)]);
@@ -191,7 +191,7 @@ package stdgo._internal.crypto.sha256;
         _b = stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._h[(5 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._h[(6 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._h[(7 : stdgo.GoInt)]);
-        _b = (_b.__append__(...(((@:checkr _d ?? throw "null pointer dereference")._x.__slice__(0, (@:checkr _d ?? throw "null pointer dereference")._nx) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+        _b = (_b.__append__(...(((@:checkr _d ?? throw "null pointer dereference")._x.__slice__(0, (@:checkr _d ?? throw "null pointer dereference")._nx) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = (_b.__slice__(0, (((_b.length) + ((@:checkr _d ?? throw "null pointer dereference")._x.length) : stdgo.GoInt) - (@:checkr _d ?? throw "null pointer dereference")._nx : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.appendUint64(_b, (@:checkr _d ?? throw "null pointer dereference")._len);
         return { _0 : _b, _1 : (null : stdgo.Error) };

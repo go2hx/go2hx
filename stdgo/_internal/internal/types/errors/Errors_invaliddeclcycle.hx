@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final invalidDeclCycle = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final invalidDeclCycle : stdgo._internal.internal.types.errors.Errors_code.Code = 11i32;

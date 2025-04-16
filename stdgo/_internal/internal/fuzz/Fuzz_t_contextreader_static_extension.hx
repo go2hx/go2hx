@@ -27,10 +27,15 @@ package stdgo._internal.internal.fuzz;
         {
             {
                 var __select__ = true;
-                var __c__0 = (@:checkr _cr ?? throw "null pointer dereference")._ctx.done();
-var __c__1 = _done;
+                var __c__0 = null;
+var __c__1 = null;
                 while (__select__) {
-                    if (__c__0 != null && __c__0.__isGet__(true)) {
+                    if ({
+                        if (__c__0 == null) {
+                            __c__0 = (@:checkr _cr ?? throw "null pointer dereference")._ctx.done();
+                        };
+                        __c__0 != null && __c__0.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__0.__get__();
@@ -38,7 +43,12 @@ var __c__1 = _done;
                                 return { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _cr ?? throw "null pointer dereference")._ctx.err() };
                             };
                         };
-                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
+                    } else if ({
+                        if (__c__1 == null) {
+                            __c__1 = _done;
+                        };
+                        __c__1 != null && __c__1.__isGet__(true);
+                    }) {
                         __select__ = false;
                         {
                             __c__1.__get__();

@@ -1,2 +1,2 @@
 package stdgo._internal.crypto.tls;
-final qUICEncryptionLevelHandshake = @:invalid_type null;
+final qUICEncryptionLevelHandshake : stdgo._internal.crypto.tls.Tls_quicencryptionlevel.QUICEncryptionLevel = ((0 : stdgo.GoInt) : stdgo._internal.crypto.tls.Tls_quicencryptionlevel.QUICEncryptionLevel);

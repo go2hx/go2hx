@@ -7,14 +7,14 @@
 - SUBRUN  large-UnexpectedEOF
 Exception: Maximum call stack size exceeded
 Called from module RangeError: Maximum call stack size exceeded
-Called from .stdgo__$internal_internal_saferio_Saferio_$readdata_readData (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 12505 column 80)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_saferio.js:11126:17
-Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 12035 column 2)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_internal_saferio_Saferio_$testreaddata_testReadData [as f] (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js:11124:50)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 39041 column 9)
-Called from ._$internal_internal_saferiodottest_Saferiodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 17564 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_saferio.js:47938:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js:47939:3)
+Called from .stdgo__$internal_internal_saferio_Saferio_$readdata_readData (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 12473 column 80)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_saferio.js:11032:17
+Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 12003 column 2)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_internal_saferio_Saferio_$testreaddata_testReadData [as f] (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js:11030:50)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 39113 column 9)
+Called from ._$internal_internal_saferiodottest_Saferiodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 17563 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_saferio.js:48015:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js:48016:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -36,6 +36,5 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 -- PASS: TestSliceCap
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestReadData

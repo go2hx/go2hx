@@ -7,7 +7,7 @@ function _convertToSlowerRGBA(_m:stdgo._internal.image.Image_image.Image):stdgo.
                 { _0 : (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>), _1 : false };
             }, _rgba = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                return (stdgo.Go.setRef(({ pix : ((null : stdgo.Slice<stdgo.GoUInt8>).__append__(...((@:checkr _rgba ?? throw "null pointer dereference").pix : Array<stdgo.GoUInt8>))), stride : (@:checkr _rgba ?? throw "null pointer dereference").stride, rect : (@:checkr _rgba ?? throw "null pointer dereference").rect?.__copy__() } : stdgo._internal.image.draw.Draw_t_slowerrgba.T_slowerRGBA)) : stdgo.Ref<stdgo._internal.image.draw.Draw_t_slowerrgba.T_slowerRGBA>);
+                return (stdgo.Go.setRef(({ pix : ((null : stdgo.Slice<stdgo.GoUInt8>).__append__(...((@:checkr _rgba ?? throw "null pointer dereference").pix : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>), stride : (@:checkr _rgba ?? throw "null pointer dereference").stride, rect : (@:checkr _rgba ?? throw "null pointer dereference").rect?.__copy__() } : stdgo._internal.image.draw.Draw_t_slowerrgba.T_slowerRGBA)) : stdgo.Ref<stdgo._internal.image.draw.Draw_t_slowerrgba.T_slowerRGBA>);
             };
         };
         var _rgba = stdgo._internal.image.Image_newrgba.newRGBA(_m.bounds()?.__copy__());

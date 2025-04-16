@@ -5,10 +5,10 @@ function _domainToReverseLabels(_domain:stdgo.GoString):{ var _0 : stdgo.Slice<s
             {
                 var _i = (stdgo._internal.strings.Strings_lastindexbyte.lastIndexByte(_domain?.__copy__(), (46 : stdgo.GoUInt8)) : stdgo.GoInt);
                 if (_i == ((-1 : stdgo.GoInt))) {
-                    _reverseLabels = (_reverseLabels.__append__(_domain?.__copy__()));
+                    _reverseLabels = (_reverseLabels.__append__(_domain?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     _domain = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                 } else {
-                    _reverseLabels = (_reverseLabels.__append__((_domain.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()));
+                    _reverseLabels = (_reverseLabels.__append__((_domain.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     _domain = (_domain.__slice__(0, _i) : stdgo.GoString)?.__copy__();
                 };
             };

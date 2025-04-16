@@ -1,2 +1,2 @@
 package stdgo._internal.internal.goarch;
-final isMipsle : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final isMipsle : stdgo.GoUInt64 = 0i32;

@@ -109,7 +109,7 @@ package stdgo._internal.internal.singleflight;
         if (((@:checkr _g ?? throw "null pointer dereference")._m[_key] ?? (null : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>)) == (_c)) {
             if ((@:checkr _g ?? throw "null pointer dereference")._m != null) (@:checkr _g ?? throw "null pointer dereference")._m.__remove__(_key);
         };
-        for (__0 => _ch in (@:checkr _c ?? throw "null pointer dereference")._chans) {
+        for (__20 => _ch in (@:checkr _c ?? throw "null pointer dereference")._chans) {
             _ch.__send__((new stdgo._internal.internal.singleflight.Singleflight_result.Result((@:checkr _c ?? throw "null pointer dereference")._val, (@:checkr _c ?? throw "null pointer dereference")._err, ((@:checkr _c ?? throw "null pointer dereference")._dups > (0 : stdgo.GoInt) : Bool)) : stdgo._internal.internal.singleflight.Singleflight_result.Result));
         };
         @:check2 (@:checkr _g ?? throw "null pointer dereference")._mu.unlock();
@@ -132,7 +132,7 @@ package stdgo._internal.internal.singleflight;
             var __tmp__ = ((@:checkr _g ?? throw "null pointer dereference")._m != null && (@:checkr _g ?? throw "null pointer dereference")._m.__exists__(_key?.__copy__()) ? { _0 : (@:checkr _g ?? throw "null pointer dereference")._m[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>), _1 : false }), _c:stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 (@:checkr _c ?? throw "null pointer dereference")._dups++;
-                (@:checkr _c ?? throw "null pointer dereference")._chans = ((@:checkr _c ?? throw "null pointer dereference")._chans.__append__(_ch));
+                (@:checkr _c ?? throw "null pointer dereference")._chans = ((@:checkr _c ?? throw "null pointer dereference")._chans.__append__(_ch) : stdgo.Slice<stdgo.Chan<stdgo._internal.internal.singleflight.Singleflight_result.Result>>);
                 @:check2 (@:checkr _g ?? throw "null pointer dereference")._mu.unlock();
                 return _ch;
             };

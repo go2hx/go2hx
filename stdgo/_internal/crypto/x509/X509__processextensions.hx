@@ -89,7 +89,7 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_cert
                                         if (!@:check2 _dpNameDER.readASN1((stdgo.Go.setRef(_uri) : stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_string_.String_>), (6 : _internal.vendor.golangdotorg.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific())) {
                                             return stdgo._internal.errors.Errors_new_.new_(("x509: invalid CRL distribution point" : stdgo.GoString));
                                         };
-                                        (@:checkr _out ?? throw "null pointer dereference").cRLDistributionPoints = ((@:checkr _out ?? throw "null pointer dereference").cRLDistributionPoints.__append__((_uri : stdgo.GoString)?.__copy__()));
+                                        (@:checkr _out ?? throw "null pointer dereference").cRLDistributionPoints = ((@:checkr _out ?? throw "null pointer dereference").cRLDistributionPoints.__append__((_uri : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                                     };
                                 };
                                 break;
@@ -163,16 +163,16 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_cert
                         return stdgo._internal.errors.Errors_new_.new_(("x509: invalid authority info access" : stdgo.GoString));
                     };
                     if (_method.equal(stdgo._internal.crypto.x509.X509__oidauthorityinfoaccessocsp._oidAuthorityInfoAccessOcsp)) {
-                        (@:checkr _out ?? throw "null pointer dereference").oCSPServer = ((@:checkr _out ?? throw "null pointer dereference").oCSPServer.__append__((_aiaDER : stdgo.GoString)?.__copy__()));
+                        (@:checkr _out ?? throw "null pointer dereference").oCSPServer = ((@:checkr _out ?? throw "null pointer dereference").oCSPServer.__append__((_aiaDER : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     } else if (_method.equal(stdgo._internal.crypto.x509.X509__oidauthorityinfoaccessissuers._oidAuthorityInfoAccessIssuers)) {
-                        (@:checkr _out ?? throw "null pointer dereference").issuingCertificateURL = ((@:checkr _out ?? throw "null pointer dereference").issuingCertificateURL.__append__((_aiaDER : stdgo.GoString)?.__copy__()));
+                        (@:checkr _out ?? throw "null pointer dereference").issuingCertificateURL = ((@:checkr _out ?? throw "null pointer dereference").issuingCertificateURL.__append__((_aiaDER : stdgo.GoString)?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                     };
                 };
             } else {
                 _unhandled = true;
             };
             if ((_e.critical && _unhandled : Bool)) {
-                (@:checkr _out ?? throw "null pointer dereference").unhandledCriticalExtensions = ((@:checkr _out ?? throw "null pointer dereference").unhandledCriticalExtensions.__append__(_e.id));
+                (@:checkr _out ?? throw "null pointer dereference").unhandledCriticalExtensions = ((@:checkr _out ?? throw "null pointer dereference").unhandledCriticalExtensions.__append__(_e.id) : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>);
             };
         };
         return (null : stdgo.Error);

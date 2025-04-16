@@ -49,7 +49,7 @@ function _parseFowlerResult(_s:stdgo.GoString):{ var _0 : Bool; var _1 : Bool; v
                     return { _0 : _ok, _1 : _compiled, _2 : _matched, _3 : _pos };
                 };
             };
-            _x = (_x.__append__(_v));
+            _x = (_x.__append__(_v) : stdgo.Slice<stdgo.GoInt>);
             _s = (_s.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         };
         if (((_x.length) % (2 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {

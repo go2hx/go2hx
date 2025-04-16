@@ -1,2 +1,2 @@
 package stdgo._internal.internal.fuzz;
-final _maxUint : stdgo.GoUInt64 = ((-1u32 : stdgo.GoUInt) : stdgo.GoUInt64);
+final _maxUint : stdgo.GoUInt64 = 4294967295i32;

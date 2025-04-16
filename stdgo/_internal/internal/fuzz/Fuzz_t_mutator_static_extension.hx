@@ -255,7 +255,7 @@ package stdgo._internal.internal.fuzz;
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("cannot mutate bytes of length %d" : stdgo.GoString), stdgo.Go.toInterface((_v.length))));
                 };
                 if (((@:checkr _m ?? throw "null pointer dereference")._scratch.capacity < _maxPerVal : Bool)) {
-                    (@:checkr _m ?? throw "null pointer dereference")._scratch = ((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _maxPerVal).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_v : Array<stdgo.GoUInt8>)));
+                    (@:checkr _m ?? throw "null pointer dereference")._scratch = ((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _maxPerVal).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_v : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 } else {
                     (@:checkr _m ?? throw "null pointer dereference")._scratch = ((@:checkr _m ?? throw "null pointer dereference")._scratch.__slice__(0, (_v.length)) : stdgo.Slice<stdgo.GoUInt8>);
                     (@:checkr _m ?? throw "null pointer dereference")._scratch.__copyTo__(_v);
@@ -268,7 +268,7 @@ package stdgo._internal.internal.fuzz;
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("cannot mutate bytes of length %d" : stdgo.GoString), stdgo.Go.toInterface((_v.length))));
                 };
                 if (((@:checkr _m ?? throw "null pointer dereference")._scratch.capacity < _maxPerVal : Bool)) {
-                    (@:checkr _m ?? throw "null pointer dereference")._scratch = ((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _maxPerVal).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_v : Array<stdgo.GoUInt8>)));
+                    (@:checkr _m ?? throw "null pointer dereference")._scratch = ((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _maxPerVal).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_v : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 } else {
                     (@:checkr _m ?? throw "null pointer dereference")._scratch = ((@:checkr _m ?? throw "null pointer dereference")._scratch.__slice__(0, (_v.length)) : stdgo.Slice<stdgo.GoUInt8>);
                     (@:checkr _m ?? throw "null pointer dereference")._scratch.__copyTo__(_v);

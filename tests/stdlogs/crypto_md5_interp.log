@@ -16,7 +16,7 @@ Called from stdgo._internal.crypto.md5.T_digest_asInterface.sum (./stdgo/_intern
 Called from stdgo._internal.crypto.md5.T_digest_static_extension.sum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 26 column 30)
 Called from stdgo._internal.crypto.md5.T_digest_static_extension._checkSum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 9 column 9)
 Called from stdgo._internal.encoding.binary.T_littleEndian_static_extension.putUint64 (./stdgo/_internal/encoding/binary/Binary_t_littleendian_static_extension.hx line 26 column 9)
-Called from stdgo._Slice.Slice_Impl_.__set__ (./stdgo/Slice.hx line 194 column 1648)
+Called from stdgo._Slice.Slice_Impl_.__set__ (./stdgo/Slice.hx line 194 column 1828)
 
 -- FAIL: TestGoldenMarshal
 
@@ -28,7 +28,7 @@ Called from stdgo._internal.crypto.md5.T_digest_asInterface.sum (./stdgo/_intern
 Called from stdgo._internal.crypto.md5.T_digest_static_extension.sum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 26 column 30)
 Called from stdgo._internal.crypto.md5.T_digest_static_extension._checkSum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 9 column 9)
 Called from stdgo._internal.encoding.binary.T_littleEndian_static_extension.putUint64 (./stdgo/_internal/encoding/binary/Binary_t_littleendian_static_extension.hx line 26 column 9)
-Called from stdgo._Slice.Slice_Impl_.__set__ (./stdgo/Slice.hx line 194 column 1648)
+Called from stdgo._Slice.Slice_Impl_.__set__ (./stdgo/Slice.hx line 194 column 1828)
 
 -- FAIL: TestLarge
 
@@ -51,6 +51,5 @@ Called from stdgo._internal.io._Io_readatleast.Io_readatleast_Fields_.readAtLeas
 
 -- PASS: TestAllocations
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestBlockGeneric

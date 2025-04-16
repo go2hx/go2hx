@@ -32,7 +32,7 @@ package stdgo._internal.debug.elf;
                 };
             };
             if (_t == (_tag)) {
-                _vals = (_vals.__append__(_v));
+                _vals = (_vals.__append__(_v) : stdgo.Slice<stdgo.GoUInt64>);
             };
         };
         return { _0 : _vals, _1 : (null : stdgo.Error) };
@@ -81,7 +81,7 @@ package stdgo._internal.debug.elf;
             if (_t == (_tag)) {
                 var __tmp__ = stdgo._internal.debug.elf.Elf__getstring._getString(_str, (_v : stdgo.GoInt)), _s:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
-                    _all = (_all.__append__(_s?.__copy__()));
+                    _all = (_all.__append__(_s?.__copy__()) : stdgo.Slice<stdgo.GoString>);
                 };
             };
         };
@@ -209,7 +209,7 @@ _j = (_j + ((_next : stdgo.GoInt)) : stdgo.GoInt);
         var _all:stdgo.Slice<stdgo._internal.debug.elf.Elf_importedsymbol.ImportedSymbol> = (null : stdgo.Slice<stdgo._internal.debug.elf.Elf_importedsymbol.ImportedSymbol>);
         for (_i => _s in _sym) {
             if (((stdgo._internal.debug.elf.Elf_st_bind.sT_BIND(_s.info) == (1 : stdgo._internal.debug.elf.Elf_symbind.SymBind)) && (_s.section == (0 : stdgo._internal.debug.elf.Elf_sectionindex.SectionIndex)) : Bool)) {
-                _all = (_all.__append__(({ name : _s.name?.__copy__() } : stdgo._internal.debug.elf.Elf_importedsymbol.ImportedSymbol)));
+                _all = (_all.__append__(({ name : _s.name?.__copy__() } : stdgo._internal.debug.elf.Elf_importedsymbol.ImportedSymbol)) : stdgo.Slice<stdgo._internal.debug.elf.Elf_importedsymbol.ImportedSymbol>);
                 var _sym = (stdgo.Go.setRef(_all[((_all.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.debug.elf.Elf_importedsymbol.ImportedSymbol>);
                 {
                     var __tmp__ = @:check2r _f._gnuVersion(_i);

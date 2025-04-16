@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final syncLabeledStmt = (69 : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker);
+final syncLabeledStmt : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker = 59i32;

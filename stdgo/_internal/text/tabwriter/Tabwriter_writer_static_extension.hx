@@ -260,7 +260,7 @@ package stdgo._internal.text.tabwriter;
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_writer.Writer> = _b;
         (@:checkr _b ?? throw "null pointer dereference")._cell._htab = _htab;
         var _line = (stdgo.Go.setRef((@:checkr _b ?? throw "null pointer dereference")._lines[(((@:checkr _b ?? throw "null pointer dereference")._lines.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell>>);
-        (_line : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell>).__setData__(((_line : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell>).__append__((@:checkr _b ?? throw "null pointer dereference")._cell?.__copy__())));
+        (_line : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell>).__setData__(((_line : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell>).__append__((@:checkr _b ?? throw "null pointer dereference")._cell?.__copy__()) : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell>));
         (@:checkr _b ?? throw "null pointer dereference")._cell = (new stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell() : stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell);
         return ((_line : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell>).length);
     }
@@ -308,7 +308,7 @@ package stdgo._internal.text.tabwriter;
     @:tdfield
     static public function _append( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_writer.Writer>, _text:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_writer.Writer> = _b;
-        (@:checkr _b ?? throw "null pointer dereference")._buf = ((@:checkr _b ?? throw "null pointer dereference")._buf.__append__(...(_text : Array<stdgo.GoUInt8>)));
+        (@:checkr _b ?? throw "null pointer dereference")._buf = ((@:checkr _b ?? throw "null pointer dereference")._buf.__append__(...(_text : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         (@:checkr _b ?? throw "null pointer dereference")._cell._size = ((@:checkr _b ?? throw "null pointer dereference")._cell._size + ((_text.length)) : stdgo.GoInt);
     }
     @:keep
@@ -352,7 +352,7 @@ if (((_c._width > (0 : stdgo.GoInt) : Bool) || _c._htab : Bool)) {
 if ((_discardable && (((@:checkr _b ?? throw "null pointer dereference")._flags & (8u32 : stdgo.GoUInt) : stdgo.GoUInt) != (0u32 : stdgo.GoUInt)) : Bool)) {
                     _width = (0 : stdgo.GoInt);
                 };
-(@:checkr _b ?? throw "null pointer dereference")._widths = ((@:checkr _b ?? throw "null pointer dereference")._widths.__append__(_width));
+(@:checkr _b ?? throw "null pointer dereference")._widths = ((@:checkr _b ?? throw "null pointer dereference")._widths.__append__(_width) : stdgo.Slice<stdgo.GoInt>);
 _pos = @:check2r _b._format(_pos, _line0, _this);
 (@:checkr _b ?? throw "null pointer dereference")._widths = ((@:checkr _b ?? throw "null pointer dereference")._widths.__slice__((0 : stdgo.GoInt), (((@:checkr _b ?? throw "null pointer dereference")._widths.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
 _line0 = _this;
@@ -474,7 +474,7 @@ if ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) == (((@:checkr _b ?? throw "null poin
         (@:checkr _b ?? throw "null pointer dereference")._minwidth = _minwidth;
         (@:checkr _b ?? throw "null pointer dereference")._tabwidth = _tabwidth;
         (@:checkr _b ?? throw "null pointer dereference")._padding = _padding;
-        for (_i => _ in (@:checkr _b ?? throw "null pointer dereference")._padbytes) {
+        for (_i => _ in (@:checkr _b ?? throw "null pointer dereference")._padbytes.__copy__()) {
             (@:checkr _b ?? throw "null pointer dereference")._padbytes[(_i : stdgo.GoInt)] = _padchar;
         };
         if (_padchar == ((9 : stdgo.GoUInt8))) {
@@ -506,7 +506,7 @@ if ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) == (((@:checkr _b ?? throw "null poin
                 (@:checkr _b ?? throw "null pointer dereference")._lines = ((@:checkr _b ?? throw "null pointer dereference")._lines.__slice__(0, _n) : stdgo.Slice<stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell>>);
                 (@:checkr _b ?? throw "null pointer dereference")._lines[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] = ((@:checkr _b ?? throw "null pointer dereference")._lines[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)].__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell>);
             } else {
-                (@:checkr _b ?? throw "null pointer dereference")._lines = ((@:checkr _b ?? throw "null pointer dereference")._lines.__append__((null : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell>)));
+                (@:checkr _b ?? throw "null pointer dereference")._lines = ((@:checkr _b ?? throw "null pointer dereference")._lines.__append__((null : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell>)) : stdgo.Slice<stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell>>);
             };
         };
         if (!_flushed) {

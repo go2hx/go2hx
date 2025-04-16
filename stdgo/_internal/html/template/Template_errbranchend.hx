@@ -1,2 +1,2 @@
 package stdgo._internal.html.template;
-final errBranchEnd = (12 : stdgo._internal.html.template.Template_errorcode.ErrorCode);
+final errBranchEnd : stdgo._internal.html.template.Template_errorcode.ErrorCode = 3i32;

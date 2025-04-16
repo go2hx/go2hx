@@ -31,7 +31,7 @@ if ((_i >= (56 : stdgo.GoUInt8) : Bool)) {
         };
         stdgo._internal.crypto.sha1.Sha1__block._block(_d, ((@:checkr _d ?? throw "null pointer dereference")._x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         var _digest:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
-        for (_i => _s in (@:checkr _d ?? throw "null pointer dereference")._h) {
+        for (_i => _s in (@:checkr _d ?? throw "null pointer dereference")._h.__copy__()) {
             _digest[(_i * (4 : stdgo.GoInt) : stdgo.GoInt)] = (_mask1b & ((_s >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8) : stdgo.GoUInt8);
             _digest[((_i * (4 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_mask1b & ((_s >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8) : stdgo.GoUInt8);
             _digest[((_i * (4 : stdgo.GoInt) : stdgo.GoInt) + (2 : stdgo.GoInt) : stdgo.GoInt)] = (_mask1b & ((_s >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8) : stdgo.GoUInt8);
@@ -50,7 +50,7 @@ if ((_i >= (56 : stdgo.GoUInt8) : Bool)) {
             };
         };
         stdgo._internal.crypto.sha1.Sha1__block._block(_d, ((@:checkr _d ?? throw "null pointer dereference")._x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
-        for (_i => _s in (@:checkr _d ?? throw "null pointer dereference")._h) {
+        for (_i => _s in (@:checkr _d ?? throw "null pointer dereference")._h.__copy__()) {
             _digest[(_i * (4 : stdgo.GoInt) : stdgo.GoInt)] = (_digest[(_i * (4 : stdgo.GoInt) : stdgo.GoInt)] | (((-1 ^ _mask1b) & ((_s >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8) : stdgo.GoUInt8)) : stdgo.GoUInt8);
             _digest[((_i * (4 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_digest[((_i * (4 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)] | (((-1 ^ _mask1b) & ((_s >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8) : stdgo.GoUInt8)) : stdgo.GoUInt8);
             _digest[((_i * (4 : stdgo.GoInt) : stdgo.GoInt) + (2 : stdgo.GoInt) : stdgo.GoInt)] = (_digest[((_i * (4 : stdgo.GoInt) : stdgo.GoInt) + (2 : stdgo.GoInt) : stdgo.GoInt)] | (((-1 ^ _mask1b) & ((_s >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8) : stdgo.GoUInt8)) : stdgo.GoUInt8);
@@ -64,7 +64,7 @@ if ((_i >= (56 : stdgo.GoUInt8) : Bool)) {
         @:recv var _d:stdgo.Ref<stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest> = _d;
         var _d0 = ((_d : stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest)?.__copy__() : stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest);
         var _hash = @:check2 _d0._constSum()?.__copy__();
-        return (_in.__append__(...((_hash.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+        return (_in.__append__(...((_hash.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     @:tdfield
@@ -101,7 +101,7 @@ if ((_i >= (56 : stdgo.GoUInt8) : Bool)) {
         stdgo._internal.crypto.sha1.Sha1__boringunreachable._boringUnreachable();
         var _d0 = ((_d : stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest)?.__copy__() : stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest);
         var _hash = @:check2 _d0._checkSum()?.__copy__();
-        return (_in.__append__(...((_hash.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+        return (_in.__append__(...((_hash.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     @:tdfield
@@ -204,13 +204,13 @@ if ((_i >= (56 : stdgo.GoUInt8) : Bool)) {
     static public function marshalBinary( _d:stdgo.Ref<stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest> = _d;
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (96 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        _b = (_b.__append__(...((stdgo.Go.str("sha", 1) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+        _b = (_b.__append__(...((stdgo.Go.str("sha", 1) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._h[(2 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._h[(3 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._h[(4 : stdgo.GoInt)]);
-        _b = (_b.__append__(...(((@:checkr _d ?? throw "null pointer dereference")._x.__slice__(0, (@:checkr _d ?? throw "null pointer dereference")._nx) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+        _b = (_b.__append__(...(((@:checkr _d ?? throw "null pointer dereference")._x.__slice__(0, (@:checkr _d ?? throw "null pointer dereference")._nx) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = (_b.__slice__(0, (((_b.length) + ((@:checkr _d ?? throw "null pointer dereference")._x.length) : stdgo.GoInt) - (@:checkr _d ?? throw "null pointer dereference")._nx : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.appendUint64(_b, (@:checkr _d ?? throw "null pointer dereference")._len);
         return { _0 : _b, _1 : (null : stdgo.Error) };

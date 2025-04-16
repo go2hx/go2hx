@@ -73,7 +73,7 @@ var _w = __1, _g = __0;
                 {
                     var _p = (_check(_got)?.__copy__() : stdgo.GoString);
                     if (_p != ((stdgo.Go.str() : stdgo.GoString))) {
-                        _errs = (_errs.__append__(stdgo._internal.fmt.Fmt_errorf.errorf(("%s: %s" : stdgo.GoString), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_c._explanation))));
+                        _errs = (_errs.__append__(stdgo._internal.fmt.Fmt_errorf.errorf(("%s: %s" : stdgo.GoString), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_c._explanation))) : stdgo.Slice<stdgo.Error>);
                     };
                 };
             };

@@ -1,2 +1,2 @@
 package stdgo._internal.net.internal.socktest;
-final filterGetsockoptInt = (5 : stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType);
+final filterGetsockoptInt : stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType = 4i32;

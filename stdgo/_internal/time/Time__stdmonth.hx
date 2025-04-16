@@ -1,2 +1,2 @@
 package stdgo._internal.time;
-final _stdMonth = (267i64 : stdgo.GoUInt64);
+final _stdMonth : stdgo.GoUInt64 = 258i32;

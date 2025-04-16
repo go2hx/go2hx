@@ -2,6 +2,7 @@ package stdgo._internal.text.template;
 function testIssue43065(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         var _b:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer);
         var _tmp = ({
+            @:tupleArg var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_((stdgo.Go.str() : stdgo.GoString)?.__copy__()).parse(("{{range .}}{{end}}" : stdgo.GoString));
             var __f__ = stdgo._internal.text.template.Template_must.must;
             var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_((stdgo.Go.str() : stdgo.GoString)?.__copy__()).parse(("{{range .}}{{end}}" : stdgo.GoString));
             __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>), (__tmp__._1 : stdgo.Error));

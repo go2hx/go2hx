@@ -61,7 +61,7 @@ function newArchive(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 : stdgo
                 };
             };
             var _member = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_member.Member)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_member.Member>);
-            (@:checkr _arch ?? throw "null pointer dereference").members = ((@:checkr _arch ?? throw "null pointer dereference").members.__append__(_member));
+            (@:checkr _arch ?? throw "null pointer dereference").members = ((@:checkr _arch ?? throw "null pointer dereference").members.__append__(_member) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_member.Member>>);
             var __tmp__ = _parseDecimalBytes((_mhdr.arsize.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), _size:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("error parsing size in member header(%q); %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_mhdr)), stdgo.Go.toInterface(_err)) };

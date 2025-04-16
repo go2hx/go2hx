@@ -1,2 +1,2 @@
 package stdgo._internal.html.template;
-final errAmbigContext = (12 : stdgo._internal.html.template.Template_errorcode.ErrorCode);
+final errAmbigContext : stdgo._internal.html.template.Template_errorcode.ErrorCode = 1i32;

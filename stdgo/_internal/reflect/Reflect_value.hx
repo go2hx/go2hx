@@ -1,5 +1,7 @@
 package stdgo._internal.reflect;
 @:structInit @:using(stdgo._internal.reflect.Reflect_value_static_extension.Value_static_extension) class Value {
+    @:embedded
+    public var _flag : stdgo._internal.reflect.Reflect_t_flag.T_flag = (new stdgo.GoUIntptr(0) : stdgo._internal.reflect.Reflect_t_flag.T_flag);
     var value : stdgo.AnyInterface;
     @:local
     var underlyingValue : Dynamic;
@@ -42,7 +44,8 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
         };
         return "<" + _v.type().string() + " Value>";
     };
-    public function new(?value:stdgo.AnyInterface, ?underlyingValue:Dynamic, ?underlyingIndex:stdgo.GoInt, ?underlyingKey:Dynamic, ?canAddrBool:Bool, ?notSetBool:Bool, ?string) {
+    public function new(?_flag:stdgo._internal.reflect.Reflect_t_flag.T_flag, ?value:stdgo.AnyInterface, ?underlyingValue:Dynamic, ?underlyingIndex:stdgo.GoInt, ?underlyingKey:Dynamic, ?canAddrBool:Bool, ?notSetBool:Bool, ?string) {
+        if (_flag != null) this._flag = _flag;
         if (value != null) this.value = value;
         if (underlyingValue != null) this.underlyingValue = underlyingValue;
         if (underlyingIndex != null) this.underlyingIndex = underlyingIndex;
@@ -53,6 +56,6 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new Value(value, underlyingValue, underlyingIndex, underlyingKey, canAddrBool, notSetBool);
+        return new Value(_flag, value, underlyingValue, underlyingIndex, underlyingKey, canAddrBool, notSetBool);
     }
 }

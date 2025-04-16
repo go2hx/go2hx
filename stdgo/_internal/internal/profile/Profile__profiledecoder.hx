@@ -4,31 +4,31 @@ null,
 function(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_buffer.T_buffer>, _m:stdgo._internal.internal.profile.Profile_t_message.T_message):stdgo.Error {
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.internal.profile.Profile_valuetype_.ValueType_)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_valuetype_.ValueType_>);
         var _pp = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>);
-        (@:checkr _pp ?? throw "null pointer dereference").sampleType = ((@:checkr _pp ?? throw "null pointer dereference").sampleType.__append__(_x));
+        (@:checkr _pp ?? throw "null pointer dereference").sampleType = ((@:checkr _pp ?? throw "null pointer dereference").sampleType.__append__(_x) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_valuetype_.ValueType_>>);
         return stdgo._internal.internal.profile.Profile__decodemessage._decodeMessage(_b, stdgo.Go.asInterface(_x));
     },
 function(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_buffer.T_buffer>, _m:stdgo._internal.internal.profile.Profile_t_message.T_message):stdgo.Error {
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.internal.profile.Profile_sample.Sample)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>);
         var _pp = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>);
-        (@:checkr _pp ?? throw "null pointer dereference").sample = ((@:checkr _pp ?? throw "null pointer dereference").sample.__append__(_x));
+        (@:checkr _pp ?? throw "null pointer dereference").sample = ((@:checkr _pp ?? throw "null pointer dereference").sample.__append__(_x) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>>);
         return stdgo._internal.internal.profile.Profile__decodemessage._decodeMessage(_b, stdgo.Go.asInterface(_x));
     },
 function(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_buffer.T_buffer>, _m:stdgo._internal.internal.profile.Profile_t_message.T_message):stdgo.Error {
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.internal.profile.Profile_mapping.Mapping)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>);
         var _pp = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>);
-        (@:checkr _pp ?? throw "null pointer dereference").mapping = ((@:checkr _pp ?? throw "null pointer dereference").mapping.__append__(_x));
+        (@:checkr _pp ?? throw "null pointer dereference").mapping = ((@:checkr _pp ?? throw "null pointer dereference").mapping.__append__(_x) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>>);
         return stdgo._internal.internal.profile.Profile__decodemessage._decodeMessage(_b, stdgo.Go.asInterface(_x));
     },
 function(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_buffer.T_buffer>, _m:stdgo._internal.internal.profile.Profile_t_message.T_message):stdgo.Error {
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.internal.profile.Profile_location.Location)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>);
         var _pp = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>);
-        (@:checkr _pp ?? throw "null pointer dereference").location = ((@:checkr _pp ?? throw "null pointer dereference").location.__append__(_x));
+        (@:checkr _pp ?? throw "null pointer dereference").location = ((@:checkr _pp ?? throw "null pointer dereference").location.__append__(_x) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
         return stdgo._internal.internal.profile.Profile__decodemessage._decodeMessage(_b, stdgo.Go.asInterface(_x));
     },
 function(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_buffer.T_buffer>, _m:stdgo._internal.internal.profile.Profile_t_message.T_message):stdgo.Error {
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.internal.profile.Profile_function.Function)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>);
         var _pp = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>);
-        (@:checkr _pp ?? throw "null pointer dereference").function_ = ((@:checkr _pp ?? throw "null pointer dereference").function_.__append__(_x));
+        (@:checkr _pp ?? throw "null pointer dereference").function_ = ((@:checkr _pp ?? throw "null pointer dereference").function_.__append__(_x) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>>);
         return stdgo._internal.internal.profile.Profile__decodemessage._decodeMessage(_b, stdgo.Go.asInterface(_x));
     },
 function(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_buffer.T_buffer>, _m:stdgo._internal.internal.profile.Profile_t_message.T_message):stdgo.Error {

@@ -1,2 +1,2 @@
 package stdgo._internal.log.syslog;
-final lOG_SYSLOG = (184 : stdgo._internal.log.syslog.Syslog_priority.Priority);
+final lOG_SYSLOG : stdgo._internal.log.syslog.Syslog_priority.Priority = 40i32;

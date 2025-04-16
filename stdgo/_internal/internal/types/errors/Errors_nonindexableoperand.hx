@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final nonIndexableOperand = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final nonIndexableOperand : stdgo._internal.internal.types.errors.Errors_code.Code = 51i32;

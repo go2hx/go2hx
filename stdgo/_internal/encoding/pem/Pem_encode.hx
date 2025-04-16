@@ -26,7 +26,7 @@ function encode(_out:stdgo._internal.io.Io_writer.Writer, _b:stdgo.Ref<stdgo._in
                     _hasProcType = true;
                     continue;
                 };
-                _h = (_h.__append__(_k?.__copy__()));
+                _h = (_h.__append__(_k?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
             if (_hasProcType) {
                 {

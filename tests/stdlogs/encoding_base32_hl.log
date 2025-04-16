@@ -23,6 +23,8 @@
 -- PASS: TestIssue20044
 
 === RUN  TestDecoderError
+Corrupt input error expected.  Found .encoding.base32.CorruptInputError
+Corrupt input error expected.  Found .encoding.base32.CorruptInputError
 
 -- FAIL: TestDecoderError
 
@@ -92,6 +94,5 @@
 
 -- PASS: TestDecodeSmallBuffer
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestDecoderError

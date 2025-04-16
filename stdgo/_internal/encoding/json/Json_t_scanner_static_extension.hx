@@ -25,7 +25,7 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function _pushParseState( _s:stdgo.Ref<stdgo._internal.encoding.json.Json_t_scanner.T_scanner>, _c:stdgo.GoUInt8, _newParseState:stdgo.GoInt, _successState:stdgo.GoInt):stdgo.GoInt {
         @:recv var _s:stdgo.Ref<stdgo._internal.encoding.json.Json_t_scanner.T_scanner> = _s;
-        (@:checkr _s ?? throw "null pointer dereference")._parseState = ((@:checkr _s ?? throw "null pointer dereference")._parseState.__append__(_newParseState));
+        (@:checkr _s ?? throw "null pointer dereference")._parseState = ((@:checkr _s ?? throw "null pointer dereference")._parseState.__append__(_newParseState) : stdgo.Slice<stdgo.GoInt>);
         if ((((@:checkr _s ?? throw "null pointer dereference")._parseState.length) <= (10000 : stdgo.GoInt) : Bool)) {
             return _successState;
         };

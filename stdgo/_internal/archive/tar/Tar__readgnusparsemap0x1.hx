@@ -19,7 +19,7 @@ function _readGNUSparseMap0x1(_paxHdrs:stdgo.GoMap<stdgo.GoString, stdgo.GoStrin
             if (((_err1 != null) || (_err2 != null) : Bool)) {
                 return { _0 : null, _1 : stdgo._internal.archive.tar.Tar_errheader.errHeader };
             };
-            _spd = (_spd.__append__(({ offset : _offset, length_ : _length } : stdgo._internal.archive.tar.Tar_t_sparseentry.T_sparseEntry)));
+            _spd = (_spd.__append__(({ offset : _offset, length_ : _length } : stdgo._internal.archive.tar.Tar_t_sparseentry.T_sparseEntry)) : stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas);
             _sparseMap = (_sparseMap.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
         };
         return { _0 : _spd, _1 : (null : stdgo.Error) };

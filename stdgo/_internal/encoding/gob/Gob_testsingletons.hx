@@ -3,7 +3,7 @@ function testSingletons(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Voi
         var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         var _enc = stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo.Go.asInterface(_b));
         var _dec = stdgo._internal.encoding.gob.Gob_newdecoder.newDecoder(stdgo.Go.asInterface(_b));
-        for (__4 => _test in stdgo._internal.encoding.gob.Gob__singletests._singleTests) {
+        for (__8 => _test in stdgo._internal.encoding.gob.Gob__singletests._singleTests) {
             @:check2r _b.reset();
             var _err = (@:check2r _enc.encode(_test._in) : stdgo.Error);
             if (_err != null) {

@@ -19,7 +19,7 @@ function _allFrames(_addr:stdgo.GoUIntptr):{ var _0 : stdgo.Slice<stdgo._interna
                 _frame = @:tmpset0 __tmp__._0?.__copy__();
                 _more = @:tmpset0 __tmp__._1;
             };
-            _ret = (_ret.__append__(_frame?.__copy__()));
+            _ret = (_ret.__append__(_frame?.__copy__()) : stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>);
         };
         return { _0 : _ret, _1 : _symbolizeResult };
     }

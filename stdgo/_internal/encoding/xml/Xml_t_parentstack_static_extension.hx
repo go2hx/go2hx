@@ -16,7 +16,7 @@ package stdgo._internal.encoding.xml;
                 _i++;
             };
         };
-        (@:checkr _s ?? throw "null pointer dereference")._stack = ((@:checkr _s ?? throw "null pointer dereference")._stack.__append__(...(_parents : Array<stdgo.GoString>)));
+        (@:checkr _s ?? throw "null pointer dereference")._stack = ((@:checkr _s ?? throw "null pointer dereference")._stack.__append__(...(_parents : Array<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>);
         return (null : stdgo.Error);
     }
     @:keep

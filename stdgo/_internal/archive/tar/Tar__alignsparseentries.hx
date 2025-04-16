@@ -9,7 +9,7 @@ var _end = __1, _pos = __0;
                 _end = (_end - (stdgo._internal.archive.tar.Tar__blockpadding._blockPadding(-_end)) : stdgo.GoInt64);
             };
             if ((_pos < _end : Bool)) {
-                _dst = (_dst.__append__(({ offset : _pos, length_ : (_end - _pos : stdgo.GoInt64) } : stdgo._internal.archive.tar.Tar_t_sparseentry.T_sparseEntry)));
+                _dst = (_dst.__append__(({ offset : _pos, length_ : (_end - _pos : stdgo.GoInt64) } : stdgo._internal.archive.tar.Tar_t_sparseentry.T_sparseEntry)) : stdgo.Slice<stdgo._internal.archive.tar.Tar_t_sparseentry.T_sparseEntry>);
             };
         };
         return _dst;

@@ -1,5 +1,10 @@
 package stdgo._internal.syscall;
 @:interface typedef Conn = stdgo.StructType & {
+    /**
+        * SyscallConn returns a raw network connection.
+        
+        
+    **/
     @:interfacetypeffun
-    function syscallConn():{ var _0 : stdgo._internal.syscall.Syscall_rawconn.RawConn; var _1 : stdgo.Error; };
+    public dynamic function syscallConn():{ var _0 : stdgo._internal.syscall.Syscall_rawconn.RawConn; var _1 : stdgo.Error; };
 };

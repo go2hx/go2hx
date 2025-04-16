@@ -1,2 +1,2 @@
 package stdgo._internal.sync;
-final _mutexStarving = (4i64 : stdgo.GoUInt64);
+final _mutexStarving : stdgo.GoUInt64 = 4i32;

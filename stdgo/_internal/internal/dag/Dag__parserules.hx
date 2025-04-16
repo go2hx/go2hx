@@ -40,7 +40,7 @@ function _parseRules(_rules:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._intern
                     @:check2r _p._syntaxError(("unexpected EOF" : stdgo.GoString));
                 };
                 if (_prev != null) {
-                    _out = (_out.__append__((new stdgo._internal.internal.dag.Dag_t_rule.T_rule(_prev, _op?.__copy__(), _list) : stdgo._internal.internal.dag.Dag_t_rule.T_rule)));
+                    _out = (_out.__append__((new stdgo._internal.internal.dag.Dag_t_rule.T_rule(_prev, _op?.__copy__(), _list) : stdgo._internal.internal.dag.Dag_t_rule.T_rule)) : stdgo.Slice<stdgo._internal.internal.dag.Dag_t_rule.T_rule>);
                 };
                 _prev = _list;
                 if (_tok == ((";" : stdgo.GoString))) {
@@ -60,6 +60,8 @@ function _parseRules(_rules:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._intern
                     _err = __tmp__._1;
                     __tmp__;
                 };
+                _out = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

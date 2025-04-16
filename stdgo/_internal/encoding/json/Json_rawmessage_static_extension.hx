@@ -10,7 +10,7 @@ package stdgo._internal.encoding.json;
         })) {
             return stdgo._internal.errors.Errors_new_.new_(("json.RawMessage: UnmarshalJSON on nil pointer" : stdgo.GoString));
         };
-        (_m : stdgo._internal.encoding.json.Json_rawmessage.RawMessage).__setData__(((((_m : stdgo._internal.encoding.json.Json_rawmessage.RawMessage)).__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.encoding.json.Json_rawmessage.RawMessage).__append__(...(_data : Array<stdgo.GoUInt8>))));
+        (_m : stdgo._internal.encoding.json.Json_rawmessage.RawMessage).__setData__(((((_m : stdgo._internal.encoding.json.Json_rawmessage.RawMessage)).__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.encoding.json.Json_rawmessage.RawMessage).__append__(...(_data : Array<stdgo.GoUInt8>)) : stdgo._internal.encoding.json.Json_rawmessage.RawMessage));
         return (null : stdgo.Error);
     }
     @:keep

@@ -18,17 +18,17 @@ package stdgo._internal.internal.abi;
     static public function dump( _r:stdgo.Ref<stdgo._internal.internal.abi.Abi_regargs.RegArgs>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.internal.abi.Abi_regargs.RegArgs> = _r;
         stdgo.Go.print(("Ints:" : stdgo.GoString));
-        for (__201 => _x in (@:checkr _r ?? throw "null pointer dereference").ints) {
+        for (__201 => _x in (@:checkr _r ?? throw "null pointer dereference").ints.__copy__()) {
             stdgo.Go.print((" " : stdgo.GoString), _x);
         };
         stdgo.Go.println("");
         stdgo.Go.print(("Floats:" : stdgo.GoString));
-        for (__202 => _x in (@:checkr _r ?? throw "null pointer dereference").floats) {
+        for (__202 => _x in (@:checkr _r ?? throw "null pointer dereference").floats.__copy__()) {
             stdgo.Go.print((" " : stdgo.GoString), @:privateAccess ((_x).toBasic() : haxe.UInt64).toString());
         };
         stdgo.Go.println("");
         stdgo.Go.print(("Ptrs:" : stdgo.GoString));
-        for (__203 => _x in (@:checkr _r ?? throw "null pointer dereference").ptrs) {
+        for (__203 => _x in (@:checkr _r ?? throw "null pointer dereference").ptrs.__copy__()) {
             stdgo.Go.print((" " : stdgo.GoString), _x);
         };
         stdgo.Go.println("");

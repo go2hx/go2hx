@@ -20,7 +20,7 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 skipping test: 'go build' unavailable: <nil>Exception: __skip__
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.internal.godebug_test._Godebug_test_testcmdbisect.Godebug_test_testcmdbisect_Fields_.testCmdBisect (./_internal/internal/godebug_test/Godebug_test_testcmdbisect.hx line 3 column 9)
-Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.Testenv_musthavegobuild_Fields_.mustHaveGoBuild (./stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 9 column 88)
+Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.Testenv_musthavegobuild_Fields_.mustHaveGoBuild (./stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 9 column 13)
 Called from stdgo._internal.testing.T__asInterface.skipf (./stdgo/_internal/testing/Testing_t__asinterface.hx line 53 column 98)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 75 column 106)
 Called from stdgo._internal.testing.T_common_static_extension.skipf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53 column 9)
@@ -34,6 +34,5 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_
 
 -- PASS: TestBisectTestCase
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestMetrics

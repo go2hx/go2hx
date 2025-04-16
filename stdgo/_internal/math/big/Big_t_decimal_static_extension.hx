@@ -52,17 +52,17 @@ package stdgo._internal.math.big;
         var _buf:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         if (((@:checkr _x ?? throw "null pointer dereference")._exp <= (0 : stdgo.GoInt) : Bool)) {
             _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (((2 : stdgo.GoInt) + (-(@:checkr _x ?? throw "null pointer dereference")._exp) : stdgo.GoInt) + ((@:checkr _x ?? throw "null pointer dereference")._mant.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            _buf = (_buf.__append__(...((("0." : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+            _buf = (_buf.__append__(...((("0." : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             _buf = stdgo._internal.math.big.Big__appendzeros._appendZeros(_buf, -(@:checkr _x ?? throw "null pointer dereference")._exp);
-            _buf = (_buf.__append__(...((@:checkr _x ?? throw "null pointer dereference")._mant : Array<stdgo.GoUInt8>)));
+            _buf = (_buf.__append__(...((@:checkr _x ?? throw "null pointer dereference")._mant : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         } else if (((@:checkr _x ?? throw "null pointer dereference")._exp < ((@:checkr _x ?? throw "null pointer dereference")._mant.length) : Bool)) {
             _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((1 : stdgo.GoInt) + ((@:checkr _x ?? throw "null pointer dereference")._mant.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            _buf = (_buf.__append__(...(((@:checkr _x ?? throw "null pointer dereference")._mant.__slice__(0, (@:checkr _x ?? throw "null pointer dereference")._exp) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
-            _buf = (_buf.__append__((46 : stdgo.GoUInt8)));
-            _buf = (_buf.__append__(...(((@:checkr _x ?? throw "null pointer dereference")._mant.__slice__((@:checkr _x ?? throw "null pointer dereference")._exp) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+            _buf = (_buf.__append__(...(((@:checkr _x ?? throw "null pointer dereference")._mant.__slice__(0, (@:checkr _x ?? throw "null pointer dereference")._exp) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+            _buf = (_buf.__append__((46 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
+            _buf = (_buf.__append__(...(((@:checkr _x ?? throw "null pointer dereference")._mant.__slice__((@:checkr _x ?? throw "null pointer dereference")._exp) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         } else {
             _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (@:checkr _x ?? throw "null pointer dereference")._exp).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            _buf = (_buf.__append__(...((@:checkr _x ?? throw "null pointer dereference")._mant : Array<stdgo.GoUInt8>)));
+            _buf = (_buf.__append__(...((@:checkr _x ?? throw "null pointer dereference")._mant : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             _buf = stdgo._internal.math.big.Big__appendzeros._appendZeros(_buf, ((@:checkr _x ?? throw "null pointer dereference")._exp - ((@:checkr _x ?? throw "null pointer dereference")._mant.length) : stdgo.GoInt));
         };
         return (_buf : stdgo.GoString)?.__copy__();
@@ -95,7 +95,7 @@ package stdgo._internal.math.big;
         while (((_n > (0 : stdgo.GoInt) : Bool) && (_s[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] == (48 : stdgo.GoUInt8)) : Bool)) {
             _n--;
         };
-        (@:checkr _x ?? throw "null pointer dereference")._mant = (((@:checkr _x ?? throw "null pointer dereference")._mant.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...((_s.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
+        (@:checkr _x ?? throw "null pointer dereference")._mant = (((@:checkr _x ?? throw "null pointer dereference")._mant.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...((_s.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         if ((_shift < (0 : stdgo.GoInt) : Bool)) {
             while ((_shift < (-28 : stdgo.GoInt) : Bool)) {
                 stdgo._internal.math.big.Big__shr._shr(_x, (28u32 : stdgo.GoUInt));

@@ -85,19 +85,19 @@ package stdgo._internal.net.netip;
             return _b;
         };
         if (!_p.isValid()) {
-            return (_b.__append__(...((("invalid Prefix" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+            return (_b.__append__(...((("invalid Prefix" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if (_p._ip._z == (stdgo._internal.net.netip.Netip__z4._z4)) {
             _b = _p._ip._appendTo4(_b);
         } else {
             if (_p._ip.is4In6()) {
-                _b = (_b.__append__(...((("::ffff:" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                _b = (_b.__append__(...((("::ffff:" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                 _b = _p._ip.unmap()._appendTo4(_b);
             } else {
                 _b = _p._ip._appendTo6(_b);
             };
         };
-        _b = (_b.__append__((47 : stdgo.GoUInt8)));
+        _b = (_b.__append__((47 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = stdgo._internal.net.netip.Netip__appenddecimal._appendDecimal(_b, (_p.bits() : stdgo.GoUInt8));
         return _b;
     }
@@ -174,7 +174,7 @@ var _f2 = __1, _f1 = __0;
     @:tdfield
     static public function masked( _p:stdgo._internal.net.netip.Netip_prefix.Prefix):stdgo._internal.net.netip.Netip_prefix.Prefix {
         @:recv var _p:stdgo._internal.net.netip.Netip_prefix.Prefix = _p?.__copy__();
-        var __tmp__ = _p._ip.prefix(_p.bits()), _m:stdgo._internal.net.netip.Netip_prefix.Prefix = __tmp__._0, __18:stdgo.Error = __tmp__._1;
+        var __tmp__ = _p._ip.prefix(_p.bits()), _m:stdgo._internal.net.netip.Netip_prefix.Prefix = __tmp__._0, __24:stdgo.Error = __tmp__._1;
         return _m?.__copy__();
     }
     @:keep

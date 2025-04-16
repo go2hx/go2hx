@@ -13,9 +13,9 @@ function _parseExtKeyUsageExtension(_der:_internal.vendor.golangdotorg.x.crypto.
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__extkeyusagefromoid._extKeyUsageFromOID(_eku), _extKeyUsage:stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
-                    _extKeyUsages = (_extKeyUsages.__append__(_extKeyUsage));
+                    _extKeyUsages = (_extKeyUsages.__append__(_extKeyUsage) : stdgo.Slice<stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage>);
                 } else {
-                    _unknownUsages = (_unknownUsages.__append__(_eku));
+                    _unknownUsages = (_unknownUsages.__append__(_eku) : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>);
                 };
             };
         };

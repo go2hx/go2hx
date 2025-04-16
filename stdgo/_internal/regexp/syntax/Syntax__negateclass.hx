@@ -18,7 +18,7 @@ _nextLo = (_hi + (1 : stdgo.GoInt32) : stdgo.GoInt32);
         };
         _r = (_r.__slice__(0, _w) : stdgo.Slice<stdgo.GoInt32>);
         if ((_nextLo <= (1114111 : stdgo.GoInt32) : Bool)) {
-            _r = (_r.__append__(_nextLo, (1114111 : stdgo.GoInt32)));
+            _r = (_r.__append__(_nextLo, (1114111 : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoInt32>);
         };
         return _r;
     }

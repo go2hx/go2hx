@@ -33,10 +33,10 @@ package stdgo._internal.regexp.syntax;
                             x.name = __tmp__?.name;
                         };
                         (@:checkr _nre ?? throw "null pointer dereference").rune = (null : stdgo.Slice<stdgo.GoInt32>);
-                        (@:checkr _nre ?? throw "null pointer dereference").sub = (((@:checkr _nre ?? throw "null pointer dereference").sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>).__append__(...(((@:checkr _re ?? throw "null pointer dereference").sub.__slice__(0, _i) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>) : Array<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>)));
+                        (@:checkr _nre ?? throw "null pointer dereference").sub = (((@:checkr _nre ?? throw "null pointer dereference").sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>).__append__(...(((@:checkr _re ?? throw "null pointer dereference").sub.__slice__(0, _i) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>) : Array<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>);
                     };
                     if (_nre != (_re)) {
-                        (@:checkr _nre ?? throw "null pointer dereference").sub = ((@:checkr _nre ?? throw "null pointer dereference").sub.__append__(_nsub));
+                        (@:checkr _nre ?? throw "null pointer dereference").sub = ((@:checkr _nre ?? throw "null pointer dereference").sub.__append__(_nsub) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>);
                     };
                 };
                 return _nre;
@@ -60,11 +60,11 @@ package stdgo._internal.regexp.syntax;
                     {
                         var _i = (0 : stdgo.GoInt);
                         while ((_i < ((@:checkr _re ?? throw "null pointer dereference").min - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
-                            (@:checkr _nre ?? throw "null pointer dereference").sub = ((@:checkr _nre ?? throw "null pointer dereference").sub.__append__(_sub));
+                            (@:checkr _nre ?? throw "null pointer dereference").sub = ((@:checkr _nre ?? throw "null pointer dereference").sub.__append__(_sub) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>);
                             _i++;
                         };
                     };
-                    (@:checkr _nre ?? throw "null pointer dereference").sub = ((@:checkr _nre ?? throw "null pointer dereference").sub.__append__(stdgo._internal.regexp.syntax.Syntax__simplify1._simplify1((15 : stdgo._internal.regexp.syntax.Syntax_op.Op), (@:checkr _re ?? throw "null pointer dereference").flags, _sub, null)));
+                    (@:checkr _nre ?? throw "null pointer dereference").sub = ((@:checkr _nre ?? throw "null pointer dereference").sub.__append__(stdgo._internal.regexp.syntax.Syntax__simplify1._simplify1((15 : stdgo._internal.regexp.syntax.Syntax_op.Op), (@:checkr _re ?? throw "null pointer dereference").flags, _sub, null)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>);
                     return _nre;
                 };
                 if ((((@:checkr _re ?? throw "null pointer dereference").min == (1 : stdgo.GoInt)) && ((@:checkr _re ?? throw "null pointer dereference").max == (1 : stdgo.GoInt)) : Bool)) {
@@ -77,7 +77,7 @@ package stdgo._internal.regexp.syntax;
                     {
                         var _i = (0 : stdgo.GoInt);
                         while ((_i < (@:checkr _re ?? throw "null pointer dereference").min : Bool)) {
-                            (@:checkr _prefix ?? throw "null pointer dereference").sub = ((@:checkr _prefix ?? throw "null pointer dereference").sub.__append__(_sub));
+                            (@:checkr _prefix ?? throw "null pointer dereference").sub = ((@:checkr _prefix ?? throw "null pointer dereference").sub.__append__(_sub) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>);
                             _i++;
                         };
                     };
@@ -88,7 +88,7 @@ package stdgo._internal.regexp.syntax;
                         var _i = ((@:checkr _re ?? throw "null pointer dereference").min + (1 : stdgo.GoInt) : stdgo.GoInt);
                         while ((_i < (@:checkr _re ?? throw "null pointer dereference").max : Bool)) {
                             var _nre2 = (stdgo.Go.setRef(({ op : (18 : stdgo._internal.regexp.syntax.Syntax_op.Op) } : stdgo._internal.regexp.syntax.Syntax_regexp.Regexp)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>);
-(@:checkr _nre2 ?? throw "null pointer dereference").sub = (((@:checkr _nre2 ?? throw "null pointer dereference").sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>).__append__(_sub, _suffix));
+(@:checkr _nre2 ?? throw "null pointer dereference").sub = (((@:checkr _nre2 ?? throw "null pointer dereference").sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>).__append__(_sub, _suffix) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>);
 _suffix = stdgo._internal.regexp.syntax.Syntax__simplify1._simplify1((16 : stdgo._internal.regexp.syntax.Syntax_op.Op), (@:checkr _re ?? throw "null pointer dereference").flags, _nre2, null);
                             _i++;
                         };
@@ -99,7 +99,7 @@ _suffix = stdgo._internal.regexp.syntax.Syntax__simplify1._simplify1((16 : stdgo
                     })) {
                         return _suffix;
                     };
-                    (@:checkr _prefix ?? throw "null pointer dereference").sub = ((@:checkr _prefix ?? throw "null pointer dereference").sub.__append__(_suffix));
+                    (@:checkr _prefix ?? throw "null pointer dereference").sub = ((@:checkr _prefix ?? throw "null pointer dereference").sub.__append__(_suffix) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>);
                 };
                 if (({
                     final value = _prefix;

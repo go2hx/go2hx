@@ -15,7 +15,7 @@ function _cleanAlt(_re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Reg
                     return;
                 };
                 if ((((@:checkr _re ?? throw "null pointer dereference").rune.capacity - ((@:checkr _re ?? throw "null pointer dereference").rune.length) : stdgo.GoInt) > (100 : stdgo.GoInt) : Bool)) {
-                    (@:checkr _re ?? throw "null pointer dereference").rune = (((@:checkr _re ?? throw "null pointer dereference").rune0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>).__append__(...((@:checkr _re ?? throw "null pointer dereference").rune : Array<stdgo.GoInt32>)));
+                    (@:checkr _re ?? throw "null pointer dereference").rune = (((@:checkr _re ?? throw "null pointer dereference").rune0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>).__append__(...((@:checkr _re ?? throw "null pointer dereference").rune : Array<stdgo.GoInt32>)) : stdgo.Slice<stdgo.GoInt32>);
                 };
             };
         };

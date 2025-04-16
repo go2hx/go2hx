@@ -11,8 +11,8 @@ function collectPods(_dirs:stdgo.Slice<stdgo.GoString>, _warn:Bool):{ var _0 : s
                 if (_e.isDir()) {
                     continue;
                 };
-                _files = (_files.__append__(stdgo._internal.path.filepath.Filepath_join.join(_dir?.__copy__(), _e.name()?.__copy__())?.__copy__()));
-                _dirIndices = (_dirIndices.__append__(_k));
+                _files = (_files.__append__(stdgo._internal.path.filepath.Filepath_join.join(_dir?.__copy__(), _e.name()?.__copy__())?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+                _dirIndices = (_dirIndices.__append__(_k) : stdgo.Slice<stdgo.GoInt>);
             };
         };
         return { _0 : stdgo._internal.internal.coverage.pods.Pods__collectpodsimpl._collectPodsImpl(_files, _dirIndices, _warn), _1 : (null : stdgo.Error) };

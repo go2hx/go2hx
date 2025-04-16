@@ -25,6 +25,8 @@ function decodeToTempFile(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _path = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -45,6 +47,8 @@ function decodeToTempFile(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _
                             _err = __tmp__._1;
                             __tmp__;
                         };
+                        _path = __ret__._0;
+                        _err = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -65,6 +69,8 @@ function decodeToTempFile(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _
                             _err = __tmp__._1;
                             __tmp__;
                         };
+                        _path = __ret__._0;
+                        _err = __ret__._1;
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -81,6 +87,8 @@ function decodeToTempFile(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _
                     _err = __tmp__._1;
                     __tmp__;
                 };
+                _path = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

@@ -44,7 +44,7 @@ package stdgo._internal.crypto.x509;
             if (_err != null) {
                 return { _0 : _crlBytes, _1 : _err };
             };
-            _tbsCertList.extensions = (_tbsCertList.extensions.__append__(_aki?.__copy__()));
+            _tbsCertList.extensions = (_tbsCertList.extensions.__append__(_aki?.__copy__()) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>);
         };
         var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_tbsCertList))), _tbsCertListContents:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -209,7 +209,7 @@ package stdgo._internal.crypto.x509;
             {
                 final __value__ = _certType;
                 if (__value__ == ((2 : stdgo.GoInt))) {
-                    _chains = (_chains.__append__(stdgo._internal.crypto.x509.X509__appendtofreshchain._appendToFreshChain(_currentChain, _candidate)));
+                    _chains = (_chains.__append__(stdgo._internal.crypto.x509.X509__appendtofreshchain._appendToFreshChain(_currentChain, _candidate)) : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>);
                 } else if (__value__ == ((1 : stdgo.GoInt))) {
                     var _childChains:stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>> = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>);
                     {
@@ -217,7 +217,7 @@ package stdgo._internal.crypto.x509;
                         _childChains = @:tmpset0 __tmp__._0;
                         _err = @:tmpset0 __tmp__._1;
                     };
-                    _chains = (_chains.__append__(...(_childChains : Array<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>)));
+                    _chains = (_chains.__append__(...(_childChains : Array<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>)) : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>);
                 };
             };
         };
@@ -358,7 +358,7 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
         _chains = (new stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>((0 : stdgo.GoInt).toBasic(), (_candidateChains.length)) : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>);
         for (__2 => _candidate in _candidateChains) {
             if (stdgo._internal.crypto.x509.X509__checkchainforkeyusage._checkChainForKeyUsage(_candidate, _opts.keyUsages)) {
-                _chains = (_chains.__append__(_candidate));
+                _chains = (_chains.__append__(_candidate) : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>);
             };
         };
         if ((_chains.length) == ((0 : stdgo.GoInt))) {
@@ -413,7 +413,7 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
             var _toCheck = (new stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>(0, 0, ...[]) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>);
             for (__1 => _c in _currentChain) {
                 if (@:check2r _c._hasSANExtension()) {
-                    _toCheck = (_toCheck.__append__(_c));
+                    _toCheck = (_toCheck.__append__(_c) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>);
                 };
             };
             for (__2 => _sanCert in _toCheck) {

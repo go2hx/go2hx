@@ -16,7 +16,7 @@ _hasUpper = (_hasUpper || ((((65 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (90 : 
         };
         if (_isASCII) {
             if (!_hasUpper) {
-                return (((stdgo.Go.str() : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_s : Array<stdgo.GoUInt8>)));
+                return (((stdgo.Go.str() : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_s : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
             };
             var _b = stdgo._internal.internal.bytealg.Bytealg_makenozero.makeNoZero((_s.length));
             {

@@ -1,4 +1,5 @@
 === RUN  TestNode
+readFile format_test.go: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
@@ -19,6 +20,7 @@ Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.mai
 -- FAIL: TestNodeNoModify
 
 === RUN  TestSource
+readFile format_test.go: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
@@ -41,6 +43,5 @@ Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.mai
 
 -- FAIL: TestPartial
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestPartial

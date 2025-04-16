@@ -16,10 +16,15 @@ function testDecoderIssue3577(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_
         }));
         {
             var __select__ = true;
-            var __c__0 = _errc;
-var __c__1 = stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_duration.Duration));
+            var __c__0 = null;
+var __c__1 = null;
             while (__select__) {
-                if (__c__0 != null && __c__0.__isGet__(true)) {
+                if ({
+                    if (__c__0 == null) {
+                        __c__0 = _errc;
+                    };
+                    __c__0 != null && __c__0.__isGet__(true);
+                }) {
                     __select__ = false;
                     {
                         var _err = __c__0.__get__();
@@ -29,7 +34,12 @@ var __c__1 = stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._inter
                             };
                         };
                     };
-                } else if (__c__1 != null && __c__1.__isGet__(true)) {
+                } else if ({
+                    if (__c__1 == null) {
+                        __c__1 = stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_duration.Duration));
+                    };
+                    __c__1 != null && __c__1.__isGet__(true);
+                }) {
                     __select__ = false;
                     {
                         __c__1.__get__();

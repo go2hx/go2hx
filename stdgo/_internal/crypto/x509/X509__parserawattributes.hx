@@ -5,7 +5,7 @@ function _parseRawAttributes(_rawAttributes:stdgo.Slice<stdgo._internal.encoding
             var _attr:stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalueset.AttributeTypeAndValueSET = ({} : stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalueset.AttributeTypeAndValueSET);
             var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_rawAttr.fullBytes, stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_attr) : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalueset.AttributeTypeAndValueSET>)))), _rest:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_err == null) && (_rest.length == (0 : stdgo.GoInt)) : Bool)) {
-                _attributes = (_attributes.__append__(_attr?.__copy__()));
+                _attributes = (_attributes.__append__(_attr?.__copy__()) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalueset.AttributeTypeAndValueSET>);
             };
         };
         return _attributes;

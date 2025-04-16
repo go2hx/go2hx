@@ -1,6 +1,6 @@
 package stdgo._internal.html.template;
 function _escapeTemplate(_tmpl:stdgo.Ref<stdgo._internal.html.template.Template_template.Template>, _node:stdgo._internal.text.template.parse.Parse_node.Node, _name:stdgo.GoString):stdgo.Error {
-        var __tmp__ = @:check2 (@:checkr _tmpl ?? throw "null pointer dereference")._nameSpace._esc._escapeTree((new stdgo._internal.html.template.Template_t_context.T_context() : stdgo._internal.html.template.Template_t_context.T_context), _node, _name?.__copy__(), (0 : stdgo.GoInt)), _c:stdgo._internal.html.template.Template_t_context.T_context = __tmp__._0, __6:stdgo.GoString = __tmp__._1;
+        var __tmp__ = @:check2 (@:checkr _tmpl ?? throw "null pointer dereference")._nameSpace._esc._escapeTree((new stdgo._internal.html.template.Template_t_context.T_context() : stdgo._internal.html.template.Template_t_context.T_context), _node, _name?.__copy__(), (0 : stdgo.GoInt)), _c:stdgo._internal.html.template.Template_t_context.T_context = __tmp__._0, __14:stdgo.GoString = __tmp__._1;
         var _err:stdgo.Error = (null : stdgo.Error);
         if (({
             final value = _c._err;

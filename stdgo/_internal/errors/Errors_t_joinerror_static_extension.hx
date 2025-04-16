@@ -13,9 +13,9 @@ package stdgo._internal.errors;
         var _b:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         for (_i => _err in (@:checkr _e ?? throw "null pointer dereference")._errs) {
             if ((_i > (0 : stdgo.GoInt) : Bool)) {
-                _b = (_b.__append__((10 : stdgo.GoUInt8)));
+                _b = (_b.__append__((10 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
             };
-            _b = (_b.__append__(...(_err.error() : Array<stdgo.GoUInt8>)));
+            _b = (_b.__append__(...(_err.error() : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         return (_b : stdgo.GoString)?.__copy__();
     }

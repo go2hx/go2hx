@@ -124,6 +124,9 @@ package stdgo._internal.net.internal.socktest;
                         _err = __tmp__._2;
                         __tmp__;
                     };
+                    _ns = __ret__._0;
+                    _sa = __ret__._1;
+                    _err = __ret__._2;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -142,6 +145,9 @@ package stdgo._internal.net.internal.socktest;
                     _err = __tmp__._2;
                     __tmp__;
                 };
+                _ns = __ret__._0;
+                _sa = __ret__._1;
+                _err = __ret__._2;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -585,6 +591,8 @@ package stdgo._internal.net.internal.socktest;
                         _err = __tmp__._1;
                         __tmp__;
                     };
+                    _s = __ret__._0;
+                    _err = __ret__._1;
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -602,6 +610,8 @@ package stdgo._internal.net.internal.socktest;
                     _err = __tmp__._1;
                     __tmp__;
                 };
+                _s = __ret__._0;
+                _err = __ret__._1;
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -789,9 +799,9 @@ package stdgo._internal.net.internal.socktest;
         @:recv var _sw:stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch> = _sw;
         var _st:stdgo.Slice<stdgo._internal.net.internal.socktest.Socktest_stat.Stat> = (null : stdgo.Slice<stdgo._internal.net.internal.socktest.Socktest_stat.Stat>);
         @:check2 (@:checkr _sw ?? throw "null pointer dereference")._smu.rLock();
-        for (__0 => _s in (@:checkr _sw ?? throw "null pointer dereference")._stats) {
+        for (__20 => _s in (@:checkr _sw ?? throw "null pointer dereference")._stats) {
             var _ns = ((_s : stdgo._internal.net.internal.socktest.Socktest_stat.Stat)?.__copy__() : stdgo._internal.net.internal.socktest.Socktest_stat.Stat);
-            _st = (_st.__append__(_ns?.__copy__()));
+            _st = (_st.__append__(_ns?.__copy__()) : stdgo.Slice<stdgo._internal.net.internal.socktest.Socktest_stat.Stat>);
         };
         @:check2 (@:checkr _sw ?? throw "null pointer dereference")._smu.rUnlock();
         return _st;

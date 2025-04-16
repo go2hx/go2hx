@@ -18,19 +18,19 @@ var _col = __1, _line = __0;
                 if (__value__ == ((10 : stdgo.GoInt32))) {
                     _line++;
                     _col = (1 : stdgo.GoInt);
-                    _buf = (_buf.__append__((10 : stdgo.GoUInt8)));
+                    _buf = (_buf.__append__((10 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                 } else if (__value__ == ((167 : stdgo.GoInt32))) {
                     if ((_positions.length) == ((0 : stdgo.GoInt))) {
-                        _positions = (_positions.__append__((new stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>(0, 0, ...[].concat([for (i in 0 ... (0 > 0 ? 0 : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt>(2, 2).__setNumber32__()])) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>)));
+                        _positions = (_positions.__append__((new stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>(0, 0, ...[].concat([for (i in 0 ... (0 > 0 ? 0 : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt>(2, 2).__setNumber32__()])) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>)) : stdgo.Slice<stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>>);
                     };
-                    _positions[((_positions.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (_positions[((_positions.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].__append__((new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[_line, _col]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__()));
+                    _positions[((_positions.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (_positions[((_positions.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].__append__((new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[_line, _col]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__()) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>);
                 } else if (__value__ == ((182 : stdgo.GoInt32))) {
-                    _positions = (_positions.__append__((new stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>(0, 0, ...[].concat([for (i in 0 ... (0 > 0 ? 0 : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt>(2, 2).__setNumber32__()])) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>)));
+                    _positions = (_positions.__append__((new stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>(0, 0, ...[].concat([for (i in 0 ... (0 > 0 ? 0 : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt>(2, 2).__setNumber32__()])) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>)) : stdgo.Slice<stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>>);
                     _recNum++;
                 } else if (__value__ == ((8721 : stdgo.GoInt32))) {
                     _errPositions[_recNum] = (new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[_line, _col]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__();
                 } else {
-                    _buf = (_buf.__append__(...((_text.__slice__(0, _size) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                    _buf = (_buf.__append__(...((_text.__slice__(0, _size) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                     _col = (_col + (_size) : stdgo.GoInt);
                 };
             };

@@ -33,6 +33,7 @@ function testInterfaceValues(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>
 ({ _text : ("{{lt (index .Slice 1) .Zero}}" : stdgo.GoString), _out : ("false" : stdgo.GoString) } : stdgo._internal.text.template.Template_t__struct_5.T__struct_5)].concat([for (i in 30 ... (30 > 30 ? 30 : 30 : stdgo.GoInt).toBasic()) ({ _text : ("" : stdgo.GoString), _out : ("" : stdgo.GoString) } : stdgo._internal.text.template.Template_t__struct_5.T__struct_5)])) : stdgo.Slice<stdgo._internal.text.template.Template_t__struct_5.T__struct_5>);
         for (__8 => _tt in _tests) {
             var _tmpl = ({
+                @:tupleArg var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tt._text?.__copy__());
                 var __f__ = stdgo._internal.text.template.Template_must.must;
                 var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tt._text?.__copy__());
                 __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>), (__tmp__._1 : stdgo.Error));

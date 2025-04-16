@@ -58,7 +58,7 @@ package stdgo._internal.testing.fstest;
                 var _i = (stdgo._internal.strings.Strings_index.index(_fname?.__copy__(), ("/" : stdgo.GoString)) : stdgo.GoInt);
                 if ((_i < (0 : stdgo.GoInt) : Bool)) {
                     if (_fname != (("." : stdgo.GoString))) {
-                        _list = (_list.__append__((new stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo(_fname?.__copy__(), _f) : stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo)));
+                        _list = (_list.__append__((new stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo(_fname?.__copy__(), _f) : stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo)) : stdgo.Slice<stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo>);
                     };
                 } else {
                     _need[(_fname.__slice__(0, _i) : stdgo.GoString)] = true;
@@ -72,7 +72,7 @@ package stdgo._internal.testing.fstest;
                     var _felem = ((_fname.__slice__((_prefix.length)) : stdgo.GoString)?.__copy__() : stdgo.GoString);
                     var _i = (stdgo._internal.strings.Strings_index.index(_felem?.__copy__(), ("/" : stdgo.GoString)) : stdgo.GoInt);
                     if ((_i < (0 : stdgo.GoInt) : Bool)) {
-                        _list = (_list.__append__((new stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo(_felem?.__copy__(), _f) : stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo)));
+                        _list = (_list.__append__((new stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo(_felem?.__copy__(), _f) : stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo)) : stdgo.Slice<stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo>);
                     } else {
                         _need[(_fname.__slice__((_prefix.length), ((_prefix.length) + _i : stdgo.GoInt)) : stdgo.GoString)] = true;
                     };
@@ -89,7 +89,7 @@ package stdgo._internal.testing.fstest;
             if (_need != null) _need.__remove__(_fi._name);
         };
         for (_name => _ in _need) {
-            _list = (_list.__append__((new stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo(_name?.__copy__(), (stdgo.Go.setRef(({ mode : (-2147483648u32 : stdgo._internal.io.fs.Fs_filemode.FileMode) } : stdgo._internal.testing.fstest.Fstest_mapfile.MapFile)) : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_mapfile.MapFile>)) : stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo)));
+            _list = (_list.__append__((new stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo(_name?.__copy__(), (stdgo.Go.setRef(({ mode : (-2147483648u32 : stdgo._internal.io.fs.Fs_filemode.FileMode) } : stdgo._internal.testing.fstest.Fstest_mapfile.MapFile)) : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_mapfile.MapFile>)) : stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo)) : stdgo.Slice<stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo>);
         };
         stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_list), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
             return (_list[(_i : stdgo.GoInt)]._name < _list[(_j : stdgo.GoInt)]._name : Bool);

@@ -1,5 +1,6 @@
 === RUN  TestGolden
-Exception: __fail__
+sha1[2](aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+) = 1f19f664d84d901a6cf9bd64507563c0ba369c1a want 76245dbf96f661bd221046197ab8b9f063f11badException: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
@@ -22,7 +23,7 @@ Called from _internal.crypto.sha1dottest._Sha1dottest.$Sha1dottest_Fields_.main 
 -- PASS: TestBlockSize
 
 === RUN  TestBlockGeneric
-Exception: Null access
+Exception: Null access .read
 Called from stdgo._internal.io._Io_readatleast.$Io_readatleast_Fields_.readAtLeast (stdgo/_internal/io/Io_readatleast.hx line 15)
 Called from stdgo._internal.io._Io_readfull.$Io_readfull_Fields_.readFull (stdgo/_internal/io/Io_readfull.hx line 4)
 Called from stdgo._internal.crypto.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/crypto/rand/Rand_read.hx line 4)
@@ -41,6 +42,5 @@ Called from _internal.crypto.sha1dottest._Sha1dottest.$Sha1dottest_Fields_.main 
 
 -- PASS: TestAllocations
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
-./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
 -- FAIL: TestBlockGeneric

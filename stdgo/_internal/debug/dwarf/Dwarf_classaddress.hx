@@ -1,2 +1,2 @@
 package stdgo._internal.debug.dwarf;
-final classAddress = (17 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_);
+final classAddress : stdgo._internal.debug.dwarf.Dwarf_class_.Class_ = 1i32;

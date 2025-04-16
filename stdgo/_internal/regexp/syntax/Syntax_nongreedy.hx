@@ -1,2 +1,2 @@
 package stdgo._internal.regexp.syntax;
-final nonGreedy = (512 : stdgo._internal.regexp.syntax.Syntax_flags.Flags);
+final nonGreedy : stdgo._internal.regexp.syntax.Syntax_flags.Flags = 32i32;

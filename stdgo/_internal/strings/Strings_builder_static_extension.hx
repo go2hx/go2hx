@@ -5,7 +5,7 @@ package stdgo._internal.strings;
     static public function writeString( _b:stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder> = _b;
         @:check2r _b._copyCheck();
-        (@:checkr _b ?? throw "null pointer dereference")._buf = ((@:checkr _b ?? throw "null pointer dereference")._buf.__append__(...(_s : Array<stdgo.GoUInt8>)));
+        (@:checkr _b ?? throw "null pointer dereference")._buf = ((@:checkr _b ?? throw "null pointer dereference")._buf.__append__(...(_s : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         return { _0 : (_s.length), _1 : (null : stdgo.Error) };
     }
     @:keep
@@ -22,7 +22,7 @@ package stdgo._internal.strings;
     static public function writeByte( _b:stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>, _c:stdgo.GoUInt8):stdgo.Error {
         @:recv var _b:stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder> = _b;
         @:check2r _b._copyCheck();
-        (@:checkr _b ?? throw "null pointer dereference")._buf = ((@:checkr _b ?? throw "null pointer dereference")._buf.__append__(_c));
+        (@:checkr _b ?? throw "null pointer dereference")._buf = ((@:checkr _b ?? throw "null pointer dereference")._buf.__append__(_c) : stdgo.Slice<stdgo.GoUInt8>);
         return (null : stdgo.Error);
     }
     @:keep
@@ -30,7 +30,7 @@ package stdgo._internal.strings;
     static public function write( _b:stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder> = _b;
         @:check2r _b._copyCheck();
-        (@:checkr _b ?? throw "null pointer dereference")._buf = ((@:checkr _b ?? throw "null pointer dereference")._buf.__append__(...(_p : Array<stdgo.GoUInt8>)));
+        (@:checkr _b ?? throw "null pointer dereference")._buf = ((@:checkr _b ?? throw "null pointer dereference")._buf.__append__(...(_p : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         return { _0 : (_p.length), _1 : (null : stdgo.Error) };
     }
     @:keep

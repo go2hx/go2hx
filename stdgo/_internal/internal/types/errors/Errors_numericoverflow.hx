@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final numericOverflow = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final numericOverflow : stdgo._internal.internal.types.errors.Errors_code.Code = 44i32;

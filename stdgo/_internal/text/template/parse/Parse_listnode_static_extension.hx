@@ -48,7 +48,7 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function _append( _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>, _n:stdgo._internal.text.template.parse.Parse_node.Node):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode> = _l;
-        (@:checkr _l ?? throw "null pointer dereference").nodes = ((@:checkr _l ?? throw "null pointer dereference").nodes.__append__(_n));
+        (@:checkr _l ?? throw "null pointer dereference").nodes = ((@:checkr _l ?? throw "null pointer dereference").nodes.__append__(_n) : stdgo.Slice<stdgo._internal.text.template.parse.Parse_node.Node>);
     }
     @:embedded
     @:embeddededffieldsffun

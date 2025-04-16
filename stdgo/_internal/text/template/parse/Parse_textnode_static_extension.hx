@@ -4,7 +4,7 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function copy( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode>):stdgo._internal.text.template.parse.Parse_node.Node {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode> = _t;
-        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _tr : (@:checkr _t ?? throw "null pointer dereference")._tr, nodeType : (0 : stdgo._internal.text.template.parse.Parse_nodetype.NodeType), pos : (@:checkr _t ?? throw "null pointer dereference").pos, text : ((new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>).__append__(...((@:checkr _t ?? throw "null pointer dereference").text : Array<stdgo.GoUInt8>))) } : stdgo._internal.text.template.parse.Parse_textnode.TextNode)) : stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode>));
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _tr : (@:checkr _t ?? throw "null pointer dereference")._tr, nodeType : (0 : stdgo._internal.text.template.parse.Parse_nodetype.NodeType), pos : (@:checkr _t ?? throw "null pointer dereference").pos, text : ((new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>).__append__(...((@:checkr _t ?? throw "null pointer dereference").text : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.text.template.parse.Parse_textnode.TextNode)) : stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode>));
     }
     @:keep
     @:tdfield

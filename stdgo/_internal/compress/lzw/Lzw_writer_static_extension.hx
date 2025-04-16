@@ -116,20 +116,20 @@ package stdgo._internal.compress.lzw;
     static public function write( _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        var _hash_14:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _code_7:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _iterator_3646075_5:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _maxLit_4:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _h_15:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _iterator_3646893_10:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_9:stdgo.Error = (null : stdgo.Error);
-        var _err1_17:stdgo.Error = (null : stdgo.Error);
-        var _t_16:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _clear_8:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _x_6:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _key_13:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _literal_12:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _err_9:stdgo.Error = (null : stdgo.Error);
+        var _t_16:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _h_15:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _hash_14:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _code_7:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _x_6:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _iterator_3646075_5:stdgo.GoInt = (0 : stdgo.GoInt);
         var _x_11:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _clear_8:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _err1_17:stdgo.Error = (null : stdgo.Error);
+        var _iterator_3646893_10:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _maxLit_4:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _gotoNext = 0i32;
         _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -400,7 +400,7 @@ package stdgo._internal.compress.lzw;
             (@:checkr _w ?? throw "null pointer dereference")._width = ((@:checkr _w ?? throw "null pointer dereference")._litWidth + (1u32 : stdgo.GoUInt) : stdgo.GoUInt);
             (@:checkr _w ?? throw "null pointer dereference")._hi = (_clear + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
             (@:checkr _w ?? throw "null pointer dereference")._overflow = (_clear << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
-            for (_i => _ in (@:checkr _w ?? throw "null pointer dereference")._table) {
+            for (_i => _ in (@:checkr _w ?? throw "null pointer dereference")._table.__copy__()) {
                 (@:checkr _w ?? throw "null pointer dereference")._table[(_i : stdgo.GoInt)] = (0u32 : stdgo.GoUInt32);
             };
             return stdgo._internal.compress.lzw.Lzw__erroutofcodes._errOutOfCodes;

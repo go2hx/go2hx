@@ -133,7 +133,7 @@ package stdgo._internal.bufio;
                 break;
             };
             var _buf = stdgo._internal.bytes.Bytes_clone.clone(_frag);
-            _fullBuffers = (_fullBuffers.__append__(_buf));
+            _fullBuffers = (_fullBuffers.__append__(_buf) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
             _totalLen = (_totalLen + ((_buf.length)) : stdgo.GoInt);
         };
         _totalLen = (_totalLen + ((_frag.length)) : stdgo.GoInt);

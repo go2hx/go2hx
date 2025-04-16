@@ -12,7 +12,7 @@ function testRotate(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
 {
                             var _i = (0 : stdgo.GoInt);
                             while ((_i < _n : Bool)) {
-                                _s = (_s.__append__(_i));
+                                _s = (_s.__append__(_i) : stdgo.Slice<stdgo.GoInt>);
                                 _i++;
                             };
                         };

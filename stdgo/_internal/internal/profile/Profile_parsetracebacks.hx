@@ -34,12 +34,12 @@ function parseTracebacks(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<std
                             (value == null || (value : Dynamic).__nil__);
                         })) {
                             _loc = (stdgo.Go.setRef(({ address : _addr } : stdgo._internal.internal.profile.Profile_location.Location)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>);
-                            (@:checkr _p ?? throw "null pointer dereference").location = ((@:checkr _p ?? throw "null pointer dereference").location.__append__(_loc));
+                            (@:checkr _p ?? throw "null pointer dereference").location = ((@:checkr _p ?? throw "null pointer dereference").location.__append__(_loc) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
                             _locs[_addr] = _loc;
                         };
-                        _sloc = (_sloc.__append__(_loc));
+                        _sloc = (_sloc.__append__(_loc) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
                     };
-                    _sources = (_sources.__append__(...(_s : Array<stdgo.GoString>)));
+                    _sources = (_sources.__append__(...(_s : Array<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>);
                 } else {
                     if ((((_sources.length) > (0 : stdgo.GoInt) : Bool) || ((_sloc.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
                         stdgo._internal.internal.profile.Profile__addtracebacksample._addTracebackSample(_sloc, _sources, _p);

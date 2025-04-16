@@ -107,13 +107,13 @@ package stdgo._internal.net.netip;
                 var _max = (("ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff%enp5s0" : stdgo.GoString).length : stdgo.GoInt);
                 var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _max).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                 if (_ip.is4In6()) {
-                    _b = (_b.__append__(...((("::ffff:" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                    _b = (_b.__append__(...((("::ffff:" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                     _b = _ip.unmap()._appendTo4(_b);
                     {
                         var _z = (_ip.zone()?.__copy__() : stdgo.GoString);
                         if (_z != ((stdgo.Go.str() : stdgo.GoString))) {
-                            _b = (_b.__append__((37 : stdgo.GoUInt8)));
-                            _b = (_b.__append__(...(_z : Array<stdgo.GoUInt8>)));
+                            _b = (_b.__append__((37 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
+                            _b = (_b.__append__(...(_z : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                         };
                     };
                     return { _0 : _b, _1 : (null : stdgo.Error) };
@@ -138,15 +138,15 @@ package stdgo._internal.net.netip;
             var _i = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
             while ((_i < (8 : stdgo.GoUInt8) : Bool)) {
                 if ((_i > (0 : stdgo.GoUInt8) : Bool)) {
-                    _ret = (_ret.__append__((58 : stdgo.GoUInt8)));
+                    _ret = (_ret.__append__((58 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                 };
 _ret = stdgo._internal.net.netip.Netip__appendhexpad._appendHexPad(_ret, _ip._v6u16(_i));
                 _i++;
             };
         };
         if (_ip._z != (stdgo._internal.net.netip.Netip__z6noz._z6noz)) {
-            _ret = (_ret.__append__((37 : stdgo.GoUInt8)));
-            _ret = (_ret.__append__(...(_ip.zone() : Array<stdgo.GoUInt8>)));
+            _ret = (_ret.__append__((37 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
+            _ret = (_ret.__append__(...(_ip.zone() : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         return (_ret : stdgo.GoString)?.__copy__();
     }
@@ -181,21 +181,21 @@ while (((_j < (8 : stdgo.GoUInt8) : Bool) && (_ip._v6u16(_j) == (0 : stdgo.GoUIn
             var _i = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
             while ((_i < (8 : stdgo.GoUInt8) : Bool)) {
                 if (_i == (_zeroStart)) {
-                    _ret = (_ret.__append__((58 : stdgo.GoUInt8), (58 : stdgo.GoUInt8)));
+                    _ret = (_ret.__append__((58 : stdgo.GoUInt8), (58 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                     _i = _zeroEnd;
                     if ((_i >= (8 : stdgo.GoUInt8) : Bool)) {
                         break;
                     };
                 } else if ((_i > (0 : stdgo.GoUInt8) : Bool)) {
-                    _ret = (_ret.__append__((58 : stdgo.GoUInt8)));
+                    _ret = (_ret.__append__((58 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                 };
 _ret = stdgo._internal.net.netip.Netip__appendhex._appendHex(_ret, _ip._v6u16(_i));
                 _i++;
             };
         };
         if (_ip._z != (stdgo._internal.net.netip.Netip__z6noz._z6noz)) {
-            _ret = (_ret.__append__((37 : stdgo.GoUInt8)));
-            _ret = (_ret.__append__(...(_ip.zone() : Array<stdgo.GoUInt8>)));
+            _ret = (_ret.__append__((37 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
+            _ret = (_ret.__append__(...(_ip.zone() : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         return _ret;
     }
@@ -213,11 +213,11 @@ _ret = stdgo._internal.net.netip.Netip__appendhex._appendHex(_ret, _ip._v6u16(_i
     static public function _appendTo4( _ip:stdgo._internal.net.netip.Netip_addr.Addr, _ret:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _ip:stdgo._internal.net.netip.Netip_addr.Addr = _ip?.__copy__();
         _ret = stdgo._internal.net.netip.Netip__appenddecimal._appendDecimal(_ret, _ip._v4((0 : stdgo.GoUInt8)));
-        _ret = (_ret.__append__((46 : stdgo.GoUInt8)));
+        _ret = (_ret.__append__((46 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         _ret = stdgo._internal.net.netip.Netip__appenddecimal._appendDecimal(_ret, _ip._v4((1 : stdgo.GoUInt8)));
-        _ret = (_ret.__append__((46 : stdgo.GoUInt8)));
+        _ret = (_ret.__append__((46 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         _ret = stdgo._internal.net.netip.Netip__appenddecimal._appendDecimal(_ret, _ip._v4((2 : stdgo.GoUInt8)));
-        _ret = (_ret.__append__((46 : stdgo.GoUInt8)));
+        _ret = (_ret.__append__((46 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         _ret = stdgo._internal.net.netip.Netip__appenddecimal._appendDecimal(_ret, _ip._v4((3 : stdgo.GoUInt8)));
         return _ret;
     }
@@ -242,13 +242,13 @@ _ret = stdgo._internal.net.netip.Netip__appendhex._appendHex(_ret, _ip._v6u16(_i
                 return _ip._appendTo4(_b);
             } else {
                 if (_ip.is4In6()) {
-                    _b = (_b.__append__(...((("::ffff:" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                    _b = (_b.__append__(...((("::ffff:" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                     _b = _ip.unmap()._appendTo4(_b);
                     {
                         var _z = (_ip.zone()?.__copy__() : stdgo.GoString);
                         if (_z != ((stdgo.Go.str() : stdgo.GoString))) {
-                            _b = (_b.__append__((37 : stdgo.GoUInt8)));
-                            _b = (_b.__append__(...(_z : Array<stdgo.GoUInt8>)));
+                            _b = (_b.__append__((37 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
+                            _b = (_b.__append__(...(_z : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                         };
                     };
                     return _b;
@@ -585,7 +585,7 @@ var _zb = __1, _za = __0;
             { _0 : (stdgo.Go.typeAssert((@:check2r _ip._z.get() : stdgo.GoString)) : stdgo.GoString), _1 : true };
         } catch(_) {
             { _0 : ("" : stdgo.GoString), _1 : false };
-        }, _zone = __tmp__._0, __22 = __tmp__._1;
+        }, _zone = __tmp__._0, __26 = __tmp__._1;
         return _zone?.__copy__();
     }
     @:keep

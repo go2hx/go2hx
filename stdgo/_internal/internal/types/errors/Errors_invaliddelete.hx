@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final invalidDelete = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final invalidDelete : stdgo._internal.internal.types.errors.Errors_code.Code = 88i32;

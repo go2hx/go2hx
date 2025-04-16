@@ -15,11 +15,11 @@ function _makeGenericReplacer(_oldnew:stdgo.Slice<stdgo.GoString>):stdgo.Ref<std
                 _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
             };
         };
-        for (__0 => _b in (@:checkr _r ?? throw "null pointer dereference")._mapping) {
+        for (__0 => _b in (@:checkr _r ?? throw "null pointer dereference")._mapping.__copy__()) {
             (@:checkr _r ?? throw "null pointer dereference")._tableSize = ((@:checkr _r ?? throw "null pointer dereference")._tableSize + ((_b : stdgo.GoInt)) : stdgo.GoInt);
         };
         var _index:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        for (_i => _b in (@:checkr _r ?? throw "null pointer dereference")._mapping) {
+        for (_i => _b in (@:checkr _r ?? throw "null pointer dereference")._mapping.__copy__()) {
             if (_b == ((0 : stdgo.GoUInt8))) {
                 (@:checkr _r ?? throw "null pointer dereference")._mapping[(_i : stdgo.GoInt)] = ((@:checkr _r ?? throw "null pointer dereference")._tableSize : stdgo.GoUInt8);
             } else {

@@ -184,7 +184,7 @@ package stdgo._internal.internal.coverage.encodecounter;
         (@:checkr _cfw ?? throw "null pointer dereference")._csh.strTabLen = ((@:check2r _ws.bytesWritten().length : stdgo.GoUInt32) - _hdrsz : stdgo.GoUInt32);
         var _akeys = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (_args.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_k => _ in _args) {
-            _akeys = (_akeys.__append__(_k?.__copy__()));
+            _akeys = (_akeys.__append__(_k?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
         stdgo._internal.sort.Sort_strings.strings(_akeys);
         var _wrULEB128 = (function(_v:stdgo.GoUInt):stdgo.Error {

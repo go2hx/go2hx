@@ -6,10 +6,15 @@ function maybeReadByte(_r:stdgo._internal.io.Io_reader.Reader):Void {
         });
         {
             var __select__ = true;
-            var __c__0 = stdgo._internal.crypto.internal.randutil.Randutil__closedchan._closedChan;
-var __c__1 = stdgo._internal.crypto.internal.randutil.Randutil__closedchan._closedChan;
+            var __c__0 = null;
+var __c__1 = null;
             while (__select__) {
-                if (__c__0 != null && __c__0.__isGet__(true)) {
+                if ({
+                    if (__c__0 == null) {
+                        __c__0 = stdgo._internal.crypto.internal.randutil.Randutil__closedchan._closedChan;
+                    };
+                    __c__0 != null && __c__0.__isGet__(true);
+                }) {
                     __select__ = false;
                     {
                         __c__0.__get__();
@@ -17,7 +22,12 @@ var __c__1 = stdgo._internal.crypto.internal.randutil.Randutil__closedchan._clos
                             return;
                         };
                     };
-                } else if (__c__1 != null && __c__1.__isGet__(true)) {
+                } else if ({
+                    if (__c__1 == null) {
+                        __c__1 = stdgo._internal.crypto.internal.randutil.Randutil__closedchan._closedChan;
+                    };
+                    __c__1 != null && __c__1.__isGet__(true);
+                }) {
                     __select__ = false;
                     {
                         __c__1.__get__();

@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final repeatedDecl = (150 : stdgo._internal.internal.types.errors.Errors_code.Code);
+final repeatedDecl : stdgo._internal.internal.types.errors.Errors_code.Code = 132i32;

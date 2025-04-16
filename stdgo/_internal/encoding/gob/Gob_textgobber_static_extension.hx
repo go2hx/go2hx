@@ -4,7 +4,7 @@ package stdgo._internal.encoding.gob;
     @:pointer
     @:tdfield
     static public function unmarshalText( _g:stdgo.Pointer<stdgo._internal.encoding.gob.Gob_textgobber.TextGobber>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
-        var __tmp__ = stdgo._internal.fmt.Fmt_sscanf.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%d" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.GoInt>(() -> (_g.value : stdgo.GoInt), v -> (_g.value = (v : stdgo._internal.encoding.gob.Gob_textgobber.TextGobber) : stdgo.GoInt)))), __4:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.fmt.Fmt_sscanf.sscanf((_data : stdgo.GoString)?.__copy__(), ("VALUE=%d" : stdgo.GoString), stdgo.Go.toInterface(new stdgo.Pointer<stdgo.GoInt>(() -> (_g.value : stdgo.GoInt), v -> (_g.value = (v : stdgo._internal.encoding.gob.Gob_textgobber.TextGobber) : stdgo.GoInt)))), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     }
     @:keep

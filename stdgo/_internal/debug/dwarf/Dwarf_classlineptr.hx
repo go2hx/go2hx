@@ -1,2 +1,2 @@
 package stdgo._internal.debug.dwarf;
-final classLinePtr = (17 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_);
+final classLinePtr : stdgo._internal.debug.dwarf.Dwarf_class_.Class_ = 6i32;

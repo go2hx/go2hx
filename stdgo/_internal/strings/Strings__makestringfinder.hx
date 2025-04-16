@@ -2,7 +2,7 @@ package stdgo._internal.strings;
 function _makeStringFinder(_pattern:stdgo.GoString):stdgo.Ref<stdgo._internal.strings.Strings_t_stringfinder.T_stringFinder> {
         var _f = (stdgo.Go.setRef(({ _pattern : _pattern?.__copy__(), _goodSuffixSkip : (new stdgo.Slice<stdgo.GoInt>((_pattern.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.strings.Strings_t_stringfinder.T_stringFinder)) : stdgo.Ref<stdgo._internal.strings.Strings_t_stringfinder.T_stringFinder>);
         var _last = ((_pattern.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-        for (_i => _ in (@:checkr _f ?? throw "null pointer dereference")._badCharSkip) {
+        for (_i => _ in (@:checkr _f ?? throw "null pointer dereference")._badCharSkip.__copy__()) {
             (@:checkr _f ?? throw "null pointer dereference")._badCharSkip[(_i : stdgo.GoInt)] = (_pattern.length);
         };
         {

@@ -19,10 +19,13 @@
 -- PASS: TestAsinh
 
 === RUN  TestAtan
+Atan((+Inf+NaNi)) = (1.5707963267948966-0i), want (1.5707963267948966+0i)
 
 -- FAIL: TestAtan
 
 === RUN  TestAtanh
+Atanh((NaN+Infi)) = (-0+1.5707963267948966i), want (0+1.5707963267948966i)
+Atanh((NaN-Infi)) = (-0-1.5707963267948966i), want (0-1.5707963267948966i)
 
 -- FAIL: TestAtanh
 
@@ -31,14 +34,18 @@
 -- PASS: TestConj
 
 === RUN  TestCos
+Cos((NaN+0i)) = (NaN+0i), want (NaN-0i)
+Cos((NaN-0i)) = (NaN-0i), want (NaN+0i)
 
 -- FAIL: TestCos
 
 === RUN  TestCosh
+Cosh((0+NaNi)) = (NaN-0i), want (NaN+0i)
 
 -- FAIL: TestCosh
 
 === RUN  TestExp
+Exp((-Inf+NaNi)) = (0-0i), want (0+0i)
 
 -- FAIL: TestExp
 
@@ -79,11 +86,15 @@
 -- PASS: TestSqrt
 
 === RUN  TestTan
+Tan((NaN+Infi)) = (-0+1i), want (0+1i)
+Tan((NaN-Infi)) = (-0-1i), want (0-1i)
 
 -- FAIL: TestTan
 
 === RUN  TestTanh
+Tanh((+Inf+NaNi)) = (1-0i), want (1+0i)
 
 -- FAIL: TestTanh
 
 === RUN  TestInfiniteLoopIntanSeries
+Segmentation fault (core dumped)

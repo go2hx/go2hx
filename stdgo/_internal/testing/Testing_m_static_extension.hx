@@ -57,6 +57,38 @@ package stdgo._internal.testing;
             };
             stdgo.Go.println(output.toString());
         };
+        if (@:privateAccess _m.benchBool) {
+            stdgo.Go.println("BENCHMARKING");
+            for (bench in _m._benchmarks) {
+                var b = new stdgo._internal.testing.Testing_b.B();
+                var error = false;
+                try {
+                    b.resetTimer();
+                    b.startTimer();
+                    bench.f(b);
+                    b.stopTimer();
+                } catch(e) {
+                    stdgo.Go.println(e.details());
+                    error = true;
+                };
+                for (f in b._common._cleanups) {
+                    f();
+                };
+                if (error) {
+                    final reason = '\n-- FAIL: ${bench.name.toString()}';
+                    stdgo.Go.println(reason);
+                    exitCodeReason = reason;
+                    _m._exitCode = 1;
+                } else if (chatty) {
+                    if (b.skipped()) {
+                        stdgo.Go.println('\n-- SKIP: ${bench.name.toString()}');
+                    } else {
+                        final output = b._common._duration.string().toString();
+                        stdgo.Go.println('\n-- BENCH: ${bench.name.toString()}' + ' ' + output);
+                    };
+                };
+            };
+        };
         if (_m._exitCode != 0) trace("exitCode: " + _m._exitCode + " exitCodeReason: " + exitCodeReason);
         return _m._exitCode;
     }

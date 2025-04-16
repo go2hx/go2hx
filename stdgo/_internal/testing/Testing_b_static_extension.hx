@@ -14,7 +14,13 @@ package stdgo._internal.testing;
     static public function _add( _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>, _other:stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult):Void throw "B:testing._add is not yet implemented";
     @:keep
     @:tdfield
-    static public function run( _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>, _name:stdgo.GoString, _f:stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void):Bool throw "B:testing.run is not yet implemented";
+    static public function run( _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>, _name:stdgo.GoString, _f:stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void):Bool {
+        @:recv var _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B> = _b;
+        stdgo.Go.println("- SUBRUN  " + _name.toString());
+        _b.n = 1;
+        _f(_b);
+        return true;
+    }
     @:keep
     @:tdfield
     static public function reportMetric( _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>, _n:stdgo.GoFloat64, _unit:stdgo.GoString):Void throw "B:testing.reportMetric is not yet implemented";
@@ -44,13 +50,33 @@ package stdgo._internal.testing;
     static public function setBytes( _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>, _n:stdgo.GoInt64):Void throw "B:testing.setBytes is not yet implemented";
     @:keep
     @:tdfield
-    static public function resetTimer( _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void throw "B:testing.resetTimer is not yet implemented";
+    static public function resetTimer( _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+        @:recv var _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B> = _b;
+        if (_b._timerOn) {
+            _b._common._start = stdgo._internal.time.Time_now.now();
+        };
+        _b._common._duration = 0;
+        _b._netAllocs = 0;
+        _b._netBytes = 0;
+    }
     @:keep
     @:tdfield
-    static public function stopTimer( _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void throw "B:testing.stopTimer is not yet implemented";
+    static public function stopTimer( _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+        @:recv var _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B> = _b;
+        if (_b._timerOn) {
+            _b._common._duration += stdgo._internal.time.Time_since.since(_b._common._start);
+            _b._timerOn = false;
+        };
+    }
     @:keep
     @:tdfield
-    static public function startTimer( _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void throw "B:testing.startTimer is not yet implemented";
+    static public function startTimer( _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+        @:recv var _b:stdgo.Ref<stdgo._internal.testing.Testing_b.B> = _b;
+        if (!_b._timerOn) {
+            _b._common._start = stdgo._internal.time.Time_now.now();
+            _b._timerOn = true;
+        };
+    }
     @:embedded
     @:embeddededffieldsffun
     public static function _setRan( __self__:stdgo._internal.testing.Testing_b.B):Void return @:_5 __self__._setRan();

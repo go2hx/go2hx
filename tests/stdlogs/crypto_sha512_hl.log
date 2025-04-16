@@ -166,5 +166,5 @@ Called from _internal.crypto.sha512dottest._Sha512dottest.$Sha512dottest_Fields_
 
 -- PASS: TestAllocations
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
 -- FAIL: TestBlockGeneric

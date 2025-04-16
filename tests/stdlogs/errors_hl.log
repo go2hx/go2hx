@@ -83,5 +83,5 @@ Called from _internal.errorsdottest._Errorsdottest.$Errorsdottest_Fields_.main (
 
 -- PASS: TestUnwrap
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1 exitCodeReason: 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
 -- FAIL: TestAs

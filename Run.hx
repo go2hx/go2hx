@@ -62,6 +62,10 @@ function main() {
 		Sys.command("haxe scripts/build-interp.hxml --help");
 		return;
 	}
+	if (goCommand != "go") {
+		args.push("-gocmd");
+		args.push(goCommand);
+	}
 	if ((index = args.indexOf("-compiler_cpp")) != -1 || (index = args.indexOf("--compiler_cpp")) != -1) {
 		args.remove(args[index]);
 		setupCPP(rebuild, args);
@@ -144,28 +148,68 @@ function deleteDirectoryRecursively(dir:String):Int {
 	#end
 }
 
+final goRequiredVersion = File.getContent(".gorc");
+
+function installRequiredGoVersion() {
+	final command = executable(home + "/.go/bin/goup") +  " install " + goRequiredVersion;
+	Sys.println(command);
+	Sys.println("Please wait a little...");
+	final proc = new Process(command);
+	if (proc.exitCode(true) != 0) {
+		Sys.println("goup install command failed");
+		Sys.exit(1);
+	}
+}
+
+
+private function executable(path:String) {
+	return switch Sys.systemName() {
+		case "Windows":
+			path + ".exe";
+		default:
+			path;
+	}
+}
+
+var goCommand = "go";
+final home = Sys.getEnv(if (Sys.systemName() == "Windows") "UserProfile" else "HOME");
+
 function build(rebuild:Bool) {
-	var process = new Process("go", ["version"]);
+	var process = new Process(executable(home + "/.go/bin/goup") + " version");
+	if (process.exitCode(true) != 0) {
+		final command = "curl -sSf https://raw.githubusercontent.com/owenthereal/goup/master/install.sh | sh -s -- '--skip-prompt'";
+		Sys.println("downloading goup");
+		if (Sys.command(command) != 0) {
+			Sys.println("failed to install goup");
+			Sys.exit(1);
+		}
+	}
+	goCommand = executable(home + "/.go/go" + goRequiredVersion + "/bin/go");
+	process = new Process(goCommand, ["version"]);
 	var code = process.exitCode();
 	if (code != 0) {
-		Sys.println("go command not found");
-		return;
+		installRequiredGoVersion();
+	}else{
+		var foundVersion = process.stdout.readAll().toString();
+		var index = foundVersion.indexOf("go", 10);
+		if (index == -1) {
+			Sys.println("not valid to go version: " + foundVersion);
+			Sys.exit(1);
+		}
+		foundVersion = foundVersion.substr(index + 2, goRequiredVersion.length);
+		if (foundVersion != goRequiredVersion) {
+			Sys.println("go version, got: " + foundVersion + " wanted: " + goRequiredVersion);
+			installRequiredGoVersion();
+		}
 	}
 	process.close();
 
-	if (!FileSystem.exists("tools")) {
-		Sys.command("git clone https://github.com/go2hx/tools --depth=1");
-	} else {
-		if (rebuild) {
-			Sys.setCwd("tools");
-			Sys.command("git pull");
-			Sys.setCwd("..");
-		}
-	}
 	// run go compiler
 	if (!FileSystem.exists("go4hx") || rebuild) {
 		Sys.println("build go part of the compiler");
-		Sys.command("go build .");
+		final command = goCommand + ' build .';
+		Sys.println(command);
+		Sys.command(command);
 	}
 }
 
@@ -188,13 +232,9 @@ function setupCPP(rebuild:Bool,args:Array<String>) {
 		var cmd = "haxe scripts/build-cpp.hxml";
 		Sys.command(cmd);
 	}
-	final name = if (Sys.systemName() != "Windows") {
-		"./export/cpp/Main-debug";
-	}else{
-		"export/cpp/Main-debug.exe";
-	}
+	final name = executable("export/cpp/Main-debug");
 	trace(name,args);
-	new sys.io.Process(name, args);
+	new Process(name, args);
 }
 
 function setupHashlink(rebuild:Bool,args:Array<String>) {

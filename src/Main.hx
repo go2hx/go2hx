@@ -74,6 +74,8 @@ function compileArgs(args:Array<String>):InstanceData {
 	instance.root = "";
 	var help = false;
 	final argHandler = Args.generate([
+		@doc("Set what command should be used for gocmd get & gocmd mod init")
+		["-gocmd", "--gocmd"] => s -> instance.goCommand = s,
 		["-debug", "--debug"] => () -> instance.debugBool = true,
 		["-help", "--help", "-h", "--h"] => () -> help = true,
 		@doc("don't run the build commands")
@@ -705,14 +707,14 @@ function compile(instance:InstanceData):Bool {
 
 		if (Typer.stdgoList.indexOf(path) != -1)
 			continue;
-		var command = 'go get $path';
+		var command = '${instance.goCommand} get $path';
 		Sys.setCwd(instance.localPath);
 		#if (target.threaded)
-		final proc = new sys.io.Process("go mod init go2hxlib");
+		final proc = new sys.io.Process('${instance.goCommand} mod init go2hxlib');
 		proc.exitCode();
 		proc.close();
 		#else
-		Sys.command("go mod init go2hxlib");
+		Sys.command('${instance.goCommand} mod init go2hxlib');
 		#end
 		Sys.println(command);
 		Sys.command(command);
@@ -753,6 +755,7 @@ function write(args:Array<String>, instance:InstanceData):Bool {
 final instanceCache = new Vector<InstanceData>(20);
 
 class InstanceData {
+	public var goCommand:String = "go";
 	public var verbose:Bool = false;
 	public var debugBool:Bool = false;
 	public var noDeps:Bool = false;

@@ -43,7 +43,7 @@ function main() {
 	run(args);
 }
 
-final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodeps", "-debug","--debug"];
+final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodeps", "-debug", "--debug"];
 
 function run(args:Array<String>) {
 	var processCount = 1;
@@ -151,7 +151,10 @@ function compileArgs(args:Array<String>):InstanceData {
 		@doc(" If a test binary runs longer than duration d, panic. If d is 0, the timeout is disabled. The default is 10 minutes (10m).")
 		["-timeout", "--timeout"] => d -> instance.defines.push('timeoutTest $d'),
 		@doc("Verbose output: log all tests as they are run. Also print all text from Log and Logf calls even if the test succeeds.")
-		["-v", "--v", "-verbose", "--verbose"] => () -> {instance.verbose = true; instance.defines.push("verboseTest");},
+		["-v", "--v", "-verbose", "--verbose"] => () -> {
+			instance.verbose = true;
+			instance.defines.push("verboseTest");
+		},
 		@doc("Remove all depedency on go2hx for the compiled code by moving the stdlib into the output")
 		["-nodeps", "--nodeps", "-nodep", "--nodep"] => () -> instance.noDeps = true,
 		["-port", "--port"] => port -> instance.port = Std.parseInt(port),
@@ -211,12 +214,12 @@ function update() {
 	Sys.sleep(0.5); // wait
 }
 
-function close(code:Int=0, instance: Null<InstanceData> = null) {
+function close(code:Int = 0, instance:Null<InstanceData> = null) {
 	if (instance != null) {
 		if (FileSystem.exists(instance.outputPath))
 			Cache.saveCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']));
 	}
-	
+
 	#if (debug && !nodejs)
 	if (processes.length > 0) {
 		processes[0].kill();
@@ -235,11 +238,12 @@ function close(code:Int=0, instance: Null<InstanceData> = null) {
 	server.close();
 	Sys.exit(code);
 }
-	
+
 function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Void = null) {
 	Cache.setUseCache(instance.useCache);
-	if (!instance.cleanCache) Cache.loadCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath , '.go2hx_cache']));
-	
+	if (!instance.cleanCache)
+		Cache.loadCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']));
+
 	var port = instance.port;
 
 	#if !js
@@ -252,11 +256,11 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 	function jsProcess() {
 		final name = if (Sys.systemName() != "Windows") {
 			"./go4hx";
-		}else{
+		} else {
 			"go4hx.exe";
 		}
 		final child = js.node.ChildProcess.exec('$name $port', null, null);
-		//final child = js.node.ChildProcess.execFile('go4hx', ['$port'], {cwd: cwd}, null);
+		// final child = js.node.ChildProcess.execFile('go4hx', ['$port'], {cwd: cwd}, null);
 		child.on('exit', code -> {
 			final code:Int = code;
 			Sys.println('child process exited: $code');
@@ -267,7 +271,7 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 				child.kill();
 				if (onUnknownExit != null)
 					onUnknownExit();
-			}else{
+			} else {
 				child.kill();
 				jsProcess();
 			}
@@ -396,7 +400,7 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 						final name = module.name;
 						final libPath = name + "/";
 						instance.outputPath = Path.addTrailingSlash(instance.outputPath) + libPath;
-						//sys.io.File.saveContent(Path.addTrailingSlash(instance.outputPath) + "haxelib.json");
+						// sys.io.File.saveContent(Path.addTrailingSlash(instance.outputPath) + "haxelib.json");
 						Gen.create(instance.outputPath, module, instance.root);
 						final cmd = 'haxelib dev $name ${instance.outputPath}';
 						Sys.println(cmd);
@@ -441,7 +445,7 @@ private function logGenSizes() {
 			lSize = path.length;
 	}
 	for (path => size in sizeMap) {
-		Sys.println('    ${StringTools.rpad(path, " ", lSize)} - ${size}kb'); 
+		Sys.println('    ${StringTools.rpad(path, " ", lSize)} - ${size}kb');
 	}
 }
 
@@ -455,7 +459,7 @@ private function createBasePkgs(outputPath:String, modules:Array<Typer.Module>, 
 			File.saveContent(outputPath + "/stdgo/" + file, content);
 		}
 	}
-	
+
 	Sys.println("copy directory: " + cwd + " to: " + outputPath);
 	src.Util.copyDirectoryRecursively(cwd + "/haxe", outputPath + "/haxe");
 	final path = "/stdgo/_internal";
@@ -552,7 +556,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		for (main in paths) {
 			if (instance.root != "") {
 				main = instance.root + (main == "" ? "" : "." + parseMain(main));
-			}else{
+			} else {
 				main = parseMain(main);
 			}
 			var commands = commands.concat(['-m', main]); // copy
@@ -571,7 +575,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 			}
 			Sys.println('haxe ' + cliCommands.join(" "));
 			Sys.command('haxe ' + cliCommands.join(" ")); // build without build file
-			//trace("main: " + main);
+			// trace("main: " + main);
 			final runCommand = runTarget(instance.target, instance.targetOutput, args, main);
 			if (runCommand != "") {
 				Sys.println(runCommand);
@@ -594,7 +598,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		File.saveContent(instance.buildPath, content);
 		// Sys.println('Generated: $buildPath - ' + src.Util.kbCount(content) + "kb");
 	}
-	
+
 	if (instance.hxmlPath != "") {
 		if (paths.length == 0 && !instance.noRun) {
 			trace(instance.hxmlPath);
@@ -612,7 +616,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 			var hxmlPath = instance.hxmlPath;
 			var replaceIndex = hxmlPath.indexOf("$");
 			if (replaceIndex != -1) {
-				var hxmlFile = StringTools.replace(pkgs[i],".","_");
+				var hxmlFile = StringTools.replace(pkgs[i], ".", "_");
 				hxmlPath = hxmlPath.substr(0, replaceIndex) + hxmlFile + hxmlPath.substr(replaceIndex + 1);
 			}
 			content = content.substr(0, content.length - 1);
@@ -628,7 +632,7 @@ private function parseMain(main:String):String {
 		return '_internal.$main';
 	var s = main.substr(0, index);
 	s = StringTools.replace(s, ".", "/");
-	//main = StringTools.replace(main, "_test.", ".");
+	// main = StringTools.replace(main, "_test.", ".");
 	return '_internal.$main';
 }
 
@@ -652,7 +656,7 @@ function buildTarget(target:String, out:String, ?main:String, ?args:Array<String
 		case "interp":
 			if (main != null && args != null) {
 				'--run $main ' + args.join(" ");
-			}else{
+			} else {
 				"--interp";
 			}
 		default:
@@ -777,8 +781,8 @@ class InstanceData {
 	public var hxmlPath:String = "";
 	public var noRun:Bool = false;
 	public var noComments:Bool = false;
-	public var useCache: Bool = true;
-	public var cleanCache: Bool = false;
+	public var useCache:Bool = true;
+	public var cleanCache:Bool = false;
 	public var test:Bool = false;
 	public var bench:Bool = false;
 
@@ -790,6 +794,7 @@ class InstanceData {
 		if (args != null)
 			this.args = args;
 	}
+
 	public function log(s:String) {
 		if (!verbose)
 			return;

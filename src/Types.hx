@@ -122,7 +122,6 @@ function isInvalid(type:GoType):Bool {
 	}
 }
 
-
 function getArrayElem(type:GoType):GoType {
 	if (type == null)
 		return type;
@@ -144,7 +143,7 @@ function getElem(type:GoType):GoType {
 			final newUnderlying = getElem(underlying);
 			if (newUnderlying == underlying) {
 				return type;
-			}else{
+			} else {
 				newUnderlying;
 			}
 		case _var(_, _.get() => type):

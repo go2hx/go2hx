@@ -14,17 +14,17 @@ function main() {
             Sys.command("haxelib dev go2hx .");
             Sys.command("haxelib run go2hx setup");
         case _ if (args[0] == "std" || args[0] == "stdgo"):
-            var cmd = "haxe scripts/stdgo.hxml -D runnerCount=4";
+            var cmd = "haxe extra/scripts/stdgo.hxml -D runnerCount=4";
             if (args.length > 1)
                 cmd += " -D libs=" + args.slice(1).join(",");
             Sys.println(cmd);
             Sys.command(cmd); 
         case ["sorttests"]:
-            Sys.command("go run ./scripts/sortTests");
+            Sys.command("go run ./extra/scripts/sortTests");
         case ["deletefiles"]:
-            Sys.command("sh ./scripts/deletefiles.sh");
+            Sys.command("sh ./extra/scripts/deletefiles.sh");
         case ["codespaces"]:
-            Sys.command("sh ./scripts/codespaces.sh");
+            Sys.command("sh ./extra/scripts/codespaces.sh");
         case _ if (args[0] == "test"):
             var file = args[1];
             file = StringTools.replace(file, "/", "_");
@@ -38,12 +38,13 @@ function main() {
             Sys.println(cmd);
             Sys.command(cmd); 
         case ["actions"]:
-            Sys.command("haxe scripts/github-actions/build.hxml");
+            Sys.command("haxe extra/scripts/github-actions/build.hxml");
         case ["interop"]:
             Sys.println("build");
             Sys.command("haxelib run go2hx ./tests/interop --nolibwrap");
             Sys.println("test");
             Sys.command("haxe tests/interop.hxml");
+            Sys.command("hl interop.hl");
         case ["format"]:
             Sys.command("haxelib run formatter --source .");
         case ["rnd"]:

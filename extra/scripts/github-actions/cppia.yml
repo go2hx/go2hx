@@ -1,0 +1,2 @@
+- name: setup c++
+  run: sudo apt install g++-multilib

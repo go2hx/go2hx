@@ -1,0 +1,66 @@
+
+timeout-minutes: 75
+needs: setup
+strategy:
+  fail-fast: false
+runs-on: [ubuntu-latest]
+steps:
+  - uses: actions/checkout@v4
+    with:
+      submodules: recursive
+  # Get the cores 
+  - name: Get number of cores (Ubuntu)
+    if: startsWith(runner.os, 'Linux')
+    run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
+  - name: Get number of cores (macOS)
+    if: startsWith(runner.os, 'macOS')
+    run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
+  # non self-host setup
+    continue-on-error: true
+  - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
+  - uses: actions/setup-go@v3
+    with:
+      go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
+::support::
+  - name: Install lix
+    run: npm i lix -g
+  - name: Run lix
+    run: npx lix download
+  # go2hx setup
+  - name: Build go2hx compiler
+    run: npx haxe --run Run build
+  - name: Set source
+    run: haxelib dev go2hx .
+  - name: Clean stdgo
+    run: npx haxe --run Run clean
+  - uses: actions/cache/restore@v4
+    id: setup-cache
+    with:
+      path: |
+        TypeInfoData_go2hx_hxb.hx
+        ./_internal/*
+        ./stdgo/*
+        ./go2hx.*.zip 
+      key: ${{ github.sha }}-build-${{ env.cache-name }}
+  - run: ls
+  # compile stdgo
+  #- name: Run stdgo automatic compile
+  #  run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+  - name: Run unit
+    run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=::target:: #-D hxb
+  - uses: EndBug/add-and-commit@v9
+    with:
+        message: go easy tests update ::target::
+        add: ./tests
+        pull: --rebase --autostash
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    continue-on-error: true
+  - name: Run std
+    run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=::target::  #-D hxb
+  - uses: EndBug/add-and-commit@v9
+    with:
+        message: build std tests update ::target::
+        add: ./tests
+        pull: --rebase --autostash
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    continue-on-error: true

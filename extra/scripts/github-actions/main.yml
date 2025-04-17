@@ -1,0 +1,243 @@
+name: build
+
+on: [push, pull_request]
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  setup:
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      # Get the cores 
+      - name: Get number of cores (Ubuntu)
+        if: startsWith(runner.os, 'Linux')
+        run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
+      - name: Get number of cores (macOS)
+        if: startsWith(runner.os, 'macOS')
+        run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
+      - uses: actions/setup-go@v3
+        continue-on-error: true
+        with:
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
+      - name: Install lix
+        run: npm i lix -g
+      - name: Run lix
+        run: npx lix download
+      # go2hx setup
+      - name: Set source
+        run: npx haxelib dev go2hx .
+      # clean stdgo
+      - name: Clean stdgo
+        run: npx haxe --run Run clean
+      - name: Build go2hx compiler
+        run: npx haxe --run Run build
+      - name: Create vendor
+        run: go mod vendor
+      # compile stdgo
+      - name: Run stdgo automatic compile
+        run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+      #- name: Create hxb
+      #  run: npx haxelib run go2hx hxb .
+      # cache
+      - name: Cache setup of stdgo and hxb
+        id: cache-setup
+        uses: actions/cache/save@v4
+        env:
+          cache-name: cache-setup
+        if: always()
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: |
+            TypeInfoData_go2hx_hxb.hx
+            ./_internal/*
+            ./stdgo/*
+            ./go2hx.*.zip
+          key: ${{ github.sha }}-build-${{ env.cache-name }}
+  goto:
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
+      - uses: actions/setup-go@v3
+        continue-on-error: true
+        with:
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
+      - run: git clone https://github.com/go2hx/tools --depth=1
+      - name: Create vendor
+        run: go mod vendor
+      - run: go run . -goto
+  interop:
+    timeout-minutes: 15
+    needs: setup
+    strategy:
+      fail-fast: false
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
+      - uses: cedx/setup-hashlink@v6.2.0
+      - name: Install lix
+        run: npm i lix -g
+      - name: Run lix
+        run: npx lix download
+      # go2hx setup
+      - name: Build go2hx compiler
+        run: npx haxe --run Run build
+      - name: Set source
+        run: haxelib dev go2hx .
+      - name: Clean stdgo
+        run: npx haxe --run Run clean
+      - uses: actions/cache/restore@v4
+        id: setup-cache
+        with:
+          path: |
+            TypeInfoData_go2hx_hxb.hx
+            ./_internal/*
+            ./stdgo/*
+            ./go2hx.*.zip 
+          key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Build interop test
+        run: haxelib run go2hx ./tests/interop --nolibwrap
+      - name: Test interop
+        run: haxe tests/interop.hxml
+      - name: Run interop
+        run: hl interop.hl
+  pointer:
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
+      - uses: actions/setup-go@v3
+        continue-on-error: true
+        with:
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
+      - run: git clone https://github.com/go2hx/tools --depth=1
+      - name: Create vendor
+        run: go mod vendor
+      - run: go run . -pointer
+  stdgo:
+    timeout-minutes: 15
+    needs: [build-hl,build-interp,build-js]
+    strategy:
+      fail-fast: false
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install lix
+        run: npm i lix -g
+      - name: Run lix
+        run: npx lix download
+      # go2hx setup
+      - name: Build go2hx compiler
+        run: npx haxe --run Run build
+      - name: Set source
+        run: haxelib dev go2hx .
+      - name: Clean stdgo
+        run: npx haxe --run Run clean
+      - uses: actions/cache/restore@v4
+        id: setup-cache
+        with:
+          path: |
+            TypeInfoData_go2hx_hxb.hx
+            ./_internal/*
+            ./stdgo/*
+            ./go2hx.*.zip 
+          key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - uses: EndBug/add-and-commit@v9
+        continue-on-error: true
+        with:
+            message: stdgo automatic compile
+            pull: --rebase --autostash
+            add: --no-ignore-removal .
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+  create-test-lists:
+    timeout-minutes: 15
+    needs: []
+    strategy:
+      fail-fast: false
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
+      - name: Install lix
+        run: npm i lix -g
+      - name: Run lix
+        run: npx lix download
+      - run: git clone https://github.com/go2hx/tools --depth=1
+      - name: clone yaegi
+        run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
+      - name: clone go
+        run: git clone https://github.com/golang/go -b go${{ env.VERSION }} --depth=1 ./tests/go
+      - name: Sort tests
+        run: go run ./scripts/sortTests ci
+      - name: Create test lists
+        run: haxe tests/tests.hxml -D ci -D listAll
+      - uses: EndBug/add-and-commit@v9
+        with:
+            message: create test lists
+            pull: --rebase --autostash
+            add: ./tests
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+  test-os:
+    timeout-minutes: 15
+    needs: [setup]
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: latest  # Install 'haxe_latest.tar.gz' from https://build.haxe.org/builds/haxe/linux64/
+      - run: haxe -version
+      # go2hx setup
+      - name: Build go2hx compiler
+        run: haxe --run Run build
+      - name: Set source
+        run: haxelib dev go2hx .
+      - name: Clean stdgo
+        run: haxe --run Run clean
+      - uses: actions/cache/restore@v4
+        id: setup-cache
+        with:
+          path: |
+            TypeInfoData_go2hx_hxb.hx
+            ./_internal/*
+            ./stdgo/*
+            ./go2hx.*.zip 
+          key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: run compiler
+        run: haxelib run go2hx unicode --test --interp

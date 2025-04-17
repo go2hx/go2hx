@@ -44,7 +44,7 @@ jobs:
         run: go mod vendor
       # compile stdgo
       - name: Run stdgo automatic compile
-        run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+        run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       #- name: Create hxb
       #  run: npx haxelib run go2hx hxb .
       # cache
@@ -1168,7 +1168,7 @@ jobs:
       - run: ls
       # compile stdgo
       #- name: Run stdgo automatic compile
-      #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+      #  run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -1235,7 +1235,7 @@ jobs:
       - run: ls
       # compile stdgo
       #- name: Run stdgo automatic compile
-      #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+      #  run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -1305,7 +1305,7 @@ jobs:
       - run: ls
       # compile stdgo
       #- name: Run stdgo automatic compile
-      #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+      #  run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
       - uses: EndBug/add-and-commit@v9

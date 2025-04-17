@@ -78,7 +78,7 @@ function main() {
 	build(rebuild);
 
 	if (args.length <= 1) {
-		Sys.command("haxe scripts/build-interp.hxml --help");
+		Sys.command("haxe extra/scripts/build-interp.hxml --help");
 		return;
 	}
 	if (goCommand != "go") {
@@ -237,7 +237,7 @@ function setupNodeJS(rebuild:Bool,args:Array<String>) {
 	Sys.println("NodeJS compiler version");
 	// run nodejs
 	if (!FileSystem.exists("export/build.js") || rebuild) {
-		Sys.command("haxe scripts/build-js.hxml");
+		Sys.command("haxe extra/scripts/build-js.hxml");
 	}
 	args.unshift("export/build.js");
 	// 4gb = 4096, 2gb = 2048
@@ -249,7 +249,7 @@ function setupNodeJS(rebuild:Bool,args:Array<String>) {
 function setupCPP(rebuild:Bool,args:Array<String>) {
 	Sys.println("C++ compiler version");
 	if (!FileSystem.exists("export/cpp") || rebuild) {
-		var cmd = "haxe scripts/build-cpp.hxml";
+		var cmd = "haxe extra/scripts/build-cpp.hxml";
 		Sys.command(cmd);
 	}
 	final name = executable("export/cpp/Main-debug");
@@ -271,7 +271,7 @@ function setupHashlink(rebuild:Bool,args:Array<String>) {
 		args.remove(args[index]);
 	}
 	if (!FileSystem.exists("build.hl") || rebuild) {
-		var cmd = "haxe scripts/build-hl.hxml";
+		var cmd = "haxe extra/scripts/build-hl.hxml";
 		if (no_uv)
 			cmd += " -D no_uv";
 		if (no_fmt)
@@ -284,7 +284,7 @@ function setupHashlink(rebuild:Bool,args:Array<String>) {
 
 function setupInterp(rebuild:Bool, args:Array<String>) {
 	Sys.println("Interp compiler version");
-	Sys.command("haxe scripts/build-interp.hxml " + args.join(" "));
+	Sys.command("haxe extra/scripts/build-interp.hxml " + args.join(" "));
 }
 
 function setupHxb() {
@@ -292,7 +292,7 @@ function setupHxb() {
 	var args = Sys.args();
 	final index = args.indexOf("hxb");
 	args = args.slice(index + 1);
-	if (Sys.command('haxe scripts/hxb.hxml ' + args.join(" ")) != 0) {
+	if (Sys.command('haxe extra/scripts/hxb.hxml ' + args.join(" ")) != 0) {
 		Sys.println("Failed to setup Hxb");
 		Sys.exit(1);
 	}

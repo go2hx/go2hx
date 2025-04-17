@@ -1,19 +1,19 @@
 package stdgo._internal.encoding.xml;
 function _addFieldInfo(_typ:stdgo._internal.reflect.Reflect_type_.Type_, _tinfo:stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo>, _newf:stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>):stdgo.Error {
-        var _f1_76:stdgo._internal.reflect.Reflect_structfield.StructField = ({} : stdgo._internal.reflect.Reflect_structfield.StructField);
-        var _oldf_68:stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo> = (null : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>);
+        var _minl_69:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_67:stdgo.GoInt = (0 : stdgo.GoInt);
         var _conflicts_66:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
-        var _i_79:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _f2_77:stdgo._internal.reflect.Reflect_structfield.StructField = ({} : stdgo._internal.reflect.Reflect_structfield.StructField);
-        var _i_72:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _p_70:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _minl_69:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _c_78:stdgo.GoInt = (0 : stdgo.GoInt);
         var _oldf_75:stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo> = (null : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>);
         var _i_74:stdgo.GoInt = (0 : stdgo.GoInt);
         var _iterator_3684769_73:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_72:stdgo.GoInt = (0 : stdgo.GoInt);
         var _iterator_3684595_71:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _p_70:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_79:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _f2_77:stdgo._internal.reflect.Reflect_structfield.StructField = ({} : stdgo._internal.reflect.Reflect_structfield.StructField);
+        var _f1_76:stdgo._internal.reflect.Reflect_structfield.StructField = ({} : stdgo._internal.reflect.Reflect_structfield.StructField);
+        var _c_78:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _oldf_68:stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo> = (null : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>);
         var _gotoNext = 0i32;
         _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

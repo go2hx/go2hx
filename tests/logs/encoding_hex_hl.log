@@ -1,0 +1,5 @@
+Uncaught exception: Null access
+Called from stdgo._internal.log.$Logger_static_extension.setOutput(stdgo/_internal/log/Log_logger_static_extension.hx:361)
+Called from stdgo._internal.log._Log_new_.$Log_new__Fields_.new_(stdgo/_internal/log/Log_new_.hx:4)
+Called from fun$3739(stdgo/_internal/log/Log__std.hx:2)
+Called from .init(stdgo/_internal/log/Log__std.hx:2)

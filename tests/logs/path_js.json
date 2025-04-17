@@ -1,0 +1,26 @@
+{
+    "passes": [
+        "TestMatch",
+        "TestClean",
+        "TestSplit",
+        "TestJoin",
+        "TestExt",
+        "TestBase",
+        "TestDir",
+        "TestIsAbs"
+    ],
+    "fails": [
+        "TestCleanMallocs"
+    ],
+    "runs": [
+        "TestMatch",
+        "TestClean",
+        "TestCleanMallocs",
+        "TestSplit",
+        "TestJoin",
+        "TestExt",
+        "TestBase",
+        "TestDir",
+        "TestIsAbs"
+    ]
+}

@@ -1,0 +1,153 @@
+=== RUN  TestMatch
+
+-- PASS: TestMatch
+
+=== RUN  TestClean
+
+-- PASS: TestClean
+
+=== RUN  TestCleanMallocs
+<invalid reflect.Value>
+Exception: ENOTSUP: operation not supported on socket, fsync
+Called from Object.fsyncSync (node:fs line 1296 column 11)
+Called from _$Sys_FileOutput.flush (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 198 column 14)
+Called from stdgo__$internal_os_File_$static_$extension.write (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 35072 column 13)
+Called from stdgo__$internal_os_File_$asInterface.write (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 31291 column 54)
+Called from .stdgo__$internal_fmt_Fmt_$fprintln_fprintln (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 18080 column 20)
+Called from .stdgo__$internal_fmt_Fmt_$println_println (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 18056 column 53)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 39863 column 44)
+Called from module at /Users/o/Documents/GitHub/go2hx/golibs/std_path.js:39274:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_path_$test_Path_$test_$testcleanmallocs_testCleanMallocs [as f] (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js:11921:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 39041 column 9)
+
+-- FAIL: TestCleanMallocs
+
+=== RUN  TestSplit
+
+-- PASS: TestSplit
+
+=== RUN  TestJoin
+
+-- PASS: TestJoin
+
+=== RUN  TestExt
+
+-- PASS: TestExt
+
+=== RUN  TestBase
+
+-- PASS: TestBase
+
+=== RUN  TestDir
+
+-- PASS: TestDir
+
+=== RUN  TestIsAbs
+
+-- PASS: TestIsAbs
+
+stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestCleanMallocs
+=== RUN  TestMatch
+
+-- PASS: TestMatch
+
+=== RUN  TestClean
+
+-- PASS: TestClean
+
+=== RUN  TestCleanMallocs
+<invalid reflect.Value>
+Exception: ENOTSUP: operation not supported on socket, fsync
+Called from Object.fsyncSync (node:fs line 1296 column 11)
+Called from _$Sys_FileOutput.flush (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 198 column 14)
+Called from stdgo__$internal_os_File_$static_$extension.write (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 35072 column 13)
+Called from stdgo__$internal_os_File_$asInterface.write (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 31291 column 54)
+Called from .stdgo__$internal_fmt_Fmt_$fprintln_fprintln (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 18080 column 20)
+Called from .stdgo__$internal_fmt_Fmt_$println_println (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 18056 column 53)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 39863 column 44)
+Called from module at /Users/o/Documents/GitHub/go2hx/golibs/std_path.js:39274:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_path_$test_Path_$test_$testcleanmallocs_testCleanMallocs [as f] (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js:11921:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 39041 column 9)
+
+-- FAIL: TestCleanMallocs
+
+=== RUN  TestSplit
+
+-- PASS: TestSplit
+
+=== RUN  TestJoin
+
+-- PASS: TestJoin
+
+=== RUN  TestExt
+
+-- PASS: TestExt
+
+=== RUN  TestBase
+
+-- PASS: TestBase
+
+=== RUN  TestDir
+
+-- PASS: TestDir
+
+=== RUN  TestIsAbs
+
+-- PASS: TestIsAbs
+
+stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestCleanMallocs
+=== RUN  TestMatch
+
+-- PASS: TestMatch
+
+=== RUN  TestClean
+
+-- PASS: TestClean
+
+=== RUN  TestCleanMallocs
+<invalid reflect.Value>
+Exception: ENOTSUP: operation not supported on socket, fsync
+Called from Object.fsyncSync (node:fs line 1296 column 11)
+Called from _$Sys_FileOutput.flush (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 198 column 14)
+Called from stdgo__$internal_os_File_$static_$extension.write (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 35072 column 13)
+Called from stdgo__$internal_os_File_$asInterface.write (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 31291 column 54)
+Called from .stdgo__$internal_fmt_Fmt_$fprintln_fprintln (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 18080 column 20)
+Called from .stdgo__$internal_fmt_Fmt_$println_println (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 18056 column 53)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 39863 column 44)
+Called from module at /Users/o/Documents/GitHub/go2hx/golibs/std_path.js:39274:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_path_$test_Path_$test_$testcleanmallocs_testCleanMallocs [as f] (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js:11921:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/Users/o/Documents/GitHub/go2hx/golibs/std_path.js line 39041 column 9)
+
+-- FAIL: TestCleanMallocs
+
+=== RUN  TestSplit
+
+-- PASS: TestSplit
+
+=== RUN  TestJoin
+
+-- PASS: TestJoin
+
+=== RUN  TestExt
+
+-- PASS: TestExt
+
+=== RUN  TestBase
+
+-- PASS: TestBase
+
+=== RUN  TestDir
+
+-- PASS: TestDir
+
+=== RUN  TestIsAbs
+
+-- PASS: TestIsAbs
+
+stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestCleanMallocs

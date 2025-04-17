@@ -347,15 +347,15 @@ function update() {
 					trace("runtime error: " + task.command + " " + task.args.join(" "));
 					// runtime error
 					trace("CLOSE: " + code);
-					// stdlogs output
-					if (!FileSystem.exists("tests/stdlogs")) {
-						FileSystem.createDirectory("tests/stdlogs");
+					// logs output
+					if (!FileSystem.exists("tests/logs")) {
+						FileSystem.createDirectory("tests/logs");
 					}
 					if (type == "std") {
 						final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
-						final analyzeDataFileName = "tests/stdlogs/" + name + ".json";
+						final analyzeDataFileName = "tests/logs/" + name + ".json";
 						final data = analyzeStdLog(output);
-						File.saveContent("tests/stdlogs/" + name + ".log", output);
+						File.saveContent("tests/logs/" + name + ".log", output);
 						var failed = false;
 						if (FileSystem.exists(analyzeDataFileName)) {
 							final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
@@ -376,7 +376,7 @@ function update() {
 					suite.buildError(task);
 					if (type == "std") {
 						final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
-						File.saveContent("tests/stdlogs/" + name + ".log", output);
+						File.saveContent("tests/logs/" + name + ".log", output);
 					}
 				}
 			}

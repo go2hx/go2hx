@@ -1,0 +1,48 @@
+[ERROR] ./stdgo/_internal/sync/atomic_/Atomic__storeuint32.hx:3: characters 18-29
+
+  3 |         stdgo.Go.globalMutex.acquire();
+    |                  ^^^^^^^^^^^
+    | Class<stdgo.Go> has no field globalMutex
+
+[ERROR] ./stdgo/_internal/sync/atomic_/Atomic__storeuint32.hx:5: characters 18-29
+
+  5 |         stdgo.Go.globalMutex.release();
+    |                  ^^^^^^^^^^^
+    | Class<stdgo.Go> has no field globalMutex
+
+[ERROR] ./stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:24: characters 18-29
+
+ 24 |         stdgo.Go.globalMutex.acquire();
+    |                  ^^^^^^^^^^^
+    | Class<stdgo.Go> has no field globalMutex
+
+[ERROR] ./stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:26: characters 18-29
+
+ 26 |         stdgo.Go.globalMutex.release();
+    |                  ^^^^^^^^^^^
+    | Class<stdgo.Go> has no field globalMutex
+
+[ERROR] ./stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:16: characters 18-29
+
+ 16 |         stdgo.Go.globalMutex.acquire();
+    |                  ^^^^^^^^^^^
+    | Class<stdgo.Go> has no field globalMutex
+
+[ERROR] ./stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:18: characters 18-29
+
+ 18 |         stdgo.Go.globalMutex.release();
+    |                  ^^^^^^^^^^^
+    | Class<stdgo.Go> has no field globalMutex
+
+[ERROR] ./stdgo/_internal/sync/atomic_/Atomic__bool__static_extension.hx:16: characters 18-29
+
+ 16 |         stdgo.Go.globalMutex.acquire();
+    |                  ^^^^^^^^^^^
+    | Class<stdgo.Go> has no field globalMutex
+
+[ERROR] ./stdgo/_internal/sync/atomic_/Atomic__bool__static_extension.hx:18: characters 18-29
+
+ 18 |         stdgo.Go.globalMutex.release();
+    |                  ^^^^^^^^^^^
+    | Class<stdgo.Go> has no field globalMutex
+

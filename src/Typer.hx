@@ -1,164 +1,10 @@
-// @formatter:off
 import haxe.DynamicAccess; 
 import haxe.io.Path; 
 import haxe.macro.Expr; 
 import src.Util; 
 import sys.io.File; 
 import Types; 
-import Ast.BasicKind; 
-
-final stdgoList:Array<String> = normalizeCLRF(File.getContent("data/stdgo.list")).split("\n"); 
-final excludesList:Array<String> = haxe.Json.parse(File.getContent("data/excludes.json")); 
-final exports:Array<String> = haxe.Json.parse(File.getContent("data/stdgoExports.json")); 
-final externs:Array<String> = haxe.Json.parse(File.getContent("data/stdgoExterns.json")); 
-
-final reserved = [
-
-	"iterator",
-	"keyValueIterator",
-	"switch",
-	"case",
-	"break",
-	"continue",
-	"default",
-	"is",
-	"abstract",
-	"cast",
-	"catch",
-	"class",
-	"do",
-	"function",
-	"dynamic",
-	"else",
-	"enum",
-	"extends",
-	"extern",
-	"final",
-	"for",
-	"function",
-	"if",
-	"interface",
-	"implements",
-	"import",
-	"in",
-	"inline",
-	"macro",
-	"new",
-	"operator",
-	"overload",
-	"override",
-	"package",
-	"private",
-	"public",
-	"return",
-	"static",
-	"this",
-	"throw",
-	"try",
-	"typedef",
-	"untyped",
-	"using",
-	"var",
-	"while",
-	"construct",
-	"null",
-	"in",
-	"wait",
-	"length",
-	"capacity",
-	"bool",
-	"float",
-	"int",
-	"struct",
-	"offsetof",
-	"alignof",
-	"atomic",
-	"map",
-	"comparable",
-	"environ",
-	"trace",
-	"haxe",
-	"std",
-	"_new",
-]; 
-
-final reservedClassNames = [
-
-	"_Atomic",
-	"Atomic",
-	"Environ",
-	"Class",
-	"TClass",
-	"Single", // Single is a 32bit float
-	"Array",
-	"Any",
-	"Int",
-	"Float",
-	"String",
-	"Int64",
-	"AnyInterface",
-	"Dynamic",
-	"InvalidType",
-	"Null",
-	"Bool",
-	// "Reflect",
-	"Date",
-	"ArrayAccess",
-	"DateTools",
-	"EReg",
-	"Enum",
-	"EnumValue",
-	"IntIterator",
-	"Iterable",
-	"Iterator",
-	"KeyValueIterable",
-	"KeyValueIterator",
-	"Lambda",
-	// "List",
-	"Map",
-	// "Math",
-	"Std",
-	"Sys",
-	// "StringBuf",
-	"StringTools",
-	"SysError",
-	"Type",
-	"T",
-	// "UnicodeString",
-	"ValueType",
-	"Void",
-	"XmlType",
-	"GoArray",
-	"GoMath",
-	"Go",
-	"Slice",
-	"Pointer",
-]; final basicTypes = [
-
-	"uint",
-	"uint8",
-	"uint16",
-	"uint32",
-	"uint64",
-	"int",
-	"int8",
-	"int16",
-	"int32",
-	"int64",
-	"float32",
-	"float64",
-	"complex64",
-	"complex128",
-	"string",
-	"byte", // alias for uint8
-	"rune", // alias for int32
-	"uintptr",
-	"comparable",
-];
-
-var printer = new Printer();
-
-// @formatter:on
+import Ast.BasicKind;
 
 function main(data:DataType, instance:Compiler.CompilerInstanceData):Array<Module> {
 
@@ -4631,7 +4477,9 @@ private function binaryType(expr:Ast.BinaryExpr, info:Info):ComplexType {
 		default:
 	}
 	return expr;
-} private function genSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info, sets:Array<Expr>):Expr {
+} 
+
+private function genSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info, sets:Array<Expr>):Expr {
 
 	var param = toComplexType(elem, info);
 	var value = defaultValue(elem, info);
@@ -9070,3 +8918,177 @@ typedef FileType = {
 	location:String,
 	isMain:Bool
 }; // location is the global path to the file
+
+// @:formatter off
+
+final stdgoList:Array<String> = parseData('stdgo.list');
+final excludesList:Array<String> = parseData('excludes.json');
+final exports:Array<String> = parseData('stdgoExports.json');
+final externs:Array<String> = parseData('data/stdgoExterns.json');
+
+private function parseData(fileName:String) {
+	final ext = Path.extension(fileName);
+	return switch  {
+		case "json":
+			parseDataJson(fileName);
+		case "list"
+			parseDataList(fileName);
+		default:
+			throw "unknown extension: " + ext;
+	}
+}
+
+private function parseDataList(fileName:String) {
+	return normalizeCLRF(File.getContent('data/$fileName')).split("\n");
+}
+
+private function parseDataJson(fileName:String) {
+	return haxe.Json.parse(File.getContent('data/$fileName'));
+}
+
+private final reserved = [
+	"iterator",
+	"keyValueIterator",
+	"switch",
+	"case",
+	"break",
+	"continue",
+	"default",
+	"is",
+	"abstract",
+	"cast",
+	"catch",
+	"class",
+	"do",
+	"function",
+	"dynamic",
+	"else",
+	"enum",
+	"extends",
+	"extern",
+	"final",
+	"for",
+	"function",
+	"if",
+	"interface",
+	"implements",
+	"import",
+	"in",
+	"inline",
+	"macro",
+	"new",
+	"operator",
+	"overload",
+	"override",
+	"package",
+	"private",
+	"public",
+	"return",
+	"static",
+	"this",
+	"throw",
+	"try",
+	"typedef",
+	"untyped",
+	"using",
+	"var",
+	"while",
+	"construct",
+	"null",
+	"in",
+	"wait",
+	"length",
+	"capacity",
+	"bool",
+	"float",
+	"int",
+	"struct",
+	"offsetof",
+	"alignof",
+	"atomic",
+	"map",
+	"comparable",
+	"environ",
+	"trace",
+	"haxe",
+	"std",
+	"_new",
+]; 
+
+final reservedClassNames = [
+
+	"_Atomic",
+	"Atomic",
+	"Environ",
+	"Class",
+	"TClass",
+	"Single", // Single is a 32bit float
+	"Array",
+	"Any",
+	"Int",
+	"Float",
+	"String",
+	"Int64",
+	"AnyInterface",
+	"Dynamic",
+	"InvalidType",
+	"Null",
+	"Bool",
+	// "Reflect",
+	"Date",
+	"ArrayAccess",
+	"DateTools",
+	"EReg",
+	"Enum",
+	"EnumValue",
+	"IntIterator",
+	"Iterable",
+	"Iterator",
+	"KeyValueIterable",
+	"KeyValueIterator",
+	"Lambda",
+	// "List",
+	"Map",
+	// "Math",
+	"Std",
+	"Sys",
+	// "StringBuf",
+	"StringTools",
+	"SysError",
+	"Type",
+	"T",
+	// "UnicodeString",
+	"ValueType",
+	"Void",
+	"XmlType",
+	"GoArray",
+	"GoMath",
+	"Go",
+	"Slice",
+	"Pointer",
+]; final basicTypes = [
+
+	"uint",
+	"uint8",
+	"uint16",
+	"uint32",
+	"uint64",
+	"int",
+	"int8",
+	"int16",
+	"int32",
+	"int64",
+	"float32",
+	"float64",
+	"complex64",
+	"complex128",
+	"string",
+	"byte", // alias for uint8
+	"rune", // alias for int32
+	"uintptr",
+	"comparable",
+];
+
+var printer = new Printer();
+
+// @formatter:on

@@ -713,6 +713,8 @@ private function testUnit() {
 	type = "unit";
 	final dir = "./tests/unit/";
 	for (path in FileSystem.readDirectory(dir)) {
+		if (excludeTest(path.withoutExtension()))
+			continue;
 		path = dir + path;
 		if (FileSystem.isDirectory(path) || path.extension() != "go")
 			continue;

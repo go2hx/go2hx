@@ -1,3 +1,4 @@
+// @:formatter off
 import haxe.DynamicAccess; 
 import haxe.io.Path; 
 import haxe.macro.Expr; 
@@ -5,6 +6,8 @@ import src.Util;
 import sys.io.File; 
 import Types; 
 import Ast.BasicKind;
+
+// @:formatter on
 
 function main(data:DataType, instance:Compiler.CompilerInstanceData):Array<Module> {
 
@@ -4478,7 +4481,7 @@ private function binaryType(expr:Ast.BinaryExpr, info:Info):ComplexType {
 	}
 	return expr;
 } 
-
+// @:formatter off
 private function genSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info, sets:Array<Expr>):Expr {
 
 	var param = toComplexType(elem, info);
@@ -4520,6 +4523,8 @@ private function genSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnEx
 	}
 	return macro new $p($a{createArgs(size, cap, sets)});
 }
+
+// @:formatter on
 
 private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, typeParams:Array<GoType>, info:Info):Array<Expr> {
 	var genericExprs:Array<Ast.Expr> = indices; // genericTypes but exprs
@@ -8924,14 +8929,14 @@ typedef FileType = {
 final stdgoList:Array<String> = parseData('stdgo.list');
 final excludesList:Array<String> = parseData('excludes.json');
 final exports:Array<String> = parseData('stdgoExports.json');
-final externs:Array<String> = parseData('data/stdgoExterns.json');
+final externs:Array<String> = parseData('stdgoExterns.json');
 
 private function parseData(fileName:String) {
 	final ext = Path.extension(fileName);
-	return switch  {
+	return switch ext {
 		case "json":
 			parseDataJson(fileName);
-		case "list"
+		case "list":
 			parseDataList(fileName);
 		default:
 			throw "unknown extension: " + ext;
@@ -8946,7 +8951,7 @@ private function parseDataJson(fileName:String) {
 	return haxe.Json.parse(File.getContent('data/$fileName'));
 }
 
-private final reserved = [
+final reserved = [
 	"iterator",
 	"keyValueIterator",
 	"switch",
@@ -9013,10 +9018,9 @@ private final reserved = [
 	"haxe",
 	"std",
 	"_new",
-]; 
+];
 
 final reservedClassNames = [
-
 	"_Atomic",
 	"Atomic",
 	"Environ",
@@ -9066,8 +9070,9 @@ final reservedClassNames = [
 	"Go",
 	"Slice",
 	"Pointer",
-]; final basicTypes = [
+];
 
+final basicTypes = [
 	"uint",
 	"uint8",
 	"uint16",

@@ -1,3 +1,4 @@
+// @formatter:off
 import haxe.DynamicAccess; 
 import haxe.io.Path; 
 import haxe.macro.Expr; 
@@ -132,9 +133,7 @@ final reservedClassNames = [
 	"Go",
 	"Slice",
 	"Pointer",
-]; 
-
-final basicTypes = [
+]; final basicTypes = [
 
 	"uint",
 	"uint8",
@@ -157,9 +156,11 @@ final basicTypes = [
 	"comparable",
 ];
 
-var printer = new Printer(); 
+var printer = new Printer();
 
-function main(data:DataType, instance:Main.InstanceData):Array<Module> {
+// @formatter:on
+
+function main(data:DataType, instance:Compiler.CompilerInstanceData):Array<Module> {
 
 	final imports:Array<String> = [];
 	final noCommentsBool = instance.noComments;
@@ -652,9 +653,10 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 									final t = TPath({name: splitDepFullPathName(def.name, info), pack: []});
 									final fun:haxe.macro.Expr.Function = {args: []};
 									fun.args = [
-										for (i in 0...args.length) ({
-											name:'_$i', type:args[i]
-										} : haxe.macro.Expr.FunctionArg)
+										for (i in 0...args.length)
+											({
+												name:'_$i', type:args[i]
+											} : haxe.macro.Expr.FunctionArg)
 									];
 									fun.args.unshift({
 										name: "__self__",
@@ -667,9 +669,12 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 									final args = fun.args.slice(1).map(a -> macro $i{a.name});
 									switch fun.args[fun.args.length - 1].type {
 										case TPath(p):
-											if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe")
-												args[args.length - 1] = macro...[for (i in $e{args[args.length
-												- 1]}) i];
+											if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe") args[args.length - 1] = macro...[
+												for (i in $e{
+													args[args.length - 1]
+												})
+													i
+											];
 										default:
 									}
 									fun.expr = macro @:_5 __self__.$fieldName($a{args});
@@ -700,9 +705,10 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 									switch fun.ret {
 										case TFunction(args, ret):
 											fun.args = [
-												for (i in 0...args.length) ({
-													name:'_$i', type:args[i]
-												} : haxe.macro.Expr.FunctionArg)
+												for (i in 0...args.length)
+													({
+														name:'_$i', type:args[i]
+													} : haxe.macro.Expr.FunctionArg)
 											];
 											fun.ret = ret;
 										default:
@@ -716,9 +722,12 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 									final args = fun.args.slice(1).map(a -> macro $i{a.name});
 									switch fun.args[fun.args.length - 1].type {
 										case TPath(p):
-											if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe")
-												args[args.length - 1] = macro...[for (i in $e{args[args.length
-												- 1]}) i];
+											if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe") args[args.length - 1] = macro...[
+												for (i in $e{
+													args[args.length - 1]
+												})
+													i
+											];
 										default:
 									}
 									fun.expr = macro @:_5 __self__.$fieldName($a{args});
@@ -1239,7 +1248,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 		final e = ret;
 		var catchBlock:Array<Expr> = [macro var exe:Dynamic = __exception__.native];
 		catchBlock.push(macro if ((exe is haxe.ValueException)) exe = exe.value);
-		catchBlock.push(macro if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+		catchBlock.push(macro if ((exe is stdgo.AnyInterface.AnyInterfaceData) != false) {
 			if (__exception__.message == "__return__")
 				throw "__return__";
 			exe = stdgo.Go.toInterface(__exception__.message);
@@ -7814,8 +7823,11 @@ function complexTypeToExpr(t:ComplexType):Expr {
 	switch t {
 		case TPath(p):
 			final pack = p.pack == null ? macro [] : macro $a{p.pack.map(p -> makeExpr(p))};
-			return macro haxe.macro.Expr.ComplexType.TPath({name: ${makeExpr(p.name)}, pack: $pack,
-				sub: ${p.sub == null ? macro @:complextype_to_expr null : makeExpr(p.sub)}});
+			return macro haxe.macro.Expr.ComplexType.TPath({
+				name: ${makeExpr(p.name)},
+				pack: $pack,
+				sub: ${p.sub == null ? macro @:complextype_to_expr null : makeExpr(p.sub)}
+			});
 		default:
 			throw "unsupported complexTypeToExpr: " + t;
 	}
@@ -8365,9 +8377,10 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						final fieldName = field.name;
 						final f:haxe.macro.Expr.Function = {args: []};
 						f.args = [
-							for (i in 0...args.length) ({
-								name:'_$i', type:args[i]
-							} : haxe.macro.Expr.FunctionArg)
+							for (i in 0...args.length)
+								({
+									name:'_$i', type:args[i]
+								} : haxe.macro.Expr.FunctionArg)
 						];
 						f.expr = macro t.$fieldName($a{fargs});
 						f.ret = ret;
@@ -8452,9 +8465,10 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 													access: [APublic, ADynamic],
 													kind: FFun({
 														args: [
-															for (i in 0...args.length) ({
-																name:'_$i', type:args[i]
-															} : haxe.macro.Expr.FunctionArg)
+															for (i in 0...args.length)
+																({
+																	name:'_$i', type:args[i]
+																} : haxe.macro.Expr.FunctionArg)
 														],
 														ret: ret,
 													}),

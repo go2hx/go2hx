@@ -1,8 +1,0 @@
--lib go2hx
--cp golibs
--m _internal.github_com.go2hx.go4hx.scripts.hxb.Hxb
---hl hxb.hl 
---times
--D macro-times
---hxb-lib go2hx.zip
--D dce=no

@@ -1,0 +1,5 @@
+-cp golibs
+-D hxb
+-m _internal.Hxb
+--hxb hxb.json
+extraParams.hxml

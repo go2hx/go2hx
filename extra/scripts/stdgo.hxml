@@ -1,5 +1,5 @@
 -main StdGo
--cp scripts
+-cp extra/scripts
 -cp src
 -D no-deprecation-warnings
 -D simulate_num

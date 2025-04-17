@@ -27,21 +27,21 @@ function cutPrefixComplexType(ct:ComplexType):ComplexType {
 function create(outputPath:String, module:Module, root:String) {
 	var actualPath = StringTools.replace(module.path, ".", "/");
 	final paths = actualPath.split("/");
-		// get rid of github.com/org/repo prefix
+	// get rid of github.com/org/repo prefix
 	var isStdgo = false;
 	var actualPathInterop = paths.join("/");
 	var interopDefBool = !module.isMain;
 	final cut = actualPath.substring(actualPath.length - 5);
 	final _testStr = "_test";
 	if (cut == _testStr) {
-		//actualPath = actualPath.substring(0, actualPath.length - _testStr.length);
+		// actualPath = actualPath.substring(0, actualPath.length - _testStr.length);
 		interopDefBool = false;
 	}
 	final stdFormatPath = actualPath;
 	if (paths.length > 0) {
 		if (actualPath == "") {
 			actualPath = "_internal";
-		}else{
+		} else {
 			actualPath = "_internal/" + actualPath;
 		}
 	}
@@ -52,7 +52,7 @@ function create(outputPath:String, module:Module, root:String) {
 		actualPath = "stdgo/" + actualPath;
 		if (actualPathInterop.length > 0) {
 			actualPathInterop = "stdgo/" + actualPathInterop;
-		}else{
+		} else {
 			actualPathInterop = "stdgo";
 		}
 	}
@@ -71,9 +71,9 @@ function create(outputPath:String, module:Module, root:String) {
 	var hasMacroDef = false;
 	for (file in module.files) {
 		/*content = pkgPath;
-		macroContent = pkgPath;
-		interopContent = pkgPathInterop;
-		interopMacroContent = pkgPathInterop;*/
+			macroContent = pkgPath;
+			interopContent = pkgPathInterop;
+			interopMacroContent = pkgPathInterop; */
 		contentImports = "";
 		for (imp in file.imports) {
 			if (imp == null)
@@ -88,7 +88,7 @@ function create(outputPath:String, module:Module, root:String) {
 		final clMacro = macro class C {};
 		splitFiles = [];
 		cl.name = @:privateAccess Typer.importClassName(paths.pop());
-		//cl.meta = [{name: ":doxName", params: [macro ${src.Util.makeExpr("⭐ " + clName,)}], pos: null}];
+		// cl.meta = [{name: ":doxName", params: [macro ${src.Util.makeExpr("⭐ " + clName,)}], pos: null}];
 		clMacro.name = cl.name;
 		for (def in file.defs) {
 			macroFields = [];
@@ -100,7 +100,7 @@ function create(outputPath:String, module:Module, root:String) {
 								final isExtern = def.isExtern;
 								def.isExtern = true;
 								hasMacroDef = true;
-								for (td in Interop.interopGen(def, actualPath, clMacro)) 
+								for (td in Interop.interopGen(def, actualPath, clMacro))
 									interopMacroContent.push(td);
 								macroContent.push(stripComments(def));
 								def.isExtern = isExtern;
@@ -185,14 +185,14 @@ private function runCmd(cmd:String) {
 	#end
 }
 
-private function save(dir:String, name:String, content:Array<TypeDefinition>, prefix:String, extension:String = "", splitDepsContent:Bool=true) {
+private function save(dir:String, name:String, content:Array<TypeDefinition>, prefix:String, extension:String = "", splitDepsContent:Bool = true) {
 	if (content.length == 0)
 		return;
 	if (splitDepsContent)
 		content = splitDeps(dir, name, prefix, extension, content); // clears out content and saves elsewhere
 	final contentString = prefix + content.map(f -> Typer.printer.printTypeDefinition(f, false)).join("");
 	// used to create the main file and/or hold the init func
-	saveRaw(dir,name,contentString, prefix, extension, splitDepsContent);
+	saveRaw(dir, name, contentString, prefix, extension, splitDepsContent);
 }
 
 function splitDeps(dir:String, name:String, prefix:String, extension:String, content:Array<TypeDefinition>):Array<TypeDefinition> {
@@ -210,7 +210,7 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 							continue;
 						}
 					case FVar(_, _):
-						if (StringTools.startsWith(td.name,"__init_go2hx__")) {
+						if (StringTools.startsWith(td.name, "__init_go2hx__")) {
 							newContent.push(td);
 							continue;
 						}
@@ -220,21 +220,21 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 		}
 		// raw save file
 		final fullPath = dir + "," + name + "_" + td.name.toLowerCase();
-		var contentString = Typer.printer.printTypeDefinition(td,false);
+		var contentString = Typer.printer.printTypeDefinition(td, false);
 		if (splitFiles.indexOf(fullPath) != -1) {
-			appendRaw(dir,name + "_" + td.name.toLowerCase(),contentString, prefix, extension);
-		}else{
+			appendRaw(dir, name + "_" + td.name.toLowerCase(), contentString, prefix, extension);
+		} else {
 			contentString = prefix + contentString;
-			saveRaw(dir,name + "_" + td.name.toLowerCase(),contentString, prefix, extension);
+			saveRaw(dir, name + "_" + td.name.toLowerCase(), contentString, prefix, extension);
 			splitFiles.push(fullPath);
 		}
 	}
 	return newContent;
 }
 
-var sizeMap:Map<String,Int> = [];
+var sizeMap:Map<String, Int> = [];
 
-private function saveRaw(dir:String, name:String, contentString, prefix:String, extension:String, splitFileBool:Bool=true) {
+private function saveRaw(dir:String, name:String, contentString, prefix:String, extension:String, splitFileBool:Bool = true) {
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
 	final path = dir + name + extension + ".hx";
@@ -244,7 +244,7 @@ private function saveRaw(dir:String, name:String, contentString, prefix:String, 
 		if (!didWrite)
 			sizePath = "skipped";
 		sizeMap[sizePath] = (sizeMap[sizePath] ?? 0) + src.Util.kbCount(contentString);
-	}else{
+	} else {
 		if (!didWrite) {
 			Sys.println("Skipped: " + dir + name + extension + ".hx");
 			return;

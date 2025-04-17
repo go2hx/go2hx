@@ -1,34 +1,34 @@
 import haxe.macro.Expr;
 
-function interopGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeDefinition> {
-    // exceptions
-    if (td.name == "__go2hxdoc__package") {
-        cl.doc = td.doc;
+function interopGen(td:TypeDefinition, path:String, cl:TypeDefinition):Array<TypeDefinition> {
+	// exceptions
+	if (td.name == "__go2hxdoc__package") {
+		cl.doc = td.doc;
 		return []; // TODO pull doc information
 	}
-    if (StringTools.endsWith(td.name, "_static_extension")
-    || StringTools.endsWith(td.name, "_asInterface") 
-    || StringTools.startsWith(td.name, "T_") 
-    || td.name == "__init_go2hx__") {
-        return [];
-    }
-    switch td.kind {
-        case TDAlias(_), TDClass(_, _, _, _, _), TDStructure:
+	if (StringTools.endsWith(td.name, "_static_extension")
+		|| StringTools.endsWith(td.name, "_asInterface")
+		|| StringTools.startsWith(td.name, "T_")
+		|| td.name == "__init_go2hx__") {
+		return [];
+	}
+	switch td.kind {
+		case TDAlias(_), TDClass(_, _, _, _, _), TDStructure:
 			// Do not handle unexported types
-            if (StringTools.startsWith(td.name, "T_"))
-                return [];
-            return [interopType(td, cl, path)];
-        case TDField(kind, access):
+			if (StringTools.startsWith(td.name, "T_"))
+				return [];
+			return [interopType(td, cl, path)];
+		case TDField(kind, access):
 			// Do not handle unexported types
 			if (td.name.charAt(0) == "_")
 				return [];
-            return switch kind {
+			return switch kind {
 				case FVar(_, _):
 					interopGenVar(td, path, cl);
 				case FFun(f):
 					final access = access == null ? [] : access.copy();
 					/*if (access.indexOf(AInline) == -1)
-						access.push(AInline);*/
+						access.push(AInline); */
 					// at static level
 					cl.fields.push({
 						name: td.name,
@@ -41,24 +41,24 @@ function interopGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<Type
 				case FProp(_, _, _, _):
 					throw "FProp not supported";
 			}
-        default:
-            throw "interop type not supported: " + td.kind + " " + path;
-    }
+		default:
+			throw "interop type not supported: " + td.kind + " " + path;
+	}
 }
 
 private function interopType(td:TypeDefinition, cl:TypeDefinition, path:String):TypeDefinition {
-    final pack = path.split("/");
-    pack.push(Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase());
-    final params:Array<TypeParam> = [];
-    final p:TypePath = {pack: pack, name: td.name, params: params};
-    final ct = TPath(p);
-    return interopGenAlias({
-        name: td.name,
-        pack: [],
-        fields: [],
-        pos: null,
-        kind: TDAlias(ct),
-    }, cl, path);
+	final pack = path.split("/");
+	pack.push(Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase());
+	final params:Array<TypeParam> = [];
+	final p:TypePath = {pack: pack, name: td.name, params: params};
+	final ct = TPath(p);
+	return interopGenAlias({
+		name: td.name,
+		pack: [],
+		fields: [],
+		pos: null,
+		kind: TDAlias(ct),
+	}, cl, path);
 }
 
 function interopGenVar(td:TypeDefinition, path:String, cl:TypeDefinition):Array<TypeDefinition> {
@@ -71,48 +71,54 @@ function interopGenVar(td:TypeDefinition, path:String, cl:TypeDefinition):Array<
 			final name = macro $p{pack.concat([td.name])};
 			final convertedType = convertComplexType(type, path, cl);
 			if (access.indexOf(AFinal) != -1) {
-				return [{
+				return [
+					{
+						name: td.name,
+						pos: td.pos,
+						pack: td.pack,
+						fields: td.fields,
+						kind: TDField(FVar(convertedType, e)),
+					}
+				];
+			}
+			access.push(APrivate);
+			access.remove(APublic);
+			return [
+				{
 					name: td.name,
 					pos: td.pos,
 					pack: td.pack,
 					fields: td.fields,
-					kind: TDField(FVar(convertedType, e)),
-				}];
-			}
-			access.push(APrivate);
-			access.remove(APublic);
-			return [{
-				name: td.name,
-				pos: td.pos,
-				pack: td.pack,
-				fields: td.fields,
-				kind: TDField(FProp("get", "set", convertedType)),
-			},{
-				name: "get_" + td.name,
-				pos: td.pos,
-				pack: td.pack,
-				fields: td.fields,
-				kind: TDField(FFun({
-					args: [],
-					ret: convertedType,
-					expr: macro return $name,
-					params: [],
-				}), access),
-			},{
-				name: "set_" + td.name,
-				pos: td.pos,
-				pack: td.pack,
-				fields: td.fields,
-				kind: TDField(FFun({
-					args: [{name: "v", type: convertedType}],
-					ret: type,
-					expr: macro {
-						$name = v;
-						return v;
-					},
-					params: [],
-				}), access),
-			}];
+					kind: TDField(FProp("get", "set", convertedType)),
+				},
+				{
+					name: "get_" + td.name,
+					pos: td.pos,
+					pack: td.pack,
+					fields: td.fields,
+					kind: TDField(FFun({
+						args: [],
+						ret: convertedType,
+						expr: macro return $name,
+						params: [],
+					}), access),
+				},
+				{
+					name: "set_" + td.name,
+					pos: td.pos,
+					pack: td.pack,
+					fields: td.fields,
+					kind: TDField(FFun({
+						args: [{name: "v", type: convertedType}],
+						ret: type,
+						expr: macro {
+							$name = v;
+							return v;
+						},
+						params: [],
+					}), access),
+				}
+			];
 		default:
 			throw "FVar expected";
 	};
@@ -133,7 +139,12 @@ private function interopGenAlias(td:TypeDefinition, cl:TypeDefinition, path:Stri
 				fields: td.fields,
 				meta: meta,
 				doc: td.doc,
-				kind: TDAlias(TPath({sub: td.name, name: Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase(), pack: pack, params: td.params?.map(f -> TPType(TPath({name: f.name, pack: []})))})),
+				kind: TDAlias(TPath({
+					sub: td.name,
+					name: Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase(),
+					pack: pack,
+					params: td.params?.map(f -> TPType(TPath({name: f.name, pack: []})))
+				})),
 				isExtern: td.isExtern,
 			};
 		default:
@@ -141,18 +152,20 @@ private function interopGenAlias(td:TypeDefinition, cl:TypeDefinition, path:Stri
 	}
 }
 
-
-function interopGenFun(name:String, f:Function, path:String, cl:TypeDefinition, staticExtensionName:String=""):Function {
+function interopGenFun(name:String, f:Function, path:String, cl:TypeDefinition, staticExtensionName:String = ""):Function {
 	final args:Array<FunctionArg> = f.args.copy();
-	final args:Array<FunctionArg> = [for (arg in args) {
-		name: removeUnderline(arg.name),
-		type: convertComplexType(arg.type, path, cl),
-	}];
+	final args:Array<FunctionArg> = [
+		for (arg in args)
+			{
+				name: removeUnderline(arg.name),
+				type: convertComplexType(arg.type, path, cl),
+			}
+	];
 	final exprArgs = args.map(arg -> macro $i{arg.name});
 	if (args.length > 0) {
 		switch args[args.length - 1].type {
 			case TPath({name: "Rest", pack: ["haxe"], params: [TPType(t)]}):
-				exprArgs[exprArgs.length - 1] = macro ...[for (i in ${exprArgs[exprArgs.length -1]}) i];
+				exprArgs[exprArgs.length - 1] = macro...[for (i in ${exprArgs[exprArgs.length - 1]}) i];
 			default:
 		}
 	}
@@ -161,7 +174,7 @@ function interopGenFun(name:String, f:Function, path:String, cl:TypeDefinition, 
 	if (staticExtensionName != "") {
 		pathArray.push(last + "_" + staticExtensionName.toLowerCase());
 		pathArray.push(staticExtensionName);
-	}else{
+	} else {
 		pathArray.push(last + "_" + name.toLowerCase());
 	}
 	pathArray.push(name);
@@ -169,7 +182,7 @@ function interopGenFun(name:String, f:Function, path:String, cl:TypeDefinition, 
 	if (!Typer.isVoid(f.ret))
 		expr = macro return $expr;
 	final block:Array<Expr> = [];
-	return  {
+	return {
 		args: args,
 		ret: f.ret,
 		expr: expr,
@@ -178,7 +191,7 @@ function interopGenFun(name:String, f:Function, path:String, cl:TypeDefinition, 
 }
 
 function removeUnderline(name:String):String {
-	if (name.charAt(0) == "_" && name.charCodeAt(1) < '0'.code && name.charCodeAt(1) > '9'.code ) {
+	if (name.charAt(0) == "_" && name.charCodeAt(1) < '0'.code && name.charCodeAt(1) > '9'.code) {
 		name = name.substring(1);
 		if (Typer.reserved.indexOf(name) != -1)
 			name = "_" + name;
@@ -201,8 +214,13 @@ function convertComplexType(ct:ComplexType, path:String, cl:TypeDefinition):Comp
 			}
 			final b = (p.pack.slice(0, p.pack.length - 1).join("/")) == path;
 			if (b) {
-				ct = TPath({name: p.name, pack: [], sub: p.sub, params: p.params});
-			}else{
+				ct = TPath({
+					name: p.name,
+					pack: [],
+					sub: p.sub,
+					params: p.params
+				});
+			} else {
 				if (p.pack.length > 1 && p.pack[0] == "_internal") {
 					final pack = p.pack.copy();
 					pack.shift();
@@ -211,9 +229,19 @@ function convertComplexType(ct:ComplexType, path:String, cl:TypeDefinition):Comp
 					final lastPack = pack.pop();
 					pack.push(lastPack);
 					pack.push(Typer.title(lastPack));
-					ct = TPath({name: p.name, pack: pack, sub: p.sub, params: p.params});
-				}else{
-					ct = TPath({name: p.name, pack: p.pack, sub: p.sub, params: p.params});
+					ct = TPath({
+						name: p.name,
+						pack: pack,
+						sub: p.sub,
+						params: p.params
+					});
+				} else {
+					ct = TPath({
+						name: p.name,
+						pack: p.pack,
+						sub: p.sub,
+						params: p.params
+					});
 				}
 			}
 		default:
@@ -243,35 +271,46 @@ function convertComplexType(ct:ComplexType, path:String, cl:TypeDefinition):Comp
 					final is2 = fields.length == 2;
 					final name = "Tuple";
 					final sub = is2 ? null : "Tuple" + fields.length;
-					return TPath({name: name, sub: sub, pack: ["stdgo"], params: types});
+					return TPath({
+						name: name,
+						sub: sub,
+						pack: ["stdgo"],
+						params: types
+					});
 				}
 			}
-			return TAnonymous([for (field in fields) {
-				switch field.kind {
-					case FVar(type, _):
-						{
-							pos: null,
-							name: field.name,
-							kind: FVar(convertComplexType(type, path, cl), null),
-						}
-					default:
-						throw "Field kind not supported: " + field.kind;
+			return TAnonymous([
+				for (field in fields) {
+					switch field.kind {
+						case FVar(type, _):
+							{
+								pos: null,
+								name: field.name,
+								kind: FVar(convertComplexType(type, path, cl), null),
+							}
+						default:
+							throw "Field kind not supported: " + field.kind;
+					}
 				}
-			}]);
+			]);
 		case TPath({name: "Bool", pack: [], params: _}):
 			return ct;
 		case TPath(p) if (p.pack != null && p.pack.length > 0 && p.pack[0] == "stdgo"):
 			return ct;
 		case TPath({name: name, pack: pack, params: params}):
-			return TPath({name: name == cl.name ? name + "_" : name , pack: pack, params: params == null ? null : params.map(param -> switch param {
-				case TPType(t):
-					TPType(convertComplexType(t, path, cl));
-				default:
-					throw "unreachable";
-			})});
+			return TPath({
+				name: name == cl.name ? name + "_" : name,
+				pack: pack,
+				params: params == null ? null : params.map(param -> switch param {
+					case TPType(t):
+						TPType(convertComplexType(t, path, cl));
+					default:
+						throw "unreachable";
+				})
+			});
 		case TIntersection(tl):
 			// skip over stdgo.StructType
-			return TIntersection([convertComplexType(tl[1],path, cl)]);
+			return TIntersection([convertComplexType(tl[1], path, cl)]);
 		case TExtend(p, fields):
 			return TExtend(p.map(p -> {
 				final ct = convertComplexType(TPath(p), path, cl);
@@ -281,10 +320,10 @@ function convertComplexType(ct:ComplexType, path:String, cl:TypeDefinition):Comp
 					default:
 						throw "unknown ct: " + ct;
 				}
-			}), fields); 
+			}), fields);
 		default:
 			throw "unknown: " + ct;
 	}
 	return ct;
-	//return TPath({name: "Dynamic", pack: [], params: [TPType(ct)]});
+	// return TPath({name: "Dynamic", pack: [], params: [TPType(ct)]});
 }

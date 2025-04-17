@@ -40,8 +40,8 @@ function main() {
 	trace(libs);
 	libCount = libs.length;
 	final runnerCount = MacroCompiler.getDefine("runnerCount") ?? "2";
-	Main.setup(new Compiler.CompilerInstanceData(), Std.parseInt(runnerCount)); // amount of processes to spawn
-	Main.onComplete = complete;
+	Compiler.setupCompiler(new Compiler.CompilerInstanceData(), Std.parseInt(runnerCount)); // amount of processes to spawn
+	Compiler.onComplete = complete;
 	if (libs.length == 0)
 		return;
 	#if !js
@@ -55,7 +55,7 @@ function main() {
 
 private function complete(modules:Array<Typer.Module>, _) {
 	if (--libCount <= 0)
-		Main.close();
+		Compiler.closeCompiler();
 }
 
 var instance:Compiler.CompilerInstanceData = null;
@@ -69,7 +69,7 @@ var debugBool = MacroCompiler.getDefine("cdebug") != null;
 
 function update() {
 	#if !js
-	Main.update();
+	Compiler.updateLoop();
 	#end
 	for (lib in libs) {
 		hxml = "stdgo/" + sanatize(lib);
@@ -86,9 +86,9 @@ function update() {
 		if (debugBool)
 			args.push("-debug");
 		args.push(path);
-		instance = Main.compileArgs(args);
+		instance = Compiler.createCompilerInstanceFromArgs(args);
 		try {
-			compiled = Main.compile(instance);
+			compiled = Compiler.compileFromInstance(instance);
 		}catch(e) {
 			trace(lib);
 			throw e.details();

@@ -185,9 +185,12 @@ function installRequiredGoVersion() {
 }
 
 
-private function executable(path:String) {
-	if (isWindows())
-		'"' + path + '.exe"';
+private function executable(path:String, noQuotes:Bool=false) {
+	if (isWindows()) {
+		if (noQuotes)
+			return path + '.exe';
+		return '"' + path + '.exe"';
+	}
 	return path;
 }
 
@@ -235,15 +238,19 @@ function installGoUp():Bool {
     var file = '$os-$arch';
    if (isWindows())
 		file += '.exe';
-   Sys.println("GoUp installing " +file);
+   	Sys.println("GoUp installing " + file);
     final url = 'https://github.com/owenthereal/goup/releases/download/v0.7.0/$file';
 	if (Sys.command('curl --silent --show-error --fail --location $url --output $file') != 0) {
 		Sys.println("failed to run curl");
 		return false;
 	}
-    if (!isWindows())
-        Sys.command('chmod u+x $file');
-	var proc = new Process("./" + file + " init --skip-prompt");
+	final goBinDir = home + "/.go/bin/";
+	if (!FileSystem.exists(goBinDir))
+		FileSystem.createDirectory(goBinDir);
+	File.copy(file, goBinDir + executable("goup", true));
+	if (!isWindows())
+        Sys.command('chmod u+x $goupCommand');
+	var proc = new Process(goupCommand + " init --skip-prompt");
     if (proc.exitCode(true) != 0) {
 		Sys.println("failed to run goup");
 		return false;
@@ -258,8 +265,9 @@ function isWindows():Bool {
 
 
 function build(rebuild:Bool) {
-	var process = new Process(executable(home + "/.go/bin/goup") + " version");
-	if (true || process.exitCode(true) != 0) {
+	final command = executable(home + "/.go/bin/goup") + " version";
+	var process = new Process(command);
+	if (process.exitCode(true) != 0) {
 		if (!installGoUp()) {
 			Sys.println("failed to install goup");
 			Sys.exit(1);

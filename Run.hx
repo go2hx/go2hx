@@ -201,7 +201,7 @@ function installGoUp():Bool {
 
 	function getArch(line:String):String {
 		return switch line {
-			case "x86_64":
+			case "x86_64", "amd64":
 				"amd64";
 			case "arm64":
 				"arm64";
@@ -216,27 +216,25 @@ function installGoUp():Bool {
 			final process = new Process("uname -m");
 			if (process.exitCode(true) != 0)
 				return false;
-			arch = getArch(process.stdout.readLine());
+			arch = getArch(process.stdout.readLine().toLowerCase());
 		case "mac":
 			os = "darwin";
 			// check if silicon or intel
 			final process = new Process("uname -m");
 			if (process.exitCode(true) != 0)
 				return false;
-			arch = getArch(process.stdout.readLine());
+			arch = getArch(process.stdout.readLine().toLowerCase());
 		case "windows":
 			os = systemName;
 			ext = ".exe";
 			final process = new Process("echo %PROCESSOR_ARCHITECTURE%");
 			if (process.exitCode(true) != 0)
 				return false;
-			arch = getArch(process.stdout.readLine());
+			arch = getArch(process.stdout.readLine().toLowerCase());
 		default:
 			Sys.println("Unknown systemName: " + systemName);
 			return false;
 	}
-	arch = arch.toLowerCase();
-	os = os.toLowerCase();
     var file = '$os-$arch';
    if (isWindows())
 		file += '.exe';

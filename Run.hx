@@ -185,22 +185,90 @@ function installRequiredGoVersion() {
 }
 
 
-private function executable(path:String) {
-	return switch Sys.systemName() {
-		case "Windows":
-			'"' + path + '.exe"';
-		default:
-			path;
+private function executable(path:String, noQuotes:Bool=false) {
+	if (isWindows()) {
+		if (noQuotes)
+			return path + '.exe';
+		return '"' + path + '.exe"';
 	}
+	return path;
+}
+
+function installGoUp():Bool {
+	// prebuilt binaries
+	var arch = ""; // arch
+	var os = ""; // os
+
+	function getArch(line:String):String {
+		return switch line {
+			case "x86_64":
+				"amd64";
+			case "arm64":
+				"arm64";
+			default:
+				throw "unknown arch: " + line;
+		}
+	}
+	var ext = "";
+	switch systemName.toLowerCase() {
+		case "linux":
+			os = systemName.toLowerCase();
+			final process = new Process("uname -m");
+			if (process.exitCode(true) != 0)
+				return false;
+			arch = getArch(process.stdout.readLine());
+		case "mac":
+			os = "darwin";
+			// check if silicon or intel
+			final process = new Process("uname -m");
+			if (process.exitCode(true) != 0)
+				return false;
+			arch = getArch(process.stdout.readLine());
+		case "windows":
+			os = systemName;
+			ext = ".exe";
+			final process = new Process("echo %PROCESSOR_ARCHITECTURE%");
+			if (process.exitCode(true) != 0)
+				return false;
+			arch = getArch(process.stdout.readLine());
+		default:
+			Sys.println("Unknown systemName: " + systemName);
+			return false;
+	}
+    var file = '$os-$arch';
+   if (isWindows())
+		file += '.exe';
+   	Sys.println("GoUp installing " + file);
+    final url = 'https://github.com/owenthereal/goup/releases/download/v0.7.0/$file';
+	if (Sys.command('curl --silent --show-error --fail --location $url --output $file') != 0) {
+		Sys.println("failed to run curl");
+		return false;
+	}
+	final goBinDir = home + "/.go/bin/";
+	if (!FileSystem.exists(goBinDir))
+		FileSystem.createDirectory(goBinDir);
+	File.copy(file, goBinDir + executable("goup", true));
+	if (!isWindows())
+        Sys.command('chmod u+x $goupCommand');
+	var proc = new Process(goupCommand + " init --skip-prompt");
+    if (proc.exitCode(true) != 0) {
+		Sys.println("failed to run goup");
+		return false;
+	}
+	return true;
+}
+
+
+function isWindows():Bool {
+    return Sys.systemName().toLowerCase() == "windows";
 }
 
 
 function build(rebuild:Bool) {
-	var process = new Process(executable(home + "/.go/bin/goup") + " version");
+	final command = executable(home + "/.go/bin/goup") + " version";
+	var process = new Process(command);
 	if (process.exitCode(true) != 0) {
-		final command = "curl -sSf https://raw.githubusercontent.com/owenthereal/goup/master/install.sh | sh -s -- '--skip-prompt'";
-		Sys.println("downloading goup");
-		if (Sys.command(command) != 0) {
+		if (!installGoUp()) {
 			Sys.println("failed to install goup");
 			Sys.exit(1);
 		}

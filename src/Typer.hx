@@ -1097,7 +1097,7 @@ function main(data:DataType, instance:Compiler.CompilerInstanceData):Array<Modul
 		final e = ret;
 		var catchBlock:Array<Expr> = [macro var exe:Dynamic = __exception__.native];
 		catchBlock.push(macro if ((exe is haxe.ValueException)) exe = exe.value);
-		catchBlock.push(macro if ((exe is stdgo.AnyInterface.AnyInterfaceData) != false) {
+		catchBlock.push(macro if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
 			if (__exception__.message == "__return__")
 				throw "__return__";
 			exe = stdgo.Go.toInterface(__exception__.message);

@@ -17,6 +17,7 @@ var clients:Array<Client> = [];
 #if (target.threaded)
 var processes:Array<sys.io.Process> = [];
 #end
+// events
 var onComplete:(modules:Array<Typer.Module>, data:Dynamic) -> Void = null;
 var onUnknownExit:Void->Void = null;
 var programArgs = [];
@@ -219,7 +220,7 @@ function updateLoop() {
 	#if (target.threaded)
 	mainThread.events.progress();
 	#end
-	Sys.sleep(0.5); // wait
+	Sys.sleep(0.01); // wait
 }
 
 function closeCompiler(code:Int = 0, instance:Null<CompilerInstanceData> = null) {

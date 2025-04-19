@@ -235,19 +235,21 @@ function installGoUp():Bool {
 			Sys.println("Unknown systemName: " + systemName);
 			return false;
 	}
+	arch = arch.toLowerCase();
+	os = os.toLowerCase();
     var file = '$os-$arch';
    if (isWindows())
 		file += '.exe';
    	Sys.println("GoUp installing " + file);
     final url = 'https://github.com/owenthereal/goup/releases/download/v0.7.0/$file';
-	if (Sys.command('curl --silent --show-error --fail --location $url --output $file') != 0) {
+	if (Sys.command('curl --silent --show-error --fail --location $url --output bin/$file') != 0) {
 		Sys.println("failed to run curl");
 		return false;
 	}
 	final goBinDir = home + "/.go/bin/";
 	if (!FileSystem.exists(goBinDir))
 		FileSystem.createDirectory(goBinDir);
-	File.copy(file, goBinDir + executable("goup", true));
+	File.copy('bin/$file', goBinDir + executable("goup", true));
 	if (!isWindows())
         Sys.command('chmod u+x $goupCommand');
 	var proc = new Process(goupCommand + " init --skip-prompt");

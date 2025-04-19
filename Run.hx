@@ -249,6 +249,8 @@ function installGoUp():Bool {
 	final goBinDir = home + "/.go/bin/";
 	if (!FileSystem.exists(goBinDir))
 		FileSystem.createDirectory(goBinDir);
+	if (!FileSystem.exists('bin'))
+		FileSystem.createDirectory('bin');
 	File.copy('bin/$file', goBinDir + executable("goup", true));
 	if (!isWindows())
         Sys.command('chmod u+x $goupCommand');

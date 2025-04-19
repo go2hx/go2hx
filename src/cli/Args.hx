@@ -4,7 +4,7 @@
 	Original: https://github.com/Simn/hxargs
  */
 
-package;
+package cli;
 
 import haxe.macro.Context;
 import haxe.macro.Expr;

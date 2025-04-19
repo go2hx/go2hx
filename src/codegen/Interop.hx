@@ -1,3 +1,5 @@
+package codegen;
+
 import haxe.macro.Expr;
 
 function interopGen(td:TypeDefinition, path:String, cl:TypeDefinition):Array<TypeDefinition> {
@@ -48,7 +50,7 @@ function interopGen(td:TypeDefinition, path:String, cl:TypeDefinition):Array<Typ
 
 private function interopType(td:TypeDefinition, cl:TypeDefinition, path:String):TypeDefinition {
 	final pack = path.split("/");
-	pack.push(Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase());
+	pack.push(typer.Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase());
 	final params:Array<TypeParam> = [];
 	final p:TypePath = {pack: pack, name: td.name, params: params};
 	final ct = TPath(p);
@@ -67,7 +69,7 @@ function interopGenVar(td:TypeDefinition, path:String, cl:TypeDefinition):Array<
 			final access = access == null ? [] : access.copy();
 			final pack = path.split("/");
 
-			pack.push(Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase());
+			pack.push(typer.Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase());
 			final name = macro $p{pack.concat([td.name])};
 			final convertedType = convertComplexType(type, path, cl);
 			if (access.indexOf(AFinal) != -1) {
@@ -141,7 +143,7 @@ private function interopGenAlias(td:TypeDefinition, cl:TypeDefinition, path:Stri
 				doc: td.doc,
 				kind: TDAlias(TPath({
 					sub: td.name,
-					name: Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase(),
+					name: typer.Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase(),
 					pack: pack,
 					params: td.params?.map(f -> TPType(TPath({name: f.name, pack: []})))
 				})),
@@ -170,7 +172,7 @@ function interopGenFun(name:String, f:Function, path:String, cl:TypeDefinition, 
 		}
 	}
 	final pathArray = path.split("/");
-	var last = Typer.title(pathArray[pathArray.length - 1]);
+	var last = typer.Typer.title(pathArray[pathArray.length - 1]);
 	if (staticExtensionName != "") {
 		pathArray.push(last + "_" + staticExtensionName.toLowerCase());
 		pathArray.push(staticExtensionName);
@@ -179,7 +181,7 @@ function interopGenFun(name:String, f:Function, path:String, cl:TypeDefinition, 
 	}
 	pathArray.push(name);
 	var expr = macro $p{pathArray}($a{exprArgs});
-	if (!Typer.isVoid(f.ret))
+	if (!typer.Typer.isVoid(f.ret))
 		expr = macro return $expr;
 	final block:Array<Expr> = [];
 	return {
@@ -193,7 +195,7 @@ function interopGenFun(name:String, f:Function, path:String, cl:TypeDefinition, 
 function removeUnderline(name:String):String {
 	if (name.charAt(0) == "_" && name.charCodeAt(1) < '0'.code && name.charCodeAt(1) > '9'.code) {
 		name = name.substring(1);
-		if (Typer.reserved.indexOf(name) != -1)
+		if (typer.Typer.reserved.indexOf(name) != -1)
 			name = "_" + name;
 	}
 	return name;
@@ -228,7 +230,7 @@ function convertComplexType(ct:ComplexType, path:String, cl:TypeDefinition):Comp
 					pack.pop();
 					final lastPack = pack.pop();
 					pack.push(lastPack);
-					pack.push(Typer.title(lastPack));
+					pack.push(typer.Typer.title(lastPack));
 					ct = TPath({
 						name: p.name,
 						pack: pack,

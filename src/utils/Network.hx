@@ -1,3 +1,5 @@
+package utils;
+
 import haxe.io.Bytes;
 import sys.net.Host;
 #if js

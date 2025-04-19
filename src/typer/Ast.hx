@@ -1,4 +1,4 @@
-package;
+package typer;
 
 /*typedef Node = {
 	pos:Int

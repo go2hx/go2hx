@@ -1,11 +1,14 @@
+package codegen;
+
 import haxe.macro.Type.FieldKind;
-import Typer.Module;
+import typer.Typer.Module;
 import haxe.macro.Expr.TypeDefKind;
 import haxe.macro.Expr.TypeDefinition;
 import haxe.macro.Expr;
 import haxe.macro.Type.ClassKind;
 import sys.FileSystem;
 import sys.io.File;
+import codegen.Interop;
 
 var splitFiles:Array<String> = [];
 
@@ -46,7 +49,7 @@ function create(outputPath:String, module:Module, root:String) {
 		}
 	}
 	// if stdgo
-	if (Typer.stdgoList.contains(Typer.toGoPath(stdFormatPath))) {
+	if (typer.Typer.stdgoList.contains(typer.Typer.toGoPath(stdFormatPath))) {
 		isStdgo = true;
 		root = "stdgo";
 		actualPath = "stdgo/" + actualPath;
@@ -87,8 +90,8 @@ function create(outputPath:String, module:Module, root:String) {
 		final cl = macro class C {};
 		final clMacro = macro class C {};
 		splitFiles = [];
-		cl.name = @:privateAccess Typer.importClassName(paths.pop());
-		// cl.meta = [{name: ":doxName", params: [macro ${src.Util.makeExpr("⭐ " + clName,)}], pos: null}];
+		cl.name = @:privateAccess typer.Typer.importClassName(paths.pop());
+		// cl.meta = [{name: ":doxName", params: [macro ${shared.Util.makeExpr("⭐ " + clName,)}], pos: null}];
 		clMacro.name = cl.name;
 		for (def in file.defs) {
 			macroFields = [];
@@ -142,13 +145,13 @@ function create(outputPath:String, module:Module, root:String) {
 					isExtern: true,
 				};
 				if (interopDefBool) {
-					for (td in Interop.interopGen(def, actualPath, cl))
+					for (td in codegen.Interop.interopGen(def, actualPath, cl))
 						interopMacroContent.push(td);
 				}
 				macroContent.push(stripComments(td));
 			}
 			if (interopDefBool) {
-				for (td in Interop.interopGen(def, actualPath, cl)) {
+				for (td in codegen.Interop.interopGen(def, actualPath, cl)) {
 					interopContent.push(td);
 				}
 			}
@@ -190,7 +193,7 @@ private function save(dir:String, name:String, content:Array<TypeDefinition>, pr
 		return;
 	if (splitDepsContent)
 		content = splitDeps(dir, name, prefix, extension, content); // clears out content and saves elsewhere
-	final contentString = prefix + content.map(f -> Typer.printer.printTypeDefinition(f, false)).join("");
+	final contentString = prefix + content.map(f -> typer.Typer.printer.printTypeDefinition(f, false)).join("");
 	// used to create the main file and/or hold the init func
 	saveRaw(dir, name, contentString, prefix, extension, splitDepsContent);
 }
@@ -220,7 +223,7 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 		}
 		// raw save file
 		final fullPath = dir + "," + name + "_" + td.name.toLowerCase();
-		var contentString = Typer.printer.printTypeDefinition(td, false);
+		var contentString = typer.Typer.printer.printTypeDefinition(td, false);
 		if (splitFiles.indexOf(fullPath) != -1) {
 			appendRaw(dir, name + "_" + td.name.toLowerCase(), contentString, prefix, extension);
 		} else {
@@ -238,18 +241,18 @@ private function saveRaw(dir:String, name:String, contentString, prefix:String, 
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
 	final path = dir + name + extension + ".hx";
-	var didWrite = Cache.checkHashAndWrite(path, contentString);
+	var didWrite = utils.Cache.checkHashAndWrite(path, contentString);
 	if (splitFileBool) {
 		var sizePath = haxe.io.Path.directory(path);
 		if (!didWrite)
 			sizePath = "skipped";
-		sizeMap[sizePath] = (sizeMap[sizePath] ?? 0) + src.Util.kbCount(contentString);
+		sizeMap[sizePath] = (sizeMap[sizePath] ?? 0) + shared.Util.kbCount(contentString);
 	} else {
 		if (!didWrite) {
 			Sys.println("Skipped: " + dir + name + extension + ".hx");
 			return;
 		}
-		Sys.println("Generated:\nMAIN " + dir + name + extension + ".hx - " + src.Util.kbCount(contentString) + "kb");
+		Sys.println("Generated:\nMAIN " + dir + name + extension + ".hx - " + shared.Util.kbCount(contentString) + "kb");
 	}
 }
 
@@ -257,14 +260,14 @@ private function appendRaw(dir:String, name:String, contentString, prefix:String
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
 	final path = dir + name + extension + ".hx";
-	var didWrite = Cache.checkHashAndWrite(path, File.getContent(path) + contentString);
+	var didWrite = utils.Cache.checkHashAndWrite(path, File.getContent(path) + contentString);
 
 	if (!didWrite) {
 		Sys.println("Skipped: " + dir + name + extension + ".hx");
 		return;
 	}
 
-	Sys.println("Appended: " + dir + name + extension + ".hx - " + src.Util.kbCount(contentString) + "kb");
+	Sys.println("Appended: " + dir + name + extension + ".hx - " + shared.Util.kbCount(contentString) + "kb");
 }
 
 function stripComments(td:TypeDefinition):TypeDefinition {

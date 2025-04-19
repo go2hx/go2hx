@@ -1,8 +1,8 @@
 package;
 
 import sys.FileSystem;
-import Network;
-import Typer.DataType;
+import utils.Network;
+import typer.Typer.DataType;
 import haxe.Json;
 import haxe.Resource;
 import haxe.ds.Vector;
@@ -18,7 +18,7 @@ var clients:Array<Client> = [];
 var processes:Array<sys.io.Process> = [];
 #end
 // events
-var onComplete:(modules:Array<Typer.Module>, data:Dynamic) -> Void = null;
+var onComplete:(modules:Array<typer.Typer.Module>, data:Dynamic) -> Void = null;
 var onUnknownExit:Void->Void = null;
 var programArgs = [];
 #if (target.threaded)
@@ -82,7 +82,7 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 	instance.outputPath = "golibs";
 	instance.root = "";
 	var help = false;
-	final argHandler = Args.generate([
+	final argHandler = cli.Args.generate([
 		@doc("Set what command should be used for gocmd get & gocmd mod init")
 		["-gocmd", "--gocmd"] => s -> instance.goCommand = s,
 		["-debug", "--debug"] => () -> instance.debugBool = true,
@@ -204,8 +204,8 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 	return instance;
 }
 
-private function printDoc(handler:Args.ArgHandler) {
-	src.Util.successMsg("go2hx");
+private function printDoc(handler:cli.Args.ArgHandler) {
+	shared.Util.successMsg("go2hx");
 	Sys.print("\n");
 	final max = 20;
 	for (option in handler.options) {
@@ -226,7 +226,7 @@ function updateLoop() {
 function closeCompiler(code:Int = 0, instance:Null<CompilerInstanceData> = null) {
 	if (instance != null) {
 		if (FileSystem.exists(instance.outputPath))
-			Cache.saveCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']));
+			utils.Cache.saveCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']));
 	}
 
 	#if (debug && !nodejs)
@@ -249,9 +249,9 @@ function closeCompiler(code:Int = 0, instance:Null<CompilerInstanceData> = null)
 }
 
 function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allAccepted:Void->Void = null) {
-	Cache.setUseCache(instance.useCache);
+	utils.Cache.setUseCache(instance.useCache);
 	if (!instance.cleanCache)
-		Cache.loadCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']));
+		utils.Cache.loadCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']));
 
 	var port = instance.port;
 
@@ -375,7 +375,7 @@ function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allA
 				var modules = [];
 				Sys.setCwd(cwd);
 				instance.log("compile");
-				modules = Typer.main(exportData, instance);
+				modules = typer.Typer.main(exportData, instance);
 				instance.log("compile complete");
 				exportData = null;
 
@@ -400,23 +400,23 @@ function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allA
 						break;
 					}
 				}
-				Gen.sizeMap = [];
+				codegen.CodeGen.sizeMap = [];
 				for (module in modules) {
 					if (!isStdgo)
-						isStdgo = Typer.stdgoList.contains(StringTools.replace(module.path, ".", "/"));
+						isStdgo = typer.Typer.stdgoList.contains(StringTools.replace(module.path, ".", "/"));
 					if (instance.libwrap && !isMain && !isStdgo && !alreadyWrapped) {
 						alreadyWrapped = true;
 						final name = module.name;
 						final libPath = name + "/";
 						instance.outputPath = Path.addTrailingSlash(instance.outputPath) + libPath;
 						// sys.io.File.saveContent(Path.addTrailingSlash(instance.outputPath) + "haxelib.json");
-						Gen.create(instance.outputPath, module, instance.root);
+						codegen.CodeGen.create(instance.outputPath, module, instance.root);
 						final cmd = 'haxelib dev $name ${instance.outputPath}';
 						Sys.println(cmd);
 						Sys.command(cmd);
 						Sys.println('Include lib: -lib $name');
 					} else {
-						Gen.create(Path.addTrailingSlash(instance.outputPath), module, instance.root);
+						codegen.CodeGen.create(Path.addTrailingSlash(instance.outputPath), module, instance.root);
 					}
 				}
 				logGenSizes();
@@ -446,7 +446,7 @@ function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allA
 }
 
 private function logGenSizes() {
-	final sizeMap = Gen.sizeMap;
+	final sizeMap = codegen.CodeGen.sizeMap;
 	// log size maps
 	var lSize = 0;
 	for (path => size in sizeMap) {
@@ -458,7 +458,7 @@ private function logGenSizes() {
 	}
 }
 
-private function createBasePkgs(outputPath:String, modules:Array<Typer.Module>, cwd:String) {
+private function createBasePkgs(outputPath:String, modules:Array<typer.Typer.Module>, cwd:String) {
 	Sys.println("create base pkgs: " + outputPath);
 	if (!FileSystem.exists(outputPath + "/stdgo"))
 		FileSystem.createDirectory(outputPath + "/stdgo");
@@ -470,9 +470,9 @@ private function createBasePkgs(outputPath:String, modules:Array<Typer.Module>, 
 	}
 
 	Sys.println("copy directory: " + cwd + " to: " + outputPath);
-	src.Util.copyDirectoryRecursively(cwd + "/haxe", outputPath + "/haxe");
+	shared.Util.copyDirectoryRecursively(cwd + "/haxe", outputPath + "/haxe");
 	final path = "/stdgo/_internal";
-	src.Util.copyDirectoryRecursively(cwd + path, outputPath + path);
+	shared.Util.copyDirectoryRecursively(cwd + path, outputPath + path);
 	for (file in FileSystem.readDirectory(cwd + path)) {
 		if (Path.extension(file) == "hx") {
 			final content = File.getContent(cwd + path + file);
@@ -496,7 +496,7 @@ function targetLibs(target:String):String {
 	}
 }
 
-function mainPaths(modules:Array<Typer.Module>):Array<String> {
+function mainPaths(modules:Array<typer.Typer.Module>):Array<String> {
 	final paths:Array<String> = [];
 	for (module in modules) {
 		if (module == null || !module.isMain || module.files[0] == null || !module.files[0].isMain)
@@ -511,7 +511,7 @@ function mainPaths(modules:Array<Typer.Module>):Array<String> {
 	return paths;
 }
 
-function mainPkgs(modules:Array<Typer.Module>):Array<String> {
+function mainPkgs(modules:Array<typer.Typer.Module>):Array<String> {
 	final paths:Array<String> = [];
 	for (module in modules) {
 		if (module == null || !module.isMain || module.files[0] == null || !module.files[0].isMain)
@@ -522,7 +522,7 @@ function mainPkgs(modules:Array<Typer.Module>):Array<String> {
 	return paths;
 }
 
-private function runBuildTools(modules:Array<Typer.Module>, instance:CompilerInstanceData, args:Array<String>) {
+private function runBuildTools(modules:Array<typer.Typer.Module>, instance:CompilerInstanceData, args:Array<String>) {
 	if (instance.target == "") {
 		if (instance.test) {
 			if (!instance.noRun) {
@@ -539,7 +539,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:CompilerIns
 		commands.push("-lib");
 		commands.push("go2hx");
 	} else {
-		src.Util.hxmlToArgs(cwd + "/extraParams.hxml", commands);
+		shared.Util.hxmlToArgs(cwd + "/extraParams.hxml", commands);
 	}
 	var cp = instance.outputPath;
 	if (cp != "") {
@@ -593,8 +593,8 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:CompilerIns
 		}
 	}
 	if (instance.buildPath != "") { // create build file
-		final mains = [for (path in paths) src.Util.makeExpr(path)];
-		final base = [for (command in commands) src.Util.makeExpr(command)];
+		final mains = [for (path in paths) shared.Util.makeExpr(path)];
+		final base = [for (command in commands) shared.Util.makeExpr(command)];
 		final expr = macro function main() {
 			final base = $a{base};
 			final mains = $a{mains};
@@ -605,7 +605,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:CompilerIns
 			instance.buildPath += ".hx";
 		final content = new haxe.macro.Printer("    ").printExpr(expr);
 		File.saveContent(instance.buildPath, content);
-		// Sys.println('Generated: $buildPath - ' + src.Util.kbCount(content) + "kb");
+		// Sys.println('Generated: $buildPath - ' + shared.Util.kbCount(content) + "kb");
 	}
 
 	if (instance.hxmlPath != "") {
@@ -630,7 +630,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:CompilerIns
 			}
 			content = content.substr(0, content.length - 1);
 			File.saveContent(hxmlPath, content);
-			Sys.println('Generated:\n' + hxmlPath + ' - ' + src.Util.kbCount(content) + "kb");
+			Sys.println('Generated:\n' + hxmlPath + ' - ' + shared.Util.kbCount(content) + "kb");
 		}
 	}
 }
@@ -719,7 +719,7 @@ function compileFromInstance(instance:CompilerInstanceData):Bool {
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
 
-		if (Typer.stdgoList.indexOf(path) != -1)
+		if (typer.Typer.stdgoList.indexOf(path) != -1)
 			continue;
 		var command = '${instance.goCommand} get $path';
 		Sys.setCwd(instance.localPath);

@@ -1,4 +1,4 @@
-package;
+package utils;
 
 import sys.FileSystem;
 import haxe.Unserializer;

@@ -1,3 +1,5 @@
+package codegen;
+
 import haxe.macro.Expr.TypePath;
 
 final splitDepsBool = true;

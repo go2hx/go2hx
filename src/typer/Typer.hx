@@ -1,11 +1,13 @@
+package typer;
+
 // @:formatter off
 import haxe.DynamicAccess; 
 import haxe.io.Path; 
 import haxe.macro.Expr; 
-import src.Util; 
+import shared.Util; 
 import sys.io.File; 
-import Types; 
-import Ast.BasicKind;
+import typer.Ast.BasicKind;
+import typer.Types;
 
 // @:formatter on
 
@@ -273,7 +275,7 @@ function main(data:DataType, instance:Compiler.CompilerInstanceData):Array<Modul
 			}
 
 			// patch system to add functions
-			for (key => expr in Patch.addFuncs) {
+			for (key => expr in codegen.Patch.addFuncs) {
 				final index = key.indexOf(":");
 				final path = key.substr(0, index);
 				if (path == info.global.module.path) {
@@ -294,16 +296,16 @@ function main(data:DataType, instance:Compiler.CompilerInstanceData):Array<Modul
 						pack: [],
 						kind: TDField(FFun({args: [], expr: expr}), []),
 					});
-					Patch.addFuncs.remove(key);
+					codegen.Patch.addFuncs.remove(key);
 				}
 			}
-			for (key => def in Patch.addTypeDefs) {
+			for (key => def in codegen.Patch.addTypeDefs) {
 				final index = key.indexOf(":");
 				final path = key.substr(0, index);
 				if (path == info.global.module.path) {
 					final defName = key.substr(index + 1);
 					data.defs.push(def);
-					Patch.addTypeDefs.remove(key);
+					codegen.Patch.addTypeDefs.remove(key);
 				}
 			}
 
@@ -479,7 +481,7 @@ function main(data:DataType, instance:Compiler.CompilerInstanceData):Array<Modul
 				if (!alreadyExistsTypeDef(aliasPointer, info))
 					info.data.defs.push(aliasPointer);
 				// files check against all TypeSpecs
-				if (def.meta != null) { // prevents adding @:using or other metadata to Patch.replace types
+				if (def.meta != null) { // prevents adding @:using or other metadata to codegen.Patch.replace types
 					def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
 				}
 				aliasPointer.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
@@ -608,13 +610,13 @@ function main(data:DataType, instance:Compiler.CompilerInstanceData):Array<Modul
 							switch kind {
 								case FFun(fun):
 									final patchName = info.global.module.path + "." + def.name + ":" + func.name;
-									/*final patch = Patch.list[patchName];
+									/*final patch = codegen.Patch.list[patchName];
 										if (patch != null) {
 											fun.expr = patch;
-											Patch.list.remove(patchName);
+											codegen.Patch.list.remove(patchName);
 									}*/
 									func.meta.push({name: ":tdfield", pos: null});
-									if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
+									if (codegen.Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 										access.push(AInline);
 									// recv func named
 									addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, wrapper,
@@ -1039,7 +1041,7 @@ function main(data:DataType, instance:Compiler.CompilerInstanceData):Array<Modul
 		return (macro {}).expr;
 	}
 	return typeStmtList(stmt.list, info, isFunc);
-} private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):ExprDef {
+} private function typeStmtList(list:Array<typer.Ast.Stmt>, info:Info, isFunc:Bool):ExprDef {
 
 	if (isFunc) {
 		info.localIdents = info.localIdents.copy();
@@ -6731,7 +6733,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		macro throw ${makeString(recvName + ":" + info.global.path + "." + name + " is not yet implemented")};
 	} else {
 		var block = toExpr(typeBlockStmt(decl.body, info, true));
-		final cond = Patch.skipTests[patchName];
+		final cond = codegen.Patch.skipTests[patchName];
 		if (cond != null) {
 			switch block.expr {
 				case EBlock(exprs):
@@ -6759,9 +6761,9 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		macro $block;
 	}
 	info.global.renameClasses = previousRenameClasses;
-	final patch = Patch.list[patchName];
+	final patch = codegen.Patch.list[patchName];
 	if (patch != null) {
-		// Patch.list.remove(patchName);
+		// codegen.Patch.list.remove(patchName);
 		block = patch;
 	}
 
@@ -6785,7 +6787,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	}
 	var access = [];
 	if (decl.recv == null) {
-		if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
+		if (codegen.Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 			access.push(AInline);
 	}
 	var identifierNames:Array<String> = [];
@@ -7734,7 +7736,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 	info.className = name;
 	var doc:String = getDocComment(spec, spec) + getSource(spec, info);
 	final patchName = info.global.module.path + ":" + name;
-	final replaceExpr = Patch.replace[patchName];
+	final replaceExpr = codegen.Patch.replace[patchName];
 	if (replaceExpr != null) {
 		final td:TypeDefinition = {
 			name: name,
@@ -7755,7 +7757,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			info.renameIdents[spec.name.name] = splitDepFullPathName(name + "_static_extension", info);
 			info.classNames[spec.name.name] = splitDepFullPathName(name + "_static_extension", info);
 			// add to fields patch structs
-			final structExpr = Patch.structs[patchName];
+			final structExpr = codegen.Patch.structs[patchName];
 			var structAddFieldsIndex = -1;
 			if (structExpr != null) { // patch modify struct
 				switch structExpr.expr {
@@ -8536,10 +8538,10 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 			if (constant)
 				access.push(AFinal);
 			final patchName = info.global.module.path + ":" + name;
-			final patch = Patch.list[patchName];
+			final patch = codegen.Patch.list[patchName];
 			if (patch != null) {
 				expr = patch;
-				Patch.list.remove(patchName);
+				codegen.Patch.list.remove(patchName);
 			}
 			if (info.global.varTraceBool)
 				if (expr != null) {
@@ -8846,7 +8848,7 @@ class Info {
 	public var returnType:ComplexType = null;
 	public var returnNamed:Bool;
 	public var printGoCode:Bool = false;
-	public var returnTypes:Array<GoType> = [];
+	public var returnTypes:Array<typer.Types.GoType> = [];
 	public var returnComplexTypes:Array<ComplexType> = [];
 	public var returnInterfaceBool:Array<Bool> = [];
 	public var className:String = "";
@@ -9094,6 +9096,6 @@ final basicTypes = [
 	"comparable",
 ];
 
-var printer = new Printer();
+var printer = new codegen.Printer();
 
 // @formatter:on

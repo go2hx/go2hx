@@ -1,7 +1,7 @@
 import haxe.DynamicAccess;
 import haxe.io.Path;
 import haxe.macro.Expr;
-import src.Util;
+import shared.Util;
 import sys.io.File;
 import Types;
 import Ast.BasicKind;

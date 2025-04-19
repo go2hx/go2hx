@@ -1,4 +1,6 @@
-import Ast.BasicKind;
+package typer;
+
+import typer.Ast.BasicKind;
 
 enum GoType {
 	typeParam(name:String, params:Array<GoType>);

@@ -235,6 +235,8 @@ function installGoUp():Bool {
 			Sys.println("Unknown systemName: " + systemName);
 			return false;
 	}
+	arch = arch.toLowerCase();
+	os = os.toLowerCase();
     var file = '$os-$arch';
    if (isWindows())
 		file += '.exe';

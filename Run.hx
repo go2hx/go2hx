@@ -241,16 +241,17 @@ function installGoUp():Bool {
    if (isWindows())
 		file += '.exe';
    	Sys.println("GoUp installing " + file);
+	if (!FileSystem.exists('bin'))
+		FileSystem.createDirectory('bin');
     final url = 'https://github.com/owenthereal/goup/releases/download/v0.7.0/$file';
-	if (Sys.command('curl --silent --show-error --fail --location $url --output bin/$file') != 0) {
+	final command = 'curl --silent --show-error --fail --location $url --output bin/$file';
+	if (Sys.command(command) != 0) {
 		Sys.println("failed to run curl");
 		return false;
 	}
 	final goBinDir = home + "/.go/bin/";
 	if (!FileSystem.exists(goBinDir))
 		FileSystem.createDirectory(goBinDir);
-	if (!FileSystem.exists('bin'))
-		FileSystem.createDirectory('bin');
 	File.copy('bin/$file', goBinDir + executable("goup", true));
 	if (!isWindows())
         Sys.command('chmod u+x $goupCommand');

@@ -1,4 +1,4 @@
-<img src="logo.svg" width="270" align="right"/>
+<img src="extra/images/logo.svg" width="270" align="right"/>
 
 # go2hx [![build](https://github.com/go2hx/go2hx/actions/workflows/main.yml/badge.svg)](https://github.com/go2hx/go2hx/actions/workflows/main.yml) [![Scc Count Badge](https://sloc.xyz/github/go2hx/go2hx/)](https://github.com/go2hx/go2hx/) [![Discord](https://img.shields.io/discord/162395145352904705.svg?logo=discord)](https://discord.gg/jgPcqC7DY2) [![Repo size](https://img.shields.io/github/repo-size/go2hx/go2hx)](https://github.com/go2hx/go2hx/)
 
@@ -349,7 +349,7 @@ haxelib run go2hx ./main.go --rebuild
 After you have [setup from source](#setup-from-source) and **ran the compiler at least once** you should be able to use the dev tools, here is the list and how they work.
 
 * ``haxe rnd.hxml`` : rnd stands for research and development, it's a quirky name for a test bed that runs ``./rnd/main.go`` use it for rapid testing of go snippets and comparison with go output.
-* ``haxe scripts/stdgo.hxml`` : (requires nodejs) go's standard library generator, all std pkgs compiled are added into ``./stdgo/*`` for generating specific std go libs use the ``-D libs`` flag. For example to compile ``unicode/utf8`` and ``strings`` run: ``haxe scripts/stdgo.hxml -D libs=unicode/utf8,strings``
+* ``haxe extra/scripts/stdgo.hxml`` : (requires nodejs) go's standard library generator, all std pkgs compiled are added into ``./stdgo/*`` for generating specific std go libs use the ``-D libs`` flag. For example to compile ``unicode/utf8`` and ``strings`` run: ``haxe extra/scripts/stdgo.hxml -D libs=unicode/utf8,strings``
 
 * ``haxe tests/tests.hl [suite]`` : ([requires hashlink](https://hashlink.haxe.org/#download)) and nodejs A multi suite test runner with a built in regression tracker, used primarily by github actions to test for progression and regression of every commit to the project. [suite] can be any of the following added as an argument: unit, stdgo, yaegi, gobyexample, go . For example ``haxe tests/tests.hxml -D std``
 

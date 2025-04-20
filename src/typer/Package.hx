@@ -11,8 +11,10 @@ function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceDa
         if (externs.indexOf(pkg.path) != -1)
             instance.externBool = true;
     }
+    pkg.path = normalizePath(pkg.path);
+    pkg.path = toHaxePath(pkg.path);
     final module:HaxeAst.Module = {
-        path: normalizePath(toHaxePath(pkg.path)),
+        path: pkg.path,
         files: [],
         isMain: pkg.name == "main",
         name: pkg.name
@@ -26,7 +28,7 @@ function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceDa
     final info = new Info();
     info.global.initBlock = initBlock;
     info.printGoCode = instance.printGoCode;
-    info.global.path = module.path;
+    info.global.path = pkg.path;
     info.global.externBool = instance.externBool;
     info.global.debugBool = instance.debugBool;
     info.global.varTraceBool = instance.varTraceBool;
@@ -49,7 +51,7 @@ function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceDa
                 file.path = file.path.substr(0, file.path.length - 3);
             file.path = importClassName(normalizePath(file.path)); // file naming
         } else {
-            file.path = importClassName(normalizePath(module.path.substr(module.path.lastIndexOf(".") + 1)));
+            file.path = importClassName(normalizePath(pkg.path.substr(pkg.path.lastIndexOf(".") + 1)));
         }
 
         info.global.filePath = file.path;

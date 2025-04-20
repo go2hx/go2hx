@@ -40,8 +40,19 @@ function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceDa
 
     info.global.hashMap = hashMap;
 
-    if (pkg.order == null)
+    if (pkg.order != null) {
+        final pkgOrder = pkg.order.copy();
         pkg.order = [];
+        for (s in pkgOrder) {
+            if (s == "_")
+                continue;
+            pkg.order.push(formatHaxeFieldName(s,info));
+        }
+    } else {
+        pkg.order = [];
+    }
+
+    info.global.order = pkg.order;
 
     for (file in pkg.files) {
         if (file.decls == null)

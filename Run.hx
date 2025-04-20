@@ -1,5 +1,5 @@
 import haxe.io.Path;
-import src.Util;
+import shared.Util;
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;

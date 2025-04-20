@@ -1,7 +1,7 @@
 package;
 
 import haxe.Timer;
-import src.Util;
+import shared.Util;
 import haxe.macro.Compiler as MacroCompiler;
 
 function main() {

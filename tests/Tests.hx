@@ -416,7 +416,7 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 	return {passes: passes, fails: fails, runs: runs};
 }
 
-private function complete(modules:Array<Typer.Module>, data:{excludes:Array<String>, hxml:String, ?main:String}) {
+private function complete(modules:Array<typer.Typer.Module>, data:{excludes:Array<String>, hxml:String, ?main:String}) {
 	timeout = 0;
 	completeBool = true;
 	// spawn targets
@@ -470,14 +470,14 @@ private function sanatize(s:String):String {
 	if (index != -1) {
 		s = s.substr(index + testStr.length);
 	}
-	s = Typer.normalizePath(s);
+	s = typer.Typer.normalizePath(s);
 	s = Path.withoutDirectory(s);
 	s = Path.withoutExtension(s);
 	s = StringTools.replace(s, "/", "_");
-	if (Typer.reserved.indexOf(s) != -1) {
+	if (typer.Typer.reserved.indexOf(s) != -1) {
 		s += "_";
 	}
-	if (Typer.reservedClassNames.indexOf(s.charAt(0).toUpperCase() + s.substr(1)) != -1)
+	if (typer.Typer.reservedClassNames.indexOf(s.charAt(0).toUpperCase() + s.substr(1)) != -1)
 		s += "_";
 	return s;
 }

@@ -5,7 +5,7 @@ import haxe.io.Path;
 import haxe.macro.Expr;
 import shared.Util;
 
-function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData,hashMap:Map<UInt, Dynamic>):HaxeAst.Module {
+function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData, info:Info, hashMap:Map<UInt, Dynamic>):{module:HaxeAst.Module,info:Info} {
     instance.externBool = false;
     if (stdgoList.indexOf(pkg.path) != -1) {
         if (externs.indexOf(pkg.path) != -1)
@@ -17,8 +17,12 @@ function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceDa
         isMain: pkg.name == "main",
         name: pkg.name
     };
+    
 
     var initBlock = [];
+    if (pkg.name == "main" && info != null) {
+        initBlock = info.global.initBlock;
+    }
     final info = new Info();
     info.global.initBlock = initBlock;
     info.printGoCode = instance.printGoCode;
@@ -354,7 +358,7 @@ function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceDa
             }
         }
     }
-    return module;
+    return {module: module, info: info};
 }
 
 typedef RecvFunction = {decl:GoAst.FuncDecl, path:String};

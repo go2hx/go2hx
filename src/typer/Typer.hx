@@ -19,17 +19,19 @@ function typeData(data:GoAst.DataType, instance:Compiler.CompilerInstanceData):A
 	for (obj in data.typeList) {
 		hashMap[obj.hash] = obj;
 	}
+	var info:Info = null;
 	// module system
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)
 			continue;
-		list.push(Package.typePackage(pkg, instance, hashMap));
+		final obj = Package.typePackage(pkg, instance, info, hashMap);
+		info = obj.info;
+		list.push(obj.module);
 	}
 	return list;
 }
 
 function createWrapper(wrapperName:String, ct:ComplexType) {
-
 	return macro class $wrapperName {
 		public function new(__self__, __type__) {
 			this.__self__ = __self__;

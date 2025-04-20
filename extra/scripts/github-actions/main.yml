@@ -199,7 +199,7 @@ jobs:
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{ env.VERSION }} --depth=1 ./tests/go
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./extra/scripts/sortTests ci
       - name: Create test lists
         run: haxe tests/tests.hxml -D ci -D listAll
       - uses: EndBug/add-and-commit@v9

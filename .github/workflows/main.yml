@@ -200,7 +200,7 @@ jobs:
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{ env.VERSION }} --depth=1 ./tests/go
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./extra/scripts/sortTests ci
       - name: Create test lists
         run: haxe tests/tests.hxml -D ci -D listAll
       - uses: EndBug/add-and-commit@v9
@@ -458,7 +458,7 @@ jobs:
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./extra/scripts/sortTests ci
       # run go easy tests
       - name: Run go easy tests
         run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D targets=hl #-D hxb
@@ -528,7 +528,7 @@ jobs:
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./extra/scripts/sortTests ci
       # run go easy tests
       - name: Run go easy tests
         run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D targets=interp #-D hxb
@@ -601,7 +601,7 @@ jobs:
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./extra/scripts/sortTests ci
       # run go easy tests
       - name: Run go easy tests
         run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D targets=js #-D hxb
@@ -661,7 +661,7 @@ jobs:
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi easy tests
         run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
       - name: Remove stdgo folder
@@ -720,7 +720,7 @@ jobs:
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi easy tests
         run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
       - name: Remove stdgo folder
@@ -782,7 +782,7 @@ jobs:
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi easy tests
         run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
       - name: Remove stdgo folder
@@ -851,7 +851,7 @@ jobs:
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./extra/scripts/sortTests ci
       # run go medium tests
       - name: Run go medium tests
         run: npx haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D targets=hl #-D hxb
@@ -924,7 +924,7 @@ jobs:
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./extra/scripts/sortTests ci
       # run go medium tests
       - name: Run go medium tests
         run: npx haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D targets=js #-D hxb
@@ -984,7 +984,7 @@ jobs:
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi medium tests
         run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
       - name: Remove stdgo folder
@@ -1043,7 +1043,7 @@ jobs:
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi medium tests
         run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
       - name: Remove stdgo folder
@@ -1105,7 +1105,7 @@ jobs:
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
       - name: Sort tests
-        run: go run ./scripts/sortTests ci
+        run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi medium tests
         run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
       - name: Remove stdgo folder

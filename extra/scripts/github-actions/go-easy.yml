@@ -51,7 +51,7 @@ steps:
     run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
     continue-on-error: true
   - name: Sort tests
-    run: go run ./scripts/sortTests ci
+    run: go run ./extra/scripts/sortTests ci
   # run go easy tests
   - name: Run go easy tests
     run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D targets=::target:: #-D hxb

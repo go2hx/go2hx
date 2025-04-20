@@ -41,7 +41,7 @@ steps:
   - name: clone yaegi
     run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
   - name: Sort tests
-    run: go run ./scripts/sortTests ci
+    run: go run ./extra/scripts/sortTests ci
   - name: Run yaegi easy tests
     run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D targets=::target:: #-D hxb
   - name: Remove stdgo folder

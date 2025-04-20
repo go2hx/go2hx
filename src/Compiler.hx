@@ -799,6 +799,7 @@ var clients:Array<Client> = [];
 #if (target.threaded)
 var processes:Array<sys.io.Process> = [];
 var mainThread = sys.thread.Thread.current();
+#end
 var programArgs = [];
 
 @:structInit

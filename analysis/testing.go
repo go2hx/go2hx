@@ -71,6 +71,7 @@ func create(filePath string, fileName string, runFunc func(file *ast.File, check
 
 	// Print the result
 	config := printer.Config{Mode: printer.UseSpaces, Tabwidth: 4}
+	_ = os.MkdirAll(filePath+"mod/", 0777)
 	// new file
 	newPath := filePath + "mod/" + fileName
 	modFile, err := os.Create(newPath)

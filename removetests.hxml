@@ -1,5 +1,0 @@
--m RemoveTests
--lib hxnodejs
---js rt.js
--D no-deprecation-warnings
---cmd node rt.js

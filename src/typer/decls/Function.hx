@@ -1,12 +1,5 @@
 package typer.decls;
 
-import haxe.macro.Expr;
-import haxe.io.Path;
-import typer.Typer;
-import typer.Package;
-import shared.Util;
-import typer.Types;
-
 /*function typeFunctionAnalyze(f ast.FunctionLit) {
     var newFormat
     
@@ -42,7 +35,7 @@ function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> =
     info.localUnderlyingNames = data.localUnderlyingNames.copy();
     var name = formatHaxeFieldName(decl.name.name, info);
     if (decl.name.name == "init" && (decl.recv == null || decl.recv.list == null)) {
-        switch typeBlockStmt(decl.body, info, true) {
+        switch typer.stmts.Block.typeBlockStmt(decl.body, info, true) {
             case EBlock(exprs):
                 info.global.initBlock = info.global.initBlock.concat(exprs);
             default:
@@ -125,14 +118,14 @@ function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> =
         final recvName = (decl.recv == null || decl.recv.list == null) ? "" : getRecvName(decl.recv.list[0].type, info);
         macro throw ${makeString(recvName + ":" + info.global.path + "." + name + " is not yet implemented")};
     } else {
-        var block = toExpr(typeBlockStmt(decl.body, info, true));
+        var block = toExpr(typer.stmts.Block.typeBlockStmt(decl.body, info, true));
         final cond = codegen.Patch.skipTests[patchName];
         if (cond != null) {
             switch block.expr {
                 case EBlock(exprs):
                     final deferBool = info.global.deferBool;
                     info.global.deferBool = false;
-                    final e = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
+                    final e = toExpr(typer.stmts.Return.typeReturnStmt({results: [], returnPos: 0}, info));
                     info.global.deferBool = deferBool;
                     if (cond.length == 0) {
                         block = macro {
@@ -240,7 +233,7 @@ function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> =
     if (specs != null) {
         for (spec in specs) {
             // trace("add", decl.name.name, spec.name.name);
-            final spec = typeSpec(spec, info, true);
+            final spec = typer.specs.Spec.typeSpec(spec, info, true);
             for (i in 0...info.data.defs.length) {
                 if (info.data.defs[i].name == spec.name) {
                     info.data.defs[i] = spec;

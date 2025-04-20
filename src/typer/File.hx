@@ -45,7 +45,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
                     final spec:GoAst.TypeSpec = spec;
                     if (spec.type.id == "InterfaceType") { // priority
                         if (spec.name.name != "_")
-                            info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
+                            info.data.defs.push(typer.specs.Spec.typeSpec(spec, info, gen.tok == FUNC));
                     }
             }
         }
@@ -66,7 +66,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
                                 // trace(key);
                                 spec.name.name = spec.name.name.substr(index + 1);
                                 // need to push the type in order to do a replace later at the decleration within a function body
-                                info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
+                                info.data.defs.push(typer.specs.Spec.typeSpec(spec, info, gen.tok == FUNC));
                                 if (!info.global.localSpecs.exists(key)) {
                                     info.global.localSpecs[key] = [];
                                 }
@@ -74,7 +74,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
                                 info.global.localSpecs[key].push(spec);
                                 gen.specs.remove(spec);
                             } else {
-                                info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
+                                info.data.defs.push(typer.specs.Spec.typeSpec(spec, info, gen.tok == FUNC));
                             }
                         }
                     }
@@ -89,7 +89,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
             if (spec.id == "TypeSpec" && spec.type.id != "InterfaceType" && spec.type.id != "StructType") { // all other specs
                 if (spec.name.name != "_" && typeSpecNames.indexOf(spec.name.name) == -1) {
                     typeSpecNames.push(spec.name.name);
-                    info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
+                    info.data.defs.push(typer.specs.Spec.typeSpec(spec, info, gen.tok == FUNC));
                 }
             }
         }
@@ -107,7 +107,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
             switch spec.id {
                 case "ValueSpec":
                     final spec:GoAst.ValueSpec = spec;
-                    values = values.concat(typeValue(spec, info, constant));
+                    values = values.concat(typer.specs.Value.typeValue(spec, info, constant));
                 default:
             }
         }
@@ -148,7 +148,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 
     for (key => specs in info.global.localSpecs) {
         for (spec in specs) {
-            final spec = typeSpec(spec, info, true);
+            final spec = typer.specs.Spec.typeSpec(spec, info, true);
             for (i in 0...info.data.defs.length) {
                 if (info.data.defs[i].name == spec.name) {
                     info.data.defs[i] = spec;

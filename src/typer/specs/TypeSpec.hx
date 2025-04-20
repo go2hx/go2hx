@@ -1,11 +1,6 @@
 package typer.specs;
 
-import haxe.macro.Expr;
-import haxe.io.Path;
-import typer.Typer;
-import typer.Package;
-import shared.Util;
-import typer.Types;
+
 
 function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt = 0):TypeDefinition {
 	var name = className(spec.name.name, info);

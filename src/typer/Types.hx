@@ -1,12 +1,12 @@
 package typer;
 
-import typer.Ast.BasicKind;
+import typer.GoAst.BasicKind;
 
 enum GoType {
 	typeParam(name:String, params:Array<GoType>);
 	invalidType;
 	signature(variadic:Bool, params:Ref<Array<GoType>>, results:Ref<Array<GoType>>, recv:Ref<GoType>, ?typeParams:Ref<Array<GoType>>);
-	basic(kind:Ast.BasicKind);
+	basic(kind:GoAst.BasicKind);
 	_var(name:String, type:Ref<GoType>);
 	tuple(len:Int, vars:Ref<Array<GoType>>);
 	interfaceType(empty:Bool, methods:Array<MethodType>);

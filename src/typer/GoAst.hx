@@ -10,6 +10,20 @@ typedef Decl = Dynamic;
 typedef Scope = Dynamic;
 typedef ChanDir = Int;
 
+typedef DataType = {args:Array<String>, pkgs:Array<PackageType>, index:String, typeList:Array<Dynamic>};
+
+typedef PackageType = {
+	path:String,
+	name:String,
+	order:Array<String>,
+	files:Array<{
+		path:String,
+		location:String,
+		decls:Array<Dynamic>,
+		doc:GoAst.CommentGroup,
+	}>
+};
+
 enum abstract ObjKind(Int) {
 	public final bad = 0; // for error handling
 	public final pkg = 1; // package
@@ -503,7 +517,7 @@ typedef ImportSpec = {
 
 typedef ValueSpec = {
 	doc:CommentGroup,
-	names:Array<Ast.Ident>,
+	names:Array<Ident>,
 	type:Expr,
 	values:Array<Expr>,
 	comment:CommentGroup,

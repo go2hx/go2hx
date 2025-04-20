@@ -1,8 +1,11 @@
 package;
+/**
+ * Compiler holds the API to call the compiler and use various callbacks
+ */
 
 import sys.FileSystem;
 import utils.Network;
-import typer.Typer.DataType;
+import typer.GoAst.DataType;
 import haxe.Json;
 import haxe.Resource;
 import haxe.ds.Vector;
@@ -10,33 +13,10 @@ import haxe.io.Bytes;
 import haxe.io.Path;
 import sys.io.File;
 
-final cwd = Sys.getCwd();
-final loop = Loop.getDefault();
-final server = new Tcp(loop);
-var clients:Array<Client> = [];
-#if (target.threaded)
-var processes:Array<sys.io.Process> = [];
-#end
 // events
-var onComplete:(modules:Array<typer.Typer.Module>, data:Dynamic) -> Void = null;
+var onComplete:(modules:Array<typer.HaxeAst.Module>, data:Dynamic) -> Void = null;
 var onUnknownExit:Void->Void = null;
-var programArgs = [];
-#if (target.threaded)
-var mainThread = sys.thread.Thread.current();
-#end
 
-@:structInit
-class Client {
-	public var stream:Stream;
-	public var runnable:Bool = true; // start out as true
-	public var id:Int = 0;
-	public var retries:Int = 0;
-
-	public function new(stream, id) {
-		this.stream = stream;
-		this.id = id;
-	}
-}
 
 /**
  * Run the compiler from the args
@@ -375,7 +355,7 @@ function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allA
 				var modules = [];
 				Sys.setCwd(cwd);
 				instance.log("compile");
-				modules = typer.Typer.main(exportData, instance);
+				modules = typer.Typer.typer(exportData, instance);
 				instance.log("compile complete");
 				exportData = null;
 
@@ -458,7 +438,7 @@ private function logGenSizes() {
 	}
 }
 
-private function createBasePkgs(outputPath:String, modules:Array<typer.Typer.Module>, cwd:String) {
+private function createBasePkgs(outputPath:String, modules:Array<typer.HaxeAst.Module>, cwd:String) {
 	Sys.println("create base pkgs: " + outputPath);
 	if (!FileSystem.exists(outputPath + "/stdgo"))
 		FileSystem.createDirectory(outputPath + "/stdgo");
@@ -496,7 +476,7 @@ function targetLibs(target:String):String {
 	}
 }
 
-function mainPaths(modules:Array<typer.Typer.Module>):Array<String> {
+function mainPaths(modules:Array<typer.HaxeAst.Module>):Array<String> {
 	final paths:Array<String> = [];
 	for (module in modules) {
 		if (module == null || !module.isMain || module.files[0] == null || !module.files[0].isMain)
@@ -511,7 +491,7 @@ function mainPaths(modules:Array<typer.Typer.Module>):Array<String> {
 	return paths;
 }
 
-function mainPkgs(modules:Array<typer.Typer.Module>):Array<String> {
+function mainPkgs(modules:Array<typer.HaxeAst.Module>):Array<String> {
 	final paths:Array<String> = [];
 	for (module in modules) {
 		if (module == null || !module.isMain || module.files[0] == null || !module.files[0].isMain)
@@ -522,7 +502,7 @@ function mainPkgs(modules:Array<typer.Typer.Module>):Array<String> {
 	return paths;
 }
 
-private function runBuildTools(modules:Array<typer.Typer.Module>, instance:CompilerInstanceData, args:Array<String>) {
+private function runBuildTools(modules:Array<typer.HaxeAst.Module>, instance:CompilerInstanceData, args:Array<String>) {
 	if (instance.target == "") {
 		if (instance.test) {
 			if (!instance.noRun) {
@@ -810,5 +790,26 @@ class CompilerInstanceData {
 		Sys.println(s);
 	}
 }
-
+// global vars
 final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodeps", "-debug", "--debug"];
+final cwd = Sys.getCwd();
+final loop = Loop.getDefault();
+final server = new Tcp(loop);
+var clients:Array<Client> = [];
+#if (target.threaded)
+var processes:Array<sys.io.Process> = [];
+var mainThread = sys.thread.Thread.current();
+var programArgs = [];
+
+@:structInit
+class Client {
+	public var stream:Stream;
+	public var runnable:Bool = true; // start out as true
+	public var id:Int = 0;
+	public var retries:Int = 0;
+
+	public function new(stream, id) {
+		this.stream = stream;
+		this.id = id;
+	}
+}

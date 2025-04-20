@@ -1,7 +1,7 @@
 package codegen;
 
 import haxe.macro.Type.FieldKind;
-import typer.Typer.Module;
+import typer.HaxeAst.Module;
 import haxe.macro.Expr.TypeDefKind;
 import haxe.macro.Expr.TypeDefinition;
 import haxe.macro.Expr;
@@ -27,7 +27,7 @@ function cutPrefixComplexType(ct:ComplexType):ComplexType {
 	return ct;
 }
 
-function create(outputPath:String, module:Module, root:String) {
+function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
 	var actualPath = StringTools.replace(module.path, ".", "/");
 	final paths = actualPath.split("/");
 	// get rid of github.com/org/repo prefix

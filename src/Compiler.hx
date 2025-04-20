@@ -355,7 +355,7 @@ function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allA
 				var modules = [];
 				Sys.setCwd(cwd);
 				instance.log("compile");
-				modules = typer.Typer.typer(exportData, instance);
+				modules = typer.Typer.typeData(exportData, instance);
 				instance.log("compile complete");
 				exportData = null;
 

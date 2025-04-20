@@ -10,18 +10,25 @@ typedef Decl = Dynamic;
 typedef Scope = Dynamic;
 typedef ChanDir = Int;
 
-typedef DataType = {args:Array<String>, pkgs:Array<PackageType>, index:String, typeList:Array<Dynamic>};
+typedef DataType = {
+	args:Array<String>, 
+	pkgs:Array<PackageType>,
+	index:String,
+	typeList:Array<Dynamic>,
+};
 
 typedef PackageType = {
 	path:String,
 	name:String,
 	order:Array<String>,
-	files:Array<{
-		path:String,
-		location:String,
-		decls:Array<Dynamic>,
-		doc:GoAst.CommentGroup,
-	}>
+	files:Array<FileType>,
+};
+
+typedef FileType = {
+	path:String,
+	location:String,
+	decls:Array<Decl>,
+	doc:GoAst.CommentGroup,
 };
 
 enum abstract ObjKind(Int) {

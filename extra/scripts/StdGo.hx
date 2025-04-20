@@ -53,7 +53,7 @@ function main() {
 	#end
 }
 
-private function complete(modules:Array<typer.Typer.Module>, _) {
+private function complete(modules:Array<typer.HaxeAst.Module>, _) {
 	if (--libCount <= 0)
 		Compiler.closeCompiler();
 }

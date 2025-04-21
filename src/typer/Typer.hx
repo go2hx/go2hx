@@ -19,14 +19,11 @@ function typeData(data:GoAst.DataType, instance:Compiler.CompilerInstanceData):A
 	for (obj in data.typeList) {
 		hashMap[obj.hash] = obj;
 	}
-	var info:Info = null;
 	// module system
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)
 			continue;
-		final obj = Package.typePackage(pkg, instance, info, hashMap);
-		info = obj.info;
-		list.push(obj.module);
+		list.push(Package.typePackage(pkg, instance, hashMap));
 	}
 	return list;
 }

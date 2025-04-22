@@ -12,19 +12,37 @@ class Go {
 	public static var recover_exception:stdgo.AnyInterface= null;
 	public static var globalMutex = #if target.threaded new sys.thread.Mutex(); #else {acquire: () -> {}, release: () -> {}}; #end
 	// GOROUTINE
+	public static var goroutines = 0; // goroutine watching, to make sure they all complete i.e. no leaks
+
+	static final GOMAXPROCS = 1024; // really this is the max threads
+
+	#if (target.threaded)
+	public static var grMutex = new sys.thread.Mutex();
+	// NOTE without using the ElasticThreadPool, the job gets cancelled on OSX after about 8k threads
+	public static var elasticThreadPool = new sys.thread.ElasticThreadPool(GOMAXPROCS, 60 * 60 * 24 * 365); // timeout after 1 year
+
+	#end
 	public static function routine(func:Void->Void) {
+		if (goroutines >= GOMAXPROCS)
+			throw "too many active goroutines";
 		#if js
 		/*js.Syntax.code("var __a__ = async function() {
 			{0}();
 		}; __a__();", func);*/
 		#elseif (target.threaded)
-		sys.thread.Thread.createWithEventLoop(() -> {
+		elasticThreadPool.run(() -> {
 			/*try {
-				func();
-			}catch(e) {
-				throw e;
+					func();
+				}catch(e) {
+					throw e;
 			}*/
+			grMutex.acquire();
+			goroutines++;
+			grMutex.release();
 			func();
+			grMutex.acquire();
+			goroutines--;
+			grMutex.release();
 		});
 		#end
 	}

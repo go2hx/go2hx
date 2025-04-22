@@ -1038,7 +1038,7 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 		while(__select__) {
 			$e;
 			@:define("(sys || hxnodejs)") Sys.sleep(0.01);
-			stdgo._internal.internal.Async.tick();
+			//stdgo._internal.internal.Async.tick();
 		}
 		@:mergeBlock $b{resets};
 	};

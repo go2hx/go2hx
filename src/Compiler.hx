@@ -253,7 +253,7 @@ function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allA
 	server.listen(0, () -> {
 		index = accept(server, instance, index, processCount, allAccepted);
 	});
-	#if js displayServerPortNodeJS(server); #end
+	#if js listenNodeJS(server, port); #end
 }
 #if js
 function jsProcess(instance) {
@@ -323,17 +323,10 @@ function accept(server, instance, index, processCount, allAccepted):Int {
 	return index;
 }
 
-private function receivedData(instance, buff, client, ) {
-	var exportData:DataType = null;
-	instance.log("uncompress start");
-	var data = haxe.zip.Uncompress.run(buff);
-	instance.log("uncompress complete, json parse");
-	buff = null;
-	exportData = haxe.Json.parse(#if js @:privateAccess data.b.toString() #else data.toString() #end);
-	instance.log("json complete");
-	data = null;
-	// haxe.Timer.measure(() -> exportData = haxe.Json.parse(buff.toString()));
-	// Sys.println("retrieved exportData");
+private function receivedData(instance, buff, client) {
+	var data = haxe.zip.Uncompress.run(buff).toString();
+	final exportData:DataType = haxe.Json.parse(#if js @:privateAccess data.b.toString() #else data.toString() #end);
+
 	final index = Std.parseInt(exportData.index);
 	var instance = instanceCache[index];
 	instanceCache[index] = null; // reset
@@ -431,7 +424,7 @@ function healthCheck(instance) {
 	return;
 }
 #if js
-function displayServerPortNodeJS(server:Tcp) {
+function listenNodeJS(server:Tcp, port:Int) {
 	@:privateAccess server.s.listen(port, () -> {
 		port = server.getPort();
 		Sys.println('nodejs server listening on local port: ${port}');

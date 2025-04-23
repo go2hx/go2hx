@@ -228,6 +228,8 @@ function closeCompiler(code:Int = 0, instance:Null<CompilerInstanceData> = null)
 	Sys.exit(code);
 }
 
+var resetCount = 0;
+
 function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allAccepted:Void->Void = null) {
 	utils.Cache.setUseCache(instance.useCache);
 	if (!instance.cleanCache)
@@ -239,8 +241,8 @@ function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allA
 	Sys.println('listening on local port: ${instance.port}');
 	#else
 	var processCountIndex = 0;
-	var resetCount = 0;
 	#end
+	resetCount = 0;
 	// server.noDelay(true);
 	for (i in 0...processCount) {
 		#if (target.threaded)
@@ -253,42 +255,8 @@ function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allA
 	server.listen(0, () -> {
 		index = accept(server, instance, index, processCount, allAccepted);
 	});
-	#if js listenNodeJS(server, port); #end
+	#if js listenNodeJS(server, instance); #end
 }
-#if js
-function jsProcess(instance) {
-	final name = if (Sys.systemName() != "Windows") {
-		"./go4hx";
-	} else {
-		"go4hx.exe";
-	}
-	final child = js.node.ChildProcess.exec('$name ${instance.port}', null, null);
-	child.on('exit', code -> {
-		final code:Int = code;
-		Sys.println('child process exited: $code');
-		// print out output
-		Sys.println(child.stdout.read());
-		Sys.println(child.stderr.read());
-		if (resetCount++ > 8) {
-			child.kill();
-			if (onUnknownExit != null)
-				onUnknownExit();
-		} else {
-			child.kill();
-			jsProcess();
-		}
-	});
-	child.stderr.on('data', data -> {
-		Sys.println('stderr: $data');
-	});
-	child.stdout.on('data', data -> {
-		Sys.println('stdout: $data');
-	});
-	child.on('SIGINT', () -> {
-		Sys.println('Received SIGINT. Press Control-D to exit.');
-	});
-}
-#end
 
 function accept(server, instance, index, processCount, allAccepted):Int {
 	Sys.println("accepted connection");
@@ -324,22 +292,20 @@ function accept(server, instance, index, processCount, allAccepted):Int {
 }
 
 private function receivedData(instance, buff, client) {
-	var data = haxe.zip.Uncompress.run(buff).toString();
-	final exportData:DataType = haxe.Json.parse(#if js @:privateAccess data.b.toString() #else data.toString() #end);
+	final uncompressedDataStr = haxe.zip.Uncompress.run(buff).toString();
+	final exportData:DataType = haxe.Json.parse(uncompressedDataStr);
 
 	final index = Std.parseInt(exportData.index);
 	var instance = instanceCache[index];
 	instanceCache[index] = null; // reset
-	// File.saveContent("export.json", Json.stringify(exportData, null, "    ")); // export out data to json
-	var modules = [];
-	Sys.setCwd(cwd);
-	instance.log("compile");
-	modules = typer.Typer.typeData(exportData, instance);
-	instance.log("compile complete");
 
+	Sys.setCwd(cwd);
+	final modules = typer.Typer.typeData(exportData, instance);
 	Sys.setCwd(instance.localPath);
+
 	if (instance.noDeps)
 		createBasePkgs(Path.addTrailingSlash(instance.outputPath), modules, cwd);
+
 	var isStdgo = false;
 	var alreadyWrapped = false;
 	var isMain = false;
@@ -353,22 +319,27 @@ private function receivedData(instance, buff, client) {
 	for (module in modules) {
 		if (!isStdgo)
 			isStdgo = typer.Typer.stdgoList.contains(StringTools.replace(module.path, ".", "/"));
-		if (instance.libwrap && !isMain && !isStdgo && !alreadyWrapped) {
+
+		var outputPath = Path.addTrailingSlash(instance.outputPath);
+		final isLibWrap = instance.libwrap && !isMain && !isStdgo && !alreadyWrapped;
+		if (isLibWrap) {
 			alreadyWrapped = true;
-			final name = module.name;
-			final libPath = name + "/";
-			instance.outputPath = Path.addTrailingSlash(instance.outputPath) + libPath;
-			// sys.io.File.saveContent(Path.addTrailingSlash(instance.outputPath) + "haxelib.json");
-			codegen.CodeGen.create(instance.outputPath, module, instance.root);
-			final cmd = 'haxelib dev $name ${instance.outputPath}';
+			final libPath = Path.addTrailingSlash(module.name);
+			outputPath += libPath;
+		}
+
+		// generate the code
+		codegen.CodeGen.create(outputPath, module, instance.root);
+
+		// haxelib dev command
+		if (isLibWrap) {
+			final cmd = 'haxelib dev ${module.name} ${instance.outputPath}';
 			Sys.println(cmd);
 			Sys.command(cmd);
-			Sys.println('Include lib: -lib $name');
-		} else {
-			codegen.CodeGen.create(Path.addTrailingSlash(instance.outputPath), module, instance.root);
+			Sys.println('Include lib: -lib ${module.name}');
 		}
 	}
-	logGenSizes();
+	printCodeSize();
 	runBuildTools(modules, instance, programArgs);
 	Sys.setCwd(cwd);
 	onComplete(modules, instance.data);
@@ -378,7 +349,6 @@ private function receivedData(instance, buff, client) {
 	#elseif hl
 	hl.Gc.major();
 	#end
-	modules = null;
 	instance = null;
 	programArgs = null;
 }
@@ -424,15 +394,15 @@ function healthCheck(instance) {
 	return;
 }
 #if js
-function listenNodeJS(server:Tcp, port:Int) {
-	@:privateAccess server.s.listen(port, () -> {
-		port = server.getPort();
-		Sys.println('nodejs server listening on local port: ${port}');
+function listenNodeJS(server:Tcp, instance:CompilerInstanceData) {
+	@:privateAccess server.s.listen(instance.port, () -> {
+		instance.port = server.getPort();
+		Sys.println('nodejs server listening on local port: ${instance.port}');
 	});
 }
 #end
 
-private function logGenSizes() {
+private function printCodeSize() {
 	final sizeMap = codegen.CodeGen.sizeMap;
 	// log size maps
 	var lSize = 0;
@@ -826,3 +796,38 @@ class Client {
 		#if !hl stream.size = 8; #end
 	}
 }
+
+#if js
+function jsProcess(instance) {
+	final name = if (Sys.systemName() != "Windows") {
+		"./go4hx";
+	} else {
+		"go4hx.exe";
+	}
+	final child = js.node.ChildProcess.exec('$name ${instance.port}', null, null);
+	child.on('exit', code -> {
+		final code:Int = code;
+		Sys.println('child process exited: $code');
+		// print out output
+		Sys.println(child.stdout.read());
+		Sys.println(child.stderr.read());
+		if (resetCount++ > 8) {
+			child.kill();
+			if (onUnknownExit != null)
+				onUnknownExit();
+		} else {
+			child.kill();
+			jsProcess(instance);
+		}
+	});
+	child.stderr.on('data', data -> {
+		Sys.println('stderr: $data');
+	});
+	child.stdout.on('data', data -> {
+		Sys.println('stdout: $data');
+	});
+	child.on('SIGINT', () -> {
+		Sys.println('Received SIGINT. Press Control-D to exit.');
+	});
+}
+#end

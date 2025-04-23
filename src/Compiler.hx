@@ -253,7 +253,7 @@ function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allA
 	server.listen(0, () -> {
 		index = accept(server, instance, index, processCount, allAccepted);
 	});
-	displayServerPortNodeJS(server);
+	#if js displayServerPortNodeJS(server); #end
 }
 #if js
 function jsProcess(instance) {
@@ -430,15 +430,14 @@ function healthCheck(instance) {
 	closeCompiler(0, instance);
 	return;
 }
-
-function displayServerPortNodeJS(server) {
-	#if js
+#if js
+function displayServerPortNodeJS(server:Tcp) {
 	@:privateAccess server.s.listen(port, () -> {
 		port = server.getPort();
 		Sys.println('nodejs server listening on local port: ${port}');
 	});
-	#end
 }
+#end
 
 private function logGenSizes() {
 	final sizeMap = codegen.CodeGen.sizeMap;

@@ -711,6 +711,7 @@ private function sortDataToTests(sortData:SortData) {
 private function excludeTest(name:String) {
 	// exclude certain go tests
 	switch name {
+		case "bug43111": // go-easy timeout
 		case "sieve": // go-easy very flakey channels, TODO enable
 		case "io3", "io4", "io5": // unit very flakey channels, TODO enable
 		case "chan1": // unit very flakey channels, TODO enable

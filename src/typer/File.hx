@@ -7,7 +7,7 @@ import typer.Package;
 import shared.Util;
 
 
-function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Array<RecvFunction>, pkg:GoAst.PackageType, info:Info):HaxeAst.HaxeFileType {
+function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Array<RecvFunction>, pkg:Intermediate.Package, info:Info):HaxeAst.HaxeFileType {
     file.location = Path.normalize(file.location);
     var data:HaxeAst.HaxeFileType = {
         name: file.path,
@@ -114,7 +114,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
     }
 
     var valuesSorted = [];
-    for (name in pkg.order) {
+    for (name in pkg.varOrder) {
         for (value in values) {
             if (value.name == name) {
                 if (value.pos != null) {

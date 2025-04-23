@@ -4567,7 +4567,6 @@ function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:B
 		name = splitDepFullPathName(name, info);
 	}
 	if (!formatField && overwrite) {
-		// if (oldName != name)
 		info.renameIdents[oldName] = name;
 		info.localIdents.push(name);
 	}
@@ -4576,13 +4575,7 @@ function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:B
 
 function splitDepFullPathName(name:String, info:Info):String {
 	var path = getGlobalPath(info);
-	/*if (StringTools.endsWith(path, "_test")) {
-		path = path.substr(0, path.length - "_test".length);
-	}*/
 	var filePath = info.global.filePath;
-	/*if (StringTools.endsWith(filePath, "_test")) {
-		filePath = filePath.substr(0, filePath.length - "_test".length);
-	}*/
 	name = path + "." + filePath + "_" + name.toLowerCase() + "." + name;
 	return name;
 }

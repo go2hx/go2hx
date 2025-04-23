@@ -132,12 +132,13 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
             }
         }
     }
-    if (info.global.order.length > 0) {
+    if (pkg.varOrder.length > 0) {
         final vars:Array<Var> = [];
-        for (i in 0...info.global.order.length) {
-            final o = info.global.order[i];
+        for (i in 0...pkg.varOrder.length) {
+            final o = pkg.varOrder[i];
             vars.push({name: "__tmp__" + i, expr: macro $i{splitDepFullPathName(o, info)}});
         }
+        
         info.global.initBlock.push(toExpr(EVars(vars)));
     }
     if (values.length > 0) {

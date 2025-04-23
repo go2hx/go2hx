@@ -11,14 +11,12 @@ import typer.Types;
 
 // @:formatter on
 
-function typeData(data:GoAst.DataType, instance:Compiler.CompilerInstanceData):Array<HaxeAst.Module> {
-	final imports:Array<String> = [];
+function typeAST(data:GoAst.DataType, instance:Compiler.CompilerInstanceData):Array<HaxeAst.Module> {
 	final noCommentsBool = instance.noComments;
 	var list:Array<HaxeAst.Module> = [];
 	final hashMap:Map<UInt, Dynamic> = [];
-	for (obj in data.typeList) {
+	for (obj in data.typeList)
 		hashMap[obj.hash] = obj;
-	}
 	// module system
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)

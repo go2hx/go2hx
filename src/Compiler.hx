@@ -17,6 +17,84 @@ import sys.io.File;
 var onComplete:(modules:Array<typer.HaxeAst.Module>, data:Dynamic) -> Void = null;
 var onUnknownExit:Void->Void = null;
 
+/**
+ * All of the Go AST and type information has been sent over the network.
+ * 1. Uncompress it.
+ * 2. Parse it as JSON.
+ * 3. Set current working directory.
+ * 4. Typing phase GO AST -> Haxe AST transformations
+ * 5. Generate code from the result of typing.
+ * 6. Run go2hx's build tools if applicable.
+ * 7. Call onComplete.
+ * @param instance 
+ * @param buff 
+ * @param client 
+ */
+private function receivedData(instance, buff, client) {
+	final uncompressedDataStr = haxe.zip.Uncompress.run(buff).toString();
+	final exportData:DataType = haxe.Json.parse(uncompressedDataStr);
+
+	final index = Std.parseInt(exportData.index);
+	var instance = instanceCache[index];
+	instanceCache[index] = null; // reset
+
+	Sys.setCwd(cwd);
+
+	// IMPORTANT: typing phase Go AST -> Haxe AST
+	final modules = typer.Typer.typeAST(exportData, instance);
+
+	Sys.setCwd(instance.localPath);
+
+	if (instance.noDeps)
+		createBasePkgs(Path.addTrailingSlash(instance.outputPath), modules, cwd);
+
+	var isStdgo = false;
+	var alreadyWrapped = false;
+	var isMain = false;
+	for (module in modules) {
+		if (module.isMain) {
+			isMain = true;
+			break;
+		}
+	}
+	codegen.CodeGen.sizeMap = [];
+	for (module in modules) {
+		if (!isStdgo)
+			isStdgo = typer.Typer.stdgoList.contains(StringTools.replace(module.path, ".", "/"));
+
+		var outputPath = Path.addTrailingSlash(instance.outputPath);
+		final isLibWrap = instance.libwrap && !isMain && !isStdgo && !alreadyWrapped;
+		if (isLibWrap) {
+			alreadyWrapped = true;
+			final libPath = Path.addTrailingSlash(module.name);
+			outputPath += libPath;
+		}
+
+		// generate the code
+		codegen.CodeGen.create(outputPath, module, instance.root);
+
+		// haxelib dev command
+		if (isLibWrap) {
+			final cmd = 'haxelib dev ${module.name} ${instance.outputPath}';
+			Sys.println(cmd);
+			Sys.command(cmd);
+			Sys.println('Include lib: -lib ${module.name}');
+		}
+	}
+	printCodeSize();
+	runBuildTools(modules, instance, programArgs);
+	Sys.setCwd(cwd);
+	onComplete(modules, instance.data);
+	#if nodejs
+	if (js.Node.global.gc != null)
+		js.Node.global.gc();
+	#elseif hl
+	hl.Gc.major();
+	#end
+	instance = null;
+	programArgs = null;
+}
+
 
 /**
  * Run the compiler from the args
@@ -289,68 +367,6 @@ function accept(server, instance, index, processCount, allAccepted):Int {
 	if (index >= processCount && allAccepted != null)
 		allAccepted();
 	return index;
-}
-
-private function receivedData(instance, buff, client) {
-	final uncompressedDataStr = haxe.zip.Uncompress.run(buff).toString();
-	final exportData:DataType = haxe.Json.parse(uncompressedDataStr);
-
-	final index = Std.parseInt(exportData.index);
-	var instance = instanceCache[index];
-	instanceCache[index] = null; // reset
-
-	Sys.setCwd(cwd);
-	final modules = typer.Typer.typeData(exportData, instance);
-	Sys.setCwd(instance.localPath);
-
-	if (instance.noDeps)
-		createBasePkgs(Path.addTrailingSlash(instance.outputPath), modules, cwd);
-
-	var isStdgo = false;
-	var alreadyWrapped = false;
-	var isMain = false;
-	for (module in modules) {
-		if (module.isMain) {
-			isMain = true;
-			break;
-		}
-	}
-	codegen.CodeGen.sizeMap = [];
-	for (module in modules) {
-		if (!isStdgo)
-			isStdgo = typer.Typer.stdgoList.contains(StringTools.replace(module.path, ".", "/"));
-
-		var outputPath = Path.addTrailingSlash(instance.outputPath);
-		final isLibWrap = instance.libwrap && !isMain && !isStdgo && !alreadyWrapped;
-		if (isLibWrap) {
-			alreadyWrapped = true;
-			final libPath = Path.addTrailingSlash(module.name);
-			outputPath += libPath;
-		}
-
-		// generate the code
-		codegen.CodeGen.create(outputPath, module, instance.root);
-
-		// haxelib dev command
-		if (isLibWrap) {
-			final cmd = 'haxelib dev ${module.name} ${instance.outputPath}';
-			Sys.println(cmd);
-			Sys.command(cmd);
-			Sys.println('Include lib: -lib ${module.name}');
-		}
-	}
-	printCodeSize();
-	runBuildTools(modules, instance, programArgs);
-	Sys.setCwd(cwd);
-	onComplete(modules, instance.data);
-	#if nodejs
-	if (js.Node.global.gc != null)
-		js.Node.global.gc();
-	#elseif hl
-	hl.Gc.major();
-	#end
-	instance = null;
-	programArgs = null;
 }
 
 private function setBytes(buff:Bytes,bytes:Bytes, pos:Int):Int {

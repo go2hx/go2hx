@@ -231,192 +231,207 @@ function closeCompiler(code:Int = 0, instance:Null<CompilerInstanceData> = null)
 function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allAccepted:Void->Void = null) {
 	utils.Cache.setUseCache(instance.useCache);
 	if (!instance.cleanCache)
-		utils.Cache.loadCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']));
-
-	var port = instance.port;
+		utils.Cache.loadCache(instance);
 
 	#if !js
-	server.bind(new sys.net.Host("127.0.0.1"), port);
-	port = server.getPort();
-	Sys.println('listening on local port: ${port}');
+	server.bind(new sys.net.Host("127.0.0.1"), instance.port);
+	instance.port = server.getPort();
+	Sys.println('listening on local port: ${instance.port}');
 	#else
 	var processCountIndex = 0;
 	var resetCount = 0;
-	function jsProcess() {
-		final name = if (Sys.systemName() != "Windows") {
-			"./go4hx";
-		} else {
-			"go4hx.exe";
-		}
-		final child = js.node.ChildProcess.exec('$name $port', null, null);
-		// final child = js.node.ChildProcess.execFile('go4hx', ['$port'], {cwd: cwd}, null);
-		child.on('exit', code -> {
-			final code:Int = code;
-			Sys.println('child process exited: $code');
-			// print out output
-			Sys.println(child.stdout.read());
-			Sys.println(child.stderr.read());
-			if (resetCount++ > 8) {
-				child.kill();
-				if (onUnknownExit != null)
-					onUnknownExit();
-			} else {
-				child.kill();
-				jsProcess();
-			}
-		});
-		child.stderr.on('data', data -> {
-			Sys.println('stderr: $data');
-		});
-		child.stdout.on('data', data -> {
-			Sys.println('stdout: $data');
-		});
-		child.on('SIGINT', () -> {
-			Sys.println('Received SIGINT. Press Control-D to exit.');
-		});
-	}
 	#end
 	// server.noDelay(true);
 	for (i in 0...processCount) {
-		// sys.thread.Thread.create(() -> Sys.command("./go4hx", ['$port']));
 		#if (target.threaded)
-		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
+		processes.push(new sys.io.Process("./go4hx", ['' + instance.port], false));
 		#else
-		jsProcess();
+		jsProcess(instance);
 		#end
 	}
 	var index = 0;
 	server.listen(0, () -> {
-		Sys.println("accepted connection");
-		index++;
-		final client:Client = {stream: server.accept(), id: -1};
-		#if !hl
-		client.stream.size = 8;
-		#end
-		clients.push(client);
-		var pos = 0;
-		var buff:Bytes = null;
-		client.stream.readStart(bytes -> {
-			if (bytes == null) {
-				// health check
-				#if (target.threaded)
-				for (proc in processes) {
-					final code = proc.exitCode(false);
-					if (code == null)
-						continue;
-					trace("proc code:", code);
-					if (code != 0) {
-						Sys.print(proc.stderr.readAll());
-					} else {
-						Sys.print(proc.stdout.readAll());
-					}
-				}
-				#end
-				// close as stream has broken
-				trace("stream has broken");
-				closeCompiler(0, instance);
-				return;
-			}
-			if (buff == null) {
-				final len:Int = haxe.Int64.toInt(bytes.getInt64(0));
-				instance.log("alloc " + len);
-				#if !hl
-				client.stream.size = len;
-				#end
-				buff = Bytes.alloc(len);
-				bytes = bytes.sub(8, bytes.length - 8);
-			}
-			#if hl
-			@:privateAccess buff.b.blit(pos, bytes, 0, bytes.length);
-			#elseif js
-			@:privateAccess buff.b.set(bytes.b, pos);
-			#else
-			buff.blit(pos, bytes, 0, bytes.length);
-			#end
-			pos += bytes.length;
-			instance.log("progress: " + pos + "/" + buff.length);
-			bytes = null;
-			// Sys.println("pos: " + pos + " buff: " + buff.length);
-			if (pos == buff.length) {
-				var exportData:DataType = null;
-				instance.log("uncompress start");
-				var data = haxe.zip.Uncompress.run(buff);
-				instance.log("uncompress complete, json parse");
-				buff = null;
-				exportData = haxe.Json.parse(#if js @:privateAccess data.b.toString() #else data.toString() #end);
-				instance.log("json complete");
-				data = null;
-				// haxe.Timer.measure(() -> exportData = haxe.Json.parse(buff.toString()));
-				// Sys.println("retrieved exportData");
-				final index = Std.parseInt(exportData.index);
-				var instance = instanceCache[index];
-				instanceCache[index] = null; // reset
-				// File.saveContent("export.json", Json.stringify(exportData, null, "    ")); // export out data to json
-				var modules = [];
-				Sys.setCwd(cwd);
-				instance.log("compile");
-				modules = typer.Typer.typeData(exportData, instance);
-				instance.log("compile complete");
-				exportData = null;
-
-				// reset
-				// trace("CLIENT RESET");
-				client.runnable = true;
-				client.retries = 0;
-				pos = 0;
-				buff = null;
-				#if !hl
-				client.stream.size = 8;
-				#end
-				Sys.setCwd(instance.localPath);
-				if (instance.noDeps)
-					createBasePkgs(Path.addTrailingSlash(instance.outputPath), modules, cwd);
-				var isStdgo = false;
-				var alreadyWrapped = false;
-				var isMain = false;
-				for (module in modules) {
-					if (module.isMain) {
-						isMain = true;
-						break;
-					}
-				}
-				codegen.CodeGen.sizeMap = [];
-				for (module in modules) {
-					if (!isStdgo)
-						isStdgo = typer.Typer.stdgoList.contains(StringTools.replace(module.path, ".", "/"));
-					if (instance.libwrap && !isMain && !isStdgo && !alreadyWrapped) {
-						alreadyWrapped = true;
-						final name = module.name;
-						final libPath = name + "/";
-						instance.outputPath = Path.addTrailingSlash(instance.outputPath) + libPath;
-						// sys.io.File.saveContent(Path.addTrailingSlash(instance.outputPath) + "haxelib.json");
-						codegen.CodeGen.create(instance.outputPath, module, instance.root);
-						final cmd = 'haxelib dev $name ${instance.outputPath}';
-						Sys.println(cmd);
-						Sys.command(cmd);
-						Sys.println('Include lib: -lib $name');
-					} else {
-						codegen.CodeGen.create(Path.addTrailingSlash(instance.outputPath), module, instance.root);
-					}
-				}
-				logGenSizes();
-				runBuildTools(modules, instance, programArgs);
-				Sys.setCwd(cwd);
-				onComplete(modules, instance.data);
-				#if nodejs
-				if (js.Node.global.gc != null)
-					js.Node.global.gc();
-				#elseif hl
-				hl.Gc.major();
-				#end
-				modules = null;
-				instance = null;
-				programArgs = null;
-			}
-		});
-		if (index >= processCount && allAccepted != null)
-			allAccepted();
+		index = accept(server, instance, index, processCount, allAccepted);
 	});
+	displayServerPortNodeJS(server);
+}
+#if js
+function jsProcess(instance) {
+	final name = if (Sys.systemName() != "Windows") {
+		"./go4hx";
+	} else {
+		"go4hx.exe";
+	}
+	final child = js.node.ChildProcess.exec('$name ${instance.port}', null, null);
+	child.on('exit', code -> {
+		final code:Int = code;
+		Sys.println('child process exited: $code');
+		// print out output
+		Sys.println(child.stdout.read());
+		Sys.println(child.stderr.read());
+		if (resetCount++ > 8) {
+			child.kill();
+			if (onUnknownExit != null)
+				onUnknownExit();
+		} else {
+			child.kill();
+			jsProcess();
+		}
+	});
+	child.stderr.on('data', data -> {
+		Sys.println('stderr: $data');
+	});
+	child.stdout.on('data', data -> {
+		Sys.println('stdout: $data');
+	});
+	child.on('SIGINT', () -> {
+		Sys.println('Received SIGINT. Press Control-D to exit.');
+	});
+}
+#end
+
+function accept(server, instance, index, processCount, allAccepted):Int {
+	Sys.println("accepted connection");
+	index++;
+	final client:Client = {stream: server.accept(), id: -1};
+	client.reset();
+	clients.push(client);
+	var pos = 0;
+	var buff:Bytes = null;
+	client.stream.readStart(bytes -> {
+		if (bytes == null) {
+			healthCheck(instance);
+			return;
+		}
+		if (buff == null) {
+			buff = createBuffer(client, bytes, instance);
+			bytes = bytes.sub(8, bytes.length - 8);
+		}
+		pos = setBytes(buff, bytes, pos);
+		instance.log("progress: " + pos + "/" + buff.length);
+		bytes = null;
+		if (pos == buff.length) {
+			receivedData(instance, buff, client);
+			// reset data
+			client.reset();
+			pos = 0;
+			buff = null;
+		}
+	});
+	if (index >= processCount && allAccepted != null)
+		allAccepted();
+	return index;
+}
+
+private function receivedData(instance, buff, client, ) {
+	var exportData:DataType = null;
+	instance.log("uncompress start");
+	var data = haxe.zip.Uncompress.run(buff);
+	instance.log("uncompress complete, json parse");
+	buff = null;
+	exportData = haxe.Json.parse(#if js @:privateAccess data.b.toString() #else data.toString() #end);
+	instance.log("json complete");
+	data = null;
+	// haxe.Timer.measure(() -> exportData = haxe.Json.parse(buff.toString()));
+	// Sys.println("retrieved exportData");
+	final index = Std.parseInt(exportData.index);
+	var instance = instanceCache[index];
+	instanceCache[index] = null; // reset
+	// File.saveContent("export.json", Json.stringify(exportData, null, "    ")); // export out data to json
+	var modules = [];
+	Sys.setCwd(cwd);
+	instance.log("compile");
+	modules = typer.Typer.typeData(exportData, instance);
+	instance.log("compile complete");
+
+	Sys.setCwd(instance.localPath);
+	if (instance.noDeps)
+		createBasePkgs(Path.addTrailingSlash(instance.outputPath), modules, cwd);
+	var isStdgo = false;
+	var alreadyWrapped = false;
+	var isMain = false;
+	for (module in modules) {
+		if (module.isMain) {
+			isMain = true;
+			break;
+		}
+	}
+	codegen.CodeGen.sizeMap = [];
+	for (module in modules) {
+		if (!isStdgo)
+			isStdgo = typer.Typer.stdgoList.contains(StringTools.replace(module.path, ".", "/"));
+		if (instance.libwrap && !isMain && !isStdgo && !alreadyWrapped) {
+			alreadyWrapped = true;
+			final name = module.name;
+			final libPath = name + "/";
+			instance.outputPath = Path.addTrailingSlash(instance.outputPath) + libPath;
+			// sys.io.File.saveContent(Path.addTrailingSlash(instance.outputPath) + "haxelib.json");
+			codegen.CodeGen.create(instance.outputPath, module, instance.root);
+			final cmd = 'haxelib dev $name ${instance.outputPath}';
+			Sys.println(cmd);
+			Sys.command(cmd);
+			Sys.println('Include lib: -lib $name');
+		} else {
+			codegen.CodeGen.create(Path.addTrailingSlash(instance.outputPath), module, instance.root);
+		}
+	}
+	logGenSizes();
+	runBuildTools(modules, instance, programArgs);
+	Sys.setCwd(cwd);
+	onComplete(modules, instance.data);
+	#if nodejs
+	if (js.Node.global.gc != null)
+		js.Node.global.gc();
+	#elseif hl
+	hl.Gc.major();
+	#end
+	modules = null;
+	instance = null;
+	programArgs = null;
+}
+
+private function setBytes(buff:Bytes,bytes:Bytes, pos:Int):Int {
+	#if hl
+	@:privateAccess buff.b.blit(pos, bytes, 0, bytes.length);
+	#elseif js
+	@:privateAccess buff.b.set(bytes.b, pos);
+	#else
+	buff.blit(pos, bytes, 0, bytes.length);
+	#end
+	return pos + bytes.length;
+}
+
+function createBuffer(client, bytes, instance):Bytes {
+	final len:Int = haxe.Int64.toInt(bytes.getInt64(0));
+	instance.log("alloc " + len);
+	#if !hl
+	client.stream.size = len;
+	#end
+	return Bytes.alloc(len);
+}
+
+function healthCheck(instance) {
+	// health check
+	#if (target.threaded)
+	for (proc in processes) {
+		final code = proc.exitCode(false);
+		if (code == null)
+			continue;
+		trace("proc code:", code);
+		if (code != 0) {
+			Sys.print(proc.stderr.readAll());
+		} else {
+			Sys.print(proc.stdout.readAll());
+		}
+	}
+	#end
+	// close as stream has broken
+	trace("stream has broken");
+	closeCompiler(0, instance);
+	return;
+}
+
+function displayServerPortNodeJS(server) {
 	#if js
 	@:privateAccess server.s.listen(port, () -> {
 		port = server.getPort();
@@ -812,5 +827,10 @@ class Client {
 	public function new(stream, id) {
 		this.stream = stream;
 		this.id = id;
+	}
+	public function reset() {
+		runnable = true;
+		retries = 0;
+		#if !hl stream.size = 8; #end
 	}
 }

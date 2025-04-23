@@ -66,7 +66,8 @@ class Cache {
 	 * Load the cache
 	 * @param path location to load the cache from
 	 */
-	public static function loadCache(path:String) {
+	public static function loadCache(instance) {
+		final path = haxe.io.Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']);
 		try {
 			if (!usingCache) {
 				return;

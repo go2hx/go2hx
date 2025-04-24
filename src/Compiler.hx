@@ -60,7 +60,7 @@ private function receivedData(instance, buff, client) {
 	codegen.CodeGen.sizeMap = [];
 	for (module in modules) {
 		if (!isStdgo)
-			isStdgo = typer.Typer.stdgoList.contains(StringTools.replace(module.path, ".", "/"));
+			isStdgo = io.Data.stdgoList.contains(StringTools.replace(module.path, ".", "/"));
 
 		var outputPath = Path.addTrailingSlash(instance.outputPath);
 		final isLibWrap = instance.libwrap && !isMain && !isStdgo && !alreadyWrapped;
@@ -692,7 +692,7 @@ function compileFromInstance(instance:CompilerInstanceData):Bool {
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
 
-		if (typer.Typer.stdgoList.indexOf(path) != -1)
+		if (io.Data.stdgoList.indexOf(path) != -1)
 			continue;
 		var command = '${instance.goCommand} get $path';
 		Sys.setCwd(instance.localPath);

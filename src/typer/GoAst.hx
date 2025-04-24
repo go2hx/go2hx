@@ -587,7 +587,6 @@ typedef Object = {
 	type:Any,
 };
 
-typedef Position = {};
 typedef Pos = Int;
 
 enum abstract Token(String) {

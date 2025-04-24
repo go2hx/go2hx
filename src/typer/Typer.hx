@@ -111,9 +111,6 @@ function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Acces
 
 	final fieldCallArgs = fieldArgs.map(arg -> macro $i{arg.name});
 	var e = macro @:_0 __self__;
-	/*if (isPointerArg) {
-		fieldCallArgs.unshift(macro @:_1 __self__);
-	}*/
 	if (fieldArgs.length > 0 && isRestType(fieldArgs[fieldArgs.length - 1].type)) {
 		fieldCallArgs[fieldCallArgs.length - 1] = macro...$e{fieldCallArgs[fieldCallArgs.length - 1]};
 	}
@@ -462,176 +459,7 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 		default:
 			"";
 	}
-} /*
-	func = function(expr:haxe.macro.Expr, inLoop:Bool, scopeIndex:Int,label:Expr,initLabelSet:Bool,previousLabel:Expr):Expr {
-			return switch (expr.expr) {
-				case EMeta(s, e):
-					switch s.name {
-						case ":recv":
-							expr;
-						case ":label":
-							{
-								expr: EMeta(s, func(e, inLoop, scopeIndex,s.params[0],true,label)),
-								pos: Context.currentPos(),
-							};
-						case ":jump":
-							final name:Expr= s.params[0];
-							final noJump = label == null ? false : exprToString(name) == exprToString(label);
-							switch e.expr {
-								case EContinue:
-									if (noJump) {
-										macro continue;
-									}else{
-										macro {
-											$i{selectName} = $name;
-											$i{innerName} = true;
-											$i{breakName} = false;
-											break;
-										}
-									}
-								case EBreak:
-									if (noJump) {
-										macro break;
-									}else{
-										macro {
-											$i{selectName} = $name;
-											$i{innerName} = true;
-											$i{breakName} = true;
-											break;
-										}
-									}
-								default:
-									throw "invalid jump expr: " + new haxe.macro.Printer().printExpr(e);
-							}
-						case ":goto":
-							macro {
-								$i{selectName} = $e;
-								${inLoop ? macro {$i{exitName} = true; break;} : macro continue};
-							};
-						default:
-							{
-								expr: EMeta(s, func(e, inLoop, scopeIndex,label,initLabelSet,previousLabel)),
-								pos: Context.currentPos(),
-							};
-					}
-				case EWhile(econd, e, normalWhile):
-					expr.expr = EWhile(econd, func(e,true,scopeIndex, initLabelSet ? label : null,false,null), normalWhile);
-					expr = loop(expr, inLoop,initLabelSet ? previousLabel : label);
-					expr;
-				case EFor(it, e):
-					expr.expr = EFor(it, func(e,true,scopeIndex, initLabelSet ? label : null,false,null));
-					expr = loop(expr, inLoop,initLabelSet ? previousLabel : label);
-					expr;
-				case EBlock(exprs):
-					scopeIndex++;
-					for (i in 0...exprs.length)
-						exprs[i] = func(exprs[i], inLoop, scopeIndex,label,initLabelSet,previousLabel);
-					expr.expr = EBlock(exprs);
-					expr;
-				case EIf(econd, eif, eelse):
-					expr.expr = EIf(econd, func(eif, inLoop, scopeIndex,label,initLabelSet,previousLabel), eelse == null ? null : func(eelse, inLoop, scopeIndex,label,initLabelSet,previousLabel));
-					expr;
-				case EVars(v):
-					if (scopeIndex == 0) {
-						for (obj in v)
-							obj.isFinal = false; // all vars need to be able to be reassigned
-						vars = vars.concat(v);
-						if (v.length == 1) {
-							macro $i{v[0].name} = ${v[0].expr};
-
-						} else {
-							{
-								expr: EBlock([for (v in vars) macro $i{v.name} = ${v.expr}]),
-								pos: Context.currentPos(),
-							};
-						}
-					} else {
-						expr;
-					}
-				case ECall(e, params):
-					var printer = new haxe.macro.Printer();
-					final str = printer.printExpr(e);
-					if (str == "stdgo.Go.cfor" || str == "Go.cfor") {
-						var block = params.pop();
-						block = func(block,true,scopeIndex,initLabelSet ? label : null,false,null);
-						params.push(block);
-						expr.expr = ECall(e, params);
-						expr = loop(expr, inLoop,initLabelSet ? previousLabel : label);
-						expr;
-					}
-					expr;
-					default:
-						expr;
-				}
-			}
-			body = func(body, false, -1, macro "",false,null);
-			switch body.expr {
-				case EBlock(exprs):
-					for (i in 0...exprs.length) {
-						switch exprs[i].expr {
-							case EMeta(s, e):
-								switch s.name {
-									case ":label":
-										if (cases.length == 0) {
-											// first case
-											cases.push({values: [macro ""], expr: {expr: EBlock(exprs.slice(0, i)), pos: Context.currentPos()}});
-										}
-										cases.push({values: [s.params[0]], expr: {expr: EBlock(exprs.slice(i)), pos: Context.currentPos()}});
-
-										switch e.expr { // takes out labled Vars statement from scoped block
-											case EBlock(exprs2):
-												if (exprs2.length == 1) {
-													switch exprs2[0].expr {
-														case EVars(_):
-															exprs[i].expr = exprs2[0].expr;
-														default:
-													}
-												}
-											default:
-										}
-								}
-							default:
-						}
-					}
-					body.expr = EBlock(exprs);
-				default:
-			}
-			if (cases.length == 0) {
-				cases.push({values: [macro ""], expr: body});
-			}
-			for (i in 0...cases.length) {
-				switch cases[i].expr.expr {
-					case EBlock(exprs):
-						final name = i == cases.length - 1 ? macro "" : cases[i + 1].values[0];
-						exprs.push(macro $i{selectName} = $name);
-						cases[i].expr.expr = EBlock(exprs);
-					default:
-				}
-			}
-			var switchStmt:Expr = {expr: ESwitch(macro $i{selectName}, cases, null), pos: Context.currentPos()};
-			final v:Expr = {expr: EVars(vars), pos: Context.currentPos()};
-			final e = macro {
-				var $selectName = "";
-				var $exitName = false;
-				var $breakName = false;
-				var $innerName = false;
-				$v;
-				@:pos(Context.currentPos()) do {
-					$i{exitName} = false;
-					$switchStmt;
-				} while ($i{selectName} != "");
-			};
-			e.pos = Context.currentPos();
-			if (ret != null) {
-				switch e.expr {
-					case EBlock(exprs):
-						exprs.push(ret);
-						e.expr = EBlock(exprs);
-					default:
-				}
-			}
- */
-
+}
 function exprToStringValue(e:Expr):String {
 	switch e.expr {
 		case EConst(CString(s)):
@@ -1952,28 +1780,9 @@ function binaryType(expr:GoAst.BinaryExpr, info:Info):ComplexType {
 		name: name,
 		sub: null,
 	});
-} function classToBuiltinTypePath(name:String, info:Info):TypePath {
+}
 
-	return switch name {
-		case "error":
-			{
-				pack: ["stdgo"],
-				name: "Error",
-			};
-		case "chan":
-			{
-				pack: ["stdgo"],
-				name: "Chan",
-			};
-		case "any":
-			{
-				pack: ["stdgo"],
-				name: "AnyInterface",
-			};
-		default:
-			null;
-	}
-} function selectorType(expr:GoAst.SelectorExpr, info:Info):ComplexType {
+function selectorType(expr:GoAst.SelectorExpr, info:Info):ComplexType {
 
 	final t = typeof(expr, info, false);
 	final ct = toComplexType(t, info);
@@ -2315,366 +2124,6 @@ function hashTypeToExprType(e:GoAst.Expr, info:Info):GoAst.Expr {
 		default:
 			e;
 	}
-}
-
-function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = null):GoType {
-	if (e == null)
-		return invalidType;
-	if (paths == null)
-		paths = [];
-	var t = switch e.id {
-		case "HashType":
-			typeof(info.global.hashMap[e.hash], info, isNamed, paths.copy());
-		case "TypeParam":
-			var constraint = hashTypeToExprType(e.constraint, info);
-			if (constraint != null && constraint.embeds == null) {
-				constraint = hashTypeToExprType(constraint.underlying, info);
-			}
-			if (constraint == null || constraint.embeds == null || constraint.embeds.length == 0) {
-				typeParam(e.name, [interfaceType(true, [])]);
-			} else {
-				final terms:Array<Dynamic> = hashTypeToExprType(constraint.embeds[0], info).terms;
-				if (terms == null) {
-					typeof(constraint.embeds[0], info, false, paths.copy());
-				} else {
-					typeParam(e.name, [
-						for (term in terms) {
-							typeof(term.type, info, false, paths.copy());
-						}
-					]);
-				}
-			}
-		case "Signature":
-			final params = {get: () -> getTuple(hashTypeToExprType(e.params, info)?.vars, info)};
-			final results = {get: () -> getTuple(hashTypeToExprType(e.results, info)?.vars, info)};
-			final recv = {get: () -> typeof(e.recv, info, false, paths.copy())};
-			final sigTypeParams:Array<Dynamic> = e.typeParams;
-			final typeParams = {
-				get: () -> {
-					final typeParams = [];
-					if (sigTypeParams != null) {
-						for (param in sigTypeParams) {
-							typeParams.push(typeof(param, info, false, paths.copy()));
-						}
-					}
-					typeParams;
-				}
-			};
-			GoType.signature(e.variadic, params, results, recv, typeParams);
-		case "Named":
-			final path:String = e.path;
-			if (path == null) {
-				trace("null named path: " + e);
-				throw info.panic() + path;
-			}
-			var underlying = invalidType;
-			final methods:Array<MethodType> = [];
-			final params:Array<GoType> = [];
-			// trace(path);
-			if (!paths.contains(path)) {
-				paths.push(path);
-				underlying = {
-					if (e.hash == null) {
-						invalidType;
-					} else if (info.locals.exists(e.hash)) {
-						getLocalType(e.hash, null, info);
-					} else if (info.localUnderlyingNames.exists(path)) {
-						info.localUnderlyingNames[path];
-					} else {
-						typeof(e.underlying, info, true, paths.copy());
-					}
-				};
-				if (e.methods != null) {
-					for (method in (e.methods : Array<Dynamic>)) {
-						final recv = method.recv;
-						final type = method.type;
-						final name = formatHaxeFieldName(method.name, info);
-						methods.push({
-							name: name,
-							type: {get: () -> typeof(type, info, false, paths.copy())},
-							recv: {get: () -> typeof(recv, info, false, paths.copy())},
-						});
-					}
-				}
-				if (e.params != null && e.params.length > 0) {
-					for (param in (e.params : Array<Dynamic>)) {
-						final t = typeof(param, info, false, paths.copy());
-						params.push(t);
-					}
-				}
-			}
-			named(path, methods, underlying, e.alias, {get: () -> params});
-		case "Basic":
-			if (e.kind == 0) {
-				invalidType;
-			} else {
-				var kind:GoAst.BasicKind = e.kind;
-				switch kind {
-					case untyped_int_kind:
-						kind = uint64_kind;
-					case untyped_float_kind:
-						kind = float64_kind;
-					case untyped_complex_kind:
-						kind = complex128_kind;
-					case untyped_bool_kind:
-						kind = bool_kind;
-					case untyped_string_kind:
-						kind = string_kind;
-					case untyped_rune_kind:
-						kind = int32_kind;
-					default:
-				}
-				basic(kind);
-			}
-		case "Tuple":
-			if (e.len > 1) {
-				final t = [for (v in (e.vars : Array<Dynamic>)) typeof(v, info, false, paths.copy())];
-				tuple(e.len, {get: () -> t});
-			} else {
-				typeof(e.vars[0], info, false, paths.copy());
-			}
-		case "Var":
-			if (e.name == "_" || e.name == "")
-				return typeof(e.type, info, false, paths.copy());
-			_var(e.name, {get: () -> typeof(e.type, info, false, paths.copy())});
-		case "Interface":
-			if (e.embeds.length == 1 && e.embeds[0].id == "Union") {
-				typeof(e.embeds[0], info, false, paths.copy());
-			} else {
-				final methods:Array<MethodType> = [];
-				if (e.methods != null) {
-					for (method in (e.methods : Array<Dynamic>)) {
-						methods.push({
-							name: formatHaxeFieldName(method.name, info),
-							type: {get: () -> typeof(method.type, info, false, paths.copy())},
-							recv: {get: () -> typeof(method.recv, info, false, paths.copy())},
-						});
-					}
-				}
-				final underlying = interfaceType(e.empty, methods);
-				final t = getLocalType(e.hash, underlying, info);
-				t;
-			}
-		case "Slice":
-			sliceType({get: () -> typeof(e.elem, info, false, paths.copy())});
-		case "Array":
-			arrayType({get: () -> typeof(e.elem, info, false, paths.copy())}, e.len);
-		case "Pointer":
-			pointerType({get: () -> typeof(e.elem, info, false, paths.copy())});
-		case "Map":
-			mapType({get: () -> typeof(e.key, info, false, paths.copy())}, {get: () -> typeof(e.elem, info, false, paths.copy())});
-		case "Struct":
-			var t:GoType = structType([
-				for (field in (e.fields : Array<Dynamic>))
-					{
-						name: formatHaxeFieldName(field.name, info),
-						type: {get: () -> typeof(field.type, info, false, paths.copy())},
-						embedded: field.embedded,
-						tag: field.tag == null ? "" : field.tag,
-						optional: field.name == "_",
-					}
-
-			]);
-			if (!isNamed) {
-				t = getLocalType(e.hash, t, info);
-			}
-			t;
-		case "Chan":
-			chanType(e.dir, {get: () -> typeof(e.elem, info, false, paths.copy())});
-		case null:
-			return invalidType;
-		case "CallExpr":
-			final e:GoAst.CallExpr = e;
-			var type = typeof(e.type, info, false, paths.copy());
-			switch type {
-				case signature(_, _, _.get() => results, _):
-					return results[0];
-				default:
-					return type;
-			}
-		case "BasicLit":
-			typeof(e.type, info, false, paths.copy());
-		case "Ident":
-			final e:GoAst.Ident = e;
-			typeof(e.type, info, false, paths.copy());
-		case "CompositeLit":
-			final e:GoAst.CompositeLit = e;
-			final t = typeof(e.type, info, false, paths.copy());
-			t;
-		case "SelectorExpr":
-			final e:GoAst.SelectorExpr = e;
-			var t = typeof(e.type, info, false, paths.copy());
-			if (e.recv != null) {
-				final recv = typeof(e.recv, info, false, paths.copy());
-				switch t {
-					case signature(variadic, params, results, _.get() => sigRecv, typeParams):
-						if (sigRecv == invalidType) {
-							t = signature(variadic, params, results, {get: () -> recv}, typeParams);
-						}
-					default:
-				}
-			}
-			t;
-		case "IndexExpr":
-			final e:GoAst.IndexExpr = e;
-			typeof(e.type, info, false, paths.copy());
-		case "IndexListExpr":
-			final e:GoAst.IndexListExpr = e;
-			typeof(e.type, info, false, paths.copy());
-		case "BinaryExpr":
-			final e:GoAst.BinaryExpr = e;
-			typeof(e.type, info, false, paths.copy());
-		case "StarExpr":
-			final e:GoAst.StarExpr = e;
-			typeof(e.type, info, false, paths.copy());
-		case "UnaryExpr":
-			final e:GoAst.UnaryExpr = e;
-			switch e.op {
-				case ARROW:
-					getElem(typeof(e.x, info, false, paths.copy()));
-				case AND:
-					pointerType({get: () -> typeof(e.x, info, false, paths.copy())});
-				default:
-					typeof(e.x, info, false, paths.copy());
-			}
-		case "TypeAssertExpr":
-			final e:GoAst.TypeAssertExpr = e;
-			typeof(e.type, info, false, paths.copy());
-		case "FuncLit":
-			var e:GoAst.FuncLit = e;
-			typeof(e.type.type, info, false, paths.copy());
-		case "KeyValueExpr":
-			final e:GoAst.KeyValueExpr = e;
-			mapType({get: () -> typeof(e.key, info, false, paths.copy())}, {get: () -> typeof(e.value, info, false, paths.copy())});
-		case "SliceExpr":
-			final e:GoAst.SliceExpr = e;
-			typeof(e.type, info, false, paths.copy());
-		case "ParenExpr":
-			final e:GoAst.ParenExpr = e;
-			typeof(e.x, info, false, paths.copy());
-		case "InterfaceType":
-			typeof(e.type, info, false, paths.copy());
-		case "ArrayType":
-			final e:GoAst.ArrayType = e;
-			final elem = typeof(e.elt, info, false, paths.copy());
-			final v = hashTypeToExprType(e.type, info);
-			final id = v.id;
-			switch id {
-				case "Array":
-					final len = v.len;
-					arrayType({get: () -> elem}, len);
-				case "Slice":
-					sliceType({get: () -> elem});
-				case "Basic":
-					invalidType;
-				default:
-					trace(v);
-					throw info.panic() + "unknown Array id: " + id;
-			}
-		case "MapType":
-			final e:GoAst.MapType = e;
-			final keyType = typeof(e.key, info, false, paths.copy());
-			final valueType = typeof(e.value, info, false, paths.copy());
-			mapType({get: () -> keyType}, {get: () -> valueType});
-		case "ChanType":
-			final e:GoAst.ChanType = e;
-			chanType(e.type.dir, {get: () -> typeof(e.value, info, false, paths.copy())});
-		case "StructType":
-			final e:GoAst.StructType = e;
-			structType(typeFieldListFieldTypes(e.fields, info));
-		case "FuncType":
-			final e:GoAst.FuncType = e;
-			final list = hashTypeToExprType(e.params.list, info);
-			final params = {get: () -> getTuple(list, info)};
-			final results = e.results == null ? {get: () -> []} : {get: () -> getTuple(hashTypeToExprType(e.results.list, info), info)};
-			final recv = {get: () -> typeof(e.type.recv, info, false, paths.copy())};
-			var variadic = false;
-			if (e.params.list.length > 0) {
-				if (list[(list.length : Int) - 1].type.id == "Ellipsis")
-					variadic = true;
-			}
-			signature(variadic, params, results, recv, params);
-		// typeof(e.type, info, false, paths.copy());
-		case "Ellipsis":
-			typeof(e.type, info, false, paths.copy());
-		default:
-			throw info.panic() + "unknown typeof expr: " + e.id;
-	}
-	if (t == null)
-		return null;
-	return switch t {
-		case pointerType(_.get() => elem):
-			isRefValue(elem) ? refType({get: () -> elem}) : t;
-		default:
-			t;
-	}
-}
-
-function getGlobalPath(info:Info):String {
-	var globalPath = info.global.path;
-	if (StringTools.endsWith(info.global.path, ".pkg")) {
-		globalPath = globalPath.substr(0, globalPath.length - 4);
-	}
-	if (globalPath == "") {
-		return "_internal";
-	}
-	final globalPathOld = globalPath;
-	globalPath = "_internal." + globalPath;
-	if (stdgoList.indexOf(toGoPath(globalPathOld)) != -1) { // haxe only type, otherwise the go code references Haxe
-		globalPath = "stdgo." + globalPath;
-	}
-	return globalPath;
-}
-
-function toGoPath(path:String):String {
-	return StringTools.replace(path, ".", "/");
-}
-
-function toHaxePath(path:String):String {
-	return StringTools.replace(path, "/", ".");
-}
-
-function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
-	path = StringTools.replace(path, "go-", "");
-	// path = StringTools.replace(path, "_test.", ".");
-	final startCommandLineArg = "command-line-arguments.";
-	if (path.substr(0, startCommandLineArg.length) == startCommandLineArg) {
-		path = path.substr(startCommandLineArg.length);
-	}
-
-	var index = path.indexOf("[");
-	final params:Array<TypeParam> = [];
-	if (index != -1) {
-		path = path.substr(0, index); // remove type param from path name
-	}
-	var last = path.lastIndexOf("/") + 1;
-	var part = path.substr(last);
-	var split = part.lastIndexOf(".");
-	var pkg = part.substr(0, split);
-	final clName = part.substr(split + 1);
-	var cl = className(clName, info);
-	final basicType = classToBuiltinTypePath(clName, info);
-	if (basicType != null)
-		return basicType;
-	path = path.substr(0, last) + pkg;
-	if (path == "command-line-arguments")
-		path = "";
-	path = normalizePath(path);
-
-	var pack = path.split("/");
-	pack.unshift("_internal");
-	final path = toGoPath(path);
-	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
-		pack.unshift("stdgo");
-	}
-	if (last == 0 && split == -1) {
-		return {pack: [], name: splitDepFullPathName(cl, info)};
-	}
-	// for split deps
-	pack.push(title(pkg));
-	final last = pack.pop();
-	pack.push(last + "_" + cl.toLowerCase());
-	return {pack: pack, name: cl};
 }
 
 function toComplexType(e:GoType, info:Info):ComplexType {
@@ -3020,21 +2469,21 @@ function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Int}> {
 
 
 
-/*
-	For struct literals the following rules apply:
-
-	A key must be a field name declared in the struct type.
-	An element list that does not contain any keys must list an element for each struct field in the order in which the fields are declared.
-	If any element has a key, every element must have a key.
-	An element list that contains keys does not need to have an element for each struct field. Omitted fields get the zero value for that field.
-	A literal may omit the element list; such a literal evaluates to the zero value for its type.
-	It is an error to specify an element for a non-exported field of a struct belonging to a different package.
- */ /*
-	For array and slice literals the following rules apply:
-
-	Each element has an associated integer index marking its position in the array.
-	An element with a key uses the key as its index. The key must be a non-negative constant representable by a value of type int; and if it is typed it must be of integer type.
-	An element without a key uses the previous element's index plus one. If the first element has no key, its index is zero.
+/**
+ *	For struct literals the following rules apply:
+ *
+ *	A key must be a field name declared in the struct type.
+ *	An element list that does not contain any keys must list an element for each struct field in the order in which the fields are declared.
+ *	If any element has a key, every element must have a key.
+ *	An element list that contains keys does not need to have an element for each struct field. Omitted fields get the zero value for that field.
+ *	A literal may omit the element list; such a literal evaluates to the zero value for its type.
+ *	It is an error to specify an element for a non-exported field of a struct belonging to a different package.
+ *
+ *	For array and slice literals the following rules apply:
+ *
+ *	Each element has an associated integer index marking its position in the array.
+ *	An element with a key uses the key as its index. The key must be a non-negative constant representable by a value of type int; and if it is typed it must be of integer type.
+ *	An element without a key uses the previous element's index plus one. If the first element has no key, its index is zero.
  */
 function hasKeyValueExpr(elts:Array<GoAst.Expr>) {
 	for (e in elts) {
@@ -3042,25 +2491,6 @@ function hasKeyValueExpr(elts:Array<GoAst.Expr>) {
 			return true;
 	}
 	return false;
-}
-
-
-function getTypePath(ct:ComplexType, info:Info):TypePath {
-	switch ct {
-		case TPath(p):
-			return p;
-		default:
-			return null;
-	}
-}
-
-function title(name:String):String {
-	final name = name.charAt(0).toUpperCase() + name.substring(1);
-	if (name == "Atomic")
-		return "Atomic_";
-	if (name == "Environ")
-		return "Environ_";
-	return name;
 }
 
 function compositeLit(type:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):ExprDef {
@@ -3353,7 +2783,7 @@ function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, underlying:Go
 		for (elt in expr.elts) {
 			if (elt.id == "CompositeLit") {
 				if (elt.type == null) {
-					var e = toExpr(compositeLit(elem, toComplexType(elem, info) /*complexTypeElem(ct)*/, elt, info));
+					var e = toExpr(compositeLit(elem, toComplexType(elem, info), elt, info));
 					e = assignTranslate(typeof(elt, info, false), elem, e, info);
 					exprs.push(e);
 					continue;
@@ -3816,15 +3246,6 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final t = toComplexType(elem, info);
 			macro(null : stdgo.Slice<$t>);
 		case arrayType(_.get() => elem, len):
-			/*final t = toComplexType(elem, info);
-				var value = defaultValue(elem, info);
-				if (value == null)
-					value = macro stdgo.Go.expectedValue();
-				final lenExpr = makeExpr(len);
-				final args = [lenExpr,lenExpr];
-				if (len > 0)
-					args.push(macro ...[for (i in 0...$lenExpr) $value]);
-				macro new stdgo.GoArray<$t>($a{args}); */
 			final param = toComplexType(elem, info);
 			final size = makeExpr(len);
 			final cap = size;
@@ -4573,27 +3994,6 @@ function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:B
 	return name;
 }
 
-function splitDepFullPathName(name:String, info:Info):String {
-	var path = getGlobalPath(info);
-	var filePath = info.global.filePath;
-	name = path + "." + filePath + "_" + name.toLowerCase() + "." + name;
-	return name;
-}
-
-function normalizePath(path:String):String {
-	path = StringTools.replace(path, ".", "dot");
-	path = StringTools.replace(path, ":", "colon");
-	path = StringTools.replace(path, "go-", "godash");
-	path = StringTools.replace(path, "-", "dash");
-	var path = path.split("/");
-	for (i in 0...path.length) {
-		if (reserved.indexOf(path[i]) != -1) {
-			path[i] += "_";
-		}
-	}
-	return path.join("/");
-}
-
 class Global {
 	public var localSpecs:Map<String, Array<GoAst.Spec>> = [];
 	public var gotoSystem:Bool = false;
@@ -4721,174 +4121,4 @@ class Info {
 
 // @:formatter off
 
-final stdgoList:Array<String> = parseData('stdgo.list');
-final excludesList:Array<String> = parseData('excludes.json');
-final exports:Array<String> = parseData('stdgoExports.json');
-final externs:Array<String> = parseData('stdgoExterns.json');
-
-function parseData(fileName:String) {
-	final ext = Path.extension(fileName);
-	return switch ext {
-		case "json":
-			parseDataJson(fileName);
-		case "list":
-			parseDataList(fileName);
-		default:
-			throw "unknown extension: " + ext;
-	}
-}
-
-function parseDataList(fileName:String) {
-	return normalizeCLRF(File.getContent('data/$fileName')).split("\n");
-}
-
-function parseDataJson(fileName:String) {
-	return haxe.Json.parse(File.getContent('data/$fileName'));
-}
-
-final reserved = [
-	"iterator",
-	"keyValueIterator",
-	"switch",
-	"case",
-	"break",
-	"continue",
-	"default",
-	"is",
-	"abstract",
-	"cast",
-	"catch",
-	"class",
-	"do",
-	"function",
-	"dynamic",
-	"else",
-	"enum",
-	"extends",
-	"extern",
-	"final",
-	"for",
-	"function",
-	"if",
-	"interface",
-	"implements",
-	"import",
-	"in",
-	"inline",
-	"macro",
-	"new",
-	"operator",
-	"overload",
-	"override",
-	"package",
-	"private",
-	"public",
-	"return",
-	"static",
-	"this",
-	"throw",
-	"try",
-	"typedef",
-	"untyped",
-	"using",
-	"var",
-	"while",
-	"construct",
-	"null",
-	"in",
-	"wait",
-	"length",
-	"capacity",
-	"bool",
-	"float",
-	"int",
-	"struct",
-	"offsetof",
-	"alignof",
-	"atomic",
-	"map",
-	"comparable",
-	"environ",
-	"trace",
-	"haxe",
-	"std",
-	"_new",
-];
-
-final reservedClassNames = [
-	"_Atomic",
-	"Atomic",
-	"Environ",
-	"Class",
-	"TClass",
-	"Single", // Single is a 32bit float
-	"Array",
-	"Any",
-	"Int",
-	"Float",
-	"String",
-	"Int64",
-	"AnyInterface",
-	"Dynamic",
-	"InvalidType",
-	"Null",
-	"Bool",
-	// "Reflect",
-	"Date",
-	"ArrayAccess",
-	"DateTools",
-	"EReg",
-	"Enum",
-	"EnumValue",
-	"IntIterator",
-	"Iterable",
-	"Iterator",
-	"KeyValueIterable",
-	"KeyValueIterator",
-	"Lambda",
-	// "List",
-	"Map",
-	// "Math",
-	"Std",
-	"Sys",
-	// "StringBuf",
-	"StringTools",
-	"SysError",
-	"Type",
-	"T",
-	// "UnicodeString",
-	"ValueType",
-	"Void",
-	"XmlType",
-	"GoArray",
-	"GoMath",
-	"Go",
-	"Slice",
-	"Pointer",
-];
-
-final basicTypes = [
-	"uint",
-	"uint8",
-	"uint16",
-	"uint32",
-	"uint64",
-	"int",
-	"int8",
-	"int16",
-	"int32",
-	"int64",
-	"float32",
-	"float64",
-	"complex64",
-	"complex128",
-	"string",
-	"byte", // alias for uint8
-	"rune", // alias for int32
-	"uintptr",
-	"comparable",
-];
-
 var printer = new codegen.Printer();
-
-// @formatter:on

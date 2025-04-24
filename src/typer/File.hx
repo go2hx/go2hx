@@ -119,7 +119,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
             if (value.name == name) {
                 if (value.pos != null) {
                     for (value2 in values.copy()) {
-                        if (value2.pos != null && value2.pos.min == value.pos.min) {
+                        if (value2.pos != null && (value2.pos : Dynamic).min == (value.pos : Dynamic).min) {
                             values.remove(value2);
                             valuesSorted.push(value2);
                         }

@@ -49,7 +49,7 @@ function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
 		}
 	}
 	// if stdgo
-	if (typer.Typer.stdgoList.contains(typer.Typer.toGoPath(stdFormatPath))) {
+	if (io.Data.stdgoList.contains(toGoPath(stdFormatPath))) {
 		isStdgo = true;
 		root = "stdgo";
 		actualPath = "stdgo/" + actualPath;

@@ -1,6 +1,6 @@
 package typer.specs;
 
-
+import haxe.macro.Expr.Position;
 
 
 function typeValue(value:GoAst.ValueSpec, info:Info, pkg:Intermediate.Package, constant:Bool):Array<TypeDefinition> {
@@ -22,9 +22,10 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:Intermediate.Package, c
 		func = data.expr;
 		info.blankCounter++;
 		final posMin = info.blankCounter;
+		final pos:Position = cast {min: posMin, max: 0, file: ""};
 		values.unshift({
 			name: tmp,
-			pos: {min: posMin, max: 0, file: ""},
+			pos: pos,
 			pack: [],
 			fields: [],
 			kind: TDField(FVar(null, func))
@@ -44,9 +45,10 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:Intermediate.Package, c
 			var e = macro $tmpExpr.$fieldName;
 			final toType = typeof(value.names[i], info, false);
 			e = assignTranslate(t, toType, e, info, false);
+			final pos:Position = cast {min: posMin, max: 0, file: ""};
 			values.push({
 				name: name,
-				pos: {min: posMin, max: 0, file: ""},
+				pos: pos,
 				pack: [],
 				fields: [],
 				isExtern: isTitle(value.names[i]?.name ?? ""),

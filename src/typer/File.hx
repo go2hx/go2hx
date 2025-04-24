@@ -107,7 +107,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
             switch spec.id {
                 case "ValueSpec":
                     final spec:GoAst.ValueSpec = spec;
-                    values = values.concat(typer.specs.Value.typeValue(spec, info, constant));
+                    values = values.concat(typer.specs.Value.typeValue(spec, info, pkg, constant));
                 default:
             }
         }

@@ -4607,7 +4607,6 @@ class Global {
 	public var path:String = "";
 	public var filePath:String = "";
 	public var module:HaxeAst.Module = null;
-	public var order:Array<String> = [];
 	public var noCommentsBool:Bool = false;
 	public var renameClasses:Map<String, String> = [];
 	public var externBool:Bool = false;

@@ -3,7 +3,7 @@ package typer.specs;
 
 
 
-function typeValue(value:GoAst.ValueSpec, info:Info, constant:Bool):Array<TypeDefinition> {
+function typeValue(value:GoAst.ValueSpec, info:Info, pkg:Intermediate.Package, constant:Bool):Array<TypeDefinition> {
 	final elem = hashTypeToExprType(value.names[0].type.elem, info);
 	var type:ComplexType = null;
 	var interfaceBool = false;
@@ -54,7 +54,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, constant:Bool):Array<TypeDe
 			});
 		}
 		if (emptyNames)
-			info.global.order.push(tmp);
+			pkg.varOrder.push(tmp);
 	} else {
 		// normal
 		for (i in 0...value.names.length) {
@@ -99,7 +99,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, constant:Bool):Array<TypeDe
 			info.localIdents.remove(name);
 			// empty name
 			if (value.names[i].name == "_")
-				info.global.order.push(name);
+				pkg.varOrder.push(name);
 			var doc:String = getDocComment(value, value); // + getSource(value, info);
 			var access = [];
 			// if (!isTitle(value.names[i].name))

@@ -110,7 +110,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):ExprDef {
 					expr.typeArgs.reverse();
 					for (typeArg in expr.typeArgs) {
 						final typeOfTypeArg = typeof(typeArg, info, false);
-						final value = defaultValue(typeOfTypeArg, info);
+						final value = HaxeAst.defaultValue(typeOfTypeArg, info);
 						args.unshift(value);
 					}
 					forceType = true; */
@@ -167,7 +167,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):ExprDef {
 			}, info);
 		case "SelectorExpr":
 			expr.fun.x = GoAst.escapeParensRaw(expr.fun.x);
-			final selKind = selectorKind(expr.fun);
+			final selKind = typer.exprs.Selector.selectorKind(expr.fun);
 			final selType = typeof(expr.fun, info, false);
 			switch selType {
 				case signature(_, _, _, _):
@@ -283,7 +283,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):ExprDef {
 						final s = args[0];
 						switch t {
 							case sliceType(_.get() => elem):
-								final value = defaultValue(elem, info, false);
+								final value = HaxeAst.defaultValue(elem, info, false);
 								return (macro {
 									for (i in 0...$s.length) {
 										$s[i] = $value;
@@ -343,7 +343,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):ExprDef {
 						switch t {
 							case TPath(_), TFunction(_, _), TAnonymous(_):
 								var t = typeof(expr.args[0], info, false);
-								var value = defaultValue(t, info);
+								var value = HaxeAst.defaultValue(t, info);
 								if (!isRefValue(t)) {
 									value = macro stdgo.Go.pointer($value);
 								} else {
@@ -389,7 +389,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):ExprDef {
 								var valueType = toComplexType(value, info);
 								createMap(underlyingType, keyType, valueType, [], info, toComplexType(type, info));
 							case chanType(dir, _.get() => elem):
-								var value = defaultValue(elem, info);
+								var value = HaxeAst.defaultValue(elem, info);
 								var param = toComplexType(elem, info);
 								if (size == null)
 									size = macro 0;

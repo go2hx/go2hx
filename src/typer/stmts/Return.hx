@@ -10,12 +10,12 @@ function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):ExprDef {
 			switch e {
 				case EReturn(expr):
 					if (expr == null || blank) {
-						exprs.push(typeDeferReturn(info, false));
+						exprs.push(HaxeAst.typeDeferReturn(info, false));
 						exprs.push(toExpr(e));
 					} else {
 						switch expr.expr {
 							case EConst(_):
-								exprs.push(typeDeferReturn(info, false));
+								exprs.push(HaxeAst.typeDeferReturn(info, false));
 								exprs.push(toExpr(e));
 							default:
 								final ct = info.returnType;
@@ -27,12 +27,12 @@ function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):ExprDef {
 										exprs.push(macro $i{name} = __ret__.$fieldName);
 									}
 								}
-								exprs.push(typeDeferReturn(info, false));
+								exprs.push(HaxeAst.typeDeferReturn(info, false));
 								exprs.push(macro return __ret__);
 						}
 					}
 				default:
-					exprs.push(typeDeferReturn(info, false));
+					exprs.push(HaxeAst.typeDeferReturn(info, false));
 					exprs.push(toExpr(e));
 			}
 			return (macro $b{exprs}).expr;
@@ -46,11 +46,11 @@ function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):ExprDef {
 		if (info.returnTypes.length == 1) {
 			if (info.returnNames.length == 1 && info.returnNamed)
 				return ret(EReturn(macro $i{info.returnNames[0]}), true);
-			return ret(EReturn(defaultValue(info.returnTypes[0], info)), true);
+			return ret(EReturn(HaxeAst.defaultValue(info.returnTypes[0], info)), true);
 		}
 		final fields:Array<ObjectField> = [
 			for (i in 0...info.returnTypes.length)
-				{field: "_" + i, expr: info.returnNamed ? macro $i{info.returnNames[i]} : defaultValue(info.returnTypes[i], info)}
+				{field: "_" + i, expr: info.returnNamed ? macro $i{info.returnNames[i]} : HaxeAst.defaultValue(info.returnTypes[i], info)}
 		];
 		return ret(EReturn(toExpr(EObjectDecl(fields))), true);
 	}
@@ -97,7 +97,7 @@ function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):ExprDef {
 					final fields:Array<ObjectField> = [
 						for (i in 0...info.returnTypes.length) {
 							final e = macro $i{info.returnNames[i]};
-							{field: "_" + i, expr: info.returnNamed ? e : defaultValue(info.returnTypes[i], info)};
+							{field: "_" + i, expr: info.returnNamed ? e : HaxeAst.defaultValue(info.returnTypes[i], info)};
 					}
 					];
 					assigns.push(toExpr(EObjectDecl(fields)));

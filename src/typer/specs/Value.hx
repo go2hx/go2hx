@@ -63,7 +63,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 			var expr:Expr = null;
 			if (value.values[i] == null) {
 				if (type != null) {
-					expr = defaultValue(typeof(value.type, info, false), info);
+					expr = HaxeAst.defaultValue(typeof(value.type, info, false), info);
 				} else {
 					if (!info.global.externBool
 						|| StringTools.endsWith(info.global.module.path, "_test")
@@ -71,7 +71,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 						expr = typer.exprs.Expr.typeExpr(info.lastValue, info);
 						expr = assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
 					} else {
-						expr = defaultValue(info.lastType, info);
+						expr = HaxeAst.defaultValue(info.lastType, info);
 					}
 				}
 			} else {
@@ -84,12 +84,12 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 					expr = assignTranslate(t, info.lastType, expr, info);
 				} else {
 					if (info.lastType != null && info.lastType != invalidType) {
-						expr = defaultValue(info.lastType, info);
+						expr = HaxeAst.defaultValue(info.lastType, info);
 					} else {
 						if (t == invalidType) {
-							expr = defaultValue(nameType, info);
+							expr = HaxeAst.defaultValue(nameType, info);
 						} else {
-							expr = defaultValue(t, info);
+							expr = HaxeAst.defaultValue(t, info);
 						}
 					}
 				}
@@ -124,7 +124,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 					}
 				}
 			final nameType = typeof(value.names[i], info, false);
-			// expr = defaultValue(nameType, info);
+			// expr = HaxeAst.defaultValue(nameType, info);
 			// expr = macro (() -> $expr)();
 			values.push({
 				name: name,

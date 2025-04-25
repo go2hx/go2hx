@@ -238,3 +238,27 @@ function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):ExprDef { // EFiel
 	// trace(printer.printExpr(e), kind, typeX);
 	return e.expr; // EField
 }
+
+
+function selectorKind(expr:GoAst.SelectorExpr):Int {
+	return switch expr.x.id {
+		case "StarExpr":
+			if (expr.x.x.id == "Ident") {
+				expr.x.x.kind;
+			} else if (expr.x.x.id == "SelectorExpr") {
+				expr.x.x.sel.kind;
+			} else {
+				-1;
+			}
+		case "SelectorExpr":
+			if (expr.x.sel.id == "Ident") {
+				expr.x.sel.kind;
+			} else {
+				-1;
+			}
+		case "Ident":
+			expr.x.kind;
+		default:
+			-1;
+	}
+}

@@ -354,5 +354,239 @@ function exprOfType(t:ComplexType):ComplexType {
 	return t;
 }
 
+function destructureExpr(x:Expr, t:GoType):{x:Expr, t:GoType} {
+	t = getUnderlying(t);
+	if (isPointer(t)) {
+		x = macro $x.value;
+		t = getElem(t);
+	}
+	return {x: x, t: t};
+}
+
+function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
+	return macro for (defer in __deferstack__) {
+		if (defer.ran)
+			continue;
+		defer.ran = true;
+		defer.f();
+	};
+}
+
+function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
+	function ct():ComplexType {
+		return toComplexType(type, info);
+	}
+	if (type == null)
+		return macro @:unknown_default_value null;
+	return switch type {
+		case mapType(_.get() => key, _.get() => value):
+			final keyComplexType = toComplexType(key, info);
+			final valueComplexType = toComplexType(value, info);
+			final keyUnderlying = getUnderlying(key);
+			switch keyUnderlying {
+				case structType(_):
+					return macro(({
+						final x:stdgo.GoMap.GoObjectMap<$keyComplexType, $valueComplexType> = null;
+						// x.t = new stdgo._internal.internal.reflect.Reflect._Type($keyT);
+						// x.__HaxeAst.defaultValue__ = () -> $HaxeAst.defaultValueExpr;
+						// @:mergeBlock $b{exprs};
+						cast x;
+					} : stdgo.GoMap<$keyComplexType, $valueComplexType>));
+				default:
+					// trace(keyUnderlying);
+			}
+			macro(null : stdgo.GoMap<$keyComplexType, $valueComplexType>);
+		case sliceType(_.get() => elem):
+			final t = toComplexType(elem, info);
+			macro(null : stdgo.Slice<$t>);
+		case arrayType(_.get() => elem, len):
+			final param = toComplexType(elem, info);
+			final size = makeExpr(len);
+			final cap = size;
+			final p:TypePath = {name: "GoArray", params: [TPType(param)], pack: ["stdgo"]};
+			final s = genSlice(p, elem, size, cap, e -> e, info, null);
+			s;
+		case interfaceType(_):
+			final ct = ct();
+			macro(null : $ct);
+		case chanType(_, _.get() => elem):
+			final t = toComplexType(elem, info);
+			var value = HaxeAst.defaultValue(elem, info);
+			macro(null : stdgo.Chan<$t>);
+		case pointerType(_.get() => elem):
+			final t = toComplexType(elem, info);
+			macro(null : stdgo.Pointer<$t>);
+		case signature(_, _, _, _):
+			macro null;
+		case refType(_.get() => elem):
+			final ct = toComplexType(elem, info);
+			switch elem {
+				case arrayType(_):
+					final s = HaxeAst.defaultValue(elem, info, strict);
+					macro $s.__setNil__();
+				default:
+					macro(null : stdgo.Ref<$ct>); // pointer can be nil
+			}
+		case named(path, _, underlying, alias, _):
+			switch getUnderlying(underlying) {
+				case chanType(_, _):
+					final ct = ct();
+					macro(null : $ct);
+				case refType(_), pointerType(_), interfaceType(_), mapType(_, _), signature(_, _):
+					final ct = ct();
+					if (ct != null) {
+						macro(null : $ct);
+					} else {
+						macro null;
+					}
+				case basic(_):
+					final ct = ct();
+					final e = HaxeAst.defaultValue(underlying, info);
+					macro($e : $ct);
+				case structType(fields):
+					final ct = ct();
+					final fs:Array<ObjectField> = [];
+					var e = macro {};
+					if (alias) {
+						e = createNamedObjectDecl(fields, (_, type) -> HaxeAst.defaultValue(type, info), info);
+					}
+					macro($e : $ct);
+				case sliceType(_.get() => elem):
+					var t = namedTypePath(path, info);
+					final ct = ct();
+					macro(new $t(0, 0) : $ct);
+				case arrayType(_.get() => elem, len):
+					final t = namedTypePath(path, info);
+					final elem = HaxeAst.defaultValue(elem, info);
+					final len = makeExpr(len);
+					macro new $t($len, $len, ...[for (i in 0...$len) $elem]);
+				default:
+					var t = namedTypePath(path, info);
+					macro new $t();
+			}
+		case basic(kind):
+			if (strict) {
+				switch kind {
+					case bool_kind: macro false;
+					case int_kind: macro(0 : stdgo.GoInt);
+					case int8_kind: macro(0 : stdgo.GoInt8);
+					case int16_kind: macro(0 : stdgo.GoInt16);
+					case int32_kind: macro(0 : stdgo.GoInt32);
+					case int64_kind: macro(0 : stdgo.GoInt64);
+					case string_kind: macro("" : stdgo.GoString);
+					case uint_kind: macro(0 : stdgo.GoUInt);
+					case uint8_kind: macro(0 : stdgo.GoUInt8);
+					case uint16_kind: macro(0 : stdgo.GoUInt16);
+					case uint32_kind: macro(0 : stdgo.GoUInt32);
+					case uint64_kind: macro(0 : stdgo.GoUInt64);
+					case uintptr_kind: macro new stdgo.GoUIntptr(0);
+					case float32_kind: macro(0 : stdgo.GoFloat32);
+					case float64_kind: macro(0 : stdgo.GoFloat64);
+					case complex64_kind: macro new stdgo.GoComplex64(0, 0);
+					case complex128_kind: macro new stdgo.GoComplex128(0, 0);
+					case untyped_bool_kind, untyped_rune_kind, untyped_string_kind, untyped_int_kind, untyped_float_kind, untyped_complex_kind:
+						throw info.panic() + "untyped kind: " + kind;
+					default: macro @:default_value null;
+				}
+			} else {
+				switch kind {
+					case bool_kind: macro false;
+					case string_kind: macro "";
+					case int_kind, int8_kind, int16_kind, int32_kind, int64_kind: macro 0;
+					case uint_kind, uint8_kind, uint16_kind, uint32_kind, uint64_kind: macro 0;
+					case uintptr_kind: macro new stdgo.GoUIntptr(0);
+					case float32_kind, float64_kind: macro 0;
+					case complex64_kind: macro new stdgo.GoComplex64(0, 0);
+					case complex128_kind: macro new stdgo.GoComplex128(0, 0);
+					default: macro @:default_value_kind
+						null;
+				}
+			}
+		case structType(fields):
+			if (fields.length == 0)
+				return macro {};
+			var fs:Array<ObjectField> = [];
+			for (field in fields) {
+				if (field.optional)
+					continue;
+				fs.push({
+					field: field.name,
+					expr: HaxeAst.defaultValue(field.type.get(), info, true),
+				});
+			}
+			toExpr(EObjectDecl(fs));
+		case invalidType:
+			macro @:invalid_type null;
+		case tuple(_, _.get() => vars):
+			toExpr(EObjectDecl([
+				for (i in 0...vars.length) {
+					{
+						field: "_" + i,
+						expr: HaxeAst.defaultValue(vars[i], info),
+					}
+				}
+			]));
+		case typeParam(name, _):
+			// null;
+			if (strict) {
+				final t = TPath({name: className(name, info), pack: []});
+				macro stdgo.Go.HaxeAst.defaultValue((cast(null) : $t));
+			} else {
+				null;
+			}
+		case _var(_, _.get() => type):
+			HaxeAst.defaultValue(type, info, strict);
+		default:
+			throw info.panic() + "unsupported default value type: " + type;
+	}
+}
+
+
+function exprWillReturn(expr:Expr):Bool {
+	if (expr == null)
+		return false;
+	return switch expr.expr {
+		case EIf(_, eif, eelse): exprWillReturn(eif) && exprWillReturn(eelse);
+		case EReturn(_): true;
+		case EMeta(s, e):
+			if (s.name == ":fallthrough") {
+				true;
+			} else {
+				exprWillReturn(e);
+			}
+		case EBlock(exprs):
+			for (expr in exprs) {
+				if (exprWillReturn(expr))
+					return true;
+			}
+			false;
+		case ESwitch(_, cases, _):
+			for (c in cases) {
+				if (!exprWillReturn(c.expr))
+					return false;
+			}
+			true;
+		default:
+			false;
+	}
+}
+
+function opPrecedence(op:Binop):Int {
+	return switch op {
+		case OpMult, OpDiv, OpMod, OpShr, OpShl, OpAnd:
+			5;
+		case OpAdd, OpSub, OpOr, OpXor:
+			4;
+		case OpEq, OpNotEq, OpGt, OpGte, OpLt, OpLte:
+			3;
+		case OpBoolAnd:
+			2;
+		case OpBoolOr:
+			1;
+		default:
+			throw "unknown operator";
+	}
+}
+
 //typedef FieldType = haxe.macro.Expr.FieldType;
 //typedef Field = haxe.macro.Expr.Field;

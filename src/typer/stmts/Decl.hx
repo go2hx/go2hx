@@ -65,7 +65,7 @@ function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):ExprDef {
 							var expr:Expr = null;
 							if (spec.values[i] == null) {
 								if (type != null) {
-									expr = defaultValue(specType, info);
+									expr = HaxeAst.defaultValue(specType, info);
 								} else {
 									expr = typer.exprs.Expr.typeExpr(info.lastValue, info);
 									type = toComplexType(info.lastType, info);

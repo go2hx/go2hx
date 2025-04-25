@@ -961,3 +961,65 @@ function isTuple(type:GoType):Bool {
 			false;
 	}
 }
+
+function getStructFields(type:GoType, restrictedFields:Array<String>, onlyEmbeds:Bool = false):Array<typer.exprtypes.ExprType.FieldType> {
+	if (type == null)
+		return [];
+	return switch type {
+		case named(_, methods, elem, _, _):
+			for (method in methods) {
+				restrictedFields.push(method.name);
+			}
+			getStructFields(elem, restrictedFields, onlyEmbeds);
+		case pointerType(_.get() => elem), refType(_.get() => elem):
+			getStructFields(elem, restrictedFields, onlyEmbeds);
+		case structType(fields):
+			if (onlyEmbeds) {
+				fields.filter(field -> field.embedded);
+			} else {
+				final fields = fields.copy();
+				fields.sort((a, b) -> a.embedded == b.embedded ? 0 : (!a.embedded ? 1 : -1));
+				fields;
+			}
+		default:
+			[];
+	}
+}
+
+function addPointerSuffix(ct:ComplexType) {
+	switch ct {
+		case TPath(p):
+			if (p.name.indexOf(".") != -1) {
+				if (p.pack.length == 0) {
+					final parts = p.name.split(".");
+					final last = parts.pop() + "Pointer";
+					final lastPack = parts.pop() + "pointer";
+					parts.push(lastPack);
+					parts.push(last);
+					p.name = parts.join(".");
+				}
+			} else {
+				p.name += "Pointer";
+				p.pack.push(p.pack.pop() + "pointer");
+			}
+		default:
+	}
+}
+
+function complexTypeElem(ct:ComplexType, index:Int = 0):ComplexType {
+	return switch ct {
+		case TPath(p):
+			if (p.params != null && p.params.length > 0) {
+				switch p.params[index] {
+					case TPType(t):
+						t;
+					default:
+						ct;
+				}
+			} else {
+				ct;
+			}
+		default:
+			ct;
+	}
+}

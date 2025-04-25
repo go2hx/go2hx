@@ -18,7 +18,7 @@ function typeSelectStmt(stmt:GoAst.SelectStmt, info:Info):ExprDef {
 		}
 		var block = (obj == null || obj.body == null) ? macro {} : toExpr(typeStmtList(obj.body, info, false));
 		var cond:Expr = null;
-		if (needsReturn && !exprWillReturn(block))
+		if (needsReturn && !HaxeAst.exprWillReturn(block))
 			needsReturn = false;
 		if (obj == null || obj.comm == null) { // default true
 			defaultBlock = block;

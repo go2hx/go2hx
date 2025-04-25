@@ -12,7 +12,7 @@ function typeAssertExpr(expr:GoAst.TypeAssertExpr, info:Info):ExprDef { // a -> 
 			switch c {
 				case CIdent(s):
 					if (s == "null") {
-						var e = defaultValue(t, info);
+						var e = HaxeAst.defaultValue(t, info);
 						return e.expr;
 					}
 				default:

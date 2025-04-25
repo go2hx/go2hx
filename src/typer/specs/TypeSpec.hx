@@ -260,7 +260,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 							}
 						}
 						if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
-							// expr = results.length == 1 ? defaultValue(results[0], info) : macro @:typeType null;
+							// expr = results.length == 1 ? HaxeAst.defaultValue(results[0], info) : macro @:typeType null;
 						}
 						if (ret == null)
 							ret = TPath({name: "Void", pack: []});

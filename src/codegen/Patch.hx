@@ -790,7 +790,7 @@ final list = [
 	},
 	"reflect:makeSlice" => macro @:splitdeps {
 		// (_typ:Type, _len:GoInt, _cap:GoInt)
-		final value = stdgo._internal.internal.reflect.Reflect.defaultValue(_typ);
+		final value = stdgo._internal.internal.reflect.Reflect.HaxeAst.defaultValue(_typ);
 		final slice = new stdgo.Slice(_len, _cap.toBasic(), ...[for (i in 0..._len.toBasic()) value]);
 		final t = @:privateAccess (cast _typ : stdgo._internal.internal.reflect.Reflect._Type_asInterface).__type__;
 		return new $newValue(new stdgo.AnyInterface(slice, t));
@@ -894,7 +894,7 @@ final list = [
 		return @:privateAccess _v.canAddrBool;
 	},
 	"reflect:zero" => macro @:splitdeps {
-		return new $newValue(new stdgo.AnyInterface(stdgo._internal.internal.reflect.Reflect.defaultValue(_typ), _typ.__underlying__().value));
+		return new $newValue(new stdgo.AnyInterface(stdgo._internal.internal.reflect.Reflect.HaxeAst.defaultValue(_typ), _typ.__underlying__().value));
 	},
 	"reflect.Value:type" => macro @:splitdeps {
 		if (@:privateAccess _v.value == null) {
@@ -1353,7 +1353,7 @@ final list = [
 		};
 	},
 	"reflect:new_" => macro {
-		var value = stdgo._internal.internal.reflect.Reflect.defaultValue(_typ);
+		var value = stdgo._internal.internal.reflect.Reflect.HaxeAst.defaultValue(_typ);
 		var ptr = new Pointer(() -> value, x -> value = x);
 		return new $newValue(new stdgo.AnyInterface(ptr,
 			new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({

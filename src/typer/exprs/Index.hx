@@ -14,7 +14,7 @@ function typeIndexExpr(expr:GoAst.IndexExpr, info:Info):ExprDef {
 	}
 	var index = typer.exprs.Expr.typeExpr(expr.index, info);
 	var t = typeof(expr.x, info, false);
-	final obj = destructureExpr(x, t);
+	final obj = HaxeAst.destructureExpr(x, t);
 	x = obj.x;
 	t = obj.t;
 	t = getUnderlyingRefNamed(t);
@@ -24,7 +24,7 @@ function typeIndexExpr(expr:GoAst.IndexExpr, info:Info):ExprDef {
 			index = macro($index : stdgo.GoInt); // explicit casting needed for macro typeParam system otherwise compilation breaks
 		case mapType(_.get() => indexType, _.get() => valueType):
 			index = assignTranslate(typeof(expr.index, info, false), indexType, index, info, false);
-			final value = defaultValue(valueType, info);
+			final value = HaxeAst.defaultValue(valueType, info);
 			final e = macro($x[$index] ?? $value);
 			return e.expr;
 		case signature(_, _.get() => params, _.get() => results, _, _.get() => typeParams): // generic param

@@ -13,7 +13,7 @@ function typeRangeStmt(stmt:GoAst.RangeStmt, info:Info):ExprDef { // for stmt
 			isArray = true;
 		default:
 	}
-	x = destructureExpr(x, xType).x;
+	x = HaxeAst.destructureExpr(x, xType).x;
 	final assign = stmt.tok == ASSIGN;
 	var key = null;
 	var value = null;

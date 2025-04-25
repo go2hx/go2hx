@@ -72,12 +72,12 @@ package typer.stmts;
 			switch block.expr {
 				case EBlock(exprs):
 					var type:ComplexType = toComplexType(assignType, info);
-					var defValue = defaultValue(assignType, info, false);
+					var defValue = HaxeAst.defaultValue(assignType, info, false);
 
 					var set = macro __type__?.__underlying__();
 					if (types.length == 1) {
 						type = toComplexType(types[0], info);
-						defValue = defaultValue(types[0], info, false);
+						defValue = HaxeAst.defaultValue(types[0], info, false);
 						set = macro __type__ == null ? $defValue : __type__.__underlying__();
 						// trace(assignType);
 						// trace(types[0]);

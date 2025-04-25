@@ -134,7 +134,7 @@ function typeSwitchStmt(stmt:GoAst.SwitchStmt, info:Info):ExprDef { // always an
 			}
 			expr = func(expr);
 		}
-		var needsReturn = exprWillReturn(expr);
+		var needsReturn = HaxeAst.exprWillReturn(expr);
 		final continueBool = continueInsideSwitch(expr);
 		if (continueBool) {
 			expr = macro {

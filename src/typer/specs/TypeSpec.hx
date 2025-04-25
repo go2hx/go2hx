@@ -170,7 +170,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 							args.push(macro...${args.pop()});
 							params.push(last);
 						}
-						final fieldName = nameIdent(method.name, false, true, info);
+						final fieldName = typer.exprs.Ident.nameIdent(method.name, false, true, info);
 						info.localIdents.remove(fieldName);
 						var ret:ComplexType = null;
 						if (results.length > 0) {

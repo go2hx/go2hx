@@ -3,8 +3,8 @@ package typer.exprs;
 function typeFuncLit(expr:GoAst.FuncLit, info:Info):ExprDef {
 	final info = info.copy();
 	info.global.gotoSystem = false;
-	var args = typeFieldListArgs(expr.type.params, info);
-	var ret = typeFieldListReturn(expr.type.results, info, true);
+	var args = typer.decls.Function.typeFieldListArgs(expr.type.params, info);
+	var ret = typer.decls.Function.typeFieldListReturn(expr.type.results, info, true);
 	final prevDeferBool = info.global.deferBool;
 	final prevRecoverBool = info.global.recoverBool;
 	final prevGotoSystem = info.global.gotoSystem;

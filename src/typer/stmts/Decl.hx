@@ -48,7 +48,7 @@ function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):ExprDef {
 						for (i in 0...spec.names.length) {
 							final fieldName = "_" + i;
 							final type = toComplexType(tuples[i], info);
-							final name = nameIdent(spec.names[i].name, false, true, info);
+							final name = typer.exprs.Ident.nameIdent(spec.names[i].name, false, true, info);
 							vars2.push({
 								name: name,
 								expr: macro __tmp__.$fieldName,
@@ -80,7 +80,7 @@ function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):ExprDef {
 							var nameStr = spec.names[i]?.name;
 							if (nameStr == null)
 								nameStr = '_$i';
-							var name = nameIdent(nameStr, false, true, info);
+							var name = typer.exprs.Ident.nameIdent(nameStr, false, true, info);
 							var t = typeof(spec.type, info, false);
 							var exprType = type;
 							switch exprType {

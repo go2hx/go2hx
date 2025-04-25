@@ -19,10 +19,10 @@ function typeRangeStmt(stmt:GoAst.RangeStmt, info:Info):ExprDef { // for stmt
 	var value = null;
 	if (!assign) {
 		if (stmt.key != null && stmt.key.id == "Ident") {
-			key = macro $i{nameIdent(stmt.key.name, false, true, info)};
+			key = macro $i{typer.exprs.Ident.nameIdent(stmt.key.name, false, true, info)};
 		}
 		if (stmt.value != null && stmt.value.id == "Ident") {
-			value = macro $i{nameIdent(stmt.value.name, false, true, info)};
+			value = macro $i{typer.exprs.Ident.nameIdent(stmt.value.name, false, true, info)};
 		}
 	}
 

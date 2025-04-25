@@ -108,7 +108,7 @@ function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
 	var split = part.lastIndexOf(".");
 	var pkg = part.substr(0, split);
 	final clName = part.substr(split + 1);
-	var cl = typer.Typer.className(clName, info);
+	var cl = io.Path.className(clName, info);
 	final basicType = classToBuiltinTypePath(clName, info);
 	if (basicType != null)
 		return basicType;
@@ -131,4 +131,83 @@ function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
 	final last = pack.pop();
 	pack.push(last + "_" + cl.toLowerCase());
 	return {pack: pack, name: cl};
+}
+
+
+function importClassName(name:String):String {
+
+	name = nameAscii(name);
+	final bool = isTitle(name);
+	name = title(name);
+	if (bool || isInvalidTitle(name)) {
+		name = "T_" + name;
+	}
+	if (Data.reservedClassNames.indexOf(name) != -1)
+		name += "_";
+	return name;
+} 
+
+function className(name:String, info:Info):String {
+
+	name = nameAscii(name);
+	if (info.renameClasses.exists(name))
+		return info.renameClasses[name];
+	if (info.global.renameClasses.exists(name))
+		return info.global.renameClasses[name];
+
+	if (name == "bool")
+		return "Bool";
+
+	if (!isTitle(name) || isInvalidTitle(name))
+		name = "T_" + name;
+
+	if (io.Data.reservedClassNames.indexOf(name) != -1)
+		name += "_";
+	return name;
+} 
+
+function isInvalidTitle(name:String):Bool {
+
+	final c = name.charAt(0);
+	if ([for (i in 0...10 + 1) '$i'].indexOf(c) != -1)
+		return true;
+	if (c == "_")
+		return true;
+	return false;
+} 
+
+
+function nameAscii(name:String):String {
+	for (i in 0...name.length) {
+		final char = name.charCodeAt(i);
+		final isAscii = char > -1 && char < 128;
+		if (!isAscii) {
+			name = name.substr(0, i) + '$char' + name.substr(i + 1);
+			if (i == 0)
+				name = "_" + name;
+		}
+	}
+	if (name.length > 255 - 80)
+		name = name.substr(0, 255 - 80);
+	return name;
+}
+
+function formatHaxeFieldName(name:String, info:Info) {
+	final newName = typer.exprs.Ident.nameIdent(name, false, true, info, false, false, null, true);
+	return newName;
+}
+
+function untitle(name:String):String {
+	if (isTitle(name)) {
+		name = name.substr(0, 1).toLowerCase() + name.substring(1);
+	} else {
+		name = "_" + name;
+	}
+	return name;
+}
+
+function isTitle(string:String):Bool {
+	if (string.charAt(0) == "_")
+		return false;
+	return string.charAt(0) == string.charAt(0).toUpperCase();
 }

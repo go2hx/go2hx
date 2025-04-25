@@ -38,7 +38,7 @@ package typer.stmts;
 			switch lhs.id {
 				case "Ident":
 					final lhs:GoAst.Ident = lhs;
-					setVar = nameIdent(lhs.name, false, true, info);
+					setVar = typer.exprs.Ident.nameIdent(lhs.name, false, true, info);
 				default:
 					trace("unknown assign lhs type switch expr: " + rhs.id);
 			}
@@ -67,7 +67,7 @@ package typer.stmts;
 		final obj:GoAst.CaseClause = stmt.body.list[i];
 		types = [];
 		final cond = condition(obj);
-		final block = toExpr(typeStmtList(obj.body, info, false));
+		final block = toExpr(typer.stmts.Block.typeStmtList(obj.body, info, false));
 		if (setVar != "") {
 			switch block.expr {
 				case EBlock(exprs):

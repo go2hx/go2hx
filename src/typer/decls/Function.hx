@@ -81,7 +81,7 @@ function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> =
             default:
         }
         if (varName != "") {
-            varName = nameIdent(varName, false, true, info);
+            varName =typer.exprs.Ident.nameIdent(varName, false, true, info);
             if (isPointer(varType)) {
                 meta.push({name: ":pointer", pos: null});
             }
@@ -244,4 +244,103 @@ function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> =
         info.global.localSpecs.remove(decl.name.name);
     }
     return def;
+}
+
+function typeFieldListReturn(fieldList:GoAst.FieldList, info:Info, retValuesBool:Bool):ComplexType { // A single type or Anonymous struct type
+	// reset
+	var returnComplexTypes:Array<ComplexType> = [];
+	var returnNamed:Bool = false;
+	var returnNames:Array<String> = [];
+	var returnTypes:Array<GoType> = [];
+	if (fieldList == null) {
+		final t = TPath({
+			name: "Void",
+			pack: [],
+		});
+		if (retValuesBool) {
+			info.returnNamed = returnNamed;
+			info.returnNames = returnNames;
+			info.returnTypes = returnTypes;
+			info.returnType = t;
+			info.returnComplexTypes = returnComplexTypes;
+		}
+		return t;
+	}
+
+	for (group in fieldList.list) {
+		final ct = typeExprType(group.type, info);
+		var t = typeof(group.type, info, false);
+		// trace(printer.printComplexType(ct), group.type.id);
+		if (group.names.length == 0) {
+			returnTypes.push(t);
+			returnNames.push("_" + returnNames.length);
+			returnComplexTypes.push(ct);
+			continue;
+		} else {
+			returnNamed = true;
+		}
+		for (name in group.names) {
+			if (name.name == "_") {
+				returnNames.push("_" + returnNames.length);
+			} else {
+				returnNames.push(typer.exprs.Ident.nameIdent(name.name, false, true, info));
+			}
+			returnTypes.push(t);
+			returnComplexTypes.push(ct);
+		}
+	}
+
+	var type = if (returnComplexTypes.length > 1) {
+		TAnonymous([
+			for (i in 0...returnComplexTypes.length)
+				{
+					name: "_" + i,
+					pos: null,
+					kind: FVar(returnComplexTypes[i])
+				}
+		]);
+	} else {
+		if (returnComplexTypes.length == 0) {
+			TPath({
+				name: "Void",
+				pack: [],
+			});
+		} else {
+			returnComplexTypes[0];
+		}
+	}
+
+	if (retValuesBool) {
+		info.returnNamed = returnNamed;
+		info.returnNames = returnNames;
+		info.returnTypes = returnTypes;
+		info.returnType = type;
+		info.returnComplexTypes = returnComplexTypes;
+	}
+	return type;
+}
+
+function typeFieldListArgs(list:GoAst.FieldList, info:Info):Array<FunctionArg> { // Array of FunctionArgs
+	var args:Array<FunctionArg> = [];
+	var counter = 0;
+	if (list == null)
+		return [];
+	for (field in list.list) {
+		var type = typeExprType(field.type, info); // null can be assumed as interface{}
+		if (field.names.length == 0) {
+			args.push({
+				name: "_" + counter++,
+				type: type,
+			});
+			continue;
+		}
+		for (name in field.names) {
+			final argName = typer.exprs.Ident.nameIdent(name.name, false, true, info);
+			args.push({
+				name: argName,
+				type: type,
+			});
+		}
+	}
+	return args;
 }

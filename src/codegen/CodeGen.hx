@@ -90,7 +90,7 @@ function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
 		final cl = macro class C {};
 		final clMacro = macro class C {};
 		splitFiles = [];
-		cl.name = @:privateAccess typer.Typer.importClassName(paths.pop());
+		cl.name = @:privateAccess io.Path.importClassName(paths.pop());
 		// cl.meta = [{name: ":doxName", params: [macro ${shared.Util.makeExpr("⭐ " + clName,)}], pos: null}];
 		clMacro.name = cl.name;
 		for (def in file.defs) {

@@ -325,6 +325,11 @@ typedef PointerType = {
 	elem:ExprType,
 };
 
+typedef TypeParamType = {
+	name:String,
+	constraint:ExprType,
+}
+
 typedef FuncType = {
 	// > Node,
 	func:Pos,

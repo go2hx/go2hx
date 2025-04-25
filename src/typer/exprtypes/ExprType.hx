@@ -25,20 +25,20 @@ function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the type of 
 
 	var type = switch expr.id {
 		case "UnaryExpr": UnaryType.unaryType(expr, info);
-		case "MapType": mapTypeExpr(expr, info);
-		case "ChanType": chanTypeExpr(expr, info);
-		case "InterfaceType": interfaceTypeExpr(expr, info);
-		case "StructType": structTypeExpr(expr, info);
-		case "FuncType": funcType(expr, info);
-		case "ArrayType": arrayTypeExpr(expr, info);
-		case "StarExpr": starType(expr, info); // pointer
-		case "Ident": identType(expr, info); // identifier type
-		case "SelectorExpr": selectorType(expr, info); // path
-		case "Ellipsis": ellipsisType(expr, info); // Rest arg
+		case "MapType": MapType.mapTypeExpr(expr, info);
+		case "ChanType": ChanType.chanTypeExpr(expr, info);
+		case "InterfaceType": InterfaceType.interfaceTypeExpr(expr, info);
+		case "StructType": StructType.structTypeExpr(expr, info);
+		case "FuncType": FuncType.funcType(expr, info);
+		case "ArrayType": ArrayType.arrayTypeExpr(expr, info);
+		case "StarExpr": StarType.starType(expr, info); // pointer
+		case "Ident": IdentType.identType(expr, info); // identifier type
+		case "SelectorExpr": SelectorType.selectorType(expr, info); // path
+		case "Ellipsis": EllipsisType.ellipsisType(expr, info); // Rest arg
 		case "ParenExpr": return typeExprType(expr.x, info);
-		case "IndexExpr": return indexType(expr, info); // t type
-		case "IndexListExpr": return indexListType(expr, info);
-		case "BinaryExpr": return binaryType(expr, info); // Union type
+		case "IndexExpr": return IndexType.indexType(expr, info); // t type
+		case "IndexListExpr": return IndexListType.indexListType(expr, info);
+		case "BinaryExpr": return BinaryType.binaryType(expr, info); // Union type
 		case "HashType": return typeExprType(hashTypeToExprType(expr, info), info);
 		case "BasicLit": return toComplexType(typeof(expr.type, info, false, []), info);
 		default:
@@ -404,12 +404,6 @@ private typedef Ref<T> = {
 }
 
 // modular functions
-
-function isTitle(string:String):Bool {
-	if (string.charAt(0) == "_")
-		return false;
-	return string.charAt(0) == string.charAt(0).toUpperCase();
-}
 
 function removeTypeParam(t:GoType) {
 	if (t == null)

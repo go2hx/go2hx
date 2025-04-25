@@ -40,7 +40,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 				if (nameStr != "_")
 					emptyNames = false;
 			}
-			final name = nameIdent(nameStr, false, true, info);
+			final name =typer.exprs.Ident.nameIdent(nameStr, false, true, info);
 			info.localIdents.remove(name);
 			var e = macro $tmpExpr.$fieldName;
 			final toType = typeof(value.names[i], info, false);
@@ -97,7 +97,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 			}
 			if (expr == null)
 				continue;
-			var name = nameIdent(value.names[i].name, false, true, info);
+			var name =typer.exprs.Ident.nameIdent(value.names[i].name, false, true, info);
 			info.localIdents.remove(name);
 			// empty name
 			if (value.names[i].name == "_")

@@ -89,3 +89,83 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):ExprDef {
 		(macro null).expr;
 	}
 }
+
+function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Int}> {
+	var backslash = false;
+	var i = 0;
+	final values:Array<{?s:String, ?code:Int}> = [];
+	var buff = new StringBuf();
+	function escapeHex(value:Int) {
+		if (buff.length > 0)
+			values.push({s: buff.toString()});
+		values.push({code: value});
+		buff = new StringBuf();
+	}
+	while (i < value.length) {
+		if (backslash) {
+			final code = value.charCodeAt(i);
+			switch code {
+				case 'x'.code:
+					// var hex = value.substr(i + 1, 2);
+					var high = StringTools.fastCodeAt(value, i + 1);
+					var low = StringTools.fastCodeAt(value, i + 2);
+					high = (high & 0xF) + ((high & 0x40) >> 6) * 9;
+					low = (low & 0xF) + ((low & 0x40) >> 6) * 9;
+					final num = ((high << 4) | low) & 0xFF;
+					escapeHex(num);
+					i += 2;
+				case '0'.code, '1'.code, '2'.code, '3'.code, '4'.code, '5'.code, '6'.code, '7'.code, '8'.code, '9'.code:
+					var num = 0;
+					for (j in 0...3) {
+						final numCode = Std.parseInt(value.charAt(i + j));
+						final expo = Std.int(Math.pow(8, 2 - j));
+						num += numCode * expo;
+					}
+					escapeHex(num);
+					i += 3;
+				case '"'.code:
+					buff.add('"');
+				case 'a'.code:
+					buff.add("\\x07");
+				case 'b'.code:
+					buff.add("\\x08");
+				case 'e'.code:
+					buff.add("\\x1B");
+				case 'f'.code:
+					buff.add("\\x0C");
+				case 'v'.code:
+					buff.add("\\x0B");
+				case 'u'.code:
+					buff.add("\\u" + value.substr(i + 1, 4));
+					i += 4;
+				case 'U'.code:
+					buff.add("\\u{" + value.substr(i + 1, 8) + "}");
+					i += 8;
+				default:
+					buff.add("\\" + String.fromCharCode(code));
+			}
+			backslash = false;
+			i++;
+			continue;
+		}
+		final code = value.charCodeAt(i);
+		switch code {
+			case "\\".code:
+				backslash = true;
+			// case "$".code:
+			//	buff.add("$$");
+			default:
+				try {
+					buff.addChar(code);
+				} catch (_) {
+					buff.addChar(97);
+				}
+		}
+		i++;
+	}
+	if (backslash)
+		buff.add("\\");
+	if (buff.length > 0)
+		values.push({s: buff.toString()});
+	return values;
+}

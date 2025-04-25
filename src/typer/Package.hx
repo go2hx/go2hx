@@ -67,7 +67,7 @@ function typePackageEmit(pkg:typer.Package.IntermediatePackageType):HaxeAst.Modu
                     }
                 }
             }
-            var restrictedNames = [for (func in local) nameIdent(func.func.name.name, false, false, info)]; // restrict function names
+            var restrictedNames = [for (func in local)typer.exprs.Ident.nameIdent(func.func.name.name, false, false, info)]; // restrict function names
             var isNamed = false;
             if (def != null && def.meta != null && def.meta[0] != null && def.meta[0].name == ":named")
                 isNamed = true;
@@ -398,7 +398,7 @@ function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerIns
         }
         for (decl in irPkg.declFuncs) {
             if (decl.recv == null || decl.recv.list == null || decl.recv.list.length == 0) {
-                final name = nameIdent(decl.name.name, false, true, info); // overwrite name
+                final name =typer.exprs.Ident.nameIdent(decl.name.name, false, true, info); // overwrite name
                 info.localIdents.remove(name);
             }
         }

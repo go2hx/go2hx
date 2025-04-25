@@ -268,7 +268,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 				final vars:Array<Var> = [];
 				for (i in 0...stmt.lhs.length) {
 					var expr = typer.exprs.Expr.typeExpr(stmt.rhs[i], info);
-					final name = nameIdent(stmt.lhs[i].name, false, true, info);
+					final name = typer.exprs.Ident.nameIdent(stmt.lhs[i].name, false, true, info);
 					final toType = typeof(stmt.lhs[i], info, false);
 					final fromType = typeof(stmt.rhs[i], info, false);
 					expr = assignTranslate(fromType, toType, expr, info);
@@ -330,7 +330,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 				for (i in 0...stmt.lhs.length) {
 					if (stmt.lhs[i].id != "Ident")
 						throw info.panic() + "define left side not an ident";
-					var varName = nameIdent(stmt.lhs[i].name, false, true, info);
+					var varName = typer.exprs.Ident.nameIdent(stmt.lhs[i].name, false, true, info);
 					var fieldName = names[i];
 					if (fieldName == null)
 						fieldName = '_$i';

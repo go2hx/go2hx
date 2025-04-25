@@ -82,7 +82,7 @@ function typeSwitchStmt(stmt:GoAst.SwitchStmt, info:Info):ExprDef { // always an
 				cond = macro __switchIndex__ == $index || (__switchIndex__ == -1 && ($cond));
 			info.switchIndex = i;
 		}
-		var block = toExpr(typeStmtList(obj.body, info, false));
+		var block = toExpr(typer.stmts.Block.typeStmtList(obj.body, info, false));
 		if (cond == null)
 			defaultBlock = block;
 		if (i + 1 >= stmt.body.list.length) {

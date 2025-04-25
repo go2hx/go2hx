@@ -144,7 +144,7 @@ function typePackageEmit(pkg:typer.Package.IntermediatePackageType):HaxeAst.Modu
             final wrapper = HaxeAst.createWrapper(wrapperName, ct);
             wrapper.isExtern = true;
             wrapper.params = def.params;
-            if (!alreadyExistsTypeDef(wrapper, info))
+            if (!HaxeAst.alreadyExistsTypeDef(wrapper, info))
                 file.defs.push(wrapper);
             // type alias pointer
             final aliasPointerName = def.name + "Pointer";
@@ -168,14 +168,14 @@ function typePackageEmit(pkg:typer.Package.IntermediatePackageType):HaxeAst.Modu
                 isExtern: true,
                 meta: [{name: ":keep", pos: null}, {name: ":follow", pos: null},],
             };
-            if (!alreadyExistsTypeDef(aliasPointer, info))
+            if (!HaxeAst.alreadyExistsTypeDef(aliasPointer, info))
                 info.data.defs.push(aliasPointer);
             // files check against all TypeSpecs
             if (def.meta != null) { // prevents adding @:using or other metadata to codegen.Patch.replace types
                 def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
             }
             aliasPointer.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
-            if (!alreadyExistsTypeDef(staticExtension, info))
+            if (!HaxeAst.alreadyExistsTypeDef(staticExtension, info))
                 file.defs.push(staticExtension);
             var embedded = false;
             for (field in def.fields) { // embedded

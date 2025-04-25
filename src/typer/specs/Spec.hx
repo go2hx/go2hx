@@ -38,7 +38,7 @@ function typeSpec(spec:GoAst.TypeSpec, info:Info, local:Bool = false):TypeDefini
 				pos: null,
 				pack: [],
 				isExtern: isTitle(spec.name.name),
-				doc: getDocComment(spec),
+				doc: codegen.Doc.getDocComment(spec),
 				meta: [{name: ":follow", pos: null}],
 				fields: [],
 				kind: TDAlias(type),

@@ -116,7 +116,7 @@ function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> =
         info.returnNamed = false;
 
         final recvName = (decl.recv == null || decl.recv.list == null) ? "" : getRecvName(decl.recv.list[0].type, info);
-        macro throw ${makeString(recvName + ":" + info.global.path + "." + name + " is not yet implemented")};
+        macro throw ${HaxeAst.makeString(recvName + ":" + info.global.path + "." + name + " is not yet implemented")};
     } else {
         var block = toExpr(typer.stmts.Block.typeBlockStmt(decl.body, info, true));
         final cond = codegen.Patch.skipTests[patchName];
@@ -133,10 +133,10 @@ function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> =
                             $e;
                         };
                     } else {
-                        final targets = makeString("(" + cond.join(" || ") + ")");
+                        final targets = HaxeAst.makeString("(" + cond.join(" || ") + ")");
                         block = macro @:define($targets) {
                             stdgo.Go.println('-- SKIP: ' + $e{makeExpr(name)});
-                            stdgo.Go.println(" skip targets: " + $e{makeString(cond.join(", "))});
+                            stdgo.Go.println(" skip targets: " + $e{HaxeAst.makeString(cond.join(", "))});
                             $e;
                         };
                     }
@@ -156,10 +156,10 @@ function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> =
     block = argsTranslate(args, block, decl.type.params, info, recvArg);
 
     info.restricted = [];
-    var doc = getDocComment(decl);
+    var doc = codegen.Doc.getDocComment(decl);
     var preamble = "* #go2hx ";
     var index = doc.indexOf(preamble);
-    var finalDoc = doc + getSource(decl, info);
+    var finalDoc = doc + codegen.Doc.getSource(decl, info);
     if (index != -1) {
         var path = doc.substr(index + preamble.length);
         var params:Array<Expr> = [

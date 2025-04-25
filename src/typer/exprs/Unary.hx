@@ -36,7 +36,7 @@ function typeUnaryExpr(expr:GoAst.UnaryExpr, info:Info):ExprDef {
 								switch c {
 									case CInt(v): return ECheckType(toExpr(EConst(CInt('-$v'))), t);
 									case CFloat(f): return ECheckType(toExpr(EConst(CFloat('-$f'))), t);
-									case CString(s, kind): return ECheckType(makeString('-$s'), t);
+									case CString(s, kind): return ECheckType(HaxeAst.makeString('-$s'), t);
 									default:
 								}
 							default:

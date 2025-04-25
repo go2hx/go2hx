@@ -7,7 +7,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 	info.global.renameClasses[spec.name.name] = name;
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
-	var doc:String = getDocComment(spec, spec) + getSource(spec, info);
+	var doc:String = codegen.Doc.getDocComment(spec, spec) + codegen.Doc.getSource(spec, info);
 	final patchName = info.global.module.path + ":" + name;
 	final replaceExpr = codegen.Patch.replace[patchName];
 	if (replaceExpr != null) {
@@ -345,7 +345,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 					isExtern: true,
 					meta: [{name: ":keep", pos: null}, {name: ":follow", pos: null},],
 				};
-				if (!alreadyExistsTypeDef(aliasPointer, info))
+				if (!HaxeAst.alreadyExistsTypeDef(aliasPointer, info))
 					info.data.defs.push(aliasPointer);
 				final staticExtensionName = def.name + "_static_extension";
 				final wrapperName = def.name + "_asInterface";
@@ -368,12 +368,12 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 				final wrapper = HaxeAst.createWrapper(wrapperName, ct);
 				wrapper.isExtern = true;
 				wrapper.params = def.params;
-				if (!alreadyExistsTypeDef(wrapper, info))
+				if (!HaxeAst.alreadyExistsTypeDef(wrapper, info))
 					info.data.defs.push(wrapper);
 				// embedding
 				aliasPointer.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
 				def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
-				if (!alreadyExistsTypeDef(staticExtension, info))
+				if (!HaxeAst.alreadyExistsTypeDef(staticExtension, info))
 					info.data.defs.push(staticExtension);
 				var embedded = false;
 				for (field in localEmbeddedFields) { // embedded
@@ -471,7 +471,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 					pos: null,
 					fields: [],
 					pack: [],
-					doc: getDocComment(spec),
+					doc: codegen.Doc.getDocComment(spec),
 					params: params,
 					isExtern: externBool,
 					meta: meta,
@@ -488,7 +488,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 				isExtern: true,
 				meta: [{name: ":keep", pos: null},],
 			};
-			if (!alreadyExistsTypeDef(staticExtension, info))
+			if (!HaxeAst.alreadyExistsTypeDef(staticExtension, info))
 				info.data.defs.push(staticExtension);
 			final fields:Array<haxe.macro.Expr.Field> = typeFieldListMethods(struct.methods, info);
 			final wrapper = macro class Wrapper {};

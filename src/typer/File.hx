@@ -20,7 +20,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
     info.locals.clear();
     info.localUnderlyingNames.clear();
     info.data = data;
-    final pkgDoc = getDocComment(file);
+    final pkgDoc = codegen.Doc.getDocComment(file);
     var declFuncs:Array<GoAst.FuncDecl> = [];
     var declGens:Array<GoAst.GenDecl> = [];
     for (decl in file.decls) {
@@ -40,7 +40,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
                 continue;
             switch spec.id {
                 case "ImportSpec":
-                    typeImport(spec, info);
+                    typer.specs.ImportSpec.typeImport(spec, info);
                 case "TypeSpec":
                     final spec:GoAst.TypeSpec = spec;
                     if (spec.type.id == "InterfaceType") { // priority
@@ -208,7 +208,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
     if (info.global.initBlock.length > 0) {
         // info.global.initBlock.unshift(macro trace(stdgo._internal.internal.type.Type.names));
         var block = toExpr(EBlock(info.global.initBlock));
-        final pathString = makeString(info.global.path);
+        final pathString = HaxeAst.makeString(info.global.path);
         if (info.global.varTraceBool) {
             block = macro {
                 trace("start init func: " + $pathString);

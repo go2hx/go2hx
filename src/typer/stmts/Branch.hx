@@ -18,7 +18,7 @@ function typeBranchStmt(stmt:GoAst.BranchStmt, info:Info):ExprDef {
 				EBreak;
 			}
 		case GOTO:
-			final name = makeString(stmt.label.name);
+			final name = HaxeAst.makeString(stmt.label.name);
 			return HaxeAst.typeGoto(name).expr;
 		case FALLTHROUGH:
 			final e = info.switchTag;

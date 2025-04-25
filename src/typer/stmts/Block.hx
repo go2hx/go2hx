@@ -4,7 +4,7 @@ function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):ExprDef {
 
 	if (stmt.list == null) {
 		if (isFunc && info.returnTypes.length > 0) {
-			final s = makeString("not implemented: " + info.funcName);
+			final s = HaxeAst.makeString("not implemented: " + info.funcName);
 			return (macro {
 				trace("funclit");
 				throw $s;

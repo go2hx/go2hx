@@ -609,6 +609,19 @@ function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field {
 	};
 }
 
+function alreadyExistsTypeDef(td:TypeDefinition, info:Info):Bool {
+	for (def in info.data.defs) {
+		if (def.name == td.name) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function makeString(str:String, ?kind):Expr {
+	return toExpr(EConst(CString(str, kind)));
+}
+
 
 function typeParamDeclsToTypeParams(list:Array<TypeParamDecl>):Array<TypeParam> {
 	return list.map(p -> TPType(TPath({name: p.name, pack: []})));

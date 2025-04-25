@@ -4,14 +4,14 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):ExprDef {
 	if (expr.basic) {
 		var e = switch expr.token {
 			case CHAR:
-				final const = makeString(getRune(expr.value));
+				final const = HaxeAst.makeString(getRune(expr.value));
 				final ct = TPath({name: "GoRune", pack: []});
 				macro($const.code : $ct);
 			case STRING:
 				if (!expr.raw) {
 					makeStringLit(decodeEscapeSequences(expr.value));
 				} else {
-					makeString(rawEscapeSequences(expr.value));
+					HaxeAst.makeString(rawEscapeSequences(expr.value));
 				}
 			case FLOAT:
 				final e = toExpr(EConst(CFloat(expr.value, "f64")));
@@ -168,4 +168,26 @@ function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Int}> {
 	if (buff.length > 0)
 		values.push({s: buff.toString()});
 	return values;
+}
+
+function makeStringLit(values:Array<{?s:String, ?code:Int}>):Expr {
+	var e:Expr = macro("" : stdgo.GoString);
+	final exprs:Array<Expr> = [];
+	for (value in values) {
+		final expr = if (value.s != null) {
+			HaxeAst.makeString(value.s);
+		} else {
+			final code = value.code;
+			makeExpr(code);
+		}
+		exprs.push(expr);
+	}
+	if (exprs.length == 1) {
+		switch exprs[0].expr {
+			case EConst(CString(_)):
+				return macro(${exprs[0]} : stdgo.GoString);
+			default:
+		}
+	}
+	return macro stdgo.Go.str($a{exprs});
 }

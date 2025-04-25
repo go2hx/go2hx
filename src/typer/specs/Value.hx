@@ -102,7 +102,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 			// empty name
 			if (value.names[i].name == "_")
 				pkg.varOrder.push(name);
-			var doc:String = getDocComment(value, value); // + getSource(value, info);
+			var doc:String = codegen.Doc.getDocComment(value, value); // + getSource(value, info);
 			var access = [];
 			// if (!isTitle(value.names[i].name))
 			//	access.push(APrivate);

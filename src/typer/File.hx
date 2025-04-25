@@ -244,5 +244,282 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 			doc: pkgDoc,
 			kind: TDField(FVar(TPath({name: "Bool", pack: []})), [APrivate]),
 		});
+	pass2(data, info, recvFunctions);
 	return data;
+}
+
+function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:Array<RecvFunction>) {
+	final defs = data.defs.copy();
+	for (def in defs) {
+		if (def.name == "__go2hxdoc__package")
+			continue;
+		if (StringTools.endsWith(def.name, "_asinterface")
+			|| StringTools.endsWith(def.name, "_asInterface")
+			|| StringTools.endsWith(def.name, "_static_extension"))
+			continue;
+		var local:Array<{func:GoAst.FuncDecl, sel:String, recvName:String}> = [];
+		final names:Array<{name:String, sel:String, recvName:String}> = [{name: def.name, sel: "", recvName: ""}];
+		final methods:Array<Field> = [];
+		for (recv in recvFunctions) {
+			if (data.isMain && data.name != recv.path)
+				continue;
+			final recvName = typer.decls.Function.getRecvName(recv.decl.recv.list[0].type, info);
+			if (recvName != def.name)
+				continue;
+			local.push({func: recv.decl, sel: "", recvName: recvName});
+			break;
+		}
+		var restrictedNames = [
+			for (func in local)
+				typer.exprs.Ident.nameIdent(func.func.name.name, false, false, info)
+		]; // restrict function names
+		var isNamed = false;
+		if (def != null && def.meta != null && def.meta[0] != null && def.meta[0].name == ":named")
+			isNamed = true;
+		// remove duplicated names
+		for (i in 0...local.length) {
+			if (local[i] == null || local[i].func.recv != null)
+				continue;
+			for (j in 0...local.length) {
+				if (i == j)
+					continue;
+				if (local[j] == null || local[j].func.recv != null)
+					continue;
+				final name = local[i].func.name.name;
+				final name2 = local[j].func.name.name;
+				if (name == name2) {
+					local.remove(local[i]);
+					break;
+				}
+			}
+		}
+
+		switch def.kind {
+			case TDField(_, _):
+				continue; // skip if var or function for wrapper
+			default:
+		}
+		final ct:ComplexType = TPath({
+			name: splitDepFullPathName(def.name + "Pointer", info),
+			pack: [],
+			params: def.params?.map(param -> TPType(TPath({name: param.name, pack: []}))),
+		});
+		// trace(new haxe.macro.Printer().printComplexType(ct));
+		var embedded = false;
+		for (field in def.fields) {
+			if (field.meta != null) {
+				for (meta in field.meta) {
+					if (meta.name == ":embedded") {
+						embedded = true;
+						break;
+					}
+				}
+				if (embedded)
+					break;
+			}
+		}
+		var isInterface = false;
+		if (def.meta != null) {
+			for (meta in def.meta) {
+				if (meta.name == ":interface")
+					isInterface = true;
+			}
+		}
+		if (isInterface)
+			continue;
+		final staticExtensionName = def.name + "_static_extension";
+		final wrapperName = def.name + "_asInterface";
+		final fieldWrapper = [info.global.filePath, wrapperName];
+		final globalPath = getGlobalPath(info);
+		if (globalPath != "")
+			fieldWrapper.unshift(globalPath);
+		final staticExtension:TypeDefinition = {
+			name: staticExtensionName,
+			pos: null,
+			pack: [],
+			kind: TDClass(),
+			fields: [],
+			isExtern: true,
+			meta: [
+				{name: ":keep", pos: null},
+				{name: ":allow", pos: null, params: [toExpr(EConst(CIdent(fieldWrapper.join("."))))]}
+			],
+		};
+		// asInterface
+		final wrapper = HaxeAst.createWrapper(wrapperName, ct);
+		wrapper.isExtern = true;
+		wrapper.params = def.params;
+		if (!HaxeAst.alreadyExistsTypeDef(wrapper, info))
+			data.defs.push(wrapper);
+		// type alias pointer
+		final aliasPointerName = def.name + "Pointer";
+		final aliasPointer:TypeDefinition = {
+			name: aliasPointerName,
+			pos: null,
+			pack: [],
+			kind: TDAlias(TPath({
+				name: "Pointer",
+				pack: ["stdgo"],
+				params: [
+					TPType(TPath({
+						pack: [],
+						name: splitDepFullPathName(def.name, info),
+						params: def.params?.map(param -> TPType(TPath({name: param.name, pack: []})))
+					}))
+				]
+			})),
+			params: def.params,
+			fields: [],
+			isExtern: true,
+			meta: [{name: ":keep", pos: null}, {name: ":follow", pos: null},],
+		};
+		if (!HaxeAst.alreadyExistsTypeDef(aliasPointer, info))
+			info.data.defs.push(aliasPointer);
+		// files check against all TypeSpecs
+		if (def.meta != null) { // prevents adding @:using or other metadata to codegen.Patch.replace types
+			def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
+		}
+		aliasPointer.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
+		if (!HaxeAst.alreadyExistsTypeDef(staticExtension, info))
+			data.defs.push(staticExtension);
+		var embedded = false;
+		for (field in def.fields) { // embedded
+			if (field.meta != null) {
+				embedded = false;
+				for (meta in field.meta) {
+					if (meta.name == ":embedded") {
+						embedded = true;
+						break;
+					}
+				}
+				if (embedded) { // embedded method already exists create it for staticExtension
+					switch field.kind {
+						case FProp(_, _, TFunction(args, ret), _):
+							throw "use this prop";
+							final t = TPath({name: splitDepFullPathName(def.name, info), pack: []});
+							final fun:haxe.macro.Expr.Function = {args: []};
+							fun.args = [
+								for (i in 0...args.length)
+									({
+										name:'_$i', type:args[i]
+									} : haxe.macro.Expr.FunctionArg)
+							];
+							fun.args.unshift({
+								name: "__self__",
+								type: t,
+								meta: [],
+							});
+							fun.ret = ret;
+							// final expr = {expr: fun.expr.expr, pos: null};
+							final fieldName = field.name;
+							final args = fun.args.slice(1).map(a -> macro $i{a.name});
+							switch fun.args[fun.args.length - 1].type {
+								case TPath(p):
+									if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe") args[args.length - 1] = macro...[
+										for (i in $e{
+											args[args.length - 1]
+										})
+											i
+									];
+								default:
+							}
+							fun.expr = macro @:_5 __self__.$fieldName($a{args});
+							if (!HaxeAst.isVoid(ret))
+								fun.expr = macro return ${fun.expr};
+							if (field.meta == null)
+								field.meta = [];
+							field.meta.push({name: ":embeddeddeffieldsfprop", pos: null});
+							// embedded named
+							HaxeAst.addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
+								true, def.params != null
+								&& def.params.length > 0);
+						// fun.args = fun.args.slice(1);
+						// fun.expr = expr;
+						case FFun(fun):
+							final t = TPath({name: splitDepFullPathName(def.name, info), pack: []});
+							if (field.meta == null)
+								field.meta = [];
+							field.meta.push({name: ":embeddededffieldsffun", pos: null});
+							final expr = {expr: fun.expr.expr, pos: null};
+							final fieldName = field.name.substr("_get".length);
+							final fun:haxe.macro.Expr.Function = {
+								ret: fun.ret,
+								args: fun.args,
+								params: fun.params,
+								expr: fun.expr,
+							}
+							switch fun.ret {
+								case TFunction(args, ret):
+									fun.args = [
+										for (i in 0...args.length)
+											({
+												name:'_$i', type:args[i]
+											} : haxe.macro.Expr.FunctionArg)
+									];
+									fun.ret = ret;
+								default:
+									throw "fun.ret must be TFunction: " + fun.ret;
+							}
+							fun.args.unshift({
+								name: "__self__",
+								type: t,
+								meta: [],
+							});
+							final args = fun.args.slice(1).map(a -> macro $i{a.name});
+							switch fun.args[fun.args.length - 1].type {
+								case TPath(p):
+									if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe") args[args.length - 1] = macro...[
+										for (i in $e{
+											args[args.length - 1]
+										})
+											i
+									];
+								default:
+							}
+							fun.expr = macro @:_5 __self__.$fieldName($a{args});
+							switch expr.expr {
+								case EReturn(_):
+									fun.expr = macro return ${fun.expr};
+								default:
+							}
+							// embedded named
+							HaxeAst.addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
+								true, def.params != null
+								&& def.params.length > 0);
+							fun.args = fun.args.slice(1);
+							fun.expr = expr;
+						default:
+					}
+				}
+			}
+		}
+		final funcs = [
+			for (decl in local) {
+				var func = typer.decls.Function.typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel, decl.recvName);
+				func;
+			}
+		];
+		for (func in funcs) {
+			switch func.kind {
+				case TDField(kind, access):
+					switch kind {
+						case FFun(fun):
+							final patchName = info.global.module.path + "." + def.name + ":" + func.name;
+							/*final patch = codegen.Patch.list[patchName];
+								if (patch != null) {
+									fun.expr = patch;
+									codegen.Patch.list.remove(patchName);
+							}*/
+							func.meta.push({name: ":tdfield", pos: null});
+							if (codegen.Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
+								access.push(AInline);
+							// recv func named
+							HaxeAst.addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, wrapper,
+								true, def.params != null && def.params.length > 0);
+						default:
+					}
+				default:
+			}
+		}
+	}
 }

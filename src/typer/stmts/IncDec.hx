@@ -1,7 +1,6 @@
 package typer.stmts;
 
 function typeIncDecStmt(stmt:GoAst.IncDecStmt, info:Info):ExprDef {
-
 	var x = typer.exprs.Expr.typeExpr(stmt.x, info);
 	x = HaxeAst.escapeParens(x);
 	var t = typeof(stmt.x, info, false);

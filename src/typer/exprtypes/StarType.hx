@@ -17,4 +17,4 @@ function starType(expr:GoAst.StarExpr, info:Info):ComplexType { // pointer type
 		name: "Pointer",
 		params: type != null ? [TPType(type)] : [],
 	});
-} 
+}

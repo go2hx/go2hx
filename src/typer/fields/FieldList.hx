@@ -23,56 +23,56 @@ function getParams(params:GoAst.FieldList, info:Info, allowNonGeneric:Bool = fal
 }
 
 function typeFieldListFieldTypes(list:GoAst.FieldList, info:Info, access:Array<Access> = null, defaultBool:Bool = false,
-	docs:Array<GoAst.CommentGroup> = null, comments:Array<GoAst.CommentGroup> = null):Array<typer.exprtypes.ExprType.FieldType> {
-var fields:Array<Field> = [];
-var fieldList:Array<typer.exprtypes.ExprType.FieldType> = [];
-function getName(type:GoAst.Expr) {
-	return switch type.id {
-		case "SelectorExpr": type.sel.name;
-		case "Ident": type.name;
-		case "StarExpr": getName(type.x);
-		case "Pointer": getName(type.elem);
-		case "IndexExpr": getName(type.x);
-		default: throw info.panic() + "unknown embedded: " + type.id;
+		docs:Array<GoAst.CommentGroup> = null, comments:Array<GoAst.CommentGroup> = null):Array<typer.exprtypes.ExprType.FieldType> {
+	var fields:Array<Field> = [];
+	var fieldList:Array<typer.exprtypes.ExprType.FieldType> = [];
+	function getName(type:GoAst.Expr) {
+		return switch type.id {
+			case "SelectorExpr": type.sel.name;
+			case "Ident": type.name;
+			case "StarExpr": getName(type.x);
+			case "Pointer": getName(type.elem);
+			case "IndexExpr": getName(type.x);
+			default: throw info.panic() + "unknown embedded: " + type.id;
+		}
 	}
-}
-final comments = [];
-for (field in list.list) {
-	var type = typeof(field.type, info, false);
-	var tag = "";
-	if (field.tag != "") {
-		tag = field.tag;
-	}
-	if (docs != null)
-		docs.push(field.doc);
-	if (comments != null)
-		comments.push(field.comment);
-	if (field.names.length == 0) {
-		// embedded
-		var name:String = formatHaxeFieldName(getName(field.type), info);
-		if (name == null)
-			continue;
-		fieldList.push({
-			name: name,
-			type: {get: () -> type},
-			tag: tag,
-			embedded: true,
-			optional: false,
-		});
-	} else {
-		for (n in field.names) {
-			final name = formatHaxeFieldName(n.name, info);
+	final comments = [];
+	for (field in list.list) {
+		var type = typeof(field.type, info, false);
+		var tag = "";
+		if (field.tag != "") {
+			tag = field.tag;
+		}
+		if (docs != null)
+			docs.push(field.doc);
+		if (comments != null)
+			comments.push(field.comment);
+		if (field.names.length == 0) {
+			// embedded
+			var name:String = formatHaxeFieldName(getName(field.type), info);
+			if (name == null)
+				continue;
 			fieldList.push({
 				name: name,
 				type: {get: () -> type},
-				embedded: false,
 				tag: tag,
-				optional: n.name == "_",
+				embedded: true,
+				optional: false,
 			});
+		} else {
+			for (n in field.names) {
+				final name = formatHaxeFieldName(n.name, info);
+				fieldList.push({
+					name: name,
+					type: {get: () -> type},
+					embedded: false,
+					tag: tag,
+					optional: n.name == "_",
+				});
+			}
 		}
 	}
-}
-return fieldList;
+	return fieldList;
 }
 
 function typeFieldListComplexTypes(list:GoAst.FieldList, info:Info):Array<ComplexType> {

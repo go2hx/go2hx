@@ -1,7 +1,6 @@
 package typer.exprtypes;
 
 function arrayTypeExpr(expr:GoAst.ArrayType, info:Info):ComplexType {
-
 	// array is pass by copy, slice is pass by ref except for its length
 	var type = typeExprType(expr.elt, info);
 	if (expr.len != null) {

@@ -1,7 +1,6 @@
 package typer.stmts;
 
 function typeBranchStmt(stmt:GoAst.BranchStmt, info:Info):ExprDef {
-
 	return switch stmt.tok {
 		case CONTINUE:
 			if (stmt.label != null) {

@@ -1,7 +1,6 @@
 package typer.exprs;
 
 function typeCallExpr(expr:GoAst.CallExpr, info:Info):ExprDef {
-
 	var args:Array<Expr> = [];
 	var tupleArg:Expr = null;
 	var debugBool = false;
@@ -423,7 +422,6 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):ExprDef {
 }
 
 private function exprToString(fromType:GoType, toType:GoType, expr:Expr, info:Info):Expr {
-
 	switch toType {
 		case basic(string_kind):
 			switch fromType {
@@ -448,4 +446,4 @@ private function exprToString(fromType:GoType, toType:GoType, expr:Expr, info:In
 		default:
 	}
 	return expr;
-} 
+}

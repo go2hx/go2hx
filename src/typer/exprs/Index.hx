@@ -1,7 +1,6 @@
 package typer.exprs;
 
 function typeIndexExpr(expr:GoAst.IndexExpr, info:Info):ExprDef {
-
 	var x = typer.exprs.Expr.typeExpr(expr.x, info);
 	switch x.expr {
 		case EConst(c):

@@ -1,7 +1,5 @@
 package typer.specs;
 
-
-
 function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt = 0):TypeDefinition {
 	var name = className(spec.name.name, info);
 	info.global.renameClasses[spec.name.name] = name;

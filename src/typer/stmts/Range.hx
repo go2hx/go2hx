@@ -58,4 +58,4 @@ function typeRangeStmt(stmt:GoAst.RangeStmt, info:Info):ExprDef { // for stmt
 		return (macro for ($key => $value in $x.__copy__()) $body).expr;
 	}
 	return (macro for ($key => $value in $x) $body).expr;
-} 
+}

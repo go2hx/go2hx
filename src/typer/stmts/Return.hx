@@ -1,9 +1,6 @@
 package typer.stmts;
 
-
-
 function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):ExprDef {
-
 	function ret(e:ExprDef, blank:Bool = false) {
 		if (info.global.deferBool) {
 			final exprs:Array<Expr> = [];

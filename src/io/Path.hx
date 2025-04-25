@@ -11,7 +11,6 @@ function toHaxePath(path:String):String {
 	return StringTools.replace(path, "/", ".");
 }
 
-
 function normalizePath(path:String):String {
 	path = StringTools.replace(path, ".", "dot");
 	path = StringTools.replace(path, ":", "colon");
@@ -27,7 +26,6 @@ function normalizePath(path:String):String {
 }
 
 function classToBuiltinTypePath(name:String, info:Info):TypePath {
-
 	return switch name {
 		case "error":
 			{
@@ -133,9 +131,7 @@ function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
 	return {pack: pack, name: cl};
 }
 
-
 function importClassName(name:String):String {
-
 	name = nameAscii(name);
 	final bool = isTitle(name);
 	name = title(name);
@@ -145,10 +141,9 @@ function importClassName(name:String):String {
 	if (Data.reservedClassNames.indexOf(name) != -1)
 		name += "_";
 	return name;
-} 
+}
 
 function className(name:String, info:Info):String {
-
 	name = nameAscii(name);
 	if (info.renameClasses.exists(name))
 		return info.renameClasses[name];
@@ -164,18 +159,16 @@ function className(name:String, info:Info):String {
 	if (io.Data.reservedClassNames.indexOf(name) != -1)
 		name += "_";
 	return name;
-} 
+}
 
 function isInvalidTitle(name:String):Bool {
-
 	final c = name.charAt(0);
 	if ([for (i in 0...10 + 1) '$i'].indexOf(c) != -1)
 		return true;
 	if (c == "_")
 		return true;
 	return false;
-} 
-
+}
 
 function nameAscii(name:String):String {
 	for (i in 0...name.length) {

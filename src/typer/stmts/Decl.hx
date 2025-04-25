@@ -1,7 +1,6 @@
 package typer.stmts;
 
 function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):ExprDef {
-
 	if (stmt.decl.decls == null)
 		return (macro {}).expr; // blank
 	var decls:Array<GoAst.GenDecl> = stmt.decl.decls;

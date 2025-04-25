@@ -1,7 +1,6 @@
 package typer.stmts;
 
 function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):ExprDef {
-
 	if (stmt.list == null) {
 		if (isFunc && info.returnTypes.length > 0) {
 			final s = HaxeAst.makeString("not implemented: " + info.funcName);
@@ -16,7 +15,6 @@ function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):ExprDef {
 }
 
 function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):ExprDef {
-
 	if (isFunc) {
 		info.localIdents = info.localIdents.copy();
 		info.renameIdents = info.renameIdents.copy();
@@ -118,4 +116,4 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 		}
 	}
 	return EBlock(exprs);
-} 
+}

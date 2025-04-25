@@ -1,6 +1,5 @@
-package typer.exprs;
+package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Info):ExprDef {
 
-function typeCompositeLit(expr:GoAst.CompositeLit, info:Info):ExprDef {
 	var setToSliceType = false;
 	var sliceType:GoType = null;
 	if (expr.type == null) {
@@ -31,10 +30,8 @@ function typeCompositeLit(expr:GoAst.CompositeLit, info:Info):ExprDef {
 	final e = compositeLit(type, ct, expr, info);
 	// trace(printer.printExpr({expr: e, pos: null}));
 	return e;
-}
+} function compositeLit(type:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):ExprDef {
 
-
-function compositeLit(type:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):ExprDef {
 	final keyValueBool:Bool = hasKeyValueExpr(expr.elts);
 	final underlying = getUnderlying(type);
 	if (isInvalid(underlying)) {
@@ -78,7 +75,8 @@ function compositeLit(type:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info
 					final key = formatHaxeFieldName(elt.key.name, info);
 					for (field in fields) {
 						if (field.name == key) {
-							final value = typer.exprs.Expr.assignTranslate(typeof(elt.value, info, false), field.type.get(), typer.exprs.Expr.typeExpr(elt.value, info), info);
+							final value = typer.exprs.Expr.assignTranslate(typeof(elt.value, info, false), field.type.get(),
+								typer.exprs.Expr.typeExpr(elt.value, info), info);
 							objectFields.push({
 								field: field.name,
 								expr: value,
@@ -102,7 +100,8 @@ function compositeLit(type:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info
 			} else {
 				final args = [
 					for (i in 0...expr.elts.length)
-						typer.exprs.Expr.assignTranslate(typeof(expr.elts[i], info, false), fields[i].type.get(), typer.exprs.Expr.typeExpr(expr.elts[i], info), info)
+						typer.exprs.Expr.assignTranslate(typeof(expr.elts[i], info, false), fields[i].type.get(),
+							typer.exprs.Expr.typeExpr(expr.elts[i], info), info)
 				];
 				if (isAlias && args.length < fields.length) {
 					for (i in args.length...fields.length) {
@@ -145,10 +144,8 @@ function compositeLit(type:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info
 		default:
 			throw info.panic() + "not supported CompositeLit type: " + underlying;
 	}
-}
+} function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):Expr {
 
-
-function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):Expr {
 	final p = getTypePath(toComplexType(underlying, info), info);
 	var value = typer.exprs.Expr.defaultValue(elem, info, false);
 	if (keyValueBool) {
@@ -212,9 +209,8 @@ function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, underlying:Go
 		// return e;
 		return macro($e : $ct);
 	}
-}
+} private function compositeLitMapList(keyType:GoType, valueType:GoType, underlying:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):Expr {
 
-private function compositeLitMapList(keyType:GoType, valueType:GoType, underlying:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):Expr {
 	var params:Array<Expr> = [];
 	final keys:Array<Expr> = [];
 	final values:Array<Expr> = [];
@@ -246,9 +242,8 @@ private function compositeLitMapList(keyType:GoType, valueType:GoType, underlyin
 	final keyComplexType = toComplexType(keyType, info);
 	final valueComplexType = toComplexType(valueType, info);
 	return createMap(underlying, keyComplexType, valueComplexType, exprs, info, ct);
-}
+} function createMap(t:GoType, keyComplexType:ComplexType, valueComplexType:ComplexType, exprs:Array<Expr>, info:Info, ct:ComplexType):Expr {
 
-function createMap(t:GoType, keyComplexType:ComplexType, valueComplexType:ComplexType, exprs:Array<Expr>, info:Info, ct:ComplexType):Expr {
 	var k:GoType = null;
 	var v:GoType = null;
 	switch getUnderlying(t) {
@@ -340,17 +335,14 @@ function createMap(t:GoType, keyComplexType:ComplexType, valueComplexType:Comple
 		@:mergeBlock $b{exprs};
 		x;
 	} : stdgo.GoMap<$keyComplexType, $valueComplexType>) : $ct);
-}
+} private function hasKeyValueExpr(elts:Array<GoAst.Expr>) {
 
-private function hasKeyValueExpr(elts:Array<GoAst.Expr>) {
 	for (e in elts) {
 		if (e.id == "KeyValueExpr")
 			return true;
 	}
 	return false;
-}
-
-function createSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info, sets:Array<Expr>):Expr {
+} function createSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info, sets:Array<Expr>):Expr {
 
 	var param = toComplexType(elem, info);
 	var value = typer.exprs.Expr.defaultValue(elem, info);

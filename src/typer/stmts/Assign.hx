@@ -1,8 +1,6 @@
 package typer.stmts;
 
-
 function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
-
 	switch stmt.tok {
 		case ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN, SHL_ASSIGN, SHR_ASSIGN, XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN, OR_ASSIGN:
 			// remove checkType from x in x = y
@@ -345,9 +343,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 	}
 }
 
-
 private function nonAssignToken(tok:GoAst.Token):GoAst.Token {
-
 	return switch tok {
 		case ADD_ASSIGN: ADD;
 		case SUB_ASSIGN: SUB;
@@ -365,7 +361,6 @@ private function nonAssignToken(tok:GoAst.Token):GoAst.Token {
 }
 
 private function orderOperations(inits:Array<Expr>, exprs:Array<Expr>):Array<Expr> {
-
 	var initsCount = inits.length;
 	for (i in 0...exprs.length) {
 		switch exprs[i].expr {
@@ -382,7 +377,6 @@ private function orderOperations(inits:Array<Expr>, exprs:Array<Expr>):Array<Exp
 }
 
 function isSelfAssignValue(x:Expr, y:Expr):Bool {
-
 	switch x.expr {
 		case EConst(c):
 			switch c {

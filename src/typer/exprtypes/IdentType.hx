@@ -1,7 +1,6 @@
 package typer.exprtypes;
 
 function identType(expr:GoAst.Ident, info:Info):ComplexType {
-
 	var name = className(expr.name, info);
 	if (!info.renameClasses.exists(expr.name) && !info.global.renameClasses.exists(name)) {
 		for (t in basicTypes) {

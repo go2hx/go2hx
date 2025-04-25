@@ -1,7 +1,7 @@
 package typer.exprs;
 
 function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):ExprDef { // EField
-	var sel =typer.exprs.Ident.nameIdent(expr.sel.name, false, false, info, false, true);
+	var sel = typer.exprs.Ident.nameIdent(expr.sel.name, false, false, info, false, true);
 	var isStar = false;
 	expr.x = GoAst.escapeParensRaw(expr.x);
 	final kind = selectorKind(expr);
@@ -238,7 +238,6 @@ function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):ExprDef { // EFiel
 	// trace(printer.printExpr(e), kind, typeX);
 	return e.expr; // EField
 }
-
 
 function selectorKind(expr:GoAst.SelectorExpr):Int {
 	return switch expr.x.id {

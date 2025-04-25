@@ -4,8 +4,11 @@ import haxe.macro.Expr.TypePath;
 
 final splitDepsBool = true;
 final newValue:TypePath = splitDepsBool ? {pack: "stdgo._internal.reflect.Reflect_value".split("."), name: "Value"} : {pack: [], name: "Value"};
-final newValueError:TypePath = splitDepsBool ? {pack: "stdgo._internal.reflect.Reflect_valueerror".split("."), name: "ValueError"} : {pack: [],
-	name: "ValueError"};
+
+final newValueError:TypePath = splitDepsBool ? {pack: "stdgo._internal.reflect.Reflect_valueerror".split("."), name: "ValueError"} : {
+	pack: [],
+	name: "ValueError"
+};
 
 final list = [
 	// stdgo/compress/Bzip2

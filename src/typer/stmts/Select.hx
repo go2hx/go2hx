@@ -1,7 +1,6 @@
 package typer.stmts;
 
 function typeSelectStmt(stmt:GoAst.SelectStmt, info:Info):ExprDef {
-
 	var defaultBlock:Expr = null;
 	var list:Array<Expr> = [];
 	if (stmt.body.list == null)
@@ -114,4 +113,4 @@ function typeSelectStmt(stmt:GoAst.SelectStmt, info:Info):ExprDef {
 		e = macro $b{[e, toExpr(typer.stmts.Return.typeReturnStmt({results: [], returnPos: 0}, info))]};
 	}
 	return e.expr;
-} 
+}

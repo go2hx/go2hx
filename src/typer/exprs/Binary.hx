@@ -55,8 +55,8 @@ function typeBinaryExpr(expr:GoAst.BinaryExpr, info:Info, walk:Bool = true):Expr
 		default:
 	}
 	if ((isInvalid(typeX) || isInterface(typeX)) && op != OpBoolAnd && !isInvalid(typeY) && op == OpAssign) {
-		x =typer.exprs.Expr.toAnyInterface(x, typeX, info);
-		y =typer.exprs.Expr.toAnyInterface(y, typeY, info);
+		x = typer.exprs.Expr.toAnyInterface(x, typeX, info);
+		y = typer.exprs.Expr.toAnyInterface(y, typeY, info);
 	}
 	var e = toExpr(EBinop(op, x, y));
 	e = typer.exprs.Expr.assignTranslate(getUnderlying(typeX), typeof(expr.type, info, false), e, info);
@@ -67,7 +67,6 @@ function typeBinaryExpr(expr:GoAst.BinaryExpr, info:Info, walk:Bool = true):Expr
 		e = macro($e : $ct);
 	return e.expr;
 } // (A op2 B) op C
-
 
 function walkBinary(e:Expr):Expr {
 	switch e.expr {

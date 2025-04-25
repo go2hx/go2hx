@@ -1,6 +1,5 @@
 package typer.exprtypes;
 
-
 function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the type of an expr
 	// typeof -> toComplexType
 	if (expr == null)
@@ -703,7 +702,6 @@ function isNamedUnderlying(type:GoType):Bool {
 }
 
 function cleanType(type:GoType):GoType {
-
 	if (type == null)
 		return type;
 	return switch type {
@@ -715,7 +713,6 @@ function cleanType(type:GoType):GoType {
 }
 
 function replaceInvalidType(t:GoType, replace:GoType):GoType {
-
 	return switch t {
 		case _var(name, _.get() => type):
 			final type = replaceInvalidType(type, replace);
@@ -746,7 +743,6 @@ function replaceInvalidType(t:GoType, replace:GoType):GoType {
 }
 
 function isTypeParam(t:GoType):Bool {
-
 	return switch t {
 		case _var(_, _.get() => t):
 			isTypeParam(t);
@@ -947,7 +943,6 @@ function getReturn(results:Array<GoType>, info:Info):ComplexType {
 }
 
 function isTuple(type:GoType):Bool {
-
 	return switch type {
 		case tuple(_, _):
 			true;
@@ -1094,40 +1089,39 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 
 // can also be used for ObjectFields
 function typeFields(list:Array<typer.exprtypes.ExprType.FieldType>, info:Info, access:Array<Access>, defaultBool:Bool, ?docs:Array<GoAst.CommentGroup>,
-    ?comments:Array<GoAst.CommentGroup>):Array<Field> {
-var fields:Array<Field> = [];
-for (i in 0...list.length) {
-    final field = list[i];
-    final ct = toComplexType(field.type.get(), info);
-    var name = field.name;
-    var meta:Metadata = [];
-    if (field.embedded) {
-        meta.push({name: ":embedded", pos: null});
-    }
-    if (field.tag != "") {
-        final tag = HaxeAst.makeString(typer.exprs.BasicLit.rawEscapeSequences(field.tag));
-        meta.push({name: ":tag", pos: null, params: [tag]});
-    }
-    if (field.optional)
-        meta.push({name: ":optional", pos: null});
-    var doc:String = codegen.Doc.getDocComment({doc: docs == null ? null : docs[i]}, {comment: comments == null ? null : comments[i]});
-    // trace(name);
-    // trace(field.type.get());
-    // trace(toComplexType(field.type.get(), info));
-    fields.push({
-        name: name,
-        pos: null,
-        meta: meta,
-        doc: doc,
-        access: access == null ? HaxeAst.typeAccess(name, true) : access,
-        kind: FVar(toComplexType(field.type.get(), info), defaultBool ? typer.exprs.Expr.defaultValue(field.type.get(), info, false) : null)
-    });
-}
-return fields;
+		?comments:Array<GoAst.CommentGroup>):Array<Field> {
+	var fields:Array<Field> = [];
+	for (i in 0...list.length) {
+		final field = list[i];
+		final ct = toComplexType(field.type.get(), info);
+		var name = field.name;
+		var meta:Metadata = [];
+		if (field.embedded) {
+			meta.push({name: ":embedded", pos: null});
+		}
+		if (field.tag != "") {
+			final tag = HaxeAst.makeString(typer.exprs.BasicLit.rawEscapeSequences(field.tag));
+			meta.push({name: ":tag", pos: null, params: [tag]});
+		}
+		if (field.optional)
+			meta.push({name: ":optional", pos: null});
+		var doc:String = codegen.Doc.getDocComment({doc: docs == null ? null : docs[i]}, {comment: comments == null ? null : comments[i]});
+		// trace(name);
+		// trace(field.type.get());
+		// trace(toComplexType(field.type.get(), info));
+		fields.push({
+			name: name,
+			pos: null,
+			meta: meta,
+			doc: doc,
+			access: access == null ? HaxeAst.typeAccess(name, true) : access,
+			kind: FVar(toComplexType(field.type.get(), info), defaultBool ? typer.exprs.Expr.defaultValue(field.type.get(), info, false) : null)
+		});
+	}
+	return fields;
 }
 
 function createNamedObjectDecl(fields:Array<typer.exprtypes.ExprType.FieldType>, f:(field:String, type:GoType) -> Expr, info:Info):Expr {
-
 	final objectFields:Array<ObjectField> = [];
 	for (i in 0...fields.length) {
 		final field = fields[i].name;
@@ -1141,9 +1135,7 @@ function createNamedObjectDecl(fields:Array<typer.exprtypes.ExprType.FieldType>,
 	return toExpr(EObjectDecl(objectFields));
 } // This is for implicit conversion
 
-
 function getReturnTupleType(type:GoType):Array<GoType> {
-
 	return switch type {
 		case tuple(_, _.get() => vars):
 			var index = 0;
@@ -1160,8 +1152,9 @@ function getReturnTupleType(type:GoType):Array<GoType> {
 		default:
 			throw "type is not a tuple: " + type;
 	}
-} function getReturnTupleNames(type:GoType):Array<String> {
+}
 
+function getReturnTupleNames(type:GoType):Array<String> {
 	return switch type {
 		case tuple(_, _.get() => vars):
 			[
@@ -1171,8 +1164,9 @@ function getReturnTupleType(type:GoType):Array<GoType> {
 		default:
 			throw "type is not a tuple: " + type;
 	}
-} function goTypesEqual(a:GoType, b:GoType, depth:Int):Bool {
+}
 
+function goTypesEqual(a:GoType, b:GoType, depth:Int):Bool {
 	if (depth > 20)
 		return true;
 	if (a == null || b == null)

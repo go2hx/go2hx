@@ -2,7 +2,6 @@ package typer.specs;
 
 import haxe.macro.Expr.Position;
 
-
 function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.IntermediatePackageType, constant:Bool):Array<TypeDefinition> {
 	final elem = hashTypeToExprType(value.names[0].type.elem, info);
 	var type:ComplexType = null;
@@ -40,7 +39,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 				if (nameStr != "_")
 					emptyNames = false;
 			}
-			final name =typer.exprs.Ident.nameIdent(nameStr, false, true, info);
+			final name = typer.exprs.Ident.nameIdent(nameStr, false, true, info);
 			info.localIdents.remove(name);
 			var e = macro $tmpExpr.$fieldName;
 			final toType = typeof(value.names[i], info, false);
@@ -97,7 +96,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 			}
 			if (expr == null)
 				continue;
-			var name =typer.exprs.Ident.nameIdent(value.names[i].name, false, true, info);
+			var name = typer.exprs.Ident.nameIdent(value.names[i].name, false, true, info);
 			info.localIdents.remove(name);
 			// empty name
 			if (value.names[i].name == "_")

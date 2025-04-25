@@ -1,7 +1,5 @@
 package typer.specs;
 
-
-
 function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 	final name = className(spec.name.name, info);
 	info.global.renameClasses[spec.name.name] = name;

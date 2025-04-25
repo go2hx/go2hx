@@ -1,7 +1,6 @@
 package typer.exprtypes;
 
 function interfaceTypeExpr(expr:GoAst.InterfaceType, info:Info):ComplexType {
-
 	if (expr.methods.list.length == 0) {
 		// dynamic
 		return HaxeAst.anyInterfaceType();
@@ -10,4 +9,4 @@ function interfaceTypeExpr(expr:GoAst.InterfaceType, info:Info):ComplexType {
 		var fields = typer.fields.FieldList.typeFieldListFields(expr.methods, info, [], false);
 		return TAnonymous(fields);
 	}
-} 
+}

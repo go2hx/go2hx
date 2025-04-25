@@ -1,9 +1,8 @@
 package typer;
 
-import haxe.macro.Expr; 
+import haxe.macro.Expr as MacroExpr;
 
 function typeAST(data:GoAst.DataType, instance:Compiler.CompilerInstanceData):Array<HaxeAst.Module> {
-	final noCommentsBool = instance.noComments;
 	var list:Array<HaxeAst.Module> = [];
 	final hashMap:Map<UInt, Dynamic> = [];
 	for (obj in data.typeList)
@@ -51,7 +50,7 @@ class Global {
 	public var varTraceBool:Bool = false;
 	public var funcTraceBool:Bool = false;
 	public var stackBool:Bool = false;
-	public var initBlock:Array<Expr> = [];
+	public var initBlock:Array<MacroExpr> = [];
 	public var path:String = "";
 	public var filePath:String = "";
 	public var module:HaxeAst.Module = null;
@@ -98,7 +97,7 @@ class Info {
 	public var lastValue:GoAst.Expr = null;
 	public var lastType:GoType = null;
 	public var data:HaxeAst.HaxeFileType;
-	public var switchTag:Expr = null;
+	public var switchTag:MacroExpr = null;
 	public var switchIndex:Int = 0;
 	public var switchTagType:GoType = null;
 	public var localIdents:Array<String> = [];
@@ -144,9 +143,7 @@ class Info {
 	}
 }
 
- // filepath of export.json also stored here
-
-
+// filepath of export.json also stored here
 // @:formatter off
 
 var printer = new codegen.Printer();

@@ -42,7 +42,7 @@ class Printer extends haxe.macro.Printer {
 					case EConst(CString(s)):
 						if (params.length == 2) {
 							'#if $s ' + printExpr(e) + ' #else ${printExpr(params[1])} #end';
-						}else{
+						} else {
 							'#if $s ' + printExpr(e) + " #else null #end";
 						}
 					default:
@@ -115,7 +115,8 @@ class Printer extends haxe.macro.Printer {
 				.replace("\t", "\\t")
 				.replace("\r", "\\r")
 				.replace("'", "\\'")
-				.replace('"', "\\\"") #if sys .replace("\x00", "\\x00") #end + delim;
+				.replace('"', "\\\"")
+				#if sys .replace("\x00", "\\x00") #end + delim;
 	}
 
 	override function printTypeDefinition(t:TypeDefinition, printPackage:Bool = true):String {
@@ -124,7 +125,7 @@ class Printer extends haxe.macro.Printer {
 			return "";
 		if (t.isExtern) {
 			t.isExtern = false;
-			//externBool = true;
+			// externBool = true;
 		}
 		switch t.kind {
 			case TDAbstract(tthis, from, to):

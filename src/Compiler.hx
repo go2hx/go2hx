@@ -1,8 +1,8 @@
 package;
+
 /**
  * Compiler holds the API to call the compiler and use various callbacks
  */
-
 import sys.FileSystem;
 import utils.Network;
 import typer.GoAst.DataType;
@@ -94,7 +94,6 @@ private function receivedData(instance, buff, client) {
 	instance = null;
 	programArgs = null;
 }
-
 
 /**
  * Run the compiler from the args
@@ -369,7 +368,7 @@ function accept(server, instance, index, processCount, allAccepted):Int {
 	return index;
 }
 
-private function setBytes(buff:Bytes,bytes:Bytes, pos:Int):Int {
+private function setBytes(buff:Bytes, bytes:Bytes, pos:Int):Int {
 	#if hl
 	@:privateAccess buff.b.blit(pos, bytes, 0, bytes.length);
 	#elseif js
@@ -409,6 +408,7 @@ function healthCheck(instance) {
 	closeCompiler(0, instance);
 	return;
 }
+
 #if js
 function listenNodeJS(server:Tcp, instance:CompilerInstanceData) {
 	@:privateAccess server.s.listen(instance.port, () -> {
@@ -783,6 +783,7 @@ class CompilerInstanceData {
 		Sys.println(s);
 	}
 }
+
 // global vars
 final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodeps", "-debug", "--debug"];
 final cwd = Sys.getCwd();
@@ -806,6 +807,7 @@ class Client {
 		this.stream = stream;
 		this.id = id;
 	}
+
 	public function reset() {
 		runnable = true;
 		retries = 0;

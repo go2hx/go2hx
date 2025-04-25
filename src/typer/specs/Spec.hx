@@ -1,7 +1,5 @@
 package typer.specs;
 
-
-
 function typeSpec(spec:GoAst.TypeSpec, info:Info, local:Bool = false):TypeDefinition {
 	var hash:UInt = 0;
 	if (spec.type.type != null) {

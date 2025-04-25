@@ -1,7 +1,6 @@
 package typer.exprtypes;
 
 function indexType(expr:GoAst.IndexExpr, info:Info):ComplexType {
-
 	final ct = typeExprType(expr.x, info);
 	switch ct {
 		case TPath(p):
@@ -10,4 +9,4 @@ function indexType(expr:GoAst.IndexExpr, info:Info):ComplexType {
 		default:
 	}
 	return ct;
-} 
+}

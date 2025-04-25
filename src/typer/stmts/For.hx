@@ -1,7 +1,6 @@
 package typer.stmts;
 
 function typeForStmt(stmt:GoAst.ForStmt, info:Info):ExprDef {
-
 	final init = stmt.init == null ? null : typer.stmts.Stmt.typeStmt(stmt.init, info);
 	var cond = stmt.cond == null ? toExpr(EConst(CIdent("true"))) : typer.exprs.Expr.typeExpr(stmt.cond, info);
 	var body = toExpr(typer.stmts.Block.typeBlockStmt(stmt.body, info, false));

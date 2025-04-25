@@ -1,7 +1,6 @@
 package typer.exprs;
 
 function typeExpr(expr:Dynamic, info:Info):Expr {
-
 	if (expr == null)
 		return null;
 	var def = switch expr.id {
@@ -32,7 +31,6 @@ function typeExpr(expr:Dynamic, info:Info):Expr {
 		throw info.panic() + "expr null: " + expr.id;
 	return toExpr(def);
 }
-
 
 function typeOp(token:GoAst.Token):Binop {
 	return switch token {
@@ -76,7 +74,6 @@ function typeOp(token:GoAst.Token):Binop {
 	}
 }
 
-
 // implicit conversion: checkType
 function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
 	if (goTypesEqual(fromType, toType, 0)) {
@@ -110,7 +107,7 @@ function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, p
 		y = HaxeAst.passByCopy(toType, y, info);
 
 	if (isAnyInterface(toType) && !HaxeAst.isRestExpr(expr)) {
-		y =typer.exprs.Expr.toAnyInterface(y, fromType, info);
+		y = typer.exprs.Expr.toAnyInterface(y, fromType, info);
 	}
 	// trace(fromType, toType);
 	if (isAnyInterface(fromType) && !isInvalid(toType) && !isInterface(toType)) {
@@ -187,7 +184,6 @@ function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, p
 	return y;
 }
 
-
 function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):Expr {
 	if (isRef(t))
 		t = getElem(t);
@@ -225,7 +221,6 @@ function toGoType(expr:Expr):Expr {
 }
 
 function wrapperExpr(t:GoType, y:Expr, info:Info):Expr {
-
 	var self = y;
 	var selfPointer = false;
 	if (isPointer(t)) {
@@ -249,7 +244,6 @@ function wrapperExpr(t:GoType, y:Expr, info:Info):Expr {
 	}
 	return y;
 }
-
 
 // explicit conversion: assignTranslate
 function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):Expr {
@@ -343,7 +337,7 @@ function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:
 	switch getUnderlying(toType) {
 		case basic(unsafepointer_kind):
 			if (fromType != toType) {
-				e =typer.exprs.Expr.toAnyInterface(e, toType, info);
+				e = typer.exprs.Expr.toAnyInterface(e, toType, info);
 			}
 		case basic(uintptr_kind):
 			if (fromType != toType) {
@@ -362,7 +356,6 @@ function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:
 
 	return macro($e : $ct);
 }
-
 
 function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, info:Info):Expr {
 	if (typeX == null || typeY == null)
@@ -446,14 +439,14 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 		if (isPointer(typeY))
 			y = macro $y.value;
 		if (!isAnyInterface(getElem(typeX)))
-			x =typer.exprs.Expr.toAnyInterface(x, typeX, info);
+			x = typer.exprs.Expr.toAnyInterface(x, typeX, info);
 		if (!isAnyInterface(getElem(typeY)))
-			y =typer.exprs.Expr.toAnyInterface(y, typeY, info);
+			y = typer.exprs.Expr.toAnyInterface(y, typeY, info);
 	}
 	var t = getUnderlying(typeX);
 	switch t {
 		case structType(_), arrayType(_, _):
-			return toExpr(EBinop(op,typer.exprs.Expr.toAnyInterface(x, typeX, info, false),typer.exprs.Expr.toAnyInterface(y, typeY, info, false)));
+			return toExpr(EBinop(op, typer.exprs.Expr.toAnyInterface(x, typeX, info, false), typer.exprs.Expr.toAnyInterface(y, typeY, info, false)));
 		case sliceType(_), refType(_):
 			var run = true;
 			if (isRef(t)) {
@@ -479,8 +472,8 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 			switch getUnderlying(typeY) {
 				case arrayType(_, _):
 					// set x and y to AnyInterface
-					x =typer.exprs.Expr.toAnyInterface(x, typeX, info, false);
-					y =typer.exprs.Expr.toAnyInterface(y, typeY, info, false);
+					x = typer.exprs.Expr.toAnyInterface(x, typeX, info, false);
+					y = typer.exprs.Expr.toAnyInterface(y, typeY, info, false);
 					return toExpr(EBinop(op, x, y));
 				default:
 			}

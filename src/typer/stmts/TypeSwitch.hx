@@ -6,8 +6,7 @@ package typer.stmts;
  * @param info 
  * @return ExprDef
  */
-
- function typeTypeSwitchStmt(stmt:GoAst.TypeSwitchStmt, info:Info):ExprDef { // a switch statement of a type
+function typeTypeSwitchStmt(stmt:GoAst.TypeSwitchStmt, info:Info):ExprDef { // a switch statement of a type
 	var init:Expr = stmt.init == null ? null : typer.stmts.Stmt.typeStmt(stmt.init, info);
 	var assign:Expr = null;
 	var assignType:GoType = null;

@@ -1,10 +1,6 @@
 package typer.stmts;
 
-
-
-
 function typeStmt(stmt:GoAst.Stmt, info:Info):Expr {
-
 	if (stmt == null)
 		return null;
 	var def = switch stmt.id {
@@ -26,10 +22,10 @@ function typeStmt(stmt:GoAst.Stmt, info:Info):Expr {
 		case "SelectStmt": Select.typeSelectStmt(stmt, info);
 		case "SendStmt": Send.typeSendStmt(stmt, info);
 		case "EmptyStmt": Empty.typeEmptyStmt(stmt, info);
-		case "BadStmt": Bad.typeBadStmt(stmt,info);
+		case "BadStmt": Bad.typeBadStmt(stmt, info);
 		default: throw info.panic() + "unknown stmt id: " + stmt.id;
 	}
 	if (def == null)
 		throw info.panic() + "stmt null: " + stmt.id;
 	return toExpr(def);
-} 
+}

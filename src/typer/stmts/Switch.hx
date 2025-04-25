@@ -1,6 +1,5 @@
 package typer.stmts;
 
-
 function typeSwitchStmt(stmt:GoAst.SwitchStmt, info:Info):ExprDef { // always an if else chain to deal with int64s and complex numbers
 
 	final init = stmt.init == null ? null : typer.stmts.Stmt.typeStmt(stmt.init, info);

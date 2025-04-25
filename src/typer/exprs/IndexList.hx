@@ -1,7 +1,6 @@
 package typer.exprs;
 
 function typeIndexListExpr(expr:GoAst.IndexListExpr, info:Info):ExprDef {
-
 	final x = typer.exprs.Expr.typeExpr(expr.x, info);
 	final t = typeof(expr.x, info, false);
 	switch t {
@@ -19,4 +18,4 @@ function typeIndexListExpr(expr:GoAst.IndexListExpr, info:Info):ExprDef {
 		default:
 	}
 	return (macro $x).expr;
-} 
+}

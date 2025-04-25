@@ -145,7 +145,10 @@ private function interopGenAlias(td:TypeDefinition, cl:TypeDefinition, path:Stri
 					sub: td.name,
 					name: io.Path.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase(),
 					pack: pack,
-					params: td.params?.map(f -> TPType(TPath({name: f.name, pack: []})))
+					params: td.params?.map(f -> TPType(TPath({
+						name: f.name,
+						pack: []
+					})))
 				})),
 				isExtern: td.isExtern,
 			};

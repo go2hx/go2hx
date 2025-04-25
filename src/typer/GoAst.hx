@@ -11,7 +11,7 @@ typedef Scope = Dynamic;
 typedef ChanDir = Int;
 
 typedef DataType = {
-	args:Array<String>, 
+	args:Array<String>,
 	pkgs:Array<PackageType>,
 	index:String,
 	typeList:Array<Dynamic>,
@@ -808,7 +808,6 @@ function isClass(x:GoAst.Expr, info:Info):Bool {
 }
 
 function isFunction(expr:GoAst.Expr, info:Info):Bool {
-
 	expr = escapeParensRaw(expr);
 	final ft = typeof(expr, info, false);
 	final sig = isSignature(ft);
@@ -819,9 +818,7 @@ function isFunction(expr:GoAst.Expr, info:Info):Bool {
 	return !notFunction;
 }
 
-
 function escapeParensRaw(expr:GoAst.Expr):GoAst.Expr {
-
 	return switch expr.id {
 		case "ParenExpr":
 			escapeParensRaw(expr.x);
@@ -831,7 +828,6 @@ function escapeParensRaw(expr:GoAst.Expr):GoAst.Expr {
 }
 
 function castTranslate(obj:GoAst.Expr, e:Expr, info:Info):{expr:Expr, ok:Bool} {
-
 	return switch obj.id {
 		case "TypeAssertExpr":
 			var obj:GoAst.TypeAssertExpr = obj;

@@ -470,14 +470,14 @@ private function sanatize(s:String):String {
 	if (index != -1) {
 		s = s.substr(index + testStr.length);
 	}
-	s = typer.Typer.normalizePath(s);
+	s = io.Path.normalizePath(s);
 	s = Path.withoutDirectory(s);
 	s = Path.withoutExtension(s);
 	s = StringTools.replace(s, "/", "_");
-	if (typer.Typer.reserved.indexOf(s) != -1) {
+	if (io.Data.reserved.indexOf(s) != -1) {
 		s += "_";
 	}
-	if (typer.Typer.reservedClassNames.indexOf(s.charAt(0).toUpperCase() + s.substr(1)) != -1)
+	if (io.Data.reservedClassNames.indexOf(s.charAt(0).toUpperCase() + s.substr(1)) != -1)
 		s += "_";
 	return s;
 }

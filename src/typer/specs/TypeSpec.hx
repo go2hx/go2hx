@@ -365,7 +365,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 						{name: ":allow", pos: null, params: [toExpr(EConst(CIdent(fieldWrapper.join("."))))]}
 					],
 				};
-				final wrapper = createWrapper(wrapperName, ct);
+				final wrapper = HaxeAst.createWrapper(wrapperName, ct);
 				wrapper.isExtern = true;
 				wrapper.params = def.params;
 				if (!alreadyExistsTypeDef(wrapper, info))
@@ -424,7 +424,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 										default:
 									}
 									// embedded unnamed structs
-									addLocalMethod(field.name, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
+									HaxeAst.addLocalMethod(field.name, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
 										true, def.params != null
 										&& def.params.length > 0);
 								default:
@@ -475,7 +475,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 					params: params,
 					isExtern: externBool,
 					meta: meta,
-					kind: TDAlias(anyInterfaceType()),
+					kind: TDAlias(HaxeAst.anyInterfaceType()),
 				}
 			}
 			final staticExtensionName = name + "_static_extension";
@@ -517,7 +517,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 						field.meta.push({name: ":interfacetypefprop", pos: null});
 						f.args.unshift({name: "t", type: TPath({name: splitDepFullPathName(name, info), pack: []})});
 						// interface struct creation
-						addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
+						HaxeAst.addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
 						f.expr = null;
 						f.args.shift();
 					case FFun(f):
@@ -535,7 +535,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 							field.meta = [];
 						field.meta.push({name: ":interfacetypeffun", pos: null});
 						// interface struct creation
-						addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
+						HaxeAst.addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
 						f.expr = null;
 						f.args.shift();
 					default:
@@ -614,7 +614,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 			if (struct.incomplete) {
 				switch name {
 					case "Error":
-						implicits.push(switch errorType() {
+						implicits.push(switch HaxeAst.errorType() {
 							case TPath(p):
 								p;
 							default:

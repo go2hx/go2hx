@@ -62,7 +62,7 @@ function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 					fields: [],
 					doc: getDocComment(spec),
 					meta: meta,
-					kind: TDAlias(anyInterfaceType()),
+					kind: TDAlias(HaxeAst.anyInterfaceType()),
 				};
 			}
 			final meta:Metadata = [];
@@ -101,7 +101,7 @@ function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 	if (getUnderlying(t) == invalidType) {
 		t = refToPointerWrapper(t);
 	}
-	var uct = t == invalidType ? invalidComplexType() : toComplexType(t, info);
+	var uct = t == invalidType ? HaxeAst.invalidComplexType() : toComplexType(t, info);
 	final meta:Metadata = [{name: ":named", pos: null}];
 	final params = getParams(spec.params, info, true);
 	return {

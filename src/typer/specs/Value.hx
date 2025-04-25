@@ -3,7 +3,7 @@ package typer.specs;
 import haxe.macro.Expr.Position;
 
 
-function typeValue(value:GoAst.ValueSpec, info:Info, pkg:Intermediate.Package, constant:Bool):Array<TypeDefinition> {
+function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.IntermediatePackageType, constant:Bool):Array<TypeDefinition> {
 	final elem = hashTypeToExprType(value.names[0].type.elem, info);
 	var type:ComplexType = null;
 	var interfaceBool = false;

@@ -5,12 +5,26 @@ import haxe.io.Path;
 import haxe.macro.Expr;
 import shared.Util;
 
+/**
+ * Intermediate Package form
+ */
+ typedef IntermediatePackageType = {
+	name:String,
+	path:String,
+	isMain:Bool,
+	info:Info,
+	files:Array<GoAst.FileType>,
+	varOrder:Array<String>,
+	declFuncs:Array<GoAst.FuncDecl>,
+	declGens:Array<GoAst.GenDecl>,
+}
+
 function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData, hashMap:Map<UInt, Dynamic>):HaxeAst.Module {
     final pkg = typePackageAnalyze(pkg, instance, hashMap);
     return typePackageEmit(pkg);
 }
 
-function typePackageEmit(pkg:Intermediate.Package):HaxeAst.Module {
+function typePackageEmit(pkg:typer.Package.IntermediatePackageType):HaxeAst.Module {
     final module:HaxeAst.Module = {
         path: pkg.path,
         files: [],
@@ -127,7 +141,7 @@ function typePackageEmit(pkg:Intermediate.Package):HaxeAst.Module {
                 ],
             };
             // asInterface
-            final wrapper = createWrapper(wrapperName, ct);
+            final wrapper = HaxeAst.createWrapper(wrapperName, ct);
             wrapper.isExtern = true;
             wrapper.params = def.params;
             if (!alreadyExistsTypeDef(wrapper, info))
@@ -211,7 +225,7 @@ function typePackageEmit(pkg:Intermediate.Package):HaxeAst.Module {
                                     field.meta = [];
                                 field.meta.push({name: ":embeddeddeffieldsfprop", pos: null});
                                 // embedded named
-                                addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
+                                HaxeAst.addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
                                     true, def.params != null
                                     && def.params.length > 0);
                             // fun.args = fun.args.slice(1);
@@ -264,7 +278,7 @@ function typePackageEmit(pkg:Intermediate.Package):HaxeAst.Module {
                                     default:
                                 }
                                 // embedded named
-                                addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
+                                HaxeAst.addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
                                     true, def.params != null
                                     && def.params.length > 0);
                                 fun.args = fun.args.slice(1);
@@ -295,7 +309,7 @@ function typePackageEmit(pkg:Intermediate.Package):HaxeAst.Module {
                                 if (codegen.Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
                                     access.push(AInline);
                                 // recv func named
-                                addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, wrapper,
+                                HaxeAst.addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, wrapper,
                                     true, def.params != null && def.params.length > 0);
                             default:
                         }
@@ -316,7 +330,7 @@ function setExtern(instance, pkg:GoAst.PackageType) {
 }
 
 
-function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData, hashMap:Map<UInt, Dynamic>):Intermediate.Package {
+function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData, hashMap:Map<UInt, Dynamic>):IntermediatePackageType {
     setExtern(instance, pkg);
     pkg.path = normalizePath(pkg.path);
     pkg.path = toHaxePath(pkg.path);
@@ -335,7 +349,7 @@ function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerIns
     info.global.root = instance.root;
 
     info.global.hashMap = hashMap;
-    final irPkg:Intermediate.Package = {
+    final irPkg:IntermediatePackageType = {
         info: info,
         varOrder: [],
         declGens: [],

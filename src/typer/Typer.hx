@@ -7,7 +7,6 @@ import haxe.macro.Expr;
 import shared.Util; 
 import sys.io.File; 
 import typer.GoAst.BasicKind;
-import typer.Types;
 
 // @:formatter on
 
@@ -24,210 +23,6 @@ function typeAST(data:GoAst.DataType, instance:Compiler.CompilerInstanceData):Ar
 		list.push(Package.typePackage(pkg, instance, hashMap));
 	}
 	return list;
-}
-
-function createWrapper(wrapperName:String, ct:ComplexType) {
-	return macro class $wrapperName {
-		public function new(__self__, __type__) {
-			this.__self__ = __self__;
-			this.__type__ = __type__;
-		}
-
-		public function __underlying__()
-			return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer
-				&& !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
-				__type__);
-
-		var __self__:$ct;
-		var __type__:stdgo._internal.internal.reflect.Reflect._Type;
-	};
-}
-
-function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Access>, fun:Function, staticExtension:TypeDefinition,
-
-		wrapper:TypeDefinition, embedded:Bool, hasParams:Bool) {
-	var isPointerArg = false;
-	if (fun.args.length > 0 && meta != null && fun.args[0].meta != null) {
-		for (meta in fun.args[0].meta) {
-			if (meta.name == ":pointer") {
-				fun.args[0].meta.remove(meta);
-				isPointerArg = true;
-				break;
-			}
-		}
-	}
-	final funcName = name;
-	final staticArgs = fun.args.copy();
-	if (isPointerArg) {
-		/*final t = exprOfType(staticArgs[0].type);
-			switch t {
-				case TPath(p):
-					switch p.params[0] { // Pointer<T>
-						case TPType(t):
-							final f:FunctionArg = {
-								name: "____",
-								type: access.indexOf(AMacro) == -1 ? t : TPath({
-									name: "Expr",
-									sub: "ExprOf",
-									pack: ["haxe", "macro"],
-									params: [TPType(t)]
-								}),
-							};
-							//staticArgs.unshift(f);
-						default:
-					}
-				default:
-		}*/
-	}
-	final funcName = name;
-	var staticFieldExpr:Expr = {expr: fun.expr.expr, pos: null};
-	final staticFieldAccess = access.copy();
-	staticFieldAccess.push(AStatic);
-	if (staticFieldAccess.indexOf(APublic) == -1) {
-		staticFieldAccess.remove(APrivate);
-		staticFieldAccess.push(APublic);
-	}
-	// trace(staticArgs.map(arg -> printer.printFunctionArg(arg)));
-	final staticField:Field = {
-		name: funcName,
-		pos: pos,
-		meta: meta == null ? null : meta.copy(),
-		doc: doc,
-		access: staticFieldAccess,
-		kind: FFun({
-			args: staticArgs,
-			ret: fun.ret,
-			params: fun.params,
-			expr: staticFieldExpr,
-		})
-	};
-	// trace(printer.printField(staticField));
-	final fieldRet = exprOfType(fun.ret);
-	var fieldArgs = staticArgs.slice(1);
-	// if (isPointerArg)
-	//	fieldArgs.shift();
-	for (i in 0...fieldArgs.length)
-		fieldArgs[i] = {name: fieldArgs[i].name, type: exprOfType(fieldArgs[i].type)};
-
-	final fieldCallArgs = fieldArgs.map(arg -> macro $i{arg.name});
-	var e = macro @:_0 __self__;
-	if (fieldArgs.length > 0 && isRestType(fieldArgs[fieldArgs.length - 1].type)) {
-		fieldCallArgs[fieldCallArgs.length - 1] = macro...$e{fieldCallArgs[fieldCallArgs.length - 1]};
-	}
-	var e = if (isPointerArg) {
-		macro $e.$funcName($a{fieldCallArgs});
-	} else {
-		macro $e.value.$funcName($a{fieldCallArgs});
-	}
-	if (!HaxeAst.isVoid(fieldRet))
-		e = macro return $e;
-	var paramIndex = 0;
-	final fieldArgs = fieldArgs.copy();
-	for (arg in fieldArgs) {
-		if (arg.name.indexOf("__generic__") == 0)
-			fieldArgs.remove(arg);
-	}
-	final field:Field = {
-		name: funcName,
-		access: hasParams ? [APublic] : [APublic, ADynamic],
-		meta: meta == null ? null : meta.copy(),
-		pos: pos,
-		doc: doc,
-		kind: hasParams ? FVar(TFunction(fieldArgs.map(arg -> TNamed(arg.name, arg.type)), fieldRet)) : FFun({
-			args: fieldArgs,
-			ret: fieldRet,
-			expr: e,
-		})
-	};
-	wrapper.fields.unshift(field);
-	staticExtension.fields.unshift(staticField);
-} function exprOfType(t:ComplexType):ComplexType {
-
-	if (t == null)
-		return TPath({name: "Void", pack: []});
-	switch t {
-		case TPath(p):
-			if (p.name == "Expr" && p.sub == "ExprOf" && p.params != null && p.params.length == 1 && p.pack.length == 2 && p.pack[0] == "haxe"
-				&& p.pack[1] == "macro") {
-				switch p.params[0] {
-					case TPType(t):
-						return t;
-					default:
-				}
-			}
-		default:
-	}
-	return t;
-} function mapReturnToThrow(expr:Expr):Expr {
-
-	var f = null;
-	f = expr -> {
-		if (expr == null)
-			return expr;
-		return switch expr.expr {
-			case EFunction(_, _):
-				return expr;
-			case EReturn(_):
-				macro throw "__return__";
-			default:
-				haxe.macro.ExprTools.map(expr, f);
-		}
-	}
-	return f(expr);
-} function compareComplexType(a:ComplexType, b:ComplexType):Bool {
-
-	if (a == null || b == null)
-		return false;
-	switch a {
-		case TPath(p):
-			switch b {
-				case TPath(p2):
-					if (p.name != p2.name)
-						return false;
-					if (p.pack.length != p2.pack.length)
-						return false;
-					for (i in 0...p.pack.length) {
-						if (p.pack[i] != p2.pack[i])
-							return false;
-					}
-					return true;
-				default:
-					return false;
-			}
-		case TAnonymous(fields):
-			switch b {
-				case TAnonymous(fields2):
-					if (fields.length != fields2.length)
-						return false;
-					for (i in 0...fields.length) {
-						if (fields[i].name != fields2[i].name)
-							return false;
-						switch fields[i].kind {
-							case FVar(t, e):
-								switch fields2[i].kind {
-									case FVar(t2, e):
-										if (!compareComplexType(t, t2)) return false;
-									default:
-										return false;
-								}
-							default:
-								return false;
-						}
-					}
-					return true;
-				default:
-					return false;
-			}
-		default:
-			trace("unknown compare complex type: " + a);
-			return false;
-	}
-}
-
-
-
-function typeGoto(label:Expr):Expr {
-	return macro @:goto $label;
 }
 
 
@@ -519,7 +314,7 @@ function createTempVars(vars:Array<Var>, short:Bool):Expr {
 			mapExprWithData(e, names, replaceIdent);
 	}
 } 
-function createNamedObjectDecl(fields:Array<FieldType>, f:(field:String, type:GoType) -> Expr, info:Info):Expr {
+function createNamedObjectDecl(fields:Array<typer.exprtypes.ExprType.FieldType>, f:(field:String, type:GoType) -> Expr, info:Info):Expr {
 
 	final objectFields:Array<ObjectField> = [];
 	for (i in 0...fields.length) {
@@ -1420,55 +1215,9 @@ function resultsToReturnValue(results:Array<GoType>, info:Info):Expr {
 		}
 	]));
 	return expr;
-} function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the type of an expr
+} 
 
-	// typeof -> toComplexType
-	if (expr == null)
-		return null;
-	// prevent typeExprType from being used
-	final t = typeof(expr, info, false);
-	var ct = toComplexType(t, info);
-	if (ct == null)
-		return TPath({name: "NullType", pack: []});
-	switch ct {
-		case TPath(p):
-			if (expr.id == "Ellipsis") {
-				ct = TPath({
-					name: "Rest",
-					pack: ["haxe"],
-					params: p.params,
-				});
-			}
-		default:
-	}
-	return ct;
-
-	var type = switch expr.id {
-		case "UnaryExpr": unaryType(expr, info);
-		case "MapType": mapTypeExpr(expr, info);
-		case "ChanType": chanTypeExpr(expr, info);
-		case "InterfaceType": interfaceTypeExpr(expr, info);
-		case "StructType": structTypeExpr(expr, info);
-		case "FuncType": funcType(expr, info);
-		case "ArrayType": arrayTypeExpr(expr, info);
-		case "StarExpr": starType(expr, info); // pointer
-		case "Ident": identType(expr, info); // identifier type
-		case "SelectorExpr": selectorType(expr, info); // path
-		case "Ellipsis": ellipsisType(expr, info); // Rest arg
-		case "ParenExpr": return typeExprType(expr.x, info);
-		case "IndexExpr": return indexType(expr, info); // t type
-		case "IndexListExpr": return indexListType(expr, info);
-		case "BinaryExpr": return binaryType(expr, info); // Union type
-		case "HashType": return typeExprType(hashTypeToExprType(expr, info), info);
-		case "BasicLit": return toComplexType(typeof(expr.type, info, false, []), info);
-		default:
-			throw info.panic() + "Type expr unknown: " + expr.id;
-			null;
-	}
-	// if (type == null)
-	//	throw "Type expr is null: " + expr.id;
-	return type;
-} // TYPE EXPR
+// TYPE EXPR
 
 function binaryType(expr:GoAst.BinaryExpr, info:Info):ComplexType {
 	function rec(e:GoAst.Expr):Array<ComplexType> {
@@ -1500,10 +1249,9 @@ function binaryType(expr:GoAst.BinaryExpr, info:Info):ComplexType {
 		default:
 	}
 	return ct;
-} function unaryType(expr:GoAst.UnaryExpr, info:Info):ComplexType {
+} 
 
-	return typeExprType(expr.x, info);
-} function mapTypeExpr(expr:GoAst.MapType, info:Info):ComplexType {
+function mapTypeExpr(expr:GoAst.MapType, info:Info):ComplexType {
 
 	var keyType = typeExprType(expr.key, info);
 	var valueType = typeExprType(expr.value, info);
@@ -1526,7 +1274,7 @@ function binaryType(expr:GoAst.BinaryExpr, info:Info):ComplexType {
 
 	if (expr.methods.list.length == 0) {
 		// dynamic
-		return anyInterfaceType();
+		return HaxeAst.anyInterfaceType();
 	} else {
 		// anonymous struct
 		var fields = typeFieldListFields(expr.methods, info, [], false);
@@ -1535,7 +1283,7 @@ function binaryType(expr:GoAst.BinaryExpr, info:Info):ComplexType {
 } function structTypeExpr(expr:GoAst.StructType, info:Info):ComplexType {
 
 	if (expr.fields == null || expr.fields.list == null) // || expr.fields.list.length == 0)
-		return invalidComplexType();
+		return HaxeAst.invalidComplexType();
 	var fields = typeFieldListFields(expr.fields, info, [], false);
 	return TAnonymous(fields);
 } function funcType(expr:GoAst.FuncType, info:Info):ComplexType {
@@ -2589,7 +2337,7 @@ function typeOp(token:GoAst.Token):Binop {
 	}
 }
 
-function getStructFields(type:GoType, restrictedFields:Array<String>, onlyEmbeds:Bool = false):Array<FieldType> {
+function getStructFields(type:GoType, restrictedFields:Array<String>, onlyEmbeds:Bool = false):Array<typer.exprtypes.ExprType.FieldType> {
 	if (type == null)
 		return [];
 	return switch type {
@@ -3186,7 +2934,7 @@ function typeFieldListMethods(list:GoAst.FieldList, info:Info):Array<Field> {
 }
 
 // can also be used for ObjectFields
-function typeFields(list:Array<FieldType>, info:Info, access:Array<Access>, defaultBool:Bool, ?docs:Array<GoAst.CommentGroup>,
+function typeFields(list:Array<typer.exprtypes.ExprType.FieldType>, info:Info, access:Array<Access>, defaultBool:Bool, ?docs:Array<GoAst.CommentGroup>,
 		?comments:Array<GoAst.CommentGroup>):Array<Field> {
 	var fields:Array<Field> = [];
 	for (i in 0...list.length) {
@@ -3220,9 +2968,9 @@ function typeFields(list:Array<FieldType>, info:Info, access:Array<Access>, defa
 }
 
 function typeFieldListFieldTypes(list:GoAst.FieldList, info:Info, access:Array<Access> = null, defaultBool:Bool = false,
-		docs:Array<GoAst.CommentGroup> = null, comments:Array<GoAst.CommentGroup> = null):Array<FieldType> {
+		docs:Array<GoAst.CommentGroup> = null, comments:Array<GoAst.CommentGroup> = null):Array<typer.exprtypes.ExprType.FieldType> {
 	var fields:Array<Field> = [];
-	var fieldList:Array<FieldType> = [];
+	var fieldList:Array<typer.exprtypes.ExprType.FieldType> = [];
 	function getName(type:GoAst.Expr) {
 		return switch type.id {
 			case "SelectorExpr": type.sel.name;
@@ -3367,15 +3115,6 @@ function makeStringLit(values:Array<{?s:String, ?code:Int}>):Expr {
 	}
 	return macro stdgo.Go.str($a{exprs});
 }
-
-function anyInterfaceType()
-	return TPath({name: "AnyInterface", pack: ["stdgo"]});
-
-function invalidComplexType()
-	return null;
-
-function errorType()
-	return TPath({name: "Error", pack: ["stdgo"]});
 
 function typeImport(imp:GoAst.ImportSpec, info:Info) {
 	var doc = getDocComment(imp);
@@ -3679,7 +3418,7 @@ class Info {
 	public var returnType:ComplexType = null;
 	public var returnNamed:Bool;
 	public var printGoCode:Bool = false;
-	public var returnTypes:Array<typer.Types.GoType> = [];
+	public var returnTypes:Array<GoType> = [];
 	public var returnComplexTypes:Array<ComplexType> = [];
 	public var returnInterfaceBool:Array<Bool> = [];
 	public var className:String = "";

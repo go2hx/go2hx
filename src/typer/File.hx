@@ -7,7 +7,7 @@ import typer.Package;
 import shared.Util;
 
 
-function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Array<RecvFunction>, pkg:Intermediate.Package, info:Info):HaxeAst.HaxeFileType {
+function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Array<RecvFunction>, pkg:typer.Package.IntermediatePackageType, info:Info):HaxeAst.HaxeFileType {
     file.location = Path.normalize(file.location);
     var data:HaxeAst.HaxeFileType = {
         name: file.path,
@@ -216,7 +216,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
                 trace("end init func: " + $pathString);
             }
         }
-        block = mapReturnToThrow(block);
+        block = HaxeAst.mapReturnToThrow(block);
         // trace(module.path,module.name);
         data.defs.push({
             name: "__init_go2hx__",

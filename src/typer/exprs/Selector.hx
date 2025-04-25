@@ -200,7 +200,7 @@ function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):ExprDef { // EFiel
 	final fields = getStructFields(typeX, restrictedFields, false);
 	if (fields.length > 0) {
 		var chains:Array<String> = []; // chains together a field selectors
-		function recursion(path:String, fields:Array<FieldType>, depth:Int) {
+		function recursion(path:String, fields:Array<typer.exprtypes.ExprType.FieldType>, depth:Int) {
 			if (depth >= 20)
 				return;
 			for (field in fields) {
@@ -221,6 +221,7 @@ function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):ExprDef { // EFiel
 		recursion("", fields, 0);
 		var fieldSize = 999999;
 		var setSel = sel;
+		// love you very much
 		for (chain in chains) {
 			final newFieldSize = chain.split(".").length;
 			final field = chain.substr(chain.lastIndexOf(".") + 1);

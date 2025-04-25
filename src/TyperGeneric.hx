@@ -1050,10 +1050,6 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	return e.expr;
 }
 
-private function typeGoto(label:Expr):Expr {
-	return macro @:goto $label;
-
-}
 private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 	return switch stmt.tok {
 		case CONTINUE:

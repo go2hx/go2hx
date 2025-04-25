@@ -7,5 +7,5 @@ import haxe.io.Path;
 import typer.Typer;
 import typer.Package;
 import shared.Util;
-import typer.Types;
 import io.Data;
+import typer.exprtypes.ExprType;

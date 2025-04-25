@@ -7,7 +7,7 @@ function interfaceTypeExpr(expr:GoAst.InterfaceType, info:Info):ComplexType {
 		return HaxeAst.anyInterfaceType();
 	} else {
 		// anonymous struct
-		var fields = typeFieldListFields(expr.methods, info, [], false);
+		var fields = typer.fields.FieldList.typeFieldListFields(expr.methods, info, [], false);
 		return TAnonymous(fields);
 	}
 } 

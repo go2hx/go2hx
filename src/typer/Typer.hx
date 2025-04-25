@@ -1874,38 +1874,6 @@ function typeFieldListFieldTypes(list:GoAst.FieldList, info:Info, access:Array<A
 	return fieldList;
 }
 
-function typeFieldListFields(list:GoAst.FieldList, info:Info, access:Array<Access> = null, defaultBool:Bool):Array<Field> {
-	final docs:Array<GoAst.CommentGroup> = [];
-	final comments:Array<GoAst.CommentGroup> = [];
-	final fieldList = typeFieldListFieldTypes(list, info, access, defaultBool, docs, comments);
-	return typeFields(fieldList, info, access, defaultBool, docs, comments);
-}
-
-function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field {
-	var name:String = "";
-	switch ct {
-		case TPath(p):
-			name = p.name;
-		default:
-	}
-	return {
-		name: "__to_" + name,
-		pos: null,
-		meta: [{name: ":to", pos: null}],
-		kind: FFun({
-			args: [],
-			ret: ct,
-			expr: macro return new $wrapperType(this),
-		}),
-		access: [AInline],
-	};
-}
-
-
-function typeParamDeclsToTypeParams(list:Array<TypeParamDecl>):Array<TypeParam> {
-	return list.map(p -> TPType(TPath({name: p.name, pack: []})));
-}
-
 function refToPointerWrapper(t:GoType):GoType {
 	return switch t {
 		case refType(_.get() => elem):

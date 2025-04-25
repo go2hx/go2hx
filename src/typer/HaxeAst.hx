@@ -588,5 +588,31 @@ function opPrecedence(op:Binop):Int {
 	}
 }
 
+
+function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field {
+	var name:String = "";
+	switch ct {
+		case TPath(p):
+			name = p.name;
+		default:
+	}
+	return {
+		name: "__to_" + name,
+		pos: null,
+		meta: [{name: ":to", pos: null}],
+		kind: FFun({
+			args: [],
+			ret: ct,
+			expr: macro return new $wrapperType(this),
+		}),
+		access: [AInline],
+	};
+}
+
+
+function typeParamDeclsToTypeParams(list:Array<TypeParamDecl>):Array<TypeParam> {
+	return list.map(p -> TPType(TPath({name: p.name, pack: []})));
+}
+
 //typedef FieldType = haxe.macro.Expr.FieldType;
 //typedef Field = haxe.macro.Expr.Field;

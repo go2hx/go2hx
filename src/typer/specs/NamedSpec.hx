@@ -27,7 +27,7 @@ function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 			final params = getParams(spec.params, info, true); // named struct
 			final p:TypePath = {name: name, pack: []};
 			if (params != null && params.length > 0)
-				p.params = typeParamDeclsToTypeParams(params);
+				p.params = HaxeAst.typeParamDeclsToTypeParams(params);
 			final td = macro class $name {
 				public function new() {}
 

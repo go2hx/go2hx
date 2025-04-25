@@ -25,7 +25,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 	switch spec.type.id {
 		case "StructType":
 			var struct:GoAst.StructType = spec.type;
-			var fields = typeFieldListFields(struct.fields, info, [APublic], true);
+			var fields = typer.fields.FieldList.typeFieldListFields(struct.fields, info, [APublic], true);
 			var meta:Metadata = [{name: ":structInit", pos: null}];
 			info.renameIdents[spec.name.name] = splitDepFullPathName(name + "_static_extension", info);
 			info.classNames[spec.name.name] = splitDepFullPathName(name + "_static_extension", info);

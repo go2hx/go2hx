@@ -790,3 +790,37 @@ function precedence(op:Token):Int {
 			return 0;
 	}
 }
+
+function isClass(x:GoAst.Expr, info:Info):Bool {
+	return switch x.id {
+		case "Ident":
+			info.renameIdents[x.name] == info.classNames[x.name];
+		case "ParenExpr", "StarExpr":
+			isClass(x.x, info);
+		default:
+			false;
+	}
+}
+
+function isFunction(expr:GoAst.Expr, info:Info):Bool {
+
+	expr = escapeParensRaw(expr);
+	final ft = typeof(expr, info, false);
+	final sig = isSignature(ft);
+	var kind:GoAst.ObjKind = expr.id == "SelectorExpr" ? expr.sel.kind : expr.kind;
+	var notFunction = kind == GoAst.ObjKind.typ || (!sig && !isInvalid(ft) && expr.id != "CallExpr");
+	if (!notFunction && sig)
+		notFunction = expr.id == "ParenExpr" && expr.x.id == "FuncType" || expr.id == "FuncType";
+	return !notFunction;
+}
+
+
+function escapeParensRaw(expr:GoAst.Expr):GoAst.Expr {
+
+	return switch expr.id {
+		case "ParenExpr":
+			escapeParensRaw(expr.x);
+		default:
+			expr;
+	}
+}

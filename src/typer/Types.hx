@@ -659,3 +659,257 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 			t;
 	}
 }
+
+function cleanType(type:GoType):GoType {
+
+	if (type == null)
+		return type;
+	return switch type {
+		case _var(_, _.get() => type):
+			cleanType(type);
+		default:
+			type;
+	}
+}
+
+function replaceInvalidType(t:GoType, replace:GoType):GoType {
+
+	return switch t {
+		case _var(name, _.get() => type):
+			final type = replaceInvalidType(type, replace);
+			_var(name, {get: () -> type});
+		case pointerType(_.get() => elem):
+			final elem = replaceInvalidType(elem, replace);
+			pointerType({get: () -> elem});
+		case refType(_.get() => elem):
+			switch elem {
+				case invalidType, named(_, _, invalidType, _, _):
+					if (isRefValue(replace)) {
+						refType({get: () -> elem});
+					} else {
+						pointerType({get: () -> elem});
+					}
+				default:
+					final elem = replaceInvalidType(elem, replace);
+					refType({get: () -> elem});
+			}
+		case named(path, methods, type, alias, params):
+			type = replaceInvalidType(type, replace);
+			named(path, methods, type, alias, params);
+		case invalidType:
+			replace;
+		default:
+			t;
+	}
+}
+
+function isTypeParam(t:GoType):Bool {
+
+	return switch t {
+		case _var(_, _.get() => t):
+			isTypeParam(t);
+		case typeParam(_, _):
+			true;
+		default:
+			false;
+	}
+}
+
+function getLocalType(hash:UInt, underlying:GoType, info:Info):GoType {
+	return info.locals.exists(hash) ? info.locals.get(hash) : underlying;
+}
+
+function getTuple(vars:Array<Dynamic>, info:Info):Array<GoType> {
+	var tuples:Array<GoType> = [];
+	if (vars == null)
+		return [];
+	var index = 0;
+	for (v in vars) {
+		final t = typeof(v.type, info, false);
+		if (v.names != null) {
+			if (v.names.length == 0) {
+				tuples.push(t);
+				continue;
+			}
+			for (name in (v.names : Array<String>)) {
+				tuples.push(_var(name, {get: () -> t}));
+			}
+		} else {
+			if (t == invalidType)
+				trace("v:", v.type.id, "\n", t);
+			if (v.name == "_" || v.name == "") {
+				tuples.push(_var("_" + index, {get: () -> t}));
+				index++;
+				continue;
+			}
+			tuples.push(_var(v.name, {get: () -> t}));
+		}
+	}
+	return tuples;
+}
+
+function hashTypeToExprType(e:GoAst.Expr, info:Info):GoAst.Expr {
+	if (e == null)
+		return null;
+	return switch e.id {
+		case "HashType":
+			info.global.hashMap[e.hash];
+		default:
+			e;
+	}
+}
+
+function toComplexType(e:GoType, info:Info):ComplexType {
+	if (e == null)
+		return null;
+	// return invalidComplexType();
+	return switch e {
+		case refType(_.get() => elem):
+			final ct = toComplexType(elem, info);
+			TPath({pack: ["stdgo"], name: "Ref", params: [TPType(ct)]});
+		case basic(kind):
+			switch kind {
+				case int64_kind: TPath({pack: ["stdgo"], name: "GoInt64"});
+				case int32_kind: TPath({pack: ["stdgo"], name: "GoInt32"});
+				case int16_kind: TPath({pack: ["stdgo"], name: "GoInt16"});
+				case int8_kind: TPath({pack: ["stdgo"], name: "GoInt8"});
+
+				case int_kind: TPath({pack: ["stdgo"], name: "GoInt"});
+				case uint_kind: TPath({pack: ["stdgo"], name: "GoUInt"});
+
+				case uint64_kind: TPath({pack: ["stdgo"], name: "GoUInt64"});
+				case uint32_kind: TPath({pack: ["stdgo"], name: "GoUInt32"});
+				case uint16_kind: TPath({pack: ["stdgo"], name: "GoUInt16"});
+				case uint8_kind: TPath({pack: ["stdgo"], name: "GoUInt8"});
+
+				case string_kind: TPath({pack: ["stdgo"], name: "GoString"});
+				case complex64_kind: TPath({pack: ["stdgo"], name: "GoComplex64"});
+				case complex128_kind: TPath({pack: ["stdgo"], name: "GoComplex128"});
+				case float32_kind: TPath({pack: ["stdgo"], name: "GoFloat32"});
+				case float64_kind: TPath({pack: ["stdgo"], name: "GoFloat64"});
+				case bool_kind: TPath({pack: [], name: "Bool"});
+
+				case uintptr_kind: TPath({pack: ["stdgo"], name: "GoUIntptr"});
+
+				case untyped_int_kind, untyped_bool_kind, untyped_float_kind, untyped_rune_kind, untyped_complex_kind, untyped_string_kind: throw info.panic()
+						+ "untyped kind: " + kind;
+				case untyped_nil_kind: null;
+				case unsafepointer_kind: TPath({pack: ["stdgo", "_internal", "unsafe", "Unsafe"], name: "UnsafePointer"});
+				default:
+					throw info.panic() + "unknown kind to complexType: " + kind;
+			}
+		case interfaceType(empty, methods):
+			if (empty)
+				return anyInterfaceType();
+			// trace("methods: " + methods.length, methods.map(method -> method.name));
+			// return TPath({pack: [], name: "FailType"});
+			// only being triggered on extern packages (stdgoExterns.json) in limited circumstances so it's not important.
+			return anyInterfaceType();
+		// throw info.panic() + "non empty interface";
+		case named(path, _, underlying, _, _.get() => params):
+			// trace(path);
+			// trace(info.renameClasses);
+			if (path == "comparable")
+				return null;
+			if (path == null) {
+				trace("underlying null path: " + printer.printComplexType(toComplexType(underlying, info)));
+				throw info.panic() + path;
+			}
+			final p = namedTypePath(path, info);
+			if (params != null)
+				p.params = params.map(param -> TPType(toComplexType(param, info)));
+			TPath(p);
+		case sliceType(_.get() => elem):
+			final ct = toComplexType(elem, info);
+			var params = [TPType(ct)];
+			if (HaxeAst.isInvalidComplexType(ct))
+				params = [TPType(TPath({name: "Dynamic", pack: []}))];
+			TPath({pack: ["stdgo"], name: "Slice", params: params});
+		case arrayType(_.get() => elem, len):
+			final ct = toComplexType(elem, info);
+			TPath({pack: ["stdgo"], name: "GoArray", params: [TPType(ct)]});
+		case mapType(_.get() => key, _.get() => value):
+			final ctKey = toComplexType(key, info);
+			final ctValue = toComplexType(value, info);
+			TPath({pack: ["stdgo"], name: "GoMap", params: [TPType(ctKey), TPType(ctValue)]});
+		case invalidType:
+			invalidComplexType();
+		case pointerType(_.get() => elem):
+			final ct = toComplexType(elem, info);
+			TPath({pack: ["stdgo"], name: "Pointer", params: [TPType(ct)]});
+		case chanType(dir, _.get() => elem):
+			final ct = toComplexType(elem, info);
+			TPath({pack: ["stdgo"], name: "Chan", params: [TPType(ct)]});
+		case structType(fields):
+			var fields = typeFields(fields, info, null, false);
+			TAnonymous([
+				for (field in fields)
+					{
+						name: field.name,
+						pos: null,
+						kind: field.kind,
+					}
+			]);
+		case signature(variadic, _.get() => params, _.get() => results, _.get() => recv):
+			var args:Array<ComplexType> = [];
+			for (param in params) {
+				args.push(toComplexType(param, info));
+			}
+			var ret:ComplexType = getReturn(results, info);
+			if (variadic) {
+				var last = args.pop();
+				switch last {
+					case TPath(p):
+						p.name = "Rest";
+						p.pack = ["haxe"];
+						p.sub = null;
+						last = TPath(p);
+					default:
+				}
+				args.push(last);
+			}
+			TFunction(args, ret);
+		case _var(_, _.get() => type):
+			toComplexType(type, info);
+		case typeParam(name, _):
+			return TPath({pack: [], name: "Dynamic"});
+		case tuple(len, _.get() => vars):
+			var fields:Array<Field> = [];
+			for (i in 0...vars.length) {
+				final t = toComplexType(vars[i], info);
+				fields.push({name: '_$i', pos: null, kind: FVar(t)});
+			}
+			TAnonymous(fields);
+		default:
+			throw info.panic() + "unknown goType to complexType: " + e;
+	}
+}
+
+function getReturn(results:Array<GoType>, info:Info):ComplexType {
+	if (results.length == 0) {
+		return TPath({name: "Void", pack: []});
+	} else if (results.length == 1) {
+		return toComplexType(results[0], info);
+	} else {
+		final fields:Array<Field> = [];
+		for (i in 0...results.length) {
+			switch results[i] {
+				case _var(_, _.get() => type):
+					fields.push({name: "_" + i, pos: null, kind: FVar(toComplexType(type, info))});
+				default:
+					fields.push({name: "_" + i, pos: null, kind: FVar(toComplexType(results[i], info))});
+			}
+		}
+		return TAnonymous(fields);
+	}
+}
+
+function isTuple(type:GoType):Bool {
+
+	return switch type {
+		case tuple(_, _):
+			true;
+		default:
+			false;
+	}
+} 

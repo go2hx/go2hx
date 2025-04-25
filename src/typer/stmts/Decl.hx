@@ -89,7 +89,7 @@ function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):ExprDef {
 									if (specType != null) exprType = toComplexType(specType, info);
 								default:
 							}
-							if (isInvalidComplexType(exprType))
+							if (HaxeAst.isInvalidComplexType(exprType))
 								exprType = null;
 							vars.push({
 								name: name,

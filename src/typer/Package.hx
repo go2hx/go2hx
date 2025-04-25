@@ -205,7 +205,7 @@ function typePackageEmit(pkg:Intermediate.Package):HaxeAst.Module {
                                     default:
                                 }
                                 fun.expr = macro @:_5 __self__.$fieldName($a{args});
-                                if (!isVoid(ret))
+                                if (!HaxeAst.isVoid(ret))
                                     fun.expr = macro return ${fun.expr};
                                 if (field.meta == null)
                                     field.meta = [];

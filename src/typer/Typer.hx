@@ -119,7 +119,7 @@ function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Acces
 	} else {
 		macro $e.value.$funcName($a{fieldCallArgs});
 	}
-	if (!isVoid(fieldRet))
+	if (!HaxeAst.isVoid(fieldRet))
 		e = macro return $e;
 	var paramIndex = 0;
 	final fieldArgs = fieldArgs.copy();
@@ -400,9 +400,9 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 					case EWhile(econd, e, true):
 					default:
 				}
-				if (isLabel(exprs[i])) {
+				if (HaxeAst.isLabel(exprs[i])) {
 					data.global.lastCase = [exprs[i]];
-					final labelName = getLabelName(exprs[i]);
+					final labelName = HaxeAst.getLabelName(exprs[i]);
 					data.global.caseMap[labelName] = data.global.cases.push(data.global.lastCase) - 1;
 					continue;
 				}
@@ -434,73 +434,10 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 		default:
 			return mapExprWithData(e, data, controlFlow);
 	}
-} function isLabel(e:Expr):Bool {
-
-	return switch e.expr {
-		case EMeta(s, _):
-			return s.name == ":label";
-		default:
-			false;
-	}
-} function getLabelName(e:Expr):String {
-
-	return switch e.expr {
-		case EMeta(s, e):
-			if (s.name == ":label") {
-				switch e.expr {
-					case EConst(CString(s)):
-						s;
-					default:
-						"";
-				}
-			} else {
-				"";
-			}
-		default:
-			"";
-	}
-}
-function exprToStringValue(e:Expr):String {
-	switch e.expr {
-		case EConst(CString(s)):
-			return s;
-		default:
-			throw "invalid expr for exprToString: " + e.expr;
-	}
-}
+} 
 
 
 
-function escapeParensRaw(expr:GoAst.Expr):GoAst.Expr {
-
-	return switch expr.id {
-		case "ParenExpr":
-			escapeParensRaw(expr.x);
-		default:
-			expr;
-	}
-} function escapeParens(expr:Expr):Expr {
-
-	return switch expr.expr {
-		case EParenthesis(e):
-			escapeParens(e);
-		default:
-			expr;
-	}
-}
-
-function removeCoalAndCheckType(assign:Expr):Expr {
-
-	assign = escapeParens(assign);
-	switch assign.expr {
-		case ECheckType(e, _):
-			assign = removeCoalAndCheckType(e);
-		case EBinop(OpNullCoal, e, _):
-			assign = e;
-		default:
-	}
-	return assign;
-}
 function importClassName(name:String):String {
 
 	name = nameAscii(name);
@@ -537,26 +474,8 @@ function importClassName(name:String):String {
 	if (c == "_")
 		return true;
 	return false;
-} function isInvalidComplexType(ct:ComplexType):Bool {
+} 
 
-	if (ct == null)
-		return true;
-	return switch ct {
-		case TPath(p):
-			if (p.params != null) {
-				for (param in p.params) {
-					switch param {
-						case TPType(t):
-							if (isInvalidComplexType(t)) return true;
-						default:
-					}
-				}
-			}
-			false;
-		default:
-			false;
-	}
-}
 
 function createTempVars(vars:Array<Var>, short:Bool):Expr {
 	final vars2:Array<Var> = [];
@@ -599,36 +518,8 @@ function createTempVars(vars:Array<Var>, short:Bool):Expr {
 		default:
 			mapExprWithData(e, names, replaceIdent);
 	}
-} function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:Info):Expr {
-
-	switch toType {
-		case refType(_.get() => elem):
-			toType = elem;
-		default:
-	}
-	switch toType {
-		case named(_, _, _, _):
-			final underlying = getUnderlying(toType);
-			switch underlying {
-				case structType(fields):
-					final expr = createNamedObjectDecl(fields, (field, _) -> macro e.$field, info);
-					final toComplexType = toComplexType(toType, info);
-					return macro(({
-						final e = $e;
-						($expr : $toComplexType);
-					}));
-				case refType(_.get() => elem):
-					return translateStruct(e, fromType, elem, info);
-				default:
-					// return macro @:not_struct null;
-					throw info.panic() + "not a struct: " + underlying;
-			}
-		case structType([]):
-			return e;
-		default:
-			throw info.panic() + "struct is unnamed: " + toType;
-	}
-} function createNamedObjectDecl(fields:Array<FieldType>, f:(field:String, type:GoType) -> Expr, info:Info):Expr {
+} 
+function createNamedObjectDecl(fields:Array<FieldType>, f:(field:String, type:GoType) -> Expr, info:Info):Expr {
 
 	final objectFields:Array<ObjectField> = [];
 	for (i in 0...fields.length) {
@@ -681,7 +572,7 @@ function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:
 		return macro(($e.__underlying__().value : Dynamic) : $ct);
 	}
 	if (isStruct(fromType) && isStruct(toType)) {
-		return translateStruct(e, fromType, toType, info);
+		return HaxeAst.translateStruct(e, fromType, toType, info);
 	}
 
 	if (isPointerStruct(fromType) && isPointerStruct(toType)) {
@@ -988,17 +879,9 @@ function hasBreak(expr:Expr):Bool {
 		default:
 			{expr: e, ok: false};
 	}
-} function cleanType(type:GoType):GoType {
+} 
 
-	if (type == null)
-		return type;
-	return switch type {
-		case _var(_, _.get() => type):
-			cleanType(type);
-		default:
-			type;
-	}
-} function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.FieldList, info:Info, recvArg):Expr {
+function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.FieldList, info:Info, recvArg):Expr {
 
 	switch block.expr {
 		case EBlock(exprs):
@@ -1059,7 +942,7 @@ function hasBreak(expr:Expr):Bool {
 				switch basicKind {
 					case string_kind:
 						function f(x) {
-							return switch escapeParens(x).expr {
+							return switch HaxeAst.escapeParens(x).expr {
 								case ECheckType(e, _):
 									f(e);
 								case EConst(c):
@@ -1394,7 +1277,7 @@ function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, p
 			default:
 		}
 		if (!equal)
-			return translateStruct(expr, fromType, toType, info);
+			return HaxeAst.translateStruct(expr, fromType, toType, info);
 	}
 	// trace(toType);
 	// trace(getUnderlying(getUnderlying(fromType)));
@@ -1456,46 +1339,10 @@ function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, p
 		default:
 	}
 	return y;
-} function replaceInvalidType(t:GoType, replace:GoType):GoType {
+} 
 
-	return switch t {
-		case _var(name, _.get() => type):
-			final type = replaceInvalidType(type, replace);
-			_var(name, {get: () -> type});
-		case pointerType(_.get() => elem):
-			final elem = replaceInvalidType(elem, replace);
-			pointerType({get: () -> elem});
-		case refType(_.get() => elem):
-			switch elem {
-				case invalidType, named(_, _, invalidType, _, _):
-					if (isRefValue(replace)) {
-						refType({get: () -> elem});
-					} else {
-						pointerType({get: () -> elem});
-					}
-				default:
-					final elem = replaceInvalidType(elem, replace);
-					refType({get: () -> elem});
-			}
-		case named(path, methods, type, alias, params):
-			type = replaceInvalidType(type, replace);
-			named(path, methods, type, alias, params);
-		case invalidType:
-			replace;
-		default:
-			t;
-	}
-} function isTypeParam(t:GoType):Bool {
 
-	return switch t {
-		case _var(_, _.get() => t):
-			isTypeParam(t);
-		case typeParam(_, _):
-			true;
-		default:
-			false;
-	}
-} function nonAssignToken(tok:GoAst.Token):GoAst.Token {
+function nonAssignToken(tok:GoAst.Token):GoAst.Token {
 
 	return switch tok {
 		case ADD_ASSIGN: ADD;
@@ -1795,28 +1642,7 @@ function selectorType(expr:GoAst.SelectorExpr, info:Info):ComplexType {
 		pack: ["haxe"],
 		params: [TPType(t)],
 	});
-} 
-
-function isFunction(expr:GoAst.Expr, info:Info):Bool {
-
-	expr = escapeParensRaw(expr);
-	final ft = typeof(expr, info, false);
-	final sig = isSignature(ft);
-	var kind:GoAst.ObjKind = expr.id == "SelectorExpr" ? expr.sel.kind : expr.kind;
-	var notFunction = kind == GoAst.ObjKind.typ || (!sig && !isInvalid(ft) && expr.id != "CallExpr");
-	if (!notFunction && sig)
-		notFunction = expr.id == "ParenExpr" && expr.x.id == "FuncType" || expr.id == "FuncType";
-	return !notFunction;
-} function isTuple(type:GoType):Bool {
-
-	return switch type {
-		case tuple(_, _):
-			true;
-		default:
-			false;
-	}
 }  
-
 
 function exprToString(fromType:GoType, toType:GoType, expr:Expr, info:Info):Expr {
 
@@ -1962,7 +1788,7 @@ function typeFunctionLiteral(args:Array<Expr>, params:Array<GoType>, results:Arr
 	}
 	final ret = getReturn(results, info);
 	var expr = macro $x($a{args.concat(exprArgs)});
-	if (!isVoid(ret))
+	if (!HaxeAst.isVoid(ret))
 		expr = macro return $expr;
 	return toExpr(EFunction(FAnonymous, {
 		ret: ret,
@@ -2079,195 +1905,6 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 			final len = toExpr(EConst(CInt('$len')));
 			final vars = [for (v in vars) toReflectType(v, info, paths.copy(), equalityBool)];
 			macro stdgo._internal.internal.reflect.Reflect.GoType.tuple($len, $a{vars});
-	}
-}
-
-function getLocalType(hash:UInt, underlying:GoType, info:Info):GoType {
-	return info.locals.exists(hash) ? info.locals.get(hash) : underlying;
-}
-
-function getTuple(vars:Array<Dynamic>, info:Info):Array<GoType> {
-	var tuples:Array<GoType> = [];
-	if (vars == null)
-		return [];
-	var index = 0;
-	for (v in vars) {
-		final t = typeof(v.type, info, false);
-		if (v.names != null) {
-			if (v.names.length == 0) {
-				tuples.push(t);
-				continue;
-			}
-			for (name in (v.names : Array<String>)) {
-				tuples.push(_var(name, {get: () -> t}));
-			}
-		} else {
-			if (t == invalidType)
-				trace("v:", v.type.id, "\n", t);
-			if (v.name == "_" || v.name == "") {
-				tuples.push(_var("_" + index, {get: () -> t}));
-				index++;
-				continue;
-			}
-			tuples.push(_var(v.name, {get: () -> t}));
-		}
-	}
-	return tuples;
-}
-
-function hashTypeToExprType(e:GoAst.Expr, info:Info):GoAst.Expr {
-	if (e == null)
-		return null;
-	return switch e.id {
-		case "HashType":
-			info.global.hashMap[e.hash];
-		default:
-			e;
-	}
-}
-
-function toComplexType(e:GoType, info:Info):ComplexType {
-	if (e == null)
-		return null;
-	// return invalidComplexType();
-	return switch e {
-		case refType(_.get() => elem):
-			final ct = toComplexType(elem, info);
-			TPath({pack: ["stdgo"], name: "Ref", params: [TPType(ct)]});
-		case basic(kind):
-			switch kind {
-				case int64_kind: TPath({pack: ["stdgo"], name: "GoInt64"});
-				case int32_kind: TPath({pack: ["stdgo"], name: "GoInt32"});
-				case int16_kind: TPath({pack: ["stdgo"], name: "GoInt16"});
-				case int8_kind: TPath({pack: ["stdgo"], name: "GoInt8"});
-
-				case int_kind: TPath({pack: ["stdgo"], name: "GoInt"});
-				case uint_kind: TPath({pack: ["stdgo"], name: "GoUInt"});
-
-				case uint64_kind: TPath({pack: ["stdgo"], name: "GoUInt64"});
-				case uint32_kind: TPath({pack: ["stdgo"], name: "GoUInt32"});
-				case uint16_kind: TPath({pack: ["stdgo"], name: "GoUInt16"});
-				case uint8_kind: TPath({pack: ["stdgo"], name: "GoUInt8"});
-
-				case string_kind: TPath({pack: ["stdgo"], name: "GoString"});
-				case complex64_kind: TPath({pack: ["stdgo"], name: "GoComplex64"});
-				case complex128_kind: TPath({pack: ["stdgo"], name: "GoComplex128"});
-				case float32_kind: TPath({pack: ["stdgo"], name: "GoFloat32"});
-				case float64_kind: TPath({pack: ["stdgo"], name: "GoFloat64"});
-				case bool_kind: TPath({pack: [], name: "Bool"});
-
-				case uintptr_kind: TPath({pack: ["stdgo"], name: "GoUIntptr"});
-
-				case untyped_int_kind, untyped_bool_kind, untyped_float_kind, untyped_rune_kind, untyped_complex_kind, untyped_string_kind: throw info.panic()
-						+ "untyped kind: " + kind;
-				case untyped_nil_kind: null;
-				case unsafepointer_kind: TPath({pack: ["stdgo", "_internal", "unsafe", "Unsafe"], name: "UnsafePointer"});
-				default:
-					throw info.panic() + "unknown kind to complexType: " + kind;
-			}
-		case interfaceType(empty, methods):
-			if (empty)
-				return anyInterfaceType();
-			// trace("methods: " + methods.length, methods.map(method -> method.name));
-			// return TPath({pack: [], name: "FailType"});
-			// only being triggered on extern packages (stdgoExterns.json) in limited circumstances so it's not important.
-			return anyInterfaceType();
-		// throw info.panic() + "non empty interface";
-		case named(path, _, underlying, _, _.get() => params):
-			// trace(path);
-			// trace(info.renameClasses);
-			if (path == "comparable")
-				return null;
-			if (path == null) {
-				trace("underlying null path: " + printer.printComplexType(toComplexType(underlying, info)));
-				throw info.panic() + path;
-			}
-			final p = namedTypePath(path, info);
-			if (params != null)
-				p.params = params.map(param -> TPType(toComplexType(param, info)));
-			TPath(p);
-		case sliceType(_.get() => elem):
-			final ct = toComplexType(elem, info);
-			var params = [TPType(ct)];
-			if (isInvalidComplexType(ct))
-				params = [TPType(TPath({name: "Dynamic", pack: []}))];
-			TPath({pack: ["stdgo"], name: "Slice", params: params});
-		case arrayType(_.get() => elem, len):
-			final ct = toComplexType(elem, info);
-			TPath({pack: ["stdgo"], name: "GoArray", params: [TPType(ct)]});
-		case mapType(_.get() => key, _.get() => value):
-			final ctKey = toComplexType(key, info);
-			final ctValue = toComplexType(value, info);
-			TPath({pack: ["stdgo"], name: "GoMap", params: [TPType(ctKey), TPType(ctValue)]});
-		case invalidType:
-			invalidComplexType();
-		case pointerType(_.get() => elem):
-			final ct = toComplexType(elem, info);
-			TPath({pack: ["stdgo"], name: "Pointer", params: [TPType(ct)]});
-		case chanType(dir, _.get() => elem):
-			final ct = toComplexType(elem, info);
-			TPath({pack: ["stdgo"], name: "Chan", params: [TPType(ct)]});
-		case structType(fields):
-			var fields = typeFields(fields, info, null, false);
-			TAnonymous([
-				for (field in fields)
-					{
-						name: field.name,
-						pos: null,
-						kind: field.kind,
-					}
-			]);
-		case signature(variadic, _.get() => params, _.get() => results, _.get() => recv):
-			var args:Array<ComplexType> = [];
-			for (param in params) {
-				args.push(toComplexType(param, info));
-			}
-			var ret:ComplexType = getReturn(results, info);
-			if (variadic) {
-				var last = args.pop();
-				switch last {
-					case TPath(p):
-						p.name = "Rest";
-						p.pack = ["haxe"];
-						p.sub = null;
-						last = TPath(p);
-					default:
-				}
-				args.push(last);
-			}
-			TFunction(args, ret);
-		case _var(_, _.get() => type):
-			toComplexType(type, info);
-		case typeParam(name, _):
-			return TPath({pack: [], name: "Dynamic"});
-		case tuple(len, _.get() => vars):
-			var fields:Array<Field> = [];
-			for (i in 0...vars.length) {
-				final t = toComplexType(vars[i], info);
-				fields.push({name: '_$i', pos: null, kind: FVar(t)});
-			}
-			TAnonymous(fields);
-		default:
-			throw info.panic() + "unknown goType to complexType: " + e;
-	}
-}
-
-function getReturn(results:Array<GoType>, info:Info):ComplexType {
-	if (results.length == 0) {
-		return TPath({name: "Void", pack: []});
-	} else if (results.length == 1) {
-		return toComplexType(results[0], info);
-	} else {
-		final fields:Array<Field> = [];
-		for (i in 0...results.length) {
-			switch results[i] {
-				case _var(_, _.get() => type):
-					fields.push({name: "_" + i, pos: null, kind: FVar(toComplexType(type, info))});
-				default:
-					fields.push({name: "_" + i, pos: null, kind: FVar(toComplexType(results[i], info))});
-			}
-		}
-		return TAnonymous(fields);
 	}
 }
 
@@ -3020,17 +2657,6 @@ function addPointerSuffix(ct:ComplexType) {
 	}
 }
 
-function isClass(x:GoAst.Expr, info:Info):Bool {
-	return switch x.id {
-		case "Ident":
-			info.renameIdents[x.name] == info.classNames[x.name];
-		case "ParenExpr", "StarExpr":
-			isClass(x.x, info);
-		default:
-			false;
-	}
-}
-
 
 function destructureExpr(x:Expr, t:GoType):{x:Expr, t:GoType} {
 	t = getUnderlying(t);
@@ -3486,16 +3112,6 @@ function getId(e:GoAst.Expr, info:Info):String {
 		default:
 			trace(e.id);
 			e.id;
-	}
-}
-
-function isVoid(ct:ComplexType):Bool {
-	if (ct == null)
-		return true;
-	return switch ct {
-		case TPath(p): p.name == "Void" && p.pack.length == 0;
-		default:
-			false;
 	}
 }
 

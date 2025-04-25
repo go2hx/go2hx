@@ -36,11 +36,11 @@ function typeRangeStmt(stmt:GoAst.RangeStmt, info:Info):ExprDef { // for stmt
 		switch body.expr {
 			case EBlock(exprs):
 				if (stmt.value != null && (stmt.value.id != "Ident" || stmt.value.name != "_")) {
-					value = removeCoalAndCheckType(value);
+					value = HaxeAst.removeCoalAndCheckType(value);
 					exprs.unshift(macro $value = __value__);
 				}
 				if (stmt.key != null && (stmt.key.id != "Ident" || stmt.key.name != "_")) {
-					key = removeCoalAndCheckType(key);
+					key = HaxeAst.removeCoalAndCheckType(key);
 					exprs.unshift(macro $key = __key__);
 				}
 			default:

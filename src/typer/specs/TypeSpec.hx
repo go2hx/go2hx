@@ -512,7 +512,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 						];
 						f.expr = macro t.$fieldName($a{fargs});
 						f.ret = ret;
-						if (!isVoid(f.ret))
+						if (!HaxeAst.isVoid(f.ret))
 							f.expr = macro return ${f.expr};
 						field.meta.push({name: ":interfacetypefprop", pos: null});
 						f.args.unshift({name: "t", type: TPath({name: splitDepFullPathName(name, info), pack: []})});
@@ -528,7 +528,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 						}
 						final fieldName = field.name;
 						f.expr = macro t.$fieldName($a{args});
-						if (!isVoid(f.ret))
+						if (!HaxeAst.isVoid(f.ret))
 							f.expr = macro return ${f.expr};
 						f.args.unshift({name: "t", type: TPath({name: splitDepFullPathName(name, info), pack: []})});
 						if (field.meta == null)

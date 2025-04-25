@@ -7,7 +7,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 		case ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN, SHL_ASSIGN, SHR_ASSIGN, XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN, OR_ASSIGN:
 			// remove checkType from x in x = y
 
-			var assign = removeCoalAndCheckType(typer.exprs.Expr.typeExpr(stmt.lhs[0], info));
+			var assign = HaxeAst.removeCoalAndCheckType(typer.exprs.Expr.typeExpr(stmt.lhs[0], info));
 			var assignName = "";
 			var assignExpr = null;
 			switch assign.expr {
@@ -18,7 +18,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 							assignName = "__t__";
 							info.localIdents.push(assignName);
 							stmt.lhs[0] = {id: "Ident", name: '_t__.$field'};
-							assign = removeCoalAndCheckType(typer.exprs.Expr.typeExpr(stmt.lhs[0], info));
+							assign = HaxeAst.removeCoalAndCheckType(typer.exprs.Expr.typeExpr(stmt.lhs[0], info));
 						default:
 					}
 				case EConst(_):
@@ -34,7 +34,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 			if (assignName != "")
 				info.localIdents.remove(assignName);
 			if (stmt.lhs[0].id == "IndexExpr" || stmt.lhs[0].id == "StarExpr" && stmt.lhs[0].x.id == "IndexExpr") { // prevent invalid assign to null
-				switch escapeParens(assign).expr {
+				switch HaxeAst.escapeParens(assign).expr {
 					case ETernary(econd, eif, _):
 						return (macro if ($econd) $expr).expr;
 					default:
@@ -94,7 +94,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 					var fromType = typeof(stmt.rhs[i], info, false);
 					y = assignTranslate(fromType, toType, y, info);
 					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
-						switch escapeParens(x).expr {
+						switch HaxeAst.escapeParens(x).expr {
 							case ETernary(econd, eif, _):
 								exprs.push(macro if ($econd) $eif = $y);
 								continue;
@@ -139,7 +139,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 					if (x == null || y == null)
 						return null;
 					// remove checkType from x in x = y
-					x = removeCoalAndCheckType(x);
+					x = HaxeAst.removeCoalAndCheckType(x);
 					var expr = toExpr(EBinop(op, x, y));
 					if (x.expr.match(EConst(CIdent("_")))) // blank means no assign/define just the rhs expr
 						expr = y;
@@ -204,14 +204,14 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 				for (i in 0...stmt.lhs.length) {
 					if (stmt.lhs[i].id == "Ident" && stmt.lhs[i].name == "_")
 						continue;
-					var e = removeCoalAndCheckType(typer.exprs.Expr.typeExpr(stmt.lhs[i], info));
+					var e = HaxeAst.removeCoalAndCheckType(typer.exprs.Expr.typeExpr(stmt.lhs[i], info));
 					var fieldName = names[i];
 					if (fieldName == null)
 						fieldName = '_$i';
 					var e2 = macro @:tmpset0 __tmp__.$fieldName;
 					e2 = assignTranslate(types[i], typeof(stmt.lhs[i], info, false), e2, info);
 					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
-						switch escapeParens(e).expr {
+						switch HaxeAst.escapeParens(e).expr {
 							case ETernary(econd, eif, _):
 								assigns.push(macro if ($econd) $eif = ${e2});
 								continue;

@@ -136,7 +136,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):ExprDef {
 			}
 		}
 	}
-	final isFunction = isFunction(expr.fun, info);
+	final isFunction = GoAst.isFunction(expr.fun, info);
 	if (!isFunction) {
 		final ct = typeExprType(expr.fun, info);
 		var e = typer.exprs.Expr.typeExpr(expr.args[0], info);
@@ -166,7 +166,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):ExprDef {
 				rparen: 0,
 			}, info);
 		case "SelectorExpr":
-			expr.fun.x = escapeParensRaw(expr.fun.x);
+			expr.fun.x = GoAst.escapeParensRaw(expr.fun.x);
 			final selKind = selectorKind(expr.fun);
 			final selType = typeof(expr.fun, info, false);
 			switch selType {
@@ -252,7 +252,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):ExprDef {
 						}
 						var ct = toComplexType(typeof(expr, info, false), info);
 						var e = macro $e.__append__($a{args});
-						if (!isInvalidComplexType(ct))
+						if (!HaxeAst.isInvalidComplexType(ct))
 							e = macro($e : $ct);
 						return returnExpr(e).expr;
 					case "copy":

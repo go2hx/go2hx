@@ -181,7 +181,7 @@ function interopGenFun(name:String, f:Function, path:String, cl:TypeDefinition, 
 	}
 	pathArray.push(name);
 	var expr = macro $p{pathArray}($a{exprArgs});
-	if (!typer.Typer.isVoid(f.ret))
+	if (!typer.HaxeAst.isVoid(f.ret))
 		expr = macro return $expr;
 	final block:Array<Expr> = [];
 	return {

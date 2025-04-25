@@ -3,7 +3,7 @@ package typer.exprs;
 function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):ExprDef { // EField
 	var sel = nameIdent(expr.sel.name, false, false, info, false, true);
 	var isStar = false;
-	expr.x = escapeParensRaw(expr.x);
+	expr.x = GoAst.escapeParensRaw(expr.x);
 	final kind = selectorKind(expr);
 	final isStar = expr.x.id == "StarExpr";
 	var x = typer.exprs.Expr.typeExpr(expr.x, info);
@@ -95,7 +95,7 @@ function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):ExprDef { // EFiel
 	}
 	var typeX = typeof(expr.x, info, false);
 	if (isPointer(typeX)) {
-		if (!isClass(expr.x, info)) {
+		if (!GoAst.isClass(expr.x, info)) {
 			if (expr.recv == null) {
 				x = macro $x.value;
 			} else {
@@ -122,7 +122,7 @@ function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):ExprDef { // EFiel
 			}
 		}
 	} else {
-		if (!isClass(expr.x, info)) {
+		if (!GoAst.isClass(expr.x, info)) {
 			switch typeX {
 				case named(path, methods, type, alias, params):
 					var recvPointerBool = false;

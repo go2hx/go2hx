@@ -1,5 +1,11 @@
 package typer;
-
+/**
+ * Output of the Compiler
+ * Holds the Data types before code generation
+ * Utility functions for quickly checking that an Expr is X
+ * For more complex logic such as passing by copy, or implicit casting,
+ * Add the functionality to `typer.exprs.Expr`
+ */
 import haxe.macro.Expr;
 
 
@@ -329,6 +335,106 @@ function compareComplexType(a:ComplexType, b:ComplexType):Bool {
 	}
 }
 
+
+function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
+
+	if (y == null)
+		return y;
+	switch escapeCheckType(y).expr {
+		case EBlock(_), ENew(_), EObjectDecl(_):
+			return y;
+		case EUnop(OpSpread, _, _):
+			return y;
+		default:
+	}
+	if (!isPointer(fromType) && !isRef(fromType)) {
+		var isNamed = isNamed(fromType);
+		if (fromType == null) {
+			trace(info.panic(), "fromType is null");
+		}
+		switch fromType {
+			case typeParam(_):
+			case basic(basicKind):
+				switch basicKind {
+					case string_kind:
+						function f(x) {
+							return switch HaxeAst.escapeParens(x).expr {
+								case ECheckType(e, _):
+									f(e);
+								case EConst(c):
+									switch c {
+										case CIdent(_):
+											macro $y?.__copy__();
+										default:
+											macro $y;
+									}
+								default:
+									macro $y?.__copy__();
+							}
+						}
+						return f(y);
+					default:
+				}
+			case signature(_, _, _, _):
+			case interfaceType(_, _):
+			case sliceType(_), mapType(_, _), chanType(_, _): // pass by ref
+			case arrayType(_, _): // pass by copy
+				y = macro $y?.__copy__();
+			case structType(fields):
+				final decl = createNamedObjectDecl(fields, (field, type) -> passByCopy(type, macro x.$field, info), info);
+				y = macro {
+					final x = $y;
+					$decl;
+				};
+			case named(path, _, type, _, _):
+				switch getUnderlying(type) {
+					case pointerType(_), basic(_), signature(_, _, _, _), sliceType(_), mapType(_), chanType(_):
+						return y;
+					case structType(fields) if (path.indexOf("_struct_") != -1):
+						final decl = createNamedObjectDecl(fields, (field, type) -> passByCopy(type, macro x.$field, info), info);
+						final ct = toComplexType(fromType, info);
+						return macro {
+							final x = $y;
+							($decl : $ct);
+						};
+					case invalidType:
+						return y;
+					default:
+				}
+				// trace(printer.printExpr(y), type);
+				if (!isInterface(type) && !isAnyInterface(type) && !isPointer(type) && !isRef(type)) {
+					switch y.expr {
+						case EArray(_):
+						default:
+							y = macro $y?.__copy__();
+					}
+				}
+			case invalidType, pointerType(_), previouslyNamed(_), refType(_), tuple(_, _):
+
+			case _var(_, _):
+		}
+	}
+	return y;
+}
+
+function complexTypeElem(ct:ComplexType, index:Int = 0):ComplexType {
+	return switch ct {
+		case TPath(p):
+			if (p.params != null && p.params.length > 0) {
+				switch p.params[index] {
+					case TPType(t):
+						t;
+					default:
+						ct;
+				}
+			} else {
+				ct;
+			}
+		default:
+			ct;
+	}
+}
+
 function typeGoto(label:Expr):Expr {
 	return macro @:goto $label;
 
@@ -370,175 +476,6 @@ function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
 		defer.ran = true;
 		defer.f();
 	};
-}
-
-function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
-	function ct():ComplexType {
-		return toComplexType(type, info);
-	}
-	if (type == null)
-		return macro @:unknown_default_value null;
-	return switch type {
-		case mapType(_.get() => key, _.get() => value):
-			final keyComplexType = toComplexType(key, info);
-			final valueComplexType = toComplexType(value, info);
-			final keyUnderlying = getUnderlying(key);
-			switch keyUnderlying {
-				case structType(_):
-					return macro(({
-						final x:stdgo.GoMap.GoObjectMap<$keyComplexType, $valueComplexType> = null;
-						// x.t = new stdgo._internal.internal.reflect.Reflect._Type($keyT);
-						// x.__HaxeAst.defaultValue__ = () -> $HaxeAst.defaultValueExpr;
-						// @:mergeBlock $b{exprs};
-						cast x;
-					} : stdgo.GoMap<$keyComplexType, $valueComplexType>));
-				default:
-					// trace(keyUnderlying);
-			}
-			macro(null : stdgo.GoMap<$keyComplexType, $valueComplexType>);
-		case sliceType(_.get() => elem):
-			final t = toComplexType(elem, info);
-			macro(null : stdgo.Slice<$t>);
-		case arrayType(_.get() => elem, len):
-			final param = toComplexType(elem, info);
-			final size = makeExpr(len);
-			final cap = size;
-			final p:TypePath = {name: "GoArray", params: [TPType(param)], pack: ["stdgo"]};
-			final s = genSlice(p, elem, size, cap, e -> e, info, null);
-			s;
-		case interfaceType(_):
-			final ct = ct();
-			macro(null : $ct);
-		case chanType(_, _.get() => elem):
-			final t = toComplexType(elem, info);
-			var value = HaxeAst.defaultValue(elem, info);
-			macro(null : stdgo.Chan<$t>);
-		case pointerType(_.get() => elem):
-			final t = toComplexType(elem, info);
-			macro(null : stdgo.Pointer<$t>);
-		case signature(_, _, _, _):
-			macro null;
-		case refType(_.get() => elem):
-			final ct = toComplexType(elem, info);
-			switch elem {
-				case arrayType(_):
-					final s = HaxeAst.defaultValue(elem, info, strict);
-					macro $s.__setNil__();
-				default:
-					macro(null : stdgo.Ref<$ct>); // pointer can be nil
-			}
-		case named(path, _, underlying, alias, _):
-			switch getUnderlying(underlying) {
-				case chanType(_, _):
-					final ct = ct();
-					macro(null : $ct);
-				case refType(_), pointerType(_), interfaceType(_), mapType(_, _), signature(_, _):
-					final ct = ct();
-					if (ct != null) {
-						macro(null : $ct);
-					} else {
-						macro null;
-					}
-				case basic(_):
-					final ct = ct();
-					final e = HaxeAst.defaultValue(underlying, info);
-					macro($e : $ct);
-				case structType(fields):
-					final ct = ct();
-					final fs:Array<ObjectField> = [];
-					var e = macro {};
-					if (alias) {
-						e = createNamedObjectDecl(fields, (_, type) -> HaxeAst.defaultValue(type, info), info);
-					}
-					macro($e : $ct);
-				case sliceType(_.get() => elem):
-					var t = namedTypePath(path, info);
-					final ct = ct();
-					macro(new $t(0, 0) : $ct);
-				case arrayType(_.get() => elem, len):
-					final t = namedTypePath(path, info);
-					final elem = HaxeAst.defaultValue(elem, info);
-					final len = makeExpr(len);
-					macro new $t($len, $len, ...[for (i in 0...$len) $elem]);
-				default:
-					var t = namedTypePath(path, info);
-					macro new $t();
-			}
-		case basic(kind):
-			if (strict) {
-				switch kind {
-					case bool_kind: macro false;
-					case int_kind: macro(0 : stdgo.GoInt);
-					case int8_kind: macro(0 : stdgo.GoInt8);
-					case int16_kind: macro(0 : stdgo.GoInt16);
-					case int32_kind: macro(0 : stdgo.GoInt32);
-					case int64_kind: macro(0 : stdgo.GoInt64);
-					case string_kind: macro("" : stdgo.GoString);
-					case uint_kind: macro(0 : stdgo.GoUInt);
-					case uint8_kind: macro(0 : stdgo.GoUInt8);
-					case uint16_kind: macro(0 : stdgo.GoUInt16);
-					case uint32_kind: macro(0 : stdgo.GoUInt32);
-					case uint64_kind: macro(0 : stdgo.GoUInt64);
-					case uintptr_kind: macro new stdgo.GoUIntptr(0);
-					case float32_kind: macro(0 : stdgo.GoFloat32);
-					case float64_kind: macro(0 : stdgo.GoFloat64);
-					case complex64_kind: macro new stdgo.GoComplex64(0, 0);
-					case complex128_kind: macro new stdgo.GoComplex128(0, 0);
-					case untyped_bool_kind, untyped_rune_kind, untyped_string_kind, untyped_int_kind, untyped_float_kind, untyped_complex_kind:
-						throw info.panic() + "untyped kind: " + kind;
-					default: macro @:default_value null;
-				}
-			} else {
-				switch kind {
-					case bool_kind: macro false;
-					case string_kind: macro "";
-					case int_kind, int8_kind, int16_kind, int32_kind, int64_kind: macro 0;
-					case uint_kind, uint8_kind, uint16_kind, uint32_kind, uint64_kind: macro 0;
-					case uintptr_kind: macro new stdgo.GoUIntptr(0);
-					case float32_kind, float64_kind: macro 0;
-					case complex64_kind: macro new stdgo.GoComplex64(0, 0);
-					case complex128_kind: macro new stdgo.GoComplex128(0, 0);
-					default: macro @:default_value_kind
-						null;
-				}
-			}
-		case structType(fields):
-			if (fields.length == 0)
-				return macro {};
-			var fs:Array<ObjectField> = [];
-			for (field in fields) {
-				if (field.optional)
-					continue;
-				fs.push({
-					field: field.name,
-					expr: HaxeAst.defaultValue(field.type.get(), info, true),
-				});
-			}
-			toExpr(EObjectDecl(fs));
-		case invalidType:
-			macro @:invalid_type null;
-		case tuple(_, _.get() => vars):
-			toExpr(EObjectDecl([
-				for (i in 0...vars.length) {
-					{
-						field: "_" + i,
-						expr: HaxeAst.defaultValue(vars[i], info),
-					}
-				}
-			]));
-		case typeParam(name, _):
-			// null;
-			if (strict) {
-				final t = TPath({name: className(name, info), pack: []});
-				macro stdgo.Go.HaxeAst.defaultValue((cast(null) : $t));
-			} else {
-				null;
-			}
-		case _var(_, _.get() => type):
-			HaxeAst.defaultValue(type, info, strict);
-		default:
-			throw info.panic() + "unsupported default value type: " + type;
-	}
 }
 
 
@@ -676,5 +613,178 @@ function createTempVars(vars:Array<Var>, short:Bool):Expr {
 	// return vars2;
 }
 
-//typedef FieldType = haxe.macro.Expr.FieldType;
-//typedef Field = haxe.macro.Expr.Field;
+function hasBreak(expr:Expr):Bool {
+
+	var f = null;
+	var hasBreakBool = false;
+	f = expr -> {
+		if (expr == null || expr.expr == null)
+			return;
+		switch expr.expr {
+			case EBreak:
+				hasBreakBool = true;
+				return;
+			default:
+				haxe.macro.ExprTools.iter(expr, f);
+		}
+	}
+	f(expr);
+	return hasBreakBool;
+} function continueInsideSwitch(expr:Expr):Bool {
+
+	var hasContinue = false;
+	var f = null;
+	f = expr -> {
+		if (expr == null)
+			return null;
+		return switch expr.expr {
+			case EMeta(s, _):
+				if (s.name == ":fallthrough" || s.name == ":jump") {
+					expr;
+				} else {
+					haxe.macro.ExprTools.map(expr, f);
+				}
+			case EWhile(_, _, _), EFor(_, _):
+				// new scope
+				expr;
+			case EContinue:
+				hasContinue = true;
+				macro {
+					__continue__ = true;
+					break;
+				};
+			default:
+				haxe.macro.ExprTools.map(expr, f);
+		}
+	}
+	expr.expr = f(expr).expr;
+	return hasContinue;
+} function cforPostContinue(post:Expr, e:Expr):Expr {
+
+	return switch e.expr {
+		case EMeta({pos: _, name: ":fallthrough", params: null}, _):
+			return e;
+		case EFor(_, _), EWhile(_, _, _):
+			return e;
+		case EContinue:
+			macro {
+				$post;
+				$e;
+			};
+		default:
+			mapExprWithData(e, post, cforPostContinue);
+	}
+	return e;
+}
+
+
+function escapeCheckType(e:Expr):Expr {
+
+	return switch e.expr {
+		case ECheckType(e, _), EParenthesis(e):
+			escapeCheckType(e);
+		default:
+			e;
+	}
+} 
+
+function isRestType(t:ComplexType):Bool {
+
+	return switch t {
+		case TPath(p): p.name == "Rest" && p.pack != null && p.pack.length == 1 && p.pack[0] == "haxe";
+		default:
+			false;
+	}
+} function isRestExpr(expr:Expr):Bool {
+
+	if (expr == null)
+		return false;
+	return switch expr.expr {
+		case EUnop(op, _, _):
+			op == OpSpread;
+		default:
+			false;
+	}
+}
+
+
+function mapExprArrayWithData<T>(el:Array<Expr>, data:T, f:(data:T, e:Expr) -> Expr):Array<Expr> {
+	var ret = [];
+	for (e in el)
+		ret.push(f(data, e));
+	return ret;
+}
+
+function mapExprWithData<T>(e:Expr, data:T, f:(data:T, e:Expr) -> Expr):Expr {
+	return {
+		pos: e.pos,
+		expr: switch (e.expr) {
+			case EConst(_): e.expr;
+			case EArray(e1, e2): EArray(f(data, e1), f(data, e2));
+			case EBinop(op, e1, e2): EBinop(op, f(data, e1), f(data, e2));
+			case EField(e, field): EField(f(data, e), field);
+			case EParenthesis(e): EParenthesis(f(data, e));
+			case EObjectDecl(fields):
+				var ret = [];
+				for (field in fields)
+					ret.push({field: field.field, expr: f(data, field.expr), quotes: field.quotes});
+				EObjectDecl(ret);
+			case EArrayDecl(el): EArrayDecl(mapExprArrayWithData(el, data, f));
+			case ECall(e, params): ECall(f(data, e), mapExprArrayWithData(params, data, f));
+			case ENew(tp, params): ENew(tp, mapExprArrayWithData(params, data, f));
+			case EUnop(op, postFix, e): EUnop(op, postFix, f(data, e));
+			case EVars(vars):
+				var ret = [];
+				for (v in vars) {
+					var v2:Var = {name: v.name, type: v.type, expr: opt(v.expr, data, f)};
+					if (v.isFinal != null)
+						v2.isFinal = v.isFinal;
+					ret.push(v2);
+				}
+				EVars(ret);
+			case EBlock(el): EBlock(mapExprArrayWithData(el, data, f));
+			case EFor(it, expr): EFor(f(data, it), f(data, expr));
+			case EIf(econd, eif, eelse): EIf(f(data, econd), f(data, eif), opt(eelse, data, f));
+			case EWhile(econd, e, normalWhile): EWhile(f(data, econd), f(data, e), normalWhile);
+			case EReturn(e): EReturn(opt(e, data, f));
+			case EUntyped(e): EUntyped(f(data, e));
+			case EThrow(e): EThrow(f(data, e));
+			case ECast(e, t): ECast(f(data, e), t);
+			case EIs(e, t): EIs(f(data, e), t);
+			case EDisplay(e, dk): EDisplay(f(data, e), dk);
+			case ETernary(econd, eif, eelse): ETernary(f(data, econd), f(data, eif), f(data, eelse));
+			case ECheckType(e, t): ECheckType(f(data, e), t);
+			case EContinue, EBreak:
+				e.expr;
+			case ETry(e, catches):
+				var ret = [];
+				for (c in catches)
+					ret.push({name: c.name, type: c.type, expr: f(data, c.expr)});
+				ETry(f(data, e), ret);
+			case ESwitch(e, cases, edef):
+				var ret = [];
+				for (c in cases)
+					ret.push({expr: opt(c.expr, data, f), guard: opt(c.guard, data, f), values: mapExprArrayWithData(c.values, data, f)});
+				ESwitch(f(data, e), ret, edef == null || edef.expr == null ? edef : f(data, edef));
+			case EFunction(kind, func):
+				var ret = [];
+				for (arg in func.args)
+					ret.push({
+						name: arg.name,
+						opt: arg.opt,
+						type: arg.type,
+						value: opt(arg.value, data, f)
+					});
+				EFunction(kind, {
+					args: ret,
+					ret: func.ret,
+					params: func.params,
+					expr: f(data, func.expr)
+				});
+			case EMeta(m, e): EMeta(m, f(data, e));
+		}
+	};
+}
+
+function opt<T>(e:Null<Expr>, data:T, f:(data:T, Expr) -> Expr):Expr
+	return e == null ? null : f(data, e);

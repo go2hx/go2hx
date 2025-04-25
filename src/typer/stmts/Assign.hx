@@ -67,7 +67,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 			}
 
 			if (stmt.lhs.length == stmt.rhs.length) { // w,x = y,z
-				var op = typeOp(stmt.tok);
+				var op = typer.exprs.Expr.typeOp(stmt.tok);
 				var exprs:Array<Expr> = [];
 				var destructExprs:Array<Expr> = [];
 				for (i in 0...stmt.lhs.length) {
@@ -92,7 +92,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 							continue;
 					}
 					var fromType = typeof(stmt.rhs[i], info, false);
-					y = assignTranslate(fromType, toType, y, info);
+					y = typer.exprs.Expr.assignTranslate(fromType, toType, y, info);
 					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
 						switch HaxeAst.escapeParens(x).expr {
 							case ETernary(econd, eif, _):
@@ -182,7 +182,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 				var t = typeof(stmt.rhs[0], info, false);
 				var names:Array<String> = [];
 				var types:Array<GoType> = [];
-				var data = castTranslate(stmt.rhs[0], func, info);
+				var data = GoAst.castTranslate(stmt.rhs[0], func, info);
 				func = data.expr;
 				switch t {
 					case tuple(_, _.get() => vars):
@@ -209,7 +209,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 					if (fieldName == null)
 						fieldName = '_$i';
 					var e2 = macro @:tmpset0 __tmp__.$fieldName;
-					e2 = assignTranslate(types[i], typeof(stmt.lhs[i], info, false), e2, info);
+					e2 = typer.exprs.Expr.assignTranslate(types[i], typeof(stmt.lhs[i], info, false), e2, info);
 					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
 						switch HaxeAst.escapeParens(e).expr {
 							case ETernary(econd, eif, _):
@@ -271,7 +271,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 					final name = typer.exprs.Ident.nameIdent(stmt.lhs[i].name, false, true, info);
 					final toType = typeof(stmt.lhs[i], info, false);
 					final fromType = typeof(stmt.rhs[i], info, false);
-					expr = assignTranslate(fromType, toType, expr, info);
+					expr = typer.exprs.Expr.assignTranslate(fromType, toType, expr, info);
 					var ct = toComplexType(toType, info);
 					function f(ct:ComplexType):Bool {
 						if (ct == null)
@@ -309,7 +309,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 				var t = typeof(stmt.rhs[0], info, false);
 				var names:Array<String> = [];
 				var types:Array<ComplexType> = [];
-				var data = castTranslate(stmt.rhs[0], func, info);
+				var data = GoAst.castTranslate(stmt.rhs[0], func, info);
 				func = data.expr;
 				switch t {
 					case tuple(_, _.get() => vars):
@@ -343,4 +343,62 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 		default:
 			throw info.panic() + "type assign tok not found: " + stmt.tok;
 	}
-} 
+}
+
+
+private function nonAssignToken(tok:GoAst.Token):GoAst.Token {
+
+	return switch tok {
+		case ADD_ASSIGN: ADD;
+		case SUB_ASSIGN: SUB;
+		case MUL_ASSIGN: MUL;
+		case QUO_ASSIGN: QUO;
+		case REM_ASSIGN: REM;
+		case SHL_ASSIGN: SHL;
+		case SHR_ASSIGN: SHR;
+		case XOR_ASSIGN: XOR;
+		case AND_ASSIGN: AND;
+		case AND_NOT_ASSIGN: AND_NOT;
+		case OR_ASSIGN: OR;
+		default: throw "non assign token: " + tok;
+	}
+}
+
+private function orderOperations(inits:Array<Expr>, exprs:Array<Expr>):Array<Expr> {
+
+	var initsCount = inits.length;
+	for (i in 0...exprs.length) {
+		switch exprs[i].expr {
+			case EBinop(OpAssign, {expr: EArray(v, index), pos: _}, e2):
+				final tmpNameVar = "__tmp__" + initsCount++;
+				final tmpNameIndex = "__tmp__" + initsCount++;
+				inits.push(macro final $tmpNameVar = $v);
+				inits.push(macro final $tmpNameIndex = $index);
+				exprs[i] = macro $i{tmpNameVar}[$i{tmpNameIndex}] = ${e2};
+			default:
+		}
+	}
+	return inits.concat(exprs);
+}
+
+function isSelfAssignValue(x:Expr, y:Expr):Bool {
+
+	switch x.expr {
+		case EConst(c):
+			switch c {
+				case CIdent(s):
+					switch y.expr {
+						case EConst(c):
+							switch c {
+								case CIdent(s2):
+									if (s == s2) return true;
+								default:
+							}
+						default:
+					}
+				default:
+			}
+		default:
+	}
+	return false;
+}

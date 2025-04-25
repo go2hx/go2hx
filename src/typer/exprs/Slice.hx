@@ -11,7 +11,7 @@ function typeSliceExpr(expr:GoAst.SliceExpr, info:Info):ExprDef {
 	x = if (high != null) {
 		if (expr.slice3) {
 			var max = typer.exprs.Expr.typeExpr(expr.max, info);
-			max = assignTranslate(typeof(expr.max, info, false), basic(int_kind), max, info);
+			max = typer.exprs.Expr.assignTranslate(typeof(expr.max, info, false), basic(int_kind), max, info);
 			macro $x.__slice__($low, $high, $max);
 		} else {
 			macro $x.__slice__($low, $high);

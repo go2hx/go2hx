@@ -64,7 +64,7 @@ function typeSwitchStmt(stmt:GoAst.SwitchStmt, info:Info):ExprDef { // always an
 			return null;
 		var value = typer.exprs.Expr.typeExpr(obj.list[i], info);
 		if (tag != null) {
-			value = translateEquals(macro __value__, value, tagType, typeof(obj.list[i], info, false), OpEq, info);
+			value = typer.exprs.Expr.translateEquals(macro __value__, value, tagType, typeof(obj.list[i], info, false), OpEq, info);
 		}
 		if (i + 1 >= obj.list.length)
 			return value;
@@ -97,7 +97,7 @@ function typeSwitchStmt(stmt:GoAst.SwitchStmt, info:Info):ExprDef { // always an
 		return macro if ($cond) $block else $next;
 	}
 	var expr = ifs();
-	final hasBreakBool = hasBreak(expr);
+	final hasBreakBool = HaxeAst.hasBreak(expr);
 	if (tag != null) {
 		expr = macro {
 			final __value__ = $tag;
@@ -135,7 +135,7 @@ function typeSwitchStmt(stmt:GoAst.SwitchStmt, info:Info):ExprDef { // always an
 			expr = func(expr);
 		}
 		var needsReturn = HaxeAst.exprWillReturn(expr);
-		final continueBool = continueInsideSwitch(expr);
+		final continueBool = HaxeAst.continueInsideSwitch(expr);
 		if (continueBool) {
 			expr = macro {
 				var __continue__ = false;

@@ -314,7 +314,7 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 			chanType(e.type.dir, {get: () -> typeof(e.value, info, false, paths.copy())});
 		case "StructType":
 			final e:GoAst.StructType = e;
-			structType(typeFieldListFieldTypes(e.fields, info));
+			structType(typer.fields.FieldList.typeFieldListFieldTypes(e.fields, info));
 		case "FuncType":
 			final e:GoAst.FuncType = e;
 			final list = hashTypeToExprType(e.params.list, info);
@@ -1000,24 +1000,6 @@ function addPointerSuffix(ct:ComplexType) {
 	}
 }
 
-function complexTypeElem(ct:ComplexType, index:Int = 0):ComplexType {
-	return switch ct {
-		case TPath(p):
-			if (p.params != null && p.params.length > 0) {
-				switch p.params[index] {
-					case TPType(t):
-						t;
-					default:
-						ct;
-				}
-			} else {
-				ct;
-			}
-		default:
-			ct;
-	}
-}
-
 function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bool):Expr {
 	return switch t {
 		case typeParam(name, params):
@@ -1107,5 +1089,255 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 			final len = toExpr(EConst(CInt('$len')));
 			final vars = [for (v in vars) toReflectType(v, info, paths.copy(), equalityBool)];
 			macro stdgo._internal.internal.reflect.Reflect.GoType.tuple($len, $a{vars});
+	}
+}
+
+// can also be used for ObjectFields
+function typeFields(list:Array<typer.exprtypes.ExprType.FieldType>, info:Info, access:Array<Access>, defaultBool:Bool, ?docs:Array<GoAst.CommentGroup>,
+    ?comments:Array<GoAst.CommentGroup>):Array<Field> {
+var fields:Array<Field> = [];
+for (i in 0...list.length) {
+    final field = list[i];
+    final ct = toComplexType(field.type.get(), info);
+    var name = field.name;
+    var meta:Metadata = [];
+    if (field.embedded) {
+        meta.push({name: ":embedded", pos: null});
+    }
+    if (field.tag != "") {
+        final tag = HaxeAst.makeString(typer.exprs.BasicLit.rawEscapeSequences(field.tag));
+        meta.push({name: ":tag", pos: null, params: [tag]});
+    }
+    if (field.optional)
+        meta.push({name: ":optional", pos: null});
+    var doc:String = codegen.Doc.getDocComment({doc: docs == null ? null : docs[i]}, {comment: comments == null ? null : comments[i]});
+    // trace(name);
+    // trace(field.type.get());
+    // trace(toComplexType(field.type.get(), info));
+    fields.push({
+        name: name,
+        pos: null,
+        meta: meta,
+        doc: doc,
+        access: access == null ? HaxeAst.typeAccess(name, true) : access,
+        kind: FVar(toComplexType(field.type.get(), info), defaultBool ? typer.exprs.Expr.defaultValue(field.type.get(), info, false) : null)
+    });
+}
+return fields;
+}
+
+function createNamedObjectDecl(fields:Array<typer.exprtypes.ExprType.FieldType>, f:(field:String, type:GoType) -> Expr, info:Info):Expr {
+
+	final objectFields:Array<ObjectField> = [];
+	for (i in 0...fields.length) {
+		final field = fields[i].name;
+		if (fields[i].optional)
+			continue;
+		objectFields.push({
+			field: field,
+			expr: f(field, fields[i].type.get()),
+		});
+	}
+	return toExpr(EObjectDecl(objectFields));
+} // This is for implicit conversion
+
+
+function getReturnTupleType(type:GoType):Array<GoType> {
+
+	return switch type {
+		case tuple(_, _.get() => vars):
+			var index = 0;
+			[
+				for (i in 0...vars.length) {
+					switch vars[i] {
+						case _var(name, _.get() => type):
+							type;
+						default:
+							vars[i];
+					}
+				}
+			];
+		default:
+			throw "type is not a tuple: " + type;
+	}
+} function getReturnTupleNames(type:GoType):Array<String> {
+
+	return switch type {
+		case tuple(_, _.get() => vars):
+			[
+				for (i in 0...vars.length)
+					"_" + i
+			];
+		default:
+			throw "type is not a tuple: " + type;
+	}
+} function goTypesEqual(a:GoType, b:GoType, depth:Int):Bool {
+
+	if (depth > 20)
+		return true;
+	if (a == null || b == null)
+		return true;
+	return switch a {
+		case structType(fields):
+			switch b {
+				case structType(fields2):
+					if (fields.length != fields.length) {
+						false;
+					} else {
+						var bool = true;
+						for (i in 0...fields.length) {
+							if (fields[i].name != fields2[i].name
+								|| !goTypesEqual(fields[i].type.get(), fields2[i].type.get(), depth + 1)) {
+								bool = false;
+								break;
+							}
+						}
+						bool;
+					}
+				default:
+					false;
+			}
+		case typeParam(_, params):
+			switch b {
+				case typeParam(_, params2):
+					if (params.length != params2.length) {
+						false;
+					} else {
+						var bool = true;
+						for (i in 0...params.length) {
+							if (!goTypesEqual(params[i], params2[i], depth + 1)) {
+								bool = false;
+								break;
+							}
+						}
+						bool;
+					}
+
+				default:
+					false;
+			}
+		case signature(variadic, _.get() => params, _.get() => results, _):
+			switch b {
+				case signature(variadic2, _.get() => params2, _.get() => results2, _):
+					if (variadic != variadic2 || params.length != params2.length || results.length != results2.length) {
+						false;
+					} else {
+						var bool = true;
+						for (i in 0...params.length) {
+							if (!goTypesEqual(params[i], params2[i], depth + 1)) {
+								bool = false;
+								break;
+							}
+						}
+						if (bool) {
+							for (i in 0...results.length) {
+								if (!goTypesEqual(results[i], results[i], depth + 1)) {
+									bool = false;
+									break;
+								}
+							}
+							bool;
+						} else {
+							false;
+						}
+					}
+				default:
+					false;
+			}
+		case _var(_, _.get() => t):
+			switch b {
+				case _var(_, _.get() => t2):
+					goTypesEqual(t, t2, depth + 1);
+				default:
+					goTypesEqual(t, b, depth + 1);
+			}
+		case tuple(len, _.get() => vars):
+			switch b {
+				case tuple(len2, _.get() => vars2):
+					if (len != len2 || vars.length != vars2.length) {
+						false;
+					} else {
+						var bool = true;
+						for (i in 0...vars.length) {
+							if (!goTypesEqual(vars[i], vars2[i], depth + 1)) {
+								bool = false;
+								break;
+							}
+						}
+						bool;
+					}
+				default:
+					false;
+			}
+		case basic(kind):
+			switch b {
+				case basic(kind2):
+					kind == kind2;
+				default:
+					false;
+			}
+		case arrayType(_.get() => elem, len), chanType(len, _.get() => elem):
+			switch b {
+				case arrayType(_.get() => elem2, len2), chanType(len2, _.get() => elem2): a.getIndex() == b.getIndex() && len == len2 && goTypesEqual(elem,
+						elem2, depth + 1);
+				default:
+					false;
+			}
+		case mapType(_.get() => key, _.get() => value):
+			switch b {
+				case mapType(_.get() => key2, _.get() => value2): goTypesEqual(key, key2, depth + 1) && goTypesEqual(value, value2, depth + 1);
+				default:
+					false;
+			}
+		case refType(_.get() => elem), pointerType(_.get() => elem), sliceType(_.get() => elem):
+			switch b {
+				case refType(_.get() => elem2), pointerType(_.get() => elem2), sliceType(_.get() => elem2): a.getIndex() == b.getIndex() && goTypesEqual(elem,
+						elem2, depth
+						+ 1);
+				default:
+					false;
+			}
+		case named(path, _, _, _), previouslyNamed(path):
+			switch b {
+				case named(path2, _, _, _), previouslyNamed(path2):
+					path == path2;
+				default:
+					false;
+			}
+		case invalidType:
+			a == b;
+		case interfaceType(empty, methods):
+			switch b {
+				case interfaceType(empty2, methods2):
+					if (empty && empty2) {
+						true;
+					} else {
+						if (methods.length != methods2.length) {
+							false;
+						} else {
+							var bool = true;
+							for (i in 0...methods.length) {
+								if (methods[i].name != methods2[i].name
+									|| !goTypesEqual(methods[i].type.get(), methods2[i].type.get(), depth + 1)
+									|| !goTypesEqual(methods[i].recv.get(), methods2[i].recv.get(), depth + 1)) {
+									bool = false;
+									break;
+								}
+							}
+							bool;
+						}
+					}
+				default:
+					false;
+			}
+	}
+}
+
+function refToPointerWrapper(t:GoType):GoType {
+	return switch t {
+		case refType(_.get() => elem):
+			pointerType({get: () -> refToPointerWrapper(elem)});
+		default:
+			t;
 	}
 }

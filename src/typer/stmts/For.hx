@@ -18,7 +18,7 @@ function typeForStmt(stmt:GoAst.ForStmt, info:Info):ExprDef {
 			trace("for stmt error post: " + stmt.post);
 			return null;
 		}
-		body = cforPostContinue(post, body);
+		body = HaxeAst.cforPostContinue(post, body);
 		def = macro while ($cond) {
 			@:mergeBlock $body;
 			$post;

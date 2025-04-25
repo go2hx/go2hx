@@ -33,7 +33,7 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 				vars.push({
 					name: info.returnNames[i],
 					// type: info.returnComplexTypes[i],
-					expr: HaxeAst.defaultValue(info.returnTypes[i], info),
+					expr: typer.exprs.Expr.defaultValue(info.returnTypes[i], info),
 				});
 			}
 			exprs.unshift(toExpr(EVars(vars)));

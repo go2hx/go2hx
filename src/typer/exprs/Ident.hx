@@ -115,6 +115,6 @@ function replaceIdent(names:Map<String, String>, e:Expr):Expr {
 				e;
 			}
 		default:
-			mapExprWithData(e, names, replaceIdent);
+			HaxeAst.mapExprWithData(e, names, replaceIdent);
 	}
 }

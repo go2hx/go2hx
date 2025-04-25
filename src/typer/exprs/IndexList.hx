@@ -11,11 +11,11 @@ function typeIndexListExpr(expr:GoAst.IndexListExpr, info:Info):ExprDef {
 			if (objType != null) {
 				switch typeof(objType, info, false, []) {
 					case signature(_, _.get() => params, _.get() => results, _, _.get() => typeParams):
-						args = genericIndices(expr.indices, params, typeParams, info);
+						args = Index.genericIndices(expr.indices, params, typeParams, info);
 					default:
 				}
 			}
-			return typeFunctionLiteral(args, params, results, x, info).expr;
+			return Index.typeFunctionLiteral(args, params, results, x, info).expr;
 		default:
 	}
 	return (macro $x).expr;

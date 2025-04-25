@@ -46,7 +46,7 @@ function typeRangeStmt(stmt:GoAst.RangeStmt, info:Info):ExprDef { // for stmt
 			default:
 		}
 	}
-	x = toGoType(x);
+	x = typer.exprs.Expr.toGoType(x);
 	if (assign) {
 		key = macro __key__;
 		value = macro __value__;

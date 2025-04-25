@@ -829,3 +829,50 @@ function escapeParensRaw(expr:GoAst.Expr):GoAst.Expr {
 			expr;
 	}
 }
+
+function castTranslate(obj:GoAst.Expr, e:Expr, info:Info):{expr:Expr, ok:Bool} {
+
+	return switch obj.id {
+		case "TypeAssertExpr":
+			var obj:GoAst.TypeAssertExpr = obj;
+			final t = typeof(obj.type, info, false);
+			var value = typer.exprs.Expr.defaultValue(t, info);
+			{
+				ok: true,
+				expr: macro try {
+					{_0: $e, _1: true};
+				} catch (_) {
+					{_0: $value, _1: false};
+				}
+			};
+		case "UnaryExpr":
+			var obj:GoAst.UnaryExpr = obj;
+			var x = typer.exprs.Expr.typeExpr(obj.x, info);
+			{expr: macro $x.__smartGet__(), ok: true};
+		case "IndexExpr":
+			var obj:GoAst.IndexExpr = obj;
+			var index = typer.exprs.Expr.typeExpr(obj.index, info);
+			var x = typer.exprs.Expr.typeExpr(obj.x, info);
+			final ut = getUnderlying(typeof(obj.x, info, false));
+			switch ut {
+				case mapType(_.get() => var keyType, _):
+					// something strange is not working here try assign translate instead
+					index = typer.exprs.Expr.assignTranslate(typeof(obj.index, info, false), keyType, index, info);
+				// index = checkType(index, toComplexType(keyType, info), typeof(obj.index, info, false), keyType, info);
+				default:
+			}
+			final t = getUnderlying(typeof(obj, info, false));
+			final value = switch t {
+				case tuple(_, _.get() => vars):
+					typer.exprs.Expr.defaultValue(vars[0], info);
+				default:
+					macro null;
+			}
+			{
+				ok: true,
+				expr: macro($x != null && $x.__exists__($index) ? {_0: $x[$index], _1: true} : {_0: $value, _1: false}),
+			};
+		default:
+			{expr: e, ok: false};
+	}
+}

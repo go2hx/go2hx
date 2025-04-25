@@ -90,7 +90,7 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):ExprDef {
 	}
 }
 
-function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Int}> {
+private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Int}> {
 	var backslash = false;
 	var i = 0;
 	final values:Array<{?s:String, ?code:Int}> = [];
@@ -170,7 +170,7 @@ function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Int}> {
 	return values;
 }
 
-function makeStringLit(values:Array<{?s:String, ?code:Int}>):Expr {
+private function makeStringLit(values:Array<{?s:String, ?code:Int}>):Expr {
 	var e:Expr = macro("" : stdgo.GoString);
 	final exprs:Array<Expr> = [];
 	for (value in values) {
@@ -190,4 +190,95 @@ function makeStringLit(values:Array<{?s:String, ?code:Int}>):Expr {
 		}
 	}
 	return macro stdgo.Go.str($a{exprs});
+}
+
+private function getRune(value:String):String {
+	var backslash = false;
+	var i = 0;
+	var buff = new StringBuf();
+	while (i < value.length) {
+		if (backslash) {
+			final code = value.charCodeAt(i);
+			switch code {
+				case 'x'.code:
+					return "\\u00" + value.substr(i + 1, 2);
+				case '0'.code, '1'.code, '2'.code, '3'.code, '4'.code, '5'.code, '6'.code, '7'.code, '8'.code, '9'.code:
+					var num = 0;
+					for (j in 0...3) {
+						final numCode = Std.parseInt(value.charAt(i + j));
+						final expo = Std.int(Math.pow(8, 2 - j));
+						num += numCode * expo;
+					}
+					var s:String = '$num';
+					while (s.length < 3)
+						s = '0$s';
+					return '\\u0$s';
+				case '"'.code:
+					return '"';
+				case 'a'.code:
+					return "\\x07";
+				case 'b'.code:
+					return "\\u0008";
+				case 'e'.code:
+					return "\\x1B";
+				case 'f'.code:
+					return "\\x0C";
+				case 'v'.code:
+					return "\\x0B";
+				case 'u'.code:
+					return "\\u" + value.substr(i + 1, 4);
+				case 'U'.code:
+					return "\\u{" + value.substr(i + 1, 8) + "}";
+				case 't'.code, 'r'.code, 'n'.code, "\\".code:
+					return "\\" + String.fromCharCode(code);
+				default:
+					return value.substr(1);
+			}
+			backslash = false;
+			i++;
+			continue;
+		}
+		final code = value.charCodeAt(i);
+		switch code {
+			case "\\".code:
+				backslash = true;
+			// case "$".code:
+			//	buff.add("$$");
+			default:
+				try {
+					buff.addChar(code);
+				} catch (_) {
+					buff.addChar(97);
+				}
+		}
+		i++;
+	}
+
+	if (backslash)
+		return "\\";
+	return value;
+}
+
+function rawEscapeSequences(value:String):String {
+	var backslash = false;
+	var i = 0;
+	while (i < value.length) {
+		if (backslash) {
+			if (value.charCodeAt(i) != "\\".code) {
+				value = value.substr(0, i) + "\\" + value.substr(i);
+				i++;
+			} else {
+				value = value.substr(0, i) + "\\" + value.substr(i);
+			}
+			backslash = false;
+			i++;
+			continue;
+		}
+		if (value.charCodeAt(i) == "\\".code)
+			backslash = true;
+		i++;
+	}
+	if (backslash)
+		value += "\\";
+	return value;
 }

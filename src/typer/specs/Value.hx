@@ -18,7 +18,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 		var tmp = "__tmp__" + (info.blankCounter++);
 		var tmpExpr = macro $i{splitDepFullPathName(tmp, info)};
 		var func = typer.exprs.Expr.typeExpr(value.values[0], info);
-		var data = castTranslate(value.values[0], func, info);
+		var data = GoAst.castTranslate(value.values[0], func, info);
 		func = data.expr;
 		info.blankCounter++;
 		final posMin = info.blankCounter;
@@ -44,7 +44,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 			info.localIdents.remove(name);
 			var e = macro $tmpExpr.$fieldName;
 			final toType = typeof(value.names[i], info, false);
-			e = assignTranslate(t, toType, e, info, false);
+			e = typer.exprs.Expr.assignTranslate(t, toType, e, info, false);
 			final pos:Position = cast {min: posMin, max: 0, file: ""};
 			values.push({
 				name: name,
@@ -63,15 +63,15 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 			var expr:Expr = null;
 			if (value.values[i] == null) {
 				if (type != null) {
-					expr = HaxeAst.defaultValue(typeof(value.type, info, false), info);
+					expr = typer.exprs.Expr.defaultValue(typeof(value.type, info, false), info);
 				} else {
 					if (!info.global.externBool
 						|| StringTools.endsWith(info.global.module.path, "_test")
 						|| StringTools.endsWith(info.global.module.path, "_test")) {
 						expr = typer.exprs.Expr.typeExpr(info.lastValue, info);
-						expr = assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
+						expr = typer.exprs.Expr.assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
 					} else {
-						expr = HaxeAst.defaultValue(info.lastType, info);
+						expr = typer.exprs.Expr.defaultValue(info.lastType, info);
 					}
 				}
 			} else {
@@ -81,15 +81,15 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 				final nameType = typeof(value.names[i], info, false);
 				if (!info.global.externBool || StringTools.endsWith(info.global.module.path, "_test")) {
 					expr = typer.exprs.Expr.typeExpr(value.values[i], info);
-					expr = assignTranslate(t, info.lastType, expr, info);
+					expr = typer.exprs.Expr.assignTranslate(t, info.lastType, expr, info);
 				} else {
 					if (info.lastType != null && info.lastType != invalidType) {
-						expr = HaxeAst.defaultValue(info.lastType, info);
+						expr = typer.exprs.Expr.defaultValue(info.lastType, info);
 					} else {
 						if (t == invalidType) {
-							expr = HaxeAst.defaultValue(nameType, info);
+							expr = typer.exprs.Expr.defaultValue(nameType, info);
 						} else {
-							expr = HaxeAst.defaultValue(t, info);
+							expr = typer.exprs.Expr.defaultValue(t, info);
 						}
 					}
 				}
@@ -124,7 +124,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 					}
 				}
 			final nameType = typeof(value.names[i], info, false);
-			// expr = HaxeAst.defaultValue(nameType, info);
+			// expr = typer.exprs.Expr.defaultValue(nameType, info);
 			// expr = macro (() -> $expr)();
 			values.push({
 				name: name,

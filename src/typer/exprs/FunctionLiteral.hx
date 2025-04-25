@@ -12,7 +12,7 @@ function typeFuncLit(expr:GoAst.FuncLit, info:Info):ExprDef {
 	info.global.recoverBool = false;
 	info.global.gotoSystem = false;
 	var block = typer.stmts.Block.typeBlockStmt(expr.body, info, true);
-	block = argsTranslate(args, toExpr(block), expr.type.params, info, null).expr;
+	block = typer.decls.Function.argsTranslate(args, toExpr(block), expr.type.params, info, null).expr;
 	info.global.deferBool = prevDeferBool;
 	info.global.recoverBool = prevRecoverBool;
 	info.global.gotoSystem = prevGotoSystem;

@@ -12,7 +12,7 @@ function typeAssertExpr(expr:GoAst.TypeAssertExpr, info:Info):ExprDef { // a -> 
 			switch c {
 				case CIdent(s):
 					if (s == "null") {
-						var e = HaxeAst.defaultValue(t, info);
+						var e = typer.exprs.Expr.defaultValue(t, info);
 						return e.expr;
 					}
 				default:
@@ -25,6 +25,6 @@ function typeAssertExpr(expr:GoAst.TypeAssertExpr, info:Info):ExprDef { // a -> 
 	final t = typeof(expr.type, info, false);
 	if (isAnyInterface(fromType))
 		return (macro(stdgo.Go.typeAssert(($e : $ct)) : $ct)).expr;
-	e = toAnyInterface(e, fromType, info);
+	e = typer.exprs.Expr.toAnyInterface(e, fromType, info);
 	return (macro(stdgo.Go.typeAssert(($e : $ct)) : $ct)).expr;
 }

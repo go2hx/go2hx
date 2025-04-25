@@ -166,7 +166,7 @@ function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> =
             for (arg in args)
                 macro $i{arg.name}
         ];
-        if (args.length > 0 && isRestType(args[args.length - 1].type))
+        if (args.length > 0 && HaxeAst.isRestType(args[args.length - 1].type))
             params.push(macro...$e{params.pop()});
         var e = macro $i{path}($a{params});
         block = macro return $e;
@@ -343,4 +343,62 @@ function typeFieldListArgs(list:GoAst.FieldList, info:Info):Array<FunctionArg> {
 		}
 	}
 	return args;
+}
+
+function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.FieldList, info:Info, recvArg):Expr {
+
+	switch block.expr {
+		case EBlock(exprs):
+			if (recvArg != null && !isPointer(recvArg.vt)) {
+				final name = recvArg.name;
+				info.localIdents.push(name);
+				final expr = HaxeAst.passByCopy(recvArg.vt, macro $i{name}, info);
+				final ct = recvArg.type;
+				exprs.unshift(macro @:recv var $name:$ct = $expr);
+			}
+			for (arg in args) {
+				switch arg.type {
+					case TPath(p):
+						if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe" && p.params != null && p.params.length == 1) {
+							final name = arg.name;
+							switch p.params[0] {
+								case TPType(ct):
+									// new stdgo.Slice<$ct>($i{name}.length, 0, ...$i{name}));
+									exprs.unshift(macro var $name = new stdgo.Slice<$ct>($i{name}.length, 0, ...$i{name}));
+								// exprs.unshift(macro var $name:stdgo.Slice<$ct> = $i{name}.toArray());
+								default:
+							}
+						}
+					default:
+				}
+			}
+			block.expr = EBlock(exprs);
+		default:
+	}
+	return block;
+} 
+
+function funcReset(info:Info) {
+	info.global.deferBool = false;
+	info.global.recoverBool = false;
+	info.global.gotoSystem = false;
+}
+
+function getRecvName(recv:GoAst.Expr, info:Info):String {
+	if (recv.id == "StarExpr" || recv.id == "IndexExpr" || recv.id == "IndexListExpr") {
+		return getRecvName(recv.x, info);
+	}
+	final t = typeof(recv, info, false);
+	// return className(recv.name, info);
+	switch t {
+		case named(path, _, _, _, _):
+			path = Path.withoutDirectory(path);
+			path = Path.extension(path);
+			final index = path.indexOf("[");
+			if (index != -1)
+				path = path.substr(0, index);
+			return className(path, info);
+		default:
+			throw info.panic() + "invalid recv type: " + t;
+	}
 }

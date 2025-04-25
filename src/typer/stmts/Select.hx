@@ -59,7 +59,7 @@ function typeSelectStmt(stmt:GoAst.SelectStmt, info:Info):ExprDef {
 						e = macro var $varName = $e;
 					} else {
 						// varName = ""
-						e = assignTranslate(typeof(obj.comm.rhs[0], info, false), typeof(obj.comm.lhs[0], info, false), e, info, false);
+						e = typer.exprs.Expr.assignTranslate(typeof(obj.comm.rhs[0], info, false), typeof(obj.comm.lhs[0], info, false), e, info, false);
 						if (obj.comm.tok == GoAst.Token.ASSIGN && varName != "")
 							e = macro $i{varName} = $e;
 					}

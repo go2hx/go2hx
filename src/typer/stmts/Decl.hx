@@ -31,7 +31,7 @@ function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):ExprDef {
 						// destructure
 						var tmp = "__tmp__";
 						var func = typer.exprs.Expr.typeExpr(spec.values[0], info);
-						var data = castTranslate(spec.values[0], func, info);
+						var data = GoAst.castTranslate(spec.values[0], func, info);
 						func = data.expr;
 						vars2.push({
 							name: tmp,
@@ -65,17 +65,17 @@ function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):ExprDef {
 							var expr:Expr = null;
 							if (spec.values[i] == null) {
 								if (type != null) {
-									expr = HaxeAst.defaultValue(specType, info);
+									expr = typer.exprs.Expr.defaultValue(specType, info);
 								} else {
 									expr = typer.exprs.Expr.typeExpr(info.lastValue, info);
 									type = toComplexType(info.lastType, info);
-									expr = assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
+									expr = typer.exprs.Expr.assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
 								}
 							} else {
 								info.lastValue = spec.values[i];
 								info.lastType = specType;
 								expr = typer.exprs.Expr.typeExpr(spec.values[i], info);
-								expr = assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
+								expr = typer.exprs.Expr.assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
 							}
 							var nameStr = spec.names[i]?.name;
 							if (nameStr == null)

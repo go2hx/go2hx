@@ -260,7 +260,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 							}
 						}
 						if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
-							// expr = results.length == 1 ? HaxeAst.defaultValue(results[0], info) : macro @:typeType null;
+							// expr = results.length == 1 ? typer.exprs.Expr.defaultValue(results[0], info) : macro @:typeType null;
 						}
 						if (ret == null)
 							ret = TPath({name: "Void", pack: []});
@@ -398,7 +398,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 									}
 									final t = TPath({name: splitDepFullPathName(def.name, info), pack: []});
 									final fArgs = fun.args.map(arg -> macro $i{arg.name});
-									if (fun.args.length > 0 && isRestType(fun.args[fun.args.length - 1].type)) {
+									if (fun.args.length > 0 && HaxeAst.isRestType(fun.args[fun.args.length - 1].type)) {
 										fArgs[fArgs.length - 1] = macro...$e{fArgs[fArgs.length - 1]};
 									}
 									fun.args.unshift({
@@ -490,7 +490,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 			};
 			if (!HaxeAst.alreadyExistsTypeDef(staticExtension, info))
 				info.data.defs.push(staticExtension);
-			final fields:Array<haxe.macro.Expr.Field> = typeFieldListMethods(struct.methods, info);
+			final fields:Array<haxe.macro.Expr.Field> = typer.fields.FieldList.typeFieldListMethods(struct.methods, info);
 			final wrapper = macro class Wrapper {};
 			for (i in 0...fields.length) {
 				final field = fields[i];
@@ -499,7 +499,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 						throw "use this prop";
 						// f.args.unshift({})
 						final fargs = [for (i in 0...args.length) macro $i{'_$i'}];
-						if (args.length > 0 && isRestType(args[args.length - 1])) {
+						if (args.length > 0 && HaxeAst.isRestType(args[args.length - 1])) {
 							fargs[fargs.length - 1] = macro...$e{fargs[fargs.length - 1]};
 						}
 						final fieldName = field.name;
@@ -523,7 +523,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 					case FFun(f):
 						// f.args.unshift({})
 						final args = [for (arg in f.args) macro $i{arg.name}];
-						if (f.args.length > 0 && isRestType(f.args[f.args.length - 1].type)) {
+						if (f.args.length > 0 && HaxeAst.isRestType(f.args[f.args.length - 1].type)) {
 							args[args.length - 1] = macro...$e{args[args.length - 1]};
 						}
 						final fieldName = field.name;

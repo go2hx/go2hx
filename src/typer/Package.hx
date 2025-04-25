@@ -59,7 +59,7 @@ function typePackageEmit(pkg:typer.Package.IntermediatePackageType):HaxeAst.Modu
             for (recv in recvFunctions) {
                 if (file.isMain && file.name != recv.path)
                     continue;
-                final recvName = getRecvName(recv.decl.recv.list[0].type, info);
+                final recvName = typer.decls.Function.getRecvName(recv.decl.recv.list[0].type, info);
                 // trace(recvName, names);
                 for (name in names) {
                     if (recvName == name.name) {

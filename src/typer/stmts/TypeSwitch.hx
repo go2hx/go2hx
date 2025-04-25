@@ -72,12 +72,12 @@ package typer.stmts;
 			switch block.expr {
 				case EBlock(exprs):
 					var type:ComplexType = toComplexType(assignType, info);
-					var defValue = HaxeAst.defaultValue(assignType, info, false);
+					var defValue = typer.exprs.Expr.defaultValue(assignType, info, false);
 
 					var set = macro __type__?.__underlying__();
 					if (types.length == 1) {
 						type = toComplexType(types[0], info);
-						defValue = HaxeAst.defaultValue(types[0], info, false);
+						defValue = typer.exprs.Expr.defaultValue(types[0], info, false);
 						set = macro __type__ == null ? $defValue : __type__.__underlying__();
 						// trace(assignType);
 						// trace(types[0]);
@@ -117,9 +117,9 @@ package typer.stmts;
 	if (stmt.body == null || stmt.body.list == null)
 		return (macro {}).expr;
 	var expr = ifs();
-	final hasBreakBool = hasBreak(expr);
+	final hasBreakBool = HaxeAst.hasBreak(expr);
 	if (hasBreakBool) { // no fallthrough stmt for TypeSwitch
-		final continueBool = continueInsideSwitch(expr);
+		final continueBool = HaxeAst.continueInsideSwitch(expr);
 		if (continueBool) {
 			expr = macro {
 				var __continue__ = false;

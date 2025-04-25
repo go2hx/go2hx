@@ -46,11 +46,11 @@ function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):ExprDef {
 		if (info.returnTypes.length == 1) {
 			if (info.returnNames.length == 1 && info.returnNamed)
 				return ret(EReturn(macro $i{info.returnNames[0]}), true);
-			return ret(EReturn(HaxeAst.defaultValue(info.returnTypes[0], info)), true);
+			return ret(EReturn(typer.exprs.Expr.defaultValue(info.returnTypes[0], info)), true);
 		}
 		final fields:Array<ObjectField> = [
 			for (i in 0...info.returnTypes.length)
-				{field: "_" + i, expr: info.returnNamed ? macro $i{info.returnNames[i]} : HaxeAst.defaultValue(info.returnTypes[i], info)}
+				{field: "_" + i, expr: info.returnNamed ? macro $i{info.returnNames[i]} : typer.exprs.Expr.defaultValue(info.returnTypes[i], info)}
 		];
 		return ret(EReturn(toExpr(EObjectDecl(fields))), true);
 	}
@@ -67,12 +67,12 @@ function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):ExprDef {
 		}
 		if (retType != null) {
 			final t = typeof(stmt.results[0], info, false);
-			e = assignTranslate(t, retType, e, info);
+			e = typer.exprs.Expr.assignTranslate(t, retType, e, info);
 		}
 		if (info.returnNamed) {
 			if (info.returnNames.length == 1) {
 				final x = macro $i{info.returnNames[0]};
-				if (!isSelfAssignValue(x, e))
+				if (!Assign.isSelfAssignValue(x, e))
 					e = macro $x = $e;
 			} else {
 				/*// x,y = z
@@ -97,7 +97,7 @@ function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):ExprDef {
 					final fields:Array<ObjectField> = [
 						for (i in 0...info.returnTypes.length) {
 							final e = macro $i{info.returnNames[i]};
-							{field: "_" + i, expr: info.returnNamed ? e : HaxeAst.defaultValue(info.returnTypes[i], info)};
+							{field: "_" + i, expr: info.returnNamed ? e : typer.exprs.Expr.defaultValue(info.returnTypes[i], info)};
 					}
 					];
 					assigns.push(toExpr(EObjectDecl(fields)));
@@ -114,7 +114,7 @@ function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):ExprDef {
 			final retType = info.returnTypes[i];
 			if (retType != null) {
 				final t = typeof(stmt.results[i], info, false);
-				e = assignTranslate(t, retType, e, info);
+				e = typer.exprs.Expr.assignTranslate(t, retType, e, info);
 			}
 			{
 				field: "_" + i,
@@ -130,7 +130,7 @@ function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):ExprDef {
 			final fieldName = "_" + i;
 			final e = macro __tmp__.$fieldName;
 			final x = macro $i{info.returnNames[i]};
-			if (!isSelfAssignValue(x, e))
+			if (!Assign.isSelfAssignValue(x, e))
 				decls.push(macro $x = $e);
 		}
 		decls.push(macro __tmp__);

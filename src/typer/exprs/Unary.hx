@@ -47,7 +47,21 @@ function typeUnaryExpr(expr:GoAst.UnaryExpr, info:Info):ExprDef {
 		}
 		var e = toExpr(EUnop(op, false, x));
 		if (isNamed)
-			e = assignTranslate(getUnderlying(t), t, e, info);
+			e = typer.exprs.Expr.assignTranslate(getUnderlying(t), t, e, info);
 		return e.expr;
+	}
+}
+
+private function typeUnOp(token:GoAst.Token):Unop {
+	return switch token {
+		case NOT: OpNot;
+		case SUB: OpNeg;
+		case TIDLE: OpNeg;
+		case ARROW: null;
+		case XOR: null;
+		case ADD: null;
+		default:
+			throw "unknown unop token: " + token;
+			OpNegBits;
 	}
 }

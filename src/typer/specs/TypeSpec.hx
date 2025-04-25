@@ -104,7 +104,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 					})
 				});
 			}
-			final params = getParams(spec.params, info, true);
+			final params = typer.fields.FieldList.getParams(spec.params, info, true);
 			var p:TypePath = {name: name, pack: []};
 			/*if (params != null && params.length > 0)
 				p.params = typeParamDeclsToTypeParams(params); */
@@ -417,7 +417,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 											};
 										default:
 									}
-									fun.expr = replaceIdent(["this" => "__self__"], fun.expr);
+									fun.expr = typer.exprs.Ident.replaceIdent(["this" => "__self__"], fun.expr);
 									switch expr.expr {
 										case EReturn(_):
 											fun.expr = macro return ${fun.expr};
@@ -465,7 +465,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 			var struct:GoAst.InterfaceType = spec.type;
 			if (struct.methods.list.length == 0 && !struct.incomplete) {
 				final meta:Metadata = [{name: ":follow", pos: null}];
-				final params = getParams(spec.params, info, true);
+				final params = typer.fields.FieldList.getParams(spec.params, info, true);
 				return {
 					name: name,
 					pos: null,
@@ -551,7 +551,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 					if (struct.methods.list[0].type.id == "BinaryExpr") {
 						// union contract interface type
 						final meta:Metadata = [{name: ":union", pos: null}];
-						final params = getParams(spec.params, info, true);
+						final params = typer.fields.FieldList.getParams(spec.params, info, true);
 						return {
 							name: name,
 							pack: [],
@@ -610,7 +610,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 					}
 				}
 			}
-			final params = getParams(spec.params, info, true);
+			final params = typer.fields.FieldList.getParams(spec.params, info, true);
 			if (struct.incomplete) {
 				switch name {
 					case "Error":

@@ -302,7 +302,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 						expr: expr,
 					});
 				}
-				return createTempVars(vars, true).expr;
+				return HaxeAst.createTempVars(vars, true).expr;
 			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) {
 				// define, destructure system
 				var func = typer.exprs.Expr.typeExpr(stmt.rhs[0], info);

@@ -24,7 +24,7 @@ function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 				args.push({opt: true, name: name});
 			}
 			final meta:Metadata = [{name: ":structInit", pos: null}, {name: ":named", pos: null}];
-			final params = getParams(spec.params, info, true); // named struct
+			final params = typer.fields.FieldList.getParams(spec.params, info, true); // named struct
 			final p:TypePath = {name: name, pack: []};
 			if (params != null && params.length > 0)
 				p.params = HaxeAst.typeParamDeclsToTypeParams(params);
@@ -52,7 +52,7 @@ function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 		case interfaceType(empty, _):
 			if (empty) {
 				final meta:Metadata = [{name: ":follow", pos: null}];
-				final params = getParams(spec.params, info, true); // no meta :genericBuild
+				final params = typer.fields.FieldList.getParams(spec.params, info, true); // no meta :genericBuild
 				return {
 					name: name,
 					pos: null,
@@ -66,7 +66,7 @@ function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 				};
 			}
 			final meta:Metadata = [];
-			final params = getParams(spec.params, info, true);
+			final params = typer.fields.FieldList.getParams(spec.params, info, true);
 			return {
 				name: name,
 				pos: null,
@@ -103,7 +103,7 @@ function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 	}
 	var uct = t == invalidType ? HaxeAst.invalidComplexType() : toComplexType(t, info);
 	final meta:Metadata = [{name: ":named", pos: null}];
-	final params = getParams(spec.params, info, true);
+	final params = typer.fields.FieldList.getParams(spec.params, info, true);
 	return {
 		name: name,
 		pos: null,

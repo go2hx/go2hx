@@ -25,48 +25,65 @@ function typeAST(data:GoAst.DataType, instance:Compiler.CompilerInstanceData):Ar
 	return list;
 }
 
-function createTempVars(vars:Array<Var>, short:Bool):Expr {
-	final vars2:Array<Var> = [];
-	if (vars.length <= 1)
-		return {expr: EVars(vars), pos: null};
-	final names:Map<String, String> = [];
-	function createTempName(i:Int):String
-		return "__" + i;
-	for (i in 0...vars.length) {
-		final tempName = createTempName(i);
-		final name = vars[i].name;
-		names[tempName] = name;
-		vars2.unshift({
-			name: name,
-			// type: v.type,
-			expr: macro $i{tempName},
-		});
-		if (!short) {
-			vars[i].expr = replaceIdent(names, vars[i].expr);
-			names[vars[i].name] = tempName;
-		}
-		vars[i].name = tempName;
-	}
-	final e:Expr = {expr: EVars(vars), pos: null};
-	final e2:Expr = {expr: EVars(vars2), pos: null};
-	return macro @:mergeBlock {
-		$e;
-		${e2};
-	}
-	// return vars2;
-} function replaceIdent(names:Map<String, String>, e:Expr):Expr {
+@:structInit
+class FieldType {
+	public var name:String;
+	public var type:Ref<GoType>;
+	public var tag:String;
+	public var embedded:Bool;
+	public var optional:Bool;
 
-	return switch e.expr {
-		case EConst(CIdent(s)):
-			if (names.exists(s)) {
-				macro $i{names[s]};
-			} else {
-				e;
-			}
-		default:
-			mapExprWithData(e, names, replaceIdent);
+	public function new(name, type, tag, embedded, optional) {
+		this.name = name;
+		this.type = type;
+		this.tag = tag;
+		this.embedded = embedded;
+		this.optional = optional;
 	}
-} 
+
+	public function toString():String {
+		return '$name opt: $optional';
+	}
+}
+
+private typedef Ref<T> = {
+	function get():T;
+}
+
+// can also be used for ObjectFields
+function typeFields(list:Array<typer.exprtypes.ExprType.FieldType>, info:Info, access:Array<Access>, defaultBool:Bool, ?docs:Array<GoAst.CommentGroup>,
+    ?comments:Array<GoAst.CommentGroup>):Array<Field> {
+var fields:Array<Field> = [];
+for (i in 0...list.length) {
+    final field = list[i];
+    final ct = toComplexType(field.type.get(), info);
+    var name = field.name;
+    var meta:Metadata = [];
+    if (field.embedded) {
+        meta.push({name: ":embedded", pos: null});
+    }
+    if (field.tag != "") {
+        final tag = HaxeAst.makeString(rawEscapeSequences(field.tag));
+        meta.push({name: ":tag", pos: null, params: [tag]});
+    }
+    if (field.optional)
+        meta.push({name: ":optional", pos: null});
+    var doc:String = codegen.Doc.getDocComment({doc: docs == null ? null : docs[i]}, {comment: comments == null ? null : comments[i]});
+    // trace(name);
+    // trace(field.type.get());
+    // trace(toComplexType(field.type.get(), info));
+    fields.push({
+        name: name,
+        pos: null,
+        meta: meta,
+        doc: doc,
+        access: access == null ? HaxeAst.typeAccess(name, true) : access,
+        kind: FVar(toComplexType(field.type.get(), info), defaultBool ? HaxeAst.defaultValue(field.type.get(), info, false) : null)
+    });
+}
+return fields;
+}
+
 function createNamedObjectDecl(fields:Array<typer.exprtypes.ExprType.FieldType>, f:(field:String, type:GoType) -> Expr, info:Info):Expr {
 
 	final objectFields:Array<ObjectField> = [];
@@ -1695,40 +1712,6 @@ function typeFieldListMethods(list:GoAst.FieldList, info:Info):Array<Field> {
 	return fields;
 }
 
-// can also be used for ObjectFields
-function typeFields(list:Array<typer.exprtypes.ExprType.FieldType>, info:Info, access:Array<Access>, defaultBool:Bool, ?docs:Array<GoAst.CommentGroup>,
-		?comments:Array<GoAst.CommentGroup>):Array<Field> {
-	var fields:Array<Field> = [];
-	for (i in 0...list.length) {
-		final field = list[i];
-		final ct = toComplexType(field.type.get(), info);
-		var name = field.name;
-		var meta:Metadata = [];
-		if (field.embedded) {
-			meta.push({name: ":embedded", pos: null});
-		}
-		if (field.tag != "") {
-			final tag = HaxeAst.makeString(rawEscapeSequences(field.tag));
-			meta.push({name: ":tag", pos: null, params: [tag]});
-		}
-		if (field.optional)
-			meta.push({name: ":optional", pos: null});
-		var doc:String = codegen.Doc.getDocComment({doc: docs == null ? null : docs[i]}, {comment: comments == null ? null : comments[i]});
-		// trace(name);
-		// trace(field.type.get());
-		// trace(toComplexType(field.type.get(), info));
-		fields.push({
-			name: name,
-			pos: null,
-			meta: meta,
-			doc: doc,
-			access: access == null ? typeAccess(name, true) : access,
-			kind: FVar(toComplexType(field.type.get(), info), defaultBool ? HaxeAst.defaultValue(field.type.get(), info, false) : null)
-		});
-	}
-	return fields;
-}
-
 function typeFieldListFieldTypes(list:GoAst.FieldList, info:Info, access:Array<Access> = null, defaultBool:Bool = false,
 		docs:Array<GoAst.CommentGroup> = null, comments:Array<GoAst.CommentGroup> = null):Array<typer.exprtypes.ExprType.FieldType> {
 	var fields:Array<Field> = [];
@@ -1789,63 +1772,6 @@ function refToPointerWrapper(t:GoType):GoType {
 		default:
 			t;
 	}
-}
-
-function complexTypeToExpr(t:ComplexType):Expr {
-	switch t {
-		case TPath(p):
-			final pack = p.pack == null ? macro [] : macro $a{p.pack.map(p -> makeExpr(p))};
-			return macro haxe.macro.Expr.ComplexType.TPath({
-				name: ${makeExpr(p.name)},
-				pack: $pack,
-				sub: ${p.sub == null ? macro @:complextype_to_expr null : makeExpr(p.sub)}
-			});
-		default:
-			throw "unsupported complexTypeToExpr: " + t;
-	}
-}
-
-function getParams(params:GoAst.FieldList, info:Info, allowNonGeneric:Bool = false):Array<TypeParamDecl> {
-	final list:Array<TypeParamDecl> = [];
-	if (params == null)
-		return list;
-	for (field in params.list) {
-		for (name in field.names) {
-			list.push({
-				name: className(name.name, info),
-				// constraints: [ct],
-			});
-		}
-	}
-	return list;
-}
-
-
-function typeAccess(name:String, isField:Bool = false):Array<Access> {
-	return StringTools.startsWith(name, "_") ? [] : (isField ? [APublic] : []);
-}
-
-function getRestrictedName(name:String, info:Info):String { // all function defs are restricted names
-	if (info.global.module == null)
-		return name;
-	for (file in info.global.module.files) {
-		for (def in file.defs) {
-			if (def == null)
-				continue;
-			if (def.name == name) {
-				final pack = info.global.module.path.split(".");
-				pack.unshift("_internal");
-				if (stdgoList.indexOf(toGoPath(info.global.module.path)) == -1) { // haxe only type, otherwise the go code references Haxe
-					pack.unshift("stdgo");
-				}
-				final name = pack[pack.length - 1];
-				pack.push(file.name);
-				pack.push(def.name);
-				return pack.join(".");
-			}
-		}
-	}
-	return name;
 }
 
 class Global {

@@ -81,3 +81,40 @@ if (!formatField && overwrite) {
 }
 return name;
 }
+
+function getRestrictedName(name:String, info:Info):String { // all function defs are restricted names
+	if (info.global.module == null)
+		return name;
+	for (file in info.global.module.files) {
+		for (def in file.defs) {
+			if (def == null)
+				continue;
+			if (def.name == name) {
+				final pack = info.global.module.path.split(".");
+				pack.unshift("_internal");
+				if (stdgoList.indexOf(toGoPath(info.global.module.path)) == -1) { // haxe only type, otherwise the go code references Haxe
+					pack.unshift("stdgo");
+				}
+				final name = pack[pack.length - 1];
+				pack.push(file.name);
+				pack.push(def.name);
+				return pack.join(".");
+			}
+		}
+	}
+	return name;
+}
+
+function replaceIdent(names:Map<String, String>, e:Expr):Expr {
+
+	return switch e.expr {
+		case EConst(CIdent(s)):
+			if (names.exists(s)) {
+				macro $i{names[s]};
+			} else {
+				e;
+			}
+		default:
+			mapExprWithData(e, names, replaceIdent);
+	}
+}

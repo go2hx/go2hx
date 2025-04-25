@@ -618,6 +618,24 @@ function alreadyExistsTypeDef(td:TypeDefinition, info:Info):Bool {
 	return false;
 }
 
+function complexTypeToExpr(t:ComplexType):Expr {
+	switch t {
+		case TPath(p):
+			final pack = p.pack == null ? macro [] : macro $a{p.pack.map(p -> makeExpr(p))};
+			return macro haxe.macro.Expr.ComplexType.TPath({
+				name: ${makeExpr(p.name)},
+				pack: $pack,
+				sub: ${p.sub == null ? macro @:complextype_to_expr null : makeExpr(p.sub)}
+			});
+		default:
+			throw "unsupported complexTypeToExpr: " + t;
+	}
+}
+
+function typeAccess(name:String, isField:Bool = false):Array<Access> {
+	return StringTools.startsWith(name, "_") ? [] : (isField ? [APublic] : []);
+}
+
 function makeString(str:String, ?kind):Expr {
 	return toExpr(EConst(CString(str, kind)));
 }
@@ -625,6 +643,37 @@ function makeString(str:String, ?kind):Expr {
 
 function typeParamDeclsToTypeParams(list:Array<TypeParamDecl>):Array<TypeParam> {
 	return list.map(p -> TPType(TPath({name: p.name, pack: []})));
+}
+
+function createTempVars(vars:Array<Var>, short:Bool):Expr {
+	final vars2:Array<Var> = [];
+	if (vars.length <= 1)
+		return {expr: EVars(vars), pos: null};
+	final names:Map<String, String> = [];
+	function createTempName(i:Int):String
+		return "__" + i;
+	for (i in 0...vars.length) {
+		final tempName = createTempName(i);
+		final name = vars[i].name;
+		names[tempName] = name;
+		vars2.unshift({
+			name: name,
+			// type: v.type,
+			expr: macro $i{tempName},
+		});
+		if (!short) {
+			vars[i].expr = typer.exprs.Ident.replaceIdent(names, vars[i].expr);
+			names[vars[i].name] = tempName;
+		}
+		vars[i].name = tempName;
+	}
+	final e:Expr = {expr: EVars(vars), pos: null};
+	final e2:Expr = {expr: EVars(vars2), pos: null};
+	return macro @:mergeBlock {
+		$e;
+		${e2};
+	}
+	// return vars2;
 }
 
 //typedef FieldType = haxe.macro.Expr.FieldType;

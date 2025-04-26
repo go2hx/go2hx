@@ -267,7 +267,6 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 			if (recvName != def.name)
 				continue;
 			local.push({func: recv.decl, sel: "", recvName: recvName});
-			break;
 		}
 		var restrictedNames = [
 			for (func in local)

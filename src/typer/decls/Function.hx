@@ -65,7 +65,7 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 		macro throw ${HaxeAst.makeString(func.recvName + ":" + info.global.path + "." + func.name + " is not yet implemented")};
 	} else {
 		var block = toExpr(typer.stmts.Block.typeBlockStmt(func.body, info, true));
-		if (func.name == "init" && func.varType == null) {
+		if (func.name == "_init" && func.varType == null) {
 			switch block.expr {
 				case EBlock(exprs):
 					info.global.initBlock = info.global.initBlock.concat(exprs);

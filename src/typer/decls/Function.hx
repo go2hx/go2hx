@@ -18,6 +18,7 @@ typedef IntermediateFunctionType = {
 	body:GoAst.BlockStmt,
 	doc:String,
 	source:String,
+	recvName:String,
 }
 
 function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = "",
@@ -52,9 +53,7 @@ function typeFunctionEmit(func:IntermediateFunctionType, info:Info):TypeDefiniti
 
 	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
-
-		final recvName = (func.varType == null) ? "" : getRecvName(func.varName, info);
-		macro throw ${HaxeAst.makeString(recvName + ":" + info.global.path + "." + func.name + " is not yet implemented")};
+		macro throw ${HaxeAst.makeString(func.recvName + ":" + info.global.path + "." + func.name + " is not yet implemented")};
 	} else {
 		var block = toExpr(typer.stmts.Block.typeBlockStmt(func.body, info, true));
 		if (func.name == "init" && func.varType == null) {
@@ -173,6 +172,7 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 		typeParams: decl.type.typeParams,
 		results: decl.type.results,
 		body: decl.body,
+		recvName: "",
 	};
 
 	if (decl.recv != null) {
@@ -200,6 +200,7 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 		} else {
 			varName = "_";
 		}
+		irFunc.recvName = getRecvName(decl.recv.list[0].type, info);
 		irFunc.varName = varName;
 		irFunc.varType = varType;
 		irFunc.varCT = ct;

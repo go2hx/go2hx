@@ -164,7 +164,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 			recvFunctions.push({decl: decl, path: file.path});
 			continue;
 		}
-		var func = typer.decls.Function.typeFunction(decl, info.copy());
+		var func = typer.decls.Function.typeFunction(decl, info);
 		if (func != null)
 			data.defs.push(func);
 	}

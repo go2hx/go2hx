@@ -19,15 +19,17 @@ typedef IntermediateFunctionType = {
 	doc:String,
 	source:String,
 	recvName:String,
+	info:Info,
 }
 
 function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = "",
 		defName:String = ""):TypeDefinition {
 	final func = typeFunctionAnalyze(decl, data, restricted, isNamed, sel, defName);
-	return typeFunctionEmit(func, data);
+	return typeFunctionEmit(func);
 }
 
-function typeFunctionEmit(func:IntermediateFunctionType, info:Info):TypeDefinition {
+function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
+	final info = func.info;
 	final args = typeFieldListArgs(func.params, info);
 	var meta:Metadata = [];
 	var params:Array<TypeParamDecl> = null;
@@ -181,6 +183,7 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 		results: decl.type.results,
 		body: decl.body,
 		recvName: "",
+		info: info,
 	};
 
 	if (decl.recv != null) {

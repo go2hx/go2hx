@@ -102,7 +102,7 @@ class Info {
 	public var switchTagType:GoType = null;
 	public var localIdents:Array<String> = [];
 
-	public var renameIdents = new DebugMap<String, String>(); // identifiers
+	public var renameIdents = new Map<String, String>(); // identifiers
 	public var classNames = new Map<String, String>(); // class names named types
 	public var renameClasses = new Map<String, String>(); // class names i.e TPath
 

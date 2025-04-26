@@ -58,6 +58,8 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 		info.global.renameClasses[name] = name;
 	}
 
+	var ret = typeFieldListReturn(func.results, info, true);
+
 	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
 		macro throw ${HaxeAst.makeString(func.recvName + ":" + info.global.path + "." + func.name + " is not yet implemented")};
@@ -104,8 +106,6 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 	}
 
 	block = argsTranslate(args, block, func.params, info, recvArg);
-
-	var ret = typeFieldListReturn(func.results, info, true);
 
 	info.global.renameClasses = previousRenameClasses;
 	info.restricted = [];

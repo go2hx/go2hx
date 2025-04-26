@@ -56,7 +56,7 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		paths = [];
 	var t = switch e.id {
 		case "HashType":
-			typeof(info.global.hashMap[e.hash], info, isNamed, paths.copy());
+			typeof(info.global.hashMapTypes[e.hash], info, isNamed, paths.copy());
 		case "TypeParam":
 			var constraint = hashTypeToExprType(e.constraint, info);
 			if (constraint != null && constraint.embeds == null) {
@@ -791,7 +791,7 @@ function hashTypeToExprType(e:GoAst.Expr, info:Info):GoAst.Expr {
 		return null;
 	return switch e.id {
 		case "HashType":
-			info.global.hashMap[e.hash];
+			info.global.hashMapTypes[e.hash];
 		default:
 			e;
 	}

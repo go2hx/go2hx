@@ -71,35 +71,6 @@ function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):ExprDef {
 				final x = macro $i{info.returnNames[0]};
 				if (!Assign.isSelfAssignValue(x, e))
 					e = macro $x = $e;
-			} else {
-				/*// x,y = z
-					// destructure
-					final assigns:Array<Expr> = [];
-					for (i in 0...info.returnNames.length) {
-						final name = info.returnNames[i];
-						final fieldName = "_" + i;
-						var retType = info.returnTypes[i];
-						var e = macro __tmp__.$fieldName;
-						if (retType != null) {
-							final t = typeof(stmt.results[0], info, false);
-							switch t {
-								case tuple(_, _.get() => types):
-									e = assignTranslate(types[i], retType, e, info);
-								default:
-									throw "stmt result not a tuple type";
-							}
-						}
-						assigns.push(macro $i{name} = $e);
-					}
-					final fields:Array<ObjectField> = [
-						for (i in 0...info.returnTypes.length) {
-							final e = macro $i{info.returnNames[i]};
-							{field: "_" + i, expr: info.returnNamed ? e : typer.exprs.Expr.defaultValue(info.returnTypes[i], info)};
-					}
-					];
-					assigns.push(toExpr(EObjectDecl(fields)));
-					final ct = info.returnType;
-					e = macro $b{[macro @:typeReturnStmt final __tmp__ = $e].concat(assigns)}; */
 			}
 		}
 		return ret(EReturn(e));

@@ -4,8 +4,8 @@ function typeExpr(expr:Dynamic, info:Info):Expr {
 	if (expr == null)
 		return null;
 	var def = switch expr.id {
-		case "Ident": Ident.typeIdent(expr, info, false);
-		case "CallExpr": Call.typeCallExpr(expr, info);
+		case "Ident": Ident.typeIdent(expr, info, false).expr;
+		case "CallExpr": Call.typeCallExpr(expr, info).expr;
 		case "BasicLit": BasicLit.typeBasicLit(expr, info);
 		case "UnaryExpr": Unary.typeUnaryExpr(expr, info);
 		case "SelectorExpr": Selector.typeSelectorExpr(expr, info);

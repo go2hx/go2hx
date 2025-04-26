@@ -9,7 +9,7 @@ import shared.Util;
 function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Array<RecvFunction>, pkg:typer.Package.IntermediatePackageType,
 		info:Info):HaxeAst.HaxeFileType {
 	file.location = Path.normalize(file.location);
-	var data:HaxeAst.HaxeFileType = {
+	final data:HaxeAst.HaxeFileType = {
 		name: file.path,
 		imports: [],
 		defs: [],

@@ -13,7 +13,7 @@ function typeDeferStmt(stmt:GoAst.DeferStmt, info:Info):ExprDef {
 	}
 	info.localIdents = info.localIdents.concat(localIdents);
 	// otherwise its Ident, Selector etc
-	var call = toExpr(typer.exprs.Call.typeCallExpr(stmt.call, info));
+	var call = typer.exprs.Call.typeCallExpr(stmt.call, info);
 	switch call.expr {
 		case ECall(e, params):
 			exprs.push(macro final __f__ = $e);

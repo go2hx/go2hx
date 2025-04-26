@@ -1,21 +1,23 @@
 package typer.exprs;
 
-function typeIdent(expr:GoAst.Ident, info:Info, isSelect:Bool):ExprDef {
+function typeIdent(expr:GoAst.Ident, info:Info, isSelect:Bool):Expr {
 	var name = typer.exprs.Ident.nameIdent(expr.name, true, false, info, isSelect, expr.objPath);
-	return EConst(CIdent(name));
+	return macro $i{name};
 }
 
 function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:Bool = false, isSelect:Bool = false, objPath:String = null,
 		formatField:Bool = false):String {
 	name = nameAscii(name);
-	if (name == "_")
-		return "__" + info.blankCounter++;
-	if (name == "null")
-		return "nil";
-	if (name == "main")
-		return name;
-	if (name == "False" || name == "True" || name == "Main")
-		name = "_" + name;
+	switch name {
+		case "_":
+			return "__" + info.blankCounter++;
+		case "null":
+			return "nil";
+		case "main": // main function
+			return name;
+		case "False", "True", "Main":
+			name = "_" + name;
+	}
 	var oldName = name;
 	if (overwrite) { // either an overwrite or a rename has been set
 		if (name == "nil") {

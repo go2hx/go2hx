@@ -16,11 +16,10 @@ typedef IntermediatePackageType = {
 	files:Array<GoAst.FileType>,
 	varOrder:Array<String>,
 	declFuncs:Array<GoAst.FuncDecl>,
-	declGens:Array<GoAst.GenDecl>,
 }
 
-function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData, hashMap:Map<UInt, Dynamic>):HaxeAst.Module {
-	final pkg = typePackageAnalyze(pkg, instance, hashMap);
+function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData, hashMapTypes:Map<UInt, Dynamic>):HaxeAst.Module {
+	final pkg = typePackageAnalyze(pkg, instance, hashMapTypes);
 	return typePackageEmit(pkg);
 }
 
@@ -53,7 +52,7 @@ function setExtern(instance, pkg:GoAst.PackageType) {
 	}
 }
 
-function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData, hashMap:Map<UInt, Dynamic>):IntermediatePackageType {
+function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData, hashMapTypes:Map<UInt, Dynamic>):IntermediatePackageType {
 	setExtern(instance, pkg);
 	pkg.path = normalizePath(pkg.path);
 	pkg.path = toHaxePath(pkg.path);
@@ -71,11 +70,10 @@ function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerIns
 	// info.global.module = module;
 	info.global.root = instance.root;
 
-	info.global.hashMap = hashMap;
+	info.global.hashMapTypes = hashMapTypes;
 	final irPkg:IntermediatePackageType = {
 		info: info,
 		varOrder: [],
-		declGens: [],
 		declFuncs: [],
 		path: pkg.path,
 		name: pkg.name,
@@ -109,8 +107,6 @@ function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerIns
 
 		for (decl in file.decls) {
 			switch decl.id {
-				case "GenDecl":
-					irPkg.declGens.push(decl);
 				case "FuncDecl":
 					var decl:GoAst.FuncDecl = decl;
 					irPkg.declFuncs.push(decl);

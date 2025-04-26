@@ -4,14 +4,14 @@ import haxe.macro.Expr as MacroExpr;
 
 function typeAST(data:GoAst.DataType, instance:Compiler.CompilerInstanceData):Array<HaxeAst.Module> {
 	var list:Array<HaxeAst.Module> = [];
-	final hashMap:Map<UInt, Dynamic> = [];
+	final hashMapTypes:Map<UInt, Dynamic> = [];
 	for (obj in data.typeList)
-		hashMap[obj.hash] = obj;
+		hashMapTypes[obj.hash] = obj;
 	// module system
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)
 			continue;
-		list.push(Package.typePackage(pkg, instance, hashMap));
+		list.push(Package.typePackage(pkg, instance, hashMapTypes));
 	}
 	return list;
 }
@@ -58,7 +58,7 @@ class Global {
 	public var renameClasses:Map<String, String> = [];
 	public var externBool:Bool = false;
 	public var root:String = "";
-	public var hashMap:Map<UInt, Dynamic> = [];
+	public var hashMapTypes:Map<UInt, Dynamic> = [];
 
 	public inline function new() {}
 
@@ -76,7 +76,7 @@ class Global {
 		g.funcTraceBool = funcTraceBool;
 		g.stackBool = stackBool;
 		g.root = root;
-		g.hashMap = hashMap;
+		g.hashMapTypes = hashMapTypes;
 		return g;
 	}
 }

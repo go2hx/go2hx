@@ -49,7 +49,12 @@ function typeFunctionEmit(func:IntermediateFunctionType, info:Info):TypeDefiniti
 		if (codegen.Patch.funcInline.indexOf(func.patchName) != -1 && access.indexOf(AInline) == -1)
 			access.push(AInline);
 	}
-	var ret = typeFieldListReturn(func.results, info, true);
+	final genericNames = params == null ? [] : [for (i in 0...params.length) params[i].name];
+	final identifierNames = genericNames;
+	final previousRenameClasses = info.global.renameClasses.copy();
+	for (name in identifierNames) {
+		info.global.renameClasses[name] = name;
+	}
 
 	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
@@ -93,13 +98,16 @@ function typeFunctionEmit(func:IntermediateFunctionType, info:Info):TypeDefiniti
 	}
 	final patch = codegen.Patch.list[func.patchName];
 	if (patch != null) {
-		// codegen.Patch.list.remove(patchName);
 		block = patch;
 	}
 
 	block = argsTranslate(args, block, func.params, info, recvArg);
 
+	var ret = typeFieldListReturn(func.results, info, true);
+
+	info.global.renameClasses = previousRenameClasses;
 	info.restricted = [];
+
 	var doc = func.doc;
 	var source = func.source;
 	var preamble = "* #go2hx ";
@@ -207,13 +215,7 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 	}
 	info.funcName = irFunc.name;
 	info.restricted = restricted;
-	var identifierNames:Array<String> = [];
 
-	final previousRenameClasses = info.global.renameClasses.copy();
-	for (name in identifierNames) {
-		info.global.renameClasses[name] = name;
-	}
-	info.global.renameClasses = previousRenameClasses;
 	// local specs
 	final specs = info.global.localSpecs[decl.name.name];
 	if (specs != null) {

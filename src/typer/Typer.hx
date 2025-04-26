@@ -102,12 +102,12 @@ class Info {
 	public var switchTagType:GoType = null;
 	public var localIdents:Array<String> = [];
 
-	public var renameIdents:Map<String, String> = []; // identifiers
-	public var classNames:Map<String, String> = []; // class names named types
-	public var renameClasses:Map<String, String> = []; // class names i.e TPath
+	public var renameIdents = new DebugMap<String, String>(); // identifiers
+	public var classNames = new Map<String, String>(); // class names named types
+	public var renameClasses = new Map<String, String>(); // class names i.e TPath
 
 	public var locals:Map<UInt, GoType> = [];
-	public var localUnderlyingNames:Map<String, GoType> = [];
+	public var localUnderlyingNames = new Map<String, GoType>();
 
 	public var global = new Global();
 
@@ -147,3 +147,31 @@ class Info {
 // @:formatter off
 
 var printer = new codegen.Printer();
+
+@:forward
+@:forwardStatics
+@:forward.variance
+@:forward.overload
+abstract DebugArray<T:String>(Array<T>) from Array<T> to Array<T> {
+	public function push(value:T):Int {
+		return this.push(value);
+	}
+}
+
+
+@:forward
+@:forward.new
+@:forward.overload
+@:forwardStatics
+@:forward.variance
+abstract DebugMap<K:String, V:String>(Map<K,V>) from Map<K,V> to Map<K,V> {
+	@:op([])
+	public function set(key:K, value:V) {
+		this.set(key, value);
+	}
+
+	@:op([])
+	public function get(key:K):V {
+		return this.get(key);
+	}
+}

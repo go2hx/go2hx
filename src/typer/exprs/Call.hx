@@ -201,6 +201,10 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):Expr {
 				a($a{args});
 			}));
 		case "Ident":
+			if (expr.fun.name == "new") {
+				trace(info.localIdents.indexOf(untitle(expr.fun.name)) == -1);
+				trace(!info.renameIdents.exists(expr.fun.name));
+			}
 			if (!info.renameIdents.exists(expr.fun.name) && info.localIdents.indexOf(untitle(expr.fun.name)) == -1) {
 				final funcName = expr.fun.name;
 				switch funcName {

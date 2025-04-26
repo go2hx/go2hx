@@ -1,6 +1,6 @@
 package typer.exprs;
 
-function typeExpr(expr:Dynamic, info:Info):Expr {
+function typeExpr(expr:GoAst.Expr, info:Info):Expr {
 	if (expr == null)
 		return null;
 	var def = switch expr.id {
@@ -25,7 +25,7 @@ function typeExpr(expr:Dynamic, info:Info):Expr {
 		default:
 			trace("unknown expr id: " + expr.id);
 			null;
-			// (macro throw "unknown expr").expr;
+			//(macro throw "unknown expr").expr;
 	};
 	if (def == null)
 		throw info.panic() + "expr null: " + expr.id;

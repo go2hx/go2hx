@@ -3,14 +3,14 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
         var _matched = false, _err = (null : stdgo.Error);
         var _err_8:stdgo.Error = (null : stdgo.Error);
         var _t_6:stdgo.GoString = ("" : stdgo.GoString);
+        var _err_4:stdgo.Error = (null : stdgo.Error);
         var _ok_3:Bool = false;
         var _t_2:stdgo.GoString = ("" : stdgo.GoString);
-        var _chunk_1:stdgo.GoString = ("" : stdgo.GoString);
-        var _star_0:Bool = false;
+        var patternBreak = false;
         var _ok_7:Bool = false;
         var _i_5:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_4:stdgo.Error = (null : stdgo.Error);
-        var patternBreak = false;
+        var _chunk_1:stdgo.GoString = ("" : stdgo.GoString);
+        var _star_0:Bool = false;
         var _gotoNext = 0i32;
         _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

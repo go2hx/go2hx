@@ -30,18 +30,18 @@ package stdgo._internal.fmt;
     @:tdfield
     static public function _doPrintf( _p:stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>, _format:stdgo.GoString, _a:stdgo.Slice<stdgo.AnyInterface>):Void {
         @:recv var _p:stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp> = _p;
-        var _i_8:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _simpleFormatBreak = false;
-        var _lasti_4:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _formatLoopBreak = false;
-        var _i_3:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _end_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _size_7:stdgo.GoInt = (0 : stdgo.GoInt);
         var _verb_6:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _c_5:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _arg_9:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-        var _afterIndex_2:Bool = false;
+        var _lasti_4:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3:stdgo.GoInt = (0 : stdgo.GoInt);
         var _argNum_1:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _end_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_8:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _arg_9:stdgo.AnyInterface = (null : stdgo.AnyInterface);
+        var _simpleFormatBreak = false;
+        var _formatLoopBreak = false;
+        var _afterIndex_2:Bool = false;
         var _gotoNext = 0i32;
         _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

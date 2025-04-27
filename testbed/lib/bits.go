@@ -1,6 +1,6 @@
 package lib
 
-// #go2hx rnd.lib.Bits.float64bits
+// #go2hx testbed.lib.Bits.float64bits
 func Float64bits(f float64) {}
 
 func gg(f S) {}

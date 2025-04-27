@@ -1,4 +1,4 @@
-package rnd.lib;
+package testbed.lib;
 
 function float64bits(f:stdgo.GoFloat64) {
 	final bytes = haxe.io.Bytes.alloc(8);

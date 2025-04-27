@@ -11,34 +11,34 @@ function main() {
 		if (modules.length == 0)
 			throw "no exported path";
 		final mainPath = mainPath(modules);
-		if (MacroCompiler.getDefine("rnd_cpp") != null || MacroCompiler.getDefine("cpp_") != null) {
+		if (MacroCompiler.getDefine("testbed_cpp") != null || MacroCompiler.getDefine("cpp_") != null) {
 			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --cpp bin/cpp -lib hxcpp -lib hxcpp-debug-server'
 				+ (hxbBool ? " --hxb-lib go2hx.zip" : "");
 			Sys.println(command);
 			Sys.command(command);
-			final command = './bin/cpp/rnd';
+			final command = './bin/cpp/testbed';
 			Sys.println(command);
 			Sys.command(command);
-		} else if (MacroCompiler.getDefine("rnd_js") != null || MacroCompiler.getDefine("js_") != null) {
-			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --js runrnd.js' + (hxbBool ? " --hxb-lib go2hx.zip" : "");
+		} else if (MacroCompiler.getDefine("testbed_js") != null || MacroCompiler.getDefine("js_") != null) {
+			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --js testbed.js' + (hxbBool ? " --hxb-lib go2hx.zip" : "");
 			Sys.println(command);
 			Sys.command(command);
-			final command = "NODE_OPTIONS=--enable-source-maps node --stack-size=65500 runrnd.js";
+			final command = "NODE_OPTIONS=--enable-source-maps node --stack-size=65500 testbed.js";
 			Sys.println(command);
 			Sys.command(command);
-		} else if (MacroCompiler.getDefine("rnd_jvm") != null || MacroCompiler.getDefine("jvm_") != null) {
-			final command = 'haxe -cp golibs extraParams.hxml -v -main $mainPath --jvm runrnd.jar' + (hxbBool ? " --hxb-lib go2hx.zip" : "");
+		} else if (MacroCompiler.getDefine("testbed_jvm") != null || MacroCompiler.getDefine("jvm_") != null) {
+			final command = 'haxe -cp golibs extraParams.hxml -v -main $mainPath --jvm testbed.jar' + (hxbBool ? " --hxb-lib go2hx.zip" : "");
 			Sys.println(command);
 			Sys.command(command);
-			final command = "java -jar runrnd.jar";
+			final command = "java -jar testbed.jar";
 			Sys.println(command);
 			Sys.command(command);
-		} else if (MacroCompiler.getDefine("rnd_interp") != null || MacroCompiler.getDefine("interp_") != null) {
+		} else if (MacroCompiler.getDefine("testbed_interp") != null || MacroCompiler.getDefine("interp_") != null) {
 			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --interp' + (hxbBool ? " --hxb-lib go2hx.zip" : "");
 			Sys.println(command);
 			Sys.command(command);
 		} else {
-			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath -hl runrnd.hl' + (hxbBool ? " --hxb-lib go2hx.zip" : "");
+			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath -hl testbed.hl' + (hxbBool ? " --hxb-lib go2hx.zip" : "");
 			Sys.println(command);
 			Sys.println(command);
 			final exitCode = Sys.command(command);
@@ -47,7 +47,7 @@ function main() {
 				return;
 			}
 			final profileBool = MacroCompiler.getDefine("profile") != null;
-			final command = profileBool ? "hl --profile 10000 runrnd.hl" : "hl runrnd.hl";
+			final command = profileBool ? "hl --profile 10000 testbed.hl" : "hl testbed.hl";
 			Sys.println(command);
 			Sys.command(command);
 			if (profileBool) {
@@ -67,13 +67,13 @@ function main() {
 			final run = systemName == "Windows" ? "bash" : "sh";
 			if (command == "run")
 				command = "build";
-			Sys.command('go $command -o rnd.wasm ./rnd && $run go_js_wasm_exec rnd.wasm');
+			Sys.command('go $command -o testbed.wasm ./testbed && $run go_js_wasm_exec testbed.wasm');
 		} else {
-			Sys.command('go $command ./rnd');
+			Sys.command('go $command ./testbed');
 		}
 		Compiler.closeCompiler();
 	};
-	final args = ["-norun", "-log", "--verbose", "./rnd", Sys.getCwd()];
+	final args = ["-norun", "-log", "--verbose", "./testbed", Sys.getCwd()];
 	// args.unshift("--extern");
 	if (testBool)
 		args.unshift("-test");

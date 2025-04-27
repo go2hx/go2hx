@@ -1,0 +1,17 @@
+-cp testbed
+-cp src
+-main TestBed
+#--interp
+#-D debug
+-D nolinkstd
+-D watch.run=hl testbed.hl
+-D watch.excludes=golibs
+-D no-deprecation-warnings
+#-dce full
+#-lib hxnodejs
+#--js testbed.js
+#--cmd node testbed.js
+
+#-hl testbed.hl
+#--cmd hl testbed.hl
+--interp

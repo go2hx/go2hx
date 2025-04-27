@@ -1,8 +1,8 @@
 package typer.stmts;
 
-function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):ExprDef {
+function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):MacroExpr {
 	if (stmt.decl.decls == null)
-		return (macro {}).expr; // blank
+		return macro {}; // blank
 	var decls:Array<GoAst.GenDecl> = stmt.decl.decls;
 	var vars:Array<Var> = [];
 	var vars2:Array<Var> = [];
@@ -39,7 +39,7 @@ function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):ExprDef {
 						switch type {
 							case tuple(_, _):
 							default:
-								return (macro @:destructure_non_tuple {}).expr;
+								return macro @:destructure_non_tuple {};
 						}
 						var tuples = getReturnTupleType(type);
 
@@ -106,15 +106,15 @@ function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):ExprDef {
 		final e = toExpr(EVars(vars));
 		if (vars2.length > 0) {
 			final e2:Expr = {expr: EVars(vars2), pos: null};
-			return (macro @:mergeBlock {
+			return macro @:mergeBlock {
 				${e2};
 				${e};
-			}).expr;
+			};
 		} else {
-			return e.expr;
+			return e;
 		}
 	} else if (vars2.length > 0) {
-		return EVars(vars2);
+		return toExpr(EVars(vars2));
 	}
-	return (macro {}).expr; // blank expr def
+	return macro {}; // blank expr def
 } // ($expr : $type);

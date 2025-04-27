@@ -80,7 +80,7 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 				case EBlock(exprs):
 					final deferBool = info.global.deferBool;
 					info.global.deferBool = false;
-					final e = toExpr(typer.stmts.Return.typeReturnStmt({results: [], returnPos: 0}, info));
+					final e = typer.stmts.Return.typeReturnStmt({results: [], returnPos: 0}, info);
 					info.global.deferBool = deferBool;
 					if (cond.length == 0) {
 						block = macro {

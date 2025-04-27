@@ -1,6 +1,6 @@
 package typer.stmts;
 
-function typeDeferStmt(stmt:GoAst.DeferStmt, info:Info):ExprDef {
+function typeDeferStmt(stmt:GoAst.DeferStmt, info:Info):MacroExpr {
 	info.global.deferBool = true;
 	var exprs:Array<Expr> = [];
 	final localIdents = [];
@@ -23,5 +23,5 @@ function typeDeferStmt(stmt:GoAst.DeferStmt, info:Info):ExprDef {
 
 	info.localIdents = info.localIdents.slice(0, info.localIdents.length - localIdents.length);
 	var e = macro __deferstack__.unshift({ran: false, f: () -> $call});
-	return EBlock(exprs.concat([e]));
+	return macro $b{exprs.concat([e])};
 }

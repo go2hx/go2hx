@@ -1,5 +1,5 @@
 package typer.stmts;
 
-function typeEmptyStmt(stmt:GoAst.EmptyStmt, info:Info):ExprDef {
-	return (macro {}).expr;
+function typeEmptyStmt():MacroExpr {
+	return macro {};
 }

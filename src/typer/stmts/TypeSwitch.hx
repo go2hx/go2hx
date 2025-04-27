@@ -6,7 +6,7 @@ package typer.stmts;
  * @param info 
  * @return ExprDef
  */
-function typeTypeSwitchStmt(stmt:GoAst.TypeSwitchStmt, info:Info):ExprDef { // a switch statement of a type
+function typeTypeSwitchStmt(stmt:GoAst.TypeSwitchStmt, info:Info):MacroExpr { // a switch statement of a type
 	var init:Expr = stmt.init == null ? null : typer.stmts.Stmt.typeStmt(stmt.init, info);
 	var assign:Expr = null;
 	var assignType:GoType = null;
@@ -114,7 +114,7 @@ function typeTypeSwitchStmt(stmt:GoAst.TypeSwitchStmt, info:Info):ExprDef { // a
 		return macro if ($cond) $block else $next;
 	}
 	if (stmt.body == null || stmt.body.list == null)
-		return (macro {}).expr;
+		return macro {};
 	var expr = ifs();
 	final hasBreakBool = HaxeAst.hasBreak(expr);
 	if (hasBreakBool) { // no fallthrough stmt for TypeSwitch
@@ -144,7 +144,7 @@ function typeTypeSwitchStmt(stmt:GoAst.TypeSwitchStmt, info:Info):ExprDef { // a
 	}
 	final t = macro final __type__ = $assign;
 	if (init != null) {
-		return (switch expr.expr {
+		return switch expr.expr {
 			case EBlock(exprs):
 				exprs.unshift(init);
 				exprs.unshift(t);
@@ -155,10 +155,10 @@ function typeTypeSwitchStmt(stmt:GoAst.TypeSwitchStmt, info:Info):ExprDef { // a
 					$t;
 					$expr;
 				}
-		}).expr;
+		};
 	}
-	return (macro {
+	return macro {
 		$t;
 		$expr;
-	}).expr;
+	};
 } // make Go equality exprs work in Haxe

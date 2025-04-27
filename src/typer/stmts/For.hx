@@ -1,36 +1,44 @@
 package typer.stmts;
 
-function typeForStmt(stmt:GoAst.ForStmt, info:Info):ExprDef {
-	final init = stmt.init == null ? null : typer.stmts.Stmt.typeStmt(stmt.init, info);
-	var cond = stmt.cond == null ? toExpr(EConst(CIdent("true"))) : typer.exprs.Expr.typeExpr(stmt.cond, info);
+function typeForStmt(stmt:GoAst.ForStmt, info:Info):MacroExpr {
+	final init = typer.stmts.Stmt.typeStmt(stmt.init, info);
+	final cond = stmt.cond == null ? toExpr(EConst(CIdent("true"))) : typer.exprs.Expr.typeExpr(stmt.cond, info);
 	var body = typer.stmts.Block.typeBlockStmt(stmt.body, info, false);
-	if (body.expr == null)
-		body = macro {};
-	if (cond.expr == null || body.expr == null) {
-		trace("for stmt error: " + cond.expr + " body: " + body.expr);
-		return null;
-	}
-	var def:Expr = null;
-	if (stmt.post != null) {
+
+	final expr = if (stmt.post != null) {
 		var post = typer.stmts.Stmt.typeStmt(stmt.post, info);
-		if (post == null) {
-			trace("for stmt error post: " + stmt.post);
-			return null;
-		}
-		body = HaxeAst.cforPostContinue(post, body);
-		def = macro while ($cond) {
+		body = cforPostContinue(post, body);
+		macro while ($cond) {
 			@:mergeBlock $body;
 			$post;
 		};
 	} else {
-		def = macro while ($cond)
+		macro while ($cond)
 			$body;
 	}
-	if (init != null) {
-		def = macro {
+	return if (init != null) {
+		macro {
 			$init;
-			$def;
+			$expr;
 		};
+	} else {
+		expr;
 	}
-	return def.expr;
+}
+
+function cforPostContinue(post:MacroExpr, e:Expr):MacroExpr {
+	return switch e.expr {
+		case EMeta({pos: _, name: ":fallthrough", params: null}, _):
+			return e;
+		case EFor(_, _), EWhile(_, _, _):
+			return e;
+		case EContinue:
+			macro {
+				$post;
+				$e;
+			};
+		default:
+			HaxeAst.mapExprWithData(e, post, cforPostContinue);
+	}
+	return e;
 }

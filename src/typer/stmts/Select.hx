@@ -1,10 +1,10 @@
 package typer.stmts;
 
-function typeSelectStmt(stmt:GoAst.SelectStmt, info:Info):ExprDef {
+function typeSelectStmt(stmt:GoAst.SelectStmt, info:Info):MacroExpr {
 	var defaultBlock:Expr = null;
 	var list:Array<Expr> = [];
 	if (stmt.body.list == null)
-		return (macro @:null_select {}).expr;
+		return macro @:null_select {};
 	var needsReturn = true;
 	final resets:Array<Expr> = [];
 	final defines:Array<Expr> = [];
@@ -110,7 +110,7 @@ function typeSelectStmt(stmt:GoAst.SelectStmt, info:Info):ExprDef {
 		@:mergeBlock $b{resets};
 	};
 	if (needsReturn) {
-		e = macro $b{[e, toExpr(typer.stmts.Return.typeReturnStmt({results: [], returnPos: 0}, info))]};
+		e = macro $b{[e, typer.stmts.Return.typeReturnStmt({results: [], returnPos: 0}, info)]};
 	}
-	return e.expr;
+	return e;
 }

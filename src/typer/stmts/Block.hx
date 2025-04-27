@@ -45,7 +45,7 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 	}
 	// trace(list != null, info.global.deferBool, isFunc);
 	if (list != null && info.global.deferBool && isFunc) { // defer system
-		final ret = toExpr(typer.stmts.Return.typeReturnStmt({returnPos: 0, results: []}, info));
+		final ret = typer.stmts.Return.typeReturnStmt({returnPos: 0, results: []}, info);
 		final e = ret;
 		var catchBlock:Array<Expr> = [macro var exe:Dynamic = __exception__.native];
 		catchBlock.push(macro if ((exe is haxe.ValueException)) exe = exe.value);

@@ -1,7 +1,6 @@
 package typer.stmts;
 
-function typeRangeStmt(stmt:GoAst.RangeStmt, info:Info):ExprDef { // for stmt
-
+function typeRangeStmt(stmt:GoAst.RangeStmt, info:Info):MacroExpr { // for stmt
 	var x = typer.exprs.Expr.typeExpr(stmt.x, info);
 	var xType = typeof(stmt.x, info, false);
 	var isChan = false;
@@ -52,10 +51,10 @@ function typeRangeStmt(stmt:GoAst.RangeStmt, info:Info):ExprDef { // for stmt
 		value = macro __value__;
 	}
 	if (isChan) {
-		return (macro for ($key in $x) $body).expr;
+		return macro for ($key in $x) $body;
 	}
 	if (isArray) {
-		return (macro for ($key => $value in $x.__copy__()) $body).expr;
+		return macro for ($key => $value in $x.__copy__()) $body;
 	}
-	return (macro for ($key => $value in $x) $body).expr;
+	return macro for ($key => $value in $x) $body;
 }

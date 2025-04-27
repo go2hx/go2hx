@@ -1,10 +1,8 @@
 package typer.stmts;
 
-function typeSwitchStmt(stmt:GoAst.SwitchStmt, info:Info):ExprDef { // always an if else chain to deal with int64s and complex numbers
+function typeSwitchStmt(stmt:GoAst.SwitchStmt, info:Info):MacroExpr { // always an if else chain to deal with int64s and complex numbers
 
-	final init = stmt.init == null ? null : typer.stmts.Stmt.typeStmt(stmt.init, info);
-	if (stmt.body == null || stmt.body.list == null)
-		return (macro {}).expr;
+	final init = typer.stmts.Stmt.typeStmt(stmt.init, info);
 	// this is an if else chain
 	var tag:Expr = null;
 	var tagType:GoType = null;
@@ -162,17 +160,18 @@ function typeSwitchStmt(stmt:GoAst.SwitchStmt, info:Info):ExprDef { // always an
 		if (needsReturn) {
 			switch expr.expr {
 				case EBlock(exprs):
-					exprs.push(toExpr(typer.stmts.Return.typeReturnStmt({results: [], returnPos: 0}, info)));
+					exprs.push(typer.stmts.Return.typeReturnStmt({results: [], returnPos: 0}, info));
 					expr.expr = EBlock(exprs);
 				default:
 			}
 		}
 	}
-	if (init != null) {
-		return (macro {
+	return if (init != null) {
+		macro {
 			$init;
 			$expr;
-		}).expr;
+		};
+	} else {
+		return expr;
 	}
-	return expr.expr;
 }

@@ -1,6 +1,6 @@
 package typer.stmts;
 
-function typeIncDecStmt(stmt:GoAst.IncDecStmt, info:Info):ExprDef {
+function typeIncDecStmt(stmt:GoAst.IncDecStmt, info:Info):MacroExpr {
 	var x = typer.exprs.Expr.typeExpr(stmt.x, info);
 	x = HaxeAst.escapeParens(x);
 	var t = typeof(stmt.x, info, false);
@@ -17,8 +17,8 @@ function typeIncDecStmt(stmt:GoAst.IncDecStmt, info:Info):ExprDef {
 		case ETernary(econd, eif, _):
 			x = macro if ($econd) $eif;
 		case EBinop(OpNullCoal, e1, e2):
-			return (macro(@:typeIncDecStmt_escapeParens ${e1} != null ? ${setTok(e1)} : ${e2})).expr;
+			return macro(@:typeIncDecStmt_escapeParens ${e1} != null ? ${setTok(e1)} : ${e2});
 		default:
 	}
-	return setTok(x).expr;
+	return setTok(x);
 }

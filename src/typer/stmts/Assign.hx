@@ -1,6 +1,6 @@
 package typer.stmts;
 
-function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
+function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):MacroExpr {
 	switch stmt.tok {
 		case ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN, SHL_ASSIGN, SHR_ASSIGN, XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN, OR_ASSIGN:
 			// remove checkType from x in x = y
@@ -34,17 +34,17 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 			if (stmt.lhs[0].id == "IndexExpr" || stmt.lhs[0].id == "StarExpr" && stmt.lhs[0].x.id == "IndexExpr") { // prevent invalid assign to null
 				switch HaxeAst.escapeParens(assign).expr {
 					case ETernary(econd, eif, _):
-						return (macro if ($econd) $expr).expr;
+						return macro if ($econd) $expr;
 					default:
 				}
 			}
 			if (assignName != "") {
-				return (macro {
+				return macro {
 					final __t__ = $assignExpr;
 					$assign = $expr;
-				}).expr;
+				};
 			}
-			return (macro $assign = $expr).expr;
+			return macro $assign = $expr;
 		case ASSIGN: // x = y
 			var blankBool:Bool = true;
 			for (lhs in stmt.lhs) {
@@ -60,8 +60,8 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 					exprs.push(e);
 				}
 				if (exprs.length == 1)
-					return exprs[0].expr;
-				return (macro $b{exprs}).expr;
+					return exprs[0];
+				return macro $b{exprs};
 			}
 
 			if (stmt.lhs.length == stmt.rhs.length) { // w,x = y,z
@@ -106,7 +106,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 						switch underlyingType {
 							case interfaceType(empty, methods):
 								if (empty) {
-									return (macro $x.__setData__($y)).expr;
+									return macro $x.__setData__($y);
 								} else {
 									final exprs:Array<Expr> = [
 										for (field in methods) {
@@ -116,7 +116,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 									];
 									exprs.unshift(@:assign1 macro var x = $x);
 									exprs.unshift(macro var __tmp__ = $y);
-									return (macro $b{exprs}).expr;
+									return macro $b{exprs};
 								}
 							case sliceType(_), mapType(_, _), arrayType(_, _):
 								exprs.push(macro $x.__setData__($y));
@@ -130,7 +130,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 								];
 								exprs.unshift(@:assign2 macro var x = $x);
 								exprs.unshift(macro var __tmp__ = $y);
-								return (macro $b{exprs}).expr;
+								return macro $b{exprs};
 							default:
 						}
 					}
@@ -153,7 +153,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 					exprs.push(expr);
 				}
 				if (exprs.length == 1)
-					return exprs[0].expr;
+					return exprs[0];
 				var tmpIndex = 0;
 				var inits:Array<Expr> = [];
 				for (expr in destructExprs) {
@@ -173,7 +173,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 					}
 				}
 				exprs = orderOperations(inits, exprs);
-				return EBlock(exprs);
+				return macro $b{exprs};
 			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) { // x,y = z
 				// assign, destructure system
 				var func = typer.exprs.Expr.typeExpr(stmt.rhs[0], info);
@@ -226,7 +226,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 						switch underlyingType {
 							case interfaceType(empty, methods):
 								if (empty) {
-									return (macro $x.__setData__($y)).expr;
+									return macro $x.__setData__($y);
 								} else {
 									final exprs:Array<Expr> = [
 										for (field in methods) {
@@ -238,7 +238,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 									assigns = assigns.concat(exprs);
 								}
 							case sliceType(_), mapType(_, _):
-								return (macro $x.__setData__($y)).expr;
+								return macro $x.__setData__($y);
 							case structType(fields):
 								final exprs:Array<Expr> = [
 									for (field in fields) {
@@ -255,7 +255,8 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 					if (normalAssign)
 						assigns.push(macro $e = ${e2});
 				}
-				return EBlock([macro var __tmp__ = $func].concat(assigns));
+				final exprs = [macro var __tmp__ = $func].concat(assigns);
+				return macro $b{exprs};
 			} else {
 				throw info.panic() + "unknown type assign type: " + stmt;
 			}
@@ -299,7 +300,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 						expr: expr,
 					});
 				}
-				return HaxeAst.createTempVars(vars, true).expr;
+				return HaxeAst.createTempVars(vars, true);
 			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) {
 				// define, destructure system
 				var func = typer.exprs.Expr.typeExpr(stmt.rhs[0], info);
@@ -332,7 +333,8 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 						fieldName = '_$i';
 					defines.push({name: varName, expr: macro __tmp__.$fieldName, type: types[i]});
 				}
-				return EVars([{name: "__tmp__", expr: func}].concat(defines));
+				final vars = EVars([{name: "__tmp__", expr: func}].concat(defines));
+				return toExpr(vars);
 			} else {
 				throw info.panic() + "unknown type assign define type: " + stmt;
 			}

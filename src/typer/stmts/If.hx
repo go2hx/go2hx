@@ -1,6 +1,6 @@
 package typer.stmts;
 
-function typeIfStmt(stmt:GoAst.IfStmt, info:Info):ExprDef {
+function typeIfStmt(stmt:GoAst.IfStmt, info:Info):MacroExpr {
 	// `else` field -> `elseStmt` field
 	elseToElseStmtField(stmt);
 
@@ -10,12 +10,14 @@ function typeIfStmt(stmt:GoAst.IfStmt, info:Info):ExprDef {
 	final elseExpr = Stmt.typeStmt(stmt.elseStmt, info);
 
 	final expr = macro if ($cond) $body else $elseExpr;
-	if (init != null)
-		return (macro {$init; $expr;}).expr;
-	return expr.expr;
+	return if (init != null) {
+		macro {$init; $expr;};
+	} else {
+		expr;
+	}
 }
 
-function elseToElseStmtField(stmt:GoAst.IfStmt) {
+function elseToElseStmtField(stmt:GoAst.IfStmt):GoAst.IfStmt {
 	final obj:haxe.DynamicAccess<Dynamic> = cast stmt;
 	stmt.elseStmt = obj["else"];
 	return stmt;

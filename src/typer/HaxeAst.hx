@@ -333,8 +333,7 @@ function isNull(e:Expr):Bool {
 		case EConst(c):
 			switch c {
 				case CIdent(s):
-					if (s == "null")
-						return true;
+					if (s == "null") return true;
 				default:
 			}
 		default:
@@ -658,23 +657,6 @@ function continueInsideSwitch(expr:Expr):Bool {
 	}
 	expr.expr = f(expr).expr;
 	return hasContinue;
-}
-
-function cforPostContinue(post:Expr, e:Expr):MacroExpr {
-	return switch e.expr {
-		case EMeta({pos: _, name: ":fallthrough", params: null}, _):
-			return e;
-		case EFor(_, _), EWhile(_, _, _):
-			return e;
-		case EContinue:
-			macro {
-				$post;
-				$e;
-			};
-		default:
-			mapExprWithData(e, post, cforPostContinue);
-	}
-	return e;
 }
 
 function escapeCheckType(e:Expr):MacroExpr {

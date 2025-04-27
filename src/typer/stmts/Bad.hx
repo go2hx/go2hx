@@ -1,5 +1,5 @@
 package typer.stmts;
 
-function typeBadStmt(stmt:GoAst.BadStmt, info:Info):ExprDef {
+function typeBadStmt(info:Info):MacroExpr {
 	throw info.panic() + "BAD STATEMENT TYPED";
 }

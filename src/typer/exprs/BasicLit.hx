@@ -1,6 +1,15 @@
 package typer.exprs;
-
-function typeBasicLit(expr:GoAst.BasicLit, info:Info):ExprDef {
+/**
+ * BasicLiteral, for example:
+ * "hello world"
+ * 0
+ * 0.2
+ * 0i10
+ * @param expr 
+ * @param info 
+ * @return Expr
+ */
+function typeBasicLit(expr:GoAst.BasicLit, info:Info):MacroExpr {
 	if (expr.basic) {
 		var e = switch expr.token {
 			case CHAR:
@@ -38,10 +47,11 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):ExprDef {
 			default:
 				e = macro($e : $ct);
 		}
-		return e.expr;
+		return e;
 	}
 	return if (expr.info & GoAst.BasicInfo.isFloat != 0) {
-		ECheckType(toExpr(EConst(CFloat(expr.value))), TPath({name: "GoFloat64", pack: ["stdgo"]}));
+		final f = toExpr(EConst(CFloat(expr.value)));
+		macro ($f : stdgo.GoFloat64);
 	} else if (expr.info & GoAst.BasicInfo.isInteger != 0) {
 		final t = typeof(expr.type, info, false);
 		final underlyingType = getUnderlying(t);
@@ -72,21 +82,21 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):ExprDef {
 		final t = typeof(expr.type, info, false);
 		switch getUnderlying(t) {
 			case basic(uintptr_kind): // uintptr
-				return (macro(new stdgo.GoUIntptr($e) : $ct)).expr;
+				return macro(new stdgo.GoUIntptr($e) : $ct);
 			default:
 		}
 		// casting
-		(macro($e : $ct)).expr;
+		macro($e : $ct);
 	} else if (expr.info & GoAst.BasicInfo.isComplex != 0) {
 		final index = expr.value.indexOf("i");
 		var imagFloat = expr.value.substr(0, index);
 		var realFloat = expr.value.substr(index + 1);
 		final imag = toExpr(EConst(CFloat(imagFloat, "f64")));
 		final real = toExpr(EConst(CFloat(realFloat, "f64")));
-		(macro new stdgo.GoComplex128($real, $imag)).expr;
+		macro new stdgo.GoComplex128($real, $imag);
 	} else {
 		trace(expr);
-		(macro null).expr;
+		macro null;
 	}
 }
 
@@ -170,7 +180,7 @@ private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Int
 	return values;
 }
 
-private function makeStringLit(values:Array<{?s:String, ?code:Int}>):Expr {
+private function makeStringLit(values:Array<{?s:String, ?code:Int}>):MacroExpr {
 	var e:Expr = macro("" : stdgo.GoString);
 	final exprs:Array<Expr> = [];
 	for (value in values) {

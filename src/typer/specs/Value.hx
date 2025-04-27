@@ -17,8 +17,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 		var tmp = "__tmp__" + (info.blankCounter++);
 		var tmpExpr = macro $i{splitDepFullPathName(tmp, info)};
 		var func = typer.exprs.Expr.typeExpr(value.values[0], info);
-		var data = GoAst.castTranslate(value.values[0], func, info);
-		func = data.expr;
+		func = GoAst.castTranslate(value.values[0], func, info) ?? func;
 		info.blankCounter++;
 		final posMin = info.blankCounter;
 		final pos:Position = cast {min: posMin, max: 0, file: ""};

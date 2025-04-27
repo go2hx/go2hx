@@ -1,6 +1,6 @@
 package typer.exprs;
 
-function typeAssertExpr(expr:GoAst.TypeAssertExpr, info:Info):Expr { // a -> b conversion
+function typeAssertExpr(expr:GoAst.TypeAssertExpr, info:Info):MacroExpr { // a -> b conversion
 	var e = typer.exprs.Expr.typeExpr(expr.x, info);
 	if (expr.type == null)
 		return e;

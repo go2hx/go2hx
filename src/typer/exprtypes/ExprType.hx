@@ -995,7 +995,7 @@ function addPointerSuffix(ct:ComplexType) {
 	}
 }
 
-function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bool):Expr {
+function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bool):MacroExpr {
 	return switch t {
 		case typeParam(name, params):
 			final name = HaxeAst.makeString(name);
@@ -1121,7 +1121,7 @@ function typeFields(list:Array<typer.exprtypes.ExprType.FieldType>, info:Info, a
 	return fields;
 }
 
-function createNamedObjectDecl(fields:Array<typer.exprtypes.ExprType.FieldType>, f:(field:String, type:GoType) -> Expr, info:Info):Expr {
+function createNamedObjectDecl(fields:Array<typer.exprtypes.ExprType.FieldType>, f:(field:String, type:GoType) -> Expr, info:Info):MacroExpr {
 	final objectFields:Array<ObjectField> = [];
 	for (i in 0...fields.length) {
 		final field = fields[i].name;

@@ -1,6 +1,6 @@
 package typer.stmts;
 
-function typeStmt(stmt:GoAst.Stmt, info:Info):Expr {
+function typeStmt(stmt:GoAst.Stmt, info:Info):MacroExpr {
 	if (stmt == null)
 		return null;
 	var def = switch stmt.id {

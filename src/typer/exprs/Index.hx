@@ -57,7 +57,7 @@ function typeIndexExpr(expr:GoAst.IndexExpr, info:Info):ExprDef {
 	return e.expr;
 }
 
-function typeFunctionLiteral(args:Array<Expr>, params:Array<GoType>, results:Array<GoType>, x:Expr, info:Info):Expr {
+function typeFunctionLiteral(args:Array<Expr>, params:Array<GoType>, results:Array<GoType>, x:Expr, info:Info):MacroExpr {
 	final funcArgs = params.map(param -> switch param {
 		case _var(name, _.get() => type):
 			({

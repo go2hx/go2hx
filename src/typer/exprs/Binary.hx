@@ -6,7 +6,7 @@ package typer.exprs;
  * @param walk walk the binaryExpr to figure out operator precedence
  * @return ExprDef
  */
-function typeBinaryExpr(expr:GoAst.BinaryExpr, info:Info, walk:Bool = true):Expr {
+function typeBinaryExpr(expr:GoAst.BinaryExpr, info:Info, walk:Bool = true):MacroExpr {
 	var x = if (expr.x.id == "BinaryExpr") {
 		typeBinaryExpr(expr.x, info, false);
 	} else {
@@ -74,7 +74,7 @@ function typeBinaryExpr(expr:GoAst.BinaryExpr, info:Info, walk:Bool = true):Expr
 	return e;
 } // (A op2 B) op C
 
-function walkBinary(e:Expr):Expr {
+function walkBinary(e:Expr):MacroExpr {
 	switch e.expr {
 		case EBinop(op, e1, c): // (A op2 B) op C
 			final p = HaxeAst.opPrecedence(op);

@@ -1,14 +1,14 @@
 package typer.exprs;
 
-function typeExpr(expr:GoAst.Expr, info:Info):Expr {
+function typeExpr(expr:GoAst.Expr, info:Info):MacroExpr {
 	if (expr == null)
 		return null;
 	var def = switch expr.id {
 		case "Ident": Ident.typeIdent(expr, info, false).expr;
 		case "CallExpr": Call.typeCallExpr(expr, info).expr;
-		case "BasicLit": BasicLit.typeBasicLit(expr, info);
-		case "UnaryExpr": Unary.typeUnaryExpr(expr, info);
-		case "SelectorExpr": Selector.typeSelectorExpr(expr, info);
+		case "BasicLit": BasicLit.typeBasicLit(expr, info).expr;
+		case "UnaryExpr": Unary.typeUnaryExpr(expr, info).expr;
+		case "SelectorExpr": Selector.typeSelectorExpr(expr, info).expr;
 		case "BinaryExpr": Binary.typeBinaryExpr(expr, info).expr;
 		case "FuncLit": FunctionLiteral.typeFuncLit(expr, info);
 		case "CompositeLit": CompositeLiteral.typeCompositeLit(expr, info);
@@ -21,7 +21,7 @@ function typeExpr(expr:GoAst.Expr, info:Info):Expr {
 		case "MapType": MapType.typeMapType(expr, info);
 		case "InterfaceType": InterfaceType.typeInterfaceType(expr, info);
 		case "IndexListExpr": IndexList.typeIndexListExpr(expr, info);
-		case "BadExpr": Bad.typeBad(expr, info);
+		case "BadExpr": Bad.typeBad(expr, info).expr;
 		default:
 			trace("unknown expr id: " + expr.id);
 			null;
@@ -76,7 +76,7 @@ function typeOp(token:GoAst.Token):Binop {
 
 // implicit conversion: checkType
 // explicit conversion: assignTranslation
-function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
+function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):MacroExpr {
 	if (goTypesEqual(fromType, toType, 0)) {
 		if (passCopy) {
 			return HaxeAst.passByCopy(toType, expr, info);
@@ -185,7 +185,7 @@ function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info
 	return y;
 }
 
-function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):Expr {
+function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):MacroExpr {
 	if (isRef(t))
 		t = getElem(t);
 	switch t {
@@ -204,7 +204,7 @@ function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):E
 	return macro stdgo.Go.toInterface($x);
 }
 
-function toGoType(expr:Expr):Expr {
+function toGoType(expr:Expr):MacroExpr {
 	switch expr.expr {
 		case EConst(c):
 			switch c {
@@ -221,7 +221,7 @@ function toGoType(expr:Expr):Expr {
 	return expr;
 }
 
-function wrapperExpr(t:GoType, y:Expr, info:Info):Expr {
+function wrapperExpr(t:GoType, y:Expr, info:Info):MacroExpr {
 	var self = y;
 	var selfPointer = false;
 	if (isPointer(t)) {
@@ -247,7 +247,7 @@ function wrapperExpr(t:GoType, y:Expr, info:Info):Expr {
 }
 
 // explicit conversion: assignTranslate
-function implicitConversion(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):Expr {
+function implicitConversion(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):MacroExpr {
 	// trace(fromType, toType);
 	if (e != null) {
 		switch e.expr {
@@ -358,7 +358,7 @@ function implicitConversion(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTy
 	return macro($e : $ct);
 }
 
-function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, info:Info):Expr {
+function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, info:Info):MacroExpr {
 	if (typeX == null || typeY == null)
 		return toExpr(EBinop(op, x, y));
 	switch typeX {
@@ -483,14 +483,14 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 	return toExpr(EBinop(op, x, toExpr(EParenthesis(y))));
 }
 
-function typeRest(expr:Expr, t:GoType, info:Info):Expr {
+function typeRest(expr:Expr, t:GoType, info:Info):MacroExpr {
 	expr = toGoType(expr);
 	t = getArrayElem(t);
 	final ct = toComplexType(t, info);
 	return macro...($expr : Array<$ct>);
 }
 
-function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
+function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {
 	function ct():ComplexType {
 		return toComplexType(type, info);
 	}

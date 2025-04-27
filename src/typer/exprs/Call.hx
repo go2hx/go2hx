@@ -1,11 +1,11 @@
 package typer.exprs;
 
-function typeCallExpr(expr:GoAst.CallExpr, info:Info):Expr {
+function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 	var args:Array<Expr> = [];
 	var tupleArg:Expr = null;
 	var debugBool = false;
 	var forceType = false;
-	function returnExpr(e:Expr):Expr {
+	function returnExpr(e:Expr):MacroExpr {
 		switch e.expr {
 			case ECall(expr, params):
 				switch expr.expr {
@@ -425,7 +425,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):Expr {
 	return returnExpr(e);
 }
 
-private function exprToString(fromType:GoType, toType:GoType, expr:Expr, info:Info):Expr {
+private function exprToString(fromType:GoType, toType:GoType, expr:Expr, info:Info):MacroExpr {
 	switch toType {
 		case basic(string_kind):
 			switch fromType {

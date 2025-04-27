@@ -338,7 +338,7 @@ function typeFieldListArgs(list:GoAst.FieldList, info:Info):Array<FunctionArg> {
 	return args;
 }
 
-function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.FieldList, info:Info, recvArg):Expr {
+function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.FieldList, info:Info, recvArg):MacroExpr {
 	switch block.expr {
 		case EBlock(exprs):
 			if (recvArg != null && !isPointer(recvArg.vt)) {

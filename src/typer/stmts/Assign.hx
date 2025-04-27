@@ -180,8 +180,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 				var t = typeof(stmt.rhs[0], info, false);
 				var names:Array<String> = [];
 				var types:Array<GoType> = [];
-				var data = GoAst.castTranslate(stmt.rhs[0], func, info);
-				func = data.expr;
+				func = GoAst.castTranslate(stmt.rhs[0], func, info) ?? func;
 				switch t {
 					case tuple(_, _.get() => vars):
 						for (i in 0...vars.length) {
@@ -307,8 +306,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 				var t = typeof(stmt.rhs[0], info, false);
 				var names:Array<String> = [];
 				var types:Array<ComplexType> = [];
-				var data = GoAst.castTranslate(stmt.rhs[0], func, info);
-				func = data.expr;
+				func = GoAst.castTranslate(stmt.rhs[0], func, info) ?? func;
 				switch t {
 					case tuple(_, _.get() => vars):
 						for (i in 0...vars.length) {

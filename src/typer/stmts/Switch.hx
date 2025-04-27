@@ -105,7 +105,7 @@ function typeSwitchStmt(stmt:GoAst.SwitchStmt, info:Info):ExprDef { // always an
 	}
 	if (hasFallThrough || hasBreakBool) {
 		if (hasBreakBool) {
-			function func(expr:Expr):Expr {
+			function func(expr:Expr):MacroExpr {
 				return switch expr.expr {
 					case EBlock(exprs):
 						toExpr(EBlock([for (i in 0...exprs.length) func(exprs[i])]));

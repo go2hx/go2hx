@@ -1,6 +1,6 @@
 package typer.exprs;
 
-function typeIdent(expr:GoAst.Ident, info:Info, isSelect:Bool):Expr {
+function typeIdent(expr:GoAst.Ident, info:Info, isSelect:Bool):MacroExpr {
 	var name = typer.exprs.Ident.nameIdent(expr.name, true, false, info, isSelect, expr.objPath);
 	return macro $i{name};
 }
@@ -107,7 +107,7 @@ function getRestrictedName(name:String, info:Info):String { // all function defs
 	return name;
 }
 
-function replaceIdent(names:Map<String, String>, e:Expr):Expr {
+function replaceIdent(names:Map<String, String>, e:Expr):MacroExpr {
 	return switch e.expr {
 		case EConst(CIdent(s)):
 			if (names.exists(s)) {

@@ -1,6 +1,6 @@
 package typer.stmts;
 
-function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):Expr {
+function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):MacroExpr {
 	if (stmt.list == null) {
 		if (isFunc && info.returnTypes.length > 0) {
 			final s = HaxeAst.makeString("not implemented: " + info.funcName);

@@ -66,7 +66,7 @@ function exprToStringValue(e:Expr):String {
 	}
 }
 
-function escapeParens(expr:Expr):Expr {
+function escapeParens(expr:Expr):MacroExpr {
 	return switch expr.expr {
 		case EParenthesis(e):
 			escapeParens(e);
@@ -75,7 +75,7 @@ function escapeParens(expr:Expr):Expr {
 	}
 }
 
-function removeCoalAndCheckType(assign:Expr):Expr {
+function removeCoalAndCheckType(assign:Expr):MacroExpr {
 	assign = escapeParens(assign);
 	switch assign.expr {
 		case ECheckType(e, _):
@@ -107,7 +107,7 @@ function isInvalidComplexType(ct:ComplexType):Bool {
 	}
 }
 
-function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:Info):Expr {
+function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:Info):MacroExpr {
 	switch toType {
 		case refType(_.get() => elem):
 			toType = elem;
@@ -262,7 +262,7 @@ function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Acces
 	staticExtension.fields.unshift(staticField);
 }
 
-function mapReturnToThrow(expr:Expr):Expr {
+function mapReturnToThrow(expr:Expr):MacroExpr {
 	var f = null;
 	f = expr -> {
 		if (expr == null)
@@ -342,7 +342,7 @@ function isNull(e:Expr):Bool {
 	return false;
 }
 
-function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
+function passByCopy(fromType:GoType, y:Expr, info:Info):MacroExpr {
 	if (y == null)
 		return y;
 	switch escapeCheckType(y).expr {
@@ -440,7 +440,7 @@ function complexTypeElem(ct:ComplexType, index:Int = 0):ComplexType {
 	}
 }
 
-function typeGoto(label:Expr):Expr {
+function typeGoto(label:Expr):MacroExpr {
 	return macro @:goto $label;
 
 }
@@ -471,7 +471,7 @@ function destructureExpr(x:Expr, t:GoType):{x:Expr, t:GoType} {
 	return {x: x, t: t};
 }
 
-function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
+function typeDeferReturn(info:Info, nullcheck:Bool):MacroExpr {
 	return macro for (defer in __deferstack__) {
 		if (defer.ran)
 			continue;
@@ -555,7 +555,7 @@ function alreadyExistsTypeDef(td:TypeDefinition, info:Info):Bool {
 	return false;
 }
 
-function complexTypeToExpr(t:ComplexType):Expr {
+function complexTypeToExpr(t:ComplexType):MacroExpr {
 	switch t {
 		case TPath(p):
 			final pack = p.pack == null ? macro [] : macro $a{p.pack.map(p -> makeExpr(p))};
@@ -573,7 +573,7 @@ function typeAccess(name:String, isField:Bool = false):Array<Access> {
 	return StringTools.startsWith(name, "_") ? [] : (isField ? [APublic] : []);
 }
 
-function makeString(str:String, ?kind):Expr {
+function makeString(str:String, ?kind):MacroExpr {
 	return toExpr(EConst(CString(str, kind)));
 }
 
@@ -581,7 +581,7 @@ function typeParamDeclsToTypeParams(list:Array<TypeParamDecl>):Array<TypeParam> 
 	return list.map(p -> TPType(TPath({name: p.name, pack: []})));
 }
 
-function createTempVars(vars:Array<Var>, short:Bool):Expr {
+function createTempVars(vars:Array<Var>, short:Bool):MacroExpr {
 	final vars2:Array<Var> = [];
 	if (vars.length <= 1)
 		return {expr: EVars(vars), pos: null};
@@ -660,7 +660,7 @@ function continueInsideSwitch(expr:Expr):Bool {
 	return hasContinue;
 }
 
-function cforPostContinue(post:Expr, e:Expr):Expr {
+function cforPostContinue(post:Expr, e:Expr):MacroExpr {
 	return switch e.expr {
 		case EMeta({pos: _, name: ":fallthrough", params: null}, _):
 			return e;
@@ -677,7 +677,7 @@ function cforPostContinue(post:Expr, e:Expr):Expr {
 	return e;
 }
 
-function escapeCheckType(e:Expr):Expr {
+function escapeCheckType(e:Expr):MacroExpr {
 	return switch e.expr {
 		case ECheckType(e, _), EParenthesis(e):
 			escapeCheckType(e);
@@ -712,7 +712,7 @@ function mapExprArrayWithData<T>(el:Array<Expr>, data:T, f:(data:T, e:Expr) -> E
 	return ret;
 }
 
-function mapExprWithData<T>(e:Expr, data:T, f:(data:T, e:Expr) -> Expr):Expr {
+function mapExprWithData<T>(e:Expr, data:T, f:(data:T, e:Expr) -> Expr):MacroExpr {
 	return {
 		pos: e.pos,
 		expr: switch (e.expr) {

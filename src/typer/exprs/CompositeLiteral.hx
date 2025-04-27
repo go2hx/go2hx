@@ -144,7 +144,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 		default:
 			throw info.panic() + "not supported CompositeLit type: " + underlying;
 	}
-} function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):Expr {
+} function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):MacroExpr {
 
 	final p = getTypePath(toComplexType(underlying, info), info);
 	var value = typer.exprs.Expr.defaultValue(elem, info, false);
@@ -209,7 +209,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 		// return e;
 		return macro($e : $ct);
 	}
-} private function compositeLitMapList(keyType:GoType, valueType:GoType, underlying:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):Expr {
+} private function compositeLitMapList(keyType:GoType, valueType:GoType, underlying:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):MacroExpr {
 
 	var params:Array<Expr> = [];
 	final keys:Array<Expr> = [];
@@ -242,7 +242,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 	final keyComplexType = toComplexType(keyType, info);
 	final valueComplexType = toComplexType(valueType, info);
 	return createMap(underlying, keyComplexType, valueComplexType, exprs, info, ct);
-} function createMap(t:GoType, keyComplexType:ComplexType, valueComplexType:ComplexType, exprs:Array<Expr>, info:Info, ct:ComplexType):Expr {
+} function createMap(t:GoType, keyComplexType:ComplexType, valueComplexType:ComplexType, exprs:Array<Expr>, info:Info, ct:ComplexType):MacroExpr {
 
 	var k:GoType = null;
 	var v:GoType = null;
@@ -342,7 +342,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 			return true;
 	}
 	return false;
-} function createSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info, sets:Array<Expr>):Expr {
+} function createSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info, sets:Array<Expr>):MacroExpr {
 
 	var param = toComplexType(elem, info);
 	var value = typer.exprs.Expr.defaultValue(elem, info);

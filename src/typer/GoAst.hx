@@ -31,7 +31,7 @@ typedef FileType = {
 	doc:GoAst.CommentGroup,
 };
 
-enum abstract ObjKind(Int) {
+enum abstract ObjKind(Int) from Int to Int {
 	public final bad = 0; // for error handling
 	public final pkg = 1; // package
 	public final con = 2; // constant
@@ -827,24 +827,21 @@ function escapeParensRaw(expr:GoAst.Expr):GoAst.Expr {
 	}
 }
 
-function castTranslate(obj:GoAst.Expr, e:Expr, info:Info):{expr:Expr, ok:Bool} {
+function castTranslate(obj:GoAst.Expr, e:Expr, info:Info):MacroExpr {
 	return switch obj.id {
 		case "TypeAssertExpr":
 			var obj:GoAst.TypeAssertExpr = obj;
 			final t = typeof(obj.type, info, false);
 			var value = typer.exprs.Expr.defaultValue(t, info);
-			{
-				ok: true,
-				expr: macro try {
-					{_0: $e, _1: true};
-				} catch (_) {
-					{_0: $value, _1: false};
-				}
-			};
+			macro try {
+				{_0: $e, _1: true};
+			} catch (_) {
+				{_0: $value, _1: false};
+			}
 		case "UnaryExpr":
 			var obj:GoAst.UnaryExpr = obj;
 			var x = typer.exprs.Expr.typeExpr(obj.x, info);
-			{expr: macro $x.__smartGet__(), ok: true};
+			macro $x.__smartGet__();
 		case "IndexExpr":
 			var obj:GoAst.IndexExpr = obj;
 			var index = typer.exprs.Expr.typeExpr(obj.index, info);
@@ -864,11 +861,8 @@ function castTranslate(obj:GoAst.Expr, e:Expr, info:Info):{expr:Expr, ok:Bool} {
 				default:
 					macro null;
 			}
-			{
-				ok: true,
-				expr: macro($x != null && $x.__exists__($index) ? {_0: $x[$index], _1: true} : {_0: $value, _1: false}),
-			};
+			macro($x != null && $x.__exists__($index) ? {_0: $x[$index], _1: true} : {_0: $value, _1: false});
 		default:
-			{expr: e, ok: false};
+			null;
 	}
 }

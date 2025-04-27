@@ -30,8 +30,7 @@ function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):ExprDef {
 						// destructure
 						var tmp = "__tmp__";
 						var func = typer.exprs.Expr.typeExpr(spec.values[0], info);
-						var data = GoAst.castTranslate(spec.values[0], func, info);
-						func = data.expr;
+						func = GoAst.castTranslate(spec.values[0], func, info) ?? func;
 						vars2.push({
 							name: tmp,
 							expr: func

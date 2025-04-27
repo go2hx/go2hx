@@ -9,7 +9,7 @@ function typeSelectStmt(stmt:GoAst.SelectStmt, info:Info):ExprDef {
 	final resets:Array<Expr> = [];
 	final defines:Array<Expr> = [];
 	var defineCount = 0;
-	function ifs(i:Int):Expr {
+	function ifs(i:Int):MacroExpr {
 		final obj:GoAst.CommClause = stmt.body.list[i];
 		var varName = "";
 		if (obj != null && obj.comm != null && obj.comm.id == "AssignStmt" && obj.comm.lhs[0].name != "_") {

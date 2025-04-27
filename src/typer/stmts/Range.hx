@@ -30,7 +30,7 @@ function typeRangeStmt(stmt:GoAst.RangeStmt, info:Info):ExprDef { // for stmt
 		key = stmt.key == null ? macro _ : typer.exprs.Expr.typeExpr(stmt.key, info); // iterator int
 	if (value == null)
 		value = stmt.value == null ? macro _ : typer.exprs.Expr.typeExpr(stmt.value, info); // value of x[key]
-	var body = {expr: typer.stmts.Block.typeBlockStmt(stmt.body, info, false), pos: null};
+	var body = typer.stmts.Block.typeBlockStmt(stmt.body, info, false);
 	// both key and value
 	if (assign) { // non var
 		switch body.expr {

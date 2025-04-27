@@ -16,7 +16,7 @@ function typeStmt(stmt:GoAst.Stmt, info:Info):Expr {
 		case "DeferStmt": Defer.typeDeferStmt(stmt, info);
 		case "IncDecStmt": IncDec.typeIncDecStmt(stmt, info);
 		case "LabeledStmt": Label.typeLabeledStmt(stmt, info);
-		case "BlockStmt": Block.typeBlockStmt(stmt, info, false);
+		case "BlockStmt": Block.typeBlockStmt(stmt, info, false).expr;
 		case "GoStmt": Go.typeGoStmt(stmt, info);
 		case "BranchStmt": Branch.typeBranchStmt(stmt, info);
 		case "SelectStmt": Select.typeSelectStmt(stmt, info);

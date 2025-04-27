@@ -12,7 +12,7 @@ function typeFuncLit(expr:GoAst.FuncLit, info:Info):ExprDef {
 	info.global.recoverBool = false;
 	info.global.gotoSystem = false;
 	var block = typer.stmts.Block.typeBlockStmt(expr.body, info, true);
-	block = typer.decls.Function.argsTranslate(args, toExpr(block), expr.type.params, info, null).expr;
+	block = typer.decls.Function.argsTranslate(args, block, expr.type.params, info, null);
 	info.global.deferBool = prevDeferBool;
 	info.global.recoverBool = prevRecoverBool;
 	info.global.gotoSystem = prevGotoSystem;
@@ -20,6 +20,6 @@ function typeFuncLit(expr:GoAst.FuncLit, info:Info):ExprDef {
 	return EFunction(FAnonymous, {
 		ret: ret,
 		args: args,
-		expr: block != null ? toExpr(block) : null,
+		expr: block != null ? block : null,
 	});
 }

@@ -20,6 +20,7 @@ typedef IntermediateFunctionType = {
 	source:String,
 	recvName:String,
 	info:Info,
+	declName:String,
 }
 
 function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = "",
@@ -64,7 +65,7 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 		info.returnNamed = false;
 		macro throw ${HaxeAst.makeString(func.recvName + ":" + info.global.path + "." + func.name + " is not yet implemented")};
 	} else {
-		var block = toExpr(typer.stmts.Block.typeBlockStmt(func.body, info, true));
+		var block = typer.stmts.Block.typeBlockStmt(func.body, info, true);
 		if (func.name == "_init" && func.varType == null) {
 			switch block.expr {
 				case EBlock(exprs):
@@ -148,6 +149,22 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 		}), access)
 	};
 
+	// local specs
+	final specs = info.global.localSpecs[func.declName];
+	if (specs != null) {
+		for (spec in specs) {
+			// trace("add", decl.name.name, spec.name.name);
+			final spec = typer.specs.Spec.typeSpec(spec, info, true);
+			for (i in 0...info.data.defs.length) {
+				if (info.data.defs[i].name == spec.name) {
+					info.data.defs[i] = spec;
+					break;
+				}
+			}
+		}
+		info.global.localSpecs.remove(func.declName);
+	}
+
 	return def;
 }
 
@@ -164,7 +181,7 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 	// global vars reset
 	info.global.gotoSystem = false;
 	info.global.deferBool = false;
-	info.locals = data.locals.copy();
+	info.locals = data.locals;
 	info.localUnderlyingNames = data.localUnderlyingNames.copy();
 	final name = formatHaxeFieldName(decl.name.name, info);
 	final irFunc:IntermediateFunctionType = {
@@ -184,6 +201,7 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 		body: decl.body,
 		recvName: "",
 		info: info,
+		declName: decl.name.name,
 	};
 
 	if (decl.recv != null) {
@@ -218,22 +236,6 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 	}
 	info.funcName = irFunc.name;
 	info.restricted = restricted;
-
-	// local specs
-	final specs = info.global.localSpecs[decl.name.name];
-	if (specs != null) {
-		for (spec in specs) {
-			// trace("add", decl.name.name, spec.name.name);
-			final spec = typer.specs.Spec.typeSpec(spec, info, true);
-			for (i in 0...info.data.defs.length) {
-				if (info.data.defs[i].name == spec.name) {
-					info.data.defs[i] = spec;
-					break;
-				}
-			}
-		}
-		info.global.localSpecs.remove(decl.name.name);
-	}
 	return irFunc;
 }
 

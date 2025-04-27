@@ -1,17 +1,17 @@
 package typer.stmts;
 
-function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):ExprDef {
+function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):Expr {
 	if (stmt.list == null) {
 		if (isFunc && info.returnTypes.length > 0) {
 			final s = HaxeAst.makeString("not implemented: " + info.funcName);
-			return (macro {
+			return macro {
 				trace("funclit");
 				throw $s;
-			}).expr;
+			};
 		}
-		return (macro {}).expr;
+		return macro {};
 	}
-	return typeStmtList(stmt.list, info, isFunc);
+	return toExpr(typeStmtList(stmt.list, info, isFunc));
 }
 
 function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):ExprDef {

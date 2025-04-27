@@ -376,7 +376,19 @@ function update() {
 					suite.buildError(task);
 					if (type == "std") {
 						final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
+						final analyzeDataFileName = "tests/logs/" + name + ".json";
+						final data = analyzeStdLog(output);
 						File.saveContent("tests/logs/" + name + ".log", output);
+
+						if (FileSystem.exists(analyzeDataFileName)) {
+							final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
+							for (pass in previousData.passes) {
+								if (data.passes.indexOf(pass) == -1) {
+									trace("REGRESSION");
+									suite.regressionTestError(task, pass);
+								}
+							}
+						}
 					}
 				}
 			}

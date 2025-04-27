@@ -1,13 +1,19 @@
 package typer.exprs;
-
-function typeBinaryExpr(expr:GoAst.BinaryExpr, info:Info, walk:Bool = true):ExprDef {
+/**
+ * A + B
+ * @param expr 
+ * @param info 
+ * @param walk walk the binaryExpr to figure out operator precedence
+ * @return ExprDef
+ */
+function typeBinaryExpr(expr:GoAst.BinaryExpr, info:Info, walk:Bool = true):Expr {
 	var x = if (expr.x.id == "BinaryExpr") {
-		toExpr(typeBinaryExpr(expr.x, info, false));
+		typeBinaryExpr(expr.x, info, false);
 	} else {
 		typer.exprs.Expr.typeExpr(expr.x, info);
 	}
 	var y = if (expr.y.id == "BinaryExpr") {
-		toExpr(typeBinaryExpr(expr.y, info, false));
+		typeBinaryExpr(expr.y, info, false);
 	} else {
 		typer.exprs.Expr.typeExpr(expr.y, info);
 	}
@@ -51,7 +57,7 @@ function typeBinaryExpr(expr:GoAst.BinaryExpr, info:Info, walk:Bool = true):Expr
 	// A == B or A != B
 	switch op {
 		case OpEq, OpNotEq: // op == and op !=
-			return typer.exprs.Expr.translateEquals(x, y, typeX, typeY, op, info).expr;
+			return typer.exprs.Expr.translateEquals(x, y, typeX, typeY, op, info);
 		default:
 	}
 	if ((isInvalid(typeX) || isInterface(typeX)) && op != OpBoolAnd && !isInvalid(typeY) && op == OpAssign) {
@@ -59,13 +65,13 @@ function typeBinaryExpr(expr:GoAst.BinaryExpr, info:Info, walk:Bool = true):Expr
 		y = typer.exprs.Expr.toAnyInterface(y, typeY, info);
 	}
 	var e = toExpr(EBinop(op, x, y));
-	e = typer.exprs.Expr.assignTranslate(getUnderlying(typeX), typeof(expr.type, info, false), e, info);
+	e = typer.exprs.Expr.explicitConversion(getUnderlying(typeX), typeof(expr.type, info, false), e, info);
 	if (walk)
 		e = walkBinary(e);
 	final ct = toComplexType(typeof(expr.type, info, false), info);
 	if (ct != null)
 		e = macro($e : $ct);
-	return e.expr;
+	return e;
 } // (A op2 B) op C
 
 function walkBinary(e:Expr):Expr {

@@ -47,7 +47,7 @@ function typeUnaryExpr(expr:GoAst.UnaryExpr, info:Info):ExprDef {
 		}
 		var e = toExpr(EUnop(op, false, x));
 		if (isNamed)
-			e = typer.exprs.Expr.assignTranslate(getUnderlying(t), t, e, info);
+			e = typer.exprs.Expr.explicitConversion(getUnderlying(t), t, e, info);
 		return e.expr;
 	}
 }

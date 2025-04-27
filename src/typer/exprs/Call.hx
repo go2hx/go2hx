@@ -128,7 +128,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):Expr {
 							if (variadic && params.length <= i + 1 - skip) {
 								toType = getElem(params[params.length - 1]);
 							}
-							args[i] = typer.exprs.Expr.assignTranslate(fromType, toType, args[i], info);
+							args[i] = typer.exprs.Expr.explicitConversion(fromType, toType, args[i], info);
 						}
 					default:
 				}
@@ -144,7 +144,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):Expr {
 		if (typer.exprtypes.ExprType.isAnyInterface(toType) && !HaxeAst.isRestExpr(e)) {
 			return typer.exprs.Expr.toAnyInterface(e, fromType, info);
 		}
-		return returnExpr(typer.exprs.Expr.checkType(e, ct, fromType, toType, info));
+		return returnExpr(typer.exprs.Expr.implicitConversion(e, ct, fromType, toType, info));
 	}
 	switch expr.fun.id {
 		case "IndexExpr", "IndexListExpr":
@@ -158,12 +158,12 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):Expr {
 				default:
 			}
 		case "ArrayType":
-			return toExpr(Assert.typeAssertExpr({
+			return Assert.typeAssertExpr({
 				type: expr.fun,
 				x: expr.args[0],
 				lparen: 0,
 				rparen: 0,
-			}, info));
+			}, info);
 		case "SelectorExpr":
 			expr.fun.x = GoAst.escapeParensRaw(expr.fun.x);
 			final selKind = typer.exprs.Selector.selectorKind(expr.fun);
@@ -251,7 +251,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):Expr {
 
 						for (i in 0...args.length) {
 							final aType = typeof(expr.args[i + 1], info, false);
-							args[i] = typer.exprs.Expr.assignTranslate(aType, eType, args[i], info);
+							args[i] = typer.exprs.Expr.explicitConversion(aType, eType, args[i], info);
 						}
 						var ct = toComplexType(typeof(expr, info, false), info);
 						var e = macro $e.__append__($a{args});
@@ -269,7 +269,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):Expr {
 						t = getUnderlying(t);
 						switch removeTypeParam(t) {
 							case mapType(_.get() => var keyType, _):
-								key = typer.exprs.Expr.assignTranslate(typeof(expr.args[1], info, false), keyType, key, info, false);
+								key = typer.exprs.Expr.explicitConversion(typeof(expr.args[1], info, false), keyType, key, info, false);
 							case invalidType:
 							case tuple(_, _.get() => vars):
 								return (macro {
@@ -319,14 +319,14 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):Expr {
 						var t = typeof(expr.args[0], info, false);
 						final toType = GoType.basic(complex128_kind);
 						final ct = toComplexType(toType, info);
-						e = typer.exprs.Expr.checkType(e, ct, t, toType, info);
+						e = typer.exprs.Expr.implicitConversion(e, ct, t, toType, info);
 						return returnExpr(macro $e.real);
 					case "imag":
 						var e = typer.exprs.Expr.typeExpr(expr.args[0], info);
 						var t = typeof(expr.args[0], info, false);
 						final toType = GoType.basic(complex128_kind);
 						final ct = toComplexType(toType, info);
-						e = typer.exprs.Expr.checkType(e, ct, t, toType, info);
+						e = typer.exprs.Expr.implicitConversion(e, ct, t, toType, info);
 						return returnExpr(macro $e.imag);
 					case "close":
 						var e = typer.exprs.Expr.typeExpr(expr.args[0], info);
@@ -364,11 +364,11 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):Expr {
 
 						var setCap:Bool = cap != null;
 						if (size != null) {
-							size = typer.exprs.Expr.assignTranslate(typeof(expr.args[1], info, false), basic(int_kind), size, info);
+							size = typer.exprs.Expr.explicitConversion(typeof(expr.args[1], info, false), basic(int_kind), size, info);
 							size = macro($size : stdgo.GoInt).toBasic();
 						}
 						if (cap != null) {
-							cap = typer.exprs.Expr.assignTranslate(typeof(expr.args[2], info, false), basic(int_kind), cap, info);
+							cap = typer.exprs.Expr.explicitConversion(typeof(expr.args[2], info, false), basic(int_kind), cap, info);
 						} else {
 							cap = macro 0;
 						}

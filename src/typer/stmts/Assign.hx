@@ -22,13 +22,13 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 				case EConst(_):
 				default:
 			}
-			final expr = toExpr(typer.exprs.Binary.typeBinaryExpr({
+			final expr = typer.exprs.Binary.typeBinaryExpr({
 				x: stmt.lhs[0],
 				y: {id: "ParenExpr", x: stmt.rhs[0]},
 				op: nonAssignToken(stmt.tok),
 				opPos: 0,
 				type: stmt.lhs[0],
-			}, info));
+			}, info);
 			if (assignName != "")
 				info.localIdents.remove(assignName);
 			if (stmt.lhs[0].id == "IndexExpr" || stmt.lhs[0].id == "StarExpr" && stmt.lhs[0].x.id == "IndexExpr") { // prevent invalid assign to null
@@ -90,7 +90,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 							continue;
 					}
 					var fromType = typeof(stmt.rhs[i], info, false);
-					y = typer.exprs.Expr.assignTranslate(fromType, toType, y, info);
+					y = typer.exprs.Expr.explicitConversion(fromType, toType, y, info);
 					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
 						switch HaxeAst.escapeParens(x).expr {
 							case ETernary(econd, eif, _):
@@ -207,7 +207,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 					if (fieldName == null)
 						fieldName = '_$i';
 					var e2 = macro @:tmpset0 __tmp__.$fieldName;
-					e2 = typer.exprs.Expr.assignTranslate(types[i], typeof(stmt.lhs[i], info, false), e2, info);
+					e2 = typer.exprs.Expr.explicitConversion(types[i], typeof(stmt.lhs[i], info, false), e2, info);
 					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
 						switch HaxeAst.escapeParens(e).expr {
 							case ETernary(econd, eif, _):
@@ -269,7 +269,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):ExprDef {
 					final name = typer.exprs.Ident.nameIdent(stmt.lhs[i].name, false, true, info);
 					final toType = typeof(stmt.lhs[i], info, false);
 					final fromType = typeof(stmt.rhs[i], info, false);
-					expr = typer.exprs.Expr.assignTranslate(fromType, toType, expr, info);
+					expr = typer.exprs.Expr.explicitConversion(fromType, toType, expr, info);
 					var ct = toComplexType(toType, info);
 					function f(ct:ComplexType):Bool {
 						if (ct == null)

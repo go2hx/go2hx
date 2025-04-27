@@ -64,7 +64,7 @@ function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):ExprDef {
 		}
 		if (retType != null) {
 			final t = typeof(stmt.results[0], info, false);
-			e = typer.exprs.Expr.assignTranslate(t, retType, e, info);
+			e = typer.exprs.Expr.explicitConversion(t, retType, e, info);
 		}
 		if (info.returnNamed) {
 			if (info.returnNames.length == 1) {
@@ -82,7 +82,7 @@ function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):ExprDef {
 			final retType = info.returnTypes[i];
 			if (retType != null) {
 				final t = typeof(stmt.results[i], info, false);
-				e = typer.exprs.Expr.assignTranslate(t, retType, e, info);
+				e = typer.exprs.Expr.explicitConversion(t, retType, e, info);
 			}
 			{
 				field: "_" + i,

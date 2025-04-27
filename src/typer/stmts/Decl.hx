@@ -68,13 +68,13 @@ function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):ExprDef {
 								} else {
 									expr = typer.exprs.Expr.typeExpr(info.lastValue, info);
 									type = toComplexType(info.lastType, info);
-									expr = typer.exprs.Expr.assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
+									expr = typer.exprs.Expr.explicitConversion(typeof(info.lastValue, info, false), info.lastType, expr, info);
 								}
 							} else {
 								info.lastValue = spec.values[i];
 								info.lastType = specType;
 								expr = typer.exprs.Expr.typeExpr(spec.values[i], info);
-								expr = typer.exprs.Expr.assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
+								expr = typer.exprs.Expr.explicitConversion(typeof(info.lastValue, info, false), info.lastType, expr, info);
 							}
 							var nameStr = spec.names[i]?.name;
 							if (nameStr == null)

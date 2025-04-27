@@ -43,7 +43,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 			info.localIdents.remove(name);
 			var e = macro $tmpExpr.$fieldName;
 			final toType = typeof(value.names[i], info, false);
-			e = typer.exprs.Expr.assignTranslate(t, toType, e, info, false);
+			e = typer.exprs.Expr.explicitConversion(t, toType, e, info, false);
 			final pos:Position = cast {min: posMin, max: 0, file: ""};
 			values.push({
 				name: name,
@@ -68,7 +68,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 						|| StringTools.endsWith(info.global.module.path, "_test")
 						|| StringTools.endsWith(info.global.module.path, "_test")) {
 						expr = typer.exprs.Expr.typeExpr(info.lastValue, info);
-						expr = typer.exprs.Expr.assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
+						expr = typer.exprs.Expr.explicitConversion(typeof(info.lastValue, info, false), info.lastType, expr, info);
 					} else {
 						expr = typer.exprs.Expr.defaultValue(info.lastType, info);
 					}
@@ -80,7 +80,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 				final nameType = typeof(value.names[i], info, false);
 				if (!info.global.externBool || StringTools.endsWith(info.global.module.path, "_test")) {
 					expr = typer.exprs.Expr.typeExpr(value.values[i], info);
-					expr = typer.exprs.Expr.assignTranslate(t, info.lastType, expr, info);
+					expr = typer.exprs.Expr.explicitConversion(t, info.lastType, expr, info);
 				} else {
 					if (info.lastType != null && info.lastType != invalidType) {
 						expr = typer.exprs.Expr.defaultValue(info.lastType, info);

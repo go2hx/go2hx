@@ -853,7 +853,7 @@ function castTranslate(obj:GoAst.Expr, e:Expr, info:Info):{expr:Expr, ok:Bool} {
 			switch ut {
 				case mapType(_.get() => var keyType, _):
 					// something strange is not working here try assign translate instead
-					index = typer.exprs.Expr.assignTranslate(typeof(obj.index, info, false), keyType, index, info);
+					index = typer.exprs.Expr.explicitConversion(typeof(obj.index, info, false), keyType, index, info);
 				// index = checkType(index, toComplexType(keyType, info), typeof(obj.index, info, false), keyType, info);
 				default:
 			}

@@ -75,7 +75,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 					final key = formatHaxeFieldName(elt.key.name, info);
 					for (field in fields) {
 						if (field.name == key) {
-							final value = typer.exprs.Expr.assignTranslate(typeof(elt.value, info, false), field.type.get(),
+							final value = typer.exprs.Expr.explicitConversion(typeof(elt.value, info, false), field.type.get(),
 								typer.exprs.Expr.typeExpr(elt.value, info), info);
 							objectFields.push({
 								field: field.name,
@@ -100,7 +100,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 			} else {
 				final args = [
 					for (i in 0...expr.elts.length)
-						typer.exprs.Expr.assignTranslate(typeof(expr.elts[i], info, false), fields[i].type.get(),
+						typer.exprs.Expr.explicitConversion(typeof(expr.elts[i], info, false), fields[i].type.get(),
 							typer.exprs.Expr.typeExpr(expr.elts[i], info), info)
 				];
 				if (isAlias && args.length < fields.length) {
@@ -176,7 +176,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 			if (index > max)
 				max = index;
 			var value = exprs[i].expr;
-			value = typer.exprs.Expr.assignTranslate(typeof(expr.elts[i], info, false), elem, value, info);
+			value = typer.exprs.Expr.explicitConversion(typeof(expr.elts[i], info, false), elem, value, info);
 			sets.push(macro s[${makeExpr(index)}] = $value);
 		}
 		sets.push(macro s);
@@ -195,13 +195,13 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 			if (elt.id == "CompositeLit") {
 				if (elt.type == null) {
 					var e = toExpr(typer.exprs.CompositeLiteral.compositeLit(elem, toComplexType(elem, info), elt, info));
-					e = typer.exprs.Expr.assignTranslate(typeof(elt, info, false), elem, e, info);
+					e = typer.exprs.Expr.explicitConversion(typeof(elt, info, false), elem, e, info);
 					exprs.push(e);
 					continue;
 				}
 			}
 			var e = typer.exprs.Expr.typeExpr(elt, info);
-			e = typer.exprs.Expr.assignTranslate(typeof(elt, info, false), elem, e, info);
+			e = typer.exprs.Expr.explicitConversion(typeof(elt, info, false), elem, e, info);
 			exprs.push(e);
 		}
 		final len = makeExpr(len != -1 ? len : exprs.length);
@@ -235,8 +235,8 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 	for (elt in expr.elts) {
 		final eltKeyType = typeof(elt.key, info, false);
 		final eltValueType = typeof(elt.value, info, false);
-		final key = typer.exprs.Expr.assignTranslate(eltKeyType, keyType, run(elt.key), info, false);
-		final value = typer.exprs.Expr.assignTranslate(eltValueType, valueType, run(elt.value), info, false);
+		final key = typer.exprs.Expr.explicitConversion(eltKeyType, keyType, run(elt.key), info, false);
+		final value = typer.exprs.Expr.explicitConversion(eltValueType, valueType, run(elt.value), info, false);
 		exprs.push(macro x.set($key, $value));
 	}
 	final keyComplexType = toComplexType(keyType, info);

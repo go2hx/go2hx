@@ -9,11 +9,11 @@ function typeExpr(expr:GoAst.Expr, info:Info):Expr {
 		case "BasicLit": BasicLit.typeBasicLit(expr, info);
 		case "UnaryExpr": Unary.typeUnaryExpr(expr, info);
 		case "SelectorExpr": Selector.typeSelectorExpr(expr, info);
-		case "BinaryExpr": Binary.typeBinaryExpr(expr, info);
+		case "BinaryExpr": Binary.typeBinaryExpr(expr, info).expr;
 		case "FuncLit": FunctionLiteral.typeFuncLit(expr, info);
 		case "CompositeLit": CompositeLiteral.typeCompositeLit(expr, info);
 		case "SliceExpr": Slice.typeSliceExpr(expr, info);
-		case "TypeAssertExpr": Assert.typeAssertExpr(expr, info);
+		case "TypeAssertExpr": Assert.typeAssertExpr(expr, info).expr;
 		case "IndexExpr": Index.typeIndexExpr(expr, info);
 		case "StarExpr": Star.typeStarExpr(expr, info);
 		case "ParenExpr": Parenthesis.typeParenExpr(expr, info);
@@ -75,7 +75,8 @@ function typeOp(token:GoAst.Token):Binop {
 }
 
 // implicit conversion: checkType
-function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
+// explicit conversion: assignTranslation
+function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
 	if (goTypesEqual(fromType, toType, 0)) {
 		if (passCopy) {
 			return HaxeAst.passByCopy(toType, expr, info);
@@ -169,12 +170,12 @@ function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, p
 					final fields:Array<ObjectField> = [
 						for (i in 0...vars.length) {
 							final fieldName = "_" + i;
-							{field: fieldName, expr: assignTranslate(vars[i], vars2[i], macro __tmp__.$fieldName, info, false)};
+							{field: fieldName, expr: explicitConversion(vars[i], vars2[i], macro __tmp__.$fieldName, info, false)};
 						}
 					];
 					final obj = toExpr(EObjectDecl(fields));
 					return macro({
-						@:assignTranslate final __tmp__ = $y;
+						@:explicitConversion final __tmp__ = $y;
 						$obj;
 					});
 				default:
@@ -246,7 +247,7 @@ function wrapperExpr(t:GoType, y:Expr, info:Info):Expr {
 }
 
 // explicit conversion: assignTranslate
-function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):Expr {
+function implicitConversion(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):Expr {
 	// trace(fromType, toType);
 	if (e != null) {
 		switch e.expr {
@@ -292,9 +293,9 @@ function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:
 		final toElem = getElem(toType);
 		switch ct {
 			case TPath(p):
-				final get = checkType(macro $e.value, toComplexType(fromElem, info), fromElem, toElem, info);
-				final set = checkType(macro v, toComplexType(fromElem, info), toElem, fromElem, info);
-				final child = checkType(macro p.ref, toComplexType(fromElem, info), toElem, fromElem, info);
+				final get = implicitConversion(macro $e.value, toComplexType(fromElem, info), fromElem, toElem, info);
+				final set = implicitConversion(macro v, toComplexType(fromElem, info), toElem, fromElem, info);
+				final child = implicitConversion(macro p.ref, toComplexType(fromElem, info), toElem, fromElem, info);
 				return macro {
 					var p = new $p(() -> $get, null, false, $e);
 					p.convert = v -> $set;
@@ -312,9 +313,9 @@ function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:
 		switch ct {
 			case TPath(p):
 				var e = macro $e.value;
-				final get = checkType(e, toComplexType(toElem, info), fromElem, toElem, info);
-				final v = checkType(macro v, toComplexType(fromElem, info), toElem, fromElem, info);
-				final set = checkType(macro $e = $v, toComplexType(toElem, info), fromElem, toElem, info);
+				final get = implicitConversion(e, toComplexType(toElem, info), fromElem, toElem, info);
+				final v = implicitConversion(macro v, toComplexType(fromElem, info), toElem, fromElem, info);
+				final set = implicitConversion(macro $e = $v, toComplexType(toElem, info), fromElem, toElem, info);
 				return macro new $p(() -> $get, v -> $set);
 			default:
 				throw info.panic() + "pointer not tpath: " + ct;

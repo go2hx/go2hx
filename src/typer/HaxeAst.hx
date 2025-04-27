@@ -328,6 +328,20 @@ function compareComplexType(a:ComplexType, b:ComplexType):Bool {
 	}
 }
 
+function isNull(e:Expr):Bool {
+	switch e.expr {
+		case EConst(c):
+			switch c {
+				case CIdent(s):
+					if (s == "null")
+						return true;
+				default:
+			}
+		default:
+	}
+	return false;
+}
+
 function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 	if (y == null)
 		return y;

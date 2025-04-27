@@ -1,7 +1,8 @@
 package typer.stmts;
 
 function typeSwitchStmt(stmt:GoAst.SwitchStmt, info:Info):MacroExpr { // always an if else chain to deal with int64s and complex numbers
-
+	if (stmt.body == null || stmt.body.list == null)
+		return (macro {}).expr;
 	final init = typer.stmts.Stmt.typeStmt(stmt.init, info);
 	// this is an if else chain
 	var tag:Expr = null;

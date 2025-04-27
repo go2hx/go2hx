@@ -1,6 +1,5 @@
 package stdgo;
 
-#if (target.threaded)
 import stdgo.GoInt;
 
 @:forward(length, capacity, __isSend__, __isGet__, __smartGet__, __get__, __send__, __close__, keyValueIterator, iterator)
@@ -27,7 +26,7 @@ class ChanData<T> {
 	var defaultValue:Void->T = null;
 
 	var closed:Bool = false;
-	var buffered:Bool = false; // TODO separate buffered & unbuffered implementations using an interface
+	var buffered:Bool = false;
 
 	// Go required fields
 	public var length(get, never):GoInt;
@@ -35,27 +34,23 @@ class ChanData<T> {
 
 	// general mutex when handling internal vars in ChanData
 	// a mutex must be get & set by the same thread
-	var mutex = new sys.thread.Mutex();
+	var mutex = #if target.threaded new sys.thread.Mutex() #else {acquire: () -> {}, release: () -> {}} #end;
 
-	// thread-control variables for buffered send/get, see https://api.haxe.org/sys/thread/Condition.html
-	var sendCondition = new sys.thread.Condition();
-	var getCondition = new sys.thread.Condition();
+	// select loop flags
+	var inGetSelectLoop = false;
+	var inSendSelectLoop = false;
 
 	// separate variables to coordinate and implement an unbuffered channel
-	var unbufferedData:T;
-	var dataWaiting = false;
-	final unbufferedLockWait = 0.001; // in seconds TODO check if this time could be shorter
-	var sendLock = new sys.thread.Lock();
-	var getLock = new sys.thread.Lock();
-	var transferedSemaphore = new sys.thread.Semaphore(0);
-	var sendRunningSemaphore = new sys.thread.Semaphore(0);
-	var getRunningSemaphore = new sys.thread.Semaphore(0);
+	var unbufferedData:T; // the unbuffered data being transfered
+	var dataWaiting = false; // is their data waiting to transfer from send -> get
+	var sendCount = 0; // number of goroutines currently in unbuffered send
+	var getCount = 0; // number of goroutines currently in unbuffered get
 
 	// Debug
-	public static var count:Int = 0; // the number of chan if in debug mode
+	public static var count:Int = 0; // the number of channels
+	var index:Int = 0; // this chan id, used in toString - useful even not in local debug mode
 	public static inline var debug = false;
 
-	var index:Int = 0; // this chan id, if in debug mode
 
 	function get_length():GoInt {
 		mutex.acquire();
@@ -68,59 +63,85 @@ class ChanData<T> {
 		buffered = length > 0;
 		this.capacity = length;
 		this.defaultValue = defaultValue;
-		if (!buffered) {
-			sendLock.release();
-			getLock.release();
-		}
-		if (debug) {
-			mutex.acquire();
 			index = count;
 			count++;
-			mutex.release();
+			if (debug) {
+				trace(index + "new ", length, defaultValue);
 		}
 	}
 
 	// __reset__() is called by the generated Go "select" code
 	// after: __isGet__(true) or __isSend__(true)
 	// and before: __get__() or __send__(value)
-	// after the code rework, it can be a no-op
-	inline public function __reset__() {}
+	inline public function __reset__() {
+		mutex.acquire();
+		inSendSelectLoop = inGetSelectLoop = false;
+		mutex.release();
+	}
 
 	// can a value be got from the channel?
 	public function __isGet__(selectBool:Bool = false):Bool {
 		if (debug)
 			trace(index + "__isGet__ " + selectBool, length, buffered);
 
-		if (buffered) {
-			if (closed && selectBool)
-				return true; // closed channels can always be got, but may return default value if nothing in transit
+		if (selectBool) {
+			mutex.acquire();
+			inGetSelectLoop = true;
+			if (inSendSelectLoop) {
+				mutex.release();
+				return true;
+			}
+			mutex.release();
+		}
 
+		if (buffered) {
 			var r = length > 0; // NOTE mutex inside get_length()
-			if (!selectBool && !r) { // not in a select statement & no data,
+			if (closed && selectBool)
+				r = true; // closed channels can always be got, but may return default value if nothing in transit
+			else if (!selectBool && !r) { // not in a select statement & no data,
 				r = !closed; // so return if there might ever be more data
 			}
+			if (debug)
+				trace(index + "__isGet__ result", r);
 			return r;
 		}
 
 		// non-buffered logic below
+		var r = false;
 		if (selectBool) // if we are in a select statement, is there data waiting?
-			if (getLock.wait(unbufferedLockWait)) {
+		{
+			mutex.acquire();
+			if (getCount == 0) {
 				// no get is in progress
-				getLock.release();
-				if (sendLock.wait(unbufferedLockWait)) {
+				if (sendCount == 0) {
 					// no send is in progress
-					sendLock.release();
-					return closed; // you can get the default value if it is closed
+					r = closed; // you can get the default value if it is closed
 				} else {
 					// a send is in progress, so there must be data to get
-					return true;
+					r = true; // Get can always proceed and wait for a send
 				}
 			} else {
 				// a get is in progress, so we can't do another
-				return false;
+				r = false;
 			}
-		else
-			return !closed;
+			mutex.release();
+		} else
+			r = !closed;
+
+		if (debug)
+			trace(index + "__isGet__ unbuffered result", r);
+
+		return r;
+	}
+
+	// here to make code clear
+	private inline function gosched():Void {
+		// TODO	use:	stdgo._internal.runtime.gosched();
+		// TODO review when Haxe coroutines are implemented
+		stdgo._internal.internal.Async.tick();
+		#if (target.threaded)
+		Sys.sleep(0.001); // wait 1 milisecond ... obviously, this is a kludge for thread-per-goroutine
+		#end
 	}
 
 	/**
@@ -130,82 +151,53 @@ class ChanData<T> {
 	**/
 	public function __smartGet__():{_0:T, _1:Bool} {
 		if (buffered) {
-			getCondition.acquire();
 			while (true) {
 				mutex.acquire();
 				if (closed) {
 					if (length > 0) {
 						final value = buffer.shift();
 						mutex.release();
-						getCondition.release();
 						return {_0: value, _1: true};
 					}
 					mutex.release();
-					getCondition.release();
 					return {_0: defaultValue(), _1: false};
 				}
-				if (this.__isGet__(true)) { // is there immediate data to get, like in a select statement?
+				if (length > 0) { // is there immediate data to get, like in a select statement?
 					final value = buffer.shift();
 					mutex.release();
-					getCondition.release();
-
-					sendCondition.acquire();
-					sendCondition.signal(); // allow blocked send to go ahead
-					sendCondition.release();
 					if (debug)
 						trace(index + "__smartGet__ success");
 					return {_0: value, _1: true};
 				}
 				// nothing to get, so wait
-				if (debug)
-					trace(index + "__smartGet__ getCondition.wait()");
 				mutex.release();
-				getCondition.wait(); // wait at this point until something to get
-				if (debug)
-					trace(index + "wake-up __smartGet__");
+				gosched();
 			}
 		} else { // unbuffered channel get
 			/* 
 				"By default channels are unbuffered, meaning that they will only accept sends (chan <-) 
 				if there is a corresponding receive (<- chan) ready to receive the sent value."
 			 */
-
-			getLock.wait();
-
-			getRunningSemaphore.release(); // get's running
-			sendRunningSemaphore.acquire(); // wait for send
-
-			// the two threads are now synchronised
-			if (debug)
-				trace(index, "unbuffered Get sync");
-
 			mutex.acquire();
-
-			if (closed) {
-				if (debug)
-					trace(index + "closed unbuffered __smartGet__");
-				var r = defaultValue();
-				if (dataWaiting) {
-					r = unbufferedData;
-					dataWaiting = false;
-				}
-				transferedSemaphore.release();
-				mutex.release();
-				getLock.release();
-				return {_0: r, _1: false};
-			}
-
-			// transfer the data to the get side
-
-			if (debug)
-				trace(index + "data transferred in unbuffered __smartGet__");
-			var r = unbufferedData;
-			dataWaiting = false;
-
+			getCount++; // this get is starting
 			mutex.release();
-			transferedSemaphore.release();
-			getLock.release();
-			return {_0: r, _1: true};
+			while (true) {
+				mutex.acquire();
+				if (dataWaiting || closed) {
+					var r = defaultValue(); // value if closed
+					var ok = false; // value if closed
+					if (dataWaiting) {
+						r = unbufferedData;
+						dataWaiting = false;
+						ok = true; // value did come from a send
+					}
+					getCount--; // this get is over
+					mutex.release();
+					return {_0: r, _1: ok};
+				}
+				mutex.release();
+				gosched();
+			}
 		}
 	}
 
@@ -218,67 +210,64 @@ class ChanData<T> {
 		if (closed) {
 			return false;
 		}
+
+		if (selectBool) {
+			mutex.acquire();
+			inSendSelectLoop = true;
+			if (inGetSelectLoop) {
+				mutex.release();
+				return true;
+			}
+			mutex.release();
+		}
+
 		if (buffered) {
 			var b = true; // you can always send to an open channel
 			if (selectBool)
 				b = length < capacity; // but in a select statement, it needs to have capacity NOTE mutex inside get_length
 			return b;
 		}
+
 		// unbuffered logic below
 		var b = true; // usually can always send
 		if (selectBool) { // but if we are in a select statement
 			b = false;
-			if (sendLock.wait(unbufferedLockWait)) {
+			mutex.acquire();
+			if (sendCount == 0) {
 				// no send is in progress
-				if (getLock.wait(unbufferedLockWait)) {
+				if (getCount == 0) {
 					// no get is in progress
-					getLock.release();
 				} else {
 					// a get is in progress, so we can send
 					b = true;
 				}
-				sendLock.release();
 			}
+			mutex.release();
 		}
 		if (debug)
-			trace(index + "__isSend__ " + b, length, buffered);
+			trace(index + "__isSend__ result=" + b, length, buffered);
 		return b;
 	}
 
 	// send a value to a channel
 	public function __send__(value:T) {
 		if (buffered) { // buffered send
-			sendCondition.acquire();
+
 			while (true) {
 				mutex.acquire();
 				if (closed) {
 					mutex.release();
-					sendCondition.release();
-
-					getCondition.acquire();
-					getCondition.broadcast(); // unblock all blocked gets
-					getCondition.release();
 					throw "send to closed channel";
 				}
-				if (this.__isSend__(true)) { // is it possible to send? As if in a select statement
-					// send value
+				if (length < capacity) { // is it possible to send? As if in a select statement
 					buffer.push(value);
 					mutex.release();
-					sendCondition.release();
-
-					getCondition.acquire();
-					getCondition.signal(); // unblock a blocked get, if any
-					getCondition.release();
 					if (debug)
 						trace(index + "end of __send__");
 					return;
 				}
 				mutex.release();
-				if (debug)
-					trace(index + "__send__ wait");
-				sendCondition.wait(); // sleep until smartGet awakes you
-				if (debug)
-					trace(index + "wake-up __send__");
+				gosched();
 			}
 		} else { // unbuffered send
 
@@ -293,28 +282,34 @@ class ChanData<T> {
 				throw "send to closed channel";
 			}
 
-			sendLock.wait();
-
-			// set-up transfer to the "get"
 			mutex.acquire();
-			unbufferedData = value;
-			dataWaiting = true;
+			sendCount++; // this send is starting
 			mutex.release();
+			while (true) { // wait for a slot to send
+				mutex.acquire();
+				if (!dataWaiting) { // a data transfer is not in progress
+					// set-up transfer to the "get"
+					unbufferedData = value;
+					dataWaiting = true;
+					mutex.release();
+					gosched();
 
-			sendRunningSemaphore.release(); // send's running
-			getRunningSemaphore.acquire(); // wait for get
-
-			// the two threads are now synchronised
-			if (debug)
-				trace(index, "unbuffered Send sync");
-
-			transferedSemaphore.acquire(); // wait for the transfer of data to complete
-
-			if (debug)
-				trace(index + "unbuffered __send__");
-
-			sendLock.release();
-			return;
+					while (true) { // wait for the transfer to take place
+						mutex.acquire();
+						if (!dataWaiting) {
+							sendCount--; // this send is over
+							mutex.release();
+							if (debug)
+								trace(index + "unbuffered __send__");
+							return;
+						}
+						mutex.release();
+						gosched();
+					}
+				}
+				mutex.release();
+				gosched();
+			}
 		}
 	}
 
@@ -322,7 +317,7 @@ class ChanData<T> {
 		return new ChanIterator(this);
 
 	public inline function toString():String {
-		return "0x0";
+		return "Chan:"+Std.string(index);
 	}
 
 	public function __close__() {
@@ -331,18 +326,6 @@ class ChanData<T> {
 		mutex.acquire();
 		closed = true;
 		mutex.release();
-
-		if (buffered) {
-			getCondition.acquire();
-			getCondition.broadcast(); // allow all blocked gets to go ahead
-			getCondition.release();
-
-			sendCondition.acquire();
-			sendCondition.broadcast(); // allow all blocked sends to go ahead (and probably error)
-			sendCondition.release();
-		} else { // unbuffered
-			sendRunningSemaphore.release(); // there will be no more sends
-		}
 	}
 }
 
@@ -364,52 +347,3 @@ private class ChanIterator<T> {
 		return chan.__get__();
 	}
 }
-#else
-@:forward(length, capacity, __isSend__, __isGet__, __smartGet__, __get__, __send__, __close__, keyValueIterator, iterator)
-@:forward.new
-/**
- *    Chan is a Go channel in Haxe
- *    Channels are used in a goroutine context to send and get data
- *    Channel are by default blocking for sending, waiting until a get on the other side is called
- *    The syntax for channels is different for Go and Haxe:
- *
- *    Haxe: c.__get__ Go: <- c
- *    Haxe: c.__send__(x) Go: c <- x
- */
-abstract Chan<T>(ChanData<T>) from ChanData<T> to ChanData<T> {
-	public function __reset__() {
-		this?.__reset__();
-	}
-}
-
-// javascript implementation
-class ChanData<T> {
-	public function new(length:GoInt, defaultValue:Void->T) {}
-
-	public var capacity(get, never):GoInt;
-
-	function get_capacity():GoInt
-		return this.length;
-
-	public var length:GoInt = 0;
-
-	public function __isSend__(reset:Bool = true):Bool
-		return false;
-
-	public function __get__():T
-		return null;
-
-	public var __mutex__:Dynamic = null;
-
-	public function __send__(a:T) {}
-
-	public function __close__() {}
-
-	public function __isGet__(reset:Bool = true):Bool
-		return true;
-
-	public function acquire() {}
-
-	public function __reset__() {}
-}
-#end

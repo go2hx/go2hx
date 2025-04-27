@@ -1,7 +1,11 @@
 package stdgo;
 
+#if target.threaded
+import sys.thread.Thread;
+#end
 import haxe.Rest;
 import haxe.macro.Expr;
+
 /**
  * Almost all macro functions to provide ease of use, using go2hx code in a Haxe manner.
  */
@@ -9,19 +13,18 @@ class Go {
 	/**
 	 * Where the recover_exception is stored in case `recover` is called.
 	 */
-	public static var recover_exception:stdgo.AnyInterface= null;
+	public static var recover_exception:stdgo.AnyInterface = null;
+
 	public static var globalMutex = #if target.threaded new sys.thread.Mutex(); #else {acquire: () -> {}, release: () -> {}}; #end
 	// GOROUTINE
 	public static var goroutines = 0; // goroutine watching, to make sure they all complete i.e. no leaks
 
-	static final GOMAXPROCS = 1024; // really this is the max threads
+	static final GOMAXPROCS = 1024; // really this is the max threads in operation
 
 	#if (target.threaded)
 	public static var grMutex = new sys.thread.Mutex();
-	// NOTE without using the ElasticThreadPool, the job gets cancelled on OSX after about 8k threads
-	public static var elasticThreadPool = new sys.thread.ElasticThreadPool(GOMAXPROCS, 60 * 60 * 24 * 365); // timeout after 1 year
-
 	#end
+
 	public static function routine(func:Void->Void) {
 		if (goroutines >= GOMAXPROCS)
 			throw "too many active goroutines";
@@ -30,7 +33,7 @@ class Go {
 			{0}();
 		}; __a__();", func);*/
 		#elseif (target.threaded)
-		elasticThreadPool.run(() -> {
+		Thread.createWithEventLoop(() -> {
 			/*try {
 					func();
 				}catch(e) {
@@ -46,6 +49,7 @@ class Go {
 		});
 		#end
 	}
+
 	public static function fromAsInterfaceToValue(value:Dynamic):Dynamic {
 		if (value == null)
 			return null;
@@ -59,6 +63,7 @@ class Go {
 		}
 		return value;
 	}
+
 	/**
 	 * Simulate builtin print
 	 * @param args 
@@ -68,6 +73,7 @@ class Go {
 			_print(args[i]);
 		}
 	}
+
 	/**
 	 * Simulate builtin println
 	 * @param args 
@@ -83,6 +89,7 @@ class Go {
 		_print(s);
 		#end
 	}
+
 	@:dox(hide)
 	static function _print(arg:Dynamic) {
 		#if (sys || hxnodejs)
@@ -91,42 +98,51 @@ class Go {
 		js.Syntax.code("console.log({0});", arg);
 		#end
 	}
+
 	@:dox(hide)
 	@:deprecated
 	public static macro function map(exprs:Array<Expr>):Expr;
+
 	@:dox(hide)
 	@:deprecated
 	public static macro function copySlice<T>(dst:Expr, src:Expr):Expr;
+
 	@:dox(hide)
 	@:deprecated
 	public static macro function unquote(qvalue:Expr):Expr;
+
 	@:dox(hide)
 	@:deprecated
 	public static macro function typeFunction(e:Expr):Expr;
+
 	/**
 	 * Used in rare cases where Go compiler does not give type information for a type or is not possible and the job is handed off to the Haxe compiler.
 	 * @param value 
 	 * @return Expr
 	 */
 	public static macro function expectedValue(value):Expr;
+
 	/**
 	 * Create a default Go value for an `Expr`.
 	 * @param e 
 	 * @return Expr
 	 */
 	public static macro function defaultValue(e:Expr):Expr;
+
 	/**
 	 * Assert that a type is the checkType complexType, if not throw.
 	 * @param expr must follow the format ($expr: $ct)
 	 * @return Expr
 	 */
 	public static macro function typeAssert(expr:Expr):Expr;
+
 	/**
 	 * Check if type is equal to the checkType complexType.
 	 * @param expr must follow the format ($expr: $ct)
 	 * @return Expr Bool
 	 */
 	public static macro function typeEquals(expr:Expr):Expr;
+
 	/**
 	 * Create a simulated Go pointer in Haxe
 	 * @param expr 
@@ -134,18 +150,21 @@ class Go {
 	 * @return Expr
 	 */
 	public static macro function pointer(expr:Expr, hasSet:Bool = false):Expr;
+
 	/**
 	 * Create a simulated Go interface in Haxe, check if type with suffix _asInterface exists, and if so generate the type on the fly.
 	 * @param expr 
 	 * @return Expr
 	 */
 	public static macro function asInterface(expr:Expr):Expr;
+
 	/**
 	 * Create a simulated any/interface{} type
 	 * @param expr 
 	 * @return Expr stdgo.AnyInterface
 	 */
 	public static macro function toInterface(expr:Expr):Expr;
+
 	/**
 	 * Create a string
 	 * @param expr 
@@ -153,28 +172,35 @@ class Go {
 	 */
 	@:dox(hide)
 	public static macro function str(expr:Expr):Expr;
+
 	@:deprecated
 	@:dox(hide)
 	public static macro function cfor(cond, post, expr):Expr;
+
 	@:deprecated
 	@:dox(hide)
 	public static macro function setKeys(expr:Expr):Expr;
+
 	@:deprecated
 	@:dox(hide)
 	public static macro function select(expr:Expr):Expr;
+
 	@:deprecated
 	@:dox(hide)
 	public static macro function multireturn(expr:Expr):Expr;
+
 	/**
 	 * Create a Ref (simulated Go pointer but for a Haxe type that is pass by ref) regardless if the type is null or not.
 	 * @param expr 
 	 * @return Expr
 	 */
 	public static macro function setRef(expr:Expr):Expr;
+
 	@:deprecated
 	@:dox(hide)
 	public static macro function refPointer(expr:Expr):Expr;
 
 	public static macro function min(expr:Array<Expr>):Expr;
+
 	public static macro function max(expr:Array<Expr>):Expr;
 }

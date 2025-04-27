@@ -216,6 +216,7 @@ func main() {
 		panic(err)
 	}
 	goroot := home + "/.go/go" + string(b)
+	os.Setenv("GOROOT", goroot)
 	goCommand = goroot + "/bin/go"
 	cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm", "GOROOT="+goroot)
 	args := os.Args

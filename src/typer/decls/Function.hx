@@ -21,6 +21,8 @@ typedef IntermediateFunctionType = {
 	recvName:String,
 	info:Info,
 	declName:String,
+	patchRecvName:String,
+	patchPack:String,
 }
 
 function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = "",
@@ -101,7 +103,16 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 		}
 		macro $block;
 	}
-	final patch = codegen.Patch.list[func.patchName];
+	#if !macro
+	// trace(printer.printExpr(codegen.Patch2.getFunction(func.patchPack, func.name, func.patchRecvName)));
+	#end
+	var patch:MacroExpr = null;
+	#if !macro
+	patch = codegen.Patch2.getFunction(func.patchPack, func.name, func.patchRecvName);
+	#end
+	if (patch == null)
+		patch = codegen.Patch.list[func.patchName];
+
 	if (patch != null) {
 		block = patch;
 	}
@@ -168,7 +179,7 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 	return def;
 }
 
-function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<String>, isNamed:Bool, sel:String, defName:String):IntermediateFunctionType {
+function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<String>, isNamed:Bool, sel:String, recvName:String):IntermediateFunctionType {
 	final info = new Info();
 	info.blankCounter = data.blankCounter;
 	info.data = data.data;
@@ -189,7 +200,9 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 		doc: codegen.Doc.getDocComment(decl),
 		source: codegen.Doc.getSource(decl, info),
 		params: decl.type.params,
-		patchName: defName != "" ? '${info.global.module.path}.$defName:$name' : info.global.module.path + ":" + name,
+		patchName: recvName != "" ? '${info.global.module.path}.$recvName:$name' : info.global.module.path + ":" + name,
+		patchRecvName: recvName,
+		patchPack: info.global.module.path,
 		varType: null,
 		varName: "",
 		varCT: null,

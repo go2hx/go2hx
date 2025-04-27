@@ -44,7 +44,6 @@ private typedef Ref<T> = {
 class Global {
 	public var localSpecs:Map<String, Array<GoAst.Spec>> = [];
 	public var gotoSystem:Bool = false;
-	public var recoverBool:Bool = false;
 	public var deferBool:Bool = false;
 	public var debugBool:Bool = false;
 	public var varTraceBool:Bool = false;

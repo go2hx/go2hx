@@ -1,6 +1,6 @@
 package typer.exprs;
 
-function typeIndexListExpr(expr:GoAst.IndexListExpr, info:Info):ExprDef {
+function typeIndexListExpr(expr:GoAst.IndexListExpr, info:Info):MacroExpr {
 	final x = typer.exprs.Expr.typeExpr(expr.x, info);
 	final t = typeof(expr.x, info, false);
 	switch t {
@@ -14,8 +14,8 @@ function typeIndexListExpr(expr:GoAst.IndexListExpr, info:Info):ExprDef {
 					default:
 				}
 			}
-			return Index.typeFunctionLiteral(args, params, results, x, info).expr;
+			return Index.typeFunctionLiteral(args, params, results, x, info);
 		default:
 	}
-	return (macro $x).expr;
+	return x;
 }

@@ -84,7 +84,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 			var t = typeof(exprArgs[exprArgs.length - 1], info, false);
 			if (elem != null)
 				t = GoType.sliceType({get: () -> elem});
-			last = typer.exprs.Expr.typeRest(last, t, info);
+			last = Ellipsis.typeRest(last, t, info);
 			args.push(last);
 		}
 		if (translateType && type != null) {
@@ -194,7 +194,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 					}
 			}
 		case "FuncLit":
-			var expr = toExpr(FunctionLiteral.typeFuncLit(expr.fun, info));
+			final expr = FunctionLiteral.typeFuncLit(expr.fun, info);
 			genArgs(true);
 			return returnExpr(macro({
 				var a = $expr;
@@ -231,7 +231,6 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						genArgs(false);
 						return returnExpr(macro throw ${typer.exprs.Expr.toAnyInterface(args[0], typeof(expr.args[0], info, false), info)});
 					case "recover":
-						info.global.recoverBool = true;
 						return returnExpr(macro({
 							final r = stdgo.Go.recover_exception;
 							stdgo.Go.recover_exception = null;

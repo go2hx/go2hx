@@ -3,33 +3,33 @@ package typer.exprs;
 function typeExpr(expr:GoAst.Expr, info:Info):MacroExpr {
 	if (expr == null)
 		return null;
-	var def = switch expr.id {
-		case "Ident": Ident.typeIdent(expr, info, false).expr;
-		case "CallExpr": Call.typeCallExpr(expr, info).expr;
-		case "BasicLit": BasicLit.typeBasicLit(expr, info).expr;
-		case "UnaryExpr": Unary.typeUnaryExpr(expr, info).expr;
-		case "SelectorExpr": Selector.typeSelectorExpr(expr, info).expr;
-		case "BinaryExpr": Binary.typeBinaryExpr(expr, info).expr;
+	final def = switch expr.id {
+		case "Ident": Ident.typeIdent(expr, info, false);
+		case "CallExpr": Call.typeCallExpr(expr, info);
+		case "BasicLit": BasicLit.typeBasicLit(expr, info);
+		case "UnaryExpr": Unary.typeUnaryExpr(expr, info);
+		case "SelectorExpr": Selector.typeSelectorExpr(expr, info);
+		case "BinaryExpr": Binary.typeBinaryExpr(expr, info);
 		case "FuncLit": FunctionLiteral.typeFuncLit(expr, info);
 		case "CompositeLit": CompositeLiteral.typeCompositeLit(expr, info);
 		case "SliceExpr": Slice.typeSliceExpr(expr, info);
-		case "TypeAssertExpr": Assert.typeAssertExpr(expr, info).expr;
+		case "TypeAssertExpr": Assert.typeAssertExpr(expr, info);
 		case "IndexExpr": Index.typeIndexExpr(expr, info);
 		case "StarExpr": Star.typeStarExpr(expr, info);
 		case "ParenExpr": Parenthesis.typeParenExpr(expr, info);
 		case "Ellipsis": Ellipsis.typeEllipsis(expr, info);
-		case "MapType": MapType.typeMapType(expr, info);
-		case "InterfaceType": InterfaceType.typeInterfaceType(expr, info);
+		case "MapType": MapType.typeMapType();
+		case "InterfaceType": InterfaceType.typeInterfaceType();
 		case "IndexListExpr": IndexList.typeIndexListExpr(expr, info);
-		case "BadExpr": Bad.typeBad(expr, info).expr;
+		case "BadExpr": Bad.typeBad(info);
 		default:
 			trace("unknown expr id: " + expr.id);
 			null;
-			//(macro throw "unknown expr").expr;
+			// (macro throw "unknown expr");
 	};
 	if (def == null)
 		throw info.panic() + "expr null: " + expr.id;
-	return toExpr(def);
+	return def;
 }
 
 function typeOp(token:GoAst.Token):Binop {
@@ -481,13 +481,6 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 		default:
 	}
 	return toExpr(EBinop(op, x, toExpr(EParenthesis(y))));
-}
-
-function typeRest(expr:Expr, t:GoType, info:Info):MacroExpr {
-	expr = toGoType(expr);
-	t = getArrayElem(t);
-	final ct = toComplexType(t, info);
-	return macro...($expr : Array<$ct>);
 }
 
 function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {

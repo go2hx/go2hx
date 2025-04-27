@@ -1,6 +1,6 @@
 package typer.exprs;
 
-function typeIndexExpr(expr:GoAst.IndexExpr, info:Info):ExprDef {
+function typeIndexExpr(expr:GoAst.IndexExpr, info:Info):Expr {
 	var x = typer.exprs.Expr.typeExpr(expr.x, info);
 	switch x.expr {
 		case EConst(c):
@@ -24,8 +24,7 @@ function typeIndexExpr(expr:GoAst.IndexExpr, info:Info):ExprDef {
 		case mapType(_.get() => indexType, _.get() => valueType):
 			index = typer.exprs.Expr.explicitConversion(typeof(expr.index, info, false), indexType, index, info, false);
 			final value = typer.exprs.Expr.defaultValue(valueType, info);
-			final e = macro($x[$index] ?? $value);
-			return e.expr;
+			return macro($x[$index] ?? $value);
 		case signature(_, _.get() => params, _.get() => results, _, _.get() => typeParams): // generic param
 			final objType = expr.x.objType;
 			var args = [];
@@ -36,7 +35,7 @@ function typeIndexExpr(expr:GoAst.IndexExpr, info:Info):ExprDef {
 					default:
 				}
 			}
-			return typeFunctionLiteral(args, params, results, x, info).expr;
+			return typeFunctionLiteral(args, params, results, x, info);
 		case typeParam(_, _):
 			// nothing
 			index = macro @:param_index $index;
@@ -53,8 +52,7 @@ function typeIndexExpr(expr:GoAst.IndexExpr, info:Info):ExprDef {
 			trace(typeExprType(expr.x, info));
 			throw info.panic() + "invalid index";
 	}
-	final e = macro $x[$index];
-	return e.expr;
+	return macro $x[$index];
 }
 
 function typeFunctionLiteral(args:Array<Expr>, params:Array<GoType>, results:Array<GoType>, x:Expr, info:Info):MacroExpr {

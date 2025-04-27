@@ -1,4 +1,4 @@
-package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Info):ExprDef {
+package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Info):MacroExpr {
 
 	var setToSliceType = false;
 	var sliceType:GoType = null;
@@ -18,7 +18,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 					// throw "unknown expr.exprType.elt.name: " + expr.exprType.elt.name;
 			}
 		} else {
-			return (macro @:invalid_compositelit_null null).expr;
+			return macro @:invalid_compositelit_null null;
 		}
 	}
 	var type = typeof(expr.type, info, false);
@@ -30,24 +30,24 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 	final e = compositeLit(type, ct, expr, info);
 	// trace(printer.printExpr({expr: e, pos: null}));
 	return e;
-} function compositeLit(type:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):ExprDef {
+} function compositeLit(type:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):MacroExpr {
 
 	final keyValueBool:Bool = hasKeyValueExpr(expr.elts);
 	final underlying = getUnderlying(type);
 	if (isInvalid(underlying)) {
-		return (macro @:invalid_compositelit null).expr;
+		return macro @:invalid_compositelit null;
 	}
 	switch removeTypeParam(underlying) {
 		case interfaceType(_, _):
 			// trace(underlying);
 			// trace(type);
-			return (macro @:compositeLit_interface null).expr;
+			return macro @:compositeLit_interface null;
 		case refType(_.get() => elem):
-			final e = toExpr(compositeLit(elem, HaxeAst.complexTypeElem(ct), expr, info));
-			return e.expr;
+			final e = compositeLit(elem, HaxeAst.complexTypeElem(ct), expr, info);
+			return e;
 		case pointerType(_.get() => elem):
-			final e = toExpr(compositeLit(elem, HaxeAst.complexTypeElem(ct), expr, info));
-			return (macro stdgo.Go.pointer($e)).expr;
+			final e = compositeLit(elem, HaxeAst.complexTypeElem(ct), expr, info);
+			return macro stdgo.Go.pointer($e);
 		case structType(fields):
 			var objectFields:Array<ObjectField> = [];
 			var fields = fields.copy();
@@ -96,7 +96,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 					}
 				}
 				var e = toExpr(EObjectDecl(objectFields));
-				return (macro($e : $ct)).expr;
+				return macro($e : $ct);
 			} else {
 				final args = [
 					for (i in 0...expr.elts.length)
@@ -117,7 +117,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 						});
 					}
 					var e = toExpr(EObjectDecl(objectFields));
-					return (macro($e : $ct)).expr;
+					return macro($e : $ct);
 				} else {
 					final p = getTypePath(ct, info);
 					// generic named type needs fields filled in
@@ -132,15 +132,15 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 						default:
 					}
 					final e = macro new $p($a{args});
-					return (macro($e : $ct)).expr;
+					return macro($e : $ct);
 				}
 			}
 		case sliceType(_.get() => elem):
-			return compositeLitList(elem, keyValueBool, -1, underlying, toComplexType(type, info), expr, info).expr;
+			return compositeLitList(elem, keyValueBool, -1, underlying, toComplexType(type, info), expr, info);
 		case arrayType(_.get() => elem, len):
-			return compositeLitList(elem, keyValueBool, len, underlying, toComplexType(type, info), expr, info).expr;
+			return compositeLitList(elem, keyValueBool, len, underlying, toComplexType(type, info), expr, info);
 		case mapType(_.get() => var keyType, _.get() => valueType):
-			return compositeLitMapList(keyType, valueType, underlying, toComplexType(type, info), expr, info).expr;
+			return compositeLitMapList(keyType, valueType, underlying, toComplexType(type, info), expr, info);
 		default:
 			throw info.panic() + "not supported CompositeLit type: " + underlying;
 	}
@@ -153,7 +153,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 		function run(elt:GoAst.Expr, index:Int) {
 			if (elt.id == "CompositeLit") {
 				if (elt.type == null)
-					return {index: index, expr: toExpr(typer.exprs.CompositeLiteral.compositeLit(elem, HaxeAst.complexTypeElem(ct), elt, info))};
+					return {index: index, expr: typer.exprs.CompositeLiteral.compositeLit(elem, HaxeAst.complexTypeElem(ct), elt, info)};
 			}
 			return {index: index, expr: typer.exprs.Expr.typeExpr(elt, info)};
 		}
@@ -194,7 +194,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 		for (elt in expr.elts) {
 			if (elt.id == "CompositeLit") {
 				if (elt.type == null) {
-					var e = toExpr(typer.exprs.CompositeLiteral.compositeLit(elem, toComplexType(elem, info), elt, info));
+					var e = typer.exprs.CompositeLiteral.compositeLit(elem, toComplexType(elem, info), elt, info);
 					e = typer.exprs.Expr.explicitConversion(typeof(elt, info, false), elem, e, info);
 					exprs.push(e);
 					continue;
@@ -227,7 +227,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 			}
 			final t = typeof(elt, info, false);
 			final ct = toComplexType(t, info);
-			return toExpr(compositeLit(t, ct, elt, info));
+			return compositeLit(t, ct, elt, info);
 		}
 		return typer.exprs.Expr.typeExpr(elt, info);
 	}

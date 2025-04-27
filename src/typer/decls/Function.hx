@@ -372,7 +372,6 @@ function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.Fie
 
 function funcReset(info:Info) {
 	info.global.deferBool = false;
-	info.global.recoverBool = false;
 	info.global.gotoSystem = false;
 }
 

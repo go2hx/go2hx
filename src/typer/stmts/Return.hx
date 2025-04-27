@@ -43,7 +43,7 @@ function typeReturnStmtEmit(stmt:IntermediateReturnStmtType):MacroExpr {
 				{field: "_" + i, expr: info.returnNamed ? macro $i{info.returnNames[i]} : typer.exprs.Expr.defaultValue(info.returnTypes[i], info)}
 		];
 		final decl = toExpr(EObjectDecl(fields));
-		return postProcess(macro $decl, info, true);
+		return postProcess(macro return $decl, info, true);
 	}
 	if (stmt.results.length == 1) {
 		var e = typer.exprs.Expr.typeExpr(stmt.results[0], info);

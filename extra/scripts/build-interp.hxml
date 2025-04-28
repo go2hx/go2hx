@@ -1,4 +1,4 @@
-build-each.hxml
+extra/scripts/build-each.hxml
 -cp src
 -main Main
 -D no-deprecation-warnings

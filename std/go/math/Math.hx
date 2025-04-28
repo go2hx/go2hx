@@ -178,7 +178,7 @@ function atan2(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64
 	return std.Math.atan2(_x.toBasic(), _y.toBasic());
 
 function isInf(_x:stdgo.GoFloat64, _sign:stdgo.GoInt):Bool
-	macro return _sign.toBasic() >= 0 && _f == std.Math.POSITIVE_INFINITY || _sign.toBasic() <= 0 && _f == std.Math.NEGATIVE_INFINITY;
+	return _sign.toBasic() >= 0 && _f == std.Math.POSITIVE_INFINITY || _sign.toBasic() <= 0 && _f == std.Math.NEGATIVE_INFINITY;
 
 function hypnot(_p:stdgo.GoFloat64):stdgo.GoFloat64 {
 	if (GoMath.isInf(_p, 0) || GoMath.isInf(_q, 0))

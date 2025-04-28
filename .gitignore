@@ -45,7 +45,6 @@ gobyexample
 golibs
 .haxelib
 gopath
-go
 tinygo
 old/*
 examples/*.txt

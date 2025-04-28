@@ -57,7 +57,6 @@ function getFunction(pack:String, funcName:String, recvName:String):MacroExpr {
 							path.unshift(prefix);
 						} else {
 							path.unshift(prefix);
-							path.unshift("_internal");
 						}
 						final fileName = path.pop();
 						path.push(fileName + "_" + field.toLowerCase());

@@ -36,6 +36,7 @@ function getFunction(pack:String, funcName:String, recvName:String):MacroExpr {
 				switch mode {
 					case IAsName(s):
 						importMap[s] = pack.join(".");
+						importMapEmpty = false;
 					default:
 						final fileName = pack[pack.length - 1];
 						importMap[fileName] = pack.join(".");

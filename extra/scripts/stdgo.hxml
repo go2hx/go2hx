@@ -1,6 +1,8 @@
 -main StdGo
 -cp extra/scripts
 -cp src
+-cp git/haxeparser/src
+-cp git/hxparse/src
 -D no-deprecation-warnings
 -D simulate_num
 -dce full

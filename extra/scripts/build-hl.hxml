@@ -1,3 +1,4 @@
+build-each.hxml
 -cp src
 -main Main
 -D no-deprecation-warnings

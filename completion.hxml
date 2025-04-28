@@ -1,5 +1,7 @@
 -m Main
 -cp src
+-cp git/haxeparser/src
+-cp git/hxparse/src
 extraParams.hxml
 -D nolinkstd
 --macro exclude("stdgo")

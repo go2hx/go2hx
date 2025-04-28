@@ -91,12 +91,16 @@ var hashMap map[uint32]map[string]interface{}
 var testBool = false
 var debugBool = false
 var noDepsBool = false
+var systemGo = false
 
 func compile(params []string, excludesData []string, index string, debug bool) []byte {
 	args := []string{}
 	testBool = false
+	systemGo = false
 	for _, param := range params {
 		switch param {
+		case "-systemgo", "--systemgo", "-systemGo", "--systemGo":
+			systemGo = true
 		case "-test", "--test":
 			testBool = true
 		case "-nodeps", "--nodeps", "-nodep", "--nodep":
@@ -122,7 +126,9 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 		return b
 	}
 	cfg.Tests = testBool
-	os.Setenv("GOCMD", goCommand)
+	if !systemGo {
+		os.Setenv("GOCMD", goCommand)
+	}
 	initial, err := packages.Load(cfg, &types.StdSizes{WordSize: 4, MaxAlign: 8}, args...)
 	if err != nil {
 		log.Fatal("load error: " + err.Error())
@@ -216,9 +222,12 @@ func main() {
 		panic(err)
 	}
 	goroot := home + "/.go/go" + string(b)
-	os.Setenv("GOROOT", goroot)
-	goCommand = goroot + "/bin/go"
-	cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm", "GOROOT="+goroot)
+	cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm")
+	if !systemGo {
+		goCommand = goroot + "/bin/go"
+		cfg.Env = append(cfg.Env, "GOROOT="+goroot)
+		os.Setenv("GOROOT", goroot)
+	}
 	args := os.Args
 	if len(args) < 2 {
 		panic("The Haxe part of the compiler is supposed to invoke the Go part of the compiler")

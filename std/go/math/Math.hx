@@ -137,7 +137,7 @@ function min(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
 	// special cases
 	if (_x < 0 && !std.Math.isFinite(_x.toBasic()) || _y < 0 && !std.Math.isFinite(_y.toBasic()))
 		return GoMath.inf(-1);
-	if (_x == 0.0 && GoMath.signbit(_x) && !Gomath.isNaN(_y) || _y == 0.0 && GoMath.signbit(_y) && !GoMath.isNaN(_x))
+	if (_x == 0.0 && GoMath.signbit(_x) && !GoMath.isNaN(_y) || _y == 0.0 && GoMath.signbit(_y) && !GoMath.isNaN(_x))
 		return GoMath.negZero();
 	if (GoMath.isNaN(_x) || GoMath.isNaN(_y))
 		return GoMath.naN();

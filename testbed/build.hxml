@@ -3,6 +3,8 @@
 -main TestBed
 #--interp
 #-D debug
+-cp git/haxeparser/src
+-cp git/hxparse/src
 -D nolinkstd
 -D watch.run=hl testbed.hl
 -D watch.excludes=golibs

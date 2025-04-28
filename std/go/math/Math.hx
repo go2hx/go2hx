@@ -175,7 +175,7 @@ function atan(_x:stdgo.GoFloat64):stdgo.GoFloat64
 	return std.Math.atan(_x.toBasic());
 
 function atan2(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64
-	return std.Math.atan2(_x.toBasic(), _y.toBasic());
+	return std.Math.atan2(_y.toBasic(), _x.toBasic());
 
 function isInf(_x:stdgo.GoFloat64, _sign:stdgo.GoInt):Bool
 	return _sign.toBasic() >= 0 && _f == std.Math.POSITIVE_INFINITY || _sign.toBasic() <= 0 && _f == std.Math.NEGATIVE_INFINITY;

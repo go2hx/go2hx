@@ -101,6 +101,10 @@ private function receivedData(instance, buff, client) {
  * @param args creates an instance from the args
  */
 function runCompilerFromArgs(args:Array<String>) {
+	if (args.length == 0) {
+		Sys.println("no arguments given to compiler");
+		return;
+	}
 	var processCount = 1;
 	var index = 0;
 

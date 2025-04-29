@@ -33,7 +33,7 @@ function main() {
 		return;
 	}
 
-	if (args.length > 0 && args.indexOf("clean") != - 1) {
+	if (args.length > 0 && args.indexOf("clean") != -1) {
 		clean();
 		return;
 	}
@@ -92,33 +92,33 @@ function main() {
 	}
 	if ((index = args.indexOf("-compiler_hl")) != -1 || (index = args.indexOf("--compiler_hl")) != -1) {
 		args.remove(args[index]);
-		setupHashlink(rebuild,args);
+		setupHashlink(rebuild, args);
 		return;
 	}
 	if ((index = args.indexOf("-compiler_interp")) != -1 || (index = args.indexOf("--compiler_interp")) != -1) {
 		args.remove(args[index]);
-		setupInterp(rebuild,args);
+		setupInterp(rebuild, args);
 		return;
 	}
 	if ((index = args.indexOf("-compiler_nodejs")) != -1 || (index = args.indexOf("--compiler_nodejs")) != -1) {
 		args.remove(args[index]);
-		setupNodeJS(rebuild,args);
+		setupNodeJS(rebuild, args);
 		return;
 	}
 	/*var code = 1;
-	try {
-		process = new Process("node -v");
-		code = process.exitCode();
-		process.close();
-	}catch(_) {
-		code = 1;
-	}
+		try {
+			process = new Process("node -v");
+			code = process.exitCode();
+			process.close();
+		}catch(_) {
+			code = 1;
+		}
 
-	if (code == 0) {
-		setupNodeJS(rebuild,args);
-		return;
+		if (code == 0) {
+			setupNodeJS(rebuild,args);
+			return;
 	}*/
-	setupInterp(rebuild,args);
+	setupInterp(rebuild, args);
 }
 
 function clean() {
@@ -160,7 +160,7 @@ function deleteDirectoryRecursively(dir:String):Int {
 	trace(dir);
 	#if !js
 	return Sys.command('find $dir -type f -delete');
-	//return Sys.command('git rm --cache -r -d $dir');
+	// return Sys.command('git rm --cache -r -d $dir');
 	return 0;
 	#else
 	return 0;
@@ -168,7 +168,7 @@ function deleteDirectoryRecursively(dir:String):Int {
 }
 
 function installRequiredGoVersion() {
-	final command = goupCommand +  " install " + goRequiredVersion;
+	final command = goupCommand + " install " + goRequiredVersion;
 	Sys.println(command);
 	Sys.println("Please wait a little...");
 	final proc = new Process(command);
@@ -184,12 +184,9 @@ function installRequiredGoVersion() {
 	}
 }
 
-
-private function executable(path:String, noQuotes:Bool=false) {
+private function executable(path:String) {
 	if (isWindows()) {
-		if (noQuotes)
-			return path + '.exe';
-		return '"' + path + '.exe"';
+		return path + '.exe';
 	}
 	return path;
 }
@@ -235,13 +232,13 @@ function installGoUp():Bool {
 			Sys.println("Unknown systemName: " + systemName);
 			return false;
 	}
-    var file = '$os-$arch';
-   if (isWindows())
+	var file = '$os-$arch';
+	if (isWindows())
 		file += '.exe';
-   	Sys.println("GoUp installing " + file);
-	   if (!FileSystem.exists('bin'))
+	Sys.println("GoUp installing " + file);
+	if (!FileSystem.exists('bin'))
 		FileSystem.createDirectory('bin');
-    final url = 'https://github.com/owenthereal/goup/releases/download/v0.7.0/$file';
+	final url = 'https://github.com/owenthereal/goup/releases/download/v0.7.0/$file';
 	final command = 'curl --silent --show-error --fail --location $url --output bin/$file';
 	if (Sys.command(command) != 0) {
 		Sys.println("failed to run curl");
@@ -250,22 +247,20 @@ function installGoUp():Bool {
 	final goBinDir = home + "/.go/bin/";
 	if (!FileSystem.exists(goBinDir))
 		FileSystem.createDirectory(goBinDir);
-	File.copy('bin/$file', goBinDir + executable("goup", true));
+	File.copy('bin/$file', goBinDir + executable("goup"));
 	if (!isWindows())
-        Sys.command('chmod u+x $goupCommand');
+		Sys.command('chmod u+x $goupCommand');
 	var proc = new Process(goupCommand + " init --skip-prompt");
-    if (proc.exitCode(true) != 0) {
+	if (proc.exitCode(true) != 0) {
 		Sys.println("failed to run goup");
 		return false;
 	}
 	return true;
 }
 
-
 function isWindows():Bool {
-    return Sys.systemName().toLowerCase() == "windows";
+	return Sys.systemName().toLowerCase() == "windows";
 }
-
 
 function build(rebuild:Bool) {
 	final command = executable(home + "/.go/bin/goup") + " version";
@@ -280,7 +275,7 @@ function build(rebuild:Bool) {
 	var code = process.exitCode();
 	if (code != 0) {
 		installRequiredGoVersion();
-	}else{
+	} else {
 		var foundVersion = process.stdout.readAll().toString();
 		var index = foundVersion.indexOf("go", 10);
 		if (index == -1) {
@@ -297,14 +292,19 @@ function build(rebuild:Bool) {
 
 	// run go compiler
 	if (!FileSystem.exists("go4hx") || rebuild) {
-		Sys.println("build go part of the compiler");
+		if (!FileSystem.exists("git/tools")) {
+			// update tools submodule
+			Sys.println("updating git submodules");
+			Sys.command("git submodule update --init --recursive");
+		}
+		Sys.println("build Go part of the compiler");
 		final command = goCommand + ' build .';
 		Sys.println(command);
 		Sys.command(command);
 	}
 }
 
-function setupNodeJS(rebuild:Bool,args:Array<String>) {
+function setupNodeJS(rebuild:Bool, args:Array<String>) {
 	Sys.println("NodeJS compiler version");
 	// run nodejs
 	if (!FileSystem.exists("export/build.js") || rebuild) {
@@ -313,22 +313,22 @@ function setupNodeJS(rebuild:Bool,args:Array<String>) {
 	args.unshift("export/build.js");
 	// 4gb = 4096, 2gb = 2048
 	// args.unshift("--max-old-space-size=4096");
-	//args.unshift("--expose-gc");
+	// args.unshift("--expose-gc");
 	Sys.command("node", args);
 }
 
-function setupCPP(rebuild:Bool,args:Array<String>) {
+function setupCPP(rebuild:Bool, args:Array<String>) {
 	Sys.println("C++ compiler version");
-	if (!FileSystem.exists("export/cpp") || rebuild) {
+	final fileName = executable("export/cpp/Main-debug");
+	if (!FileSystem.exists("export/cpp") || !FileSystem.exists(fileName) || rebuild) {
 		var cmd = "haxe extra/scripts/build-cpp.hxml";
 		Sys.command(cmd);
 	}
-	final name = executable("export/cpp/Main-debug");
-	trace(name,args);
-	new Process(name, args);
+	// trace(fileName, args);
+	Sys.command(fileName, args);
 }
 
-function setupHashlink(rebuild:Bool,args:Array<String>) {
+function setupHashlink(rebuild:Bool, args:Array<String>) {
 	Sys.println("Hashlink compiler version");
 	var no_uv = false;
 	var no_fmt = false;

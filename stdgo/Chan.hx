@@ -47,10 +47,11 @@ class ChanData<T> {
 	var getCount = 0; // number of goroutines currently in unbuffered get
 
 	// Debug
-	public static var count:Int = 0; // the number of channels
-	var index:Int = 0; // this chan id, used in toString - useful even not in local debug mode
 	public static inline var debug = false;
+	public static var count:Int = 0; // the number of channels
+	public static var staticMutex = #if target.threaded new sys.thread.Mutex() #else {acquire: () -> {}, release: () -> {}} #end;
 
+	var index:Int = 0; // this chan id, used in toString - useful even not in local debug mode
 
 	function get_length():GoInt {
 		mutex.acquire();
@@ -60,13 +61,17 @@ class ChanData<T> {
 	}
 
 	public function new(length:GoInt, defaultValue) {
+		mutex.acquire();
 		buffered = length > 0;
 		this.capacity = length;
 		this.defaultValue = defaultValue;
-			index = count;
-			count++;
-			if (debug) {
-				trace(index + "new ", length, defaultValue);
+		staticMutex.acquire();
+		index = count;
+		count++;
+		staticMutex.release();
+		mutex.release();
+		if (debug) {
+			trace(index + "new Chan", length, defaultValue);
 		}
 	}
 
@@ -82,16 +87,13 @@ class ChanData<T> {
 	// can a value be got from the channel?
 	public function __isGet__(selectBool:Bool = false):Bool {
 		if (debug)
-			trace(index + "__isGet__ " + selectBool, length, buffered);
+			trace(index + "__isGet__ " + selectBool);
+
+		mutex.acquire();
 
 		if (selectBool) {
-			mutex.acquire();
 			inGetSelectLoop = true;
-			if (inSendSelectLoop) {
-				mutex.release();
-				return true;
-			}
-			mutex.release();
+			// NOTE go ahead with send if also inSendLoop, but not get
 		}
 
 		if (buffered) {
@@ -102,15 +104,15 @@ class ChanData<T> {
 				r = !closed; // so return if there might ever be more data
 			}
 			if (debug)
-				trace(index + "__isGet__ result", r);
+				trace(index + "__isGet__ buffered result", r);
+			mutex.release();
 			return r;
 		}
 
 		// non-buffered logic below
-		var r = false;
+		var r = false; // the return value
 		if (selectBool) // if we are in a select statement, is there data waiting?
 		{
-			mutex.acquire();
 			if (getCount == 0) {
 				// no get is in progress
 				if (sendCount == 0) {
@@ -124,12 +126,13 @@ class ChanData<T> {
 				// a get is in progress, so we can't do another
 				r = false;
 			}
-			mutex.release();
 		} else
 			r = !closed;
 
 		if (debug)
 			trace(index + "__isGet__ unbuffered result", r);
+
+		mutex.release();
 
 		return r;
 	}
@@ -150,7 +153,13 @@ class ChanData<T> {
 		or false if it is a zero value generated because the channel is closed and empty.
 	**/
 	public function __smartGet__():{_0:T, _1:Bool} {
+		if (debug)
+			trace(index + " __smartGet__");
+
+		var waitCount = 0; // used for debug purposes to track long wait times
+
 		if (buffered) {
+			var waitCount = 0;
 			while (true) {
 				mutex.acquire();
 				if (closed) {
@@ -171,9 +180,15 @@ class ChanData<T> {
 				}
 				// nothing to get, so wait
 				mutex.release();
+				if (debug) {
+					waitCount++;
+					if (waitCount > 100 && waitCount % 1000 == 1)
+						trace(index + " get buffered data wait", length, closed);
+				}
 				gosched();
 			}
 		} else { // unbuffered channel get
+
 			/* 
 				"By default channels are unbuffered, meaning that they will only accept sends (chan <-) 
 				if there is a corresponding receive (<- chan) ready to receive the sent value."
@@ -190,12 +205,23 @@ class ChanData<T> {
 						r = unbufferedData;
 						dataWaiting = false;
 						ok = true; // value did come from a send
+						if (debug)
+							trace(index + " unbuffered __smartGet__ data transfered:", r);
 					}
+					if (debug)
+						trace(index + " unbuffered __smartGet__ ok:", ok);
 					getCount--; // this get is over
 					mutex.release();
 					return {_0: r, _1: ok};
 				}
 				mutex.release();
+				if (debug) {
+					waitCount++;
+					if (waitCount > 100 && waitCount % 1000 == 1) {
+						trace(index + " get unbuffered data wait", dataWaiting, getCount, sendCount, closed);
+						throw "get unbuffered data wait";
+					}
+				}
 				gosched();
 			}
 		}
@@ -207,24 +233,32 @@ class ChanData<T> {
 	}
 
 	public function __isSend__(selectBool:Bool = false):Bool {
+		if (debug)
+			trace(index + " __isSend__", selectBool);
+		mutex.acquire();
+
 		if (closed) {
+			mutex.release();
 			return false;
 		}
 
 		if (selectBool) {
-			mutex.acquire();
 			inSendSelectLoop = true;
-			if (inGetSelectLoop) {
+			if (inGetSelectLoop) { // NOTE this logic is only on the send side, not the get side
 				mutex.release();
+				if (debug)
+					trace(index + " __isSend__ both in select loops", true);
 				return true;
 			}
-			mutex.release();
 		}
 
 		if (buffered) {
 			var b = true; // you can always send to an open channel
 			if (selectBool)
 				b = length < capacity; // but in a select statement, it needs to have capacity NOTE mutex inside get_length
+			mutex.release();
+			if (debug)
+				trace(index + " __isSend__ buffered", b);
 			return b;
 		}
 
@@ -232,7 +266,6 @@ class ChanData<T> {
 		var b = true; // usually can always send
 		if (selectBool) { // but if we are in a select statement
 			b = false;
-			mutex.acquire();
 			if (sendCount == 0) {
 				// no send is in progress
 				if (getCount == 0) {
@@ -242,15 +275,20 @@ class ChanData<T> {
 					b = true;
 				}
 			}
-			mutex.release();
 		}
+		mutex.release();
 		if (debug)
-			trace(index + "__isSend__ result=" + b, length, buffered);
+			trace(index + "__isSend__ unbuffered", b);
 		return b;
 	}
 
 	// send a value to a channel
 	public function __send__(value:T) {
+		if (debug)
+			trace(index + " begin __Send__ ", value);
+
+		var waitCount = 0; // used to track long wait times for debug
+
 		if (buffered) { // buffered send
 
 			while (true) {
@@ -263,10 +301,15 @@ class ChanData<T> {
 					buffer.push(value);
 					mutex.release();
 					if (debug)
-						trace(index + "end of __send__");
+						trace(index + " end of buffered __send__");
 					return;
 				}
 				mutex.release();
+				if (debug) {
+					waitCount++;
+					if (waitCount > 100 && waitCount % 1000 == 1)
+						trace(index + " buffered send data wait", length, closed);
+				}
 				gosched();
 			}
 		} else { // unbuffered send
@@ -276,38 +319,55 @@ class ChanData<T> {
 				if there is a corresponding receive (<- chan) ready to receive the sent value."
 			 */
 
-			if (closed) { // no mutex required, as read-only
-				if (debug)
-					trace(index + "closed unbuffered __send__");
-				throw "send to closed channel";
-			}
-
 			mutex.acquire();
 			sendCount++; // this send is starting
 			mutex.release();
 			while (true) { // wait for a slot to send
 				mutex.acquire();
-				if (!dataWaiting) { // a data transfer is not in progress
+				if ((!dataWaiting && getCount > 0) || closed) { // a data transfer is not in progress && a matching get is waiting OR closed
+
+					if (closed) { // no mutex required, as read-only
+						sendCount--; // this send is over
+						mutex.release();
+						if (debug)
+							trace(index + "closed unbuffered __send__");
+						throw "send to closed channel";
+					}
+
 					// set-up transfer to the "get"
 					unbufferedData = value;
 					dataWaiting = true;
 					mutex.release();
-					gosched();
 
+					gosched(); // give space for the transfer to take place
+
+					var waitCountTX = 0;
 					while (true) { // wait for the transfer to take place
 						mutex.acquire();
 						if (!dataWaiting) {
 							sendCount--; // this send is over
 							mutex.release();
 							if (debug)
-								trace(index + "unbuffered __send__");
+								trace(index + " unbuffered __send__ complete");
 							return;
 						}
 						mutex.release();
+						if (debug) {
+							waitCountTX++;
+							if (waitCountTX > 100 && waitCountTX % 1000 == 1)
+								trace(index + " unbufffered send tx wait", dataWaiting, getCount, sendCount, closed);
+						}
 						gosched();
 					}
 				}
 				mutex.release();
+				if (debug) {
+					waitCount++;
+					if (waitCount > 100 && waitCount % 1000 == 1) {
+						trace(index + " unbuffered send get wait", dataWaiting, getCount, sendCount, closed);
+						throw "send unbuffered data wait";
+					}
+				}
 				gosched();
 			}
 		}
@@ -317,12 +377,12 @@ class ChanData<T> {
 		return new ChanIterator(this);
 
 	public inline function toString():String {
-		return "Chan:"+Std.string(index);
+		return "0x0" + Std.string(index);
 	}
 
 	public function __close__() {
 		if (debug)
-			trace(index + "close");
+			trace(index + " close", dataWaiting, getCount, sendCount, closed);
 		mutex.acquire();
 		closed = true;
 		mutex.release();

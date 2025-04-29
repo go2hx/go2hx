@@ -12,11 +12,11 @@ function typeGoStmt(stmt:GoAst.GoStmt, info:Info):MacroExpr {
 			for (i in 0...args.length) {
 				args[i] = macro $i{"__tmp__" + i};
 			}
-			return (macro {
+			return macro {
 				@:mergeBlock $b{vars};
 				stdgo.Go.routine(() -> $e($a{args}));
-			}).expr;
+			};
 		default:
-			return (macro stdgo.Go.routine(() -> $call)).expr;
+			return macro stdgo.Go.routine(() -> $call);
 	}
 }

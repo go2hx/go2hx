@@ -110,7 +110,7 @@ class ChanData<T> {
 		}
 
 		// non-buffered logic below
-		var r = false; // the return value
+		var r = true; // the return value
 		if (selectBool) // if we are in a select statement, is there data waiting?
 		{
 			if (getCount == 0) {
@@ -126,8 +126,20 @@ class ChanData<T> {
 				// a get is in progress, so we can't do another
 				r = false;
 			}
-		} else
+		} else{
+
+			while( !closed && sendCount==0) {
+				// wait in a loop for close or new value
+				mutex.release();
+				if (debug)
+					trace(index + "__isGet__ unbuffered await close or send");		
+				gosched();
+				mutex.acquire();
+			}
+
 			r = !closed;
+		}
+				
 
 		if (debug)
 			trace(index + "__isGet__ unbuffered result", r);
@@ -312,6 +324,7 @@ class ChanData<T> {
 				}
 				gosched();
 			}
+
 		} else { // unbuffered send
 
 			/* 
@@ -337,6 +350,7 @@ class ChanData<T> {
 					// set-up transfer to the "get"
 					unbufferedData = value;
 					dataWaiting = true;
+					sendCount--; // this send is effectively over
 					mutex.release();
 
 					gosched(); // give space for the transfer to take place
@@ -345,7 +359,6 @@ class ChanData<T> {
 					while (true) { // wait for the transfer to take place
 						mutex.acquire();
 						if (!dataWaiting) {
-							sendCount--; // this send is over
 							mutex.release();
 							if (debug)
 								trace(index + " unbuffered __send__ complete");

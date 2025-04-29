@@ -110,15 +110,15 @@ class Stream {
 
 	public function new(s, loop) {
 		this.s = s;
-		this.s.setBlocking(false);
+		// this.s.setBlocking(false);
 		this.loop = loop;
 	}
 
 	public function write(b:Bytes, ?onWrite:Bool->Void) {
-		s.setBlocking(false);
+		// s.setBlocking(false);
 		s.output.writeBytes(b, 0, b.length);
 		s.output.flush();
-		s.setBlocking(false);
+		// s.setBlocking(false);
 		if (onWrite != null)
 			onWrite(true);
 	}
@@ -146,7 +146,7 @@ class Tcp {
 	public function new(loop:Loop) {
 		this.loop = loop;
 		s = new Socket();
-		s.setBlocking(false);
+		// s.setBlocking(false);
 	}
 
 	public function close() {

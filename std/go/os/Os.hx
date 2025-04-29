@@ -54,13 +54,13 @@ overload extern inline function readDir(_name:stdgo.GoString) {
 @:recv(T_dirFS)
 overload extern inline function readDir(_dir:stdgo.GoString, _name:stdgo.GoString) {
 	final fullname = haxe.io.Path.join([_dir, _name]);
-	return Os.readDir(fullname);
+	return stdgo._internal.os.Os_readdir.readDir(fullname);
 }
 
 @:recv(T_dirFS)
 overload extern inline function open(_dir:stdgo.GoString, _name:stdgo.GoString) {
 	final fullname = haxe.io.Path.join([_dir, _name]);
-	final obj = Os.open(_dir, fullname);
+	final obj = stdgo._internal.os.Os_open.open(fullname);
 	return {_0: stdgo.Go.asInterface(obj._0), _1: obj._1};
 }
 

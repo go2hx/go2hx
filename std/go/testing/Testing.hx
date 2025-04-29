@@ -140,7 +140,7 @@ function tempDir(_c) {
 	if (_c._tempDirErr != null) {
 		_c.fatalf("TempDir: %v", stdgo.Go.toInterface(_c._tempDirErr));
 	} else {
-		_c.cleanup(() -> {
+		_c.cleanup(function() {
 			stdgo._internal.os.Os_removeall.removeAll(_c._tempDir);
 		});
 	}

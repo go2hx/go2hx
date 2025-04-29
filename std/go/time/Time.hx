@@ -38,7 +38,7 @@ function _startTimer(_0) {
 		diff = 0;
 	final d = (diff : stdgo.GoInt).toBasic() + 1;
 	final timer = new haxe.Timer(d);
-	timer.run = () -> {
+	timer.run = function() {
 		timer.stop();
 		t._status = 0;
 		if (t._period != (0 : stdgo.GoInt64)) {

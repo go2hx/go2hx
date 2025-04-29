@@ -607,7 +607,6 @@ final list = [
 	"runtime:numCgoCall" => macro return 0,
 	"runtime:keepAlive" => macro {},
 	"runtime:goexit" => macro {},
-	"runtime:gC" => macro {},
 	"runtime:numGoroutine" => macro return stdgo.Go.goroutines + 1,
 	"runtime:gOMAXPROCS" => macro return 1,
 	// stdgo/reflect

@@ -164,7 +164,7 @@ function isPathSeparator(_c:stdgo.GoRune):Bool {
 	@:define("(sys || hxnodejs)") {
 		final sep = switch Sys.systemName() {
 			case "Windows":
-				"\\".code;
+				untyped "\\\\".code;
 			default:
 				"/".code;
 		}

@@ -79,7 +79,7 @@ jobs:
       - run: git clone https://github.com/go2hx/tools --depth=1
       - name: Create vendor
         run: go mod vendor
-      - run: go run . -goto
+      - run: go run . -goto -systemgo
   interop:
     timeout-minutes: 15
     needs: setup
@@ -138,7 +138,7 @@ jobs:
       - run: git clone https://github.com/go2hx/tools --depth=1
       - name: Create vendor
         run: go mod vendor
-      - run: go run . -pointer
+      - run: go run . -pointer -systemgo
   stdgo:
     timeout-minutes: 15
     needs: [build-hl,build-interp,build-js]

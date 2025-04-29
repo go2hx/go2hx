@@ -285,7 +285,16 @@ overload extern inline function open(_name:stdgo.GoString) {
 }
 
 function openFile(_name:stdgo.GoString) {
-	return stdgo._internal.os.Os_openfile.openFile(_name, 0, 0);
+	return @:define("(sys || hxnodejs)") {
+		if (!sys.FileSystem.exists(_name)) {
+			sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
+		}
+		try {
+			{_0: {_file: {_name: _name}, _input: sys.io.File.read(_name, false), _output: sys.io.File.update(_name)}, _1: null};
+		} catch (e) {
+			{_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
+		}
+	};
 }
 
 overload extern inline function truncate() {

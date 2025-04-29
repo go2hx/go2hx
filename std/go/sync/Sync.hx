@@ -46,8 +46,8 @@ function lock(_m) {
 }
 
 @:recv(Mutex)
-function tryLock(_m) {
-	@:privateAccess @:define("target.threaded") return _m.mutex.tryAcquire();
+function tryLock(_m):Bool {
+	return @:privateAccess @:define("target.threaded") _m.mutex.tryAcquire();
 }
 
 @:recv(Mutex)

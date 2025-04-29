@@ -43,7 +43,7 @@ function deepEqual(_x, _y) {
 
 @:recv(Value)
 function canInterface() {
-	trace("canInterface always returns true");
+	// trace("canInterface always returns true");
 	return true;
 }
 
@@ -736,7 +736,7 @@ function set(_v) {
 }
 
 @:recv(Value)
-function string(_v) {
+overload extern inline function string(_v) {
 	if (@:privateAccess _v.value == null) {
 		return "<invalid Value>";
 	}

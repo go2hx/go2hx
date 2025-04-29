@@ -1,7 +1,7 @@
 package typer.stmts;
 
 function typeGoStmt(stmt:GoAst.GoStmt, info:Info):MacroExpr {
-	var call = typeExpr(stmt.call, info);
+	var call = typer.exprs.Expr.typeExpr(stmt.call, info);
 	switch call.expr {
 		case ECall(e, args):
 			var vars:Array<Expr> = [];

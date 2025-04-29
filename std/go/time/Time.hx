@@ -45,7 +45,9 @@ function _startTimer(_0) {
 			t._when += t._period;
 			_startTimer(t);
 		}
-		stdgo.Go.routine(() -> t._f(t._arg, new stdgo.GoUIntptr(0)));
+		stdgo.Go.routine(function() {
+			t._f(t._arg, new stdgo.GoUIntptr(0));
+		});
 	};
 	t._pp = new stdgo.GoUIntptr(timer);
 }

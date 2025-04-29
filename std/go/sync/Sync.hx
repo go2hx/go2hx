@@ -13,7 +13,7 @@ function get(_p) {
 }
 
 @:recv(Pool)
-function put(_p) {
+function put(_p, _x) {
 	@:privateAccess _p.pool.push(_x);
 }
 
@@ -24,7 +24,7 @@ function _runtime_procPin()
 function _dirtyLocked() {}
 
 @:recv(Cond)
-function wait_(_c) {
+overload extern inline function wait_(_c) {
 	_c.l.unlock();
 	@:privateAccess @:define("target.threaded") _c.cond.wait();
 	_c.l.lock();
@@ -47,7 +47,7 @@ function lock(_m) {
 
 @:recv(Mutex)
 function tryLock(_m) {
-	@:privateAccess @:define("target.threaded") _m.mutex.tryAcquire();
+	@:privateAccess @:define("target.threaded") return _m.mutex.tryAcquire();
 }
 
 @:recv(Mutex)
@@ -56,7 +56,7 @@ function unlock(_m) {
 }
 
 @:recv(WaitGroup)
-function add(_wg) {
+function add(_wg, _delta) {
 	@:define("target.threaded") {
 		@:privateAccess _wg.mutex.acquire();
 		@:privateAccess _wg.counter += _delta;
@@ -81,14 +81,14 @@ function done(_wg) {
 }
 
 @:recv(WaitGroup)
-function wait_(_wg) {
+overload extern inline function wait_(_wg) {
 	@:define("target.threaded") {
 		@:privateAccess @:define("target.threaded") _wg.lock.wait();
 	}
 }
 
 @:recv(Once)
-function do_(_o) {
+function do_(_o, _f) {
 	if (@:privateAccess _o._done == 1)
 		return;
 	@:privateAccess _o._done = 1;

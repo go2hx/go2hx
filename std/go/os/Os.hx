@@ -64,7 +64,7 @@ overload extern inline function open(_dir:stdgo.GoString, _name:stdgo.GoString) 
 	return {_0: stdgo.Go.asInterface(obj._0), _1: obj._1};
 }
 
-final args = stdgo._internal.os.Os_runtime_args._runtime_args();
+final args = stdgo._internal.os.Os__runtime_args._runtime_args();
 
 function environ_() {
 	final slice = new stdgo.Slice<stdgo.GoString>(0, 0);

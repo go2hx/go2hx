@@ -85,14 +85,18 @@ private function receivedData(instance, buff, client) {
 	runBuildTools(modules, instance, programArgs);
 	Sys.setCwd(cwd);
 	onComplete(modules, instance.data);
+	instance = null;
+	programArgs = null;
+}
+
+function runGC() {
 	#if nodejs
 	if (js.Node.global.gc != null)
 		js.Node.global.gc();
 	#elseif hl
 	hl.Gc.major();
+	cpp.vm.Gc.run(true);
 	#end
-	instance = null;
-	programArgs = null;
 }
 
 /**

@@ -47,8 +47,10 @@ function main() {
             Sys.command("hl interop.hl");
         case ["format"]:
             Sys.command("haxelib run formatter --source .");
-        case ["rnd"]:
-            Sys.command("haxe rnd/rnd.hxml");
+        case ["testbed"]:
+            Sys.command("haxe testbed/build.hxml");
+        case ["build"]:
+            Sys.command("haxe --run Run build");
         default:
             Sys.println("unknown args");
     }

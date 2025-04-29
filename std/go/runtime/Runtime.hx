@@ -37,3 +37,6 @@ function gC() {}
 
 function gOMAXPROCS()
 	return 1;
+
+function numGoroutine()
+	return stdgo.Go.goroutines + 1

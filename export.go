@@ -91,12 +91,16 @@ var hashMap map[uint32]map[string]interface{}
 var testBool = false
 var debugBool = false
 var noDepsBool = false
+var systemGo = false
 
 func compile(params []string, excludesData []string, index string, debug bool) []byte {
 	args := []string{}
 	testBool = false
+	systemGo = false
 	for _, param := range params {
 		switch param {
+		case "-systemgo", "--systemgo", "-systemGo", "--systemGo":
+			systemGo = true
 		case "-test", "--test":
 			testBool = true
 		case "-nodeps", "--nodeps", "-nodep", "--nodep":
@@ -107,14 +111,27 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 			args = append(args, param)
 		}
 	}
+	if !systemGo {
+		b, err := os.ReadFile(".gorc")
 
+		if err != nil {
+			println("require .gorc file")
+			panic(err)
+		}
+		home, err := os.UserHomeDir()
+		if err != nil {
+			println("finding home directory caused an error")
+			panic(err)
+		}
+		goroot := home + "/.go/go" + string(b)
+		goCommand := goroot + "/bin/go"
+		cfg.Env = append(cfg.Env, "GOROOT="+goroot)
+		os.Setenv("GOROOT", goroot)
+		os.Setenv("GOCMD", goCommand)
+	}
 	b := []byte("null")
 	localPath := args[len(args)-1]
 	var err error
-	if err != nil {
-		log.Fatal(err.Error())
-		return b
-	}
 	err = os.Chdir(localPath)
 	args = args[0 : len(args)-1] //remove chdir
 	if err != nil {
@@ -122,7 +139,6 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 		return b
 	}
 	cfg.Tests = testBool
-	os.Setenv("GOCMD", goCommand)
 	initial, err := packages.Load(cfg, &types.StdSizes{WordSize: 4, MaxAlign: 8}, args...)
 	if err != nil {
 		log.Fatal("load error: " + err.Error())
@@ -196,28 +212,13 @@ var cfg = &packages.Config{
 }
 
 var r = rand.New(rand.NewSource(99))
-var goCommand = ""
 
 func main() {
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
 	// set log output to log.out
 	cfg.Env = append(os.Environ(), "CGO_ENABLED=0")
 	var err error
-	var b []byte
-	b, err = os.ReadFile(".gorc")
-
-	if err != nil {
-		println("require .gorc file")
-		panic(err)
-	}
-	home, err := os.UserHomeDir()
-	if err != nil {
-		println("finding home directory caused an error")
-		panic(err)
-	}
-	goroot := home + "/.go/go" + string(b)
-	goCommand = goroot + "/bin/go"
-	cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm", "GOROOT="+goroot)
+	cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm")
 	args := os.Args
 	if len(args) < 2 {
 		panic("The Haxe part of the compiler is supposed to invoke the Go part of the compiler")

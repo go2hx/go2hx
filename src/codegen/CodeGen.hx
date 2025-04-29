@@ -161,7 +161,7 @@ function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
 			interopContent.push(cl);
 			save(outputPath + actualPathInterop + "/", file.name, interopContent, pkgPathInterop, "", false);
 		}
-		save(outputPath + actualPath + "/", file.name, content, pkgPath + contentImports);
+		save(outputPath + actualPath + "/", file.name, content, pkgPath + contentImports, "", !file.isMain);
 		if (hasMacroDef) {
 			if (interopDefBool) {
 				interopMacroContent.push(clMacro);

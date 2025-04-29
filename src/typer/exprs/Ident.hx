@@ -59,19 +59,21 @@ function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:B
 		name = name + "_";
 	}
 	if (objPath != null) {
-		final path = normalizePath(objPath);
-		final pack = path.split("/");
-		pack.unshift("_internal");
-		final path = toGoPath(path);
-		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
-			pack.unshift("stdgo");
+		if (!info.data.isMain) {
+			final path = normalizePath(objPath);
+			final pack = path.split("/");
+			pack.unshift("_internal");
+			final path = toGoPath(path);
+			if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
+				pack.unshift("stdgo");
+			}
+			final filePath = pack.pop();
+			pack.push(filePath);
+			pack.push(title(filePath) + "_" + name.toLowerCase());
+			pack.push(name);
+			// name = path + "." + filePath + "_" + name + "." + name;
+			name = pack.join(".");
 		}
-		final filePath = pack.pop();
-		pack.push(filePath);
-		pack.push(title(filePath) + "_" + name.toLowerCase());
-		pack.push(name);
-		// name = path + "." + filePath + "_" + name + "." + name;
-		name = pack.join(".");
 	} else if (!formatField && !isSelect && !overwrite && info.localIdents.indexOf(name) == -1) {
 		if (name.indexOf(".") != -1)
 			return name;

@@ -157,13 +157,12 @@ abstract DebugArray<T:String>(Array<T>) from Array<T> to Array<T> {
 	}
 }
 
-
 @:forward
 @:forward.new
 @:forward.overload
 @:forwardStatics
 @:forward.variance
-abstract DebugMap<K:String, V:String>(Map<K,V>) from Map<K,V> to Map<K,V> {
+abstract DebugMap<K:String, V:String>(Map<K, V>) from Map<K, V> to Map<K, V> {
 	@:op([])
 	public function set(key:K, value:V) {
 		this.set(key, value);

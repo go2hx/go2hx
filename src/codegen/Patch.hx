@@ -337,7 +337,7 @@ final list = [
 		@:define("(sys || hxnodejs)") {
 			var ticks = std.Math.floor(seconds * 100);
 			while (--ticks > 0) {
-				stdgo._internal.internal.Async.tick();
+				// stdgo._internal.internal.Async.tick();
 				std.Sys.sleep(0.01);
 			}
 		}
@@ -608,6 +608,7 @@ final list = [
 	"runtime:keepAlive" => macro {},
 	"runtime:goexit" => macro {},
 	"runtime:gC" => macro {},
+	"runtime:numGoroutine" => macro return stdgo.Go.goroutines + 1,
 	"runtime:gOMAXPROCS" => macro return 1,
 	// stdgo/reflect
 	"reflect:typeOf" => macro @:splitdeps {

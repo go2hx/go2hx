@@ -91,18 +91,6 @@ flowchart LR
 haxelib git go2hx https://github.com/go2hx/go2hx
 ```
 
-### haxelib git too slow or does not work?
-
-```sh
-git clone --depth 1 https://github.com/go2hx/go2hx
-haxelib dev go2hx go2hx
-```
-If you want updates, you can convert the shallow clone to an unshallow one:
-```sh
-cd go2hx
-git fetch  --unshallow
-```
-
 ## First compile
 
 Start with something simple [unicode](https://pkg.go.dev/unicode) or [strings](https://pkg.go.dev/strings)
@@ -328,12 +316,15 @@ I use this tool daily and almost all problems I run into, I isolate the problem 
 
 ## Setup from source
 
-
 ```sh
-git clone https://github.com/go2hx/go2hx
+git clone --recursive https://github.com/go2hx/go2hx
 cd go2hx
 haxelib dev go2hx go2hx
 haxe --run Run build
+```
+The project relies on git submodules, if you have cloned the project and forgot to add ``--recursive`` you can get the submodules after with:
+```sh
+git submodule update --init --recursive
 ```
 Now you can run the compiler, for example on a go test file:
 ```sh

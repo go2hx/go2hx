@@ -1,5 +1,6 @@
 -m Main
 -cp src
+-cp std
 -cp git/haxeparser/src
 -cp git/hxparse/src
 extraParams.hxml

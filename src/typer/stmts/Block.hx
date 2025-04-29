@@ -37,8 +37,16 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 			exprs.unshift(toExpr(EVars(vars)));
 		}
 	}
-	if (list != null) {
-		exprs = exprs.concat([for (stmt in list) typer.stmts.Stmt.typeStmt(stmt, info)]);
+	if (list != null) { // file://./If.hx#10
+		final stmts = [for (stmt in list) typer.stmts.Stmt.typeStmt(stmt, info)];
+		for (i in 0...stmts.length) {
+			final location = list[i].location;
+			if (location == null || location == "")
+				continue;
+			final commentString = 'file://$location';
+			stmts[i] = macro @:comment(${HaxeAst.makeString(commentString)}) ${stmts[i]};
+		}
+		exprs = exprs.concat(stmts);
 	}
 	if (list != null && info.global.gotoSystem && isFunc) {
 		exprs = [macro stdgo._internal.internal.Macro.controlFlow($b{exprs})];

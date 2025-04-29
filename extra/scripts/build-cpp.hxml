@@ -15,6 +15,7 @@ extra/scripts/build-each.hxml
 -D HXCPP_STACK_TRACE
 -D HXCPP_STACK_LINE
 -D HXCPP_TRACY_MEMORY
+#-D HXCPP-GC-GENERATIONAL
 # Note: This will inflate the telemetry data A LOT and cost more performance. Please be aware.
 -D HXCPP_TRACY_INCLUDE_CALLSTACKS
 -D HXCPP_TRACY_NO_EXIT

@@ -1086,7 +1086,23 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 
 private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
 	var call = typeExpr(stmt.call, info);
-	return (macro stdgo.Go.routine(() -> $call)).expr;
+	switch call.expr {
+		case ECall(e, args):
+			var vars:Array<Expr> = [];
+			for (i in 0...args.length) {
+				final name = "__tmp__" + i;
+				vars[i] = macro final $name = ${args[i]};
+			}
+			for (i in 0...args.length) {
+				args[i] = macro $i{"__tmp__" + i};
+			}
+			return (macro {
+				@:mergeBlock $b{vars};
+				stdgo.Go.routine(() -> $e($a{args}));
+			}).expr;
+		default:
+			return (macro stdgo.Go.routine(() -> $call)).expr;
+	}
 }
 
 private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprDef {

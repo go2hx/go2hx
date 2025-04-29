@@ -43,7 +43,7 @@ function main() {
 	run(args);
 }
 
-final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodeps", "-debug","--debug"];
+final passthroughArgs = ["-systemgo", "--systemgo", "-systemGo", "--systemGo", "-log", "--log", "-test", "--test", "-nodeps", "--nodeps", "-debug","--debug"];
 
 function run(args:Array<String>) {
 	var processCount = 1;

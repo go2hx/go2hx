@@ -57,10 +57,10 @@ function getTypePath(ct:ComplexType, info:Info):TypePath {
 }
 
 function splitDepFullPathName(name:String, info:Info):String {
-	if (info.data.isMain)
-		return name;
 	var path = getGlobalPath(info);
 	var filePath = info.global.filePath;
+	if (info.data.isMain)
+		return path + "." + filePath + "." + name;
 	name = path + "." + filePath + "_" + name.toLowerCase() + "." + name;
 	return name;
 }

@@ -398,8 +398,8 @@ final stdin = {
 
 final stdout = {
 	var output:haxe.io.Output = null;
-	@:define("js") output = new stdgo._internal.os.Os_jsoutput.JsOutput();
-	@:define("(sys || hxnodejs)") output = std.Sys.stdout();
+	@:define("js") (output = new stdgo._internal.os.Os_jsoutput.JsOutput());
+	@:define("(sys || hxnodejs)") (output = std.Sys.stdout());
 	new stdgo._internal.os.Os_file.File(null, output);
 };
 

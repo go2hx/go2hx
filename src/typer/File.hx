@@ -504,11 +504,6 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 					switch kind {
 						case FFun(fun):
 							final patchName = info.global.module.path + "." + def.name + ":" + func.name;
-							/*final patch = codegen.Patch.list[patchName];
-								if (patch != null) {
-									fun.expr = patch;
-									codegen.Patch.list.remove(patchName);
-							}*/
 							func.meta.push({name: ":tdfield", pos: null});
 							if (codegen.Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 								access.push(AInline);

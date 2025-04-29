@@ -41,8 +41,6 @@ final list = [
 	// stdgo/errors
 	"errors:_errorType" => macro stdgo._internal.internal.reflectlite.Reflectlite_typeof.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem(),
 	// stdgo/os
-	// exclude because it pulls in x/net/
-	"os_test:_createSocketPair" => macro return {_0: null, _1: null},
 	"os:mkdir" => macro @:define("(sys || hxnodejs)") try {
 		sys.FileSystem.createDirectory(_name);
 		return null;
@@ -1949,10 +1947,6 @@ final list = [
 		return _m._exitCode;
 	},
 	"testing:benchmark" => macro return new stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult(),
-	// testing/iotest
-	"testing.iotest:testWriteLogger" => macro {},
-	// testing/fstest
-	"testing.fstest:testMapFS" => macro {},
 	// internal/testenv
 	"internal.testenv:builder" => macro return "",
 	"internal.testenv:hasGoBuild" => macro return false,
@@ -1967,6 +1961,10 @@ final list = [
 ];
 
 final skipTests = [
+	"testing.iotest:testWriteLogger" => [],
+	// testing/fstest
+	"testing.fstest:testMapFS" => [],
+	"os_test:_createSocketPair" => [], // exclude because it pulls in x/net/
 	"encoding.csv:testRead" => [], // temp disable FIXME
 	"math.rand_test:testConcurrent" => [], // sync.WaitGroup and goroutines with exceptions inside
 	"path.filepath_test:testCVE202230632" => [], // segfault

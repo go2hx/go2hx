@@ -107,10 +107,15 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 			if (constant)
 				access.push(AFinal);
 			final patchName = info.global.module.path + ":" + name;
-			final patch = codegen.Patch.list[patchName];
-			if (patch != null) {
-				expr = patch;
-				codegen.Patch.list.remove(patchName);
+			var patch = null;
+			#if !macro
+			patch = codegen.Patch2.getValue(info.global.module.path, name);
+			#end
+			if (patch == null) {
+				// patch = codegen.Patch.list[patchName];
+				if (patch != null) {
+					throw "PATCHFAILED_VALUE: " + patchName;
+				}
 			}
 			if (info.global.varTraceBool)
 				if (expr != null) {

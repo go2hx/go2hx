@@ -4,7 +4,9 @@ typedef IntermediateReturnStmtType = {
 	blank:Bool,
 	returnTypes:Array<GoType>,
 	returnNamed:Bool,
+	returnType:ComplexType,
 	returnNames:Array<String>,
+	deferBool:Bool,
 	results:Array<Dynamic>,
 	info:Info,
 };
@@ -19,7 +21,9 @@ function typeReturnStmtAnalyze(stmt:GoAst.ReturnStmt, info:Info):IntermediateRet
 		blank: stmt.results.length == 0,
 		returnTypes: info.returnTypes,
 		returnNames: info.returnNames,
+		returnType: info.returnType,
 		returnNamed: info.returnNamed,
+		deferBool: info.global.deferBool,
 		results: stmt.results,
 		info: info,
 	};
@@ -31,19 +35,19 @@ function typeReturnStmtEmit(stmt:IntermediateReturnStmtType):MacroExpr {
 	// blank return
 	if (stmt.blank) {
 		if (stmt.returnTypes.length == 0)
-			return postProcess(macro return, info);
+			return postProcess(macro return, stmt);
 		if (stmt.returnTypes.length == 1) {
-			if (stmt.returnNames.length == 1 && info.returnNamed)
-				return postProcess(macro return $i{stmt.returnNames[0]}, info, true);
+			if (stmt.returnNames.length == 1 && stmt.returnNamed)
+				return postProcess(macro return $i{stmt.returnNames[0]}, stmt, true);
 			final value = typer.exprs.Expr.defaultValue(stmt.returnTypes[0], info);
-			return postProcess(macro return $value, info, true);
+			return postProcess(macro return $value, stmt, true);
 		}
 		final fields:Array<ObjectField> = [
-			for (i in 0...info.returnTypes.length)
-				{field: "_" + i, expr: info.returnNamed ? macro $i{info.returnNames[i]} : typer.exprs.Expr.defaultValue(info.returnTypes[i], info)}
+			for (i in 0...stmt.returnTypes.length)
+				{field: "_" + i, expr: stmt.returnNamed ? macro $i{stmt.returnNames[i]} : typer.exprs.Expr.defaultValue(stmt.returnTypes[i], info)}
 		];
 		final decl = toExpr(EObjectDecl(fields));
-		return postProcess(macro return $decl, info, true);
+		return postProcess(macro return $decl, stmt, true);
 	}
 	if (stmt.results.length == 1) {
 		var e = typer.exprs.Expr.typeExpr(stmt.results[0], info);
@@ -67,7 +71,7 @@ function typeReturnStmtEmit(stmt:IntermediateReturnStmtType):MacroExpr {
 					e = macro $x = $e;
 			}
 		}
-		return postProcess(macro return $e, info);
+		return postProcess(macro return $e, stmt);
 	}
 	// multireturn
 	var expr = toExpr(EObjectDecl([
@@ -84,8 +88,8 @@ function typeReturnStmtEmit(stmt:IntermediateReturnStmtType):MacroExpr {
 			};
 		}
 	]));
-	if (info.returnNamed) {
-		final ct = info.returnType;
+	if (stmt.returnNamed) {
+		final ct = stmt.returnType;
 		final decls:Array<MacroExpr> = [macro @:typeReturnStmt2 final __tmp__:$ct = $expr];
 		expr = macro $b{decls};
 		for (i in 0...stmt.results.length) {
@@ -97,11 +101,12 @@ function typeReturnStmtEmit(stmt:IntermediateReturnStmtType):MacroExpr {
 		}
 		decls.push(macro __tmp__);
 	}
-	return postProcess(macro return $expr, info);
+	return postProcess(macro return $expr, stmt);
 }
 
-function postProcess(e:MacroExpr, info, blank:Bool = false):MacroExpr {
-	if (info.global.deferBool) {
+function postProcess(e:MacroExpr, stmt:IntermediateReturnStmtType, blank:Bool = false):MacroExpr {
+	final info = stmt.info;
+	if (stmt.deferBool) {
 		final exprs:Array<MacroExpr> = [];
 		switch e.expr {
 			case EReturn(expr):
@@ -114,11 +119,11 @@ function postProcess(e:MacroExpr, info, blank:Bool = false):MacroExpr {
 							exprs.push(HaxeAst.typeDeferReturn(info, false));
 							exprs.push(e);
 						default:
-							final ct = info.returnType;
+							final ct = stmt.returnType;
 							exprs.push(macro final __ret__:$ct = $expr);
-							if (info.returnNames.length > 1 && info.returnNamed) {
-								for (i in 0...info.returnNames.length) {
-									final name = info.returnNames[i];
+							if (stmt.returnNames.length > 1 && stmt.returnNamed) {
+								for (i in 0...stmt.returnNames.length) {
+									final name = stmt.returnNames[i];
 									final fieldName = "_" + i;
 									exprs.push(macro $i{name} = __ret__.$fieldName);
 								}

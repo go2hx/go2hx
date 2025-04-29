@@ -5,23 +5,17 @@ import haxe.macro.Expr as MacroExpr;
 
 var cache = new Map<String, Array<haxeparser.Data.TypeDecl>>();
 
+function getValue(pack:String, valueName:String):MacroExpr {
+	final path = getPath(pack);
+	final decls:Array<haxeparser.Data.TypeDecl> = getCachedDecls(path);
+	var expr:MacroExpr = getValueExpr(valueName, decls);
+	return expr;
+}
+
 function getFunction(pack:String, funcName:String, recvName:String):MacroExpr {
-	final pack = pack.split(".");
-	final fileName = pack.pop();
-	pack.push(fileName);
-	pack.push(title(fileName));
-	final path = "std/go/" + pack.join("/") + ".hx";
-	var decls:Array<haxeparser.Data.TypeDecl> = [];
-	if (cache.exists(path)) {
-		decls = cache[path];
-	} else {
-		// uncached
-		if (!FileSystem.exists(path)) {
-			return null;
-		}
-		cache[path] = getDecls(path);
-	}
-	var expr:MacroExpr = getBody(funcName, decls);
+	final path = getPath(pack);
+	var decls:Array<haxeparser.Data.TypeDecl> = getCachedDecls(path);
+	var expr:MacroExpr = getBody(funcName, recvName, decls);
 	if (expr == null)
 		return null;
 	final importMap = new Map<String, String>();
@@ -74,11 +68,55 @@ function getFunction(pack:String, funcName:String, recvName:String):MacroExpr {
 	return expr;
 }
 
-private function getBody(funcName:String, decls:Array<haxeparser.Data.TypeDecl>) {
+function getCachedDecls(path:String) {
+	if (!cache.exists(path)) {
+		// uncached
+		if (!FileSystem.exists(path)) {
+			return [];
+		}
+		cache[path] = getDecls(path);
+	}
+	return cache[path];
+}
+
+private function getValueExpr(valueName:String, decls:Array<haxeparser.Data.TypeDecl>) {
+	for (decl in decls) {
+		switch decl.decl {
+			case EStatic(def):
+				if (def.name != valueName)
+					continue;
+				switch def.data {
+					case FVar(_, e):
+						return e;
+					default:
+				}
+			default:
+		}
+	}
+	return null;
+}
+
+private function getBody(funcName:String, recvName:String, decls:Array<haxeparser.Data.TypeDecl>) {
 	for (decl in decls) {
 		switch decl.decl {
 			case EStatic(def):
 				if (def.name != funcName)
+					continue;
+				var metaRecvName = "";
+				for (m in def.meta) {
+					if (m.name == ":recv") {
+						if (m.params[0] == null) {
+							throw "recv metadata not set for: " + def.name;
+						}
+						switch m.params[0].expr {
+							case EConst(CIdent(s)):
+								metaRecvName = s;
+								break;
+							default:
+						}
+					}
+				}
+				if (recvName != metaRecvName)
 					continue;
 				switch def.data {
 					case FFun(f):
@@ -101,9 +139,19 @@ private function getDecls(path:String) {
 		switch (e.msg) {
 			case SharpError(_):
 			case _:
+				trace(path);
 				var pMsg = new hxparse.Position(e.pos.file, e.pos.min, e.pos.max).format(input);
 				throw('$pMsg: ${e.msg}\n');
 		}
 		return [];
 	}
+}
+
+function getPath(pack:String):String {
+	final pack = pack.split(".");
+	final fileName = pack.pop();
+	pack.push(fileName);
+	pack.push(title(fileName));
+	final path = "std/go/" + pack.join("/") + ".hx";
+	return path;
 }

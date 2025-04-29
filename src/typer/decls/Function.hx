@@ -110,8 +110,12 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 	#if !macro
 	patch = codegen.Patch2.getFunction(func.patchPack, func.name, func.patchRecvName);
 	#end
-	if (patch == null)
-		patch = codegen.Patch.list[func.patchName];
+	if (patch == null) {
+		// patch = codegen.Patch.list[func.patchName];
+		if (patch != null) {
+			throw "PATCHFAILED_FUNCTION: " + func.patchPack + " " + func.name + " " + func.patchRecvName;
+		}
+	}
 
 	if (patch != null) {
 		block = patch;

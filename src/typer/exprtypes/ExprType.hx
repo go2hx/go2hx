@@ -996,7 +996,6 @@ function addPointerSuffix(ct:ComplexType, info:Info) {
 				if (!info.data.isMain || !io.Path.isPackLocal(p.pack, info)) {
 					p.pack.push(p.pack.pop() + "pointer");
 				}
-				trace("2:", p);
 			}
 		default:
 	}

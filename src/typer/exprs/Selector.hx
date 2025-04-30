@@ -181,7 +181,10 @@ function selectorXIdent(x:MacroExpr, expr:GoAst.SelectorExpr, info:Info):MacroEx
 								p.pack = p.name.split(".");
 								p.name = p.pack.pop();
 							}
-							p.pack.push(p.pack.pop() + "_static_extension");
+							final isLocal = io.Path.isPackLocal(p.pack, info);
+							if (!info.data.isMain || !isLocal) {
+								p.pack.push(p.pack.pop() + "_static_extension");
+							}
 							p.name += "_static_extension";
 							x = macro $p{p.pack.concat([p.name])};
 						default:

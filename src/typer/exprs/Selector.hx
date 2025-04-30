@@ -63,8 +63,8 @@ function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):MacroExpr { // EFi
 							x = macro $x.value;
 						} else {
 							final ct = toComplexType(named(path, methods, type, alias, params), info);
-							addPointerSuffix(ct);
-							x = macro ($x : $ct);
+							addPointerSuffix(ct, info);
+							x = macro($x : $ct);
 						}
 					default:
 				}
@@ -83,9 +83,9 @@ function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):MacroExpr { // EFi
 					}
 					if (recvPointerBool) {
 						final ct = toComplexType(named(path, methods, type, alias, params), info);
-						addPointerSuffix(ct);
+						addPointerSuffix(ct, info);
 						if (!isRefValue(type)) {
-							x = macro (stdgo.Go.pointer($x) : $ct);
+							x = macro(stdgo.Go.pointer($x) : $ct);
 						} else {
 							x = macro $x;
 						}
@@ -105,9 +105,9 @@ function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):MacroExpr { // EFi
 									x = macro(@:checkr $x ?? throw "null pointer dereference");
 							} else {
 								final ct = toComplexType(named(path, methods, type, alias, params), info);
-								addPointerSuffix(ct);
+								addPointerSuffix(ct, info);
 								if (!isRefValue(type)) {
-									x = macro (stdgo.Go.pointer($x) : $ct);
+									x = macro(stdgo.Go.pointer($x) : $ct);
 								} else {
 									x = macro $x;
 								}

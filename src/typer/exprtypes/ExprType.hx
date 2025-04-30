@@ -975,21 +975,25 @@ function getStructFields(type:GoType, restrictedFields:Array<String>, onlyEmbeds
 	}
 }
 
-function addPointerSuffix(ct:ComplexType) {
+function addPointerSuffix(ct:ComplexType, info:Info) {
 	switch ct {
 		case TPath(p):
 			if (p.name.indexOf(".") != -1) {
 				if (p.pack.length == 0) {
 					final parts = p.name.split(".");
 					final last = parts.pop() + "Pointer";
-					final lastPack = parts.pop() + "pointer";
-					parts.push(lastPack);
+					if (!io.Path.isPackLocal(parts, info)) {
+						final lastPack = parts.pop() + "pointer";
+						parts.push(lastPack);
+					}
 					parts.push(last);
 					p.name = parts.join(".");
 				}
 			} else {
 				p.name += "Pointer";
-				p.pack.push(p.pack.pop() + "pointer");
+				if (!io.Path.isPackLocal(p.pack, info)) {
+					p.pack.push(p.pack.pop() + "pointer");
+				}
 			}
 		default:
 	}

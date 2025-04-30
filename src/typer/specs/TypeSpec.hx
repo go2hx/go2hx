@@ -226,7 +226,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 								case pointerType(_.get() => elem):
 									if (isNamed(elem)) {
 										final ct = toComplexType(elem, info);
-										addPointerSuffix(ct);
+										addPointerSuffix(ct, info);
 										macro @:check420 (stdgo.Go.pointer(this.$name) : $ct).$fieldName;
 									} else {
 										macro @:check50 (this.$name ?? throw "null pointer dereference").$fieldName;
@@ -243,7 +243,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 								case pointerType(_.get() => elem):
 									if (isNamed(elem)) {
 										final ct = toComplexType(elem, info);
-										addPointerSuffix(ct);
+										addPointerSuffix(ct, info);
 										macro @:check42 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer dereference").$fieldName;
 									} else {
 										macro @:check5 (this.$name ?? throw "null pointer dereference").$fieldName;

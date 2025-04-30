@@ -91,6 +91,7 @@ function getGlobalPath(info:Info):String {
 }
 
 function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
+
 	path = StringTools.replace(path, "go-", "");
 	// path = StringTools.replace(path, "_test.", ".");
 	final startCommandLineArg = "command-line-arguments.";
@@ -119,6 +120,7 @@ function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
 
 	var pack = path.split("/");
 	pack.unshift("_internal");
+
 	final path = toGoPath(path);
 	if (io.Data.stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
 		pack.unshift("stdgo");
@@ -127,10 +129,16 @@ function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
 		return {pack: [], name: splitDepFullPathName(cl, info)};
 	}
 	// for split deps
-	pack.push(title(pkg));
-	final last = pack.pop();
-	pack.push(last + "_" + cl.toLowerCase());
+	if (!isPackLocal(pack, info)) {
+		pack.push(title(pkg));
+		final last = pack.pop();
+		pack.push(last + "_" + cl.toLowerCase());
+	}
 	return {pack: pack, name: cl};
+}
+
+function isPackLocal(pack:Array<String>, info:Info):Bool {
+	return getGlobalPath(info) == pack.join(".");
 }
 
 function importClassName(name:String):String {

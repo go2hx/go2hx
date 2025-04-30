@@ -1366,7 +1366,7 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 	if value := checker.Types[expr].Value; value != nil {
 		basic, ok := checker.TypeOf(expr).Underlying().(*types.Basic)
 		if !ok {
-			return basicLitToken(expr)
+			return basicLitFallback(expr)
 		}
 		kind := basic.Kind()
 		info := basic.Info()
@@ -1420,7 +1420,7 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 			"type":  parseType(checker.TypeOf(expr), map[string]bool{}),
 		}
 	} else {
-		return basicLitToken(expr)
+		return basicLitFallback(expr)
 	}
 }
 
@@ -1428,7 +1428,7 @@ func parsePos(pos token.Pos) int {
 	return fset.PositionFor(pos, true).Offset
 }
 
-func basicLitToken(expr *ast.BasicLit) map[string]interface{} {
+func basicLitFallback(expr *ast.BasicLit) map[string]interface{} {
 	output := ""
 	switch expr.Kind {
 	case token.INT:

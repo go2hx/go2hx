@@ -1,4 +1,5 @@
 package typer.exprs;
+
 /**
  * BasicLiteral, for example:
  * "hello world"
@@ -33,7 +34,7 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):MacroExpr {
 				final real = toExpr(EConst(CFloat(realFloat, "f64")));
 				macro new stdgo.GoComplex128($real, $imag);
 			case INT:
-				var e = toExpr(EConst(CInt(expr.value, "i32")));
+				var e = toExpr(EConst(CInt(expr.value, "i64")));
 				e;
 			default:
 				throw info.panic() + "unknown token: " + expr.token;
@@ -51,7 +52,7 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):MacroExpr {
 	}
 	return if (expr.info & GoAst.BasicInfo.isFloat != 0) {
 		final f = toExpr(EConst(CFloat(expr.value)));
-		macro ($f : stdgo.GoFloat64);
+		macro($f : stdgo.GoFloat64);
 	} else if (expr.info & GoAst.BasicInfo.isInteger != 0) {
 		final t = typeof(expr.type, info, false);
 		final underlyingType = getUnderlying(t);

@@ -129,7 +129,7 @@ function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
 		return {pack: [], name: splitDepFullPathName(cl, info)};
 	}
 	// for split deps
-	if (!isPackLocal(pack, info)) {
+	if (!info.data.isMain || !isPackLocal(pack, info)) {
 		pack.push(title(pkg));
 		final last = pack.pop();
 		pack.push(last + "_" + cl.toLowerCase());

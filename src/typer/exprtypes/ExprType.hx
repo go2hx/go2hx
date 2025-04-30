@@ -982,7 +982,7 @@ function addPointerSuffix(ct:ComplexType, info:Info) {
 				if (p.pack.length == 0) {
 					final parts = p.name.split(".");
 					final last = parts.pop() + "Pointer";
-					if (!io.Path.isPackLocal(parts, info)) {
+					if (!info.data.isMain || !io.Path.isPackLocal(parts, info)) {
 						final lastPack = parts.pop() + "pointer";
 						parts.push(lastPack);
 					}
@@ -991,7 +991,7 @@ function addPointerSuffix(ct:ComplexType, info:Info) {
 				}
 			} else {
 				p.name += "Pointer";
-				if (!io.Path.isPackLocal(p.pack, info)) {
+				if (!info.data.isMain || !io.Path.isPackLocal(p.pack, info)) {
 					p.pack.push(p.pack.pop() + "pointer");
 				}
 			}

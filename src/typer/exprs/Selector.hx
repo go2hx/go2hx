@@ -181,9 +181,10 @@ function selectorXIdent(x:MacroExpr, expr:GoAst.SelectorExpr, info:Info):MacroEx
 								p.pack = p.name.split(".");
 								p.name = p.pack.pop();
 							}
+							final lastPack = p.pack.pop();
 							final isLocal = io.Path.isPackLocal(p.pack, info);
 							if (!info.data.isMain || !isLocal) {
-								p.pack.push(p.pack.pop() + "_static_extension");
+								p.pack.push(lastPack + "_static_extension");
 							}
 							p.name += "_static_extension";
 							x = macro $p{p.pack.concat([p.name])};
@@ -205,9 +206,10 @@ function selectorXSelector(x:MacroExpr, expr:GoAst.SelectorExpr, info:Info):Macr
 				p.pack = p.name.split(".");
 				p.name = p.pack.pop();
 			}
+			final lastPack = p.pack.pop();
 			final isLocal = io.Path.isPackLocal(p.pack, info);
 			if (!info.data.isMain || !isLocal) {
-				p.pack.push(p.pack.pop() + "_static_extension");
+				p.pack.push(lastPack + "_static_extension");
 			}
 			p.name += "_static_extension";
 			x = macro $p{p.pack.concat([p.name])};

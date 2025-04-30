@@ -1186,6 +1186,8 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.CompositeLit:
 		data["exprType"] = parseData(node.Type)
 		data["type"] = parseType(checker.TypeOf(node), map[string]bool{})
+	case *ast.ExprStmt, *ast.BlockStmt, *ast.IfStmt, *ast.BadStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.GoStmt, ast.DeferStmt, *ast.ReturnStmt, *ast.BranchStmt, *ast.SelectStmt, *ast.CaseClause, *ast.SwitchStmt, *ast.ForStmt, *ast.RangeStmt, *ast.TypeSwitchStmt:
+		data["location"] = parseLocation(node.(ast.Stmt).Pos())
 	case *ast.DeclStmt:
 		data["pos"] = parsePos(node.Pos())
 	case *ast.SelectorExpr:
@@ -1425,7 +1427,13 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 }
 
 func parsePos(pos token.Pos) int {
-	return fset.PositionFor(pos, true).Offset
+	fpos := fset.PositionFor(pos, true)
+	return fpos.Offset
+}
+
+func parseLocation(pos token.Pos) string {
+	fpos := fset.PositionFor(pos, true)
+	return fpos.Filename + "#L" + strconv.Itoa(fpos.Line)
 }
 
 func basicLitFallback(expr *ast.BasicLit) map[string]interface{} {

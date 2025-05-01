@@ -1,7 +1,152 @@
-/home/runner/work/go2hx/go2hx/ flag redefined: gopher_type
-[ERROR] ./_internal/flagdottest/Flagdottest.hx:18: characters 75-80
+=== RUN  TestEverything
+Exception: Null Access
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.flag_test._Flag_test_testeverything.Flag_test_testeverything_Fields_.testEverything (./_internal/flag_test/Flag_test_testeverything.hx line 81 column 9)
+Called from stdgo._internal.flag._Flag_visit.Flag_visit_Fields_.visit (./stdgo/_internal/flag/Flag_visit.hx line 4 column 9)
+Called from stdgo._internal.flag.FlagSet_static_extension.visit (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 607 column 30)
+Called from stdgo._internal.flag._Flag__sortflags.Flag__sortflags_Fields_._sortFlags (./stdgo/_internal/flag/Flag__sortflags.hx line 19 column 271)
 
- 18 |         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
-    |                                                                           ^^^^^
-    | Uncaught exception /home/runner/work/go2hx/go2hx/ flag redefined: gopher_type
+-- FAIL: TestEverything
 
+=== RUN  TestGet
+
+-- PASS: TestGet
+
+=== RUN  TestUsage
+
+-- PASS: TestUsage
+
+=== RUN  TestParse
+Exception: generic function is not supported
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.flag_test._Flag_test_testparse.Flag_test_testparse_Fields_.testParse (./_internal/flag_test/Flag_test_testparse.hx line 9 column 9)
+Called from _internal.flag_test._Flag_test__testparse.Flag_test__testparse_Fields_._testParse (./_internal/flag_test/Flag_test__testparse.hx line 38 column 24)
+Called from stdgo._internal.flag.FlagSet_static_extension.parse (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 25 column 27)
+Called from stdgo._internal.flag.FlagSet_static_extension._parseOne (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 169 column 32)
+Called from stdgo._internal.flag.T_durationValue_asInterface.set (./stdgo/_internal/flag/Flag_t_durationvalue_asinterface.hx line 14 column 76)
+Called from stdgo._internal.flag.T_durationValue_static_extension.set (./stdgo/_internal/flag/Flag_t_durationvalue_static_extension.hx line 21 column 23)
+Called from stdgo._internal.time._Time_parseduration.Time_parseduration_Fields_.parseDuration (./stdgo/_internal/time/Time_parseduration.hx line 36 column 31)
+Called from stdgo._internal.time._Time__leadingint.Time__leadingint_Fields_._leadingInt (./stdgo/_internal/time/Time__leadingint.hx line 2 column 103)
+
+-- FAIL: TestParse
+
+=== RUN  TestFlagSetParse
+Exception: generic function is not supported
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.flag_test._Flag_test_testflagsetparse.Flag_test_testflagsetparse_Fields_.testFlagSetParse (./_internal/flag_test/Flag_test_testflagsetparse.hx line 4 column 9)
+Called from _internal.flag_test._Flag_test__testparse.Flag_test__testparse_Fields_._testParse (./_internal/flag_test/Flag_test__testparse.hx line 38 column 24)
+Called from stdgo._internal.flag.FlagSet_static_extension.parse (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 25 column 27)
+Called from stdgo._internal.flag.FlagSet_static_extension._parseOne (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 169 column 32)
+Called from stdgo._internal.flag.T_durationValue_asInterface.set (./stdgo/_internal/flag/Flag_t_durationvalue_asinterface.hx line 14 column 76)
+Called from stdgo._internal.flag.T_durationValue_static_extension.set (./stdgo/_internal/flag/Flag_t_durationvalue_static_extension.hx line 21 column 23)
+Called from stdgo._internal.time._Time_parseduration.Time_parseduration_Fields_.parseDuration (./stdgo/_internal/time/Time_parseduration.hx line 36 column 31)
+Called from stdgo._internal.time._Time__leadingint.Time__leadingint_Fields_._leadingInt (./stdgo/_internal/time/Time__leadingint.hx line 2 column 103)
+
+-- FAIL: TestFlagSetParse
+
+=== RUN  TestUserDefined
+
+-- PASS: TestUserDefined
+
+=== RUN  TestUserDefinedFunc
+
+-- PASS: TestUserDefinedFunc
+
+=== RUN  TestUserDefinedForCommandLine
+
+-- PASS: TestUserDefinedForCommandLine
+
+=== RUN  TestUserDefinedBool
+
+-- PASS: TestUserDefinedBool
+
+=== RUN  TestUserDefinedBoolUsage
+
+-- PASS: TestUserDefinedBoolUsage
+
+=== RUN  TestSetOutput
+Exception: Null Access
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.flag_test._Flag_test_testsetoutput.Flag_test_testsetoutput_Fields_.testSetOutput (./_internal/flag_test/Flag_test_testsetoutput.hx line 10 column 9)
+Called from stdgo._internal.flag.FlagSet_static_extension.parse (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 25 column 27)
+Called from stdgo._internal.flag.FlagSet_static_extension._parseOne (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 121 column 39)
+Called from stdgo._internal.flag.FlagSet_static_extension._failf (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 210 column 9)
+Called from stdgo._internal.flag.FlagSet_static_extension._usage (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 197 column 13)
+Called from stdgo._internal.flag.FlagSet_static_extension._defaultUsage (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 473 column 9)
+Called from stdgo._internal.flag.FlagSet_static_extension.printDefaults (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 481 column 9)
+Called from stdgo._internal.flag.FlagSet_static_extension.visitAll (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 617 column 30)
+Called from stdgo._internal.flag._Flag__sortflags.Flag__sortflags_Fields_._sortFlags (./stdgo/_internal/flag/Flag__sortflags.hx line 19 column 271)
+
+-- FAIL: TestSetOutput
+
+=== RUN  TestChangingArgs
+
+-- PASS: TestChangingArgs
+
+=== RUN  TestHelp
+
+-- PASS: TestHelp
+
+=== RUN  TestPrintDefaults
+got:
+"  -A\tfor bootstrapping, allow 'any' type\n  -Alongflagname\n    \tdisable bounds checking\n  -C\ta boolean defaulting to true (default true)\n  -D path\n    \tset relative path for local imports\n  -E string\n    \tissue 23543 (default \"0\")\n  -F number\n    \ta non-zero number (default 2.7)\n  -G float\n    \ta float that defaults to zero\n  -M string\n    \ta multiline\n    \thelp\n    \tstring\n  -N int\n    \ta non-zero int (default 27)\n  -O\ta flag\n    \tmultiline help string (default true)\n  -V list\n    \ta list of strings (default [a b])\n  -Z int\n    \tan int that defaults to zero\n  -ZP0 value\n    \ta flag whose String method panics when it is zero\n  -ZP1 value\n    \ta flag whose String method panics when it is zero\n  -maxT timeout\n    \tset timeout for dial\n\npanic calling String method on zero _internal.flag_test.zeroPanicker for flag ZP0: panic!\npanic calling String method on zero _internal.flag_test.zeroPanicker for flag ZP1: panic!\n"
+want:
+"  -A\tfor bootstrapping, allow 'any' type\n  -Alongflagname\n    \tdisable bounds checking\n  -C\ta boolean defaulting to true (default true)\n  -D path\n    \tset relative path for local imports\n  -E string\n    \tissue 23543 (default \"0\")\n  -F number\n    \ta non-zero number (default 2.7)\n  -G float\n    \ta float that defaults to zero\n  -M string\n    \ta multiline\n    \thelp\n    \tstring\n  -N int\n    \ta non-zero int (default 27)\n  -O\ta flag\n    \tmultiline help string (default true)\n  -V list\n    \ta list of strings (default [a b])\n  -Z int\n    \tan int that defaults to zero\n  -ZP0 value\n    \ta flag whose String method panics when it is zero\n  -ZP1 value\n    \ta flag whose String method panics when it is zero\n  -maxT timeout\n    \tset timeout for dial\n\npanic calling String method on zero flag_test.zeroPanicker for flag ZP0: panic!\npanic calling String method on zero flag_test.zeroPanicker for flag ZP1: panic!\n"
+
+-- FAIL: TestPrintDefaults
+
+=== RUN  TestIntFlagOverflow
+
+-- PASS: TestIntFlagOverflow
+
+=== RUN  TestUsageOutput
+Exception: Null Access
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.flag_test._Flag_test_testusageoutput.Flag_test_testusageoutput_Fields_.testUsageOutput (./_internal/flag_test/Flag_test_testusageoutput.hx line 79 column 21)
+
+-- FAIL: TestUsageOutput
+
+=== RUN  TestGetters
+
+-- PASS: TestGetters
+
+=== RUN  TestParseError
+
+-- PASS: TestParseError
+
+=== RUN  TestRangeError
+
+-- PASS: TestRangeError
+
+=== RUN  TestExitCode
+Exception: :os.executable is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.flag_test._Flag_test_testexitcode.Flag_test_testexitcode_Fields_.testExitCode (./_internal/flag_test/Flag_test_testexitcode.hx line 4 column 9)
+Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.Testenv_musthaveexec_Fields_.mustHaveExec (./stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 4 column 9)
+Called from stdgo._internal.sync.Once_static_extension.do_ (./stdgo/_internal/sync/Sync_once_static_extension.hx line 86 column 9)
+Called from local function #1 (./stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 5 column 80)
+Called from stdgo._internal.internal.testenv._Testenv__tryexec.Testenv__tryexec_Fields_._tryExec (./stdgo/_internal/internal/testenv/Testenv__tryexec.hx line 16 column 23)
+Called from stdgo._internal.os._Os_executable.Os_executable_Fields_.executable (./stdgo/_internal/os/Os_executable.hx line 2 column 74)
+
+-- FAIL: TestExitCode
+
+=== RUN  TestInvalidFlags
+
+-- PASS: TestInvalidFlags
+
+=== RUN  TestRedefinedFlags
+
+-- PASS: TestRedefinedFlags
+
+=== RUN  TestUserDefinedBoolFunc
+
+-- PASS: TestUserDefinedBoolFunc
+
+=== RUN  TestDefineAfterSet
+DefineAfterSet
+: expected panic("flag myFlag set at .*/flag_test.go:.* before being defined"), but got panic("flag myFlag set at ?:0 before being defined")
+
+-- FAIL: TestDefineAfterSet
+
+./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+-- FAIL: TestDefineAfterSet

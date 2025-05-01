@@ -4,11 +4,12 @@
    |                                                    ^^^^^
    | Uncaught exception generic function is not supported
 
-    ->  ./_internal/sync_test/Sync_test__oncevalue.hx:2: lines 2-4
+    ->  ./_internal/sync_test/Sync_test__oncevalue.hx:2: lines 2-5
 
     2 | var _onceValue : () -> stdgo.GoInt = stdgo._internal.sync.Sync_oncevalue.onceValue(function():stdgo.GoInt {
-    3 |         return (42 : stdgo.GoInt);
-    4 |     });
+    3 |         //"file:///home/runner/.go/go1.21.3/src/sync/oncefunc_test.go#L225"
+    4 |         return (42 : stdgo.GoInt);
+    5 |     });
       |
       | Called from here
 

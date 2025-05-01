@@ -2,7 +2,7 @@
 readFile format_test.go: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.go.format._Format_testnode.Format_testnode_Fields_.testNode (./stdgo/_internal/go/format/Format_testnode.hx line 5 column 32)
+Called from stdgo._internal.go.format._Format_testnode.Format_testnode_Fields_.testNode (./stdgo/_internal/go/format/Format_testnode.hx line 7 column 22)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 43 column 88)
 Called from stdgo._internal.testing.T_common_static_extension.fatal (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
@@ -13,7 +13,7 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 Exception: Int32:sync.atomic_.add is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from stdgo._internal.go.format._Format_testnodenomodify.Format_testnodenomodify_Fields_.testNodeNoModify (./stdgo/_internal/go/format/Format_testnodenomodify.hx line 5 column 23)
-Called from stdgo._internal.go.parser._Parser_parsefile.Parser_parsefile_Fields_.parseFile (./stdgo/_internal/go/parser/Parser_parsefile.hx line 114 column 21)
+Called from stdgo._internal.go.parser._Parser_parsefile.Parser_parsefile_Fields_.parseFile (./stdgo/_internal/go/parser/Parser_parsefile.hx line 126 column 21)
 
 -- FAIL: TestNodeNoModify
 
@@ -21,7 +21,7 @@ Called from stdgo._internal.go.parser._Parser_parsefile.Parser_parsefile_Fields_
 readFile format_test.go: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.go.format._Format_testsource.Format_testsource_Fields_.testSource (./stdgo/_internal/go/format/Format_testsource.hx line 5 column 32)
+Called from stdgo._internal.go.format._Format_testsource.Format_testsource_Fields_.testSource (./stdgo/_internal/go/format/Format_testsource.hx line 7 column 22)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 43 column 88)
 Called from stdgo._internal.testing.T_common_static_extension.fatal (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
@@ -31,11 +31,11 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 === RUN  TestPartial
 Exception: Int32:sync.atomic_.add is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.go.format._Format_testpartial.Format_testpartial_Fields_.testPartial (./stdgo/_internal/go/format/Format_testpartial.hx line 11 column 31)
+Called from stdgo._internal.go.format._Format_testpartial.Format_testpartial_Fields_.testPartial (./stdgo/_internal/go/format/Format_testpartial.hx line 15 column 31)
 Called from stdgo._internal.go.format._Format_string.Format_string_Fields_.string (./stdgo/_internal/go/format/Format_string.hx line 3 column 23)
 Called from stdgo._internal.go.format._Format_source.Format_source_Fields_.source (./stdgo/_internal/go/format/Format_source.hx line 4 column 23)
 Called from stdgo._internal.go.format._Format__parse.Format__parse_Fields_._parse (./stdgo/_internal/go/format/Format__parse.hx line 5 column 27)
-Called from stdgo._internal.go.parser._Parser_parsefile.Parser_parsefile_Fields_.parseFile (./stdgo/_internal/go/parser/Parser_parsefile.hx line 114 column 21)
+Called from stdgo._internal.go.parser._Parser_parsefile.Parser_parsefile_Fields_.parseFile (./stdgo/_internal/go/parser/Parser_parsefile.hx line 126 column 21)
 
 -- FAIL: TestPartial
 

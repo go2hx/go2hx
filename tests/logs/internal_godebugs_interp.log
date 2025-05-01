@@ -1,7 +1,7 @@
 === RUN  TestAll
 Exception: :os.isNotExist is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.internal.godebugs_test._Godebugs_test_testall.Godebugs_test_testall_Fields_.testAll (./_internal/internal/godebugs_test/Godebugs_test_testall.hx line 5 column 18)
+Called from _internal.internal.godebugs_test._Godebugs_test_testall.Godebugs_test_testall_Fields_.testAll (./_internal/internal/godebugs_test/Godebugs_test_testall.hx line 7 column 18)
 Called from stdgo._internal.os._Os_isnotexist.Os_isnotexist_Fields_.isNotExist (./stdgo/_internal/os/Os_isnotexist.hx line 2 column 44)
 
 -- FAIL: TestAll

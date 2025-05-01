@@ -4,21 +4,21 @@
    |                                                                                                                                     ^^^^^
    | Uncaught exception Int32:sync.atomic_.add is not yet implemented
 
-    ->  ./stdgo/_internal/sync/Sync_rwmutex_static_extension.hx:149: characters 23-111
+    ->  ./stdgo/_internal/sync/Sync_rwmutex_static_extension.hx:213: characters 14-102
 
-    149 |         if ((@:check2 (@:checkr _rw ?? throw "null pointer dereference")._readerCount.add((1 : stdgo.GoInt32)) < (0 : stdgo.GoInt32) : Bool)) {
-        |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    213 |         if (((@:checkr _rw ?? throw "null pointer dereference")._readerCount.add((1 : stdgo.GoInt32)) < (0 : stdgo.GoInt32) : Bool)) {
+        |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-    ->  ./stdgo/_internal/text/template/Template_template_static_extension.hx:30: characters 18-92
+    ->  ./stdgo/_internal/text/template/Template_template_static_extension.hx:37: characters 9-83
 
-     30 |         @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rLock();
-        |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     37 |         (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rLock();
+        |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-    ->  ./stdgo/_internal/text/template/Template__tval.hx:87: characters 44-158
+    ->  ./stdgo/_internal/text/template/Template__tval.hx:93: characters 34-148
 
-     87 |         @:tupleArg var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("x" : stdgo.GoString)).parse(("test template" : stdgo.GoString));
-        |                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     93 |         @:tupleArg var __tmp__ = stdgo._internal.text.template.Template_new_.new_(("x" : stdgo.GoString)).parse(("test template" : stdgo.GoString));
+        |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 

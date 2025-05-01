@@ -19,10 +19,10 @@
 === RUN  TestSlicing
 Exception: field access on null
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.hash.crc32._Crc32_testslicing.Crc32_testslicing_Fields_.testSlicing (./stdgo/_internal/hash/crc32/Crc32_testslicing.hx line 20 column 13)
-Called from stdgo._internal.hash.crc32._Crc32__testcrosscheck.Crc32__testcrosscheck_Fields_._testCrossCheck (./stdgo/_internal/hash/crc32/Crc32__testcrosscheck.hx line 52 column 13)
-Called from stdgo._internal.math.rand._Rand_read.Rand_read_Fields_.read (./stdgo/_internal/math/rand/Rand_read.hx line 4 column 26)
-Called from stdgo._internal.math.rand._Rand__globalrand.Rand__globalrand_Fields_._globalRand (./stdgo/_internal/math/rand/Rand__globalrand.hx line 4 column 31)
+Called from stdgo._internal.hash.crc32._Crc32_testslicing.Crc32_testslicing_Fields_.testSlicing (./stdgo/_internal/hash/crc32/Crc32_testslicing.hx line 28 column 13)
+Called from stdgo._internal.hash.crc32._Crc32__testcrosscheck.Crc32__testcrosscheck_Fields_._testCrossCheck (./stdgo/_internal/hash/crc32/Crc32__testcrosscheck.hx line 53 column 13)
+Called from stdgo._internal.math.rand._Rand_read.Rand_read_Fields_.read (./stdgo/_internal/math/rand/Rand_read.hx line 5 column 16)
+Called from stdgo._internal.math.rand._Rand__globalrand.Rand__globalrand_Fields_._globalRand (./stdgo/_internal/math/rand/Rand__globalrand.hx line 5 column 22)
 Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36 column 39)
 Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
@@ -32,7 +32,7 @@ Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdg
 Arch-specific IEEE not available.
 Exception: __skip__
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.hash.crc32._Crc32_testarchieee.Crc32_testarchieee_Fields_.testArchIEEE (./stdgo/_internal/hash/crc32/Crc32_testarchieee.hx line 4 column 31)
+Called from stdgo._internal.hash.crc32._Crc32_testarchieee.Crc32_testarchieee_Fields_.testArchIEEE (./stdgo/_internal/hash/crc32/Crc32_testarchieee.hx line 6 column 21)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 67 column 87)
 Called from stdgo._internal.testing.T_common_static_extension.skip (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45 column 9)
@@ -45,7 +45,7 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_
 Arch-specific Castagnoli not available.
 Exception: __skip__
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.hash.crc32._Crc32_testarchcastagnoli.Crc32_testarchcastagnoli_Fields_.testArchCastagnoli (./stdgo/_internal/hash/crc32/Crc32_testarchcastagnoli.hx line 4 column 31)
+Called from stdgo._internal.hash.crc32._Crc32_testarchcastagnoli.Crc32_testarchcastagnoli_Fields_.testArchCastagnoli (./stdgo/_internal/hash/crc32/Crc32_testarchcastagnoli.hx line 6 column 21)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 67 column 87)
 Called from stdgo._internal.testing.T_common_static_extension.skip (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45 column 9)

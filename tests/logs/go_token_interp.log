@@ -16,10 +16,10 @@
          |            ^^^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-     ->  ./stdgo/_internal/encoding/gob/Gob__bootstraptype.hx:13: characters 566-582
+     ->  ./stdgo/_internal/encoding/gob/Gob__bootstraptype.hx:17: characters 272-288
 
-      13 | 
-         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^^^^^^^^^^^^^^^^
+      17 | 
+         |                                                                                                                                                                                                                                                                                ^^^^^^^^^^^^^^^^
          | Called from here
 
      ->  ./stdgo/_internal/encoding/gob/Gob__tint.hx:2: characters 66-213

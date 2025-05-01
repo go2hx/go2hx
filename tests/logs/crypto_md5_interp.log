@@ -1,7 +1,7 @@
 === RUN  TestGolden
 md5[2]() = cdd149ceb5d2f7682b24480ff26d4ca0 want d41d8cd98f00b204e9800998ecf8427eException: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.crypto.md5._Md5_testgolden.Md5_testgolden_Fields_.testGolden (./stdgo/_internal/crypto/md5/Md5_testgolden.hx line 29 column 178)
+Called from stdgo._internal.crypto.md5._Md5_testgolden.Md5_testgolden_Fields_.testGolden (./stdgo/_internal/crypto/md5/Md5_testgolden.hx line 42 column 168)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
 Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
@@ -11,11 +11,11 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 === RUN  TestGoldenMarshal
 Exception: Negative vector index: -1
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.crypto.md5._Md5_testgoldenmarshal.Md5_testgoldenmarshal_Fields_.testGoldenMarshal (./stdgo/_internal/crypto/md5/Md5_testgoldenmarshal.hx line 26 column 27)
+Called from stdgo._internal.crypto.md5._Md5_testgoldenmarshal.Md5_testgoldenmarshal_Fields_.testGoldenMarshal (./stdgo/_internal/crypto/md5/Md5_testgoldenmarshal.hx line 40 column 27)
 Called from stdgo._internal.crypto.md5.T_digest_asInterface.sum (./stdgo/_internal/crypto/md5/Md5_t_digest_asinterface.hx line 8 column 104)
-Called from stdgo._internal.crypto.md5.T_digest_static_extension.sum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 26 column 30)
-Called from stdgo._internal.crypto.md5.T_digest_static_extension._checkSum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 9 column 9)
-Called from stdgo._internal.encoding.binary.T_littleEndian_static_extension.putUint64 (./stdgo/_internal/encoding/binary/Binary_t_littleendian_static_extension.hx line 26 column 9)
+Called from stdgo._internal.crypto.md5.T_digest_static_extension.sum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 35 column 21)
+Called from stdgo._internal.crypto.md5.T_digest_static_extension._checkSum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 10 column 9)
+Called from stdgo._internal.encoding.binary.T_littleEndian_static_extension.putUint64 (./stdgo/_internal/encoding/binary/Binary_t_littleendian_static_extension.hx line 29 column 9)
 Called from stdgo._Slice.Slice_Impl_.__set__ (./stdgo/Slice.hx line 194 column 1828)
 
 -- FAIL: TestGoldenMarshal
@@ -23,11 +23,11 @@ Called from stdgo._Slice.Slice_Impl_.__set__ (./stdgo/Slice.hx line 194 column 1
 === RUN  TestLarge
 Exception: Negative vector index: -24
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.crypto.md5._Md5_testlarge.Md5_testlarge_Fields_.testLarge (./stdgo/_internal/crypto/md5/Md5_testlarge.hx line 30 column 97)
+Called from stdgo._internal.crypto.md5._Md5_testlarge.Md5_testlarge_Fields_.testLarge (./stdgo/_internal/crypto/md5/Md5_testlarge.hx line 36 column 97)
 Called from stdgo._internal.crypto.md5.T_digest_asInterface.sum (./stdgo/_internal/crypto/md5/Md5_t_digest_asinterface.hx line 8 column 104)
-Called from stdgo._internal.crypto.md5.T_digest_static_extension.sum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 26 column 30)
-Called from stdgo._internal.crypto.md5.T_digest_static_extension._checkSum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 9 column 9)
-Called from stdgo._internal.encoding.binary.T_littleEndian_static_extension.putUint64 (./stdgo/_internal/encoding/binary/Binary_t_littleendian_static_extension.hx line 26 column 9)
+Called from stdgo._internal.crypto.md5.T_digest_static_extension.sum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 35 column 21)
+Called from stdgo._internal.crypto.md5.T_digest_static_extension._checkSum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 10 column 9)
+Called from stdgo._internal.encoding.binary.T_littleEndian_static_extension.putUint64 (./stdgo/_internal/encoding/binary/Binary_t_littleendian_static_extension.hx line 29 column 9)
 Called from stdgo._Slice.Slice_Impl_.__set__ (./stdgo/Slice.hx line 194 column 1828)
 
 -- FAIL: TestLarge
@@ -35,10 +35,10 @@ Called from stdgo._Slice.Slice_Impl_.__set__ (./stdgo/Slice.hx line 194 column 1
 === RUN  TestBlockGeneric
 Exception: Null Access
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.crypto.md5._Md5_testblockgeneric.Md5_testblockgeneric_Fields_.testBlockGeneric (./stdgo/_internal/crypto/md5/Md5_testblockgeneric.hx line 6 column 9)
-Called from stdgo._internal.crypto.rand._Rand_read.Rand_read_Fields_.read (./stdgo/_internal/crypto/rand/Rand_read.hx line 4 column 16)
-Called from stdgo._internal.io._Io_readfull.Io_readfull_Fields_.readFull (./stdgo/_internal/io/Io_readfull.hx line 4 column 16)
-Called from stdgo._internal.io._Io_readatleast.Io_readatleast_Fields_.readAtLeast (./stdgo/_internal/io/Io_readatleast.hx line 15 column 31)
+Called from stdgo._internal.crypto.md5._Md5_testblockgeneric.Md5_testblockgeneric_Fields_.testBlockGeneric (./stdgo/_internal/crypto/md5/Md5_testblockgeneric.hx line 7 column 9)
+Called from stdgo._internal.crypto.rand._Rand_read.Rand_read_Fields_.read (./stdgo/_internal/crypto/rand/Rand_read.hx line 5 column 16)
+Called from stdgo._internal.io._Io_readfull.Io_readfull_Fields_.readFull (./stdgo/_internal/io/Io_readfull.hx line 5 column 16)
+Called from stdgo._internal.io._Io_readatleast.Io_readatleast_Fields_.readAtLeast (./stdgo/_internal/io/Io_readatleast.hx line 18 column 31)
 
 -- FAIL: TestBlockGeneric
 

@@ -1462,6 +1462,9 @@ func basicLitFallback(expr *ast.BasicLit) map[string]interface{} {
 			log.Fatal("parse float 64 error: " + err.Error())
 		}
 		output = fmt.Sprint(i)
+		if output == "+Inf" || output == "-Inf" {
+			output = "0.0"
+		}
 	case token.IMAG:
 		i, err := strconv.ParseComplex(expr.Value, 128)
 		if err != nil {

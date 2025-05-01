@@ -1,6 +1,0 @@
--cp golibs 
-extraParams.hxml
--main github_com.go2hx.go4hx.rnd.Rnd
---times
---hl export/runrnd.hl
---cmd export/runrnd.hl

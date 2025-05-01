@@ -1,3 +1,11 @@
+# example:
+# git submodule add https://github.com/HaxeCheckstyle/haxeparser git/haxeparser
 [submodule "git/tools"]
 	path = git/tools
 	url = https://github.com/go2hx/tools
+[submodule "git/haxeparser"]
+	path = git/haxeparser
+	url = https://github.com/HaxeCheckstyle/haxeparser
+[submodule "git/hxparse"]
+	path = git/hxparse
+	url = https://github.com/Simn/hxparse

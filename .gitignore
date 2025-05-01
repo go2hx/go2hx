@@ -45,7 +45,6 @@ gobyexample
 golibs
 .haxelib
 gopath
-go
 tinygo
 old/*
 examples/*.txt
@@ -75,7 +74,8 @@ sort_*.json
 prebuild
 _internal/*
 analysis/tests/unitmod
-analysis/tests/unit/gotomod/*.go
-analysis/tests/unit/pointermod
-!tests/stdlogs/*.log
-tests/stdlogs/*.md
+analysis/tests/unit/gotomod/*
+analysis/tests/unit/pointermod/*
+!tests/logs/*.log
+tests/logs/*.md
+stdgo/*

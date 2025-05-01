@@ -1,0 +1,3 @@
+-cp extra/scripts/github-actions
+-m Main
+--interp

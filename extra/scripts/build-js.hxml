@@ -1,0 +1,13 @@
+extra/scripts/build-each.hxml
+-cp src
+-main Main
+-D no-deprecation-warnings
+-D std-encoding-utf8
+-D simulate_num
+-lib hxnodejs
+-D nolinkstd
+--dce full
+-D analyzer-optimize
+#-D nolinkstd
+-D js-source-map
+-js export/build.js

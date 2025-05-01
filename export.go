@@ -1186,6 +1186,8 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.CompositeLit:
 		data["exprType"] = parseData(node.Type)
 		data["type"] = parseType(checker.TypeOf(node), map[string]bool{})
+	case *ast.ExprStmt, *ast.BlockStmt, *ast.IfStmt, *ast.BadStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.GoStmt, ast.DeferStmt, *ast.ReturnStmt, *ast.BranchStmt, *ast.SelectStmt, *ast.CaseClause, *ast.SwitchStmt, *ast.ForStmt, *ast.RangeStmt, *ast.TypeSwitchStmt:
+		data["location"] = parseLocation(node.(ast.Stmt).Pos())
 	case *ast.DeclStmt:
 		data["pos"] = parsePos(node.Pos())
 	case *ast.SelectorExpr:
@@ -1366,7 +1368,7 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 	if value := checker.Types[expr].Value; value != nil {
 		basic, ok := checker.TypeOf(expr).Underlying().(*types.Basic)
 		if !ok {
-			return basicLitToken(expr)
+			return basicLitFallback(expr)
 		}
 		kind := basic.Kind()
 		info := basic.Info()
@@ -1420,15 +1422,21 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 			"type":  parseType(checker.TypeOf(expr), map[string]bool{}),
 		}
 	} else {
-		return basicLitToken(expr)
+		return basicLitFallback(expr)
 	}
 }
 
 func parsePos(pos token.Pos) int {
-	return fset.PositionFor(pos, true).Offset
+	fpos := fset.PositionFor(pos, true)
+	return fpos.Offset
 }
 
-func basicLitToken(expr *ast.BasicLit) map[string]interface{} {
+func parseLocation(pos token.Pos) string {
+	fpos := fset.PositionFor(pos, true)
+	return fpos.Filename + "#L" + strconv.Itoa(fpos.Line)
+}
+
+func basicLitFallback(expr *ast.BasicLit) map[string]interface{} {
 	output := ""
 	switch expr.Kind {
 	case token.INT:
@@ -1454,6 +1462,9 @@ func basicLitToken(expr *ast.BasicLit) map[string]interface{} {
 			log.Fatal("parse float 64 error: " + err.Error())
 		}
 		output = fmt.Sprint(i)
+		if output == "+Inf" || output == "-Inf" {
+			output = "0.0"
+		}
 	case token.IMAG:
 		i, err := strconv.ParseComplex(expr.Value, 128)
 		if err != nil {

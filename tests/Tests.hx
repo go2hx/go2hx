@@ -1,10 +1,11 @@
-import Main.InstanceData;
-import haxe.macro.Compiler;
+import Compiler.CompilerInstanceData;
+import haxe.macro.Compiler as MacroCompiler;
 import haxe.Json;
 import sys.io.File;
 import sys.io.FileInput;
 import sys.io.FileOutput;
 import sys.FileSystem;
+
 using haxe.io.Path;
 
 final path = Sys.getCwd();
@@ -18,9 +19,10 @@ var startStamp = 0.0;
 var tests:Array<String> = [];
 var excludeFuncArgs:Array<Array<String>> = [];
 var ranTests:Array<String> = [];
-var outputMap:Map<String,String> = [];
+var outputMap:Map<String, String> = [];
 var tasks:Array<TaskData> = [];
 var type:String = "";
+
 // cpp tests take a long time to compile, so sometimes its not run if quick testing is required
 var target = "hl";
 var suite = new TestSuite();
@@ -32,7 +34,7 @@ var run:String = "";
 var runOnly:String = "";
 var lastTaskLogs = [];
 var dryRun = false;
-final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
+final runnerCount = MacroCompiler.getDefine("runnerCount") ?? "2";
 var unitBool = false;
 var stdBool = false;
 var goBool = false;
@@ -42,33 +44,33 @@ var libsBool = false;
 var noLogs = false;
 
 function main() {
-	final targetDefine = Compiler.getDefine("target") ?? Compiler.getDefine("targets");
+	final targetDefine = MacroCompiler.getDefine("target") ?? MacroCompiler.getDefine("targets");
 	if (targetDefine != null)
 		target = targetDefine;
 	File.saveContent("test.log", "");
 	logOutput = File.append("test.log", false);
 	// logs
-	noLogs = Compiler.getDefine("nologs") != null;
+	noLogs = MacroCompiler.getDefine("nologs") != null;
 	// go by example, stdlib, yaegi, go internal tests, unit regression tests
-	ciBool = Compiler.getDefine("ci") != null;
-	hxbBool = Compiler.getDefine("hxb") != null;
-	unitBool = Compiler.getDefine("unit") != null;
-	stdBool = Compiler.getDefine("std") != null;
-	libsBool = Compiler.getDefine("libs") != null;
-	goBool = Compiler.getDefine("go") != null;
-	globalPath = Compiler.getDefine("path") ?? "";
-	yaegiBool = Compiler.getDefine("yaegi") != null;
-	tinygoBool = Compiler.getDefine("tinygo") != null;
-	sortMode = Compiler.getDefine("mode") ?? (Compiler.getDefine("sort") ?? "");
-	final reportBool = Compiler.getDefine("report") != null;
-	final listAllBool = Compiler.getDefine("listAll") != null;
-	final countStr = Compiler.getDefine("count");
+	ciBool = MacroCompiler.getDefine("ci") != null;
+	hxbBool = MacroCompiler.getDefine("hxb") != null;
+	unitBool = MacroCompiler.getDefine("unit") != null;
+	stdBool = MacroCompiler.getDefine("std") != null;
+	libsBool = MacroCompiler.getDefine("libs") != null;
+	goBool = MacroCompiler.getDefine("go") != null;
+	globalPath = MacroCompiler.getDefine("path") ?? "";
+	yaegiBool = MacroCompiler.getDefine("yaegi") != null;
+	tinygoBool = MacroCompiler.getDefine("tinygo") != null;
+	sortMode = MacroCompiler.getDefine("mode") ?? (MacroCompiler.getDefine("sort") ?? "");
+	final reportBool = MacroCompiler.getDefine("report") != null;
+	final listAllBool = MacroCompiler.getDefine("listAll") != null;
+	final countStr = MacroCompiler.getDefine("count");
 	testCount = countStr != null ? Std.parseInt(countStr) : 0;
-	final offsetStr = Compiler.getDefine("offset");
+	final offsetStr = MacroCompiler.getDefine("offset");
 	offset = offsetStr != null ? Std.parseInt(offsetStr) : 0;
-	run = Compiler.getDefine("run") ?? "";
-	runOnly = Compiler.getDefine("runonly") ?? Compiler.getDefine("runOnly") ?? "";
-	dryRun = Compiler.getDefine("dryRun") != null;
+	run = MacroCompiler.getDefine("run") ?? "";
+	runOnly = MacroCompiler.getDefine("runonly") ?? MacroCompiler.getDefine("runOnly") ?? "";
+	dryRun = MacroCompiler.getDefine("dryRun") != null;
 	startStamp = haxe.Timer.stamp();
 	if (listAllBool) {
 		createTestLists();
@@ -88,9 +90,9 @@ function main() {
 	trace(tests.length);
 	trace(tasks.length);
 	if (!dryRun) {
-		Main.setup(new Main.InstanceData(), Std.parseInt(runnerCount)); // amount of processes to spawn
-		Main.onComplete = complete;
-		Main.onUnknownExit = close;
+		Compiler.setupCompiler(new CompilerInstanceData(), Std.parseInt(runnerCount)); // amount of processes to spawn
+		Compiler.onComplete = complete;
+		Compiler.onUnknownExit = close;
 		final timer = new haxe.Timer(100);
 		timer.run = update;
 	}
@@ -105,7 +107,7 @@ private function runReport() {
 	var paths:Array<String> = if (type != "unit") {
 		final testsJson = Json.parse(File.getContent('tests/sort_$type.json'));
 		Reflect.field(testsJson, sortMode).map(s -> s.split("\n")[0]);
-	}else{
+	} else {
 		final dir = "./tests/unit/";
 		for (path in FileSystem.readDirectory(dir)) {
 			path = dir + path;
@@ -189,7 +191,7 @@ private function runTests() {
 }
 
 var runningCount = 0;
-var instance:InstanceData = null;
+var instance:CompilerInstanceData = null;
 var timeout = 0;
 var retryFailedCount = 2;
 var failedRegressionTasks:Array<TaskData> = [];
@@ -202,20 +204,20 @@ function update() {
 	}
 	if (timeout++ > (10 * 60) * 20) {
 		trace("TIMEOUT");
-		trace("tests.length:",tests.length);
-		trace("timeout tasks remaining, tasks.length:",tasks.length);
+		trace("tests.length:", tests.length);
+		trace("timeout tasks remaining, tasks.length:", tasks.length);
 		for (task in tasks) {
 			if (task.runtime) {
 				suite.runtimeError(task);
-			}else{
+			} else {
 				suite.buildError(task);
 			}
 		}
-		trace("runningCount:",runningCount);
-		trace("completeBool:",completeBool);
+		trace("runningCount:", runningCount);
+		trace("completeBool:", completeBool);
 		// instance.args is null
-		trace("last task logs:",lastTaskLogs);
-		trace("tests left:",tests.length);
+		trace("last task logs:", lastTaskLogs);
+		trace("tests left:", tests.length);
 		close();
 	}
 	var removeTests = [];
@@ -230,14 +232,14 @@ function update() {
 			args.push("-nodeps");
 		if (globalPath == "") {
 			args.push(path);
-		}else{
+		} else {
 			args.push(globalPath);
 		}
-		//trace(args.join(" "));
-		instance = Main.compileArgs(args);
+		// trace(args.join(" "));
+		instance = Compiler.createCompilerInstanceFromArgs(args);
 		instance.data = {excludes: excludeFuncArgs[i], hxml: hxml};
 
-		final compiled = Main.compile(instance);
+		final compiled = Compiler.compileFromInstance(instance);
 		timeout = 0;
 		if (!compiled) {
 			break;
@@ -247,7 +249,7 @@ function update() {
 	for (test in removeTests) {
 		tests.remove(test);
 	}
-	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount) ) {
+	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount)) {
 		final task = tasks.pop();
 		if (!noLogs) {
 			Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);
@@ -269,7 +271,7 @@ function update() {
 			trace("TEST TIMEOUT: " + task.command + " " + task.args.join(" "));
 			if (task.runtime) {
 				suite.runtimeError(task);
-			}else{
+			} else {
 				suite.buildError(task);
 			}
 			ls.removeAllListeners();
@@ -308,7 +310,7 @@ function update() {
 						final correct = output == wanted;
 						if (correct) {
 							suite.correct(task);
-						}else{
+						} else {
 							Sys.println("command: " + task.command + " " + task.args.join(" "));
 							Sys.println("output:");
 							Sys.println(output);
@@ -319,15 +321,24 @@ function update() {
 							Sys.println([for (i in 0...wanted.length) wanted.charCodeAt(i)]);
 							suite.incorrect(task);
 						}
-					}else{
+					} else {
 						suite.success(task);
 					}
-				}else {
-					//trace(task.excludeArgs);
-					final cmd = Main.runTarget(task.target,"golibs/" + task.out,task.excludeArgs,task.main).split(" ");
-					tasks.push({command:cmd[0], args: cmd.slice(1), target: task.target, path: task.path, runtime: true, out: "", main: "", excludeArgs: task.excludeArgs});
+				} else {
+					// trace(task.excludeArgs);
+					final cmd = Compiler.runTarget(task.target, "golibs/" + task.out, task.excludeArgs, task.main).split(" ");
+					tasks.push({
+						command: cmd[0],
+						args: cmd.slice(1),
+						target: task.target,
+						path: task.path,
+						runtime: true,
+						out: "",
+						main: "",
+						excludeArgs: task.excludeArgs
+					});
 				}
-			}else{
+			} else {
 				#if js
 				if (code == null)
 					code = 2;
@@ -336,15 +347,15 @@ function update() {
 					trace("runtime error: " + task.command + " " + task.args.join(" "));
 					// runtime error
 					trace("CLOSE: " + code);
-					// stdlogs output
-					if (!FileSystem.exists("tests/stdlogs")) {
-						FileSystem.createDirectory("tests/stdlogs");
+					// logs output
+					if (!FileSystem.exists("tests/logs")) {
+						FileSystem.createDirectory("tests/logs");
 					}
 					if (type == "std") {
 						final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
-						final analyzeDataFileName = "tests/stdlogs/"  + name + ".json";
+						final analyzeDataFileName = "tests/logs/" + name + ".json";
 						final data = analyzeStdLog(output);
-						File.saveContent("tests/stdlogs/" + name + ".log", output);
+						File.saveContent("tests/logs/" + name + ".log", output);
 						var failed = false;
 						if (FileSystem.exists(analyzeDataFileName)) {
 							final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
@@ -358,15 +369,26 @@ function update() {
 						}
 						if (!failed)
 							File.saveContent(analyzeDataFileName, Json.stringify(data, null, "    "));
-					
 					}
 					suite.runtimeError(task);
-				}else{
+				} else {
 					trace("build error: " + task.command + " " + task.args.join(" "));
 					suite.buildError(task);
 					if (type == "std") {
 						final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
-						File.saveContent("tests/stdlogs/" + name + ".log", output);
+						final analyzeDataFileName = "tests/logs/" + name + ".json";
+						final data = analyzeStdLog(output);
+						File.saveContent("tests/logs/" + name + ".log", output);
+
+						if (FileSystem.exists(analyzeDataFileName)) {
+							final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
+							for (pass in previousData.passes) {
+								if (data.passes.indexOf(pass) == -1) {
+									trace("REGRESSION");
+									suite.regressionTestError(task, pass);
+								}
+							}
+						}
 					}
 				}
 			}
@@ -393,11 +415,11 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 			final s = line.substr(passPrefix.length).split(" ")[0];
 			if (!passes.contains(s))
 				passes.push(s);
-		}else if (StringTools.startsWith(line, runPrefix)){
+		} else if (StringTools.startsWith(line, runPrefix)) {
 			final s = line.substr(runPrefix.length).split(" ")[0];
 			if (!runs.contains(s))
 				runs.push(s);
-		}else if (StringTools.startsWith(line, failPrefix)) {
+		} else if (StringTools.startsWith(line, failPrefix)) {
 			final s = line.substr(failPrefix.length).split(" ")[0];
 			if (!fails.contains(s))
 				fails.push(s);
@@ -406,11 +428,11 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 	return {passes: passes, fails: fails, runs: runs};
 }
 
-private function complete(modules:Array<Typer.Module>, data:{excludes:Array<String>, hxml:String, ?main:String}) {
+private function complete(modules:Array<typer.HaxeAst.Module>, data:{excludes:Array<String>, hxml:String, ?main:String}) {
 	timeout = 0;
 	completeBool = true;
 	// spawn targets
-	final paths = Main.mainPaths(modules);
+	final paths = Compiler.mainPaths(modules);
 	for (path in paths) {
 		final main = path;
 		path = path.charAt(0).toLowerCase() + path.substr(1);
@@ -422,11 +444,20 @@ private function complete(modules:Array<Typer.Module>, data:{excludes:Array<Stri
 			data.hxml = hxml;
 		}
 		final out = createTargetOutput(target, type, path);
-		final outCmd = Main.buildTarget(target, "golibs/" + out).split(" ");
+		final outCmd = Compiler.buildTarget(target, "golibs/" + out).split(" ");
 		final args = [data.hxml].concat(outCmd);
 		if (ciBool)
 			args.unshift("haxe");
-		tasks.push({command: ciBool ? "npx" : "haxe", args: args, excludeArgs: data.excludes, path: path, runtime: false, target: target, out: out, main: main});
+		tasks.push({
+			command: ciBool ? "npx" : "haxe",
+			args: args,
+			excludeArgs: data.excludes,
+			path: path,
+			runtime: false,
+			target: target,
+			out: out,
+			main: main
+		});
 	}
 }
 
@@ -451,14 +482,14 @@ private function sanatize(s:String):String {
 	if (index != -1) {
 		s = s.substr(index + testStr.length);
 	}
-	s = Typer.normalizePath(s);
+	s = io.Path.normalizePath(s);
 	s = Path.withoutDirectory(s);
 	s = Path.withoutExtension(s);
 	s = StringTools.replace(s, "/", "_");
-	if (Typer.reserved.indexOf(s) != -1) {
+	if (io.Data.reserved.indexOf(s) != -1) {
 		s += "_";
 	}
-	if (Typer.reservedClassNames.indexOf(s.charAt(0).toUpperCase() + s.substr(1)) != -1)
+	if (io.Data.reservedClassNames.indexOf(s.charAt(0).toUpperCase() + s.substr(1)) != -1)
 		s += "_";
 	return s;
 }
@@ -484,22 +515,31 @@ private function testStd() { // standard library package tests
 }
 
 function createRunnableHxml(name:String, prefix:String) {
-	final hxml = prefix + StringTools.replace(name,"/","_") + ".hxml";
+	final hxml = prefix + StringTools.replace(name, "/", "_") + ".hxml";
 	if (!sys.FileSystem.exists(hxml)) {
 		trace("hxml not found");
 		return;
 	}
 	final main = name;
 	final out = createTargetOutput(target, type, name);
-	final targetLibs = Main.targetLibs(target);
-	final outCmd = (Main.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
+	final targetLibs = Compiler.targetLibs(target);
+	final outCmd = (Compiler.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
 	final args = [hxml].concat(outCmd);
 	// remove ANSI escape codes for colours
 	args.push("-D");
 	args.push("message.no-color");
 	if (ciBool)
 		args.unshift("haxe");
-	tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main, excludeArgs: []});
+	tasks.push({
+		command: ciBool ? "npx" : "haxe",
+		args: args,
+		path: name,
+		runtime: false,
+		target: target,
+		out: out,
+		main: main,
+		excludeArgs: []
+	});
 	Sys.println(args.join(" "));
 }
 
@@ -510,7 +550,6 @@ private function log(v) {
 }
 
 final input:Array<String> = [];
-
 
 private function runInterop() {
 	if (type != "libs")
@@ -575,8 +614,12 @@ private function close() {
 				input.push(fullName);
 			while (output.remove(fullName)) {}
 		}
-		testData[data.path] += "\n    " + (data.passing ? "[x]" : "[ ]") + " " + data.target
-			+ (!data.build ? " build error" : "") + (data.correct ? " correct" : (data.incorrect ? " incorrect" : ""));
+		testData[data.path] += "\n    "
+			+ (data.passing ? "[x]" : "[ ]")
+			+ " "
+			+ data.target
+			+ (!data.build ? " build error" : "")
+			+ (data.correct ? " correct" : (data.incorrect ? " incorrect" : ""));
 	}
 	for (name => str in testData) {
 		final failCount = testFailingCount[name];
@@ -601,13 +644,13 @@ private function close() {
 		// retry failed tests
 		if (retryFailedCount-- > 0) {
 			tasks = failedRegressionTasks;
-			//suite.dataList = [];
+			// suite.dataList = [];
 			log('retrying failed tasks: ' + tasks.length);
 			failedRegressionTasks = [];
 			dryRun = false;
 			return;
 		}
-	}else{
+	} else {
 		input.sort((a, b) -> a > b ? 1 : -1);
 		final filePath = 'tests/$testName.json';
 		var outputFile:Array<String> = FileSystem.exists(filePath) ? Json.parse(File.getContent(filePath)) : [];
@@ -615,13 +658,13 @@ private function close() {
 			if (outputFile.indexOf(path) == -1)
 				outputFile.push(path);
 		}
-		final fileContent = Json.stringify(outputFile , null, " ");
+		final fileContent = Json.stringify(outputFile, null, " ");
 		Sys.println(' Saving file: $filePath:\n\n$fileContent');
 		File.saveContent(filePath, fileContent);
 		trace(testCount == 0, offset == 0, output.length > 0, run == "");
 	}
 	logOutput.close();
-	Main.close(code);
+	Compiler.closeCompiler(code);
 }
 
 private function testTinyGo() {
@@ -642,7 +685,6 @@ private function testLibs() {
 			excludes.push(exclude);
 		}
 		excludeFuncArgs.push(excludes);
-		
 	}
 }
 
@@ -650,7 +692,7 @@ private function sortDataToTests(sortData:SortData) {
 	var tempTests:Array<String> = [];
 	if (sortMode == "") {
 		tempTests = sortData.easy.concat(sortData.medium).concat(sortData.hard);
-	}else{
+	} else {
 		Sys.println("sort mode: " + sortMode);
 		switch sortMode {
 			case "easy":
@@ -669,7 +711,7 @@ private function sortDataToTests(sortData:SortData) {
 		final path = data.substr(0, index);
 		final output = data.substr(index + 1);
 		final name = toName(path);
-		
+
 		if (excludeTest(name))
 			continue;
 		tests.push(path);
@@ -722,7 +764,7 @@ private function testUnit() {
 
 private function createTestLists() {
 	trace("create test lists");
-	final modes = ["easy","medium", "hard"];
+	final modes = ["easy", "medium", "hard"];
 	final testNames = ["go", "yaegi"];
 	for (testName in testNames) {
 		for (mode in modes) {
@@ -751,7 +793,8 @@ class TestSuiteData {
 	public var incorrect:Bool = false;
 	public var task:TaskData = null;
 	public var regressionTestName = "";
-	public function new(path:String,target:String, passing:Bool,task:TaskData,build:Bool,correct:Bool, incorrect:Bool, regressionTestName:String="") {
+
+	public function new(path:String, target:String, passing:Bool, task:TaskData, build:Bool, correct:Bool, incorrect:Bool, regressionTestName:String = "") {
 		this.path = path;
 		this.target = target;
 		this.passing = passing;
@@ -776,35 +819,84 @@ class TestSuite {
 	public function new() {}
 
 	public function buildError(task:TaskData) {
-		addData({path: task.path, target: task.target, build: false, task: task, passing: false, incorrect: false, correct: false});
+		addData({
+			path: task.path,
+			target: task.target,
+			build: false,
+			task: task,
+			passing: false,
+			incorrect: false,
+			correct: false
+		});
 		buildErrorCount++;
 		count++;
 	}
 
 	public function regressionTestError(task:TaskData, testName:String) {
-		addData({path: task.path, target: task.target, build: true, task: task, passing: false, incorrect: false, correct: false, regressionTestName: testName});
+		addData({
+			path: task.path,
+			target: task.target,
+			build: true,
+			task: task,
+			passing: false,
+			incorrect: false,
+			correct: false,
+			regressionTestName: testName
+		});
 	}
 
 	public function runtimeError(task:TaskData) {
-		addData({path: task.path, target: task.target, build: true, task: task, passing: false, incorrect: false, correct: false});
+		addData({
+			path: task.path,
+			target: task.target,
+			build: true,
+			task: task,
+			passing: false,
+			incorrect: false,
+			correct: false
+		});
 		runtimeErrorCount++;
 		count++;
 	}
 
 	public function success(task:TaskData) { // passess running the test
-		addData({path: task.path, target: task.target, build: true, task: task, passing: true, incorrect: false, correct: false});
+		addData({
+			path: task.path,
+			target: task.target,
+			build: true,
+			task: task,
+			passing: true,
+			incorrect: false,
+			correct: false
+		});
 		successCount++;
 		count++;
 	}
 
 	public function correct(task:TaskData) { // correct matching output
-		addData({path: task.path, target: task.target, build: true, task: task, passing: true, incorrect: false, correct: true});
+		addData({
+			path: task.path,
+			target: task.target,
+			build: true,
+			task: task,
+			passing: true,
+			incorrect: false,
+			correct: true
+		});
 		correctCount++;
 		count++;
 	}
 
 	public function incorrect(task:TaskData) { // incorrect matching output
-		addData({path: task.path, target: task.target, build: true, task: task, passing: false, incorrect: true, correct: false});
+		addData({
+			path: task.path,
+			target: task.target,
+			build: true,
+			task: task,
+			passing: false,
+			incorrect: true,
+			correct: false
+		});
 		incorrectCount++;
 		count++;
 	}
@@ -833,8 +925,10 @@ class TaskData {
 	public var out:String;
 	public var main:String;
 	public var output:String = "";
+
 	var _stamp:Float = 0;
-	public function new(path:String, command:String,args:Array<String>,target:String,runtime:Bool, out:String, main:String, excludeArgs:Array<String>) {
+
+	public function new(path:String, command:String, args:Array<String>, target:String, runtime:Bool, out:String, main:String, excludeArgs:Array<String>) {
 		this.path = path;
 		this.target = target;
 		this.runtime = runtime;
@@ -845,6 +939,7 @@ class TaskData {
 		this._stamp = haxe.Timer.stamp();
 		this.excludeArgs = excludeArgs;
 	}
+
 	public function stamp():Float {
 		final oldStamp = this._stamp;
 		this._stamp = haxe.Timer.stamp();

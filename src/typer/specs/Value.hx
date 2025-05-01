@@ -102,8 +102,6 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 				pkg.varOrder.push(name);
 			var doc:String = codegen.Doc.getDocComment(value, value); // + getSource(value, info);
 			var access = [];
-			// if (!isTitle(value.names[i].name))
-			//	access.push(APrivate);
 			if (constant)
 				access.push(AFinal);
 			final patchName = info.global.module.path + ":" + name;

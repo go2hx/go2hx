@@ -1,6 +1,7 @@
 hashlink
 .vscode/launch.json
 .vscode/tasks.json
+tests/go
 .unittest
 *.hl
 *.data

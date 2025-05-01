@@ -103,19 +103,10 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 		}
 		macro $block;
 	}
-	#if !macro
-	// trace(printer.printExpr(codegen.Patch2.getFunction(func.patchPack, func.name, func.patchRecvName)));
-	#end
 	var patch:MacroExpr = null;
 	#if !macro
 	patch = codegen.Patch2.getFunction(func.patchPack, func.name, func.patchRecvName);
 	#end
-	if (patch == null) {
-		// patch = codegen.Patch.list[func.patchName];
-		if (patch != null) {
-			throw "PATCHFAILED_FUNCTION: " + func.patchPack + " " + func.name + " " + func.patchRecvName;
-		}
-	}
 
 	if (patch != null) {
 		block = patch;

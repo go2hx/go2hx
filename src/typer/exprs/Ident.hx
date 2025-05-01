@@ -59,14 +59,14 @@ function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:B
 		name = name + "_";
 	}
 	if (objPath != null) {
-		if (!info.data.isMain) {
-			final path = normalizePath(objPath);
-			final pack = path.split("/");
-			pack.unshift("_internal");
-			final path = toGoPath(path);
-			if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
-				pack.unshift("stdgo");
-			}
+		final path = normalizePath(objPath);
+		final pack = path.split("/");
+		pack.unshift("_internal");
+		final path = toGoPath(path);
+		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
+			pack.unshift("stdgo");
+		}
+		if (!info.data.isMain || !isPackLocal(pack, info)) {
 			final filePath = pack.pop();
 			pack.push(filePath);
 			pack.push(title(filePath) + "_" + name.toLowerCase());

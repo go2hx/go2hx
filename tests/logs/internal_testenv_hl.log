@@ -4,10 +4,10 @@ Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_i
 Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53)
 Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_t_.hx line 75)
 Called from stdgo._internal.testing.T__asInterface.skipf (stdgo/_internal/testing/Testing_t__asinterface.hx line 53)
-Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.$Testenv_musthavegobuild_Fields_.mustHaveGoBuild (stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 9)
-Called from _internal.internal.testenv_test._Testenv_test_testgotoollocation.$Testenv_test_testgotoollocation_Fields_.testGoToolLocation (_internal/internal/testenv_test/Testenv_test_testgotoollocation.hx line 3)
+Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.$Testenv_musthavegobuild_Fields_.mustHaveGoBuild (stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 15)
+Called from _internal.internal.testenv_test._Testenv_test_testgotoollocation.$Testenv_test_testgotoollocation_Fields_.testGoToolLocation (_internal/internal/testenv_test/Testenv_test_testgotoollocation.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.internal.testenvdottest._Testenvdottest.$Testenvdottest_Fields_.main (_internal/internal/testenvdottest/Testenvdottest.hx line 7)
+Called from _internal.internal.testenvdottest._Testenvdottest.$Testenvdottest_Fields_.main (_internal/internal/testenvdottest/Testenvdottest.hx line 12)
 
 -- SKIP: TestGoToolLocation
 
@@ -21,15 +21,15 @@ Called from _internal.internal.testenvdottest._Testenvdottest.$Testenvdottest_Fi
 - SUBRUN  MustHaveExec
 Exception: :os.executable is not yet implemented
 Called from stdgo._internal.os._Os_executable.$Os_executable_Fields_.executable (stdgo/_internal/os/Os_executable.hx line 2)
-Called from stdgo._internal.internal.testenv._Testenv__tryexec.$Testenv__tryexec_Fields_._tryExec (stdgo/_internal/internal/testenv/Testenv__tryexec.hx line 12)
-Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.$Testenv_musthaveexec_Fields_.~mustHaveExec.0 (stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 4)
-Called from stdgo._internal.sync.$Once_static_extension.do_ (stdgo/_internal/sync/Sync_once_static_extension.hx line 83)
-Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.$Testenv_musthaveexec_Fields_.mustHaveExec (stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 3)
-Called from _internal.internal.testenv_test._Testenv_test_testmusthaveexec.$Testenv_test_testmusthaveexec_Fields_.~testMustHaveExec.1 (_internal/internal/testenv_test/Testenv_test_testmusthaveexec.hx line 5)
+Called from stdgo._internal.internal.testenv._Testenv__tryexec.$Testenv__tryexec_Fields_._tryExec (stdgo/_internal/internal/testenv/Testenv__tryexec.hx line 16)
+Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.$Testenv_musthaveexec_Fields_.~mustHaveExec.0 (stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 5)
+Called from stdgo._internal.sync.$Once_static_extension.do_ (stdgo/_internal/sync/Sync_once_static_extension.hx line 86)
+Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.$Testenv_musthaveexec_Fields_.mustHaveExec (stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 4)
+Called from _internal.internal.testenv_test._Testenv_test_testmusthaveexec.$Testenv_test_testmusthaveexec_Fields_.~testMustHaveExec.1 (_internal/internal/testenv_test/Testenv_test_testmusthaveexec.hx line 7)
 Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
-Called from _internal.internal.testenv_test._Testenv_test_testmusthaveexec.$Testenv_test_testmusthaveexec_Fields_.testMustHaveExec (_internal/internal/testenv_test/Testenv_test_testmusthaveexec.hx line 4)
+Called from _internal.internal.testenv_test._Testenv_test_testmusthaveexec.$Testenv_test_testmusthaveexec_Fields_.testMustHaveExec (_internal/internal/testenv_test/Testenv_test_testmusthaveexec.hx line 5)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.internal.testenvdottest._Testenvdottest.$Testenvdottest_Fields_.main (_internal/internal/testenvdottest/Testenvdottest.hx line 7)
+Called from _internal.internal.testenvdottest._Testenvdottest.$Testenvdottest_Fields_.main (_internal/internal/testenvdottest/Testenvdottest.hx line 12)
 
 -- FAIL: TestMustHaveExec
 

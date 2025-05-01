@@ -1,20 +1,20 @@
-[ERROR] stdgo/Go.macro.hx:426: characters 18-19
+[ERROR] stdgo/Go.macro.hx:446: characters 18-19
 
- 426 |    return switch t {
+ 446 |    return switch t {
      |                  ^
      | Uncaught exception Null Access
 
-      443 |       return run();
+      463 |       return run();
           |              ^^^^^
           | Called from here
 
-      465 |   return run();
+      485 |   return run();
           |          ^^^^^
           | Called from here
 
-      ->  ./stdgo/_internal/go/constant/Constant_unaryop.hx:207: characters 28-56
+      ->  ./stdgo/_internal/go/constant/Constant_unaryop.hx:231: characters 28-56
 
-      207 |                     return stdgo.Go.asInterface(!_y_15);
+      231 |                     return stdgo.Go.asInterface(!_y_15);
           |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 

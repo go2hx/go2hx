@@ -4,9 +4,9 @@ sha1[2](aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
-Called from stdgo._internal.crypto.sha1._Sha1_testgolden.$Sha1_testgolden_Fields_.testGolden (stdgo/_internal/crypto/sha1/Sha1_testgolden.hx line 41)
+Called from stdgo._internal.crypto.sha1._Sha1_testgolden.$Sha1_testgolden_Fields_.testGolden (stdgo/_internal/crypto/sha1/Sha1_testgolden.hx line 57)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.crypto.sha1dottest._Sha1dottest.$Sha1dottest_Fields_.main (_internal/crypto/sha1dottest/Sha1dottest.hx line 8)
+Called from _internal.crypto.sha1dottest._Sha1dottest.$Sha1dottest_Fields_.main (_internal/crypto/sha1dottest/Sha1dottest.hx line 13)
 
 -- FAIL: TestGolden
 
@@ -24,12 +24,12 @@ Called from _internal.crypto.sha1dottest._Sha1dottest.$Sha1dottest_Fields_.main 
 
 === RUN  TestBlockGeneric
 Exception: Null access .read
-Called from stdgo._internal.io._Io_readatleast.$Io_readatleast_Fields_.readAtLeast (stdgo/_internal/io/Io_readatleast.hx line 15)
-Called from stdgo._internal.io._Io_readfull.$Io_readfull_Fields_.readFull (stdgo/_internal/io/Io_readfull.hx line 4)
-Called from stdgo._internal.crypto.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/crypto/rand/Rand_read.hx line 4)
-Called from stdgo._internal.crypto.sha1._Sha1_testblockgeneric.$Sha1_testblockgeneric_Fields_.testBlockGeneric (stdgo/_internal/crypto/sha1/Sha1_testblockgeneric.hx line 12)
+Called from stdgo._internal.io._Io_readatleast.$Io_readatleast_Fields_.readAtLeast (stdgo/_internal/io/Io_readatleast.hx line 18)
+Called from stdgo._internal.io._Io_readfull.$Io_readfull_Fields_.readFull (stdgo/_internal/io/Io_readfull.hx line 5)
+Called from stdgo._internal.crypto.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/crypto/rand/Rand_read.hx line 5)
+Called from stdgo._internal.crypto.sha1._Sha1_testblockgeneric.$Sha1_testblockgeneric_Fields_.testBlockGeneric (stdgo/_internal/crypto/sha1/Sha1_testblockgeneric.hx line 16)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.crypto.sha1dottest._Sha1dottest.$Sha1dottest_Fields_.main (_internal/crypto/sha1dottest/Sha1dottest.hx line 8)
+Called from _internal.crypto.sha1dottest._Sha1dottest.$Sha1dottest_Fields_.main (_internal/crypto/sha1dottest/Sha1dottest.hx line 13)
 
 -- FAIL: TestBlockGeneric
 

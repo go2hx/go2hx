@@ -1,6 +1,6 @@
-[ERROR] stdgo/Go.macro.hx:564: characters 8-13
+[ERROR] stdgo/Go.macro.hx:585: characters 8-13
 
- 564 |        throw "invalid underlying type: " + t.type;
+ 585 |        throw "invalid underlying type: " + t.type;
      |        ^^^^^
      | Uncaught exception invalid underlying type: TAbstract(stdgo.AnyInterface,[])
 
@@ -10,9 +10,9 @@
           |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  stdgo/Go.macro.hx:653: characters 11-31
+      ->  stdgo/Go.macro.hx:676: characters 11-31
 
-      653 |   var t = Context.typeof(expr);
+      676 |   var t = Context.typeof(expr);
           |           ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
@@ -28,9 +28,9 @@
           |                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  stdgo/Go.macro.hx:586: characters 21-31
+      ->  stdgo/Go.macro.hx:607: characters 21-31
 
-      586 |   final valueNull = gen(false);
+      607 |   final valueNull = gen(false);
           |                     ^^^^^^^^^^
           | Called from here
 

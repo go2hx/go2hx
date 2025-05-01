@@ -10,15 +10,15 @@
     |         ^^^^^^^^^^^
     | Unknown identifier : _startTimer
 
-[ERROR] ./_internal/time_test/Time_test_testdurationstring.hx:12: characters 35-50
+[ERROR] ./_internal/time_test/Time_test_testdurationstring.hx:17: characters 35-50
 
- 12 |                     var _str = ((-_tt._d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+ 17 |                     var _str = ((-_tt._d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
     |                                   ^^^^^^^^^^^^^^^
     | stdgo.GoString should be Int
 
-[ERROR] ./_internal/time_test/Time_test_testdurationstring.hx:12: characters 33-68
+[ERROR] ./_internal/time_test/Time_test_testdurationstring.hx:17: characters 33-68
 
- 12 |                     var _str = ((-_tt._d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+ 17 |                     var _str = ((-_tt._d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
     |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Int should be stdgo.GoString
 

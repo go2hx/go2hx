@@ -65,9 +65,9 @@ Exception: __skip__
 Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
 Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61)
 Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 67)
-Called from _internal.fmt_test._Fmt_test_testcountmallocs.$Fmt_test_testcountmallocs_Fields_.testCountMallocs (_internal/fmt_test/Fmt_test_testcountmallocs.hx line 4)
+Called from _internal.fmt_test._Fmt_test_testcountmallocs.$Fmt_test_testcountmallocs_Fields_.testCountMallocs (_internal/fmt_test/Fmt_test_testcountmallocs.hx line 6)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 7)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- SKIP: TestCountMallocs
 
@@ -147,9 +147,9 @@ Appendf allocated a new sliceException: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
-Called from _internal.fmt_test._Fmt_test_testappendf.$Fmt_test_testappendf_Fields_.testAppendf (_internal/fmt_test/Fmt_test_testappendf.hx line 10)
+Called from _internal.fmt_test._Fmt_test_testappendf.$Fmt_test_testappendf_Fields_.testAppendf (_internal/fmt_test/Fmt_test_testappendf.hx line 14)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 7)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestAppendf
 
@@ -158,9 +158,9 @@ Append allocated a new sliceException: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
-Called from _internal.fmt_test._Fmt_test_testappend.$Fmt_test_testappend_Fields_.testAppend (_internal/fmt_test/Fmt_test_testappend.hx line 10)
+Called from _internal.fmt_test._Fmt_test_testappend.$Fmt_test_testappend_Fields_.testAppend (_internal/fmt_test/Fmt_test_testappend.hx line 14)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 7)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestAppend
 
@@ -169,9 +169,9 @@ Appendln allocated a new sliceException: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
-Called from _internal.fmt_test._Fmt_test_testappendln.$Fmt_test_testappendln_Fields_.testAppendln (_internal/fmt_test/Fmt_test_testappendln.hx line 10)
+Called from _internal.fmt_test._Fmt_test_testappendln.$Fmt_test_testappendln_Fields_.testAppendln (_internal/fmt_test/Fmt_test_testappendln.hx line 14)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 7)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestAppendln
 
@@ -185,12 +185,12 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 
 === RUN  TestScanf
 Exception: array out of bounds, index: 0 length: 0
-Called from stdgo._internal.fmt.$T_ss_static_extension._doScanf (stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 126)
+Called from stdgo._internal.fmt.$T_ss_static_extension._doScanf (stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 149)
 Called from stdgo._internal.fmt._Fmt_fscanf.$Fmt_fscanf_Fields_.fscanf (stdgo/_internal/fmt/Fmt_fscanf.hx line 7)
-Called from stdgo._internal.fmt._Fmt_sscanf.$Fmt_sscanf_Fields_.sscanf (stdgo/_internal/fmt/Fmt_sscanf.hx line 5)
-Called from _internal.fmt_test._Fmt_test_testscanf.$Fmt_test_testscanf_Fields_.testScanf (_internal/fmt_test/Fmt_test_testscanf.hx line 4)
+Called from stdgo._internal.fmt._Fmt_sscanf.$Fmt_sscanf_Fields_.sscanf (stdgo/_internal/fmt/Fmt_sscanf.hx line 6)
+Called from _internal.fmt_test._Fmt_test_testscanf.$Fmt_test_testscanf_Fields_.testScanf (_internal/fmt_test/Fmt_test_testscanf.hx line 5)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 7)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestScanf
 
@@ -234,11 +234,11 @@ Sscan <empty> expected error; got none
 
 === RUN  TestScanNotPointer
 Exception: Can't cast i32 to stdgo.PointerData
-Called from stdgo._internal.fmt.$T_ss_static_extension._doScan (stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 291)
+Called from stdgo._internal.fmt.$T_ss_static_extension._doScan (stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 353)
 Called from stdgo._internal.fmt._Fmt_fscan.$Fmt_fscan_Fields_.fscan (stdgo/_internal/fmt/Fmt_fscan.hx line 7)
 Called from _internal.fmt_test._Fmt_test_testscannotpointer.$Fmt_test_testscannotpointer_Fields_.testScanNotPointer (_internal/fmt_test/Fmt_test_testscannotpointer.hx line 5)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 7)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestScanNotPointer
 

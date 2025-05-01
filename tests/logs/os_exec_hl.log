@@ -16,40 +16,41 @@
      |                                                                      ^^^
      | stdgo._internal.net.T_conn has no field _ok
 
-[ERROR] /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:329: characters 10-35
+[ERROR] ./stdgo/_internal/mime/multipart/Multipart_reader_static_extension.hx:465: characters 79-387
 
- 329 |   return load("get_type", 1)(name);
-     |          ^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Uncaught exception Type not found 'stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240_asinterface.T__readForm___localname___writerOnly_5240_asInterface'
+ 465 |                     var __tmp__ = stdgo._internal.io.Io_copybuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240(stdgo.Go.asInterface(_file)) : stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240)), stdgo.Go.asInterface(_p), _copyBuf), _remainingSize:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+     |                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Module stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240 does not define type T__readForm___localname___writerOnly_5240_asInterface
 
-      ->  stdgo/Go.macro.hx:352: characters 14-55
+      ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:329: characters 10-35
 
-      352 |    final t = Context.getType(printer.printTypePath(p));
-          |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      329 |   return load("get_type", 1)(name);
+          |          ^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      439 |      f(ct, params);
+      ->  stdgo/Go.macro.hx:369: characters 9-50
+
+      369 |     t = Context.getType(printer.printTypePath(p));
+          |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          | Called from here
+
+      459 |      f(ct, params);
           |      ^^^^^^^^^^^^^
           | Called from here
 
-      465 |   return run();
+      485 |   return run();
           |          ^^^^^
           | Called from here
 
-      ->  ./stdgo/_internal/mime/multipart/Multipart_reader_static_extension.hx:385: characters 79-387
-
-      385 |                     var __tmp__ = stdgo._internal.io.Io_copybuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240(stdgo.Go.asInterface(_file)) : stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240)), stdgo.Go.asInterface(_p), _copyBuf), _remainingSize:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-          |                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
           | For function argument '_dst'
 
-[ERROR] (macro) ./stdgo/_internal/crypto/elliptic/Elliptic__matchesspecificcurve.hx:3: characters 129-181
+[ERROR] (macro) ./stdgo/_internal/crypto/elliptic/Elliptic_t_nistcurve_static_extension.hx:208: characters 146-155
 
-   3 |         for (__1 => _c in (new stdgo.Slice<stdgo._internal.crypto.elliptic.Elliptic_curve.Curve>(4, 4, ...[stdgo.Go.asInterface(stdgo._internal.crypto.elliptic.Elliptic__p224._p224), stdgo.Go.asInterface(stdgo._internal.crypto.elliptic.Elliptic__p256._p256), stdgo.Go.asInterface(stdgo._internal.crypto.elliptic.Elliptic__p384._p384), stdgo.Go.asInterface(stdgo._internal.crypto.elliptic.Elliptic__p521._p521)]) : stdgo.Slice<stdgo._internal.crypto.elliptic.Elliptic_curve.Curve>)) {
-     |                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | stdgo.Ref<stdgo._internal.crypto.elliptic.T_nistCurve<stdgo.Ref<stdgo._internal.crypto.internal.nistec.P224Point>>> should be stdgo._internal.crypto.elliptic.T_nistCurvePointer<stdgo.Ref<stdgo._internal.crypto.internal.nistec.P224Point>>
-     | For function argument '__self__'
+ 208 |         _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).setBytes((_out.__slice__((1 : stdgo.GoInt), ((1 : stdgo.GoInt) + _byteLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+     |                                                                                                                                                  ^^^^^^^^^
+     | Array<stdgo.GoUInt8> has no field __slice__
 
-          | For function argument 'args'
+          | For function argument '_buf'
 

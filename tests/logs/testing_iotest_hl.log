@@ -1,4 +1,5 @@
 === RUN  TestWriteLogger
+-- SKIP: testWriteLogger
 
 -- PASS: TestWriteLogger
 

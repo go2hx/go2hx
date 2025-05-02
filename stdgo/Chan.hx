@@ -2,9 +2,6 @@ package stdgo;
 
 import stdgo.GoInt;
 
-#if (!target.threaded)
-#error "Channel is not available on non threaded targets"
-#end
 @:forward(length, capacity, __isSend__, __isGet__, __smartGet__, __get__, __send__, __close__, keyValueIterator, iterator)
 @:forward.new
 /**
@@ -166,6 +163,9 @@ class ChanData<T> {
 		or false if it is a zero value generated because the channel is closed and empty.
 	**/
 	public function __smartGet__():{_0:T, _1:Bool} {
+		#if target.threaded
+		throw "Channel not supported on non threaded targets";
+		#end
 		if (debug)
 			trace(index + " __smartGet__");
 
@@ -297,6 +297,9 @@ class ChanData<T> {
 
 	// send a value to a channel
 	public function __send__(value:T) {
+		#if target.threaded
+		throw "Channel not supported on non threaded targets";
+		#end
 		if (debug)
 			trace(index + " begin __Send__ ", value);
 

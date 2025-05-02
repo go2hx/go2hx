@@ -9,11 +9,6 @@ import js.node.net.Socket;
 import sys.net.Socket;
 #end
 
-#if (hl && !no_uv)
-typedef Loop = hl.uv.Loop;
-typedef Tcp = hl.uv.Tcp;
-typedef Stream = hl.uv.Stream;
-#else
 class Loop {
 	public var events:Array<Void->Void> = [];
 
@@ -39,7 +34,6 @@ enum abstract RunMode(Int) to Int {
 	/** Poll for i/o once but don't block if there are no pending callbacks. */
 	var NoWait = 2;
 }
-#end
 
 #if js
 class Stream {
@@ -101,7 +95,7 @@ class Tcp {
 		return s.address().port;
 	}
 }
-#elseif (sys || no_uv)
+#elseif sys
 class Stream {
 	var s:Socket = null;
 	var loop:Loop;

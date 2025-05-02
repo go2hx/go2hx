@@ -2,6 +2,9 @@ package stdgo;
 
 import stdgo.GoInt;
 
+#if (!target.threaded)
+#error "Channel is not available on non threaded targets"
+#end
 @:forward(length, capacity, __isSend__, __isGet__, __smartGet__, __get__, __send__, __close__, keyValueIterator, iterator)
 @:forward.new
 /**
@@ -126,20 +129,18 @@ class ChanData<T> {
 				// a get is in progress, so we can't do another
 				r = false;
 			}
-		} else{
-
-			while( !closed && sendCount==0) {
+		} else {
+			while (!closed && sendCount == 0) {
 				// wait in a loop for close or new value
 				mutex.release();
 				if (debug)
-					trace(index + "__isGet__ unbuffered await close or send");		
+					trace(index + "__isGet__ unbuffered await close or send");
 				gosched();
 				mutex.acquire();
 			}
 
 			r = !closed;
 		}
-				
 
 		if (debug)
 			trace(index + "__isGet__ unbuffered result", r);
@@ -324,7 +325,6 @@ class ChanData<T> {
 				}
 				gosched();
 			}
-
 		} else { // unbuffered send
 
 			/* 

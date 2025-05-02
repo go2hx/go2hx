@@ -21,7 +21,7 @@ class GoArrayData<T> {
 	var isString:Bool = false;
 	var noArgs = false;
 
-	public inline function new(length:Int, capacity:Int, args:Rest<T>) {
+	public function new(length:Int, capacity:Int, args:Rest<T>) {
 		noArgs = args.length == 0;
 		if (capacity != -1) {
 			final vectorLength = if (length > capacity) {

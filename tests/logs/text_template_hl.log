@@ -2,5 +2,5 @@ Uncaught exception: Int32:sync.atomic_.add is not yet implemented
 Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add(stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:5)
 Called from stdgo._internal.sync.$RWMutex_static_extension.rLock(stdgo/_internal/sync/Sync_rwmutex_static_extension.hx:213)
 Called from stdgo._internal.text.template.$Template_static_extension.parse(stdgo/_internal/text/template/Template_template_static_extension.hx:37)
-Called from fun$17491(stdgo/_internal/text/template/Template__tval.hx:93)
+Called from fun$17492(stdgo/_internal/text/template/Template__tval.hx:93)
 Called from .init(stdgo/_internal/text/template/Template__tval.hx:2)

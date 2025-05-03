@@ -194,12 +194,12 @@ package stdgo._internal.strconv;
     static public function _floatBits( _d:stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal.T_decimal>, _flt:stdgo.Ref<stdgo._internal.strconv.Strconv_t_floatinfo.T_floatInfo>):{ var _0 : stdgo.GoUInt64; var _1 : Bool; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal.T_decimal> = _d;
         var _b = (0 : stdgo.GoUInt64), _overflow = false;
-        var _n_14:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _mant_13:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _exp_12:stdgo.GoInt = (0 : stdgo.GoInt);
         var _bits_17:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _n_16:stdgo.GoInt = (0 : stdgo.GoInt);
         var _n_15:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_14:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _mant_13:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _exp_12:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"
@@ -210,170 +210,170 @@ package stdgo._internal.strconv;
                 if (__value__ == (0i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L319"
                     if ((@:checkr _d ?? throw "null pointer dereference")._nd == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 2678469i64;
+                        _gotoNext = 2631174i64;
                     } else {
-                        _gotoNext = 2678662i64;
+                        _gotoNext = 2631367i64;
                     };
-                } else if (__value__ == (2678469i64)) {
+                } else if (__value__ == (2631174i64)) {
                     _mant_13 = (0i64 : stdgo.GoUInt64);
                     _exp_12 = (@:checkr _flt ?? throw "null pointer dereference")._bias;
-                    _gotoNext = 2679871i64;
-                } else if (__value__ == (2678662i64)) {
+                    _gotoNext = 2632576i64;
+                } else if (__value__ == (2631367i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L328"
                     if (((@:checkr _d ?? throw "null pointer dereference")._dp > (310 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 2678676i64;
+                        _gotoNext = 2631381i64;
                     } else {
-                        _gotoNext = 2678698i64;
+                        _gotoNext = 2631403i64;
                     };
-                } else if (__value__ == (2678676i64)) {
-                    _gotoNext = 2679786i64;
-                } else if (__value__ == (2678698i64)) {
+                } else if (__value__ == (2631381i64)) {
+                    _gotoNext = 2632491i64;
+                } else if (__value__ == (2631403i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L331"
                     if (((@:checkr _d ?? throw "null pointer dereference")._dp < (-330 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 2678713i64;
+                        _gotoNext = 2631418i64;
                     } else {
-                        _gotoNext = 2678822i64;
+                        _gotoNext = 2631527i64;
                     };
-                } else if (__value__ == (2678713i64)) {
+                } else if (__value__ == (2631418i64)) {
                     _mant_13 = (0i64 : stdgo.GoUInt64);
                     _exp_12 = (@:checkr _flt ?? throw "null pointer dereference")._bias;
-                    _gotoNext = 2679871i64;
-                } else if (__value__ == (2678822i64)) {
+                    _gotoNext = 2632576i64;
+                } else if (__value__ == (2631527i64)) {
                     _exp_12 = (0 : stdgo.GoInt);
                     0i64;
-                    _gotoNext = 2678831i64;
-                } else if (__value__ == (2678831i64)) {
+                    _gotoNext = 2631536i64;
+                } else if (__value__ == (2631536i64)) {
                     //"file://#L0"
                     if (((@:checkr _d ?? throw "null pointer dereference")._dp > (0 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 2678844i64;
+                        _gotoNext = 2631549i64;
                     } else {
-                        _gotoNext = 2678959i64;
+                        _gotoNext = 2631664i64;
                     };
-                } else if (__value__ == (2678844i64)) {
+                } else if (__value__ == (2631549i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L342"
                     if (((@:checkr _d ?? throw "null pointer dereference")._dp >= (stdgo._internal.strconv.Strconv__powtab._powtab.length) : Bool)) {
-                        _gotoNext = 2678883i64;
+                        _gotoNext = 2631588i64;
                     } else {
-                        _gotoNext = 2678904i64;
+                        _gotoNext = 2631609i64;
                     };
-                } else if (__value__ == (2678883i64)) {
+                } else if (__value__ == (2631588i64)) {
                     _n_14 = (27 : stdgo.GoInt);
-                    _gotoNext = 2678932i64;
-                } else if (__value__ == (2678904i64)) {
-                    _gotoNext = 2678904i64;
+                    _gotoNext = 2631637i64;
+                } else if (__value__ == (2631609i64)) {
+                    _gotoNext = 2631609i64;
                     _n_14 = stdgo._internal.strconv.Strconv__powtab._powtab[((@:checkr _d ?? throw "null pointer dereference")._dp : stdgo.GoInt)];
                     0i64;
-                    _gotoNext = 2678932i64;
-                } else if (__value__ == (2678932i64)) {
+                    _gotoNext = 2631637i64;
+                } else if (__value__ == (2631637i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L347"
                     _d.shift(-_n_14);
                     _exp_12 = (_exp_12 + (_n_14) : stdgo.GoInt);
-                    _gotoNext = 2678831i64;
-                } else if (__value__ == (2678959i64)) {
+                    _gotoNext = 2631536i64;
+                } else if (__value__ == (2631664i64)) {
                     0i64;
-                    _gotoNext = 2678959i64;
+                    _gotoNext = 2631664i64;
                     //"file://#L0"
                     if ((((@:checkr _d ?? throw "null pointer dereference")._dp < (0 : stdgo.GoInt) : Bool) || ((@:checkr _d ?? throw "null pointer dereference")._dp == ((0 : stdgo.GoInt)) && ((@:checkr _d ?? throw "null pointer dereference")._d[(0 : stdgo.GoInt)] < (53 : stdgo.GoUInt8) : Bool) : Bool) : Bool)) {
-                        _gotoNext = 2679001i64;
+                        _gotoNext = 2631706i64;
                     } else {
-                        _gotoNext = 2679178i64;
+                        _gotoNext = 2631883i64;
                     };
-                } else if (__value__ == (2679001i64)) {
+                } else if (__value__ == (2631706i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L352"
                     if ((-(@:checkr _d ?? throw "null pointer dereference")._dp >= (stdgo._internal.strconv.Strconv__powtab._powtab.length) : Bool)) {
-                        _gotoNext = 2679041i64;
+                        _gotoNext = 2631746i64;
                     } else {
-                        _gotoNext = 2679062i64;
+                        _gotoNext = 2631767i64;
                     };
-                } else if (__value__ == (2679041i64)) {
+                } else if (__value__ == (2631746i64)) {
                     _n_15 = (27 : stdgo.GoInt);
-                    _gotoNext = 2679091i64;
-                } else if (__value__ == (2679062i64)) {
-                    _gotoNext = 2679062i64;
+                    _gotoNext = 2631796i64;
+                } else if (__value__ == (2631767i64)) {
+                    _gotoNext = 2631767i64;
                     _n_15 = stdgo._internal.strconv.Strconv__powtab._powtab[(-(@:checkr _d ?? throw "null pointer dereference")._dp : stdgo.GoInt)];
                     0i64;
-                    _gotoNext = 2679091i64;
-                } else if (__value__ == (2679091i64)) {
+                    _gotoNext = 2631796i64;
+                } else if (__value__ == (2631796i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L357"
                     _d.shift(_n_15);
                     _exp_12 = (_exp_12 - (_n_15) : stdgo.GoInt);
-                    _gotoNext = 2678959i64;
-                } else if (__value__ == (2679178i64)) {
+                    _gotoNext = 2631664i64;
+                } else if (__value__ == (2631883i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L362"
                     _exp_12--;
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L367"
                     if ((_exp_12 < ((@:checkr _flt ?? throw "null pointer dereference")._bias + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 2679329i64;
+                        _gotoNext = 2632034i64;
                     } else {
-                        _gotoNext = 2679387i64;
+                        _gotoNext = 2632092i64;
                     };
-                } else if (__value__ == (2679329i64)) {
+                } else if (__value__ == (2632034i64)) {
                     _n_16 = (((@:checkr _flt ?? throw "null pointer dereference")._bias + (1 : stdgo.GoInt) : stdgo.GoInt) - _exp_12 : stdgo.GoInt);
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L369"
                     _d.shift(-_n_16);
                     _exp_12 = (_exp_12 + (_n_16) : stdgo.GoInt);
-                    _gotoNext = 2679387i64;
-                } else if (__value__ == (2679387i64)) {
+                    _gotoNext = 2632092i64;
+                } else if (__value__ == (2632092i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L373"
                     if (((_exp_12 - (@:checkr _flt ?? throw "null pointer dereference")._bias : stdgo.GoInt) >= (((1 : stdgo.GoInt) << (@:checkr _flt ?? throw "null pointer dereference")._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 2679423i64;
+                        _gotoNext = 2632128i64;
                     } else {
-                        _gotoNext = 2679479i64;
+                        _gotoNext = 2632184i64;
                     };
-                } else if (__value__ == (2679423i64)) {
-                    _gotoNext = 2679786i64;
-                } else if (__value__ == (2679479i64)) {
+                } else if (__value__ == (2632128i64)) {
+                    _gotoNext = 2632491i64;
+                } else if (__value__ == (2632184i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L378"
                     _d.shift((((1u32 : stdgo.GoUInt) + (@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoUInt) : stdgo.GoInt));
                     _mant_13 = _d.roundedInteger();
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L382"
                     if (_mant_13 == (((2i64 : stdgo.GoUInt64) << (@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoUInt64))) {
-                        _gotoNext = 2679615i64;
+                        _gotoNext = 2632320i64;
                     } else {
-                        _gotoNext = 2679722i64;
+                        _gotoNext = 2632427i64;
                     };
-                } else if (__value__ == (2679615i64)) {
+                } else if (__value__ == (2632320i64)) {
                     _mant_13 = (_mant_13 >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L384"
                     _exp_12++;
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L385"
                     if (((_exp_12 - (@:checkr _flt ?? throw "null pointer dereference")._bias : stdgo.GoInt) >= (((1 : stdgo.GoInt) << (@:checkr _flt ?? throw "null pointer dereference")._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 2679676i64;
+                        _gotoNext = 2632381i64;
                     } else {
-                        _gotoNext = 2679722i64;
+                        _gotoNext = 2632427i64;
                     };
-                } else if (__value__ == (2679676i64)) {
-                    _gotoNext = 2679786i64;
-                } else if (__value__ == (2679722i64)) {
+                } else if (__value__ == (2632381i64)) {
+                    _gotoNext = 2632491i64;
+                } else if (__value__ == (2632427i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L391"
                     if ((_mant_13 & (((1i64 : stdgo.GoUInt64) << (@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoUInt64)) : stdgo.GoUInt64) == ((0i64 : stdgo.GoUInt64))) {
-                        _gotoNext = 2679753i64;
+                        _gotoNext = 2632458i64;
                     } else {
-                        _gotoNext = 2679776i64;
+                        _gotoNext = 2632481i64;
                     };
-                } else if (__value__ == (2679753i64)) {
+                } else if (__value__ == (2632458i64)) {
                     _exp_12 = (@:checkr _flt ?? throw "null pointer dereference")._bias;
-                    _gotoNext = 2679776i64;
-                } else if (__value__ == (2679776i64)) {
-                    _gotoNext = 2679871i64;
-                } else if (__value__ == (2679786i64)) {
+                    _gotoNext = 2632481i64;
+                } else if (__value__ == (2632481i64)) {
+                    _gotoNext = 2632576i64;
+                } else if (__value__ == (2632491i64)) {
                     _mant_13 = (0i64 : stdgo.GoUInt64);
                     _exp_12 = ((((1 : stdgo.GoInt) << (@:checkr _flt ?? throw "null pointer dereference")._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) + (@:checkr _flt ?? throw "null pointer dereference")._bias : stdgo.GoInt);
                     _overflow = true;
-                    _gotoNext = 2679871i64;
-                } else if (__value__ == (2679871i64)) {
+                    _gotoNext = 2632576i64;
+                } else if (__value__ == (2632576i64)) {
                     _bits_17 = (_mant_13 & ((((1i64 : stdgo.GoUInt64) << (@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
                     _bits_17 = (_bits_17 | ((((((_exp_12 - (@:checkr _flt ?? throw "null pointer dereference")._bias : stdgo.GoInt)) & ((((1 : stdgo.GoInt) << (@:checkr _flt ?? throw "null pointer dereference")._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt) : stdgo.GoUInt64) << (@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoUInt64)) : stdgo.GoUInt64);
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L406"
                     if ((@:checkr _d ?? throw "null pointer dereference")._neg) {
-                        _gotoNext = 2680018i64;
+                        _gotoNext = 2632723i64;
                     } else {
-                        _gotoNext = 2680067i64;
+                        _gotoNext = 2632772i64;
                     };
-                } else if (__value__ == (2680018i64)) {
+                } else if (__value__ == (2632723i64)) {
                     _bits_17 = (_bits_17 | ((((1i64 : stdgo.GoUInt64) << (@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoUInt64) << (@:checkr _flt ?? throw "null pointer dereference")._expbits : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                    _gotoNext = 2680067i64;
-                } else if (__value__ == (2680067i64)) {
+                    _gotoNext = 2632772i64;
+                } else if (__value__ == (2632772i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/strconv/atof.go#L409"
                     return {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : Bool; } = { _0 : _bits_17, _1 : _overflow };

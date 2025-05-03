@@ -189,8 +189,6 @@ final structs = [
 	},
 	"sync:WaitGroup" => macro {
 		@:local
-		var lock = @:define("target.threaded") new sys.thread.Lock();
-		@:local
 		var counter:stdgo.GoUInt = 0;
 		@:local
 		var mutex = @:define("target.threaded") new sys.thread.Mutex();

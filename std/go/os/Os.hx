@@ -304,11 +304,10 @@ overload extern inline function truncate() {
 
 @:recv(File)
 function write(_f, _b:stdgo.Slice<stdgo.GoByte>) {
-	@:privateAccess _f.mutex.acquire();
 	if (_b.length == 0) {
-		@:privateAccess _f.mutex.release();
 		return {_0: 0, _1: null};
 	}
+	@:privateAccess _f.mutex.acquire();
 	final b = _b.toBytes();
 	final i = @:privateAccess _f._output.writeBytes(b, 0, b.length);
 	// fails on js
@@ -326,11 +325,13 @@ function writeString(_f, _s)
 @:recv(File)
 overload extern inline function truncate(_f, _size) {
 	@:define("(sys || hxnodejs)") {
+		@:privateAccess _f.mutex.acquire();
 		@:privateAccess _f._output.flush();
 		@:privateAccess _f._output.close();
 		final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
 		sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0, (_size : stdgo.GoInt).toBasic()));
 		@:privateAccess _f._output = sys.io.File.write(@:privateAccess _f._file._name);
+		@:privateAccess _f.mutex.release();
 	}
 	return null;
 }
@@ -372,6 +373,9 @@ function create(_name) {
 	// O_RDWR|O_CREATE|O_TRUNC
 	return stdgo._internal.os.Os_openfile.openFile(_name, 0, 0);
 }
+
+function tempDir()
+	return "temp";
 
 function createTemp(_dir, _pattern) {
 	final dir = _dir;
@@ -422,10 +426,10 @@ function writeAt(_f, _b, _off) {
 			}
 			final b = _b.toBytes();
 			final i = @:privateAccess _f._output.writeBytes(b, 0, b.length);
-			@:privateAccess _f._output.flush();
 			@:define("!eval") {
 				@:privateAccess cast(_f._output, sys.io.FileOutput).seek(t, sys.io.FileSeek.SeekBegin);
 			}
+			@:privateAccess _f._output.flush();
 			@:privateAccess _f.mutex.release();
 			return {_0: i, _1: null};
 		} catch (e) {
@@ -447,8 +451,8 @@ overload extern inline function readAt(_f, _b, _off) {
 	@:define("(sys || hxnodejs)") {
 		if (_b.length == 0)
 			return {_0: 0, _1: null};
+		@:privateAccess _f.mutex.acquire();
 		try {
-			@:privateAccess _f.mutex.acquire();
 			var offset = _off.toBasic().low;
 			// @:privateAccess cast(_f._input, sys.io.FileInput).seek(0, sys.io.FileSeek.SeekBegin);
 			final b = _b.toBytes();
@@ -476,11 +480,6 @@ overload extern inline function readAt(_f, _b, _off) {
 	};
 	trace("not supported on non sys target");
 	return {_0: 0, _1: null};
-}
-
-@:recv(File)
-overload extern inline function readAt(_f, _s) {
-	return _f.write(_s);
 }
 
 function _fastrand() {

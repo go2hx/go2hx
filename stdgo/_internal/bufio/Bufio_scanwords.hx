@@ -2,6 +2,7 @@ package stdgo._internal.bufio;
 function scanWords(_data:stdgo.Slice<stdgo.GoUInt8>, _atEOF:Bool):{ var _0 : stdgo.GoInt; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; } {
         var _advance = (0 : stdgo.GoInt), _token = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         var _start = (0 : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/bufio/scan.go#L398"
         {
             var _width = (0 : stdgo.GoInt);
             while ((_start < (_data.length) : Bool)) {
@@ -11,12 +12,15 @@ function scanWords(_data:stdgo.Slice<stdgo.GoUInt8>, _atEOF:Bool):{ var _0 : std
                     _r = @:tmpset0 __tmp__._0;
                     _width = @:tmpset0 __tmp__._1;
                 };
-if (!stdgo._internal.bufio.Bufio__isspace._isSpace(_r)) {
+//"file:///home/runner/.go/go1.21.3/src/bufio/scan.go#L401"
+                if (!stdgo._internal.bufio.Bufio__isspace._isSpace(_r)) {
+                    //"file:///home/runner/.go/go1.21.3/src/bufio/scan.go#L402"
                     break;
                 };
                 _start = (_start + (_width) : stdgo.GoInt);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/bufio/scan.go#L406"
         {
             var __0 = (0 : stdgo.GoInt), __1 = (_start : stdgo.GoInt);
 var _i = __1, _width = __0;
@@ -27,7 +31,9 @@ var _i = __1, _width = __0;
                     _r = @:tmpset0 __tmp__._0;
                     _width = @:tmpset0 __tmp__._1;
                 };
-if (stdgo._internal.bufio.Bufio__isspace._isSpace(_r)) {
+//"file:///home/runner/.go/go1.21.3/src/bufio/scan.go#L409"
+                if (stdgo._internal.bufio.Bufio__isspace._isSpace(_r)) {
+                    //"file:///home/runner/.go/go1.21.3/src/bufio/scan.go#L410"
                     return {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; } = { _0 : (_i + _width : stdgo.GoInt), _1 : (_data.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Error) };
                         _advance = __tmp__._0;
@@ -39,7 +45,9 @@ if (stdgo._internal.bufio.Bufio__isspace._isSpace(_r)) {
                 _i = (_i + (_width) : stdgo.GoInt);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/bufio/scan.go#L414"
         if ((_atEOF && ((_data.length) > _start : Bool) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/bufio/scan.go#L415"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; } = { _0 : (_data.length), _1 : (_data.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Error) };
                 _advance = __tmp__._0;
@@ -48,6 +56,7 @@ if (stdgo._internal.bufio.Bufio__isspace._isSpace(_r)) {
                 __tmp__;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/bufio/scan.go#L418"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; } = { _0 : _start, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Error) };
             _advance = __tmp__._0;

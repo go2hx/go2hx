@@ -18,25 +18,38 @@ function testFloatScan(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void
             s;
         };
         var _buf:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer);
+        //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L802"
         for (_i => _test in _floatScanTests) {
             var _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
-            @:check2 _buf.reset();
-            @:check2 _buf.writeString(_test._input?.__copy__());
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L804"
+            _buf.reset();
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L805"
+            _buf.writeString(_test._input?.__copy__());
             var __tmp__ = stdgo._internal.fmt.Fmt_fscanf.fscanf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), _test._format?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_x))), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L807"
             if (_test._wantErr) {
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L808"
                 if (_err == null) {
-                    @:check2r _t.errorf(("#%d want non-nil err" : stdgo.GoString), stdgo.Go.toInterface(_i));
+                    //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L809"
+                    _t.errorf(("#%d want non-nil err" : stdgo.GoString), stdgo.Go.toInterface(_i));
                 };
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L811"
                 continue;
             };
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L814"
             if (_err != null) {
-                @:check2r _t.errorf(("#%d error: %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L815"
+                _t.errorf(("#%d error: %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
             };
-            if ((@:check2r _x.string() : stdgo.GoString) != (_test._output)) {
-                @:check2r _t.errorf(("#%d got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface((@:check2r _x.string() : stdgo.GoString)), stdgo.Go.toInterface(_test._output));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L818"
+            if ((_x.string() : stdgo.GoString) != (_test._output)) {
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L819"
+                _t.errorf(("#%d got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface((_x.string() : stdgo.GoString)), stdgo.Go.toInterface(_test._output));
             };
-            if (@:check2 _buf.len() != (_test._remaining)) {
-                @:check2r _t.errorf(("#%d got %d bytes remaining; want %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(@:check2 _buf.len()), stdgo.Go.toInterface(_test._remaining));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L821"
+            if (_buf.len() != (_test._remaining)) {
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L822"
+                _t.errorf(("#%d got %d bytes remaining; want %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_buf.len()), stdgo.Go.toInterface(_test._remaining));
             };
         };
     }

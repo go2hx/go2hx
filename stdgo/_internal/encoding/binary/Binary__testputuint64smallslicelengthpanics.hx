@@ -16,7 +16,9 @@ function _testPutUint64SmallSliceLengthPanics():Bool {
                 }) });
             };
             var _b = (new stdgo.GoArray<stdgo.GoUInt8>(8, 8, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>)?.__copy__();
+            //"file:///home/runner/.go/go1.21.3/src/encoding/binary/binary_test.go#L462"
             stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.putUint64((_b.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (72623859790382856i64 : stdgo.GoUInt64));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/binary/binary_test.go#L463"
             {
                 final __ret__:Bool = _panicked = false;
                 for (defer in __deferstack__) {
@@ -43,7 +45,7 @@ function _testPutUint64SmallSliceLengthPanics():Bool {
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

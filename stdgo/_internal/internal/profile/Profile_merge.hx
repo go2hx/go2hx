@@ -1,10 +1,14 @@
 package stdgo._internal.internal.profile;
 function merge(_srcs:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>>):{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } {
+        //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L22"
         if ((_srcs.length) == ((0 : stdgo.GoInt))) {
+            //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L23"
             return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("no profiles to merge" : stdgo.GoString)) };
         };
         var __tmp__ = stdgo._internal.internal.profile.Profile__combineheaders._combineHeaders(_srcs), _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L26"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L27"
             return { _0 : null, _1 : _err };
         };
         var _pm = (stdgo.Go.setRef(({ _p : _p, _samples : (({
@@ -32,6 +36,7 @@ function merge(_srcs:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Prof
             {};
             cast x;
         } : stdgo.GoMap<stdgo._internal.internal.profile.Profile_t_mappingkey.T_mappingKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>>) : stdgo.GoMap<stdgo._internal.internal.profile.Profile_t_mappingkey.T_mappingKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>>) } : stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger>);
+        //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L38"
         for (__0 => _src in _srcs) {
             (@:checkr _pm ?? throw "null pointer dereference")._locationsByID = (({
                 final x = new stdgo.GoMap.GoUInt64Map<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>();
@@ -51,19 +56,28 @@ function merge(_srcs:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Prof
                 {};
                 x;
             } : stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.internal.profile.Profile_t_mapinfo.T_mapInfo>) : stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.internal.profile.Profile_t_mapinfo.T_mapInfo>);
+            //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L44"
             if ((((@:checkr _pm ?? throw "null pointer dereference")._mappings.length == (0 : stdgo.GoInt)) && (((@:checkr _src ?? throw "null pointer dereference").mapping.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
-                @:check2r _pm._mapMapping((@:checkr _src ?? throw "null pointer dereference").mapping[(0 : stdgo.GoInt)]);
+                //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L49"
+                _pm._mapMapping((@:checkr _src ?? throw "null pointer dereference").mapping[(0 : stdgo.GoInt)]);
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L52"
             for (__1 => _s in (@:checkr _src ?? throw "null pointer dereference").sample) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L53"
                 if (!stdgo._internal.internal.profile.Profile__iszerosample._isZeroSample(_s)) {
-                    @:check2r _pm._mapSample(_s);
+                    //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L54"
+                    _pm._mapSample(_s);
                 };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L59"
         for (__1 => _s in (@:checkr _p ?? throw "null pointer dereference").sample) {
+            //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L60"
             if (stdgo._internal.internal.profile.Profile__iszerosample._isZeroSample(_s)) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L63"
                 return stdgo._internal.internal.profile.Profile_merge.merge((new stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>>(1, 1, ...[_p]) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>>));
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/internal/profile/merge.go#L67"
         return { _0 : _p, _1 : (null : stdgo.Error) };
     }

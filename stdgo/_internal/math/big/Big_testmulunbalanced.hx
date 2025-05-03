@@ -10,13 +10,16 @@ function testMulUnbalanced(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):
             var _x = (stdgo._internal.math.big.Big__rndnat._rndNat((50000 : stdgo.GoInt)) : stdgo._internal.math.big.Big_t_nat.T_nat);
             var _y = (stdgo._internal.math.big.Big__rndnat._rndNat((40 : stdgo.GoInt)) : stdgo._internal.math.big.Big_t_nat.T_nat);
             var _allocSize = (stdgo._internal.math.big.Big__allocbytes._allocBytes(function():Void {
+                //"file:///home/runner/.go/go1.21.3/src/math/big/nat_test.go#L187"
                 (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._mul(_x, _y);
             }) : stdgo.GoUInt64);
             var _inputSize = ((((_x.length) + (_y.length) : stdgo.GoInt) : stdgo.GoUInt64) * (4i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/nat_test.go#L190"
             {
                 var _ratio = (_allocSize / (_inputSize : stdgo.GoUInt64) : stdgo.GoUInt64);
                 if ((_ratio > (10i64 : stdgo.GoUInt64) : Bool)) {
-                    @:check2r _t.errorf(("multiplication uses too much memory (%d > %d times the size of inputs)" : stdgo.GoString), stdgo.Go.toInterface(_allocSize), stdgo.Go.toInterface(_ratio));
+                    //"file:///home/runner/.go/go1.21.3/src/math/big/nat_test.go#L191"
+                    _t.errorf(("multiplication uses too much memory (%d > %d times the size of inputs)" : stdgo.GoString), stdgo.Go.toInterface(_allocSize), stdgo.Go.toInterface(_ratio));
                 };
             };
             {
@@ -36,7 +39,7 @@ function testMulUnbalanced(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

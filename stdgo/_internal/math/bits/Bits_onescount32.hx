@@ -1,5 +1,6 @@
 package stdgo._internal.math.bits;
 function onesCount32(_x:stdgo.GoUInt32):stdgo.GoInt {
+        //"file:///home/runner/.go/go1.21.3/src/math/bits/bits.go#L136"
         return (((((stdgo.Go.str(0,
 1,
 1,

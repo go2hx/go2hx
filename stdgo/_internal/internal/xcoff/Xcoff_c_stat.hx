@@ -1,2 +1,2 @@
 package stdgo._internal.internal.xcoff;
-final c_STAT : stdgo.GoUInt64 = 3i32;
+final c_STAT : stdgo.GoUInt64 = 3i64;

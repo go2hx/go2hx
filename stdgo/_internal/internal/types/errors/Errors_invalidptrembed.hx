@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final invalidPtrEmbed : stdgo._internal.internal.types.errors.Errors_code.Code = 30i32;
+final invalidPtrEmbed : stdgo._internal.internal.types.errors.Errors_code.Code = 30i64;

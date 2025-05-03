@@ -1,9 +1,12 @@
 package stdgo._internal.net.smtp;
 function newClient(_conn:stdgo._internal.net.Net_conn.Conn, _host:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.net.smtp.Smtp_client.Client>; var _1 : stdgo.Error; } {
         var _text = stdgo._internal.net.textproto.Textproto_newconn.newConn(_conn);
-        var __tmp__ = @:check2r _text.readResponse((220 : stdgo.GoInt)), __0:stdgo.GoInt = __tmp__._0, __1:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = _text.readResponse((220 : stdgo.GoInt)), __0:stdgo.GoInt = __tmp__._0, __1:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        //"file:///home/runner/.go/go1.21.3/src/net/smtp/smtp.go#L67"
         if (_err != null) {
-            @:check2r _text.close();
+            //"file:///home/runner/.go/go1.21.3/src/net/smtp/smtp.go#L68"
+            _text.close();
+            //"file:///home/runner/.go/go1.21.3/src/net/smtp/smtp.go#L69"
             return { _0 : null, _1 : _err };
         };
         var _c = (stdgo.Go.setRef(({ text : _text, _conn : _conn, _serverName : _host?.__copy__(), _localName : ("localhost" : stdgo.GoString) } : stdgo._internal.net.smtp.Smtp_client.Client)) : stdgo.Ref<stdgo._internal.net.smtp.Smtp_client.Client>);
@@ -15,5 +18,6 @@ function newClient(_conn:stdgo._internal.net.Net_conn.Conn, _host:stdgo.GoString
             };
             (@:checkr _c ?? throw "null pointer dereference")._tls = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/smtp/smtp.go#L73"
         return { _0 : _c, _1 : (null : stdgo.Error) };
     }

@@ -6,10 +6,12 @@ function _drawNRGBASrc(_dst:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>, _r
         var _yMax = (_r.max.y - (@:checkr _dst ?? throw "null pointer dereference").rect.min.y : stdgo.GoInt);
         var _y = (_r.min.y - (@:checkr _dst ?? throw "null pointer dereference").rect.min.y : stdgo.GoInt);
         var _sy = (_sp.y - (@:checkr _src ?? throw "null pointer dereference").rect.min.y : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L552"
         while (_y != (_yMax)) {
             var _dpix = ((@:checkr _dst ?? throw "null pointer dereference").pix.__slice__((_y * (@:checkr _dst ?? throw "null pointer dereference").stride : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
 var _spix = ((@:checkr _src ?? throw "null pointer dereference").pix.__slice__((_sy * (@:checkr _src ?? throw "null pointer dereference").stride : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-{
+//"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L556"
+            {
                 var __0 = (_i0 : stdgo.GoInt), __1 = (_si0 : stdgo.GoInt);
 var _si = __1, _i = __0;
                 while ((_i < _i1 : Bool)) {

@@ -1,5 +1,5 @@
 package stdgo.runtime.internal.math;
-var maxUintptr : stdgo.GoUIntptr = 4294967295i32;
+var maxUintptr : stdgo.GoUIntptr = 4294967295i64;
 class Math {
     /**
         * MulUintptr returns a * b and whether the multiplication overflowed.

@@ -1,2 +1,2 @@
 package stdgo._internal.internal.abi;
-final fUNCDATA_InlTree : stdgo.GoUInt64 = 3i32;
+final fUNCDATA_InlTree : stdgo.GoUInt64 = 3i64;

@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final r_390_TLS_LDO64 : stdgo._internal.debug.elf.Elf_r_390.R_390 = 53i32;
+final r_390_TLS_LDO64 : stdgo._internal.debug.elf.Elf_r_390.R_390 = 53i64;

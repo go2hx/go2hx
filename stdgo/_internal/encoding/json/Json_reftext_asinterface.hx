@@ -5,6 +5,7 @@ class RefText_asInterface {
     @:tdfield
     public dynamic function unmarshalText(_0:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error return @:_0 __self__.unmarshalText(_0);
     @:keep
+    @:pointer
     @:tdfield
     public dynamic function marshalText():{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return @:_0 __self__.marshalText();
     public function new(__self__, __type__) {

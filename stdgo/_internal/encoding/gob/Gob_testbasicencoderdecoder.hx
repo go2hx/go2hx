@@ -19,21 +19,28 @@ stdgo.Go.toInterface(((1.2345f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f6
 stdgo.Go.toInterface(((1.2345678f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 2.3456789f64) : stdgo.GoComplex128)),
 stdgo.Go.toInterface(((("hello" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)),
 stdgo.Go.toInterface((("hello" : stdgo.GoString) : stdgo.GoString))]) : stdgo.Slice<stdgo.AnyInterface>);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L41"
         for (__8 => _value in _values) {
             var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
             var _enc = stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo.Go.asInterface(_b));
-            var _err = (@:check2r _enc.encode(_value) : stdgo.Error);
+            var _err = (_enc.encode(_value) : stdgo.Error);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L45"
             if (_err != null) {
-                @:check2r _t.error(stdgo.Go.toInterface(("encoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L46"
+                _t.error(stdgo.Go.toInterface(("encoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
             var _dec = stdgo._internal.encoding.gob.Gob_newdecoder.newDecoder(stdgo.Go.asInterface(_b));
             var _result = (stdgo._internal.reflect.Reflect_new_.new_(stdgo._internal.reflect.Reflect_typeof.typeOf(_value))?.__copy__() : stdgo._internal.reflect.Reflect_value.Value);
-            _err = @:check2r _dec.decode(_result.interface_());
+            _err = _dec.decode(_result.interface_());
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L51"
             if (_err != null) {
-                @:check2r _t.fatalf(("error decoding %T: %v:" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.reflect.Reflect_typeof.typeOf(_value)), stdgo.Go.toInterface(_err));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L52"
+                _t.fatalf(("error decoding %T: %v:" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.reflect.Reflect_typeof.typeOf(_value)), stdgo.Go.toInterface(_err));
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L54"
             if (!stdgo._internal.reflect.Reflect_deepequal.deepEqual(_value, _result.elem().interface_())) {
-                @:check2r _t.fatalf(("%T: expected %v got %v" : stdgo.GoString), _value, _value, _result.elem().interface_());
+                //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L55"
+                _t.fatalf(("%T: expected %v got %v" : stdgo.GoString), _value, _value, _result.elem().interface_());
             };
         };
     }

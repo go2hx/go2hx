@@ -9,6 +9,7 @@ function newEncoder(_w:stdgo._internal.io.Io_writer.Writer):stdgo.Ref<stdgo._int
             {};
             cast x;
         } : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId>) : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId>);
-        (@:checkr _enc ?? throw "null pointer dereference")._countState = @:check2r _enc._newEncoderState((stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>));
+        (@:checkr _enc ?? throw "null pointer dereference")._countState = _enc._newEncoderState((stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>));
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder.go#L39"
         return _enc;
     }

@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final wrongResultCount : stdgo._internal.internal.types.errors.Errors_code.Code = 103i32;
+final wrongResultCount : stdgo._internal.internal.types.errors.Errors_code.Code = 103i64;

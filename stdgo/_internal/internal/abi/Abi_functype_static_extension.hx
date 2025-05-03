@@ -4,20 +4,25 @@ package stdgo._internal.internal.abi;
     @:tdfield
     static public function isVariadic( _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType>):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L539"
         return ((@:checkr _t ?? throw "null pointer dereference").outCount & (32768 : stdgo.GoUInt16) : stdgo.GoUInt16) != ((0 : stdgo.GoUInt16));
     }
     @:keep
     @:tdfield
     static public function outSlice( _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType>):stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>> {
         @:recv var _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType> = _t;
-        var _outCount = (@:check2r _t.numOut() : stdgo.GoUInt16);
+        var _outCount = (_t.numOut() : stdgo.GoUInt16);
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L528"
         if (_outCount == ((0 : stdgo.GoUInt16))) {
+            //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L529"
             return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>>);
         };
         var _uadd = (stdgo._internal.unsafe.Unsafe_sizeof.sizeof(stdgo.Go.toInterface((_t : stdgo._internal.internal.abi.Abi_functype.FuncType))) : stdgo.GoUIntptr);
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L532"
         if (((@:checkr _t ?? throw "null pointer dereference").type.tFlag & (1 : stdgo._internal.internal.abi.Abi_tflag.TFlag) : stdgo._internal.internal.abi.Abi_tflag.TFlag) != ((0 : stdgo._internal.internal.abi.Abi_tflag.TFlag))) {
             _uadd = (_uadd + (stdgo._internal.unsafe.Unsafe_sizeof.sizeof(stdgo.Go.toInterface((new stdgo._internal.internal.abi.Abi_uncommontype.UncommonType() : stdgo._internal.internal.abi.Abi_uncommontype.UncommonType)))) : stdgo.GoUIntptr);
         };
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L535"
         return ((stdgo._internal.internal.abi.Abi__addchecked._addChecked((stdgo.Go.toInterface(_t) : stdgo._internal.unsafe.Unsafe.UnsafePointer), _uadd, ("outCount > 0" : stdgo.GoString)).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.internal.abi.Abi_type_.Type_", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
@@ -36,12 +41,16 @@ package stdgo._internal.internal.abi;
     static public function inSlice( _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType>):stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>> {
         @:recv var _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType> = _t;
         var _uadd = (stdgo._internal.unsafe.Unsafe_sizeof.sizeof(stdgo.Go.toInterface((_t : stdgo._internal.internal.abi.Abi_functype.FuncType))) : stdgo.GoUIntptr);
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L518"
         if (((@:checkr _t ?? throw "null pointer dereference").type.tFlag & (1 : stdgo._internal.internal.abi.Abi_tflag.TFlag) : stdgo._internal.internal.abi.Abi_tflag.TFlag) != ((0 : stdgo._internal.internal.abi.Abi_tflag.TFlag))) {
             _uadd = (_uadd + (stdgo._internal.unsafe.Unsafe_sizeof.sizeof(stdgo.Go.toInterface((new stdgo._internal.internal.abi.Abi_uncommontype.UncommonType() : stdgo._internal.internal.abi.Abi_uncommontype.UncommonType)))) : stdgo.GoUIntptr);
         };
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L521"
         if ((@:checkr _t ?? throw "null pointer dereference").inCount == ((0 : stdgo.GoUInt16))) {
+            //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L522"
             return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>>);
         };
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L524"
         return ((stdgo._internal.internal.abi.Abi__addchecked._addChecked((stdgo.Go.toInterface(_t) : stdgo._internal.unsafe.Unsafe.UnsafePointer), _uadd, ("t.inCount > 0" : stdgo.GoString)).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.internal.abi.Abi_type_.Type_", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([
 { name : "size_", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
 { name : "ptrBytes", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false },
@@ -59,25 +68,29 @@ package stdgo._internal.internal.abi;
     @:tdfield
     static public function out( _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType>, _i:stdgo.GoInt):stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_> {
         @:recv var _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType> = _t;
-        return (@:check2r _t.outSlice()[(_i : stdgo.GoInt)]);
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L513"
+        return (_t.outSlice()[(_i : stdgo.GoInt)]);
     }
     @:keep
     @:tdfield
     static public function numOut( _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType>):stdgo.GoInt {
         @:recv var _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L509"
         return (((@:checkr _t ?? throw "null pointer dereference").outCount & (32767 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdgo.GoInt);
     }
     @:keep
     @:tdfield
     static public function numIn( _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType>):stdgo.GoInt {
         @:recv var _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L505"
         return ((@:checkr _t ?? throw "null pointer dereference").inCount : stdgo.GoInt);
     }
     @:keep
     @:tdfield
     static public function in_( _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType>, _i:stdgo.GoInt):stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_> {
         @:recv var _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_functype.FuncType> = _t;
-        return @:check2r _t.inSlice()[(_i : stdgo.GoInt)];
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L501"
+        return _t.inSlice()[(_i : stdgo.GoInt)];
     }
     @:embedded
     @:embeddededffieldsffun

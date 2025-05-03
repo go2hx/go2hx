@@ -5,6 +5,7 @@ function testUnmarshalPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>)
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode_test.go#L2395"
                         {
                             var _got = ({
                                 final r = stdgo.Go.recover_exception;
@@ -12,15 +13,18 @@ function testUnmarshalPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>)
                                 r;
                             } : stdgo.AnyInterface);
                             if (!stdgo._internal.reflect.Reflect_deepequal.deepEqual(_got, stdgo.Go.toInterface((57005 : stdgo.GoInt)))) {
-                                @:check2r _t.errorf(("panic() = (%T)(%v), want 0xdead" : stdgo.GoString), _got, _got);
+                                //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode_test.go#L2396"
+                                _t.errorf(("panic() = (%T)(%v), want 0xdead" : stdgo.GoString), _got, _got);
                             };
                         };
                     };
                     a();
                 }) });
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode_test.go#L2399"
             stdgo._internal.encoding.json.Json_unmarshal.unmarshal(((("{}" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_t_unmarshalpanic.T_unmarshalPanic() : stdgo._internal.encoding.json.Json_t_unmarshalpanic.T_unmarshalPanic)) : stdgo.Ref<stdgo._internal.encoding.json.Json_t_unmarshalpanic.T_unmarshalPanic>))));
-            @:check2r _t.fatalf(("Unmarshal should have panicked" : stdgo.GoString));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode_test.go#L2400"
+            _t.fatalf(("Unmarshal should have panicked" : stdgo.GoString));
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -38,7 +42,7 @@ function testUnmarshalPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>)
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

@@ -4,6 +4,7 @@ package stdgo._internal.io;
     @:tdfield
     static public function read( _:stdgo._internal.io.Io_t_eofreader.T_eofReader, _0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _:stdgo._internal.io.Io_t_eofreader.T_eofReader = _?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/io/multi.go#L10"
         return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
     }
 }

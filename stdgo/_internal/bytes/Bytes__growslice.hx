@@ -5,11 +5,13 @@ function _growSlice(_b:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<s
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/bytes/buffer.go#L231"
                         if (({
                             final r = stdgo.Go.recover_exception;
                             stdgo.Go.recover_exception = null;
                             r;
                         }) != null) {
+                            //"file:///home/runner/.go/go1.21.3/src/bytes/buffer.go#L232"
                             throw stdgo.Go.toInterface(stdgo._internal.bytes.Bytes_errtoolarge.errTooLarge);
                         };
                     };
@@ -17,11 +19,14 @@ function _growSlice(_b:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<s
                 }) });
             };
             var _c = ((_b.length) + _n : stdgo.GoInt);
+            //"file:///home/runner/.go/go1.21.3/src/bytes/buffer.go#L244"
             if ((_c < ((2 : stdgo.GoInt) * _b.capacity : stdgo.GoInt) : Bool)) {
                 _c = ((2 : stdgo.GoInt) * _b.capacity : stdgo.GoInt);
             };
             var _b2 = ((null : stdgo.Slice<stdgo.GoUInt8>).__append__(...((new stdgo.Slice<stdgo.GoUInt8>((_c : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+            //"file:///home/runner/.go/go1.21.3/src/bytes/buffer.go#L250"
             _b2.__copyTo__(_b);
+            //"file:///home/runner/.go/go1.21.3/src/bytes/buffer.go#L251"
             {
                 final __ret__:stdgo.Slice<stdgo.GoUInt8> = (_b2.__slice__(0, (_b.length)) : stdgo.Slice<stdgo.GoUInt8>);
                 for (defer in __deferstack__) {
@@ -48,7 +53,7 @@ function _growSlice(_b:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<s
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

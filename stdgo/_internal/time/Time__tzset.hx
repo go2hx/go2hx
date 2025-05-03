@@ -8,6 +8,7 @@ function _tzset(_s:stdgo.GoString, _lastTxSec:stdgo.GoInt64, _sec:stdgo.GoInt64)
             _s = @:tmpset0 __tmp__._1?.__copy__();
             _ok = @:tmpset0 __tmp__._2;
         };
+        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L279"
         if (_ok) {
             {
                 var __tmp__ = stdgo._internal.time.Time__tzsetoffset._tzsetOffset(_s?.__copy__());
@@ -16,7 +17,9 @@ function _tzset(_s:stdgo.GoString, _lastTxSec:stdgo.GoInt64, _sec:stdgo.GoInt64)
                 _ok = @:tmpset0 __tmp__._2;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L282"
         if (!_ok) {
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L283"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (0 : stdgo.GoInt), _2 : (0i64 : stdgo.GoInt64), _3 : (0i64 : stdgo.GoInt64), _4 : false, _5 : false };
                 _name = __tmp__._0;
@@ -29,7 +32,9 @@ function _tzset(_s:stdgo.GoString, _lastTxSec:stdgo.GoInt64, _sec:stdgo.GoInt64)
             };
         };
         _stdOffset = -_stdOffset;
+        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L291"
         if (((_s.length == (0 : stdgo.GoInt)) || (_s[(0 : stdgo.GoInt)] == (44 : stdgo.GoUInt8)) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L293"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } = { _0 : _stdName?.__copy__(), _1 : _stdOffset, _2 : _lastTxSec, _3 : (9223372036854775807i64 : stdgo.GoInt64), _4 : false, _5 : true };
                 _name = __tmp__._0;
@@ -47,7 +52,9 @@ function _tzset(_s:stdgo.GoString, _lastTxSec:stdgo.GoInt64, _sec:stdgo.GoInt64)
             _s = @:tmpset0 __tmp__._1?.__copy__();
             _ok = @:tmpset0 __tmp__._2;
         };
+        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L297"
         if (_ok) {
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L298"
             if (((_s.length == (0 : stdgo.GoInt)) || (_s[(0 : stdgo.GoInt)] == (44 : stdgo.GoUInt8)) : Bool)) {
                 _dstOffset = (_stdOffset + (3600 : stdgo.GoInt) : stdgo.GoInt);
             } else {
@@ -60,7 +67,9 @@ function _tzset(_s:stdgo.GoString, _lastTxSec:stdgo.GoInt64, _sec:stdgo.GoInt64)
                 _dstOffset = -_dstOffset;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L305"
         if (!_ok) {
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L306"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (0 : stdgo.GoInt), _2 : (0i64 : stdgo.GoInt64), _3 : (0i64 : stdgo.GoInt64), _4 : false, _5 : false };
                 _name = __tmp__._0;
@@ -72,10 +81,13 @@ function _tzset(_s:stdgo.GoString, _lastTxSec:stdgo.GoInt64, _sec:stdgo.GoInt64)
                 __tmp__;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L309"
         if ((_s.length) == ((0 : stdgo.GoInt))) {
             _s = (",M3.2.0,M11.1.0" : stdgo.GoString);
         };
+        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L314"
         if (((_s[(0 : stdgo.GoInt)] != (44 : stdgo.GoUInt8)) && (_s[(0 : stdgo.GoInt)] != (59 : stdgo.GoUInt8)) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L315"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (0 : stdgo.GoInt), _2 : (0i64 : stdgo.GoInt64), _3 : (0i64 : stdgo.GoInt64), _4 : false, _5 : false };
                 _name = __tmp__._0;
@@ -95,7 +107,9 @@ function _tzset(_s:stdgo.GoString, _lastTxSec:stdgo.GoInt64, _sec:stdgo.GoInt64)
             _s = @:tmpset0 __tmp__._1?.__copy__();
             _ok = @:tmpset0 __tmp__._2;
         };
+        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L321"
         if (((!_ok || (_s.length) == ((0 : stdgo.GoInt)) : Bool) || (_s[(0 : stdgo.GoInt)] != (44 : stdgo.GoUInt8)) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L322"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (0 : stdgo.GoInt), _2 : (0i64 : stdgo.GoInt64), _3 : (0i64 : stdgo.GoInt64), _4 : false, _5 : false };
                 _name = __tmp__._0;
@@ -114,7 +128,9 @@ function _tzset(_s:stdgo.GoString, _lastTxSec:stdgo.GoInt64, _sec:stdgo.GoInt64)
             _s = @:tmpset0 __tmp__._1?.__copy__();
             _ok = @:tmpset0 __tmp__._2;
         };
+        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L326"
         if ((!_ok || ((_s.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L327"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (0 : stdgo.GoInt), _2 : (0i64 : stdgo.GoInt64), _3 : (0i64 : stdgo.GoInt64), _4 : false, _5 : false };
                 _name = __tmp__._0;
@@ -135,6 +151,7 @@ function _tzset(_s:stdgo.GoString, _lastTxSec:stdgo.GoInt64, _sec:stdgo.GoInt64)
         var _endSec = (stdgo._internal.time.Time__tzruletime._tzruleTime(_year, _endRule?.__copy__(), _dstOffset) : stdgo.GoInt64);
         var __0 = (true : Bool), __1 = (false : Bool);
 var _stdIsDST = __1, _dstIsDST = __0;
+        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L345"
         if ((_endSec < _startSec : Bool)) {
             {
                 final __tmp__0 = _endSec;
@@ -161,7 +178,9 @@ var _stdIsDST = __1, _dstIsDST = __0;
                 _dstIsDST = @:binopAssign __tmp__1;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L356"
         if ((_ysec < _startSec : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L357"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } = { _0 : _stdName?.__copy__(), _1 : _stdOffset, _2 : _abs, _3 : (_startSec + _abs : stdgo.GoInt64), _4 : _stdIsDST, _5 : true };
                 _name = __tmp__._0;
@@ -173,6 +192,7 @@ var _stdIsDST = __1, _dstIsDST = __0;
                 __tmp__;
             };
         } else if ((_ysec >= _endSec : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L359"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } = { _0 : _stdName?.__copy__(), _1 : _stdOffset, _2 : (_endSec + _abs : stdgo.GoInt64), _3 : (_abs + (31536000i64 : stdgo.GoInt64) : stdgo.GoInt64), _4 : _stdIsDST, _5 : true };
                 _name = __tmp__._0;
@@ -184,6 +204,7 @@ var _stdIsDST = __1, _dstIsDST = __0;
                 __tmp__;
             };
         } else {
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo.go#L361"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } = { _0 : _dstName?.__copy__(), _1 : _dstOffset, _2 : (_startSec + _abs : stdgo.GoInt64), _3 : (_endSec + _abs : stdgo.GoInt64), _4 : _dstIsDST, _5 : true };
                 _name = __tmp__._0;

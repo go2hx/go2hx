@@ -1,2 +1,2 @@
 package stdgo._internal.math.big;
-final _maxShift : stdgo.GoUInt64 = 28i32;
+final _maxShift : stdgo.GoUInt64 = 28i64;

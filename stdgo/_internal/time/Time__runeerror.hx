@@ -1,2 +1,2 @@
 package stdgo._internal.time;
-final _runeError : stdgo.GoInt32 = 65533i32;
+final _runeError : stdgo.GoInt32 = 65533i64;

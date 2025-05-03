@@ -4,6 +4,7 @@ package stdgo._internal.crypto.aes;
     @:tdfield
     static public function inAESPackage( _:stdgo.Ref<stdgo._internal.crypto.aes.Aes_t_teststream.T_testStream>):Bool {
         @:recv var _:stdgo.Ref<stdgo._internal.crypto.aes.Aes_t_teststream.T_testStream> = _;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/aes/modes_test.go#L100"
         return true;
     }
     @:keep

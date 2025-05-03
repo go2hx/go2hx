@@ -2,9 +2,10 @@ package stdgo._internal.crypto.x509;
 function _initSystemRoots():Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 stdgo._internal.crypto.x509.X509__systemrootsmu._systemRootsMu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/crypto/x509/root.go#L28"
+            stdgo._internal.crypto.x509.X509__systemrootsmu._systemRootsMu.lock();
             {
-                final __f__ = @:check2 stdgo._internal.crypto.x509.X509__systemrootsmu._systemRootsMu.unlock;
+                final __f__ = stdgo._internal.crypto.x509.X509__systemrootsmu._systemRootsMu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
@@ -12,6 +13,7 @@ function _initSystemRoots():Void {
                 stdgo._internal.crypto.x509.X509__systemroots._systemRoots = @:tmpset0 __tmp__._0;
                 stdgo._internal.crypto.x509.X509__systemrootserr._systemRootsErr = @:tmpset0 __tmp__._1;
             };
+            //"file:///home/runner/.go/go1.21.3/src/crypto/x509/root.go#L31"
             if (stdgo._internal.crypto.x509.X509__systemrootserr._systemRootsErr != null) {
                 stdgo._internal.crypto.x509.X509__systemroots._systemRoots = null;
             };
@@ -32,7 +34,7 @@ function _initSystemRoots():Void {
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

@@ -4,8 +4,10 @@ function testDecoderIssue4779(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_
         var _encodedShort = (stdgo._internal.strings.Strings_replaceall.replaceAll(_encoded?.__copy__(), ("\n" : stdgo.GoString), (stdgo.Go.str() : stdgo.GoString)?.__copy__())?.__copy__() : stdgo.GoString);
         var _dec = (stdgo._internal.encoding.base32.Base32_newdecoder.newDecoder(stdgo._internal.encoding.base32.Base32_stdencoding.stdEncoding, stdgo.Go.asInterface(stdgo._internal.strings.Strings_newreader.newReader(_encoded?.__copy__()))) : stdgo._internal.io.Io_reader.Reader);
         var __tmp__ = stdgo._internal.io.Io_readall.readAll(_dec), _res1:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/base32/base32_test.go#L431"
         if (_err != null) {
-            @:check2r _t.errorf(("ReadAll failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/base32/base32_test.go#L432"
+            _t.errorf(("ReadAll failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         _dec = stdgo._internal.encoding.base32.Base32_newdecoder.newDecoder(stdgo._internal.encoding.base32.Base32_stdencoding.stdEncoding, stdgo.Go.asInterface(stdgo._internal.strings.Strings_newreader.newReader(_encodedShort?.__copy__())));
         var _res2:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
@@ -14,10 +16,14 @@ function testDecoderIssue4779(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_
             _res2 = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/base32/base32_test.go#L438"
         if (_err != null) {
-            @:check2r _t.errorf(("ReadAll failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/base32/base32_test.go#L439"
+            _t.errorf(("ReadAll failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/base32/base32_test.go#L442"
         if (!stdgo._internal.bytes.Bytes_equal.equal(_res1, _res2)) {
-            @:check2r _t.error(stdgo.Go.toInterface(("Decoded results not equal" : stdgo.GoString)));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/base32/base32_test.go#L443"
+            _t.error(stdgo.Go.toInterface(("Decoded results not equal" : stdgo.GoString)));
         };
     }

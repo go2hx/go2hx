@@ -1,2 +1,2 @@
 package stdgo._internal.compress.lzw;
-final _invalidCode : stdgo.GoUInt64 = 4294967295i32;
+final _invalidCode : stdgo.GoUInt64 = 4294967295i64;

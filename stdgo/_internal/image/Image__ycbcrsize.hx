@@ -7,6 +7,7 @@ function _yCbCrSize(_r:stdgo._internal.image.Image_rectangle.Rectangle, _subsamp
             _w = @:binopAssign __tmp__0;
             _h = @:binopAssign __tmp__1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/image/ycbcr.go#L149"
         {
             final __value__ = _subsampleRatio;
             if (__value__ == ((1 : stdgo._internal.image.Image_ycbcrsubsampleratio.YCbCrSubsampleRatio))) {
@@ -29,5 +30,6 @@ function _yCbCrSize(_r:stdgo._internal.image.Image_rectangle.Rectangle, _subsamp
                 _ch = _h;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/image/ycbcr.go#L170"
         return { _0 : _w, _1 : _h, _2 : _cw, _3 : _ch };
     }

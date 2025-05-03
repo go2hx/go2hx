@@ -1,5 +1,6 @@
 package stdgo._internal.net.http.cookiejar;
 function _adapt(_delta:stdgo.GoInt32, _numPoints:stdgo.GoInt32, _firstTime:Bool):stdgo.GoInt32 {
+        //"file:///home/runner/.go/go1.21.3/src/net/http/cookiejar/punycode.go#L113"
         if (_firstTime) {
             _delta = (_delta / ((700 : stdgo.GoInt32)) : stdgo.GoInt32);
         } else {
@@ -7,9 +8,11 @@ function _adapt(_delta:stdgo.GoInt32, _numPoints:stdgo.GoInt32, _firstTime:Bool)
         };
         _delta = (_delta + ((_delta / _numPoints : stdgo.GoInt32)) : stdgo.GoInt32);
         var _k = ((0 : stdgo.GoInt32) : stdgo.GoInt32);
+        //"file:///home/runner/.go/go1.21.3/src/net/http/cookiejar/punycode.go#L120"
         while ((_delta > (455 : stdgo.GoInt32) : Bool)) {
             _delta = (_delta / ((35 : stdgo.GoInt32)) : stdgo.GoInt32);
             _k = (_k + ((36 : stdgo.GoInt32)) : stdgo.GoInt32);
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/http/cookiejar/punycode.go#L124"
         return (_k + (((36 : stdgo.GoInt32) * _delta : stdgo.GoInt32) / ((_delta + (38 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32) : stdgo.GoInt32);
     }

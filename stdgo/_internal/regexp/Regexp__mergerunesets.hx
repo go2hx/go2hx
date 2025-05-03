@@ -4,7 +4,9 @@ function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _right
         try {
             var _leftLen = ((_leftRunes : stdgo.Slice<stdgo.GoInt32>).length : stdgo.GoInt);
             var _rightLen = ((_rightRunes : stdgo.Slice<stdgo.GoInt32>).length : stdgo.GoInt);
+            //"file:///home/runner/.go/go1.21.3/src/regexp/onepass.go#L161"
             if ((((_leftLen & (1 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) || ((_rightLen & (1 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/regexp/onepass.go#L162"
                 throw stdgo.Go.toInterface(("mergeRuneSets odd length []rune" : stdgo.GoString));
             };
             var _lx:stdgo.GoInt = (0 : stdgo.GoInt), _rx:stdgo.GoInt = (0 : stdgo.GoInt), _rx__pointer__ = stdgo.Go.pointer(_rx), _lx__pointer__ = stdgo.Go.pointer(_lx);
@@ -14,6 +16,7 @@ function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _right
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/regexp/onepass.go#L171"
                         if (!_ok) {
                             _merged = (null : stdgo.Slice<stdgo.GoInt32>);
                             _next = (null : stdgo.Slice<stdgo.GoUInt32>);
@@ -24,16 +27,21 @@ function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _right
             };
             var _ix = (-1 : stdgo.GoInt);
             var _extend = function(_newLow:stdgo.Pointer<stdgo.GoInt>, _newArray:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _pc:stdgo.GoUInt32):Bool {
+                //"file:///home/runner/.go/go1.21.3/src/regexp/onepass.go#L179"
                 if (((_ix > (0 : stdgo.GoInt) : Bool) && (((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value : stdgo.GoInt)] <= _merged[(_ix : stdgo.GoInt)] : Bool) : Bool)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/onepass.go#L180"
                     return false;
                 };
                 _merged = (_merged.__append__(((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value : stdgo.GoInt)], ((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value + (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoInt32>);
                 _newLow.value = (_newLow.value + ((2 : stdgo.GoInt)) : stdgo.GoInt);
                 _ix = (_ix + ((2 : stdgo.GoInt)) : stdgo.GoInt);
                 _next = (_next.__append__(_pc) : stdgo.Slice<stdgo.GoUInt32>);
+                //"file:///home/runner/.go/go1.21.3/src/regexp/onepass.go#L186"
                 return true;
             };
+            //"file:///home/runner/.go/go1.21.3/src/regexp/onepass.go#L189"
             while (((_lx < _leftLen : Bool) || (_rx < _rightLen : Bool) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/regexp/onepass.go#L190"
                 if ((_rx >= _rightLen : Bool)) {
                     _ok = _extend(_lx__pointer__, _leftRunes, _leftPC);
                 } else if ((_lx >= _leftLen : Bool)) {
@@ -43,7 +51,9 @@ function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _right
                 } else {
                     _ok = _extend(_lx__pointer__, _leftRunes, _leftPC);
                 };
+                //"file:///home/runner/.go/go1.21.3/src/regexp/onepass.go#L200"
                 if (!_ok) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/onepass.go#L201"
                     {
                         final __ret__:{ var _0 : stdgo.Slice<stdgo.GoInt32>; var _1 : stdgo.Slice<stdgo.GoUInt32>; } = { _0 : stdgo._internal.regexp.Regexp__norune._noRune, _1 : stdgo._internal.regexp.Regexp__nonext._noNext };
                         for (defer in __deferstack__) {
@@ -55,6 +65,7 @@ function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _right
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/regexp/onepass.go#L204"
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoInt32>; var _1 : stdgo.Slice<stdgo.GoUInt32>; } = { _0 : _merged, _1 : _next };
                 for (defer in __deferstack__) {
@@ -81,7 +92,7 @@ function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _right
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

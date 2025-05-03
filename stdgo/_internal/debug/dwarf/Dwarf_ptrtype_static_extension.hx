@@ -4,6 +4,7 @@ package stdgo._internal.debug.dwarf;
     @:tdfield
     static public function string( _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ptrtype.PtrType>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ptrtype.PtrType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L145"
         return (("*" : stdgo.GoString) + ((@:checkr _t ?? throw "null pointer dereference").type.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
     }
     @:embedded

@@ -2,12 +2,14 @@ package stdgo._internal.internal.intern;
 function _get(_k:stdgo._internal.internal.intern.Intern_t_key.T_key):stdgo.Ref<stdgo._internal.internal.intern.Intern_value.Value> {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 stdgo._internal.internal.intern.Intern__mu._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/internal/intern/intern.go#L101"
+            stdgo._internal.internal.intern.Intern__mu._mu.lock();
             {
-                final __f__ = @:check2 stdgo._internal.internal.intern.Intern__mu._mu.unlock;
+                final __f__ = stdgo._internal.internal.intern.Intern__mu._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _v:stdgo.Ref<stdgo._internal.internal.intern.Intern_value.Value> = (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_value.Value>);
+            //"file:///home/runner/.go/go1.21.3/src/internal/intern/intern.go#L105"
             if (stdgo._internal.internal.intern.Intern__valsafe._valSafe != null) {
                 _v = (stdgo._internal.internal.intern.Intern__valsafe._valSafe[_k] ?? (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_value.Value>));
             } else {
@@ -17,10 +19,12 @@ function _get(_k:stdgo._internal.internal.intern.Intern_t_key.T_key):stdgo.Ref<s
                     (@:checkr _v ?? throw "null pointer dereference")._resurrected = true;
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/intern/intern.go#L111"
             if (({
                 final value = _v;
                 (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
             })) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/intern/intern.go#L112"
                 {
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
@@ -31,12 +35,15 @@ function _get(_k:stdgo._internal.internal.intern.Intern_t_key.T_key):stdgo.Ref<s
                 };
             };
             _v = _k.value();
+            //"file:///home/runner/.go/go1.21.3/src/internal/intern/intern.go#L115"
             if (stdgo._internal.internal.intern.Intern__valsafe._valSafe != null) {
                 stdgo._internal.internal.intern.Intern__valsafe._valSafe[_k] = _v;
             } else {
+                //"file:///home/runner/.go/go1.21.3/src/internal/intern/intern.go#L120"
                 stdgo._internal.runtime.Runtime_setfinalizer.setFinalizer(stdgo.Go.toInterface(stdgo.Go.asInterface(_v)), stdgo.Go.toInterface(stdgo._internal.internal.intern.Intern__finalize._finalize));
                 stdgo._internal.internal.intern.Intern__valmap._valMap[_k] = (new stdgo.GoUIntptr((stdgo.Go.toInterface(_v) : stdgo._internal.unsafe.Unsafe.UnsafePointer)) : stdgo.GoUIntptr);
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/intern/intern.go#L123"
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -62,7 +69,7 @@ function _get(_k:stdgo._internal.internal.intern.Intern_t_key.T_key):stdgo.Ref<s
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

@@ -46,5 +46,6 @@ function _feSquareGeneric(_v:stdgo.Ref<stdgo._internal.crypto.internal.edwards25
             x._l3 = __tmp__?._l3;
             x._l4 = __tmp__?._l4;
         };
-        @:check2r _v._carryPropagate();
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/edwards25519/field/fe_generic.go#L245"
+        _v._carryPropagate();
     }

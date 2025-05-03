@@ -1,6 +1,6 @@
 package stdgo.crypto.md5;
-var size : stdgo.GoUInt64 = 16i32;
-var blockSize : stdgo.GoUInt64 = 64i32;
+var size : stdgo.GoUInt64 = 16i64;
+var blockSize : stdgo.GoUInt64 = 64i64;
 /**
     * Package md5 implements the MD5 hash algorithm as defined in RFC 1321.
     * 

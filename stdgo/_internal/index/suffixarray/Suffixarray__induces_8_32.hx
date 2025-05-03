@@ -1,14 +1,18 @@
 package stdgo._internal.index.suffixarray;
 function _induceS_8_32(_text:stdgo.Slice<stdgo.GoUInt8>, _sa:stdgo.Slice<stdgo.GoInt32>, _freq:stdgo.Slice<stdgo.GoInt32>, _bucket:stdgo.Slice<stdgo.GoInt32>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/index/suffixarray/sais.go#L858"
         stdgo._internal.index.suffixarray.Suffixarray__bucketmax_8_32._bucketMax_8_32(_text, _freq, _bucket);
         _bucket = (_bucket.__slice__(0, (256 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>);
         var _cB = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
         var _b = (_bucket[(_cB : stdgo.GoInt)] : stdgo.GoInt32);
+        //"file:///home/runner/.go/go1.21.3/src/index/suffixarray/sais.go#L864"
         {
             var _i = ((_sa.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 var _j = (_sa[(_i : stdgo.GoInt)] : stdgo.GoInt);
-if ((_j >= (0 : stdgo.GoInt) : Bool)) {
+//"file:///home/runner/.go/go1.21.3/src/index/suffixarray/sais.go#L866"
+                if ((_j >= (0 : stdgo.GoInt) : Bool)) {
+                    //"file:///home/runner/.go/go1.21.3/src/index/suffixarray/sais.go#L869"
                     {
                         _i--;
                         continue;
@@ -18,7 +22,9 @@ _j = -_j;
 _sa[(_i : stdgo.GoInt)] = (_j : stdgo.GoInt32);
 var _k = (_j - (1 : stdgo.GoInt) : stdgo.GoInt);
 var _c1 = (_text[(_k : stdgo.GoInt)] : stdgo.GoUInt8);
-if ((_k > (0 : stdgo.GoInt) : Bool)) {
+//"file:///home/runner/.go/go1.21.3/src/index/suffixarray/sais.go#L885"
+                if ((_k > (0 : stdgo.GoInt) : Bool)) {
+                    //"file:///home/runner/.go/go1.21.3/src/index/suffixarray/sais.go#L886"
                     {
                         var _c0 = (_text[(_k - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt8);
                         if ((_c0 <= _c1 : Bool)) {
@@ -26,12 +32,14 @@ if ((_k > (0 : stdgo.GoInt) : Bool)) {
                         };
                     };
                 };
-if (_cB != (_c1)) {
+//"file:///home/runner/.go/go1.21.3/src/index/suffixarray/sais.go#L891"
+                if (_cB != (_c1)) {
                     _bucket[(_cB : stdgo.GoInt)] = _b;
                     _cB = _c1;
                     _b = _bucket[(_cB : stdgo.GoInt)];
                 };
-_b--;
+//"file:///home/runner/.go/go1.21.3/src/index/suffixarray/sais.go#L896"
+                _b--;
 _sa[(_b : stdgo.GoInt)] = (_k : stdgo.GoInt32);
                 _i--;
             };

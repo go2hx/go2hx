@@ -6,6 +6,7 @@ function _parseCPUSamples(_b:stdgo.Slice<stdgo.GoUInt8>, _parse:stdgo.Slice<stdg
             {};
             x;
         } : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>) : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
+        //"file:///home/runner/.go/go1.21.3/src/internal/profile/legacy_profile.go#L424"
         while (((_b.length) > (0 : stdgo.GoInt) : Bool)) {
             var _count:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _nstk:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
             {
@@ -18,11 +19,14 @@ function _parseCPUSamples(_b:stdgo.Slice<stdgo.GoUInt8>, _parse:stdgo.Slice<stdg
                 _nstk = @:tmpset0 __tmp__._0;
                 _b = @:tmpset0 __tmp__._1;
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/profile/legacy_profile.go#L428"
             if (((_b == null) || (_nstk > (((_b.length) / (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt64) : Bool) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/profile/legacy_profile.go#L429"
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>), _2 : stdgo._internal.internal.profile.Profile__errunrecognized._errUnrecognized };
             };
             var _sloc:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
             var _addrs = (new stdgo.Slice<stdgo.GoUInt64>((_nstk : stdgo.GoInt).toBasic(), 0).__setNumber64__() : stdgo.Slice<stdgo.GoUInt64>);
+            //"file:///home/runner/.go/go1.21.3/src/internal/profile/legacy_profile.go#L433"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (_nstk : stdgo.GoInt) : Bool)) {
@@ -34,14 +38,20 @@ function _parseCPUSamples(_b:stdgo.Slice<stdgo.GoUInt8>, _parse:stdgo.Slice<stdg
                     _i++;
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/profile/legacy_profile.go#L437"
             if (((_count == ((0i64 : stdgo.GoUInt64)) && _nstk == ((1i64 : stdgo.GoUInt64)) : Bool) && (_addrs[(0 : stdgo.GoInt)] == (0i64 : stdgo.GoUInt64)) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/profile/legacy_profile.go#L439"
                 break;
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/profile/legacy_profile.go#L441"
             for (_i => _addr in _addrs) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/profile/legacy_profile.go#L442"
                 if ((_adjust && (_i > (0 : stdgo.GoInt) : Bool) : Bool)) {
+                    //"file:///home/runner/.go/go1.21.3/src/internal/profile/legacy_profile.go#L443"
                     _addr--;
                 };
                 var _loc = (_locs[_addr] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>));
+                //"file:///home/runner/.go/go1.21.3/src/internal/profile/legacy_profile.go#L446"
                 if (({
                     final value = _loc;
                     (value == null || (value : Dynamic).__nil__);
@@ -54,5 +64,6 @@ function _parseCPUSamples(_b:stdgo.Slice<stdgo.GoUInt8>, _parse:stdgo.Slice<stdg
             };
             (@:checkr _p ?? throw "null pointer dereference").sample = ((@:checkr _p ?? throw "null pointer dereference").sample.__append__((stdgo.Go.setRef(({ value : (new stdgo.Slice<stdgo.GoInt64>(2, 2, ...[(_count : stdgo.GoInt64), ((_count : stdgo.GoInt64) * (@:checkr _p ?? throw "null pointer dereference").period : stdgo.GoInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>), location : _sloc } : stdgo._internal.internal.profile.Profile_sample.Sample)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>)) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_sample.Sample>>);
         };
+        //"file:///home/runner/.go/go1.21.3/src/internal/profile/legacy_profile.go#L462"
         return { _0 : _b, _1 : _locs, _2 : (null : stdgo.Error) };
     }

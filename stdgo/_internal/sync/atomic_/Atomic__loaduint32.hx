@@ -1,2 +1,7 @@
 package stdgo._internal.sync.atomic_;
-function loadUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>):stdgo.GoUInt32 throw ":sync.atomic_.loadUint32 is not yet implemented";
+function loadUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>):stdgo.GoUInt32 {
+        stdgo.Go.globalMutex.acquire();
+        final value = @:privateAccess _addr.value;
+        stdgo.Go.globalMutex.release();
+        return value;
+    }

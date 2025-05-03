@@ -1,6 +1,7 @@
 package stdgo._internal.internal.coverage;
 function parseCounterMode(_mode:stdgo.GoString):stdgo._internal.internal.coverage.Coverage_countermode.CounterMode {
         var _cm:stdgo._internal.internal.coverage.Coverage_countermode.CounterMode = ((0 : stdgo.GoUInt8) : stdgo._internal.internal.coverage.Coverage_countermode.CounterMode);
+        //"file:///home/runner/.go/go1.21.3/src/internal/coverage/defs.go#L227"
         {
             final __value__ = _mode;
             if (__value__ == (("set" : stdgo.GoString))) {
@@ -17,5 +18,6 @@ function parseCounterMode(_mode:stdgo.GoString):stdgo._internal.internal.coverag
                 _cm = (0 : stdgo._internal.internal.coverage.Coverage_countermode.CounterMode);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/internal/coverage/defs.go#L241"
         return _cm;
     }

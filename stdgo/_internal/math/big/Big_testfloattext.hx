@@ -1,6 +1,7 @@
 package stdgo._internal.math.big;
 function testFloatText(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         {};
+        //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L390"
         for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_t__struct_30.T__struct_30>(120, 120, ...[
 ({ _x : ("0" : stdgo.GoString), _round : (255 : stdgo._internal.math.big.Big_roundingmode.RoundingMode), _prec : (10u32 : stdgo.GoUInt), _format : (102 : stdgo.GoUInt8), _digits : (0 : stdgo.GoInt), _want : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_30.T__struct_30),
 ({ _x : ("-0" : stdgo.GoString), _round : (255 : stdgo._internal.math.big.Big_roundingmode.RoundingMode), _prec : (10u32 : stdgo.GoUInt), _format : (102 : stdgo.GoUInt8), _digits : (0 : stdgo.GoInt), _want : ("-0" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_30.T__struct_30),
@@ -123,26 +124,39 @@ function testFloatText(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void
 ({ _x : ("0x.8p-2147483648" : stdgo.GoString), _round : (0 : stdgo._internal.math.big.Big_roundingmode.RoundingMode), _prec : (4u32 : stdgo.GoUInt), _format : (112 : stdgo.GoUInt8), _digits : (-1 : stdgo.GoInt), _want : ("0x.8p-2147483648" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_30.T__struct_30),
 ({ _x : ("0x.8p-2147483648" : stdgo.GoString), _round : (0 : stdgo._internal.math.big.Big_roundingmode.RoundingMode), _prec : (4u32 : stdgo.GoUInt), _format : (120 : stdgo.GoUInt8), _digits : (-1 : stdgo.GoInt), _want : ("0x1p-2147483649" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_30.T__struct_30)].concat([for (i in 120 ... (120 > 120 ? 120 : 120 : stdgo.GoInt).toBasic()) ({ _x : ("" : stdgo.GoString), _round : ((0 : stdgo.GoUInt8) : stdgo._internal.math.big.Big_roundingmode.RoundingMode), _prec : (0 : stdgo.GoUInt), _format : (0 : stdgo.GoUInt8), _digits : (0 : stdgo.GoInt), _want : ("" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_30.T__struct_30)])) : stdgo.Slice<stdgo._internal.math.big.Big_t__struct_30.T__struct_30>)) {
             var __tmp__ = stdgo._internal.math.big.Big_parsefloat.parseFloat(_test._x?.__copy__(), (0 : stdgo.GoInt), _test._prec, (0 : stdgo._internal.math.big.Big_roundingmode.RoundingMode)), _f:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = __tmp__._0, __9:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L545"
             if (_err != null) {
-                @:check2r _t.errorf(("%v: %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_err));
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L546"
+                _t.errorf(("%v: %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_err));
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L547"
                 continue;
             };
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L549"
             if (_test._round != ((255 : stdgo._internal.math.big.Big_roundingmode.RoundingMode))) {
-                @:check2r _f.setMode(_test._round);
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L550"
+                _f.setMode(_test._round);
             };
-            var _got = (@:check2r _f.text(_test._format, _test._digits)?.__copy__() : stdgo.GoString);
+            var _got = (_f.text(_test._format, _test._digits)?.__copy__() : stdgo.GoString);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L554"
             if (_got != (_test._want)) {
-                @:check2r _t.errorf(("%v: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L555"
+                _t.errorf(("%v: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
             };
-            if ((((_test._prec == ((53u32 : stdgo.GoUInt)) && _test._format != ((112 : stdgo.GoUInt8)) : Bool) && @:check2r _f.sign() != ((0 : stdgo.GoInt)) : Bool) && (((_test._round == (0 : stdgo._internal.math.big.Big_roundingmode.RoundingMode)) || (_test._round == (255 : stdgo._internal.math.big.Big_roundingmode.RoundingMode)) : Bool)) : Bool)) {
-                var __tmp__ = @:check2r _f.float64(), _f64:stdgo.GoFloat64 = __tmp__._0, _acc:stdgo._internal.math.big.Big_accuracy.Accuracy = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L562"
+            if ((((_test._prec == ((53u32 : stdgo.GoUInt)) && _test._format != ((112 : stdgo.GoUInt8)) : Bool) && _f.sign() != ((0 : stdgo.GoInt)) : Bool) && (((_test._round == (0 : stdgo._internal.math.big.Big_roundingmode.RoundingMode)) || (_test._round == (255 : stdgo._internal.math.big.Big_roundingmode.RoundingMode)) : Bool)) : Bool)) {
+                var __tmp__ = _f.float64(), _f64:stdgo.GoFloat64 = __tmp__._0, _acc:stdgo._internal.math.big.Big_accuracy.Accuracy = __tmp__._1;
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L564"
                 if (_acc != ((0 : stdgo._internal.math.big.Big_accuracy.Accuracy))) {
-                    @:check2r _t.errorf(("%v: expected exact conversion to float64" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)));
+                    //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L565"
+                    _t.errorf(("%v: expected exact conversion to float64" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)));
+                    //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L566"
                     continue;
                 };
                 var _got = (stdgo._internal.strconv.Strconv_formatfloat.formatFloat(_f64, _test._format, _test._digits, (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L569"
                 if (_got != (_test._want)) {
-                    @:check2r _t.errorf(("%v: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                    //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L570"
+                    _t.errorf(("%v: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
             };
         };

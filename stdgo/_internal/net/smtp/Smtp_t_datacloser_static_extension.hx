@@ -4,8 +4,10 @@ package stdgo._internal.net.smtp;
     @:tdfield
     static public function close( _d:stdgo.Ref<stdgo._internal.net.smtp.Smtp_t_datacloser.T_dataCloser>):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.net.smtp.Smtp_t_datacloser.T_dataCloser> = _d;
+        //"file:///home/runner/.go/go1.21.3/src/net/smtp/smtp.go#L282"
         (@:checkr _d ?? throw "null pointer dereference").writeCloser.close();
-        var __tmp__ = @:check2r (@:checkr (@:checkr _d ?? throw "null pointer dereference")._c ?? throw "null pointer dereference").text.readResponse((250 : stdgo.GoInt)), __0:stdgo.GoInt = __tmp__._0, __1:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = (@:checkr (@:checkr _d ?? throw "null pointer dereference")._c ?? throw "null pointer dereference").text.readResponse((250 : stdgo.GoInt)), __0:stdgo.GoInt = __tmp__._0, __1:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        //"file:///home/runner/.go/go1.21.3/src/net/smtp/smtp.go#L284"
         return _err;
     }
     @:embedded

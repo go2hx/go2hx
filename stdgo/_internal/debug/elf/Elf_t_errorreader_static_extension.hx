@@ -4,12 +4,14 @@ package stdgo._internal.debug.elf;
     @:tdfield
     static public function close( _r:stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader):stdgo.Error {
         @:recv var _r:stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader = _r?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/debug/elf/reader.go#L30"
         return _r._error;
     }
     @:keep
     @:tdfield
     static public function seek( _r:stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader = _r?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/debug/elf/reader.go#L26"
         return { _0 : (0i64 : stdgo.GoInt64), _1 : _r._error };
     }
     @:keep
@@ -17,6 +19,7 @@ package stdgo._internal.debug.elf;
     static public function readAt( _r:stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader, _p:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader = _r?.__copy__();
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/debug/elf/reader.go#L22"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _r._error };
             _n = __tmp__._0;
@@ -29,6 +32,7 @@ package stdgo._internal.debug.elf;
     static public function read( _r:stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader = _r?.__copy__();
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/debug/elf/reader.go#L18"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _r._error };
             _n = __tmp__._0;

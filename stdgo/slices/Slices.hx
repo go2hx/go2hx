@@ -1,5 +1,5 @@
 package stdgo.slices;
-var n : stdgo.GoUInt64 = 100000i32;
+var n : stdgo.GoUInt64 = 100000i64;
 typedef S = stdgo._internal.slices.Slices_s.S;
 typedef SPointer = stdgo._internal.slices.Slices_spointer.SPointer;
 /**

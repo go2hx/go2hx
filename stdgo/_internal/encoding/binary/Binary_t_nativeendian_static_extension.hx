@@ -4,12 +4,14 @@ package stdgo._internal.encoding.binary;
     @:tdfield
     static public function goString( _:stdgo._internal.encoding.binary.Binary_t_nativeendian.T_nativeEndian):stdgo.GoString {
         @:recv var _:stdgo._internal.encoding.binary.Binary_t_nativeendian.T_nativeEndian = _?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/encoding/binary/binary.go#L215"
         return ("binary.NativeEndian" : stdgo.GoString);
     }
     @:keep
     @:tdfield
     static public function string( _:stdgo._internal.encoding.binary.Binary_t_nativeendian.T_nativeEndian):stdgo.GoString {
         @:recv var _:stdgo._internal.encoding.binary.Binary_t_nativeendian.T_nativeEndian = _?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/encoding/binary/binary.go#L213"
         return ("NativeEndian" : stdgo.GoString);
     }
     @:embedded

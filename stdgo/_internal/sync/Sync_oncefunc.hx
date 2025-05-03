@@ -12,13 +12,16 @@ function onceFunc(_f:() -> Void):() -> Void {
                                 stdgo.Go.recover_exception = null;
                                 r;
                             });
+                            //"file:///home/runner/.go/go1.21.3/src/sync/oncefunc.go#L21"
                             if (!_valid) {
+                                //"file:///home/runner/.go/go1.21.3/src/sync/oncefunc.go#L24"
                                 throw stdgo.Go.toInterface(_p);
                             };
                         };
                         a();
                     }) });
                 };
+                //"file:///home/runner/.go/go1.21.3/src/sync/oncefunc.go#L27"
                 _f();
                 _valid = true;
                 {
@@ -38,7 +41,7 @@ function onceFunc(_f:() -> Void):() -> Void {
                 {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                    if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                         if (__exception__.message == "__return__") throw "__return__";
                         exe = stdgo.Go.toInterface(__exception__.message);
                     };
@@ -75,9 +78,13 @@ function onceFunc(_f:() -> Void):() -> Void {
                 };
             };
         } : () -> Void);
+        //"file:///home/runner/.go/go1.21.3/src/sync/oncefunc.go#L30"
         return function():Void {
-            @:check2 _once.do_(_g);
+            //"file:///home/runner/.go/go1.21.3/src/sync/oncefunc.go#L31"
+            _once.do_(_g);
+            //"file:///home/runner/.go/go1.21.3/src/sync/oncefunc.go#L32"
             if (!_valid) {
+                //"file:///home/runner/.go/go1.21.3/src/sync/oncefunc.go#L33"
                 throw stdgo.Go.toInterface(_p);
             };
         };

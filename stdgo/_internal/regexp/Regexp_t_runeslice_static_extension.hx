@@ -19,12 +19,14 @@ package stdgo._internal.regexp;
     @:tdfield
     static public function less( _p:stdgo._internal.regexp.Regexp_t_runeslice.T_runeSlice, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _p:stdgo._internal.regexp.Regexp_t_runeslice.T_runeSlice = _p;
+        //"file:///home/runner/.go/go1.21.3/src/regexp/onepass.go#L289"
         return (_p[(_i : stdgo.GoInt)] < _p[(_j : stdgo.GoInt)] : Bool);
     }
     @:keep
     @:tdfield
     static public function len( _p:stdgo._internal.regexp.Regexp_t_runeslice.T_runeSlice):stdgo.GoInt {
         @:recv var _p:stdgo._internal.regexp.Regexp_t_runeslice.T_runeSlice = _p;
+        //"file:///home/runner/.go/go1.21.3/src/regexp/onepass.go#L288"
         return (_p.length);
     }
 }

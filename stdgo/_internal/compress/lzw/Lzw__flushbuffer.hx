@@ -1,2 +1,2 @@
 package stdgo._internal.compress.lzw;
-final _flushBuffer : stdgo.GoUInt64 = 4096i32;
+final _flushBuffer : stdgo.GoUInt64 = 4096i64;

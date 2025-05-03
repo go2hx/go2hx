@@ -7,5 +7,6 @@ function onesCount64(_x:stdgo.GoUInt64):stdgo.GoInt {
         _x = (_x + ((_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _x = (_x + ((_x >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _x = (_x + ((_x >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+        //"file:///home/runner/.go/go1.21.3/src/runtime/internal/sys/intrinsics.go#L149"
         return ((_x : stdgo.GoInt) & (127 : stdgo.GoInt) : stdgo.GoInt);
     }

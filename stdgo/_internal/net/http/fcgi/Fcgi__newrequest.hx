@@ -7,5 +7,6 @@ function _newRequest(_reqId:stdgo.GoUInt16, _flags:stdgo.GoUInt8):stdgo.Ref<stdg
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _keepConn : (_flags & (1 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8)) } : stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request)) : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>);
         (@:checkr _r ?? throw "null pointer dereference")._rawParams = ((@:checkr _r ?? throw "null pointer dereference")._buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L44"
         return _r;
     }

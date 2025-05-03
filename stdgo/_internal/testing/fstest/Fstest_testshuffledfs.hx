@@ -8,10 +8,12 @@ x.set(("tmp/two" : stdgo.GoString), ({ data : ((("2" : stdgo.GoString) : stdgo.G
 x.set(("tmp/three" : stdgo.GoString), ({ data : ((("3" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.testing.fstest.Fstest_mapfile.MapFile));
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.testing.fstest.Fstest_mapfile.MapFile>>) : stdgo._internal.testing.fstest.Fstest_t_shuffledfs.T_shuffledFS);
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/testfs_test.go#L75"
         {
             var _err = (stdgo._internal.testing.fstest.Fstest_testfs.testFS(stdgo.Go.asInterface(_fsys), ("tmp/one" : stdgo.GoString), ("tmp/two" : stdgo.GoString), ("tmp/three" : stdgo.GoString)) : stdgo.Error);
             if (_err != null) {
-                @:check2r _t.error(stdgo.Go.toInterface(_err));
+                //"file:///home/runner/.go/go1.21.3/src/testing/fstest/testfs_test.go#L76"
+                _t.error(stdgo.Go.toInterface(_err));
             };
         };
     }

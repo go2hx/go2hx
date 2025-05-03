@@ -1,2 +1,2 @@
 package stdgo._internal.debug.pe;
-final iMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE : stdgo.GoUInt64 = 64i32;
+final iMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE : stdgo.GoUInt64 = 64i64;

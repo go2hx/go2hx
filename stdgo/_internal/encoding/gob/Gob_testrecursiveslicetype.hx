@@ -12,10 +12,12 @@ function testRecursiveSliceType(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.
             s;
         } : stdgo._internal.encoding.gob.Gob_t_testrecursiveslicetype___localname___recursiveslice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150);
         var _r2 = (new stdgo.Slice<stdgo._internal.encoding.gob.Gob_t_testrecursiveslicetype___localname___recursiveslice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150>((0 : stdgo.GoInt).toBasic(), 0) : stdgo._internal.encoding.gob.Gob_t_testrecursiveslicetype___localname___recursiveslice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L388"
         {
             var _err = (stdgo._internal.encoding.gob.Gob__encanddec._encAndDec(stdgo.Go.toInterface(_r1), stdgo.Go.toInterface((stdgo.Go.setRef(_r2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_testrecursiveslicetype___localname___recursiveslice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150>))) : stdgo.Error);
             if (_err != null) {
-                @:check2r _t.error(stdgo.Go.toInterface(_err));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L389"
+                _t.error(stdgo.Go.toInterface(_err));
             };
         };
     }

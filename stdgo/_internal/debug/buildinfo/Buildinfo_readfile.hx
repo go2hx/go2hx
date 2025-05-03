@@ -6,6 +6,7 @@ function readFile(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.run
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/debug/buildinfo/buildinfo.go#L57"
                         {
                             var _pathErr = (null : stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>);
                             if (stdgo._internal.errors.Errors_as.as(_err, stdgo.Go.toInterface(stdgo.Go.pointer(_pathErr)))) {
@@ -19,7 +20,9 @@ function readFile(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.run
                 }) });
             };
             var __tmp__ = stdgo._internal.os.Os_open.open(_name?.__copy__()), _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/debug/buildinfo/buildinfo.go#L65"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/debug/buildinfo/buildinfo.go#L66"
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo>; var _1 : stdgo.Error; } = {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
@@ -38,9 +41,10 @@ function readFile(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.run
                 };
             };
             {
-                final __f__ = @:check2r _f.close;
+                final __f__ = _f.close;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/debug/buildinfo/buildinfo.go#L69"
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo>; var _1 : stdgo.Error; } = stdgo._internal.debug.buildinfo.Buildinfo_read.read(stdgo.Go.asInterface(_f));
                 _info = __ret__._0;
@@ -69,7 +73,7 @@ function readFile(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.run
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

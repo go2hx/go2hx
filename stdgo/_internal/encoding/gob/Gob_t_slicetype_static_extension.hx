@@ -4,7 +4,8 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _string( _s:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_slicetype.T_sliceType>):stdgo.GoString {
         @:recv var _s:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_slicetype.T_sliceType> = _s;
-        return @:check2r _s._safeString((({
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L408"
+        return _s._safeString((({
             final x = new stdgo.GoMap.GoIntMap<Bool>();
             x.__defaultValue__ = () -> false;
             {};
@@ -15,18 +16,24 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _safeString( _s:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_slicetype.T_sliceType>, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>):stdgo.GoString {
         @:recv var _s:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_slicetype.T_sliceType> = _s;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L401"
         if ((_seen[(@:checkr _s ?? throw "null pointer dereference").commonType.id] ?? false)) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L402"
             return (@:checkr _s ?? throw "null pointer dereference").commonType.name?.__copy__();
         };
         _seen[(@:checkr _s ?? throw "null pointer dereference").commonType.id] = true;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L405"
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("[]%s" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _s ?? throw "null pointer dereference").elem._gobType()._safeString(_seen)))?.__copy__();
     }
     @:keep
     @:tdfield
     static public function _init( _s:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_slicetype.T_sliceType>, _elem:stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_slicetype.T_sliceType> = _s;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L391"
         stdgo._internal.encoding.gob.Gob__settypeid._setTypeId(stdgo.Go.asInterface(_s));
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L394"
         if (_elem._id() == ((0 : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId))) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L395"
             stdgo._internal.encoding.gob.Gob__settypeid._setTypeId(_elem);
         };
         (@:checkr _s ?? throw "null pointer dereference").elem = _elem._id();

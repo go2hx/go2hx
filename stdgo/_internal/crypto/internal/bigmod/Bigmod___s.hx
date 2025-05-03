@@ -1,2 +1,2 @@
 package stdgo._internal.crypto.internal.bigmod;
-final __S : stdgo.GoUInt64 = 4i32;
+final __S : stdgo.GoUInt64 = 4i64;

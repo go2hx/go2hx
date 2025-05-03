@@ -1,6 +1,8 @@
 package stdgo._internal.math.big;
 function testLucasPseudoprimes(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/math/big/prime_test.go#L191"
         stdgo._internal.math.big.Big__testpseudoprimes._testPseudoprimes(_t, ("probablyPrimeLucas" : stdgo.GoString), function(_n:stdgo._internal.math.big.Big_t_nat.T_nat):Bool {
+            //"file:///home/runner/.go/go1.21.3/src/math/big/prime_test.go#L192"
             return (_n._probablyPrimeLucas() && !_n._probablyPrimeMillerRabin((1 : stdgo.GoInt), true) : Bool);
         }, (new stdgo.Slice<stdgo.GoInt>(12, 12, ...[
 (989 : stdgo.GoInt),

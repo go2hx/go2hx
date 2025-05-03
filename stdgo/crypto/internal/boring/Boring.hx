@@ -1,6 +1,6 @@
 package stdgo.crypto.internal.boring;
 var enabled : Bool = false;
-var randReader : stdgo._internal.crypto.internal.boring.Boring_t_randreader.T_randReader = 0i32;
+var randReader : stdgo._internal.crypto.internal.boring.Boring_t_randreader.T_randReader = 0i64;
 typedef PublicKeyECDSA = stdgo._internal.crypto.internal.boring.Boring_publickeyecdsa.PublicKeyECDSA;
 typedef PrivateKeyECDSA = stdgo._internal.crypto.internal.boring.Boring_privatekeyecdsa.PrivateKeyECDSA;
 typedef PublicKeyRSA = stdgo._internal.crypto.internal.boring.Boring_publickeyrsa.PublicKeyRSA;

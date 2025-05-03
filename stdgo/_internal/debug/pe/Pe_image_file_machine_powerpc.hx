@@ -1,2 +1,2 @@
 package stdgo._internal.debug.pe;
-final iMAGE_FILE_MACHINE_POWERPC : stdgo.GoUInt64 = 496i32;
+final iMAGE_FILE_MACHINE_POWERPC : stdgo.GoUInt64 = 496i64;

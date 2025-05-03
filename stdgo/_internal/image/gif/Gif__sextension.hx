@@ -1,2 +1,2 @@
 package stdgo._internal.image.gif;
-final _sExtension : stdgo.GoUInt64 = 33i32;
+final _sExtension : stdgo.GoUInt64 = 33i64;

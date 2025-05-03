@@ -5,7 +5,9 @@ package stdgo._internal.mime.multipart;
     static public function write( _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_t_part.T_part>, _d:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_t_part.T_part> = _p;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/mime/multipart/writer.go#L193"
         if ((@:checkr _p ?? throw "null pointer dereference")._closed) {
+            //"file:///home/runner/.go/go1.21.3/src/mime/multipart/writer.go#L194"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("multipart: can\'t write to finished part" : stdgo.GoString)) };
                 _n = __tmp__._0;
@@ -18,9 +20,11 @@ package stdgo._internal.mime.multipart;
             _n = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/mime/multipart/writer.go#L197"
         if (_err != null) {
             (@:checkr _p ?? throw "null pointer dereference")._we = _err;
         };
+        //"file:///home/runner/.go/go1.21.3/src/mime/multipart/writer.go#L200"
         return { _0 : _n, _1 : _err };
     }
     @:keep
@@ -28,6 +32,7 @@ package stdgo._internal.mime.multipart;
     static public function _close( _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_t_part.T_part>):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_t_part.T_part> = _p;
         (@:checkr _p ?? throw "null pointer dereference")._closed = true;
+        //"file:///home/runner/.go/go1.21.3/src/mime/multipart/writer.go#L189"
         return (@:checkr _p ?? throw "null pointer dereference")._we;
     }
 }

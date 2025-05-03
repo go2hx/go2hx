@@ -1,8 +1,9 @@
 package stdgo._internal.crypto.internal.nistec;
 function _p384B():stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element> {
-        @:check2 stdgo._internal.crypto.internal.nistec.Nistec___p384bonce.__p384BOnce.do_(function():Void {
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/p384.go#L114"
+        stdgo._internal.crypto.internal.nistec.Nistec___p384bonce.__p384BOnce.do_(function():Void {
             {
-                var __tmp__ = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>).setBytes((new stdgo.Slice<stdgo.GoUInt8>(48, 48, ...[
+                var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>).setBytes((new stdgo.Slice<stdgo.GoUInt8>(48, 48, ...[
 (179 : stdgo.GoUInt8),
 (49 : stdgo.GoUInt8),
 (47 : stdgo.GoUInt8),
@@ -54,5 +55,6 @@ function _p384B():stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p38
                 stdgo._internal.crypto.internal.nistec.Nistec___p384b.__p384B = @:tmpset0 __tmp__._0;
             };
         });
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/p384.go#L117"
         return stdgo._internal.crypto.internal.nistec.Nistec___p384b.__p384B;
     }

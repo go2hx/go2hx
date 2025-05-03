@@ -1,2 +1,2 @@
 package stdgo._internal.crypto.sha512;
-final _init0_256 : stdgo.GoUInt64 = 2463787394917988140i32;
+final _init0_256 : stdgo.GoUInt64 = 2463787394917988140i64;

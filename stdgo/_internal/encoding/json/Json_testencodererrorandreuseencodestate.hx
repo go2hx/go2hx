@@ -13,29 +13,37 @@ function testEncoderErrorAndReuseEncodeState(_t:stdgo.Ref<stdgo._internal.testin
             _dummy.next = (stdgo.Go.setRef(_dummy) : stdgo.Ref<stdgo._internal.encoding.json.Json_t_testencodererrorandreuseencodestate___localname___dummy_1487.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487>);
             var _buf:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer);
             var _enc = stdgo._internal.encoding.json.Json_newencoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/stream_test.go#L78"
             {
-                var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_dummy))) : stdgo.Error);
+                var _err = (_enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_dummy))) : stdgo.Error);
                 if (_err == null) {
-                    @:check2r _t.errorf(("Encode(dummy) == nil; want error" : stdgo.GoString));
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/stream_test.go#L79"
+                    _t.errorf(("Encode(dummy) == nil; want error" : stdgo.GoString));
                 };
             };
             {};
             var _data = ({ a : ("a" : stdgo.GoString), i : (1 : stdgo.GoInt) } : stdgo._internal.encoding.json.Json_t_testencodererrorandreuseencodestate___localname___data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/stream_test.go#L87"
             {
-                var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_data))) : stdgo.Error);
+                var _err = (_enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_data))) : stdgo.Error);
                 if (_err != null) {
-                    @:check2r _t.errorf(("Marshal(%v) = %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_data)), stdgo.Go.toInterface(_err));
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/stream_test.go#L88"
+                    _t.errorf(("Marshal(%v) = %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_data)), stdgo.Go.toInterface(_err));
                 };
             };
             var _data2:stdgo._internal.encoding.json.Json_t_testencodererrorandreuseencodestate___localname___data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733 = ({} : stdgo._internal.encoding.json.Json_t_testencodererrorandreuseencodestate___localname___data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/stream_test.go#L92"
             {
-                var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(@:check2 _buf.bytes(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_data2) : stdgo.Ref<stdgo._internal.encoding.json.Json_t_testencodererrorandreuseencodestate___localname___data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733>)))) : stdgo.Error);
+                var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_buf.bytes(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_data2) : stdgo.Ref<stdgo._internal.encoding.json.Json_t_testencodererrorandreuseencodestate___localname___data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733>)))) : stdgo.Error);
                 if (_err != null) {
-                    @:check2r _t.errorf(("Unmarshal(%v) = %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_data2)), stdgo.Go.toInterface(_err));
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/stream_test.go#L93"
+                    _t.errorf(("Unmarshal(%v) = %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_data2)), stdgo.Go.toInterface(_err));
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/stream_test.go#L95"
             if (stdgo.Go.toInterface(_data2) != stdgo.Go.toInterface(_data)) {
-                @:check2r _t.errorf(("expect: %v, but get: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_data)), stdgo.Go.toInterface(stdgo.Go.asInterface(_data2)));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/stream_test.go#L96"
+                _t.errorf(("expect: %v, but get: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_data)), stdgo.Go.toInterface(stdgo.Go.asInterface(_data2)));
             };
             {
                 for (defer in __deferstack__) {
@@ -54,7 +62,7 @@ function testEncoderErrorAndReuseEncodeState(_t:stdgo.Ref<stdgo._internal.testin
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

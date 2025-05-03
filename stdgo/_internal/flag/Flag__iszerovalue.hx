@@ -5,6 +5,7 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>, _val
         try {
             var _typ = (stdgo._internal.reflect.Reflect_typeof.typeOf(stdgo.Go.toInterface((@:checkr _flag ?? throw "null pointer dereference").value)) : stdgo._internal.reflect.Reflect_type_.Type_);
             var _z:stdgo._internal.reflect.Reflect_value.Value = ({} : stdgo._internal.reflect.Reflect_value.Value);
+            //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L544"
             if (_typ.kind() == ((22u32 : stdgo._internal.reflect.Reflect_kind.Kind))) {
                 _z = stdgo._internal.reflect.Reflect_new_.new_(_typ.elem())?.__copy__();
             } else {
@@ -13,6 +14,7 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>, _val
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L553"
                         {
                             var _e = ({
                                 final r = stdgo.Go.recover_exception;
@@ -20,6 +22,7 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>, _val
                                 r;
                             } : stdgo.AnyInterface);
                             if (_e != null) {
+                                //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L554"
                                 if (_typ.kind() == ((22u32 : stdgo._internal.reflect.Reflect_kind.Kind))) {
                                     _typ = _typ.elem();
                                 };
@@ -30,6 +33,7 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>, _val
                     a();
                 }) });
             };
+            //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L560"
             {
                 final __ret__:{ var _0 : Bool; var _1 : stdgo.Error; } = {
                     @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : _value == (((stdgo.Go.typeAssert((_z.interface_() : stdgo._internal.flag.Flag_value.Value)) : stdgo._internal.flag.Flag_value.Value).string() : stdgo.GoString)), _1 : (null : stdgo.Error) };
@@ -63,7 +67,7 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>, _val
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

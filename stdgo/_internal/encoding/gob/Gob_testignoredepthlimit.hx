@@ -16,6 +16,7 @@ function testIgnoreDepthLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_
             var _enc = stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo.Go.asInterface(_b));
             var _typ = (stdgo._internal.reflect.Reflect_typeof.typeOf(stdgo.Go.toInterface((0 : stdgo.GoInt))) : stdgo._internal.reflect.Reflect_type_.Type_);
             var _nested = (stdgo._internal.reflect.Reflect_arrayof.arrayOf((1 : stdgo.GoInt), _typ) : stdgo._internal.reflect.Reflect_type_.Type_);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L811"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (100 : stdgo.GoInt) : Bool)) {
@@ -24,14 +25,17 @@ function testIgnoreDepthLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_
                 };
             };
             var _badStruct = (stdgo._internal.reflect.Reflect_new_.new_(stdgo._internal.reflect.Reflect_structof.structOf((new stdgo.Slice<stdgo._internal.reflect.Reflect_structfield.StructField>(1, 1, ...[({ name : ("F" : stdgo.GoString), type : _nested } : stdgo._internal.reflect.Reflect_structfield.StructField)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect_structfield.StructField)])) : stdgo.Slice<stdgo._internal.reflect.Reflect_structfield.StructField>)))?.__copy__() : stdgo._internal.reflect.Reflect_value.Value);
-            @:check2r _enc.encode(_badStruct.interface_());
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L815"
+            _enc.encode(_badStruct.interface_());
             var _dec = stdgo._internal.encoding.gob.Gob_newdecoder.newDecoder(stdgo.Go.asInterface(_b));
             var _output:stdgo._internal.encoding.gob.Gob_t__struct_4.T__struct_4 = ({ hello : (0 : stdgo.GoInt) } : stdgo._internal.encoding.gob.Gob_t__struct_4.T__struct_4);
             var _expectedErr = (("invalid nesting depth" : stdgo.GoString) : stdgo.GoString);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L819"
             {
-                var _err = (@:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_output) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t__struct_4.T__struct_4>)))) : stdgo.Error);
+                var _err = (_dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_output) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t__struct_4.T__struct_4>)))) : stdgo.Error);
                 if (((_err == null) || (_err.error() != _expectedErr) : Bool)) {
-                    @:check2r _t.errorf(("Decode didn\'t fail with depth limit of 100: want %q, got %q" : stdgo.GoString), stdgo.Go.toInterface(_expectedErr), stdgo.Go.toInterface(_err));
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L820"
+                    _t.errorf(("Decode didn\'t fail with depth limit of 100: want %q, got %q" : stdgo.GoString), stdgo.Go.toInterface(_expectedErr), stdgo.Go.toInterface(_err));
                 };
             };
             {
@@ -51,7 +55,7 @@ function testIgnoreDepthLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

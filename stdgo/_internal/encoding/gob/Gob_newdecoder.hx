@@ -1,6 +1,7 @@
 package stdgo._internal.encoding.gob;
 function newDecoder(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder> {
         var _dec = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_decoder.Decoder)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/decoder.go#L46"
         {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r) : stdgo._internal.io.Io_bytereader.ByteReader)) : stdgo._internal.io.Io_bytereader.ByteReader), _1 : true };
@@ -32,5 +33,6 @@ function newDecoder(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Ref<stdgo._int
             x;
         } : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Pointer<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>) : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Pointer<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>);
         (@:checkr _dec ?? throw "null pointer dereference")._countBuf = (new stdgo.Slice<stdgo.GoUInt8>((9 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/decoder.go#L55"
         return _dec;
     }

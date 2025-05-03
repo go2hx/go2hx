@@ -8,9 +8,12 @@ package stdgo._internal.runtime.pprof;
 var _kj = __1, _ki = __0;
         var __0 = ((@:checkr _x ?? throw "null pointer dereference")._count[_ki] ?? (0 : stdgo.GoInt) : stdgo.GoInt), __1 = ((@:checkr _x ?? throw "null pointer dereference")._count[_kj] ?? (0 : stdgo.GoInt) : stdgo.GoInt);
 var _cj = __1, _ci = __0;
+        //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/pprof.go#L480"
         if (_ci != (_cj)) {
+            //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/pprof.go#L481"
             return (_ci > _cj : Bool);
         };
+        //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/pprof.go#L483"
         return (_ki < _kj : Bool);
     }
     @:keep
@@ -32,6 +35,7 @@ var _cj = __1, _ci = __0;
     @:tdfield
     static public function len( _x:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_keysbycount.T_keysByCount>):stdgo.GoInt {
         @:recv var _x:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_keysbycount.T_keysByCount> = _x;
+        //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/pprof.go#L475"
         return ((@:checkr _x ?? throw "null pointer dereference")._keys.length);
     }
 }

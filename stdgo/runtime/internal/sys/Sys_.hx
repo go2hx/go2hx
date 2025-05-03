@@ -1,10 +1,10 @@
 package stdgo.runtime.internal.sys;
-var stackGuardMultiplier : stdgo.GoUInt64 = 1i32;
-var defaultPhysPageSize : stdgo.GoUInt64 = 65536i32;
-var pCQuantum : stdgo.GoUInt64 = 1i32;
-var int64Align : stdgo.GoUInt64 = 4i32;
-var minFrameSize : stdgo.GoUInt64 = 0i32;
-var stackAlign : stdgo.GoUInt64 = 4i32;
+var stackGuardMultiplier : stdgo.GoUInt64 = 1i64;
+var defaultPhysPageSize : stdgo.GoUInt64 = 65536i64;
+var pCQuantum : stdgo.GoUInt64 = 1i64;
+var int64Align : stdgo.GoUInt64 = 4i64;
+var minFrameSize : stdgo.GoUInt64 = 0i64;
+var stackAlign : stdgo.GoUInt64 = 4i64;
 typedef NotInHeap = stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap;
 typedef NotInHeapPointer = stdgo._internal.runtime.internal.sys.Sys_notinheappointer.NotInHeapPointer;
 /**

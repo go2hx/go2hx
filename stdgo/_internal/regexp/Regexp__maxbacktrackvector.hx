@@ -1,2 +1,2 @@
 package stdgo._internal.regexp;
-final _maxBacktrackVector : stdgo.GoUInt64 = 262144i32;
+final _maxBacktrackVector : stdgo.GoUInt64 = 262144i64;

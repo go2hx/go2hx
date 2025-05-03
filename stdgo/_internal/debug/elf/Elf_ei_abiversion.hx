@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final eI_ABIVERSION : stdgo.GoUInt64 = 8i32;
+final eI_ABIVERSION : stdgo.GoUInt64 = 8i64;

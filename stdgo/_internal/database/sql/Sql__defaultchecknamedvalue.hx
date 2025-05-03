@@ -6,5 +6,6 @@ function _defaultCheckNamedValue(_nv:stdgo.Ref<stdgo._internal.database.sql.driv
             (@:checkr _nv ?? throw "null pointer dereference").value = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L99"
         return _err;
     }

@@ -6,11 +6,13 @@ function new_(_o:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_options.
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>) : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>) } : stdgo._internal.net.http.cookiejar.Cookiejar_jar.Jar)) : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_jar.Jar>);
+        //"file:///home/runner/.go/go1.21.3/src/net/http/cookiejar/jar.go#L82"
         if (({
             final value = _o;
             (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
         })) {
             (@:checkr _jar ?? throw "null pointer dereference")._psList = (@:checkr _o ?? throw "null pointer dereference").publicSuffixList;
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/http/cookiejar/jar.go#L85"
         return { _0 : _jar, _1 : (null : stdgo.Error) };
     }

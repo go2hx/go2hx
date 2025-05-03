@@ -4,13 +4,18 @@ package stdgo._internal.database.sql;
     @:tdfield
     static public function checkNamedValue( _c:stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker, _nv:stdgo.Ref<stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue>):stdgo.Error {
         @:recv var _c:stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker = _c?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L50"
         if (_c._cci == null) {
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L51"
             return stdgo._internal.database.sql.driver.Driver_errskip.errSkip;
         };
         var _index = ((@:checkr _nv ?? throw "null pointer dereference").ordinal - (1 : stdgo.GoInt) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L57"
         if ((_c._want <= _index : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L58"
             return (null : stdgo.Error);
         };
+        //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L64"
         {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert(((@:checkr _nv ?? throw "null pointer dereference").value : stdgo._internal.database.sql.driver.Driver_valuer.Valuer)) : stdgo._internal.database.sql.driver.Driver_valuer.Valuer), _1 : true };
@@ -19,10 +24,14 @@ package stdgo._internal.database.sql;
             }, _vr = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 var __tmp__ = stdgo._internal.database.sql.Sql__callvaluervalue._callValuerValue(_vr), _sv:stdgo._internal.database.sql.driver.Driver_value.Value = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L66"
                 if (_err != null) {
+                    //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L67"
                     return _err;
                 };
+                //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L69"
                 if (!stdgo._internal.database.sql.driver.Driver_isvalue.isValue(stdgo.Go.toInterface(_sv))) {
+                    //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L70"
                     return stdgo._internal.fmt.Fmt_errorf.errorf(("non-subset type %T returned from Value" : stdgo.GoString), stdgo.Go.toInterface(_sv));
                 };
                 (@:checkr _nv ?? throw "null pointer dereference").value = _sv;
@@ -35,12 +44,17 @@ package stdgo._internal.database.sql;
             (@:checkr _nv ?? throw "null pointer dereference").value = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L85"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L86"
             return _err;
         };
+        //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L88"
         if (!stdgo._internal.database.sql.driver.Driver_isvalue.isValue(stdgo.Go.toInterface((@:checkr _nv ?? throw "null pointer dereference").value))) {
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L89"
             return stdgo._internal.fmt.Fmt_errorf.errorf(("driver ColumnConverter error converted %T to unsupported type %T" : stdgo.GoString), stdgo.Go.toInterface(_arg), stdgo.Go.toInterface((@:checkr _nv ?? throw "null pointer dereference").value));
         };
+        //"file:///home/runner/.go/go1.21.3/src/database/sql/convert.go#L91"
         return (null : stdgo.Error);
     }
 }

@@ -10,15 +10,19 @@ function _mustPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>, _msg:st
                             stdgo.Go.recover_exception = null;
                             r;
                         } : stdgo.AnyInterface);
+                        //"file:///home/runner/.go/go1.21.3/src/crypto/aes/aes_test.go#L338"
                         if (_err == null) {
-                            @:check2r _t.errorf(("function did not panic, wanted %q" : stdgo.GoString), stdgo.Go.toInterface(_msg));
+                            //"file:///home/runner/.go/go1.21.3/src/crypto/aes/aes_test.go#L339"
+                            _t.errorf(("function did not panic, wanted %q" : stdgo.GoString), stdgo.Go.toInterface(_msg));
                         } else if (_err != (stdgo.Go.toInterface(_msg))) {
-                            @:check2r _t.errorf(("got panic %v, wanted %q" : stdgo.GoString), _err, stdgo.Go.toInterface(_msg));
+                            //"file:///home/runner/.go/go1.21.3/src/crypto/aes/aes_test.go#L341"
+                            _t.errorf(("got panic %v, wanted %q" : stdgo.GoString), _err, stdgo.Go.toInterface(_msg));
                         };
                     };
                     a();
                 }) });
             };
+            //"file:///home/runner/.go/go1.21.3/src/crypto/aes/aes_test.go#L344"
             _f();
             {
                 for (defer in __deferstack__) {
@@ -37,7 +41,7 @@ function _mustPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>, _msg:st
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

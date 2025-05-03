@@ -1,6 +1,6 @@
 package stdgo.archive.zip;
-var store : stdgo.GoUInt16 = 0i32;
-var deflate : stdgo.GoUInt16 = 8i32;
+var store : stdgo.GoUInt16 = 0i64;
+var deflate : stdgo.GoUInt16 = 8i64;
 var errFormat(get, set) : stdgo.Error;
 private function get_errFormat():stdgo.Error return stdgo._internal.archive.zip.Zip_errformat.errFormat;
 private function set_errFormat(v:stdgo.Error):stdgo.Error {

@@ -1,18 +1,19 @@
 package stdgo._internal.math.big;
 function _euclidExtGCD(_a:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, _b:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } {
         var _g = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), _x = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), _y = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        var a = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).set(_a);
-        var b = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).set(_b);
-        var ua = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).setInt64((1i64 : stdgo.GoInt64));
+        var a = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).set(_a);
+        var b = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).set(_b);
+        var ua = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).setInt64((1i64 : stdgo.GoInt64));
         var va = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         var ub = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        var vb = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).setInt64((1i64 : stdgo.GoInt64));
+        var vb = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).setInt64((1i64 : stdgo.GoInt64));
         var _q = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         var _temp = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         var _r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L742"
         while ((((@:checkr b ?? throw "null pointer dereference")._abs.length) > (0 : stdgo.GoInt) : Bool)) {
             {
-                var __tmp__ = @:check2r _q.quoRem(a, b, _r);
+                var __tmp__ = _q.quoRem(a, b, _r);
                 _q = @:tmpset0 __tmp__._0;
                 _r = @:tmpset0 __tmp__._1;
             };
@@ -24,15 +25,24 @@ function _euclidExtGCD(_a:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, _b:
                 b = @:binopAssign __tmp__1;
                 _r = @:binopAssign __tmp__2;
             };
-            @:check2r _temp.set(ub);
-            @:check2r ub.mul(ub, _q);
-            @:check2r ub.sub(ua, ub);
-            @:check2r ua.set(_temp);
-            @:check2r _temp.set(vb);
-            @:check2r vb.mul(vb, _q);
-            @:check2r vb.sub(va, vb);
-            @:check2r va.set(_temp);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L748"
+            _temp.set(ub);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L749"
+            ub.mul(ub, _q);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L750"
+            ub.sub(ua, ub);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L751"
+            ua.set(_temp);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L754"
+            _temp.set(vb);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L755"
+            vb.mul(vb, _q);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L756"
+            vb.sub(va, vb);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L757"
+            va.set(_temp);
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L759"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : a, _1 : ua, _2 : va };
             _g = __tmp__._0;

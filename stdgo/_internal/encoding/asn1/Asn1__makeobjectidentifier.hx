@@ -1,7 +1,9 @@
 package stdgo._internal.encoding.asn1;
 function _makeObjectIdentifier(_oid:stdgo.Slice<stdgo.GoInt>):{ var _0 : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder; var _1 : stdgo.Error; } {
         var _e = (null : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder), _err = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/marshal.go#L306"
         if (((((_oid.length) < (2 : stdgo.GoInt) : Bool) || (_oid[(0 : stdgo.GoInt)] > (2 : stdgo.GoInt) : Bool) : Bool) || (((_oid[(0 : stdgo.GoInt)] < (2 : stdgo.GoInt) : Bool) && (_oid[(1 : stdgo.GoInt)] >= (40 : stdgo.GoInt) : Bool) : Bool)) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/marshal.go#L307"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder), _1 : stdgo.Go.asInterface((new stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError(("invalid object identifier" : stdgo.GoString)) : stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError)) };
                 _e = __tmp__._0;
@@ -9,6 +11,7 @@ function _makeObjectIdentifier(_oid:stdgo.Slice<stdgo.GoInt>):{ var _0 : stdgo._
                 __tmp__;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/marshal.go#L310"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface((_oid : stdgo._internal.encoding.asn1.Asn1_t_oidencoder.T_oidEncoder)), _1 : (null : stdgo.Error) };
             _e = __tmp__._0;

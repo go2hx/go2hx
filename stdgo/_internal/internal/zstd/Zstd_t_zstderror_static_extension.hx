@@ -4,12 +4,14 @@ package stdgo._internal.internal.zstd;
     @:tdfield
     static public function unwrap( _ze:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_t_zstderror.T_zstdError>):stdgo.Error {
         @:recv var _ze:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_t_zstderror.T_zstdError> = _ze;
+        //"file:///home/runner/.go/go1.21.3/src/internal/zstd/zstd.go#L485"
         return (@:checkr _ze ?? throw "null pointer dereference")._err;
     }
     @:keep
     @:tdfield
     static public function error( _ze:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_t_zstderror.T_zstdError>):stdgo.GoString {
         @:recv var _ze:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_t_zstderror.T_zstdError> = _ze;
+        //"file:///home/runner/.go/go1.21.3/src/internal/zstd/zstd.go#L481"
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("zstd decompression error at %d: %v" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _ze ?? throw "null pointer dereference")._offset), stdgo.Go.toInterface((@:checkr _ze ?? throw "null pointer dereference")._err))?.__copy__();
     }
 }

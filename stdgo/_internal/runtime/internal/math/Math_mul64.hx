@@ -13,5 +13,6 @@ function mul64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt64; 
         _w1 = (_w1 + ((_x0 * _y1 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _hi = (((_x1 * _y1 : stdgo.GoUInt64) + _w2 : stdgo.GoUInt64) + (_w1 >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
         _lo = (_x * _y : stdgo.GoUInt64);
+        //"file:///home/runner/.go/go1.21.3/src/runtime/internal/math/math.go#L39"
         return { _0 : _hi, _1 : _lo };
     }

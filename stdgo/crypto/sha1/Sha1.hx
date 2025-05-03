@@ -1,6 +1,6 @@
 package stdgo.crypto.sha1;
-var size : stdgo.GoUInt64 = 20i32;
-var blockSize : stdgo.GoUInt64 = 64i32;
+var size : stdgo.GoUInt64 = 20i64;
+var blockSize : stdgo.GoUInt64 = 64i64;
 /**
     * Package sha1 implements the SHA-1 hash algorithm as defined in RFC 3174.
     * 

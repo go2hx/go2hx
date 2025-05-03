@@ -1,2 +1,2 @@
 package stdgo._internal.archive.tar;
-final typeXHeader : stdgo.GoInt32 = 120i32;
+final typeXHeader : stdgo.GoInt32 = 120i64;

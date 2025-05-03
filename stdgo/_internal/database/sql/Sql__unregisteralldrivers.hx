@@ -2,9 +2,10 @@ package stdgo._internal.database.sql;
 function _unregisterAllDrivers():Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 stdgo._internal.database.sql.Sql__driversmu._driversMu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L57"
+            stdgo._internal.database.sql.Sql__driversmu._driversMu.lock();
             {
-                final __f__ = @:check2 stdgo._internal.database.sql.Sql__driversmu._driversMu.unlock;
+                final __f__ = stdgo._internal.database.sql.Sql__driversmu._driversMu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             stdgo._internal.database.sql.Sql__drivers._drivers = (({
@@ -30,7 +31,7 @@ function _unregisterAllDrivers():Void {
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

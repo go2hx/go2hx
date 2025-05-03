@@ -1,5 +1,8 @@
 package stdgo._internal.os;
 function readDir(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_direntry.DirEntry>; var _1 : stdgo.Error; } {
+        #if (js && !hxnodejs) {
+            throw "readDir not supported on this target";
+        } #else null #end;
         #if (sys || hxnodejs) {
             final name = _name;
             final paths = sys.FileSystem.readDirectory(name);
@@ -9,5 +12,4 @@ function readDir(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._internal.io
             };
             return { _0 : dirs, _1 : null };
         } #else null #end;
-        return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_("readDir not supported on this target") };
     }

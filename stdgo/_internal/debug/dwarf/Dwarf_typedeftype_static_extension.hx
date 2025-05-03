@@ -4,12 +4,14 @@ package stdgo._internal.debug.dwarf;
     @:tdfield
     static public function size( _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_typedeftype.TypedefType>):stdgo.GoInt64 {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_typedeftype.TypedefType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L346"
         return (@:checkr _t ?? throw "null pointer dereference").type.size();
     }
     @:keep
     @:tdfield
     static public function string( _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_typedeftype.TypedefType>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_typedeftype.TypedefType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L344"
         return (@:checkr _t ?? throw "null pointer dereference").commonType.name?.__copy__();
     }
     @:embedded

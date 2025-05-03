@@ -4,6 +4,7 @@ package stdgo._internal.net.internal.socktest;
     @:tdfield
     static public function string( _st:stdgo._internal.net.internal.socktest.Socktest_stat.Stat):stdgo.GoString {
         @:recv var _st:stdgo._internal.net.internal.socktest.Socktest_stat.Stat = _st?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/net/internal/socktest/switch.go#L103"
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("(%s, %s, %s): opened=%d connected=%d listened=%d accepted=%d closed=%d openfailed=%d connectfailed=%d listenfailed=%d acceptfailed=%d closefailed=%d" : stdgo.GoString),
 stdgo.Go.toInterface(stdgo._internal.net.internal.socktest.Socktest__familystring._familyString(_st.family)),
 stdgo.Go.toInterface(stdgo._internal.net.internal.socktest.Socktest__typestring._typeString(_st.type)),

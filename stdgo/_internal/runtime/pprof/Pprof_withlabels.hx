@@ -7,11 +7,14 @@ function withLabels(_ctx:stdgo._internal.context.Context_context.Context, _label
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo._internal.runtime.pprof.Pprof_t_labelmap.T_labelMap) : stdgo._internal.runtime.pprof.Pprof_t_labelmap.T_labelMap);
+        //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/label.go#L65"
         for (_k => _v in _parentLabels) {
             _childLabels[_k] = _v?.__copy__();
         };
+        //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/label.go#L68"
         for (__0 => _label in _labels._list) {
             _childLabels[_label._key] = _label._value?.__copy__();
         };
+        //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/label.go#L71"
         return stdgo._internal.context.Context_withvalue.withValue(_ctx, stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.runtime.pprof.Pprof_t_labelcontextkey.T_labelContextKey() : stdgo._internal.runtime.pprof.Pprof_t_labelcontextkey.T_labelContextKey))), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_childLabels) : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_labelmap.T_labelMap>))));
     }

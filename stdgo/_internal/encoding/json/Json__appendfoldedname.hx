@@ -1,16 +1,21 @@
 package stdgo._internal.encoding.json;
 function _appendFoldedName(_out:stdgo.Slice<stdgo.GoUInt8>, _in:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/fold.go#L21"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_in.length) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/fold.go#L23"
                 {
                     var _c = (_in[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
                     if ((_c < (128 : stdgo.GoUInt8) : Bool)) {
+                        //"file:///home/runner/.go/go1.21.3/src/encoding/json/fold.go#L24"
                         if ((((97 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (122 : stdgo.GoUInt8) : Bool) : Bool)) {
                             _c = (_c - ((32 : stdgo.GoUInt8)) : stdgo.GoUInt8);
                         };
                         _out = (_out.__append__(_c) : stdgo.Slice<stdgo.GoUInt8>);
+                        //"file:///home/runner/.go/go1.21.3/src/encoding/json/fold.go#L28"
                         _i++;
+                        //"file:///home/runner/.go/go1.21.3/src/encoding/json/fold.go#L29"
                         continue;
                     };
                 };
@@ -19,5 +24,6 @@ function _appendFoldedName(_out:stdgo.Slice<stdgo.GoUInt8>, _in:stdgo.Slice<stdg
                 _i = (_i + (_n) : stdgo.GoInt);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/fold.go#L36"
         return _out;
     }

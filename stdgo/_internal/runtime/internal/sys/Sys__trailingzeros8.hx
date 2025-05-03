@@ -1,5 +1,6 @@
 package stdgo._internal.runtime.internal.sys;
 function trailingZeros8(_x:stdgo.GoUInt8):stdgo.GoInt {
+        //"file:///home/runner/.go/go1.21.3/src/runtime/internal/sys/intrinsics.go#L73"
         return ((stdgo.Go.str("\x08",
 0,
 1,

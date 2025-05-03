@@ -13,6 +13,7 @@ package stdgo._internal.image.color;
         _b = (_b | ((_b << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         _a = (_c.a : stdgo.GoUInt32);
         _a = (_a | ((_a << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        //"file:///home/runner/.go/go1.21.3/src/image/color/color.go#L39"
         return { _0 : _r, _1 : _g, _2 : _b, _3 : _a };
     }
 }

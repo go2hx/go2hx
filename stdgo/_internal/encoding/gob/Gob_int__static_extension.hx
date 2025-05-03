@@ -4,6 +4,7 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function square( _i:stdgo._internal.encoding.gob.Gob_int_.Int_):stdgo.GoInt {
         @:recv var _i:stdgo._internal.encoding.gob.Gob_int_.Int_ = _i;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L1085"
         return ((_i * _i : stdgo._internal.encoding.gob.Gob_int_.Int_) : stdgo.GoInt);
     }
 }

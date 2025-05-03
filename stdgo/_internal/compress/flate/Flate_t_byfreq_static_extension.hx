@@ -19,15 +19,19 @@ package stdgo._internal.compress.flate;
     @:tdfield
     static public function less( _s:stdgo._internal.compress.flate.Flate_t_byfreq.T_byFreq, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _s:stdgo._internal.compress.flate.Flate_t_byfreq.T_byFreq = _s;
+        //"file:///home/runner/.go/go1.21.3/src/compress/flate/huffman_code.go#L335"
         if (_s[(_i : stdgo.GoInt)]._freq == (_s[(_j : stdgo.GoInt)]._freq)) {
+            //"file:///home/runner/.go/go1.21.3/src/compress/flate/huffman_code.go#L336"
             return (_s[(_i : stdgo.GoInt)]._literal < _s[(_j : stdgo.GoInt)]._literal : Bool);
         };
+        //"file:///home/runner/.go/go1.21.3/src/compress/flate/huffman_code.go#L338"
         return (_s[(_i : stdgo.GoInt)]._freq < _s[(_j : stdgo.GoInt)]._freq : Bool);
     }
     @:keep
     @:tdfield
     static public function len( _s:stdgo._internal.compress.flate.Flate_t_byfreq.T_byFreq):stdgo.GoInt {
         @:recv var _s:stdgo._internal.compress.flate.Flate_t_byfreq.T_byFreq = _s;
+        //"file:///home/runner/.go/go1.21.3/src/compress/flate/huffman_code.go#L332"
         return (_s.length);
     }
     @:keep
@@ -35,6 +39,7 @@ package stdgo._internal.compress.flate;
     static public function _sort( _s:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_byfreq.T_byFreq>, _a:stdgo.Slice<stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_byfreq.T_byFreq> = _s;
         (_s : stdgo._internal.compress.flate.Flate_t_byfreq.T_byFreq).__setData__((_a : stdgo._internal.compress.flate.Flate_t_byfreq.T_byFreq));
+        //"file:///home/runner/.go/go1.21.3/src/compress/flate/huffman_code.go#L329"
         stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface(_s));
     }
 }

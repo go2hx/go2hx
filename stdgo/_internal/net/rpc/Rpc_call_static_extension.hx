@@ -4,6 +4,7 @@ package stdgo._internal.net.rpc;
     @:tdfield
     static public function _done( _call:stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>):Void {
         @:recv var _call:stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call> = _call;
+        //"file:///home/runner/.go/go1.21.3/src/net/rpc/client.go#L172"
         {
             var __select__ = true;
             var __c__0 = (@:checkr _call ?? throw "null pointer dereference").done;
@@ -17,7 +18,9 @@ package stdgo._internal.net.rpc;
                 } else {
                     __select__ = false;
                     {
+                        //"file:///home/runner/.go/go1.21.3/src/net/rpc/client.go#L178"
                         if (stdgo._internal.net.rpc.Rpc__debuglog._debugLog) {
+                            //"file:///home/runner/.go/go1.21.3/src/net/rpc/client.go#L179"
                             stdgo._internal.log.Log_println.println(stdgo.Go.toInterface(("rpc: discarding Call reply due to insufficient Done chan capacity" : stdgo.GoString)));
                         };
                     };

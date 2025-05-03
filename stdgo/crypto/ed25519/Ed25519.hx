@@ -1,8 +1,8 @@
 package stdgo.crypto.ed25519;
-var publicKeySize : stdgo.GoUInt64 = 32i32;
-var privateKeySize : stdgo.GoUInt64 = 64i32;
-var signatureSize : stdgo.GoUInt64 = 64i32;
-var seedSize : stdgo.GoUInt64 = 32i32;
+var publicKeySize : stdgo.GoUInt64 = 32i64;
+var privateKeySize : stdgo.GoUInt64 = 64i64;
+var signatureSize : stdgo.GoUInt64 = 64i64;
+var seedSize : stdgo.GoUInt64 = 32i64;
 typedef Options = stdgo._internal.crypto.ed25519.Ed25519_options.Options;
 typedef PublicKey = stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey;
 typedef PrivateKey = stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey;

@@ -1,2 +1,2 @@
 package stdgo._internal.time;
-final _unixToInternal : stdgo.GoInt64 = 62135596800i32;
+final _unixToInternal : stdgo.GoInt64 = 62135596800i64;

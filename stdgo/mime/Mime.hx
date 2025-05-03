@@ -1,6 +1,6 @@
 package stdgo.mime;
-var bEncoding : WordEncoder = 98i32;
-var qEncoding : WordEncoder = 113i32;
+var bEncoding : WordEncoder = 98i64;
+var qEncoding : WordEncoder = 113i64;
 var errInvalidMediaParameter(get, set) : stdgo.Error;
 private function get_errInvalidMediaParameter():stdgo.Error return stdgo._internal.mime.Mime_errinvalidmediaparameter.errInvalidMediaParameter;
 private function set_errInvalidMediaParameter(v:stdgo.Error):stdgo.Error {

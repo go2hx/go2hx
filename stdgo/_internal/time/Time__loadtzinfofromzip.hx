@@ -3,7 +3,9 @@ function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):{ var
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var __tmp__ = stdgo._internal.time.Time__open._open(_zipfile?.__copy__()), _fd:stdgo.GoUIntptr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L403"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L404"
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
             {
@@ -13,9 +15,11 @@ function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):{ var
             };
             {};
             var _buf = (new stdgo.Slice<stdgo.GoUInt8>((22 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L418"
             {
                 var _err = (stdgo._internal.time.Time__preadn._preadn(_fd, _buf, (-22 : stdgo.GoInt)) : stdgo.Error);
                 if (((_err != null) || (stdgo._internal.time.Time__get4._get4(_buf) != (101010256 : stdgo.GoInt)) : Bool)) {
+                    //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L419"
                     {
                         final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_((("corrupt zip file " : stdgo.GoString) + _zipfile?.__copy__() : stdgo.GoString)?.__copy__()) };
                         for (defer in __deferstack__) {
@@ -31,9 +35,11 @@ function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):{ var
             var _size = (stdgo._internal.time.Time__get4._get4((_buf.__slice__((12 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
             var _off = (stdgo._internal.time.Time__get4._get4((_buf.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
             _buf = (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L426"
             {
                 var _err = (stdgo._internal.time.Time__preadn._preadn(_fd, _buf, _off) : stdgo.Error);
                 if (_err != null) {
+                    //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L427"
                     {
                         final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_((("corrupt zip file " : stdgo.GoString) + _zipfile?.__copy__() : stdgo.GoString)?.__copy__()) };
                         for (defer in __deferstack__) {
@@ -45,10 +51,13 @@ function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):{ var
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L430"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < _n : Bool)) {
+                    //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L454"
                     if (stdgo._internal.time.Time__get4._get4(_buf) != ((33639248 : stdgo.GoInt))) {
+                        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L455"
                         break;
                     };
 var _meth = (stdgo._internal.time.Time__get2._get2((_buf.__slice__((10 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
@@ -59,13 +68,17 @@ var _fclen = (stdgo._internal.time.Time__get2._get2((_buf.__slice__((32 : stdgo.
 var _off = (stdgo._internal.time.Time__get4._get4((_buf.__slice__((42 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
 var _zname = (_buf.__slice__((46 : stdgo.GoInt), ((46 : stdgo.GoInt) + _namelen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
 _buf = (_buf.__slice__(((((46 : stdgo.GoInt) + _namelen : stdgo.GoInt) + _xlen : stdgo.GoInt) + _fclen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-if ((_zname : stdgo.GoString) != (_name)) {
+//"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L465"
+                    if ((_zname : stdgo.GoString) != (_name)) {
+                        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L466"
                         {
                             _i++;
                             continue;
                         };
                     };
-if (_meth != ((0 : stdgo.GoInt))) {
+//"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L468"
+                    if (_meth != ((0 : stdgo.GoInt))) {
+                        //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L469"
                         {
                             final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_((((("unsupported compression for " : stdgo.GoString) + _name.__copy__() : stdgo.GoString) + (" in " : stdgo.GoString).__copy__() : stdgo.GoString) + _zipfile.__copy__() : stdgo.GoString).__copy__()) };
                             for (defer in __deferstack__) {
@@ -77,9 +90,11 @@ if (_meth != ((0 : stdgo.GoInt))) {
                         };
                     };
 _buf = (new stdgo.Slice<stdgo.GoUInt8>(((30 : stdgo.GoInt) + _namelen : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-{
+//"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L489"
+                    {
                         var _err = (stdgo._internal.time.Time__preadn._preadn(_fd, _buf, _off) : stdgo.Error);
                         if (((((_err != null || stdgo._internal.time.Time__get4._get4(_buf) != ((67324752 : stdgo.GoInt)) : Bool) || stdgo._internal.time.Time__get2._get2((_buf.__slice__((8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) != (_meth) : Bool) || stdgo._internal.time.Time__get2._get2((_buf.__slice__((26 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) != (_namelen) : Bool) || (((_buf.__slice__((30 : stdgo.GoInt), ((30 : stdgo.GoInt) + _namelen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != _name) : Bool)) {
+                            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L494"
                             {
                                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_((("corrupt zip file " : stdgo.GoString) + _zipfile.__copy__() : stdgo.GoString).__copy__()) };
                                 for (defer in __deferstack__) {
@@ -93,9 +108,11 @@ _buf = (new stdgo.Slice<stdgo.GoUInt8>(((30 : stdgo.GoInt) + _namelen : stdgo.Go
                     };
 _xlen = stdgo._internal.time.Time__get2._get2((_buf.__slice__((28 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
 _buf = (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-{
+//"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L499"
+                    {
                         var _err = (stdgo._internal.time.Time__preadn._preadn(_fd, _buf, (((_off + (30 : stdgo.GoInt) : stdgo.GoInt) + _namelen : stdgo.GoInt) + _xlen : stdgo.GoInt)) : stdgo.Error);
                         if (_err != null) {
+                            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L500"
                             {
                                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_((("corrupt zip file " : stdgo.GoString) + _zipfile.__copy__() : stdgo.GoString).__copy__()) };
                                 for (defer in __deferstack__) {
@@ -107,7 +124,8 @@ _buf = (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__set
                             };
                         };
                     };
-{
+//"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L503"
+                    {
                         final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _buf, _1 : (null : stdgo.Error) };
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
@@ -119,6 +137,7 @@ _buf = (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__set
                     _i++;
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/time/zoneinfo_read.go#L506"
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo.Go.asInterface((new stdgo.GoUIntptr(2) : stdgo._internal.syscall.Syscall_errno.Errno)) };
                 for (defer in __deferstack__) {
@@ -145,7 +164,7 @@ _buf = (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__set
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

@@ -4,24 +4,28 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function copy( _s:stdgo.Ref<stdgo._internal.text.template.parse.Parse_stringnode.StringNode>):stdgo._internal.text.template.parse.Parse_node.Node {
         @:recv var _s:stdgo.Ref<stdgo._internal.text.template.parse.Parse_stringnode.StringNode> = _s;
-        return stdgo.Go.asInterface(@:check2r (@:checkr _s ?? throw "null pointer dereference")._tr._newString((@:checkr _s ?? throw "null pointer dereference").pos, (@:checkr _s ?? throw "null pointer dereference").quoted?.__copy__(), (@:checkr _s ?? throw "null pointer dereference").text?.__copy__()));
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L777"
+        return stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._tr._newString((@:checkr _s ?? throw "null pointer dereference").pos, (@:checkr _s ?? throw "null pointer dereference").quoted?.__copy__(), (@:checkr _s ?? throw "null pointer dereference").text?.__copy__()));
     }
     @:keep
     @:tdfield
     static public function _tree( _s:stdgo.Ref<stdgo._internal.text.template.parse.Parse_stringnode.StringNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> {
         @:recv var _s:stdgo.Ref<stdgo._internal.text.template.parse.Parse_stringnode.StringNode> = _s;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L773"
         return (@:checkr _s ?? throw "null pointer dereference")._tr;
     }
     @:keep
     @:tdfield
     static public function _writeTo( _s:stdgo.Ref<stdgo._internal.text.template.parse.Parse_stringnode.StringNode>, _sb:stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.text.template.parse.Parse_stringnode.StringNode> = _s;
-        @:check2r _sb.writeString((@:check2r _s.string() : stdgo.GoString)?.__copy__());
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L769"
+        _sb.writeString((_s.string() : stdgo.GoString)?.__copy__());
     }
     @:keep
     @:tdfield
     static public function string( _s:stdgo.Ref<stdgo._internal.text.template.parse.Parse_stringnode.StringNode>):stdgo.GoString {
         @:recv var _s:stdgo.Ref<stdgo._internal.text.template.parse.Parse_stringnode.StringNode> = _s;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L765"
         return (@:checkr _s ?? throw "null pointer dereference").quoted?.__copy__();
     }
     @:embedded

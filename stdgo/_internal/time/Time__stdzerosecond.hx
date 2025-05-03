@@ -1,2 +1,2 @@
 package stdgo._internal.time;
-final _stdZeroSecond : stdgo.GoUInt64 = 530i32;
+final _stdZeroSecond : stdgo.GoUInt64 = 530i64;

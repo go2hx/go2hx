@@ -4,14 +4,20 @@ function _lehmerUpdate(a:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, b:st
         (@:checkr _s ?? throw "null pointer dereference")._abs = (@:checkr _s ?? throw "null pointer dereference")._abs._setWord(_v0);
         (@:checkr _t ?? throw "null pointer dereference")._neg = !_even;
         (@:checkr _s ?? throw "null pointer dereference")._neg = _even;
-        @:check2r _t.mul(a, _t);
-        @:check2r _s.mul(b, _s);
+        //"file:///home/runner/.go/go1.21.3/src/math/big/int.go#L722"
+        _t.mul(a, _t);
+        //"file:///home/runner/.go/go1.21.3/src/math/big/int.go#L723"
+        _s.mul(b, _s);
         (@:checkr _r ?? throw "null pointer dereference")._abs = (@:checkr _r ?? throw "null pointer dereference")._abs._setWord(_u1);
         (@:checkr _q ?? throw "null pointer dereference")._abs = (@:checkr _q ?? throw "null pointer dereference")._abs._setWord(_v1);
         (@:checkr _r ?? throw "null pointer dereference")._neg = _even;
         (@:checkr _q ?? throw "null pointer dereference")._neg = !_even;
-        @:check2r _r.mul(a, _r);
-        @:check2r _q.mul(b, _q);
-        @:check2r a.add(_t, _s);
-        @:check2r b.add(_r, _q);
+        //"file:///home/runner/.go/go1.21.3/src/math/big/int.go#L730"
+        _r.mul(a, _r);
+        //"file:///home/runner/.go/go1.21.3/src/math/big/int.go#L731"
+        _q.mul(b, _q);
+        //"file:///home/runner/.go/go1.21.3/src/math/big/int.go#L733"
+        a.add(_t, _s);
+        //"file:///home/runner/.go/go1.21.3/src/math/big/int.go#L734"
+        b.add(_r, _q);
     }

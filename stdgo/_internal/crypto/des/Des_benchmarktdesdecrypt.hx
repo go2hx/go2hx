@@ -2,15 +2,21 @@ package stdgo._internal.crypto.des;
 function benchmarkTDESDecrypt(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
         var _tt = (stdgo._internal.crypto.des.Des__encrypttripledestests._encryptTripleDESTests[(0 : stdgo.GoInt)] : stdgo._internal.crypto.des.Des_crypttest.CryptTest);
         var __tmp__ = stdgo._internal.crypto.des.Des_newtripledescipher.newTripleDESCipher(_tt._key), _c:stdgo._internal.crypto.cipher.Cipher_block.Block = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/des/des_test.go#L1574"
         if (_err != null) {
-            @:check2r _b.fatal(stdgo.Go.toInterface(("NewCipher:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+            //"file:///home/runner/.go/go1.21.3/src/crypto/des/des_test.go#L1575"
+            _b.fatal(stdgo.Go.toInterface(("NewCipher:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         var _out = (new stdgo.Slice<stdgo.GoUInt8>((_tt._out.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        @:check2r _b.setBytes((_out.length : stdgo.GoInt64));
-        @:check2r _b.resetTimer();
+        //"file:///home/runner/.go/go1.21.3/src/crypto/des/des_test.go#L1578"
+        _b.setBytes((_out.length : stdgo.GoInt64));
+        //"file:///home/runner/.go/go1.21.3/src/crypto/des/des_test.go#L1579"
+        _b.resetTimer();
+        //"file:///home/runner/.go/go1.21.3/src/crypto/des/des_test.go#L1580"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/crypto/des/des_test.go#L1581"
                 _c.decrypt(_out, _tt._out);
                 _i++;
             };

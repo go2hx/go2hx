@@ -10,10 +10,13 @@ package stdgo._internal.io;
             _n = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/io/io.go#L621"
         if ((_n > (0 : stdgo.GoInt) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/io/io.go#L622"
             {
                 var __tmp__ = (@:checkr _t ?? throw "null pointer dereference")._w.write((_p.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
+                    //"file:///home/runner/.go/go1.21.3/src/io/io.go#L623"
                     return {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                         _n = __tmp__._0;
@@ -23,6 +26,7 @@ package stdgo._internal.io;
                 };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/io/io.go#L626"
         return { _0 : _n, _1 : _err };
     }
 }

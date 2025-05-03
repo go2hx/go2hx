@@ -2,7 +2,9 @@ package stdgo._internal.internal.txtar;
 function _findFileMarker(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.GoString; var _2 : stdgo.Slice<stdgo.GoUInt8>; } {
         var _before = (null : stdgo.Slice<stdgo.GoUInt8>), _name = ("" : stdgo.GoString), _after = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/internal/txtar/archive.go#L102"
         while (true) {
+            //"file:///home/runner/.go/go1.21.3/src/internal/txtar/archive.go#L103"
             {
                 {
                     var __tmp__ = stdgo._internal.internal.txtar.Txtar__ismarker._isMarker((_data.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>));
@@ -10,6 +12,7 @@ function _findFileMarker(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slic
                     _after = @:tmpset0 __tmp__._1;
                 };
                 if (_name != ((stdgo.Go.str() : stdgo.GoString))) {
+                    //"file:///home/runner/.go/go1.21.3/src/internal/txtar/archive.go#L104"
                     return {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.GoString; var _2 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : (_data.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>), _1 : _name?.__copy__(), _2 : _after };
                         _before = __tmp__._0;
@@ -20,7 +23,9 @@ function _findFileMarker(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slic
                 };
             };
             var _j = (stdgo._internal.bytes.Bytes_index.index((_data.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.internal.txtar.Txtar__newlinemarker._newlineMarker) : stdgo.GoInt);
+            //"file:///home/runner/.go/go1.21.3/src/internal/txtar/archive.go#L107"
             if ((_j < (0 : stdgo.GoInt) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/txtar/archive.go#L108"
                 return {
                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.GoString; var _2 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : stdgo._internal.internal.txtar.Txtar__fixnl._fixNL(_data), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : (null : stdgo.Slice<stdgo.GoUInt8>) };
                     _before = __tmp__._0;

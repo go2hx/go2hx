@@ -2,11 +2,13 @@ package stdgo._internal.database.sql;
 function _withLock(_lk:stdgo._internal.sync.Sync_locker.Locker, _fn:() -> Void):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L3500"
             _lk.lock();
             {
                 final __f__ = _lk.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L3502"
             _fn();
             {
                 for (defer in __deferstack__) {
@@ -25,7 +27,7 @@ function _withLock(_lk:stdgo._internal.sync.Sync_locker.Locker, _fn:() -> Void):
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

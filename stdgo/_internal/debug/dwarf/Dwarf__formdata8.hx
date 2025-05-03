@@ -1,2 +1,2 @@
 package stdgo._internal.debug.dwarf;
-final _formData8 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format = 7i32;
+final _formData8 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format = 7i64;

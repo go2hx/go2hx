@@ -8,6 +8,7 @@ function _rewriteRequestURL(_req:stdgo.Ref<stdgo._internal.net.http.Http_request
             (@:checkr (@:checkr _req ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path = @:tmpset0 __tmp__._0?.__copy__();
             (@:checkr (@:checkr _req ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawPath = @:tmpset0 __tmp__._1?.__copy__();
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L274"
         if (((_targetQuery == (stdgo.Go.str() : stdgo.GoString)) || ((@:checkr (@:checkr _req ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             (@:checkr (@:checkr _req ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery = (_targetQuery + (@:checkr (@:checkr _req ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery?.__copy__() : stdgo.GoString)?.__copy__();
         } else {

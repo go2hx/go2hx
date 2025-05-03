@@ -4,12 +4,14 @@ package stdgo._internal.debug.macho;
     @:tdfield
     static public function goString( _i:stdgo._internal.debug.macho.Macho_loadcmd.LoadCmd):stdgo.GoString {
         @:recv var _i:stdgo._internal.debug.macho.Macho_loadcmd.LoadCmd = _i;
+        //"file:///home/runner/.go/go1.21.3/src/debug/macho/macho.go#L110"
         return stdgo._internal.debug.macho.Macho__stringname._stringName((_i : stdgo.GoUInt32), stdgo._internal.debug.macho.Macho__cmdstrings._cmdStrings, true)?.__copy__();
     }
     @:keep
     @:tdfield
     static public function string( _i:stdgo._internal.debug.macho.Macho_loadcmd.LoadCmd):stdgo.GoString {
         @:recv var _i:stdgo._internal.debug.macho.Macho_loadcmd.LoadCmd = _i;
+        //"file:///home/runner/.go/go1.21.3/src/debug/macho/macho.go#L109"
         return stdgo._internal.debug.macho.Macho__stringname._stringName((_i : stdgo.GoUInt32), stdgo._internal.debug.macho.Macho__cmdstrings._cmdStrings, false)?.__copy__();
     }
 }

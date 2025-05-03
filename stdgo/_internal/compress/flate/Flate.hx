@@ -5,7 +5,8 @@ package stdgo._internal.compress.flate;
             var _offsetFreq = (new stdgo.Slice<stdgo.GoInt32>((30 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
             _offsetFreq[(0 : stdgo.GoInt)] = (1 : stdgo.GoInt32);
             stdgo._internal.compress.flate.Flate__huffoffset._huffOffset = stdgo._internal.compress.flate.Flate__newhuffmanencoder._newHuffmanEncoder((30 : stdgo.GoInt));
-            @:check2r stdgo._internal.compress.flate.Flate__huffoffset._huffOffset._generate(_offsetFreq, (15 : stdgo.GoInt32));
+            //"file:///home/runner/.go/go1.21.3/src/compress/flate/huffman_bit_writer.go#L612"
+            stdgo._internal.compress.flate.Flate__huffoffset._huffOffset._generate(_offsetFreq, (15 : stdgo.GoInt32));
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };

@@ -1,9 +1,11 @@
 package stdgo._internal.sync;
 function _poolCleanup():Void {
+        //"file:///home/runner/.go/go1.21.3/src/sync/pool.go#L244"
         for (__16 => _p in stdgo._internal.sync.Sync__oldpools._oldPools) {
             (@:checkr _p ?? throw "null pointer dereference")._victim = @:default_value null;
             (@:checkr _p ?? throw "null pointer dereference")._victimSize = (new stdgo.GoUIntptr(0) : stdgo.GoUIntptr);
         };
+        //"file:///home/runner/.go/go1.21.3/src/sync/pool.go#L250"
         for (__17 => _p in stdgo._internal.sync.Sync__allpools._allPools) {
             (@:checkr _p ?? throw "null pointer dereference")._victim = (@:checkr _p ?? throw "null pointer dereference")._local;
             (@:checkr _p ?? throw "null pointer dereference")._victimSize = (@:checkr _p ?? throw "null pointer dereference")._localSize;

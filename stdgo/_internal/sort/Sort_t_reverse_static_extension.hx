@@ -4,6 +4,7 @@ package stdgo._internal.sort;
     @:tdfield
     static public function less( _r:stdgo._internal.sort.Sort_t_reverse.T_reverse, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _r:stdgo._internal.sort.Sort_t_reverse.T_reverse = _r?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/sort/sort.go#L93"
         return _r.interface_.less(_j, _i);
     }
     @:embedded

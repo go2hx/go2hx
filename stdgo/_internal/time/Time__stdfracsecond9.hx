@@ -1,2 +1,2 @@
 package stdgo._internal.time;
-final _stdFracSecond9 : stdgo.GoUInt64 = 35i32;
+final _stdFracSecond9 : stdgo.GoUInt64 = 35i64;

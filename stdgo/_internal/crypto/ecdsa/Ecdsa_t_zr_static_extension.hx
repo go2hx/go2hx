@@ -5,9 +5,11 @@ package stdgo._internal.crypto.ecdsa;
     static public function read( _:stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr, _dst:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _:stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr = _?.__copy__();
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdsa/ecdsa.go#L460"
         for (_i => _ in _dst) {
             _dst[(_i : stdgo.GoInt)] = (0 : stdgo.GoUInt8);
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdsa/ecdsa.go#L463"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_dst.length), _1 : (null : stdgo.Error) };
             _n = __tmp__._0;

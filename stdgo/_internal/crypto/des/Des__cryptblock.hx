@@ -6,7 +6,9 @@ function _cryptBlock(_subkeys:stdgo.Slice<stdgo.GoUInt64>, _dst:stdgo.Slice<stdg
 var _right = __1, _left = __0;
         _left = (((_left << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) | ((_left >> (31i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         _right = (((_right << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) | ((_right >> (31i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/des/block.go#L20"
         if (_decrypt) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/des/block.go#L21"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (8 : stdgo.GoInt) : Bool)) {
@@ -19,6 +21,7 @@ var _right = __1, _left = __0;
                 };
             };
         } else {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/des/block.go#L25"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (8 : stdgo.GoInt) : Bool)) {
@@ -34,5 +37,6 @@ var _right = __1, _left = __0;
         _left = (((_left << (31i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) | ((_left >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         _right = (((_right << (31i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) | ((_right >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         var _preOutput = ((((_right : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) | (_left : stdgo.GoUInt64) : stdgo.GoUInt64);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/des/block.go#L35"
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint64(_dst, stdgo._internal.crypto.des.Des__permutefinalblock._permuteFinalBlock(_preOutput));
     }

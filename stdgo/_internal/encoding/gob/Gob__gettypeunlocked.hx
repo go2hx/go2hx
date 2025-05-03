@@ -2,15 +2,19 @@ package stdgo._internal.encoding.gob;
 function _getTypeUnlocked(_name:stdgo.GoString, _rt:stdgo._internal.reflect.Reflect_type_.Type_):stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 stdgo._internal.encoding.gob.Gob__typelock._typeLock.lock();
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type_test.go#L29"
+            stdgo._internal.encoding.gob.Gob__typelock._typeLock.lock();
             {
-                final __f__ = @:check2 stdgo._internal.encoding.gob.Gob__typelock._typeLock.unlock;
+                final __f__ = stdgo._internal.encoding.gob.Gob__typelock._typeLock.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = stdgo._internal.encoding.gob.Gob__getbasetype._getBaseType(_name?.__copy__(), _rt), _t:stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type_test.go#L32"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type_test.go#L33"
                 throw stdgo.Go.toInterface((("getTypeUnlocked: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString));
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type_test.go#L35"
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -36,7 +40,7 @@ function _getTypeUnlocked(_name:stdgo.GoString, _rt:stdgo._internal.reflect.Refl
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

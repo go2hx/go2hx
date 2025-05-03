@@ -9,6 +9,7 @@ function parse(_name:stdgo.GoString, _text:stdgo.GoString, _leftDelim:stdgo.GoSt
         } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>);
         var _t = stdgo._internal.text.template.parse.Parse_new_.new_(_name?.__copy__());
         (@:checkr _t ?? throw "null pointer dereference")._text = _text?.__copy__();
-        var __tmp__ = @:check2r _t.parse(_text?.__copy__(), _leftDelim?.__copy__(), _rightDelim?.__copy__(), _treeSet, ...(_funcs : Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>)), __0:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _t.parse(_text?.__copy__(), _leftDelim?.__copy__(), _rightDelim?.__copy__(), _treeSet, ...(_funcs : Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>)), __0:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/parse.go#L67"
         return { _0 : _treeSet, _1 : _err };
     }

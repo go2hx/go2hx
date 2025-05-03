@@ -1,5 +1,6 @@
 package stdgo._internal.math.big;
 function testFloat64Text(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L202"
         for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_t__struct_29.T__struct_29>(107, 107, ...[
 ({ _x : (0 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (0 : stdgo.GoInt), _want : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_29.T__struct_29),
 ({ _x : stdgo._internal.math.Math_copysign.copysign((0 : stdgo.GoFloat64), (-1 : stdgo.GoFloat64)), _format : (102 : stdgo.GoUInt8), _prec : (0 : stdgo.GoInt), _want : ("-0" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_29.T__struct_29),
@@ -108,21 +109,30 @@ function testFloat64Text(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Vo
 ({ _x : (1 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (-10 : stdgo.GoInt), _want : ("1" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_29.T__struct_29),
 ({ _x : (1 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (-11 : stdgo.GoInt), _want : ("1" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_29.T__struct_29),
 ({ _x : (1 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (-12 : stdgo.GoInt), _want : ("1" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_29.T__struct_29)].concat([for (i in 107 ... (107 > 107 ? 107 : 107 : stdgo.GoInt).toBasic()) ({ _x : (0 : stdgo.GoFloat64), _format : (0 : stdgo.GoUInt8), _prec : (0 : stdgo.GoInt), _want : ("" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_29.T__struct_29)])) : stdgo.Slice<stdgo._internal.math.big.Big_t__struct_29.T__struct_29>)) {
-            var _f = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>).setPrec(stdgo._internal.math.big.Big__actualprec._actualPrec(_test._x)).setFloat64(_test._x);
-            var _got = (@:check2r _f.text(_test._format, _test._prec)?.__copy__() : stdgo.GoString);
+            var _f = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>).setPrec(stdgo._internal.math.big.Big__actualprec._actualPrec(_test._x)).setFloat64(_test._x);
+            var _got = (_f.text(_test._format, _test._prec)?.__copy__() : stdgo.GoString);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L358"
             if (_got != (_test._want)) {
-                @:check2r _t.errorf(("%v: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L359"
+                _t.errorf(("%v: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L360"
                 continue;
             };
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L363"
             if (((_test._format == (98 : stdgo.GoUInt8)) && (_test._x == (0 : stdgo.GoFloat64)) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L364"
                 continue;
             };
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L366"
             if (_test._format == ((112 : stdgo.GoUInt8))) {
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L367"
                 continue;
             };
             var _want = (stdgo._internal.strconv.Strconv_formatfloat.formatFloat(_test._x, _test._format, _test._prec, (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L372"
             if (_got != (_want)) {
-                @:check2r _t.errorf(("%v: got %s; want %s (strconv)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L373"
+                _t.errorf(("%v: got %s; want %s (strconv)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
         };
     }

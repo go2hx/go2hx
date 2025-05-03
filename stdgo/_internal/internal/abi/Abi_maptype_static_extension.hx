@@ -4,30 +4,35 @@ package stdgo._internal.internal.abi;
     @:tdfield
     static public function hashMightPanic( _mt:stdgo.Ref<stdgo._internal.internal.abi.Abi_maptype.MapType>):Bool {
         @:recv var _mt:stdgo.Ref<stdgo._internal.internal.abi.Abi_maptype.MapType> = _mt;
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L468"
         return ((@:checkr _mt ?? throw "null pointer dereference").flags & (16u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
     }
     @:keep
     @:tdfield
     static public function needKeyUpdate( _mt:stdgo.Ref<stdgo._internal.internal.abi.Abi_maptype.MapType>):Bool {
         @:recv var _mt:stdgo.Ref<stdgo._internal.internal.abi.Abi_maptype.MapType> = _mt;
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L465"
         return ((@:checkr _mt ?? throw "null pointer dereference").flags & (8u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
     }
     @:keep
     @:tdfield
     static public function reflexiveKey( _mt:stdgo.Ref<stdgo._internal.internal.abi.Abi_maptype.MapType>):Bool {
         @:recv var _mt:stdgo.Ref<stdgo._internal.internal.abi.Abi_maptype.MapType> = _mt;
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L462"
         return ((@:checkr _mt ?? throw "null pointer dereference").flags & (4u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
     }
     @:keep
     @:tdfield
     static public function indirectElem( _mt:stdgo.Ref<stdgo._internal.internal.abi.Abi_maptype.MapType>):Bool {
         @:recv var _mt:stdgo.Ref<stdgo._internal.internal.abi.Abi_maptype.MapType> = _mt;
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L459"
         return ((@:checkr _mt ?? throw "null pointer dereference").flags & (2u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
     }
     @:keep
     @:tdfield
     static public function indirectKey( _mt:stdgo.Ref<stdgo._internal.internal.abi.Abi_maptype.MapType>):Bool {
         @:recv var _mt:stdgo.Ref<stdgo._internal.internal.abi.Abi_maptype.MapType> = _mt;
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L456"
         return ((@:checkr _mt ?? throw "null pointer dereference").flags & (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
     }
     @:embedded

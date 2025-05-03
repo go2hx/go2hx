@@ -12,9 +12,12 @@ function benchmarkDiv(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
 (100000 : stdgo.GoInt),
 (1000000 : stdgo.GoInt),
 (10000000 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
+        //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L1869"
         for (__8 => _i in _sizes) {
             var _j = ((2 : stdgo.GoInt) * _i : stdgo.GoInt);
-            @:check2r _b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%d/%d" : stdgo.GoString), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_i))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+            //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L1871"
+            _b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%d/%d" : stdgo.GoString), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_i))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+                //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L1872"
                 stdgo._internal.math.big.Big__benchmarkdiv._benchmarkDiv(_b, _j, _i);
             });
         };

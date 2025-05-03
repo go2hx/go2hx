@@ -5,5 +5,6 @@ function contextClientTrace(_ctx:stdgo._internal.context.Context_context.Context
         } catch(_) {
             { _0 : (null : stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_clienttrace.ClientTrace>), _1 : false };
         }, _trace = __tmp__._0, __0 = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/net/http/httptrace/trace.go#L26"
         return _trace;
     }

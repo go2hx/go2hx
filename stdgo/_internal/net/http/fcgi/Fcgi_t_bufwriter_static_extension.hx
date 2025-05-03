@@ -4,13 +4,17 @@ package stdgo._internal.net.http.fcgi;
     @:tdfield
     static public function close( _w:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_bufwriter.T_bufWriter>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_bufwriter.T_bufWriter> = _w;
+        //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/fcgi.go#L237"
         {
-            var _err = (@:check2r (@:checkr _w ?? throw "null pointer dereference").writer.flush() : stdgo.Error);
+            var _err = ((@:checkr _w ?? throw "null pointer dereference").writer.flush() : stdgo.Error);
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/fcgi.go#L238"
                 (@:checkr _w ?? throw "null pointer dereference")._closer.close();
+                //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/fcgi.go#L239"
                 return _err;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/fcgi.go#L241"
         return (@:checkr _w ?? throw "null pointer dereference")._closer.close();
     }
     @:embedded

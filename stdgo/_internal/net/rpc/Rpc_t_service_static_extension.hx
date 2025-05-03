@@ -6,27 +6,34 @@ package stdgo._internal.net.rpc;
         @:recv var _s:stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_service.T_service> = _s;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/net/rpc/server.go#L374"
             if (({
                 final value = _wg;
                 (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
             })) {
                 {
-                    final __f__ = @:check2r _wg.done;
+                    final __f__ = _wg.done;
                     __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
             };
-            @:check2r _mtype.lock();
+            //"file:///home/runner/.go/go1.21.3/src/net/rpc/server.go#L377"
+            _mtype.lock();
+            //"file:///home/runner/.go/go1.21.3/src/net/rpc/server.go#L378"
             (@:checkr _mtype ?? throw "null pointer dereference")._numCalls++;
-            @:check2r _mtype.unlock();
+            //"file:///home/runner/.go/go1.21.3/src/net/rpc/server.go#L379"
+            _mtype.unlock();
             var _function = ((@:checkr _mtype ?? throw "null pointer dereference")._method.func?.__copy__() : stdgo._internal.reflect.Reflect_value.Value);
             var _returnValues = _function.call((new stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>(3, 3, ...[(@:checkr _s ?? throw "null pointer dereference")._rcvr?.__copy__(), _argv?.__copy__(), _replyv?.__copy__()].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect_value.Value)])) : stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>));
             var _errInter = (_returnValues[(0 : stdgo.GoInt)].interface_() : stdgo.AnyInterface);
             var _errmsg = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+            //"file:///home/runner/.go/go1.21.3/src/net/rpc/server.go#L386"
             if (_errInter != null) {
                 _errmsg = (stdgo.Go.typeAssert((_errInter : stdgo.Error)) : stdgo.Error).error()?.__copy__();
             };
-            @:check2r _server._sendResponse(_sending, _req, _replyv.interface_(), _codec, _errmsg?.__copy__());
-            @:check2r _server._freeRequest(_req);
+            //"file:///home/runner/.go/go1.21.3/src/net/rpc/server.go#L389"
+            _server._sendResponse(_sending, _req, _replyv.interface_(), _codec, _errmsg?.__copy__());
+            //"file:///home/runner/.go/go1.21.3/src/net/rpc/server.go#L390"
+            _server._freeRequest(_req);
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -44,7 +51,7 @@ package stdgo._internal.net.rpc;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

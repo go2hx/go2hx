@@ -1,21 +1,31 @@
 package stdgo._internal.encoding.json;
 function benchmarkCodeEncoder(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
-        @:check2r _b.reportAllocs();
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/bench_test.go#L86"
+        _b.reportAllocs();
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/bench_test.go#L87"
         if (stdgo._internal.encoding.json.Json__codejson._codeJSON == null) {
-            @:check2r _b.stopTimer();
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/bench_test.go#L88"
+            _b.stopTimer();
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/bench_test.go#L89"
             stdgo._internal.encoding.json.Json__codeinit._codeInit();
-            @:check2r _b.startTimer();
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/bench_test.go#L90"
+            _b.startTimer();
         };
-        @:check2r _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing_pb.PB>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/bench_test.go#L92"
+        _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing_pb.PB>):Void {
             var _enc = stdgo._internal.encoding.json.Json_newencoder.newEncoder(stdgo._internal.io.Io_discard.discard);
-            while (@:check2r _pb.next()) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/bench_test.go#L94"
+            while (_pb.next()) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/bench_test.go#L95"
                 {
-                    var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(stdgo._internal.encoding.json.Json__codestruct._codeStruct) : stdgo.Ref<stdgo._internal.encoding.json.Json_t_coderesponse.T_codeResponse>)))) : stdgo.Error);
+                    var _err = (_enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(stdgo._internal.encoding.json.Json__codestruct._codeStruct) : stdgo.Ref<stdgo._internal.encoding.json.Json_t_coderesponse.T_codeResponse>)))) : stdgo.Error);
                     if (_err != null) {
-                        @:check2r _b.fatal(stdgo.Go.toInterface(("Encode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+                        //"file:///home/runner/.go/go1.21.3/src/encoding/json/bench_test.go#L96"
+                        _b.fatal(stdgo.Go.toInterface(("Encode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
                     };
                 };
             };
         });
-        @:check2r _b.setBytes((stdgo._internal.encoding.json.Json__codejson._codeJSON.length : stdgo.GoInt64));
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/bench_test.go#L100"
+        _b.setBytes((stdgo._internal.encoding.json.Json__codejson._codeJSON.length : stdgo.GoInt64));
     }

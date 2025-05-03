@@ -3,12 +3,14 @@ function _generateFixedLiteralEncoding():stdgo.Ref<stdgo._internal.compress.flat
         var _h = stdgo._internal.compress.flate.Flate__newhuffmanencoder._newHuffmanEncoder((286 : stdgo.GoInt));
         var _codes = (@:checkr _h ?? throw "null pointer dereference")._codes;
         var _ch:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        //"file:///home/runner/.go/go1.21.3/src/compress/flate/huffman_code.go#L68"
         {
             _ch = (0 : stdgo.GoUInt16);
             while ((_ch < (286 : stdgo.GoUInt16) : Bool)) {
                 var _bits:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
 var _size:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-if ((_ch < (144 : stdgo.GoUInt16) : Bool)) {
+//"file:///home/runner/.go/go1.21.3/src/compress/flate/huffman_code.go#L71"
+                if ((_ch < (144 : stdgo.GoUInt16) : Bool)) {
                     _bits = (_ch + (48 : stdgo.GoUInt16) : stdgo.GoUInt16);
                     _size = (8 : stdgo.GoUInt16);
                 } else if ((_ch < (256 : stdgo.GoUInt16) : Bool)) {
@@ -25,5 +27,6 @@ _codes[(_ch : stdgo.GoInt)] = ({ _code : stdgo._internal.compress.flate.Flate__r
                 _ch++;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/compress/flate/huffman_code.go#L91"
         return _h;
     }

@@ -11,6 +11,7 @@ function testIndex64(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
                     a();
                 }) });
             };
+            //"file:///home/runner/.go/go1.21.3/src/index/suffixarray/suffixarray_test.go#L314"
             stdgo._internal.index.suffixarray.Suffixarray__testindex._testIndex(_t);
             {
                 for (defer in __deferstack__) {
@@ -29,7 +30,7 @@ function testIndex64(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

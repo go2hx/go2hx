@@ -117,22 +117,29 @@ function testMarshalRawMessageValue(_t:stdgo.Ref<stdgo._internal.testing.Testing
 ({ _in : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.encoding.json.Json_t_testmarshalrawmessagevalue___localname___t2_23573.T_testMarshalRawMessageValue___localname___T2_23573((stdgo.Go.setRef(_rawText) : stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>)) : stdgo._internal.encoding.json.Json_t_testmarshalrawmessagevalue___localname___t2_23573.T_testMarshalRawMessageValue___localname___T2_23573))), _want : ("{\"M\":\"foo\"}" : stdgo.GoString), _ok : true } : stdgo._internal.encoding.json.Json_t__struct_29.T__struct_29),
 ({ _in : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_t_testmarshalrawmessagevalue___localname___t1_23519.T_testMarshalRawMessageValue___localname___T1_23519(_rawText) : stdgo._internal.encoding.json.Json_t_testmarshalrawmessagevalue___localname___t1_23519.T_testMarshalRawMessageValue___localname___T1_23519)) : stdgo.Ref<stdgo._internal.encoding.json.Json_t_testmarshalrawmessagevalue___localname___t1_23519.T_testMarshalRawMessageValue___localname___T1_23519>))), _want : ("{\"M\":\"foo\"}" : stdgo.GoString), _ok : true } : stdgo._internal.encoding.json.Json_t__struct_29.T__struct_29),
 ({ _in : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_t_testmarshalrawmessagevalue___localname___t2_23573.T_testMarshalRawMessageValue___localname___T2_23573((stdgo.Go.setRef(_rawText) : stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>)) : stdgo._internal.encoding.json.Json_t_testmarshalrawmessagevalue___localname___t2_23573.T_testMarshalRawMessageValue___localname___T2_23573)) : stdgo.Ref<stdgo._internal.encoding.json.Json_t_testmarshalrawmessagevalue___localname___t2_23573.T_testMarshalRawMessageValue___localname___T2_23573>))), _want : ("{\"M\":\"foo\"}" : stdgo.GoString), _ok : true } : stdgo._internal.encoding.json.Json_t__struct_29.T__struct_29)].concat([for (i in 54 ... (54 > 54 ? 54 : 54 : stdgo.GoInt).toBasic()) ({ _in : (null : stdgo.AnyInterface), _want : ("" : stdgo.GoString), _ok : false } : stdgo._internal.encoding.json.Json_t__struct_29.T__struct_29)])) : stdgo.Slice<stdgo._internal.encoding.json.Json_t__struct_29.T__struct_29>);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L1121"
         for (_i => _tt in _tests) {
             var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(_tt._in), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L1123"
             {
                 var _ok = (_err == null : Bool);
                 if (_ok != (_tt._ok)) {
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L1124"
                     if (_err != null) {
-                        @:check2r _t.errorf(("test %d, unexpected failure: %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
+                        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L1125"
+                        _t.errorf(("test %d, unexpected failure: %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     } else {
-                        @:check2r _t.errorf(("test %d, unexpected success" : stdgo.GoString), stdgo.Go.toInterface(_i));
+                        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L1127"
+                        _t.errorf(("test %d, unexpected success" : stdgo.GoString), stdgo.Go.toInterface(_i));
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L1130"
             {
                 var _got = ((_b : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_got != (_tt._want)) {
-                    @:check2r _t.errorf(("test %d, Marshal(%#v) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_i), _tt._in, stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L1131"
+                    _t.errorf(("test %d, Marshal(%#v) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_i), _tt._in, stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
                 };
             };
         };

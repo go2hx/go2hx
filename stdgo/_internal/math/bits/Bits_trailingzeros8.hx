@@ -1,5 +1,6 @@
 package stdgo._internal.math.bits;
 function trailingZeros8(_x:stdgo.GoUInt8):stdgo.GoInt {
+        //"file:///home/runner/.go/go1.21.3/src/math/bits/bits.go#L68"
         return ((stdgo.Go.str("\x08",
 0,
 1,

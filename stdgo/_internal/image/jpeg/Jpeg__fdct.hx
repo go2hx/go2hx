@@ -1,5 +1,6 @@
 package stdgo._internal.image.jpeg;
 function _fdct(_b:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/image/jpeg/fdct.go#L88"
         {
             var _y = (0 : stdgo.GoInt);
             while ((_y < (8 : stdgo.GoInt) : Bool)) {
@@ -54,6 +55,7 @@ _s[(7 : stdgo.GoInt)] = ((((_tmp3 + _tmp10 : stdgo.GoInt32) + _tmp13 : stdgo.GoI
                 _y++;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/image/jpeg/fdct.go#L146"
         {
             var _x = (0 : stdgo.GoInt);
             while ((_x < (8 : stdgo.GoInt) : Bool)) {

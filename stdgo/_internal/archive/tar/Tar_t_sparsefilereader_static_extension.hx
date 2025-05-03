@@ -4,12 +4,14 @@ package stdgo._internal.archive.tar;
     @:tdfield
     static public function _physicalRemaining( _sr:stdgo._internal.archive.tar.Tar_t_sparsefilereader.T_sparseFileReader):stdgo.GoInt64 {
         @:recv var _sr:stdgo._internal.archive.tar.Tar_t_sparsefilereader.T_sparseFileReader = _sr?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L808"
         return _sr._fr._physicalRemaining();
     }
     @:keep
     @:tdfield
     static public function _logicalRemaining( _sr:stdgo._internal.archive.tar.Tar_t_sparsefilereader.T_sparseFileReader):stdgo.GoInt64 {
         @:recv var _sr:stdgo._internal.archive.tar.Tar_t_sparsefilereader.T_sparseFileReader = _sr?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L805"
         return (_sr._sp[((_sr._sp.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]._endOffset() - _sr._pos : stdgo.GoInt64);
     }
     @:keep
@@ -22,7 +24,9 @@ package stdgo._internal.archive.tar;
         } catch(_) {
             { _0 : (null : stdgo._internal.io.Io_writeseeker.WriteSeeker), _1 : false };
         }, _ws = __tmp__._0, _ok = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L753"
         if (_ok) {
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L754"
             {
                 var __tmp__ = _ws.seek((0i64 : stdgo.GoInt64), (1 : stdgo.GoInt)), __1:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
@@ -30,18 +34,22 @@ package stdgo._internal.archive.tar;
                 };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L758"
         if (!_ok) {
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L759"
             return ({
-                @:assignTranslate final __tmp__ = stdgo._internal.io.Io_copy.copy(_w, stdgo.Go.asInterface(({ reader : stdgo.Go.asInterface(_sr) } : stdgo._internal.archive.tar.Tar_t__struct_0.T__struct_0)));
+                @:explicitConversion final __tmp__ = stdgo._internal.io.Io_copy.copy(_w, stdgo.Go.asInterface(({ reader : stdgo.Go.asInterface(_sr) } : stdgo._internal.archive.tar.Tar_t__struct_0.T__struct_0)));
                 { _0 : __tmp__._0, _1 : __tmp__._1 };
             });
         };
         var _writeLastByte:Bool = false;
         var _pos0 = ((@:checkr _sr ?? throw "null pointer dereference")._pos : stdgo.GoInt64);
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L764"
         while (((((@:checkr _sr ?? throw "null pointer dereference")._logicalRemaining() > (0i64 : stdgo.GoInt64) : Bool) && !_writeLastByte : Bool) && (_err == null) : Bool)) {
             var _nf:stdgo.GoInt64 = (0 : stdgo.GoInt64);
             var __0 = ((@:checkr _sr ?? throw "null pointer dereference")._sp[(0 : stdgo.GoInt)].offset : stdgo.GoInt64), __1 = ((@:checkr _sr ?? throw "null pointer dereference")._sp[(0 : stdgo.GoInt)]._endOffset() : stdgo.GoInt64);
 var _holeEnd = __1, _holeStart = __0;
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L767"
             if (((@:checkr _sr ?? throw "null pointer dereference")._pos < _holeStart : Bool)) {
                 _nf = (_holeStart - (@:checkr _sr ?? throw "null pointer dereference")._pos : stdgo.GoInt64);
                 {
@@ -51,8 +59,10 @@ var _holeEnd = __1, _holeStart = __0;
                 };
             } else {
                 _nf = (_holeEnd - (@:checkr _sr ?? throw "null pointer dereference")._pos : stdgo.GoInt64);
+                //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L772"
                 if ((@:checkr _sr ?? throw "null pointer dereference")._physicalRemaining() == ((0i64 : stdgo.GoInt64))) {
                     _writeLastByte = true;
+                    //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L774"
                     _nf--;
                 };
                 {
@@ -61,19 +71,24 @@ var _holeEnd = __1, _holeStart = __0;
                 };
             };
             (@:checkr _sr ?? throw "null pointer dereference")._pos = ((@:checkr _sr ?? throw "null pointer dereference")._pos + (_nf) : stdgo.GoInt64);
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L779"
             if ((((@:checkr _sr ?? throw "null pointer dereference")._pos >= _holeEnd : Bool) && (((@:checkr _sr ?? throw "null pointer dereference")._sp.length) > (1 : stdgo.GoInt) : Bool) : Bool)) {
                 (@:checkr _sr ?? throw "null pointer dereference")._sp = ((@:checkr _sr ?? throw "null pointer dereference")._sp.__slice__((1 : stdgo.GoInt)) : stdgo._internal.archive.tar.Tar_t_sparseholes.T_sparseHoles);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L786"
         if ((_writeLastByte && (_err == null) : Bool)) {
             {
                 var __tmp__ = _ws.write((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(0 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>));
                 _err = @:tmpset0 __tmp__._1;
             };
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L788"
             (@:checkr _sr ?? throw "null pointer dereference")._pos++;
         };
         _n = ((@:checkr _sr ?? throw "null pointer dereference")._pos - _pos0 : stdgo.GoInt64);
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L792"
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L794"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errmissdata._errMissData };
                 _n = __tmp__._0;
@@ -81,6 +96,7 @@ var _holeEnd = __1, _holeStart = __0;
                 __tmp__;
             };
         } else if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L796"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                 _n = __tmp__._0;
@@ -88,6 +104,7 @@ var _holeEnd = __1, _holeStart = __0;
                 __tmp__;
             };
         } else if ((((@:checkr _sr ?? throw "null pointer dereference")._logicalRemaining() == (0i64 : stdgo.GoInt64)) && ((@:checkr _sr ?? throw "null pointer dereference")._physicalRemaining() > (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L798"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errunrefdata._errUnrefData };
                 _n = __tmp__._0;
@@ -95,6 +112,7 @@ var _holeEnd = __1, _holeStart = __0;
                 __tmp__;
             };
         } else {
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L800"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                 _n = __tmp__._0;
@@ -109,15 +127,18 @@ var _holeEnd = __1, _holeStart = __0;
         @:recv var _sr:stdgo.Ref<stdgo._internal.archive.tar.Tar_t_sparsefilereader.T_sparseFileReader> = _sr;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var _finished = ((_b.length : stdgo.GoInt64) >= (@:checkr _sr ?? throw "null pointer dereference")._logicalRemaining() : Bool);
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L713"
         if (_finished) {
             _b = (_b.__slice__(0, (@:checkr _sr ?? throw "null pointer dereference")._logicalRemaining()) : stdgo.Slice<stdgo.GoUInt8>);
         };
         var _b0 = _b;
         var _endPos = ((@:checkr _sr ?? throw "null pointer dereference")._pos + (_b.length : stdgo.GoInt64) : stdgo.GoInt64);
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L719"
         while (((_endPos > (@:checkr _sr ?? throw "null pointer dereference")._pos : Bool) && (_err == null) : Bool)) {
             var _nf:stdgo.GoInt = (0 : stdgo.GoInt);
             var __0 = ((@:checkr _sr ?? throw "null pointer dereference")._sp[(0 : stdgo.GoInt)].offset : stdgo.GoInt64), __1 = ((@:checkr _sr ?? throw "null pointer dereference")._sp[(0 : stdgo.GoInt)]._endOffset() : stdgo.GoInt64);
 var _holeEnd = __1, _holeStart = __0;
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L722"
             if (((@:checkr _sr ?? throw "null pointer dereference")._pos < _holeStart : Bool)) {
                 var _bf = (_b.__slice__(0, stdgo._internal.archive.tar.Tar__min._min((_b.length : stdgo.GoInt64), (_holeStart - (@:checkr _sr ?? throw "null pointer dereference")._pos : stdgo.GoInt64))) : stdgo.Slice<stdgo.GoUInt8>);
                 {
@@ -135,12 +156,15 @@ var _holeEnd = __1, _holeStart = __0;
             };
             _b = (_b.__slice__(_nf) : stdgo.Slice<stdgo.GoUInt8>);
             (@:checkr _sr ?? throw "null pointer dereference")._pos = ((@:checkr _sr ?? throw "null pointer dereference")._pos + ((_nf : stdgo.GoInt64)) : stdgo.GoInt64);
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L731"
             if ((((@:checkr _sr ?? throw "null pointer dereference")._pos >= _holeEnd : Bool) && (((@:checkr _sr ?? throw "null pointer dereference")._sp.length) > (1 : stdgo.GoInt) : Bool) : Bool)) {
                 (@:checkr _sr ?? throw "null pointer dereference")._sp = ((@:checkr _sr ?? throw "null pointer dereference")._sp.__slice__((1 : stdgo.GoInt)) : stdgo._internal.archive.tar.Tar_t_sparseholes.T_sparseHoles);
             };
         };
         _n = ((_b0.length) - (_b.length) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L737"
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L739"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errmissdata._errMissData };
                 _n = __tmp__._0;
@@ -148,6 +172,7 @@ var _holeEnd = __1, _holeStart = __0;
                 __tmp__;
             };
         } else if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L741"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                 _n = __tmp__._0;
@@ -155,6 +180,7 @@ var _holeEnd = __1, _holeStart = __0;
                 __tmp__;
             };
         } else if ((((@:checkr _sr ?? throw "null pointer dereference")._logicalRemaining() == (0i64 : stdgo.GoInt64)) && ((@:checkr _sr ?? throw "null pointer dereference")._physicalRemaining() > (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L743"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errunrefdata._errUnrefData };
                 _n = __tmp__._0;
@@ -162,6 +188,7 @@ var _holeEnd = __1, _holeStart = __0;
                 __tmp__;
             };
         } else if (_finished) {
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L745"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.io.Io_eof.eOF };
                 _n = __tmp__._0;
@@ -169,6 +196,7 @@ var _holeEnd = __1, _holeStart = __0;
                 __tmp__;
             };
         } else {
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L747"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                 _n = __tmp__._0;

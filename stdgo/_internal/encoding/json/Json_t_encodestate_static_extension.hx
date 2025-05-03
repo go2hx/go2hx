@@ -4,12 +4,14 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function _reflectValue( _e:stdgo.Ref<stdgo._internal.encoding.json.Json_t_encodestate.T_encodeState>, _v:stdgo._internal.reflect.Reflect_value.Value, _opts:stdgo._internal.encoding.json.Json_t_encopts.T_encOpts):Void {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.json.Json_t_encodestate.T_encodeState> = _e;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L323"
         stdgo._internal.encoding.json.Json__valueencoder._valueEncoder(_v?.__copy__())(_e, _v?.__copy__(), _opts?.__copy__());
     }
     @:keep
     @:tdfield
     static public function _error( _e:stdgo.Ref<stdgo._internal.encoding.json.Json_t_encodestate.T_encodeState>, _err:stdgo.Error):Void {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.json.Json_t_encodestate.T_encodeState> = _e;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L301"
         throw stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.encoding.json.Json_t_jsonerror.T_jsonError(_err) : stdgo._internal.encoding.json.Json_t_jsonerror.T_jsonError)));
     }
     @:keep
@@ -22,6 +24,7 @@ package stdgo._internal.encoding.json;
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L287"
                         {
                             var _r = ({
                                 final r = stdgo.Go.recover_exception;
@@ -29,6 +32,7 @@ package stdgo._internal.encoding.json;
                                 r;
                             } : stdgo.AnyInterface);
                             if (_r != null) {
+                                //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L288"
                                 {
                                     var __tmp__ = try {
                                         { _0 : (stdgo.Go.typeAssert((_r : stdgo._internal.encoding.json.Json_t_jsonerror.T_jsonError)) : stdgo._internal.encoding.json.Json_t_jsonerror.T_jsonError), _1 : true };
@@ -38,6 +42,7 @@ package stdgo._internal.encoding.json;
                                     if (_ok) {
                                         _err = _je._error;
                                     } else {
+                                        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L291"
                                         throw stdgo.Go.toInterface(_r);
                                     };
                                 };
@@ -47,7 +52,9 @@ package stdgo._internal.encoding.json;
                     a();
                 }) });
             };
-            @:check2r _e._reflectValue(stdgo._internal.reflect.Reflect_valueof.valueOf(_v)?.__copy__(), _opts?.__copy__());
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L295"
+            _e._reflectValue(stdgo._internal.reflect.Reflect_valueof.valueOf(_v)?.__copy__(), _opts?.__copy__());
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L296"
             {
                 final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
@@ -74,7 +81,7 @@ package stdgo._internal.encoding.json;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

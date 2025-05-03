@@ -1,6 +1,8 @@
 package stdgo._internal.image.color;
 function benchmarkRGBToYCbCr(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
-        @:check2r _b.run(("0" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/image/color/ycbcr_test.go#L203"
+        _b.run(("0" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+            //"file:///home/runner/.go/go1.21.3/src/image/color/ycbcr_test.go#L204"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
@@ -14,7 +16,9 @@ function benchmarkRGBToYCbCr(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):
                 };
             };
         });
-        @:check2r _b.run(("Cb" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/image/color/ycbcr_test.go#L208"
+        _b.run(("Cb" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+            //"file:///home/runner/.go/go1.21.3/src/image/color/ycbcr_test.go#L209"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
@@ -28,7 +32,9 @@ function benchmarkRGBToYCbCr(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):
                 };
             };
         });
-        @:check2r _b.run(("Cr" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/image/color/ycbcr_test.go#L213"
+        _b.run(("Cr" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+            //"file:///home/runner/.go/go1.21.3/src/image/color/ycbcr_test.go#L214"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {

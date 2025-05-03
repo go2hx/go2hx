@@ -9,35 +9,41 @@ package stdgo._internal.regexp;
         var _d_24:stdgo.Ref<stdgo._internal.regexp.Regexp_t_entry.T_entry> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_t_entry.T_entry>);
         var _j_23:stdgo.GoInt = (0 : stdgo.GoInt);
         var _j_22:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _gotoNext = 0i32;
-        _gotoNext == ((0i32 : stdgo.GoInt));
-        while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
+        var _gotoNext = 0i64;
+        _gotoNext == ((0i64 : stdgo.GoInt));
+        //"file://#L0"
+        while (_gotoNext != ((-1i64 : stdgo.GoInt))) {
+            //"file://#L0"
             {
                 final __value__ = _gotoNext;
-                if (__value__ == (0i32)) {
-                    _gotoNext = 3724628i32;
-                } else if (__value__ == (3724628i32)) {
+                if (__value__ == (0i64)) {
+                    _gotoNext = 3704026i64;
+                } else if (__value__ == (3704026i64)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L319"
                     if (_pc == ((0u32 : stdgo.GoUInt32))) {
-                        _gotoNext = 3724647i32;
+                        _gotoNext = 3704045i64;
                     } else {
-                        _gotoNext = 3724664i32;
+                        _gotoNext = 3704062i64;
                     };
-                } else if (__value__ == (3724647i32)) {
+                } else if (__value__ == (3704045i64)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L320"
                     return _t;
-                    _gotoNext = 3724664i32;
-                } else if (__value__ == (3724664i32)) {
+                    _gotoNext = 3704062i64;
+                } else if (__value__ == (3704062i64)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L322"
                     {
                         _j_22 = (@:checkr _q ?? throw "null pointer dereference")._sparse[(_pc : stdgo.GoInt)];
                         if (((_j_22 < ((@:checkr _q ?? throw "null pointer dereference")._dense.length : stdgo.GoUInt32) : Bool) && ((@:checkr _q ?? throw "null pointer dereference")._dense[(_j_22 : stdgo.GoInt)]._pc == _pc) : Bool)) {
-                            _gotoNext = 3724734i32;
+                            _gotoNext = 3704132i64;
                         } else {
-                            _gotoNext = 3724752i32;
+                            _gotoNext = 3704150i64;
                         };
                     };
-                } else if (__value__ == (3724734i32)) {
+                } else if (__value__ == (3704132i64)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L323"
                     return _t;
-                    _gotoNext = 3724752i32;
-                } else if (__value__ == (3724752i32)) {
+                    _gotoNext = 3704150i64;
+                } else if (__value__ == (3704150i64)) {
                     _j_23 = ((@:checkr _q ?? throw "null pointer dereference")._dense.length);
                     (@:checkr _q ?? throw "null pointer dereference")._dense = ((@:checkr _q ?? throw "null pointer dereference")._dense.__slice__(0, (_j_23 + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.regexp.Regexp_t_entry.T_entry>);
                     _d_24 = (stdgo.Go.setRef((@:checkr _q ?? throw "null pointer dereference")._dense[(_j_23 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.regexp.Regexp_t_entry.T_entry>);
@@ -45,99 +51,109 @@ package stdgo._internal.regexp;
                     (@:checkr _d_24 ?? throw "null pointer dereference")._pc = _pc;
                     (@:checkr _q ?? throw "null pointer dereference")._sparse[(_pc : stdgo.GoInt)] = (_j_23 : stdgo.GoUInt32);
                     _i_25 = (stdgo.Go.setRef((@:checkr (@:checkr _m ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").inst[(_pc : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst>);
-                    _gotoNext = 3724883i32;
-                } else if (__value__ == (3724883i32)) {
+                    _gotoNext = 3704281i64;
+                } else if (__value__ == (3704281i64)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L334"
                     {
                         final __value__ = (@:checkr _i_25 ?? throw "null pointer dereference").op;
                         if (__value__ == ((5 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
-                            _gotoNext = 3724929i32;
+                            _gotoNext = 3704327i64;
                         } else if (__value__ == ((0 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) || __value__ == ((1 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
-                            _gotoNext = 3724965i32;
+                            _gotoNext = 3704363i64;
                         } else if (__value__ == ((3 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
-                            _gotoNext = 3725075i32;
+                            _gotoNext = 3704473i64;
                         } else if (__value__ == ((6 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
-                            _gotoNext = 3725177i32;
+                            _gotoNext = 3704575i64;
                         } else if (__value__ == ((2 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
-                            _gotoNext = 3725225i32;
+                            _gotoNext = 3704623i64;
                         } else if (__value__ == ((4 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) || __value__ == ((7 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) || __value__ == ((8 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) || __value__ == ((9 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) || __value__ == ((10 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
-                            _gotoNext = 3725426i32;
+                            _gotoNext = 3704824i64;
                         } else {
-                            _gotoNext = 3724898i32;
+                            _gotoNext = 3704296i64;
                         };
                     };
-                } else if (__value__ == (3724898i32)) {
+                } else if (__value__ == (3704296i64)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L336"
                     throw stdgo.Go.toInterface(("unhandled" : stdgo.GoString));
-                    _gotoNext = 3725684i32;
-                } else if (__value__ == (3724929i32)) {
-                    _gotoNext = 3725684i32;
-                } else if (__value__ == (3724965i32)) {
-                    _t = @:check2r _m._add(_q, (@:checkr _i_25 ?? throw "null pointer dereference").out, _pos, _cap, _cond, _t);
+                    _gotoNext = 3705082i64;
+                } else if (__value__ == (3704327i64)) {
+                    _gotoNext = 3705082i64;
+                } else if (__value__ == (3704363i64)) {
+                    _t = _m._add(_q, (@:checkr _i_25 ?? throw "null pointer dereference").out, _pos, _cap, _cond, _t);
                     _pc = (@:checkr _i_25 ?? throw "null pointer dereference").arg;
-                    _gotoNext = 3724628i32;
-                } else if (__value__ == (3725075i32)) {
+                    _gotoNext = 3704026i64;
+                } else if (__value__ == (3704473i64)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L344"
                     if (_cond.value._match(((@:checkr _i_25 ?? throw "null pointer dereference").arg : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp))) {
-                        _gotoNext = 3725142i32;
+                        _gotoNext = 3704540i64;
                     } else {
-                        _gotoNext = 3725684i32;
+                        _gotoNext = 3705082i64;
                     };
-                } else if (__value__ == (3725142i32)) {
+                } else if (__value__ == (3704540i64)) {
                     _pc = (@:checkr _i_25 ?? throw "null pointer dereference").out;
-                    _gotoNext = 3724628i32;
-                } else if (__value__ == (3725177i32)) {
+                    _gotoNext = 3704026i64;
+                } else if (__value__ == (3704575i64)) {
                     _pc = (@:checkr _i_25 ?? throw "null pointer dereference").out;
-                    _gotoNext = 3724628i32;
-                } else if (__value__ == (3725225i32)) {
+                    _gotoNext = 3704026i64;
+                } else if (__value__ == (3704623i64)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L352"
                     if ((((@:checkr _i_25 ?? throw "null pointer dereference").arg : stdgo.GoInt) < (_cap.length) : Bool)) {
-                        _gotoNext = 3725277i32;
+                        _gotoNext = 3704675i64;
                     } else {
-                        _gotoNext = 3725391i32;
+                        _gotoNext = 3704789i64;
                     };
-                } else if (__value__ == (3725277i32)) {
+                } else if (__value__ == (3704675i64)) {
                     _opos_26 = _cap[((@:checkr _i_25 ?? throw "null pointer dereference").arg : stdgo.GoInt)];
                     _cap[((@:checkr _i_25 ?? throw "null pointer dereference").arg : stdgo.GoInt)] = _pos;
-                    @:check2r _m._add(_q, (@:checkr _i_25 ?? throw "null pointer dereference").out, _pos, _cap, _cond, null);
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L355"
+                    _m._add(_q, (@:checkr _i_25 ?? throw "null pointer dereference").out, _pos, _cap, _cond, null);
                     _cap[((@:checkr _i_25 ?? throw "null pointer dereference").arg : stdgo.GoInt)] = _opos_26;
-                    _gotoNext = 3725684i32;
-                } else if (__value__ == (3725391i32)) {
-                    _gotoNext = 3725391i32;
+                    _gotoNext = 3705082i64;
+                } else if (__value__ == (3704789i64)) {
+                    _gotoNext = 3704789i64;
                     _pc = (@:checkr _i_25 ?? throw "null pointer dereference").out;
-                    _gotoNext = 3724628i32;
-                } else if (__value__ == (3725426i32)) {
+                    _gotoNext = 3704026i64;
+                } else if (__value__ == (3704824i64)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L362"
                     if (({
                         final value = _t;
                         (value == null || (value : Dynamic).__nil__);
                     })) {
-                        _gotoNext = 3725543i32;
+                        _gotoNext = 3704941i64;
                     } else {
-                        _gotoNext = 3725572i32;
+                        _gotoNext = 3704970i64;
                     };
-                } else if (__value__ == (3725543i32)) {
-                    _t = @:check2r _m._alloc(_i_25);
-                    _gotoNext = 3725594i32;
-                } else if (__value__ == (3725572i32)) {
-                    _gotoNext = 3725572i32;
+                } else if (__value__ == (3704941i64)) {
+                    _t = _m._alloc(_i_25);
+                    _gotoNext = 3704992i64;
+                } else if (__value__ == (3704970i64)) {
+                    _gotoNext = 3704970i64;
                     (@:checkr _t ?? throw "null pointer dereference")._inst = _i_25;
-                    0i32;
-                    _gotoNext = 3725594i32;
-                } else if (__value__ == (3725594i32)) {
+                    0i64;
+                    _gotoNext = 3704992i64;
+                } else if (__value__ == (3704992i64)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L367"
                     if ((((_cap.length) > (0 : stdgo.GoInt) : Bool) && (stdgo.Go.pointer((@:checkr _t ?? throw "null pointer dereference")._cap[(0 : stdgo.GoInt)]) != stdgo.Go.pointer(_cap[(0 : stdgo.GoInt)])) : Bool)) {
-                        _gotoNext = 3725634i32;
+                        _gotoNext = 3705032i64;
                     } else {
-                        _gotoNext = 3725662i32;
+                        _gotoNext = 3705060i64;
                     };
-                } else if (__value__ == (3725634i32)) {
+                } else if (__value__ == (3705032i64)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L368"
                     (@:checkr _t ?? throw "null pointer dereference")._cap.__copyTo__(_cap);
-                    _gotoNext = 3725662i32;
-                } else if (__value__ == (3725662i32)) {
+                    _gotoNext = 3705060i64;
+                } else if (__value__ == (3705060i64)) {
                     (@:checkr _d_24 ?? throw "null pointer dereference")._t = _t;
                     _t = null;
-                    _gotoNext = 3725684i32;
-                } else if (__value__ == (3725684i32)) {
+                    _gotoNext = 3705082i64;
+                } else if (__value__ == (3705082i64)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L373"
                     return _t;
-                    _gotoNext = -1i32;
+                    _gotoNext = -1i64;
                 };
             };
         };
+        //"file://#L0"
         throw stdgo.Go.toInterface(("unreachable goto control flow" : stdgo.GoString));
     }
     @:keep
@@ -145,22 +161,27 @@ package stdgo._internal.regexp;
     static public function _step( _m:stdgo.Ref<stdgo._internal.regexp.Regexp_t_machine.T_machine>, _runq:stdgo.Ref<stdgo._internal.regexp.Regexp_t_queue.T_queue>, _nextq:stdgo.Ref<stdgo._internal.regexp.Regexp_t_queue.T_queue>, _pos:stdgo.GoInt, _nextPos:stdgo.GoInt, _c:stdgo.GoInt32, _nextCond:stdgo.Pointer<stdgo._internal.regexp.Regexp_t_lazyflag.T_lazyFlag>):Void {
         @:recv var _m:stdgo.Ref<stdgo._internal.regexp.Regexp_t_machine.T_machine> = _m;
         var _longest = ((@:checkr (@:checkr _m ?? throw "null pointer dereference")._re ?? throw "null pointer dereference")._longest : Bool);
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L262"
         {
             var _j = (0 : stdgo.GoInt);
             while ((_j < ((@:checkr _runq ?? throw "null pointer dereference")._dense.length) : Bool)) {
                 var _d = (stdgo.Go.setRef((@:checkr _runq ?? throw "null pointer dereference")._dense[(_j : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.regexp.Regexp_t_entry.T_entry>);
 var _t = (@:checkr _d ?? throw "null pointer dereference")._t;
-if (({
+//"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L265"
+                if (({
                     final value = _t;
                     (value == null || (value : Dynamic).__nil__);
                 })) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L266"
                     {
                         _j++;
                         continue;
                     };
                 };
-if ((((_longest && (@:checkr _m ?? throw "null pointer dereference")._matched : Bool) && (((@:checkr _t ?? throw "null pointer dereference")._cap.length) > (0 : stdgo.GoInt) : Bool) : Bool) && ((@:checkr _m ?? throw "null pointer dereference")._matchcap[(0 : stdgo.GoInt)] < (@:checkr _t ?? throw "null pointer dereference")._cap[(0 : stdgo.GoInt)] : Bool) : Bool)) {
+//"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L268"
+                if ((((_longest && (@:checkr _m ?? throw "null pointer dereference")._matched : Bool) && (((@:checkr _t ?? throw "null pointer dereference")._cap.length) > (0 : stdgo.GoInt) : Bool) : Bool) && ((@:checkr _m ?? throw "null pointer dereference")._matchcap[(0 : stdgo.GoInt)] < (@:checkr _t ?? throw "null pointer dereference")._cap[(0 : stdgo.GoInt)] : Bool) : Bool)) {
                     (@:checkr _m ?? throw "null pointer dereference")._pool = ((@:checkr _m ?? throw "null pointer dereference")._pool.__append__(_t) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.Regexp_t_thread.T_thread>>);
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L270"
                     {
                         _j++;
                         continue;
@@ -168,15 +189,21 @@ if ((((_longest && (@:checkr _m ?? throw "null pointer dereference")._matched : 
                 };
 var _i = (@:checkr _t ?? throw "null pointer dereference")._inst;
 var _add = (false : Bool);
-{
+//"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L274"
+                {
                     final __value__ = (@:checkr _i ?? throw "null pointer dereference").op;
                     if (__value__ == ((4 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
+                        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L279"
                         if (((((@:checkr _t ?? throw "null pointer dereference")._cap.length) > (0 : stdgo.GoInt) : Bool) && (((!_longest || !(@:checkr _m ?? throw "null pointer dereference")._matched : Bool) || ((@:checkr _m ?? throw "null pointer dereference")._matchcap[(1 : stdgo.GoInt)] < _pos : Bool) : Bool)) : Bool)) {
                             (@:checkr _t ?? throw "null pointer dereference")._cap[(1 : stdgo.GoInt)] = _pos;
+                            //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L281"
                             (@:checkr _m ?? throw "null pointer dereference")._matchcap.__copyTo__((@:checkr _t ?? throw "null pointer dereference")._cap);
                         };
+                        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L283"
                         if (!_longest) {
+                            //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L285"
                             for (__0 => _d in ((@:checkr _runq ?? throw "null pointer dereference")._dense.__slice__((_j + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.regexp.Regexp_t_entry.T_entry>)) {
+                                //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L286"
                                 if (({
                                     final value = _d._t;
                                     (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
@@ -188,7 +215,7 @@ var _add = (false : Bool);
                         };
                         (@:checkr _m ?? throw "null pointer dereference")._matched = true;
                     } else if (__value__ == ((7 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
-                        _add = @:check2r _i.matchRune(_c);
+                        _add = _i.matchRune(_c);
                     } else if (__value__ == ((8 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
                         _add = _c == ((@:checkr _i ?? throw "null pointer dereference").rune[((0 : stdgo.GoInt) : stdgo.GoInt)]);
                     } else if (__value__ == ((9 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
@@ -196,13 +223,16 @@ var _add = (false : Bool);
                     } else if (__value__ == ((10 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
                         _add = _c != ((10 : stdgo.GoInt32));
                     } else {
+                        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L276"
                         throw stdgo.Go.toInterface(("bad inst" : stdgo.GoString));
                     };
                 };
-if (_add) {
-                    _t = @:check2r _m._add(_nextq, (@:checkr _i ?? throw "null pointer dereference").out, _nextPos, (@:checkr _t ?? throw "null pointer dereference")._cap, _nextCond, _t);
+//"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L303"
+                if (_add) {
+                    _t = _m._add(_nextq, (@:checkr _i ?? throw "null pointer dereference").out, _nextPos, (@:checkr _t ?? throw "null pointer dereference")._cap, _nextCond, _t);
                 };
-if (({
+//"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L306"
+                if (({
                     final value = _t;
                     (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
                 })) {
@@ -217,7 +247,9 @@ if (({
     @:tdfield
     static public function _clear( _m:stdgo.Ref<stdgo._internal.regexp.Regexp_t_machine.T_machine>, _q:stdgo.Ref<stdgo._internal.regexp.Regexp_t_queue.T_queue>):Void {
         @:recv var _m:stdgo.Ref<stdgo._internal.regexp.Regexp_t_machine.T_machine> = _m;
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L247"
         for (__0 => _d in (@:checkr _q ?? throw "null pointer dereference")._dense) {
+            //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L248"
             if (({
                 final value = _d._t;
                 (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
@@ -232,10 +264,13 @@ if (({
     static public function _match( _m:stdgo.Ref<stdgo._internal.regexp.Regexp_t_machine.T_machine>, _i:stdgo._internal.regexp.Regexp_t_input.T_input, _pos:stdgo.GoInt):Bool {
         @:recv var _m:stdgo.Ref<stdgo._internal.regexp.Regexp_t_machine.T_machine> = _m;
         var _startCond = ((@:checkr (@:checkr _m ?? throw "null pointer dereference")._re ?? throw "null pointer dereference")._cond : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp);
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L177"
         if (_startCond == ((255 : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp))) {
+            //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L178"
             return false;
         };
         (@:checkr _m ?? throw "null pointer dereference")._matched = false;
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L181"
         for (_i => _ in (@:checkr _m ?? throw "null pointer dereference")._matchcap) {
             (@:checkr _m ?? throw "null pointer dereference")._matchcap[(_i : stdgo.GoInt)] = (-1 : stdgo.GoInt);
         };
@@ -250,6 +285,7 @@ var _width1 = __1, _width = __0;
             _r = @:tmpset0 __tmp__._0;
             _width = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L188"
         if (_r != ((-1 : stdgo.GoInt32))) {
             {
                 var __tmp__ = _i._step((_pos + _width : stdgo.GoInt));
@@ -258,22 +294,32 @@ var _width1 = __1, _width = __0;
             };
         };
         var _flag:stdgo._internal.regexp.Regexp_t_lazyflag.T_lazyFlag = ((0 : stdgo.GoUInt64) : stdgo._internal.regexp.Regexp_t_lazyflag.T_lazyFlag), _flag__pointer__ = stdgo.Go.pointer(_flag);
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L192"
         if (_pos == ((0 : stdgo.GoInt))) {
             _flag = stdgo._internal.regexp.Regexp__newlazyflag._newLazyFlag((-1 : stdgo.GoInt32), _r);
         } else {
             _flag = _i._context(_pos);
         };
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L197"
         while (true) {
+            //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L198"
             if (((@:checkr _runq ?? throw "null pointer dereference")._dense.length) == ((0 : stdgo.GoInt))) {
+                //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L199"
                 if ((((_startCond & (4 : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp) : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp) != (0 : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp)) && (_pos != (0 : stdgo.GoInt)) : Bool)) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L201"
                     break;
                 };
+                //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L203"
                 if ((@:checkr _m ?? throw "null pointer dereference")._matched) {
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L205"
                     break;
                 };
+                //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L207"
                 if ((((((@:checkr (@:checkr _m ?? throw "null pointer dereference")._re ?? throw "null pointer dereference")._prefix.length) > (0 : stdgo.GoInt) : Bool) && _r1 != ((@:checkr (@:checkr _m ?? throw "null pointer dereference")._re ?? throw "null pointer dereference")._prefixRune) : Bool) && _i._canCheckPrefix() : Bool)) {
                     var _advance = (_i._index((@:checkr _m ?? throw "null pointer dereference")._re, _pos) : stdgo.GoInt);
+                    //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L210"
                     if ((_advance < (0 : stdgo.GoInt) : Bool)) {
+                        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L211"
                         break;
                     };
                     _pos = (_pos + (_advance) : stdgo.GoInt);
@@ -289,18 +335,26 @@ var _width1 = __1, _width = __0;
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L218"
             if (!(@:checkr _m ?? throw "null pointer dereference")._matched) {
+                //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L219"
                 if ((((@:checkr _m ?? throw "null pointer dereference")._matchcap.length) > (0 : stdgo.GoInt) : Bool)) {
                     (@:checkr _m ?? throw "null pointer dereference")._matchcap[(0 : stdgo.GoInt)] = _pos;
                 };
-                @:check2r _m._add(_runq, ((@:checkr (@:checkr _m ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").start : stdgo.GoUInt32), _pos, (@:checkr _m ?? throw "null pointer dereference")._matchcap, _flag__pointer__, null);
+                //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L222"
+                _m._add(_runq, ((@:checkr (@:checkr _m ?? throw "null pointer dereference")._p ?? throw "null pointer dereference").start : stdgo.GoUInt32), _pos, (@:checkr _m ?? throw "null pointer dereference")._matchcap, _flag__pointer__, null);
             };
             _flag = stdgo._internal.regexp.Regexp__newlazyflag._newLazyFlag(_r, _r1);
-            @:check2r _m._step(_runq, _nextq, _pos, (_pos + _width : stdgo.GoInt), _r, _flag__pointer__);
+            //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L225"
+            _m._step(_runq, _nextq, _pos, (_pos + _width : stdgo.GoInt), _r, _flag__pointer__);
+            //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L226"
             if (_width == ((0 : stdgo.GoInt))) {
+                //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L227"
                 break;
             };
+            //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L229"
             if ((((@:checkr _m ?? throw "null pointer dereference")._matchcap.length == (0 : stdgo.GoInt)) && (@:checkr _m ?? throw "null pointer dereference")._matched : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L232"
                 break;
             };
             _pos = (_pos + (_width) : stdgo.GoInt);
@@ -310,6 +364,7 @@ var _width1 = __1, _width = __0;
                 _r = @:binopAssign __tmp__0;
                 _width = @:binopAssign __tmp__1;
             };
+            //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L236"
             if (_r != ((-1 : stdgo.GoInt32))) {
                 {
                     var __tmp__ = _i._step((_pos + _width : stdgo.GoInt));
@@ -324,7 +379,9 @@ var _width1 = __1, _width = __0;
                 _nextq = @:binopAssign __tmp__1;
             };
         };
-        @:check2r _m._clear(_nextq);
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L241"
+        _m._clear(_nextq);
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L242"
         return (@:checkr _m ?? throw "null pointer dereference")._matched;
     }
     @:keep
@@ -332,6 +389,7 @@ var _width1 = __1, _width = __0;
     static public function _alloc( _m:stdgo.Ref<stdgo._internal.regexp.Regexp_t_machine.T_machine>, _i:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst>):stdgo.Ref<stdgo._internal.regexp.Regexp_t_thread.T_thread> {
         @:recv var _m:stdgo.Ref<stdgo._internal.regexp.Regexp_t_machine.T_machine> = _m;
         var _t:stdgo.Ref<stdgo._internal.regexp.Regexp_t_thread.T_thread> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_t_thread.T_thread>);
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L106"
         {
             var _n = ((@:checkr _m ?? throw "null pointer dereference")._pool.length : stdgo.GoInt);
             if ((_n > (0 : stdgo.GoInt) : Bool)) {
@@ -343,12 +401,14 @@ var _width1 = __1, _width = __0;
             };
         };
         (@:checkr _t ?? throw "null pointer dereference")._inst = _i;
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L114"
         return _t;
     }
     @:keep
     @:tdfield
     static public function _init( _m:stdgo.Ref<stdgo._internal.regexp.Regexp_t_machine.T_machine>, _ncap:stdgo.GoInt):Void {
         @:recv var _m:stdgo.Ref<stdgo._internal.regexp.Regexp_t_machine.T_machine> = _m;
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L96"
         for (__0 => _t in (@:checkr _m ?? throw "null pointer dereference")._pool) {
             (@:checkr _t ?? throw "null pointer dereference")._cap = ((@:checkr _t ?? throw "null pointer dereference")._cap.__slice__(0, _ncap) : stdgo.Slice<stdgo.GoInt>);
         };

@@ -4,18 +4,21 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _name( _t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_commontype.CommonType>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_commontype.CommonType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L248"
         return (@:checkr _t ?? throw "null pointer dereference").name?.__copy__();
     }
     @:keep
     @:tdfield
     static public function _safeString( _t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_commontype.CommonType>, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_commontype.CommonType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L245"
         return (@:checkr _t ?? throw "null pointer dereference").name?.__copy__();
     }
     @:keep
     @:tdfield
     static public function _string( _t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_commontype.CommonType>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_commontype.CommonType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L242"
         return (@:checkr _t ?? throw "null pointer dereference").name?.__copy__();
     }
     @:keep
@@ -28,6 +31,7 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _id( _t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_commontype.CommonType>):stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId {
         @:recv var _t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_commontype.CommonType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L238"
         return (@:checkr _t ?? throw "null pointer dereference").id;
     }
 }

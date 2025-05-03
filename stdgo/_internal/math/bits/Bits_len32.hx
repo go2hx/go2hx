@@ -1,14 +1,17 @@
 package stdgo._internal.math.bits;
 function len32(_x:stdgo.GoUInt32):stdgo.GoInt {
         var _n = (0 : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/math/bits/bits.go#L325"
         if ((_x >= (65536u32 : stdgo.GoUInt32) : Bool)) {
             _x = (_x >> ((16i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
             _n = (16 : stdgo.GoInt);
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/bits/bits.go#L329"
         if ((_x >= (256u32 : stdgo.GoUInt32) : Bool)) {
             _x = (_x >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
             _n = (_n + ((8 : stdgo.GoInt)) : stdgo.GoInt);
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/bits/bits.go#L333"
         return _n = (_n + ((stdgo.Go.str(0,
 1,
 2,

@@ -2,7 +2,9 @@ package stdgo._internal.strconv;
 function parseInt(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         var _i = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         {};
+        //"file:///home/runner/.go/go1.21.3/src/strconv/atoi.go#L205"
         if (_s == ((stdgo.Go.str() : stdgo.GoString))) {
+            //"file:///home/runner/.go/go1.21.3/src/strconv/atoi.go#L206"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo.Go.asInterface(stdgo._internal.strconv.Strconv__syntaxerror._syntaxError(("ParseInt" : stdgo.GoString), _s?.__copy__())) };
                 _i = __tmp__._0;
@@ -12,6 +14,7 @@ function parseInt(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{ 
         };
         var _s0 = (_s?.__copy__() : stdgo.GoString);
         var _neg = (false : Bool);
+        //"file:///home/runner/.go/go1.21.3/src/strconv/atoi.go#L212"
         if (_s[(0 : stdgo.GoInt)] == ((43 : stdgo.GoUInt8))) {
             _s = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         } else if (_s[(0 : stdgo.GoInt)] == ((45 : stdgo.GoUInt8))) {
@@ -24,9 +27,11 @@ function parseInt(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{ 
             _un = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/strconv/atoi.go#L222"
         if (((_err != null) && (stdgo.Go.toInterface((@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>)) : stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>) ?? throw "null pointer dereference").err) != stdgo.Go.toInterface(stdgo._internal.strconv.Strconv_errrange.errRange)) : Bool)) {
             (@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>)) : stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>) ?? throw "null pointer dereference").func = ("ParseInt" : stdgo.GoString);
             (@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>)) : stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>) ?? throw "null pointer dereference").num = stdgo._internal.strconv.Strconv__clonestring._cloneString(_s0?.__copy__())?.__copy__();
+            //"file:///home/runner/.go/go1.21.3/src/strconv/atoi.go#L225"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : _err };
                 _i = __tmp__._0;
@@ -34,11 +39,14 @@ function parseInt(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{ 
                 __tmp__;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/strconv/atoi.go#L228"
         if (_bitSize == ((0 : stdgo.GoInt))) {
             _bitSize = (32 : stdgo.GoInt);
         };
         var _cutoff = (((1i64 : stdgo.GoUInt64) << ((_bitSize - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) : stdgo.GoUInt64) : stdgo.GoUInt64);
+        //"file:///home/runner/.go/go1.21.3/src/strconv/atoi.go#L233"
         if ((!_neg && (_un >= _cutoff : Bool) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/strconv/atoi.go#L234"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : ((_cutoff - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64), _1 : stdgo.Go.asInterface(stdgo._internal.strconv.Strconv__rangeerror._rangeError(("ParseInt" : stdgo.GoString), _s0?.__copy__())) };
                 _i = __tmp__._0;
@@ -46,7 +54,9 @@ function parseInt(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{ 
                 __tmp__;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/strconv/atoi.go#L236"
         if ((_neg && (_un > _cutoff : Bool) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/strconv/atoi.go#L237"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : -(_cutoff : stdgo.GoInt64), _1 : stdgo.Go.asInterface(stdgo._internal.strconv.Strconv__rangeerror._rangeError(("ParseInt" : stdgo.GoString), _s0?.__copy__())) };
                 _i = __tmp__._0;
@@ -55,9 +65,11 @@ function parseInt(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{ 
             };
         };
         var _n = (_un : stdgo.GoInt64);
+        //"file:///home/runner/.go/go1.21.3/src/strconv/atoi.go#L240"
         if (_neg) {
             _n = -_n;
         };
+        //"file:///home/runner/.go/go1.21.3/src/strconv/atoi.go#L243"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
             _i = __tmp__._0;

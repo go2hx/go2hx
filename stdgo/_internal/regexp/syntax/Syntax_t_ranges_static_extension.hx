@@ -30,6 +30,7 @@ package stdgo._internal.regexp.syntax;
     @:tdfield
     static public function len( _ra:stdgo._internal.regexp.syntax.Syntax_t_ranges.T_ranges):stdgo.GoInt {
         @:recv var _ra:stdgo._internal.regexp.syntax.Syntax_t_ranges.T_ranges = _ra?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/regexp/syntax/parse.go#L2071"
         return (((_ra._p : stdgo.Slice<stdgo.GoInt32>).length) / (2 : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
@@ -39,6 +40,7 @@ package stdgo._internal.regexp.syntax;
         var _p = (_ra._p : stdgo.Slice<stdgo.GoInt32>);
         _i = (_i * ((2 : stdgo.GoInt)) : stdgo.GoInt);
         _j = (_j * ((2 : stdgo.GoInt)) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/regexp/syntax/parse.go#L2067"
         return ((_p[(_i : stdgo.GoInt)] < _p[(_j : stdgo.GoInt)] : Bool) || (_p[(_i : stdgo.GoInt)] == (_p[(_j : stdgo.GoInt)]) && (_p[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] > _p[(_j + (1 : stdgo.GoInt) : stdgo.GoInt)] : Bool) : Bool) : Bool);
     }
 }

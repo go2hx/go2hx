@@ -4,24 +4,28 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function copy( _e:stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode>):stdgo._internal.text.template.parse.Parse_node.Node {
         @:recv var _e:stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode> = _e;
-        return stdgo.Go.asInterface(@:check2r (@:checkr _e ?? throw "null pointer dereference")._tr._newEnd((@:checkr _e ?? throw "null pointer dereference").pos));
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L805"
+        return stdgo.Go.asInterface((@:checkr _e ?? throw "null pointer dereference")._tr._newEnd((@:checkr _e ?? throw "null pointer dereference").pos));
     }
     @:keep
     @:tdfield
     static public function _tree( _e:stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> {
         @:recv var _e:stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode> = _e;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L801"
         return (@:checkr _e ?? throw "null pointer dereference")._tr;
     }
     @:keep
     @:tdfield
     static public function _writeTo( _e:stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode>, _sb:stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>):Void {
         @:recv var _e:stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode> = _e;
-        @:check2r _sb.writeString((@:check2r _e.string() : stdgo.GoString)?.__copy__());
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L797"
+        _sb.writeString((_e.string() : stdgo.GoString)?.__copy__());
     }
     @:keep
     @:tdfield
     static public function string( _e:stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode>):stdgo.GoString {
         @:recv var _e:stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode> = _e;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L793"
         return ("{{end}}" : stdgo.GoString);
     }
     @:embedded

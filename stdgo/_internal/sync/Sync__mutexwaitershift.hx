@@ -1,2 +1,2 @@
 package stdgo._internal.sync;
-final _mutexWaiterShift : stdgo.GoUInt64 = 3i32;
+final _mutexWaiterShift : stdgo.GoUInt64 = 3i64;

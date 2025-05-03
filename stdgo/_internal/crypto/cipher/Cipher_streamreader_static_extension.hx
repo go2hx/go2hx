@@ -10,7 +10,9 @@ package stdgo._internal.crypto.cipher;
             _n = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/cipher/io.go#L21"
         _r.s.xORKeyStream((_dst.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>), (_dst.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
+        //"file:///home/runner/.go/go1.21.3/src/crypto/cipher/io.go#L22"
         return { _0 : _n, _1 : _err };
     }
 }

@@ -614,12 +614,16 @@ function _fiatScalarMul(_out1:stdgo.Ref<stdgo._internal.crypto.internal.edwards2
             _x191 = @:tmpset0 __tmp__._1;
         };
         var _x192:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x192__pointer__ = stdgo.Go.pointer(_x192);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/edwards25519/scalar_fiat.go#L360"
         stdgo._internal.crypto.internal.edwards25519.Edwards25519__fiatscalarcmovznzu64._fiatScalarCmovznzU64(_x192__pointer__, (_x191 : stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalaruint1.T_fiatScalarUint1), _x182, _x173);
         var _x193:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x193__pointer__ = stdgo.Go.pointer(_x193);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/edwards25519/scalar_fiat.go#L362"
         stdgo._internal.crypto.internal.edwards25519.Edwards25519__fiatscalarcmovznzu64._fiatScalarCmovznzU64(_x193__pointer__, (_x191 : stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalaruint1.T_fiatScalarUint1), _x184, _x175);
         var _x194:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x194__pointer__ = stdgo.Go.pointer(_x194);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/edwards25519/scalar_fiat.go#L364"
         stdgo._internal.crypto.internal.edwards25519.Edwards25519__fiatscalarcmovznzu64._fiatScalarCmovznzU64(_x194__pointer__, (_x191 : stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalaruint1.T_fiatScalarUint1), _x186, _x177);
         var _x195:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x195__pointer__ = stdgo.Go.pointer(_x195);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/edwards25519/scalar_fiat.go#L366"
         stdgo._internal.crypto.internal.edwards25519.Edwards25519__fiatscalarcmovznzu64._fiatScalarCmovznzU64(_x195__pointer__, (_x191 : stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalaruint1.T_fiatScalarUint1), _x188, _x179);
         _out1[(0 : stdgo.GoInt)] = _x192;
         _out1[(1 : stdgo.GoInt)] = _x193;

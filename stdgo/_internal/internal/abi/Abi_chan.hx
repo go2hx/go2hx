@@ -1,2 +1,2 @@
 package stdgo._internal.internal.abi;
-final chan : stdgo._internal.internal.abi.Abi_kind.Kind = 18i32;
+final chan : stdgo._internal.internal.abi.Abi_kind.Kind = 18i64;

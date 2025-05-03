@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final r_LARCH_SOP_AND : stdgo._internal.debug.elf.Elf_r_larch.R_LARCH = 36i32;
+final r_LARCH_SOP_AND : stdgo._internal.debug.elf.Elf_r_larch.R_LARCH = 36i64;

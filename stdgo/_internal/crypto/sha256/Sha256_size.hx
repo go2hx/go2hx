@@ -1,2 +1,2 @@
 package stdgo._internal.crypto.sha256;
-final size : stdgo.GoUInt64 = 32i32;
+final size : stdgo.GoUInt64 = 32i64;

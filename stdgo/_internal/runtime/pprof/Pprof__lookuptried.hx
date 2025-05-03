@@ -1,2 +1,2 @@
 package stdgo._internal.runtime.pprof;
-final _lookupTried : stdgo._internal.runtime.pprof.Pprof_t_symbolizeflag.T_symbolizeFlag = 1i32;
+final _lookupTried : stdgo._internal.runtime.pprof.Pprof_t_symbolizeflag.T_symbolizeFlag = 1i64;

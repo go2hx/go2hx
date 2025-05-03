@@ -24,8 +24,10 @@ x.set(("st" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoStr
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
         var _enc = stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)));
-        var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(_m)) : stdgo.Error);
+        var _err = (_enc.encode(stdgo.Go.toInterface(_m)) : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L719"
         if (_err != null) {
-            @:check2r _t.errorf(("encode map: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L720"
+            _t.errorf(("encode map: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
     }

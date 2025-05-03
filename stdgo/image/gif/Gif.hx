@@ -1,7 +1,7 @@
 package stdgo.image.gif;
-var disposalNone : stdgo.GoUInt64 = 1i32;
-var disposalBackground : stdgo.GoUInt64 = 2i32;
-var disposalPrevious : stdgo.GoUInt64 = 3i32;
+var disposalNone : stdgo.GoUInt64 = 1i64;
+var disposalBackground : stdgo.GoUInt64 = 2i64;
+var disposalPrevious : stdgo.GoUInt64 = 3i64;
 typedef GIF = stdgo._internal.image.gif.Gif_gif.GIF;
 typedef Options = stdgo._internal.image.gif.Gif_options.Options;
 typedef GIFPointer = stdgo._internal.image.gif.Gif_gifpointer.GIFPointer;

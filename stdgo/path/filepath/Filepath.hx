@@ -1,6 +1,6 @@
 package stdgo.path.filepath;
-var separator : stdgo.GoInt32 = 47i32;
-var listSeparator : stdgo.GoInt32 = 58i32;
+var separator : stdgo.GoInt32 = 47i64;
+var listSeparator : stdgo.GoInt32 = 58i64;
 var errBadPattern(get, set) : stdgo.Error;
 private function get_errBadPattern():stdgo.Error return stdgo._internal.path.filepath.Filepath_errbadpattern.errBadPattern;
 private function set_errBadPattern(v:stdgo.Error):stdgo.Error {

@@ -20,10 +20,12 @@ x.set(("D" : stdgo.GoString), null);
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.gob.Gob_t_testrecursivemaptype___localname___recursivemap_7903.T_testRecursiveMapType___localname___recursiveMap_7903>) : stdgo._internal.encoding.gob.Gob_t_testrecursivemaptype___localname___recursivemap_7903.T_testRecursiveMapType___localname___recursiveMap_7903) : stdgo._internal.encoding.gob.Gob_t_testrecursivemaptype___localname___recursivemap_7903.T_testRecursiveMapType___localname___recursiveMap_7903);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L379"
         {
             var _err = (stdgo._internal.encoding.gob.Gob__encanddec._encAndDec(stdgo.Go.toInterface(_r1), stdgo.Go.toInterface((stdgo.Go.setRef(_r2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_testrecursivemaptype___localname___recursivemap_7903.T_testRecursiveMapType___localname___recursiveMap_7903>))) : stdgo.Error);
             if (_err != null) {
-                @:check2r _t.error(stdgo.Go.toInterface(_err));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L380"
+                _t.error(stdgo.Go.toInterface(_err));
             };
         };
     }

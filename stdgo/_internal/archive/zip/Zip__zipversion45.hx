@@ -1,2 +1,2 @@
 package stdgo._internal.archive.zip;
-final _zipVersion45 : stdgo.GoUInt64 = 45i32;
+final _zipVersion45 : stdgo.GoUInt64 = 45i64;

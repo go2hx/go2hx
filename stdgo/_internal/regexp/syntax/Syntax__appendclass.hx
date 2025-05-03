@@ -1,5 +1,6 @@
 package stdgo._internal.regexp.syntax;
 function _appendClass(_r:stdgo.Slice<stdgo.GoInt32>, _x:stdgo.Slice<stdgo.GoInt32>):stdgo.Slice<stdgo.GoInt32> {
+        //"file:///home/runner/.go/go1.21.3/src/regexp/syntax/parse.go#L1935"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_x.length) : Bool)) {
@@ -7,5 +8,6 @@ function _appendClass(_r:stdgo.Slice<stdgo.GoInt32>, _x:stdgo.Slice<stdgo.GoInt3
                 _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/regexp/syntax/parse.go#L1938"
         return _r;
     }

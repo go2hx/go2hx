@@ -5,8 +5,10 @@ function _getStringWriter(_w:stdgo._internal.io.Io_writer.Writer):stdgo._interna
         } catch(_) {
             { _0 : (null : stdgo._internal.io.Io_stringwriter.StringWriter), _1 : false };
         }, _sw = __tmp__._0, _ok = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/strings/replace.go#L324"
         if (!_ok) {
             _sw = stdgo.Go.asInterface((new stdgo._internal.strings.Strings_t_stringwriter.T_stringWriter(_w) : stdgo._internal.strings.Strings_t_stringwriter.T_stringWriter));
         };
+        //"file:///home/runner/.go/go1.21.3/src/strings/replace.go#L327"
         return _sw;
     }

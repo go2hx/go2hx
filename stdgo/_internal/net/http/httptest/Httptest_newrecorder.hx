@@ -1,5 +1,6 @@
 package stdgo._internal.net.http.httptest;
 function newRecorder():stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder> {
+        //"file:///home/runner/.go/go1.21.3/src/net/http/httptest/recorder.go#L52"
         return (stdgo.Go.setRef(({ headerMap : (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
             x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoString>);

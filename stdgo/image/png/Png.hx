@@ -1,8 +1,8 @@
 package stdgo.image.png;
-var defaultCompression : CompressionLevel = 0i32;
-var noCompression : CompressionLevel = -1i32;
-var bestSpeed : CompressionLevel = -2i32;
-var bestCompression : CompressionLevel = -3i32;
+var defaultCompression : CompressionLevel = 0i64;
+var noCompression : CompressionLevel = -1i64;
+var bestSpeed : CompressionLevel = -2i64;
+var bestCompression : CompressionLevel = -3i64;
 typedef EncoderBufferPool = stdgo._internal.image.png.Png_encoderbufferpool.EncoderBufferPool;
 typedef Encoder = stdgo._internal.image.png.Png_encoder.Encoder;
 typedef FormatError = stdgo._internal.image.png.Png_formaterror.FormatError;

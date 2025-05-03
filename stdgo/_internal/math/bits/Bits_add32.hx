@@ -4,5 +4,6 @@ function add32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _carry:stdgo.GoUInt32):{ va
         var _sum64 = (((_x : stdgo.GoUInt64) + (_y : stdgo.GoUInt64) : stdgo.GoUInt64) + (_carry : stdgo.GoUInt64) : stdgo.GoUInt64);
         _sum = (_sum64 : stdgo.GoUInt32);
         _carryOut = ((_sum64 >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
+        //"file:///home/runner/.go/go1.21.3/src/math/bits/bits.go#L378"
         return { _0 : _sum, _1 : _carryOut };
     }

@@ -1,13 +1,17 @@
 package stdgo._internal.regexp;
 function benchmarkAnchoredLiteralShortNonMatch(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
-        @:check2r _b.stopTimer();
+        //"file:///home/runner/.go/go1.21.3/src/regexp/all_test.go#L727"
+        _b.stopTimer();
         var _x = ((("abcdefghijklmnopqrstuvwxyz" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         var _re = stdgo._internal.regexp.Regexp_mustcompile.mustCompile(("^zbc(d|e)" : stdgo.GoString));
-        @:check2r _b.startTimer();
+        //"file:///home/runner/.go/go1.21.3/src/regexp/all_test.go#L730"
+        _b.startTimer();
+        //"file:///home/runner/.go/go1.21.3/src/regexp/all_test.go#L731"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
-                @:check2r _re.match(_x);
+                //"file:///home/runner/.go/go1.21.3/src/regexp/all_test.go#L732"
+                _re.match(_x);
                 _i++;
             };
         };

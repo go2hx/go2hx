@@ -4,6 +4,7 @@ package stdgo._internal.os.user;
     @:tdfield
     static public function groupIds( _u:stdgo.Ref<stdgo._internal.os.user.User_user.User>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         @:recv var _u:stdgo.Ref<stdgo._internal.os.user.User_user.User> = _u;
+        //"file:///home/runner/.go/go1.21.3/src/os/user/lookup.go#L69"
         return stdgo._internal.os.user.User__listgroups._listGroups(_u);
     }
 }

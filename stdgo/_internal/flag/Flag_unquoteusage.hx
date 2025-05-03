@@ -2,16 +2,21 @@ package stdgo._internal.flag;
 function unquoteUsage(_flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
         var _name = ("" : stdgo.GoString), _usage = ("" : stdgo.GoString);
         _usage = (@:checkr _flag ?? throw "null pointer dereference").usage?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L571"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_usage.length) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L572"
                 if (_usage[(_i : stdgo.GoInt)] == ((96 : stdgo.GoUInt8))) {
+                    //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L573"
                     {
                         var _j = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
                         while ((_j < (_usage.length) : Bool)) {
+                            //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L574"
                             if (_usage[(_j : stdgo.GoInt)] == ((96 : stdgo.GoUInt8))) {
                                 _name = (_usage.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _j) : stdgo.GoString).__copy__();
                                 _usage = (((_usage.__slice__(0, _i) : stdgo.GoString) + _name.__copy__() : stdgo.GoString) + (_usage.__slice__((_j + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__() : stdgo.GoString).__copy__();
+                                //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L577"
                                 return {
                                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : _name.__copy__(), _1 : _usage.__copy__() };
                                     _name = __tmp__._0;
@@ -22,16 +27,19 @@ function unquoteUsage(_flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>):{ va
                             _j++;
                         };
                     };
+                    //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L580"
                     break;
                 };
                 _i++;
             };
         };
         _name = ("value" : stdgo.GoString);
+        //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L585"
         {
             final __type__ = (@:checkr _flag ?? throw "null pointer dereference").value;
             if (stdgo.Go.typeEquals((__type__ : stdgo._internal.flag.Flag_t_boolflag.T_boolFlag))) {
                 var _fv:stdgo._internal.flag.Flag_t_boolflag.T_boolFlag = __type__ == null ? (null : stdgo._internal.flag.Flag_t_boolflag.T_boolFlag) : cast __type__;
+                //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L587"
                 if (_fv.isBoolFlag()) {
                     _name = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                 };
@@ -52,5 +60,6 @@ function unquoteUsage(_flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>):{ va
                 _name = ("uint" : stdgo.GoString);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L601"
         return { _0 : _name, _1 : _usage };
     }

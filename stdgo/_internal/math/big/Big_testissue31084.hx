@@ -5,7 +5,9 @@ function testIssue31084(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Voi
         _p = _p._shl(_p, (165u32 : stdgo.GoUInt));
         var _got = ((_p._utoa((10 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString);
         var _want = ((("1" : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("0" : stdgo.GoString), (165 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+        //"file:///home/runner/.go/go1.21.3/src/math/big/arith_test.go#L377"
         if (_got != (_want)) {
-            @:check2r _t.errorf(("shl(%v, %v)\n\tgot  %s\n\twant %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)), stdgo.Go.toInterface((165 : stdgo.GoInt)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/arith_test.go#L378"
+            _t.errorf(("shl(%v, %v)\n\tgot  %s\n\twant %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)), stdgo.Go.toInterface((165 : stdgo.GoInt)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
         };
     }

@@ -1,9 +1,9 @@
 package stdgo.compress.gzip;
-var noCompression : stdgo.GoUInt64 = 0i32;
-var bestSpeed : stdgo.GoUInt64 = 1i32;
-var bestCompression : stdgo.GoUInt64 = 9i32;
-var defaultCompression : stdgo.GoUInt64 = -1i32;
-var huffmanOnly : stdgo.GoUInt64 = -2i32;
+var noCompression : stdgo.GoUInt64 = 0i64;
+var bestSpeed : stdgo.GoUInt64 = 1i64;
+var bestCompression : stdgo.GoUInt64 = 9i64;
+var defaultCompression : stdgo.GoUInt64 = -1i64;
+var huffmanOnly : stdgo.GoUInt64 = -2i64;
 var errChecksum(get, set) : stdgo.Error;
 private function get_errChecksum():stdgo.Error return stdgo._internal.compress.gzip.Gzip_errchecksum.errChecksum;
 private function set_errChecksum(v:stdgo.Error):stdgo.Error {

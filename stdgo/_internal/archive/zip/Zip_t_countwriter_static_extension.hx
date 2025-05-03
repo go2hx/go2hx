@@ -6,6 +6,7 @@ package stdgo._internal.archive.zip;
         @:recv var _w:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_countwriter.T_countWriter> = _w;
         var __tmp__ = (@:checkr _w ?? throw "null pointer dereference")._w.write(_p), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         (@:checkr _w ?? throw "null pointer dereference")._count = ((@:checkr _w ?? throw "null pointer dereference")._count + ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
+        //"file:///home/runner/.go/go1.21.3/src/archive/zip/writer.go#L603"
         return { _0 : _n, _1 : _err };
     }
 }

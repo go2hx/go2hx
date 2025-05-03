@@ -4,6 +4,7 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function marshalJSON( _s:stdgo._internal.encoding.json.Json_t_strmarshaler.T_strMarshaler):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _s:stdgo._internal.encoding.json.Json_t_strmarshaler.T_strMarshaler = _s;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/stream_test.go#L133"
         return { _0 : (_s : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
     }
 }

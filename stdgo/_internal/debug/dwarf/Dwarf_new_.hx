@@ -16,19 +16,26 @@ function new_(_abbrev:stdgo.Slice<stdgo.GoUInt8>, _aranges:stdgo.Slice<stdgo.GoU
             {};
             x;
         } : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>) : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>) } : stdgo._internal.debug.dwarf.Dwarf_data.Data)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_data.Data>);
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/open.go#L81"
         if ((((@:checkr _d ?? throw "null pointer dereference")._info.length) < (6 : stdgo.GoInt) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/open.go#L82"
             return { _0 : null, _1 : stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError(("info" : stdgo.GoString), ((@:checkr _d ?? throw "null pointer dereference")._info.length : stdgo._internal.debug.dwarf.Dwarf_offset.Offset), ("too short" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError)) };
         };
         var _offset = (4 : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/open.go#L85"
         if (((((@:checkr _d ?? throw "null pointer dereference")._info[(0 : stdgo.GoInt)] == ((255 : stdgo.GoUInt8)) && (@:checkr _d ?? throw "null pointer dereference")._info[(1 : stdgo.GoInt)] == ((255 : stdgo.GoUInt8)) : Bool) && (@:checkr _d ?? throw "null pointer dereference")._info[(2 : stdgo.GoInt)] == ((255 : stdgo.GoUInt8)) : Bool) && ((@:checkr _d ?? throw "null pointer dereference")._info[(3 : stdgo.GoInt)] == (255 : stdgo.GoUInt8)) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/open.go#L86"
             if ((((@:checkr _d ?? throw "null pointer dereference")._info.length) < (14 : stdgo.GoInt) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/open.go#L87"
                 return { _0 : null, _1 : stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError(("info" : stdgo.GoString), ((@:checkr _d ?? throw "null pointer dereference")._info.length : stdgo._internal.debug.dwarf.Dwarf_offset.Offset), ("too short" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError)) };
             };
             _offset = (12 : stdgo.GoInt);
         };
         var __0 = ((@:checkr _d ?? throw "null pointer dereference")._info[(_offset : stdgo.GoInt)] : stdgo.GoUInt8), __1 = ((@:checkr _d ?? throw "null pointer dereference")._info[(_offset + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt8);
 var _y = __1, _x = __0;
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/open.go#L93"
         if (((_x == (0 : stdgo.GoUInt8)) && (_y == (0 : stdgo.GoUInt8)) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/open.go#L95"
             return { _0 : null, _1 : stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError(("info" : stdgo.GoString), (4u32 : stdgo._internal.debug.dwarf.Dwarf_offset.Offset), ("unsupported version 0" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError)) };
         } else if (_x == ((0 : stdgo.GoUInt8))) {
             (@:checkr _d ?? throw "null pointer dereference")._bigEndian = true;
@@ -37,12 +44,16 @@ var _y = __1, _x = __0;
             (@:checkr _d ?? throw "null pointer dereference")._bigEndian = false;
             (@:checkr _d ?? throw "null pointer dereference")._order = stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleendian.littleEndian);
         } else {
+            //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/open.go#L103"
             return { _0 : null, _1 : stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError(("info" : stdgo.GoString), (4u32 : stdgo._internal.debug.dwarf.Dwarf_offset.Offset), ("cannot determine byte order" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError)) };
         };
-        var __tmp__ = @:check2r _d._parseUnits(), _u:stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _d._parseUnits(), _u:stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/open.go#L107"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/open.go#L108"
             return { _0 : null, _1 : _err };
         };
         (@:checkr _d ?? throw "null pointer dereference")._unit = _u;
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/open.go#L111"
         return { _0 : _d, _1 : (null : stdgo.Error) };
     }

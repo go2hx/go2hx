@@ -1,2 +1,2 @@
 package stdgo._internal.math;
-final _bias : stdgo.GoUInt64 = 1023i32;
+final _bias : stdgo.GoUInt64 = 1023i64;

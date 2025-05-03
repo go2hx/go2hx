@@ -1,2 +1,2 @@
 package stdgo._internal.image.jpeg;
-final _w2mw6 : stdgo.GoUInt64 = 1568i32;
+final _w2mw6 : stdgo.GoUInt64 = 1568i64;

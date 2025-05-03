@@ -1,2 +1,2 @@
 package stdgo._internal.internal.xcoff;
-final fL_HSZ_BIG : stdgo.GoUInt64 = 128i32;
+final fL_HSZ_BIG : stdgo.GoUInt64 = 128i64;

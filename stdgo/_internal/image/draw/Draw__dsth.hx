@@ -1,2 +1,2 @@
 package stdgo._internal.image.draw;
-final _dsth : stdgo.GoUInt64 = 480i32;
+final _dsth : stdgo.GoUInt64 = 480i64;

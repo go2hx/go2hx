@@ -7,5 +7,6 @@ function _readFileOS(_file:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
             _b = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/text/template/helper.go#L169"
         return { _0 : _name, _1 : _b, _2 : _err };
     }

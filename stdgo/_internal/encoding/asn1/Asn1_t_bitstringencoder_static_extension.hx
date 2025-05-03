@@ -5,7 +5,9 @@ package stdgo._internal.encoding.asn1;
     static public function encode( _b:stdgo._internal.encoding.asn1.Asn1_t_bitstringencoder.T_bitStringEncoder, _dst:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _b:stdgo._internal.encoding.asn1.Asn1_t_bitstringencoder.T_bitStringEncoder = _b?.__copy__();
         _dst[(0 : stdgo.GoInt)] = (((((8 : stdgo.GoInt) - (_b.bitLength % (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)) % (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt8);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/marshal.go#L283"
         if ((_dst.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b.bytes) != ((_b.bytes.length))) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/marshal.go#L284"
             throw stdgo.Go.toInterface(("internal error" : stdgo.GoString));
         };
     }
@@ -13,6 +15,7 @@ package stdgo._internal.encoding.asn1;
     @:tdfield
     static public function len( _b:stdgo._internal.encoding.asn1.Asn1_t_bitstringencoder.T_bitStringEncoder):stdgo.GoInt {
         @:recv var _b:stdgo._internal.encoding.asn1.Asn1_t_bitstringencoder.T_bitStringEncoder = _b?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/marshal.go#L278"
         return ((_b.bytes.length) + (1 : stdgo.GoInt) : stdgo.GoInt);
     }
 }

@@ -1,6 +1,7 @@
 package stdgo._internal.archive.zip;
 function _unixModeToFileMode(_m:stdgo.GoUInt32):stdgo._internal.io.fs.Fs_filemode.FileMode {
         var _mode = ((_m & (511u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo._internal.io.fs.Fs_filemode.FileMode);
+        //"file:///home/runner/.go/go1.21.3/src/archive/zip/struct.go#L393"
         {
             final __value__ = (_m & (61440u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
             if (__value__ == ((24576u32 : stdgo.GoUInt32))) {
@@ -17,14 +18,18 @@ function _unixModeToFileMode(_m:stdgo.GoUInt32):stdgo._internal.io.fs.Fs_filemod
                 _mode = (_mode | ((16777216u32 : stdgo._internal.io.fs.Fs_filemode.FileMode)) : stdgo._internal.io.fs.Fs_filemode.FileMode);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/archive/zip/struct.go#L409"
         if ((_m & (1024u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32))) {
             _mode = (_mode | ((4194304u32 : stdgo._internal.io.fs.Fs_filemode.FileMode)) : stdgo._internal.io.fs.Fs_filemode.FileMode);
         };
+        //"file:///home/runner/.go/go1.21.3/src/archive/zip/struct.go#L412"
         if ((_m & (2048u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32))) {
             _mode = (_mode | ((8388608u32 : stdgo._internal.io.fs.Fs_filemode.FileMode)) : stdgo._internal.io.fs.Fs_filemode.FileMode);
         };
+        //"file:///home/runner/.go/go1.21.3/src/archive/zip/struct.go#L415"
         if ((_m & (512u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32))) {
             _mode = (_mode | ((1048576u32 : stdgo._internal.io.fs.Fs_filemode.FileMode)) : stdgo._internal.io.fs.Fs_filemode.FileMode);
         };
+        //"file:///home/runner/.go/go1.21.3/src/archive/zip/struct.go#L418"
         return _mode;
     }

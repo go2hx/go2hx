@@ -1,6 +1,7 @@
 package stdgo._internal.internal.fuzz;
 function snapshotCoverage():Void {
         var _cov = stdgo._internal.internal.fuzz.Fuzz__coverage._coverage();
+        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/coverage.go#L27"
         for (_i => _b in _cov) {
             _b = (_b | ((_b >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt8)) : stdgo.GoUInt8);
             _b = (_b | ((_b >> (2i64 : stdgo.GoUInt64) : stdgo.GoUInt8)) : stdgo.GoUInt8);

@@ -1,5 +1,5 @@
 package stdgo.crypto.des;
-var blockSize : stdgo.GoUInt64 = 8i32;
+var blockSize : stdgo.GoUInt64 = 8i64;
 typedef CryptTest = stdgo._internal.crypto.des.Des_crypttest.CryptTest;
 typedef KeySizeError = stdgo._internal.crypto.des.Des_keysizeerror.KeySizeError;
 typedef CryptTestPointer = stdgo._internal.crypto.des.Des_crypttestpointer.CryptTestPointer;

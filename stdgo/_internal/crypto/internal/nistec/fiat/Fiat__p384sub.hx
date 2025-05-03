@@ -43,6 +43,7 @@ function _p384Sub(_out1:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fi
             _x12 = @:tmpset0 __tmp__._1;
         };
         var _x13:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x13__pointer__ = stdgo.Go.pointer(_x13);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/fiat/p384_fiat64.go#L1593"
         stdgo._internal.crypto.internal.nistec.fiat.Fiat__p384cmovznzu64._p384CmovznzU64(_x13__pointer__, (_x12 : stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384uint1.T_p384Uint1), (0i64 : stdgo.GoUInt64), (-1i64 : stdgo.GoUInt64));
         var _x14:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _x15:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

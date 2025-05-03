@@ -1,2 +1,2 @@
 package stdgo._internal.crypto.sha1;
-final _init2 : stdgo.GoUInt64 = 2562383102i32;
+final _init2 : stdgo.GoUInt64 = 2562383102i64;

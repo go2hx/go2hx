@@ -8,31 +8,41 @@ function testReadLogger_errorOnRead(_t:stdgo.Ref<stdgo._internal.testing.Testing
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger_test.go#L129"
                         stdgo._internal.log.Log_setflags.setFlags(_olf);
+                        //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger_test.go#L130"
                         stdgo._internal.log.Log_setprefix.setPrefix(_olp?.__copy__());
+                        //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger_test.go#L131"
                         stdgo._internal.log.Log_setoutput.setOutput(_olw);
                     };
                     a();
                 }) });
             };
             var _lOut = (stdgo.Go.setRef(({} : stdgo._internal.strings.Strings_builder.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
+            //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger_test.go#L135"
             stdgo._internal.log.Log_setprefix.setPrefix(("lr: " : stdgo.GoString));
+            //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger_test.go#L136"
             stdgo._internal.log.Log_setoutput.setOutput(stdgo.Go.asInterface(_lOut));
+            //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger_test.go#L137"
             stdgo._internal.log.Log_setflags.setFlags((0 : stdgo.GoInt));
             var _data = ((("Hello, World!" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
             var _p = (new stdgo.Slice<stdgo.GoUInt8>((_data.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var _lr = (stdgo._internal.testing.iotest.Iotest_errreader.errReader(stdgo._internal.errors.Errors_new_.new_(("io failure" : stdgo.GoString))) : stdgo._internal.io.Io_reader.Reader);
             var _rl = (stdgo._internal.testing.iotest.Iotest_newreadlogger.newReadLogger(("read" : stdgo.GoString), _lr) : stdgo._internal.io.Io_reader.Reader);
             var __tmp__ = _rl.read(_p), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger_test.go#L145"
             if (_err == null) {
-                @:check2r _t.fatalf(("Unexpectedly succeeded to read: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger_test.go#L146"
+                _t.fatalf(("Unexpectedly succeeded to read: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
             var _wantLogWithHex = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("lr: read %x: io failure\n" : stdgo.GoString), stdgo.Go.toInterface((_p.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>)))?.__copy__() : stdgo.GoString);
+            //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger_test.go#L150"
             {
-                var __0 = ((@:check2r _lOut.string() : stdgo.GoString)?.__copy__() : stdgo.GoString), __1 = (_wantLogWithHex?.__copy__() : stdgo.GoString);
+                var __0 = ((_lOut.string() : stdgo.GoString)?.__copy__() : stdgo.GoString), __1 = (_wantLogWithHex?.__copy__() : stdgo.GoString);
 var _w = __1, _g = __0;
                 if (_g != (_w)) {
-                    @:check2r _t.errorf(("ReadLogger mismatch\n\tgot:  %q\n\twant: %q" : stdgo.GoString), stdgo.Go.toInterface(_g), stdgo.Go.toInterface(_w));
+                    //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger_test.go#L151"
+                    _t.errorf(("ReadLogger mismatch\n\tgot:  %q\n\twant: %q" : stdgo.GoString), stdgo.Go.toInterface(_g), stdgo.Go.toInterface(_w));
                 };
             };
             {
@@ -52,7 +62,7 @@ var _w = __1, _g = __0;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

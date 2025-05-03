@@ -1,0 +1,28 @@
+{
+    "passes": [
+        "TestReadEmpty",
+        "TestPrimeBitsLt2",
+        "TestIntMask",
+        "TestIntEmptyMaxPanics",
+        "TestIntNegativeMaxPanics"
+    ],
+    "fails": [
+        "TestRead",
+        "TestPrimeSmall",
+        "TestPrimeNondeterministic",
+        "TestInt",
+        "TestIntReads"
+    ],
+    "runs": [
+        "TestRead",
+        "TestReadEmpty",
+        "TestPrimeSmall",
+        "TestPrimeBitsLt2",
+        "TestPrimeNondeterministic",
+        "TestInt",
+        "TestIntReads",
+        "TestIntMask",
+        "TestIntEmptyMaxPanics",
+        "TestIntNegativeMaxPanics"
+    ]
+}

@@ -20,39 +20,39 @@
 
 === RUN  TestExpandKey
 Exception: array out of bounds, index: 44 length: 44
-Called from stdgo_Slice.__boundsCheck__ (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 11947 column 24)
-Called from stdgo_Slice.__set__ (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 11982 column 14)
-Called from .stdgo__$internal_crypto_aes_Aes_$_$expandkeygo__expandKeyGo (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 13706 column 16)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_aes_Aes_$testexpandkey_testExpandKey [as f] (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:13584:4)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 43705 column 9)
-Called from ._$internal_crypto_aesdottest_Aesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 20865 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_aes.js:52854:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:52855:3)
+Called from stdgo_Slice.__boundsCheck__ (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 12302 column 24)
+Called from stdgo_Slice.__set__ (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 12337 column 14)
+Called from .stdgo__$internal_crypto_aes_Aes_$_$expandkeygo__expandKeyGo (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 13597 column 16)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_aes_Aes_$testexpandkey_testExpandKey [as f] (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:13389:9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 44228 column 9)
+Called from ._$internal_crypto_aesdottest_Aesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 20784 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_aes.js:53341:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:53342:3)
 
 -- FAIL: TestExpandKey
 
 === RUN  TestCipherEncrypt
 Exception: crypto/aes: invalid buffer overlap
-Called from stdgo__$internal_crypto_aes_T_$aesCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 23706 column 24)
-Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 14047 column 63)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_aes_Aes_$testcipherencrypt_testCipherEncrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:13909:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 43705 column 9)
-Called from ._$internal_crypto_aesdottest_Aesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 20865 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_aes.js:52854:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:52855:3)
+Called from stdgo__$internal_crypto_aes_T_$aesCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 23749 column 24)
+Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 13963 column 63)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_aes_Aes_$testcipherencrypt_testCipherEncrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:13800:6)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 44228 column 9)
+Called from ._$internal_crypto_aesdottest_Aesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 20784 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_aes.js:53341:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:53342:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestCipherEncrypt
 
 === RUN  TestCipherDecrypt
 Exception: crypto/aes: invalid buffer overlap
-Called from stdgo__$internal_crypto_aes_T_$aesCipher_$static_$extension.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 23686 column 24)
-Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 14044 column 63)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_aes_Aes_$testcipherdecrypt_testCipherDecrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:14071:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 43705 column 9)
-Called from ._$internal_crypto_aesdottest_Aesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 20865 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_aes.js:52854:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:52855:3)
+Called from stdgo__$internal_crypto_aes_T_$aesCipher_$static_$extension.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 23729 column 24)
+Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 13960 column 63)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_aes_Aes_$testcipherdecrypt_testCipherDecrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:13987:6)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 44228 column 9)
+Called from ._$internal_crypto_aesdottest_Aesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 20784 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_aes.js:53341:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:53342:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestCipherDecrypt

@@ -1,20 +1,8 @@
-[ERROR] ./stdgo/_internal/go/printer/Printer__identcount.hx:4: characters 19-73
+[ERROR] ./stdgo/_internal/go/printer/Printer__idents.hx:8: characters 75-77
 
-  4 |         for (_ in stdgo._internal.go.printer.Printer__idents._idents(_f)) {
-    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | stdgo.Chan<stdgo.Ref<stdgo._internal.go.ast.Ident>> has no field iterator
+ 8 |                 stdgo._internal.go.ast.Ast_walk.walk(stdgo.Go.asInterface(_v), stdgo.Go.asInterface(_f));
+   |                                                                           ^^
+   | Unknown identifier : _v
 
-[ERROR] ./stdgo/_internal/go/printer/Printer_testsourcepos.hx:26: characters 21-76
-
- 26 |         for (_i1 in stdgo._internal.go.printer.Printer__idents._idents(_f1)) {
-    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | stdgo.Chan<stdgo.Ref<stdgo._internal.go.ast.Ident>> has no field iterator
-
-[ERROR] ./stdgo/_internal/go/printer/Printer__idents.hx:6: characters 75-77
-
-  6 |                 stdgo._internal.go.ast.Ast_walk.walk(stdgo.Go.asInterface(_v), stdgo.Go.asInterface(_f));
-    |                                                                           ^^
-    | Unknown identifier : _v
-
-       | For function argument 'dir'
+      | For function argument 'dir'
 

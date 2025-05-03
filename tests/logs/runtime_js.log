@@ -1,26 +1,32 @@
+[ERROR] ./stdgo/_internal/go/build/Build__parsegoembed.hx:103: characters 21-45
+
+ 103 |                     _iterator_4438327 = 0i64;
+     |                     ^^^^^^^^^^^^^^^^^^^^^^^^
+     | haxe.Int64 should be Null<Int>
+
 [ERROR] (macro) ./stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 108-109
 
- 4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
-   |                                                                                                            ^
-   | stdgo._internal.internal.reflect._Type should be stdgo._internal.go.types.Type_
-   | stdgo._internal.internal.reflect._Type has no field __underlying__
-   | For function argument '_t'
+   4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
+     |                                                                                                            ^
+     | stdgo._internal.internal.reflect._Type should be stdgo._internal.go.types.Type_
+     | stdgo._internal.internal.reflect._Type has no field __underlying__
+     | For function argument '_t'
 
-    ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
+      ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
 
-    513 |   return load("typeof", 1)(e);
-        |          ^^^^^^^^^^^^^^^^^^^^
-        | Called from here
+      513 |   return load("typeof", 1)(e);
+          |          ^^^^^^^^^^^^^^^^^^^^
+          | Called from here
 
-    ->  stdgo/Go.macro.hx:653: characters 11-31
+      ->  stdgo/Go.macro.hx:676: characters 11-31
 
-    653 |   var t = Context.typeof(expr);
-        |           ^^^^^^^^^^^^^^^^^^^^
-        | Called from here
+      676 |   var t = Context.typeof(expr);
+          |           ^^^^^^^^^^^^^^^^^^^^
+          | Called from here
 
-    ->  ./stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 42-111
+      ->  ./stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 42-111
 
-      4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
-        |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        | Called from here
+        4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
+          |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          | Called from here
 

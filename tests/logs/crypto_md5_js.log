@@ -1,13 +1,13 @@
 === RUN  TestGolden
 md5[<invalid reflect.Value>](%!s(MISSING)) = %!s(MISSING) want %!s(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 42699 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 42584 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:41940:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_md5_Md5_$testgolden_testGolden [as f] (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:11391:22)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 41702 column 9)
-Called from ._$internal_crypto_md5dottest_Md5dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 34631 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:52860:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:52861:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 43090 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 43019 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:42375:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_md5_Md5_$testgolden_testGolden [as f] (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:11219:22)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 42137 column 9)
+Called from ._$internal_crypto_md5dottest_Md5dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 34922 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:53272:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:53273:3)
 
 -- FAIL: TestGolden
 
@@ -17,28 +17,28 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 
 === RUN  TestLarge
 md5 TestLarge offset=<invalid reflect.Value>, blockSize=%!d(MISSING) = %!s(MISSING) want %!s(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 42699 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 42584 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:41940:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_md5_Md5_$testlarge_testLarge [as f] (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:31526:22)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 41702 column 9)
-Called from ._$internal_crypto_md5dottest_Md5dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 34631 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:52860:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:52861:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 43090 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 43019 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:42375:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_md5_Md5_$testlarge_testLarge [as f] (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:31817:22)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 42137 column 9)
+Called from ._$internal_crypto_md5dottest_Md5dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 34922 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:53272:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:53273:3)
 
 -- FAIL: TestLarge
 
 === RUN  TestBlockGeneric
 Exception: Cannot read properties of null (reading 'read')
 Called from module TypeError: Cannot read properties of null (reading 'read')
-Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 31678 column 21)
-Called from .stdgo__$internal_io_Io_$readfull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 31664 column 9)
-Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 31659 column 9)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_md5_Md5_$testblockgeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:31649:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 41702 column 9)
-Called from ._$internal_crypto_md5dottest_Md5dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 34631 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:52860:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:52861:3)
+Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 31969 column 21)
+Called from .stdgo__$internal_io_Io_$readfull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 31955 column 9)
+Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 31950 column 9)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_md5_Md5_$testblockgeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:31940:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 42137 column 9)
+Called from ._$internal_crypto_md5dottest_Md5dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 34922 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:53272:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:53273:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 

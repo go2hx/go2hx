@@ -240,7 +240,13 @@ function readFrom(_f, _r) {
 function read(_f, _b) {
 	@:privateAccess _f.mutex.acquire();
 	final b = @:privateAccess _b.toBytes();
-	final i = @:privateAccess _f._input.readBytes(b, 0, b.length);
+	var i = 0;
+	try {
+		i = @:privateAccess _f._input.readBytes(b, 0, b.length);
+	} catch (e:haxe.io.Eof) {
+		@:privateAccess _f.mutex.release();
+		return {_0: 0, _1: stdgo._internal.io.Io_eof.eOF};
+	}
 	@:privateAccess _b.__bytes__ = b;
 	@:privateAccess _f.mutex.release();
 	return {_0: i, _1: null};

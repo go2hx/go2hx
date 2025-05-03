@@ -289,7 +289,6 @@
  "js|scope3",
  "js|scope4",
  "js|scope5",
- "js|select3",
  "js|struct0",
  "js|struct0a",
  "js|struct1",
@@ -364,8 +363,9 @@
  "js|issuedash1571",
  "js|issuedash1594",
  "js|issuedash993",
+ "js|switch22",
+ "js|select10",
+ "js|select11",
  "js|select13",
- "js|select15",
- "js|select6",
- "js|switch22"
+ "js|select3"
 ]

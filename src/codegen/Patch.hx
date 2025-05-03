@@ -36,8 +36,8 @@ final skipTests = [
 	"strconv_test:testRoundTrip32" => ["interp", "js"], // imprecise float
 	"bufio_test:testScanLongLines" => [], // hits timeout
 	"bufio_test:testReadStringAllocs" => [], // checks runtime allocations num
-	"io_test:testOffsetWriter_Write" => [], // very flakey channels, TODO enable
-	"io_test:testOffsetWriter_WriteAt" => [], // very flakey channels, TODO enable
+	"io_test:testOffsetWriter_Write" => ["interp"], // flaky test on interp
+	"io_test:testOffsetWriter_WriteAt" => ["interp"], // flaky test on interp
 	"io_test:testMultiWriter_WriteStringSingleAlloc" => [], // checks runtime allocations num
 	"io_test:testMultiReaderFreesExhaustedReaders" => [], // uses runtime.setFinalizer
 	"io_test:testMultiWriterSingleChainFlatten" => [], // uses runtime.callers
@@ -188,8 +188,6 @@ final structs = [
 		}
 	},
 	"sync:WaitGroup" => macro {
-		@:local
-		var lock = @:define("target.threaded") new sys.thread.Lock();
 		@:local
 		var counter:stdgo.GoUInt = 0;
 		@:local

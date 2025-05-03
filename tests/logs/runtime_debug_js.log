@@ -5,9 +5,9 @@
      | _internal.runtime.debug_test.G<stdgo.GoInt> should be _internal.runtime.debug_test.GPointer<stdgo.GoInt>
      | For function argument '__self__'
 
-[ERROR] stdgo/Go.macro.hx:393: characters 30-35
+[ERROR] stdgo/Go.macro.hx:413: characters 30-35
 
- 393 |          var e = macro $self.value.$methodName($a{callArgs});
+ 413 |          var e = macro $self.value.$methodName($a{callArgs});
      |                              ^^^^^
      | _internal.runtime.debug_test.G<stdgo.GoInt> has no field value
 
@@ -24,9 +24,9 @@
      | _internal.runtime.debug_test.G<_internal.runtime.debug_test.G<stdgo.GoInt>> should be _internal.runtime.debug_test.GPointer<_internal.runtime.debug_test.G<stdgo.GoInt>>
      | For function argument '__self__'
 
-[ERROR] stdgo/Go.macro.hx:393: characters 30-35
+[ERROR] stdgo/Go.macro.hx:413: characters 30-35
 
- 393 |          var e = macro $self.value.$methodName($a{callArgs});
+ 413 |          var e = macro $self.value.$methodName($a{callArgs});
      |                              ^^^^^
      | _internal.runtime.debug_test.G<_internal.runtime.debug_test.G<stdgo.GoInt>> has no field value
 

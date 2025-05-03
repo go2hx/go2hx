@@ -7,8 +7,8 @@ Import Go libraries into your Haxe projects.
 
 Spiritual successor to [Elliott Stoneham's compiler](#credits)
 
-### March update on Youtube
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/fzyGwSGyoRw/0.jpg)](https://www.youtube.com/watch?v=fzyGwSGyoRw)
+### Latest update on Youtube
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/qVaynJJ941M/0.jpg)](https://www.youtube.com/watch?v=qVaynJJ941M)
 
 
 If you are interested in improving the Haxe ecosystem you may be interested in [contributing](#contributing)

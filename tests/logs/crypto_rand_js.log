@@ -1,12 +1,345 @@
-[ERROR] ./stdgo/_internal/crypto/internal/randutil/Randutil_maybereadbyte.hx:31: characters 87-96
+=== RUN  TestRead
+Exception: Value:syscall.js.new_ is not yet implemented
+Called from stdgo__$internal_syscall_js_Value_$static_$extension.new_ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62725 column 23)
+Called from .stdgo__$internal_crypto_rand_Rand_$_$getrandom__getRandom (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62851 column 65)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:62841:15
+Called from stdgo__$internal_crypto_rand_T_$reader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62962 column 13)
+Called from stdgo__$internal_crypto_rand_T_$reader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62827 column 68)
+Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17706 column 21)
+Called from .stdgo__$internal_io_Io_$readfull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17692 column 9)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_rand_Rand_$testread_testRead [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:17009:16)
 
- 31 |             stdgo._internal.crypto.internal.randutil.Randutil__closedchan._closedChan.__reset__();
-    |                                                                                       ^^^^^^^^^
-    | stdgo.Chan<stdgo._internal.crypto.internal.randutil.T__struct_0> has no field __reset__ (Suggestion: __isGet__)
+-- FAIL: TestRead
 
-[ERROR] ./stdgo/_internal/crypto/internal/randutil/Randutil_maybereadbyte.hx:32: characters 75-84
+=== RUN  TestReadEmpty
 
- 32 | stdgo._internal.crypto.internal.randutil.Randutil__closedchan._closedChan.__reset__();
-    |                                                                           ^^^^^^^^^
-    | stdgo.Chan<stdgo._internal.crypto.internal.randutil.T__struct_0> has no field __reset__ (Suggestion: __isGet__)
+-- PASS: TestReadEmpty
 
+=== RUN  TestPrimeSmall
+Exception: Channel not supported on non threaded targets
+Called from stdgo_ChanData.__smartGet__ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47453 column 24)
+Called from .stdgo__$internal_crypto_internal_randutil_Randutil_$maybereadbyte_maybeReadByte (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47149 column 21)
+Called from .stdgo__$internal_crypto_rand_Rand_$prime_prime (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47096 column 2)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_rand_$test_Rand_$test_$testprimesmall_testPrimeSmall [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:16543:17)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 78966 column 9)
+Called from ._$internal_crypto_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 59319 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:86087:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:86088:3)
+
+-- FAIL: TestPrimeSmall
+
+=== RUN  TestPrimeBitsLt2
+
+-- PASS: TestPrimeBitsLt2
+
+=== RUN  TestPrimeNondeterministic
+Exception: Channel not supported on non threaded targets
+Called from stdgo_ChanData.__smartGet__ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47453 column 24)
+Called from .stdgo__$internal_crypto_internal_randutil_Randutil_$maybereadbyte_maybeReadByte (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47149 column 21)
+Called from .stdgo__$internal_crypto_rand_Rand_$prime_prime (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47096 column 2)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_rand_$test_Rand_$test_$testprimenondeterministic_testPrimeNondeterministic [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:16504:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 78966 column 9)
+Called from ._$internal_crypto_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 59319 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:86087:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:86088:3)
+
+-- FAIL: TestPrimeNondeterministic
+
+=== RUN  TestInt
+Exception: Value:syscall.js.new_ is not yet implemented
+Called from stdgo__$internal_syscall_js_Value_$static_$extension.new_ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62725 column 23)
+Called from .stdgo__$internal_crypto_rand_Rand_$_$getrandom__getRandom (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62851 column 65)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:62841:15
+Called from stdgo__$internal_crypto_rand_T_$reader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62962 column 13)
+Called from stdgo__$internal_crypto_rand_T_$reader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62827 column 68)
+Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17706 column 21)
+Called from .stdgo__$internal_io_Io_$readfull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17692 column 9)
+Called from .stdgo__$internal_crypto_rand_Rand_$int_$_int_ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57035 column 17)
+
+-- FAIL: TestInt
+
+=== RUN  TestIntReads
+- SUBRUN  max=1
+- SUBRUN  max=2
+Exception: Value:syscall.js.new_ is not yet implemented
+Called from stdgo__$internal_syscall_js_Value_$static_$extension.new_ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62725 column 23)
+Called from .stdgo__$internal_crypto_rand_Rand_$_$getrandom__getRandom (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62851 column 65)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:62841:15
+Called from stdgo__$internal_crypto_rand_T_$reader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62962 column 13)
+Called from stdgo__$internal_crypto_rand_T_$reader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62827 column 68)
+Called from _$internal_crypto_rand_$test_T_$countingReader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 16302 column 28)
+Called from _$internal_crypto_rand_$test_T_$countingReader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 16281 column 76)
+Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17706 column 21)
+
+-- FAIL: TestIntReads
+
+=== RUN  TestIntMask
+- SUBRUN  max=1
+- SUBRUN  max=2
+- SUBRUN  max=3
+- SUBRUN  max=4
+- SUBRUN  max=5
+- SUBRUN  max=6
+- SUBRUN  max=7
+- SUBRUN  max=8
+- SUBRUN  max=9
+- SUBRUN  max=10
+- SUBRUN  max=11
+- SUBRUN  max=12
+- SUBRUN  max=13
+- SUBRUN  max=14
+- SUBRUN  max=15
+- SUBRUN  max=16
+- SUBRUN  max=17
+- SUBRUN  max=18
+- SUBRUN  max=19
+- SUBRUN  max=20
+- SUBRUN  max=21
+- SUBRUN  max=22
+- SUBRUN  max=23
+- SUBRUN  max=24
+- SUBRUN  max=25
+- SUBRUN  max=26
+- SUBRUN  max=27
+- SUBRUN  max=28
+- SUBRUN  max=29
+- SUBRUN  max=30
+- SUBRUN  max=31
+- SUBRUN  max=32
+- SUBRUN  max=33
+- SUBRUN  max=34
+- SUBRUN  max=35
+- SUBRUN  max=36
+- SUBRUN  max=37
+- SUBRUN  max=38
+- SUBRUN  max=39
+- SUBRUN  max=40
+- SUBRUN  max=41
+- SUBRUN  max=42
+- SUBRUN  max=43
+- SUBRUN  max=44
+- SUBRUN  max=45
+- SUBRUN  max=46
+- SUBRUN  max=47
+- SUBRUN  max=48
+- SUBRUN  max=49
+- SUBRUN  max=50
+- SUBRUN  max=51
+- SUBRUN  max=52
+- SUBRUN  max=53
+- SUBRUN  max=54
+- SUBRUN  max=55
+- SUBRUN  max=56
+- SUBRUN  max=57
+- SUBRUN  max=58
+- SUBRUN  max=59
+- SUBRUN  max=60
+- SUBRUN  max=61
+- SUBRUN  max=62
+- SUBRUN  max=63
+- SUBRUN  max=64
+- SUBRUN  max=65
+- SUBRUN  max=66
+- SUBRUN  max=67
+- SUBRUN  max=68
+- SUBRUN  max=69
+- SUBRUN  max=70
+- SUBRUN  max=71
+- SUBRUN  max=72
+- SUBRUN  max=73
+- SUBRUN  max=74
+- SUBRUN  max=75
+- SUBRUN  max=76
+- SUBRUN  max=77
+- SUBRUN  max=78
+- SUBRUN  max=79
+- SUBRUN  max=80
+- SUBRUN  max=81
+- SUBRUN  max=82
+- SUBRUN  max=83
+- SUBRUN  max=84
+- SUBRUN  max=85
+- SUBRUN  max=86
+- SUBRUN  max=87
+- SUBRUN  max=88
+- SUBRUN  max=89
+- SUBRUN  max=90
+- SUBRUN  max=91
+- SUBRUN  max=92
+- SUBRUN  max=93
+- SUBRUN  max=94
+- SUBRUN  max=95
+- SUBRUN  max=96
+- SUBRUN  max=97
+- SUBRUN  max=98
+- SUBRUN  max=99
+- SUBRUN  max=100
+- SUBRUN  max=101
+- SUBRUN  max=102
+- SUBRUN  max=103
+- SUBRUN  max=104
+- SUBRUN  max=105
+- SUBRUN  max=106
+- SUBRUN  max=107
+- SUBRUN  max=108
+- SUBRUN  max=109
+- SUBRUN  max=110
+- SUBRUN  max=111
+- SUBRUN  max=112
+- SUBRUN  max=113
+- SUBRUN  max=114
+- SUBRUN  max=115
+- SUBRUN  max=116
+- SUBRUN  max=117
+- SUBRUN  max=118
+- SUBRUN  max=119
+- SUBRUN  max=120
+- SUBRUN  max=121
+- SUBRUN  max=122
+- SUBRUN  max=123
+- SUBRUN  max=124
+- SUBRUN  max=125
+- SUBRUN  max=126
+- SUBRUN  max=127
+- SUBRUN  max=128
+- SUBRUN  max=129
+- SUBRUN  max=130
+- SUBRUN  max=131
+- SUBRUN  max=132
+- SUBRUN  max=133
+- SUBRUN  max=134
+- SUBRUN  max=135
+- SUBRUN  max=136
+- SUBRUN  max=137
+- SUBRUN  max=138
+- SUBRUN  max=139
+- SUBRUN  max=140
+- SUBRUN  max=141
+- SUBRUN  max=142
+- SUBRUN  max=143
+- SUBRUN  max=144
+- SUBRUN  max=145
+- SUBRUN  max=146
+- SUBRUN  max=147
+- SUBRUN  max=148
+- SUBRUN  max=149
+- SUBRUN  max=150
+- SUBRUN  max=151
+- SUBRUN  max=152
+- SUBRUN  max=153
+- SUBRUN  max=154
+- SUBRUN  max=155
+- SUBRUN  max=156
+- SUBRUN  max=157
+- SUBRUN  max=158
+- SUBRUN  max=159
+- SUBRUN  max=160
+- SUBRUN  max=161
+- SUBRUN  max=162
+- SUBRUN  max=163
+- SUBRUN  max=164
+- SUBRUN  max=165
+- SUBRUN  max=166
+- SUBRUN  max=167
+- SUBRUN  max=168
+- SUBRUN  max=169
+- SUBRUN  max=170
+- SUBRUN  max=171
+- SUBRUN  max=172
+- SUBRUN  max=173
+- SUBRUN  max=174
+- SUBRUN  max=175
+- SUBRUN  max=176
+- SUBRUN  max=177
+- SUBRUN  max=178
+- SUBRUN  max=179
+- SUBRUN  max=180
+- SUBRUN  max=181
+- SUBRUN  max=182
+- SUBRUN  max=183
+- SUBRUN  max=184
+- SUBRUN  max=185
+- SUBRUN  max=186
+- SUBRUN  max=187
+- SUBRUN  max=188
+- SUBRUN  max=189
+- SUBRUN  max=190
+- SUBRUN  max=191
+- SUBRUN  max=192
+- SUBRUN  max=193
+- SUBRUN  max=194
+- SUBRUN  max=195
+- SUBRUN  max=196
+- SUBRUN  max=197
+- SUBRUN  max=198
+- SUBRUN  max=199
+- SUBRUN  max=200
+- SUBRUN  max=201
+- SUBRUN  max=202
+- SUBRUN  max=203
+- SUBRUN  max=204
+- SUBRUN  max=205
+- SUBRUN  max=206
+- SUBRUN  max=207
+- SUBRUN  max=208
+- SUBRUN  max=209
+- SUBRUN  max=210
+- SUBRUN  max=211
+- SUBRUN  max=212
+- SUBRUN  max=213
+- SUBRUN  max=214
+- SUBRUN  max=215
+- SUBRUN  max=216
+- SUBRUN  max=217
+- SUBRUN  max=218
+- SUBRUN  max=219
+- SUBRUN  max=220
+- SUBRUN  max=221
+- SUBRUN  max=222
+- SUBRUN  max=223
+- SUBRUN  max=224
+- SUBRUN  max=225
+- SUBRUN  max=226
+- SUBRUN  max=227
+- SUBRUN  max=228
+- SUBRUN  max=229
+- SUBRUN  max=230
+- SUBRUN  max=231
+- SUBRUN  max=232
+- SUBRUN  max=233
+- SUBRUN  max=234
+- SUBRUN  max=235
+- SUBRUN  max=236
+- SUBRUN  max=237
+- SUBRUN  max=238
+- SUBRUN  max=239
+- SUBRUN  max=240
+- SUBRUN  max=241
+- SUBRUN  max=242
+- SUBRUN  max=243
+- SUBRUN  max=244
+- SUBRUN  max=245
+- SUBRUN  max=246
+- SUBRUN  max=247
+- SUBRUN  max=248
+- SUBRUN  max=249
+- SUBRUN  max=250
+- SUBRUN  max=251
+- SUBRUN  max=252
+- SUBRUN  max=253
+- SUBRUN  max=254
+- SUBRUN  max=255
+- SUBRUN  max=256
+
+-- PASS: TestIntMask
+
+=== RUN  TestIntEmptyMaxPanics
+
+-- PASS: TestIntEmptyMaxPanics
+
+=== RUN  TestIntNegativeMaxPanics
+
+-- PASS: TestIntNegativeMaxPanics
+
+./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+-- FAIL: TestIntReads

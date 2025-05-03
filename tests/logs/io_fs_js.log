@@ -12,14 +12,14 @@
 
 === RUN  TestGlob
 Exception: ENOENT: no such file or directory, scandir ''
-Called from .stdgo__$internal_io_fs_Fs_$readdir_readDir (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 25074 column 25)
-Called from .stdgo__$internal_io_fs_Fs_$_$glob__glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 24814 column 16)
-Called from .stdgo__$internal_io_fs_Fs_$_$globwithlimit__globWithLimit (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 21668 column 17)
-Called from .stdgo__$internal_io_fs_Fs_$glob_glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 21557 column 16)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testglob_testGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:19909:17)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 49901 column 9)
-Called from ._$internal_io_fsdottest_Fsdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 41821 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:56391:1
+Called from .stdgo__$internal_io_fs_Fs_$readdir_readDir (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 25089 column 25)
+Called from .stdgo__$internal_io_fs_Fs_$_$glob__glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 24829 column 16)
+Called from .stdgo__$internal_io_fs_Fs_$_$globwithlimit__globWithLimit (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 21496 column 17)
+Called from .stdgo__$internal_io_fs_Fs_$glob_glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 21385 column 16)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testglob_testGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:19737:17)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 50520 column 9)
+Called from ._$internal_io_fsdottest_Fsdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 42296 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:56982:1
 
 -- FAIL: TestGlob
 
@@ -70,21 +70,21 @@ node:fs:1581
   const result = binding.readdir(
                          ^
 
-Error: EACCES: permission denied, scandir 'tmp_huax0syd7d/a/bad'
+Error: EACCES: permission denied, scandir 'tmp_qam9ks98mn/a/bad'
     at Object.readdirSync (node:fs:1581:26)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:45961:30)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:45967:7)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:45967:7)
-    at stdgo__$internal_os_Os_$removeall_removeAll (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46007:2)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:50520:4
-    at stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:49912:4)
-    at _$internal_io_fsdottest_Fsdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:41821:59)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:56391:1
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:56392:3) {
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46565:30)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46571:7)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46571:7)
+    at stdgo__$internal_os_Os_$removeall_removeAll (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46611:2)
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:51139:4
+    at stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:50531:4)
+    at _$internal_io_fsdottest_Fsdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:42296:59)
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:56982:1
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:56983:3) {
   errno: -13,
   code: 'EACCES',
   syscall: 'scandir',
-  path: 'tmp_huax0syd7d/a/bad'
+  path: 'tmp_qam9ks98mn/a/bad'
 }
 
 Node.js v23.11.0

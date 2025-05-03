@@ -126,20 +126,18 @@ class ChanData<T> {
 				// a get is in progress, so we can't do another
 				r = false;
 			}
-		} else{
-
-			while( !closed && sendCount==0) {
+		} else {
+			while (!closed && sendCount == 0) {
 				// wait in a loop for close or new value
 				mutex.release();
 				if (debug)
-					trace(index + "__isGet__ unbuffered await close or send");		
+					trace(index + "__isGet__ unbuffered await close or send");
 				gosched();
 				mutex.acquire();
 			}
 
 			r = !closed;
 		}
-				
 
 		if (debug)
 			trace(index + "__isGet__ unbuffered result", r);
@@ -165,6 +163,9 @@ class ChanData<T> {
 		or false if it is a zero value generated because the channel is closed and empty.
 	**/
 	public function __smartGet__():{_0:T, _1:Bool} {
+		#if (!target.threaded)
+		throw "Channel not supported on non threaded targets";
+		#end
 		if (debug)
 			trace(index + " __smartGet__");
 
@@ -296,6 +297,9 @@ class ChanData<T> {
 
 	// send a value to a channel
 	public function __send__(value:T) {
+		#if (!target.threaded)
+		throw "Channel not supported on non threaded targets";
+		#end
 		if (debug)
 			trace(index + " begin __Send__ ", value);
 
@@ -324,7 +328,6 @@ class ChanData<T> {
 				}
 				gosched();
 			}
-
 		} else { // unbuffered send
 
 			/* 

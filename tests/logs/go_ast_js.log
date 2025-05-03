@@ -1,6 +1,6 @@
-[ERROR] (macro) ./stdgo/_internal/go/ast/Ast__summary.hx:43: characters 21-58
+[ERROR] (macro) ./stdgo/_internal/go/ast/Ast__summary.hx:49: characters 21-58
 
- 43 |                     stdgo._internal.go.ast.Ast__loopbreak._loopBreak = true;
+ 49 |                     stdgo._internal.go.ast.Ast__loopbreak._loopBreak = true;
     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Type not found : stdgo._internal.go.ast.Ast__loopbreak
 

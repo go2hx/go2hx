@@ -31,9 +31,9 @@ var onUnknownExit:Void->Void = null;
  * @param client 
  */
 private function receivedData(instance, buff, client) {
-	final uncompressedDataStr = haxe.zip.Uncompress.run(buff).toString();
-	final exportData:DataType = haxe.Json.parse(uncompressedDataStr);
-
+	final uncompressedData = haxe.zip.Uncompress.run(buff);
+	final result = haxe.Json.parse(uncompressedData.toString());
+	final exportData:DataType = result;
 	final index = Std.parseInt(exportData.index);
 	var instance = instanceCache[index];
 	instanceCache[index] = null; // reset
@@ -109,16 +109,11 @@ function runCompilerFromArgs(args:Array<String>) {
 		Sys.println("no arguments given to compiler");
 		return;
 	}
-	var processCount = 1;
-	var index = 0;
-
-	if (removeArg(args, "-nogo") || removeArg(args, "--nogo"))
-		processCount = 0;
 
 	final instance = createCompilerInstanceFromArgs(args);
 
 	Sys.println("Golang compiler instance");
-	setupCompiler(instance, processCount, () -> {
+	setupCompiler(instance, () -> {
 		if (onComplete == null)
 			onComplete = (modules, data) -> {
 				closeCompiler(0, instance);
@@ -285,7 +280,7 @@ function updateLoop() {
 	#if (target.threaded)
 	mainThread.events.progress();
 	#end
-	Sys.sleep(0.01); // wait
+	Sys.sleep(0.001);
 }
 
 function closeCompiler(code:Int = 0, instance:Null<CompilerInstanceData> = null) {
@@ -295,19 +290,18 @@ function closeCompiler(code:Int = 0, instance:Null<CompilerInstanceData> = null)
 	}
 
 	#if (debug && !nodejs)
-	if (processes.length > 0) {
-		processes[0].kill();
+	if (process != null) {
+		process.kill();
 		try {
 			while (true)
-				Sys.println(processes[0].stdout.readLine());
+				Sys.println(process.stdout.readLine());
 		} catch (_) {}
 	}
 	#end
 	for (client in clients)
 		client.stream.close();
 	#if (target.threaded)
-	for (process in processes)
-		process.close();
+	process.close();
 	#end
 	server.close();
 	Sys.exit(code);
@@ -315,7 +309,7 @@ function closeCompiler(code:Int = 0, instance:Null<CompilerInstanceData> = null)
 
 var resetCount = 0;
 
-function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allAccepted:Void->Void = null) {
+function setupCompiler(instance:CompilerInstanceData, ready:Void->Void) {
 	utils.Cache.setUseCache(instance.useCache);
 	if (!instance.cleanCache)
 		utils.Cache.loadCache(instance);
@@ -324,28 +318,22 @@ function setupCompiler(instance:CompilerInstanceData, processCount:Int = 1, allA
 	server.bind(new sys.net.Host("127.0.0.1"), instance.port);
 	instance.port = server.getPort();
 	Sys.println('listening on local port: ${instance.port}');
-	#else
-	var processCountIndex = 0;
 	#end
 	resetCount = 0;
 	// server.noDelay(true);
-	for (i in 0...processCount) {
-		#if (target.threaded)
-		processes.push(new sys.io.Process("./go4hx", ['' + instance.port], false));
-		#else
-		jsProcess(instance);
-		#end
-	}
-	var index = 0;
+	#if (target.threaded)
+	process = new sys.io.Process("./go4hx", ['' + instance.port], false);
+	#else
+	jsProcess(instance);
+	#end
 	server.listen(0, () -> {
-		index = accept(server, instance, index, processCount, allAccepted);
+		accept(server, instance, ready);
 	});
 	#if js listenNodeJS(server, instance); #end
 }
 
-function accept(server, instance, index, processCount, allAccepted):Int {
+function accept(server, instance, ready) {
 	Sys.println("accepted connection");
-	index++;
 	final client:Client = {stream: server.accept(), id: -1};
 	client.reset();
 	clients.push(client);
@@ -371,9 +359,8 @@ function accept(server, instance, index, processCount, allAccepted):Int {
 			buff = null;
 		}
 	});
-	if (index >= processCount && allAccepted != null)
-		allAccepted();
-	return index;
+	if (ready != null)
+		ready();
 }
 
 private function setBytes(buff:Bytes, bytes:Bytes, pos:Int):Int {
@@ -399,16 +386,14 @@ function createBuffer(client, bytes, instance):Bytes {
 function healthCheck(instance) {
 	// health check
 	#if (target.threaded)
-	for (proc in processes) {
-		final code = proc.exitCode(false);
-		if (code == null)
-			continue;
-		trace("proc code:", code);
-		if (code != 0) {
-			Sys.print(proc.stderr.readAll());
-		} else {
-			Sys.print(proc.stdout.readAll());
-		}
+	final code = process.exitCode(false);
+	if (code == null)
+		return;
+	trace("proc code:", code);
+	if (code != 0) {
+		Sys.print(process.stderr.readAll());
+	} else {
+		Sys.print(process.stdout.readAll());
 	}
 	#end
 	// close as stream has broken
@@ -449,7 +434,6 @@ private function createBasePkgs(outputPath:String, modules:Array<typer.HaxeAst.M
 			File.saveContent(outputPath + "/stdgo/" + file, content);
 		}
 	}
-
 	Sys.println("copy directory: " + cwd + " to: " + outputPath);
 	shared.Util.copyDirectoryRecursively(cwd + "/haxe", outputPath + "/haxe");
 	final path = "/stdgo/_internal";
@@ -464,14 +448,10 @@ private function createBasePkgs(outputPath:String, modules:Array<typer.HaxeAst.M
 
 function targetLibs(target:String):String {
 	return switch target {
-		case "jvm":
-			"-lib hxjava";
-		case "cs":
-			"-lib hxcs";
-		case "cpp":
-			"-lib hxcpp";
-		case "js":
-			"-lib hxnodejs";
+		case "jvm": "-lib hxjava";
+		case "cs": "-lib hxcs";
+		case "cpp": "-lib hxcpp";
+		case "js": "-lib hxnodejs";
 		default:
 			"";
 	}
@@ -588,7 +568,6 @@ private function runBuildTools(modules:Array<typer.HaxeAst.Module>, instance:Com
 		File.saveContent(instance.buildPath, content);
 		// Sys.println('Generated: $buildPath - ' + shared.Util.kbCount(content) + "kb");
 	}
-
 	if (instance.hxmlPath != "") {
 		if (paths.length == 0 && !instance.noRun) {
 			trace(instance.hxmlPath);
@@ -628,10 +607,8 @@ private function parseMain(main:String):String {
 
 function libTarget(target:String):String {
 	return switch target {
-		case "cpp", "cs":
-			'-lib hx$target';
-		case "jvm", "java":
-			"-lib hxjava";
+		case "cpp", "cs": '-lib hx$target';
+		case "jvm", "java": "-lib hxjava";
 		default:
 			"";
 	}
@@ -639,12 +616,9 @@ function libTarget(target:String):String {
 
 function buildTarget(target:String, out:String, ?main:String, ?args:Array<String>):String {
 	return switch target {
-		case "hl":
-			'--hl $out';
-		case "jvm", "cpp", "cs", "js", "lua", "python", "php", "neko":
-			'--$target $out';
-		case "interp":
-			if (main != null && args != null) {
+		case "hl": '--hl $out';
+		case "jvm", "cpp", "cs", "js", "lua", "python", "php", "neko": '--$target $out';
+		case "interp": if (main != null && args != null) {
 				'--run $main ' + args.join(" ");
 			} else {
 				"--interp";
@@ -696,10 +670,8 @@ function compileFromInstance(instance:CompilerInstanceData):Bool {
 			path = path.substr(httpsString.length);
 			instance.args[i] = path;
 		}
-
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
-
 		if (io.Data.stdgoList.indexOf(path) != -1)
 			continue;
 		var command = '${instance.goCommand} get $path';
@@ -775,9 +747,7 @@ class CompilerInstanceData {
 	public var cleanCache:Bool = false;
 	public var test:Bool = false;
 	public var bench:Bool = false;
-
 	public var noCommentsBool:Bool = false;
-
 	public final defines:Array<String> = [];
 
 	public function new(args:Array<String> = null) {
@@ -799,7 +769,7 @@ final loop = Loop.getDefault();
 final server = new Tcp(loop);
 var clients:Array<Client> = [];
 #if (target.threaded)
-var processes:Array<sys.io.Process> = [];
+var process:sys.io.Process = null;
 var mainThread = sys.thread.Thread.current();
 #end
 var programArgs = [];

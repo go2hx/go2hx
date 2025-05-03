@@ -34,7 +34,6 @@ var run:String = "";
 var runOnly:String = "";
 var lastTaskLogs = [];
 var dryRun = false;
-final runnerCount = MacroCompiler.getDefine("runnerCount") ?? "2";
 var unitBool = false;
 var stdBool = false;
 var goBool = false;
@@ -90,7 +89,7 @@ function main() {
 	trace(tests.length);
 	trace(tasks.length);
 	if (!dryRun) {
-		Compiler.setupCompiler(new CompilerInstanceData(), Std.parseInt(runnerCount)); // amount of processes to spawn
+		Compiler.setupCompiler(new CompilerInstanceData(), () -> {}); // amount of processes to spawn
 		Compiler.onComplete = complete;
 		Compiler.onUnknownExit = close;
 		final timer = new haxe.Timer(100);
@@ -249,7 +248,7 @@ function update() {
 	for (test in removeTests) {
 		tests.remove(test);
 	}
-	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount)) {
+	if (tasks.length > 0) {
 		final task = tasks.pop();
 		if (!noLogs) {
 			Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);

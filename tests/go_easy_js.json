@@ -334,9 +334,6 @@
  "js|bug499",
  "js|closure7",
  "js|deferprint",
- "js|issue8039",
  "js|issue8336",
- "js|issue8347",
- "js|reorder2",
- "js|bug230"
+ "js|issue8347"
 ]

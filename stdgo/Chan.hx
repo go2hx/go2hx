@@ -163,7 +163,7 @@ class ChanData<T> {
 		or false if it is a zero value generated because the channel is closed and empty.
 	**/
 	public function __smartGet__():{_0:T, _1:Bool} {
-		#if target.threaded
+		#if (!target.threaded)
 		throw "Channel not supported on non threaded targets";
 		#end
 		if (debug)
@@ -297,7 +297,7 @@ class ChanData<T> {
 
 	// send a value to a channel
 	public function __send__(value:T) {
-		#if target.threaded
+		#if (!target.threaded)
 		throw "Channel not supported on non threaded targets";
 		#end
 		if (debug)

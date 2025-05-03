@@ -19,12 +19,14 @@ package stdgo._internal.compress.flate;
     @:tdfield
     static public function less( _s:stdgo._internal.compress.flate.Flate_t_byliteral.T_byLiteral, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _s:stdgo._internal.compress.flate.Flate_t_byliteral.T_byLiteral = _s;
+        //"file:///home/runner/.go/go1.21.3/src/compress/flate/huffman_code.go#L320"
         return (_s[(_i : stdgo.GoInt)]._literal < _s[(_j : stdgo.GoInt)]._literal : Bool);
     }
     @:keep
     @:tdfield
     static public function len( _s:stdgo._internal.compress.flate.Flate_t_byliteral.T_byLiteral):stdgo.GoInt {
         @:recv var _s:stdgo._internal.compress.flate.Flate_t_byliteral.T_byLiteral = _s;
+        //"file:///home/runner/.go/go1.21.3/src/compress/flate/huffman_code.go#L317"
         return (_s.length);
     }
     @:keep
@@ -32,6 +34,7 @@ package stdgo._internal.compress.flate;
     static public function _sort( _s:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_byliteral.T_byLiteral>, _a:stdgo.Slice<stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_byliteral.T_byLiteral> = _s;
         (_s : stdgo._internal.compress.flate.Flate_t_byliteral.T_byLiteral).__setData__((_a : stdgo._internal.compress.flate.Flate_t_byliteral.T_byLiteral));
+        //"file:///home/runner/.go/go1.21.3/src/compress/flate/huffman_code.go#L314"
         stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface(_s));
     }
 }

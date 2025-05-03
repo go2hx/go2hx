@@ -4,6 +4,7 @@ package stdgo._internal.net.mail;
     @:tdfield
     static public function error( _e:stdgo._internal.net.mail.Mail_t_charseterror.T_charsetError):stdgo.GoString {
         @:recv var _e:stdgo._internal.net.mail.Mail_t_charseterror.T_charsetError = _e;
+        //"file:///home/runner/.go/go1.21.3/src/net/mail/message.go#L848"
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("charset not supported: %q" : stdgo.GoString), stdgo.Go.toInterface((_e : stdgo.GoString)))?.__copy__();
     }
 }

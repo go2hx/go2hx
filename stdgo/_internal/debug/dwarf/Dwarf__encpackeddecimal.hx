@@ -1,2 +1,2 @@
 package stdgo._internal.debug.dwarf;
-final _encPackedDecimal : stdgo.GoUInt64 = 10i32;
+final _encPackedDecimal : stdgo.GoUInt64 = 10i64;

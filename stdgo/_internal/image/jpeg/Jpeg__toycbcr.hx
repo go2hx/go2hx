@@ -3,9 +3,11 @@ function _toYCbCr(_m:stdgo._internal.image.Image_image.Image, _p:stdgo._internal
         var _b = (_m.bounds()?.__copy__() : stdgo._internal.image.Image_rectangle.Rectangle);
         var _xmax = (_b.max.x - (1 : stdgo.GoInt) : stdgo.GoInt);
         var _ymax = (_b.max.y - (1 : stdgo.GoInt) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/image/jpeg/writer.go#L394"
         {
             var _j = (0 : stdgo.GoInt);
             while ((_j < (8 : stdgo.GoInt) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/image/jpeg/writer.go#L395"
                 {
                     var _i = (0 : stdgo.GoInt);
                     while ((_i < (8 : stdgo.GoInt) : Bool)) {

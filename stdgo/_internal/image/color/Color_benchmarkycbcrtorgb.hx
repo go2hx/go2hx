@@ -1,6 +1,8 @@
 package stdgo._internal.image.color;
 function benchmarkYCbCrToRGB(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
-        @:check2r _b.run(("0" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/image/color/ycbcr_test.go#L182"
+        _b.run(("0" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+            //"file:///home/runner/.go/go1.21.3/src/image/color/ycbcr_test.go#L183"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
@@ -14,7 +16,9 @@ function benchmarkYCbCrToRGB(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):
                 };
             };
         });
-        @:check2r _b.run(("128" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/image/color/ycbcr_test.go#L187"
+        _b.run(("128" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+            //"file:///home/runner/.go/go1.21.3/src/image/color/ycbcr_test.go#L188"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
@@ -28,7 +32,9 @@ function benchmarkYCbCrToRGB(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):
                 };
             };
         });
-        @:check2r _b.run(("255" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/image/color/ycbcr_test.go#L192"
+        _b.run(("255" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+            //"file:///home/runner/.go/go1.21.3/src/image/color/ycbcr_test.go#L193"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {

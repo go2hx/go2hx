@@ -4,6 +4,7 @@ package stdgo._internal.testing.iotest;
     @:tdfield
     static public function read( _r:stdgo.Ref<stdgo._internal.testing.iotest.Iotest_t_errreader.T_errReader>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.testing.iotest.Iotest_t_errreader.T_errReader> = _r;
+        //"file:///home/runner/.go/go1.21.3/src/testing/iotest/reader.go#L103"
         return { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _r ?? throw "null pointer dereference")._err };
     }
 }

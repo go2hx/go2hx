@@ -5,12 +5,16 @@ package stdgo._internal.net.textproto;
     static public function _upcomingHeaderKeys( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>):stdgo.GoInt {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
         var _n = (0 : stdgo.GoInt);
-        @:check2r (@:checkr _r ?? throw "null pointer dereference").r.peek((1 : stdgo.GoInt));
-        var _s = (@:check2r (@:checkr _r ?? throw "null pointer dereference").r.buffered() : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L602"
+        (@:checkr _r ?? throw "null pointer dereference").r.peek((1 : stdgo.GoInt));
+        var _s = ((@:checkr _r ?? throw "null pointer dereference").r.buffered() : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L604"
         if (_s == ((0 : stdgo.GoInt))) {
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L605"
             return _n;
         };
-        var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference").r.peek(_s), _peek:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+        var __tmp__ = (@:checkr _r ?? throw "null pointer dereference").r.peek(_s), _peek:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L608"
         while ((((_peek.length) > (0 : stdgo.GoInt) : Bool) && (_n < (1000 : stdgo.GoInt) : Bool) : Bool)) {
             var _line:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
             {
@@ -18,20 +22,27 @@ package stdgo._internal.net.textproto;
                 _line = @:tmpset0 __tmp__._0;
                 _peek = @:tmpset0 __tmp__._1;
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L611"
             if (((_line.length == (0 : stdgo.GoInt)) || (((_line.length == (1 : stdgo.GoInt)) && (_line[(0 : stdgo.GoInt)] == (13 : stdgo.GoUInt8)) : Bool)) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L613"
                 break;
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L615"
             if (((_line[(0 : stdgo.GoInt)] == (32 : stdgo.GoUInt8)) || (_line[(0 : stdgo.GoInt)] == (9 : stdgo.GoUInt8)) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L617"
                 continue;
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L619"
             _n++;
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L621"
         return _n;
     }
     @:keep
     @:tdfield
     static public function readMIMEHeader( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>):{ var _0 : stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L482"
         return stdgo._internal.net.textproto.Textproto__readmimeheader._readMIMEHeader(_r, (9223372036854775807i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64));
     }
     @:keep
@@ -40,59 +51,74 @@ package stdgo._internal.net.textproto;
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
         var _v:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         var _err:stdgo.Error = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L438"
         while (true) {
             var _line:stdgo.GoString = ("" : stdgo.GoString);
             {
-                var __tmp__ = @:check2r _r.readLine();
+                var __tmp__ = _r.readLine();
                 _line = @:tmpset0 __tmp__._0?.__copy__();
                 _err = @:tmpset0 __tmp__._1;
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L441"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L442"
                 if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
                     _err = stdgo._internal.io.Io_errunexpectedeof.errUnexpectedEOF;
                 };
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L445"
                 break;
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L449"
             if ((((_line.length) > (0 : stdgo.GoInt) : Bool) && (_line[(0 : stdgo.GoInt)] == (46 : stdgo.GoUInt8)) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L450"
                 if ((_line.length) == ((1 : stdgo.GoInt))) {
+                    //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L451"
                     break;
                 };
                 _line = (_line.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             };
             _v = (_v.__append__(_line?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L457"
         return { _0 : _v, _1 : _err };
     }
     @:keep
     @:tdfield
     static public function readDotBytes( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
-        return stdgo._internal.io.Io_readall.readAll(@:check2r _r.dotReader());
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L425"
+        return stdgo._internal.io.Io_readall.readAll(_r.dotReader());
     }
     @:keep
     @:tdfield
     static public function _closeDot( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L410"
         if (({
             final value = (@:checkr _r ?? throw "null pointer dereference")._dot;
             (value == null || (value : Dynamic).__nil__);
         })) {
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L411"
             return;
         };
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((128 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L414"
         while (({
             final value = (@:checkr _r ?? throw "null pointer dereference")._dot;
             (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
         })) {
-            @:check2r (@:checkr _r ?? throw "null pointer dereference")._dot.read(_buf);
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L417"
+            (@:checkr _r ?? throw "null pointer dereference")._dot.read(_buf);
         };
     }
     @:keep
     @:tdfield
     static public function dotReader( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>):stdgo._internal.io.Io_reader.Reader {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
-        @:check2r _r._closeDot();
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L309"
+        _r._closeDot();
         (@:checkr _r ?? throw "null pointer dereference")._dot = (stdgo.Go.setRef(({ _r : _r } : stdgo._internal.net.textproto.Textproto_t_dotreader.T_dotReader)) : stdgo.Ref<stdgo._internal.net.textproto.Textproto_t_dotreader.T_dotReader>);
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L311"
         return stdgo.Go.asInterface((@:checkr _r ?? throw "null pointer dereference")._dot);
     }
     @:keep
@@ -100,11 +126,14 @@ package stdgo._internal.net.textproto;
     static public function readResponse( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>, _expectCode:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
         var _code = (0 : stdgo.GoInt), _message = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var __tmp__ = @:check2r _r._readCodeLine(_expectCode), _code:stdgo.GoInt = __tmp__._0, _continued:Bool = __tmp__._1, _message:stdgo.GoString = __tmp__._2, _err:stdgo.Error = __tmp__._3;
+        var __tmp__ = _r._readCodeLine(_expectCode), _code:stdgo.GoInt = __tmp__._0, _continued:Bool = __tmp__._1, _message:stdgo.GoString = __tmp__._2, _err:stdgo.Error = __tmp__._3;
         var _multi = (_continued : Bool);
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L269"
         while (_continued) {
-            var __tmp__ = @:check2r _r.readLine(), _line:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _r.readLine(), _line:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L271"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L272"
                 return {
                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
                     _code = __tmp__._0;
@@ -122,16 +151,20 @@ package stdgo._internal.net.textproto;
                 _moreMessage = @:tmpset0 __tmp__._2?.__copy__();
                 _err = @:tmpset0 __tmp__._3;
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L278"
             if (((_err != null) || (_code2 != _code) : Bool)) {
                 _message = (_message + ((("\n" : stdgo.GoString) + stdgo._internal.strings.Strings_trimright.trimRight(_line?.__copy__(), ("\r\n" : stdgo.GoString))?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
                 _continued = true;
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L281"
                 continue;
             };
             _message = (_message + ((("\n" : stdgo.GoString) + _moreMessage?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L285"
         if (((_err != null && _multi : Bool) && (_message != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             _err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.textproto.Textproto_error.Error(_code, _message?.__copy__()) : stdgo._internal.net.textproto.Textproto_error.Error)) : stdgo.Ref<stdgo._internal.net.textproto.Textproto_error.Error>));
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L289"
         return { _0 : _code, _1 : _message, _2 : _err };
     }
     @:keep
@@ -139,10 +172,12 @@ package stdgo._internal.net.textproto;
     static public function readCodeLine( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>, _expectCode:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
         var _code = (0 : stdgo.GoInt), _message = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var __tmp__ = @:check2r _r._readCodeLine(_expectCode), _code:stdgo.GoInt = __tmp__._0, _continued:Bool = __tmp__._1, _message:stdgo.GoString = __tmp__._2, _err:stdgo.Error = __tmp__._3;
+        var __tmp__ = _r._readCodeLine(_expectCode), _code:stdgo.GoInt = __tmp__._0, _continued:Bool = __tmp__._1, _message:stdgo.GoString = __tmp__._2, _err:stdgo.Error = __tmp__._3;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L234"
         if (((_err == null) && _continued : Bool)) {
             _err = stdgo.Go.asInterface(((("unexpected multi-line response: " : stdgo.GoString) + _message?.__copy__() : stdgo.GoString) : stdgo._internal.net.textproto.Textproto_protocolerror.ProtocolError));
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L237"
         return { _0 : _code, _1 : _message, _2 : _err };
     }
     @:keep
@@ -150,10 +185,13 @@ package stdgo._internal.net.textproto;
     static public function _readCodeLine( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>, _expectCode:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoString; var _3 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
         var _code = (0 : stdgo.GoInt), _continued = false, _message = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var __tmp__ = @:check2r _r.readLine(), _line:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _r.readLine(), _line:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L189"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L190"
             return { _0 : _code, _1 : _continued, _2 : _message, _3 : _err };
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L192"
         return stdgo._internal.net.textproto.Textproto__parsecodeline._parseCodeLine(_line?.__copy__(), _expectCode);
     }
     @:keep
@@ -161,109 +199,147 @@ package stdgo._internal.net.textproto;
     static public function _skipSpace( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>):stdgo.GoInt {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
         var _n = (0 : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L172"
         while (true) {
-            var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference").r.readByte(), _c:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = (@:checkr _r ?? throw "null pointer dereference").r.readByte(), _c:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L174"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L176"
                 break;
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L178"
             if (((_c != (32 : stdgo.GoUInt8)) && (_c != (9 : stdgo.GoUInt8)) : Bool)) {
-                @:check2r (@:checkr _r ?? throw "null pointer dereference").r.unreadByte();
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L179"
+                (@:checkr _r ?? throw "null pointer dereference").r.unreadByte();
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L180"
                 break;
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L182"
             _n++;
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L184"
         return _n;
     }
     @:keep
     @:tdfield
     static public function _readContinuedLineSlice( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>, _validateFirstLine:stdgo.Slice<stdgo.GoUInt8> -> stdgo.Error):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L124"
         if (_validateFirstLine == null) {
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L125"
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("missing validateFirstLine func" : stdgo.GoString)) };
         };
-        var __tmp__ = @:check2r _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L130"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L131"
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L133"
         if ((_line.length) == ((0 : stdgo.GoInt))) {
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L134"
             return { _0 : _line, _1 : (null : stdgo.Error) };
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L137"
         {
             var _err = (_validateFirstLine(_line) : stdgo.Error);
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L138"
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
         };
-        if ((@:check2r (@:checkr _r ?? throw "null pointer dereference").r.buffered() > (1 : stdgo.GoInt) : Bool)) {
-            var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference").r.peek((2 : stdgo.GoInt)), _peek:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L145"
+        if (((@:checkr _r ?? throw "null pointer dereference").r.buffered() > (1 : stdgo.GoInt) : Bool)) {
+            var __tmp__ = (@:checkr _r ?? throw "null pointer dereference").r.peek((2 : stdgo.GoInt)), _peek:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L147"
             if (((((_peek.length) > (0 : stdgo.GoInt) : Bool) && ((stdgo._internal.net.textproto.Textproto__isasciiletter._isASCIILetter(_peek[(0 : stdgo.GoInt)]) || (_peek[(0 : stdgo.GoInt)] == (10 : stdgo.GoUInt8)) : Bool)) : Bool) || (((_peek.length) == ((2 : stdgo.GoInt)) && _peek[(0 : stdgo.GoInt)] == ((13 : stdgo.GoUInt8)) : Bool) && _peek[(1 : stdgo.GoInt)] == ((10 : stdgo.GoUInt8)) : Bool) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L149"
                 return { _0 : stdgo._internal.net.textproto.Textproto__trim._trim(_line), _1 : (null : stdgo.Error) };
             };
         };
         (@:checkr _r ?? throw "null pointer dereference")._buf = (((@:checkr _r ?? throw "null pointer dereference")._buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(stdgo._internal.net.textproto.Textproto__trim._trim(_line) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
-        while ((@:check2r _r._skipSpace() > (0 : stdgo.GoInt) : Bool)) {
-            var __tmp__ = @:check2r _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L158"
+        while ((_r._skipSpace() > (0 : stdgo.GoInt) : Bool)) {
+            var __tmp__ = _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L160"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L161"
                 break;
             };
             (@:checkr _r ?? throw "null pointer dereference")._buf = ((@:checkr _r ?? throw "null pointer dereference")._buf.__append__((32 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
             (@:checkr _r ?? throw "null pointer dereference")._buf = ((@:checkr _r ?? throw "null pointer dereference")._buf.__append__(...(stdgo._internal.net.textproto.Textproto__trim._trim(_line) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L166"
         return { _0 : (@:checkr _r ?? throw "null pointer dereference")._buf, _1 : (null : stdgo.Error) };
     }
     @:keep
     @:tdfield
     static public function readContinuedLineBytes( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
-        var __tmp__ = @:check2r _r._readContinuedLineSlice(stdgo._internal.net.textproto.Textproto__novalidation._noValidation), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _r._readContinuedLineSlice(stdgo._internal.net.textproto.Textproto__novalidation._noValidation), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L113"
         if (_line != null) {
             _line = stdgo._internal.bytes.Bytes_clone.clone(_line);
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L116"
         return { _0 : _line, _1 : _err };
     }
     @:keep
     @:tdfield
     static public function readContinuedLine( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
-        var __tmp__ = @:check2r _r._readContinuedLineSlice(stdgo._internal.net.textproto.Textproto__novalidation._noValidation), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _r._readContinuedLineSlice(stdgo._internal.net.textproto.Textproto__novalidation._noValidation), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L92"
         return { _0 : (_line : stdgo.GoString)?.__copy__(), _1 : _err };
     }
     @:keep
     @:tdfield
     static public function _readLineSlice( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
-        @:check2r _r._closeDot();
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L53"
+        _r._closeDot();
         var _line:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L55"
         while (true) {
-            var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference").r.readLine(), _l:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _more:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+            var __tmp__ = (@:checkr _r ?? throw "null pointer dereference").r.readLine(), _l:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _more:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L57"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L58"
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L61"
             if (((_line == null) && !_more : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L62"
                 return { _0 : _l, _1 : (null : stdgo.Error) };
             };
             _line = (_line.__append__(...(_l : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L65"
             if (!_more) {
+                //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L66"
                 break;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L69"
         return { _0 : _line, _1 : (null : stdgo.Error) };
     }
     @:keep
     @:tdfield
     static public function readLineBytes( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
-        var __tmp__ = @:check2r _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L46"
         if (_line != null) {
             _line = stdgo._internal.bytes.Bytes_clone.clone(_line);
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L49"
         return { _0 : _line, _1 : _err };
     }
     @:keep
     @:tdfield
     static public function readLine( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
-        var __tmp__ = @:check2r _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L40"
         return { _0 : (_line : stdgo.GoString)?.__copy__(), _1 : _err };
     }
 }

@@ -3,6 +3,7 @@ function _parseGeneralizedTime(_bytes:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : std
         var _ret = ({} : stdgo._internal.time.Time_time.Time), _err = (null : stdgo.Error);
         {};
         var _s = ((_bytes : stdgo.GoString)?.__copy__() : stdgo.GoString);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/asn1.go#L374"
         {
             {
                 var __tmp__ = stdgo._internal.time.Time_parse.parse(("20060102150405.999999999Z0700" : stdgo.GoString), _s?.__copy__());
@@ -10,14 +11,17 @@ function _parseGeneralizedTime(_bytes:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : std
                 _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/asn1.go#L375"
                 return { _0 : _ret, _1 : _err };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/asn1.go#L378"
         {
             var _serialized = (_ret.format(("20060102150405.999999999Z0700" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             if (_serialized != (_s)) {
                 _err = stdgo._internal.fmt.Fmt_errorf.errorf(("asn1: time did not serialize back to the original value and may be invalid: given %q, but serialized as %q" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_serialized));
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/asn1.go#L382"
         return { _0 : _ret, _1 : _err };
     }

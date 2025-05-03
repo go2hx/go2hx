@@ -1,2 +1,2 @@
 package stdgo._internal.image.gif;
-final _sTrailer : stdgo.GoUInt64 = 59i32;
+final _sTrailer : stdgo.GoUInt64 = 59i64;

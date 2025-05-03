@@ -1,2 +1,2 @@
 package stdgo._internal.image.gif;
-final disposalNone : stdgo.GoUInt64 = 1i32;
+final disposalNone : stdgo.GoUInt64 = 1i64;

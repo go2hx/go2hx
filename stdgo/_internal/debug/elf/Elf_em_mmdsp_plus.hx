@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final eM_MMDSP_PLUS : stdgo._internal.debug.elf.Elf_machine.Machine = 160i32;
+final eM_MMDSP_PLUS : stdgo._internal.debug.elf.Elf_machine.Machine = 160i64;

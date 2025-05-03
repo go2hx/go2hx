@@ -1,6 +1,7 @@
 package stdgo._internal.strconv;
 function _convErr(_err:stdgo.Error, _s:stdgo.GoString):{ var _0 : stdgo.Error; var _1 : stdgo.Error; } {
         var _syntax = (null : stdgo.Error), _range_ = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/strconv/atoc.go#L12"
         {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>)) : stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>), _1 : true };
@@ -10,7 +11,9 @@ function _convErr(_err:stdgo.Error, _s:stdgo.GoString):{ var _0 : stdgo.Error; v
             if (_ok) {
                 (@:checkr _x ?? throw "null pointer dereference").func = ("ParseComplex" : stdgo.GoString);
                 (@:checkr _x ?? throw "null pointer dereference").num = stdgo._internal.strconv.Strconv__clonestring._cloneString(_s?.__copy__())?.__copy__();
+                //"file:///home/runner/.go/go1.21.3/src/strconv/atoc.go#L15"
                 if (stdgo.Go.toInterface((@:checkr _x ?? throw "null pointer dereference").err) == (stdgo.Go.toInterface(stdgo._internal.strconv.Strconv_errrange.errRange))) {
+                    //"file:///home/runner/.go/go1.21.3/src/strconv/atoc.go#L16"
                     return {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Error), _1 : stdgo.Go.asInterface(_x) };
                         _syntax = __tmp__._0;
@@ -20,6 +23,7 @@ function _convErr(_err:stdgo.Error, _s:stdgo.GoString):{ var _0 : stdgo.Error; v
                 };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/strconv/atoc.go#L19"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : _err, _1 : (null : stdgo.Error) };
             _syntax = __tmp__._0;

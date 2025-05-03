@@ -23,13 +23,19 @@ stdgo._internal.image.Image_rect.rect((9 : stdgo.GoInt), (9 : stdgo.GoInt), (17 
 stdgo._internal.image.Image_rect.rect((10 : stdgo.GoInt), (10 : stdgo.GoInt), (17 : stdgo.GoInt), (17 : stdgo.GoInt))?.__copy__()].concat([for (i in 20 ... (20 > 20 ? 20 : 20 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.image.Image_rectangle.Rectangle)])) : stdgo.Slice<stdgo._internal.image.Image_rectangle.Rectangle>);
         var _subsampleRatios = (new stdgo.Slice<stdgo._internal.image.Image_ycbcrsubsampleratio.YCbCrSubsampleRatio>(6, 6, ...[(0 : stdgo._internal.image.Image_ycbcrsubsampleratio.YCbCrSubsampleRatio), (1 : stdgo._internal.image.Image_ycbcrsubsampleratio.YCbCrSubsampleRatio), (2 : stdgo._internal.image.Image_ycbcrsubsampleratio.YCbCrSubsampleRatio), (3 : stdgo._internal.image.Image_ycbcrsubsampleratio.YCbCrSubsampleRatio), (4 : stdgo._internal.image.Image_ycbcrsubsampleratio.YCbCrSubsampleRatio), (5 : stdgo._internal.image.Image_ycbcrsubsampleratio.YCbCrSubsampleRatio)]).__setNumber32__() : stdgo.Slice<stdgo._internal.image.Image_ycbcrsubsampleratio.YCbCrSubsampleRatio>);
         var _deltas = (new stdgo.Slice<stdgo._internal.image.Image_point.Point>(4, 4, ...[stdgo._internal.image.Image_pt.pt((0 : stdgo.GoInt), (0 : stdgo.GoInt))?.__copy__(), stdgo._internal.image.Image_pt.pt((1000 : stdgo.GoInt), (1001 : stdgo.GoInt))?.__copy__(), stdgo._internal.image.Image_pt.pt((5001 : stdgo.GoInt), (-400 : stdgo.GoInt))?.__copy__(), stdgo._internal.image.Image_pt.pt((-701 : stdgo.GoInt), (-801 : stdgo.GoInt))?.__copy__()].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.image.Image_point.Point)])) : stdgo.Slice<stdgo._internal.image.Image_point.Point>);
+        //"file:///home/runner/.go/go1.21.3/src/image/ycbcr_test.go#L49"
         for (__0 => _r in _rects) {
+            //"file:///home/runner/.go/go1.21.3/src/image/ycbcr_test.go#L50"
             for (__1 => _subsampleRatio in _subsampleRatios) {
+                //"file:///home/runner/.go/go1.21.3/src/image/ycbcr_test.go#L51"
                 for (__2 => _delta in _deltas) {
+                    //"file:///home/runner/.go/go1.21.3/src/image/ycbcr_test.go#L52"
                     stdgo._internal.image.Image__testycbcr._testYCbCr(_t, _r?.__copy__(), _subsampleRatio, _delta?.__copy__());
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/image/ycbcr_test.go#L55"
             if (stdgo._internal.testing.Testing_short.short()) {
+                //"file:///home/runner/.go/go1.21.3/src/image/ycbcr_test.go#L56"
                 break;
             };
         };

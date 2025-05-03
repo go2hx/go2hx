@@ -6,6 +6,7 @@ package stdgo._internal.encoding.binary;
         @:recv var _br:stdgo.Ref<stdgo._internal.encoding.binary.Binary_t_byteslicereader.T_byteSliceReader> = _br;
         var _n = (_p.__copyTo__((@:checkr _br ?? throw "null pointer dereference")._remain) : stdgo.GoInt);
         (@:checkr _br ?? throw "null pointer dereference")._remain = ((@:checkr _br ?? throw "null pointer dereference")._remain.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/binary/binary_test.go#L594"
         return { _0 : _n, _1 : (null : stdgo.Error) };
     }
 }

@@ -1,5 +1,6 @@
 package stdgo._internal.internal.coverage.cformat;
 function newFormatter(_cm:stdgo._internal.internal.coverage.Coverage_countermode.CounterMode):stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter> {
+        //"file:///home/runner/.go/go1.21.3/src/internal/coverage/cformat/format.go#L81"
         return (stdgo.Go.setRef(({ _pm : (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>>();
             x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>);

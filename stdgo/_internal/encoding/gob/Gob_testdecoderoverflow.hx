@@ -26,8 +26,10 @@ function testDecoderOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>
 (32 : stdgo.GoUInt8),
 (32 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>))));
         var _r:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-        var _err = (@:check2r _dec.decode(_r) : stdgo.Error);
+        var _err = (_dec.decode(_r) : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L1277"
         if (_err == null) {
-            @:check2r _t.fatalf(("expected an error" : stdgo.GoString));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L1278"
+            _t.fatalf(("expected an error" : stdgo.GoString));
         };
     }

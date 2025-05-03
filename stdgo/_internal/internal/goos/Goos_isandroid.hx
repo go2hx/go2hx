@@ -1,2 +1,2 @@
 package stdgo._internal.internal.goos;
-final isAndroid : stdgo.GoUInt64 = 0i32;
+final isAndroid : stdgo.GoUInt64 = 0i64;

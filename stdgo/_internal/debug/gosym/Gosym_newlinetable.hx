@@ -1,5 +1,6 @@
 package stdgo._internal.debug.gosym;
 function newLineTable(_data:stdgo.Slice<stdgo.GoUInt8>, _text:stdgo.GoUInt64):stdgo.Ref<stdgo._internal.debug.gosym.Gosym_linetable.LineTable> {
+        //"file:///home/runner/.go/go1.21.3/src/debug/gosym/pclntab.go#L153"
         return (stdgo.Go.setRef(({ data : _data, pC : _text, line : (0 : stdgo.GoInt), _funcNames : (({
             final x = new stdgo.GoMap.GoIntMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);

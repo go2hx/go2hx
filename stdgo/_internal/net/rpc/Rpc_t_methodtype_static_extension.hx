@@ -5,9 +5,12 @@ package stdgo._internal.net.rpc;
     static public function numCalls( _m:stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType>):stdgo.GoUInt {
         @:recv var _m:stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType> = _m;
         var _n = (0 : stdgo.GoUInt);
-        @:check2r _m.lock();
+        //"file:///home/runner/.go/go1.21.3/src/net/rpc/server.go#L367"
+        _m.lock();
         _n = (@:checkr _m ?? throw "null pointer dereference")._numCalls;
-        @:check2r _m.unlock();
+        //"file:///home/runner/.go/go1.21.3/src/net/rpc/server.go#L369"
+        _m.unlock();
+        //"file:///home/runner/.go/go1.21.3/src/net/rpc/server.go#L370"
         return _n;
     }
     @:embedded

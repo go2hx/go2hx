@@ -1,2 +1,2 @@
 package stdgo._internal.compress.flate;
-final _minNonLiteralBlockSize : stdgo.GoUInt64 = 17i32;
+final _minNonLiteralBlockSize : stdgo.GoUInt64 = 17i64;

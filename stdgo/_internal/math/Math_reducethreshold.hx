@@ -1,2 +1,2 @@
 package stdgo._internal.math;
-final reduceThreshold : stdgo.GoUInt64 = 536870912i32;
+final reduceThreshold : stdgo.GoUInt64 = 536870912i64;

@@ -4,9 +4,12 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function _associate( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _new_:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _tree:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L228"
         if ((@:checkr _new_ ?? throw "null pointer dereference")._common != ((@:checkr _t ?? throw "null pointer dereference")._common)) {
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L229"
             throw stdgo.Go.toInterface(("internal error: associate not common" : stdgo.GoString));
         };
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L231"
         {
             var _old = ((@:checkr _t ?? throw "null pointer dereference")._common._tmpl[(@:checkr _new_ ?? throw "null pointer dereference")._name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>));
             if (((({
@@ -16,31 +19,42 @@ package stdgo._internal.text.template;
                 final value = (@:checkr _old ?? throw "null pointer dereference").tree;
                 (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
             }) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L234"
                 return false;
             };
         };
         (@:checkr _t ?? throw "null pointer dereference")._common._tmpl[(@:checkr _new_ ?? throw "null pointer dereference")._name] = _new_;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L237"
         return true;
     }
     @:keep
     @:tdfield
     static public function parse( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _text:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
-        @:check2r _t._init();
-        @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rLock();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L208"
+        _t._init();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L209"
+        (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rLock();
         var __tmp__ = stdgo._internal.text.template.parse.Parse_parse.parse((@:checkr _t ?? throw "null pointer dereference")._name?.__copy__(), _text?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._leftDelim?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._rightDelim?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._common._parseFuncs, stdgo._internal.text.template.Template__builtins._builtins()), _trees:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rUnlock();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L211"
+        (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rUnlock();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L212"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L213"
             return { _0 : null, _1 : _err };
         };
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L216"
         for (_name => _tree in _trees) {
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L217"
             {
-                var __tmp__ = @:check2r _t.addParseTree(_name?.__copy__(), _tree), __80:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = _t.addParseTree(_name?.__copy__(), _tree), __80:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
+                    //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L218"
                     return { _0 : null, _1 : _err };
                 };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L221"
         return { _0 : _t, _1 : (null : stdgo.Error) };
     }
     @:keep
@@ -49,17 +63,21 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L189"
             if (({
                 final value = (@:checkr _t ?? throw "null pointer dereference")._common;
                 (value == null || (value : Dynamic).__nil__);
             })) {
+                //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L190"
                 return null;
             };
-            @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L192"
+            (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
             {
-                final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rUnlock;
+                final __f__ = (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rUnlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L194"
             {
                 final __ret__:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = ((@:checkr _t ?? throw "null pointer dereference")._common._tmpl[_name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>));
                 for (defer in __deferstack__) {
@@ -86,7 +104,7 @@ package stdgo._internal.text.template;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -129,14 +147,19 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2r _t._init();
-            @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.lock();
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L178"
+            _t._init();
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L179"
+            (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.lock();
             {
-                final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.unlock;
+                final __f__ = (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L181"
             stdgo._internal.text.template.Template__addvaluefuncs._addValueFuncs((@:checkr _t ?? throw "null pointer dereference")._common._execFuncs, _funcMap);
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L182"
             stdgo._internal.text.template.Template__addfuncs._addFuncs((@:checkr _t ?? throw "null pointer dereference")._common._parseFuncs, _funcMap);
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L183"
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -162,7 +185,7 @@ package stdgo._internal.text.template;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -203,9 +226,11 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function delims( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _left:stdgo.GoString, _right:stdgo.GoString):stdgo.Ref<stdgo._internal.text.template.Template_template.Template> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
-        @:check2r _t._init();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L165"
+        _t._init();
         (@:checkr _t ?? throw "null pointer dereference")._leftDelim = _left?.__copy__();
         (@:checkr _t ?? throw "null pointer dereference")._rightDelim = _right?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L168"
         return _t;
     }
     @:keep
@@ -214,21 +239,26 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L146"
             if (({
                 final value = (@:checkr _t ?? throw "null pointer dereference")._common;
                 (value == null || (value : Dynamic).__nil__);
             })) {
+                //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L147"
                 return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>);
             };
-            @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L150"
+            (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
             {
-                final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rUnlock;
+                final __f__ = (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rUnlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _m = (new stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>((0 : stdgo.GoInt).toBasic(), ((@:checkr _t ?? throw "null pointer dereference")._common._tmpl.length)) : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>);
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L153"
             for (__56 => _v in (@:checkr _t ?? throw "null pointer dereference")._common._tmpl) {
                 _m = (_m.__append__(_v) : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>);
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L156"
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -254,7 +284,7 @@ package stdgo._internal.text.template;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -297,22 +327,27 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2r _t._init();
-            @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.lock();
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L130"
+            _t._init();
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L131"
+            (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.lock();
             {
-                final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.unlock;
+                final __f__ = (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _nt = _t;
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L134"
             if (_name != ((@:checkr _t ?? throw "null pointer dereference")._name)) {
-                _nt = @:check2r _t.new_(_name?.__copy__());
+                _nt = _t.new_(_name?.__copy__());
             };
-            if ((@:check2r _t._associate(_nt, _tree) || ({
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L138"
+            if ((_t._associate(_nt, _tree) || ({
                 final value = (@:checkr _nt ?? throw "null pointer dereference").tree;
                 (value == null || (value : Dynamic).__nil__);
             }) : Bool)) {
                 (@:checkr _nt ?? throw "null pointer dereference").tree = _tree;
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L141"
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : _nt, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
@@ -339,7 +374,7 @@ package stdgo._internal.text.template;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -380,6 +415,7 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function _copy( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _c:stdgo.Ref<stdgo._internal.text.template.Template_t_common.T_common>):stdgo.Ref<stdgo._internal.text.template.Template_template.Template> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L116"
         return (stdgo.Go.setRef(({ _name : (@:checkr _t ?? throw "null pointer dereference")._name?.__copy__(), tree : (@:checkr _t ?? throw "null pointer dereference").tree, _common : _c, _leftDelim : (@:checkr _t ?? throw "null pointer dereference")._leftDelim?.__copy__(), _rightDelim : (@:checkr _t ?? throw "null pointer dereference")._rightDelim?.__copy__() } : stdgo._internal.text.template.Template_template.Template)) : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>);
     }
     @:keep
@@ -388,38 +424,49 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            var _nt = @:check2r _t._copy(null);
-            @:check2r _nt._init();
+            var _nt = _t._copy(null);
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L88"
+            _nt._init();
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L89"
             if (({
                 final value = (@:checkr _t ?? throw "null pointer dereference")._common;
                 (value == null || (value : Dynamic).__nil__);
             })) {
+                //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L90"
                 return { _0 : _nt, _1 : (null : stdgo.Error) };
             };
-            @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L92"
+            (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
             {
-                final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rUnlock;
+                final __f__ = (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rUnlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L94"
             for (_k => _v in (@:checkr _t ?? throw "null pointer dereference")._common._tmpl) {
+                //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L95"
                 if (_k == ((@:checkr _t ?? throw "null pointer dereference")._name)) {
                     (@:checkr _nt ?? throw "null pointer dereference")._common._tmpl[(@:checkr _t ?? throw "null pointer dereference")._name] = _nt;
+                    //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L97"
                     continue;
                 };
-                var _tmpl = @:check2r _v._copy((@:checkr _nt ?? throw "null pointer dereference")._common);
+                var _tmpl = _v._copy((@:checkr _nt ?? throw "null pointer dereference")._common);
                 (@:checkr _nt ?? throw "null pointer dereference")._common._tmpl[_k] = _tmpl;
             };
-            @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rLock();
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L103"
+            (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rLock();
             {
-                final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rUnlock;
+                final __f__ = (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rUnlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L105"
             for (_k => _v in (@:checkr _t ?? throw "null pointer dereference")._common._parseFuncs) {
                 (@:checkr _nt ?? throw "null pointer dereference")._common._parseFuncs[_k] = _v;
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L108"
             for (_k => _v in (@:checkr _t ?? throw "null pointer dereference")._common._execFuncs) {
                 (@:checkr _nt ?? throw "null pointer dereference")._common._execFuncs[_k] = _v?.__copy__();
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L111"
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : _nt, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
@@ -446,7 +493,7 @@ package stdgo._internal.text.template;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -487,6 +534,7 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function _init( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L71"
         if (({
             final value = (@:checkr _t ?? throw "null pointer dereference")._common;
             (value == null || (value : Dynamic).__nil__);
@@ -517,39 +565,50 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function new_( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _name:stdgo.GoString):stdgo.Ref<stdgo._internal.text.template.Template_template.Template> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
-        @:check2r _t._init();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L59"
+        _t._init();
         var _nt = (stdgo.Go.setRef(({ _name : _name?.__copy__(), _common : (@:checkr _t ?? throw "null pointer dereference")._common, _leftDelim : (@:checkr _t ?? throw "null pointer dereference")._leftDelim?.__copy__(), _rightDelim : (@:checkr _t ?? throw "null pointer dereference")._rightDelim?.__copy__() } : stdgo._internal.text.template.Template_template.Template)) : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>);
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L66"
         return _nt;
     }
     @:keep
     @:tdfield
     static public function name( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/template.go#L48"
         return (@:checkr _t ?? throw "null pointer dereference")._name?.__copy__();
     }
     @:keep
     @:tdfield
     static public function _setOption( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _opt:stdgo.GoString):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/option.go#L51"
         if (_opt == ((stdgo.Go.str() : stdgo.GoString))) {
+            //"file:///home/runner/.go/go1.21.3/src/text/template/option.go#L52"
             throw stdgo.Go.toInterface(("empty option string" : stdgo.GoString));
         };
+        //"file:///home/runner/.go/go1.21.3/src/text/template/option.go#L55"
         {
             var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_opt?.__copy__(), ("=" : stdgo.GoString)), _key:stdgo.GoString = __tmp__._0, _value:stdgo.GoString = __tmp__._1, _ok:Bool = __tmp__._2;
             if (_ok) {
+                //"file:///home/runner/.go/go1.21.3/src/text/template/option.go#L56"
                 {
                     final __value__ = _key;
                     if (__value__ == (("missingkey" : stdgo.GoString))) {
+                        //"file:///home/runner/.go/go1.21.3/src/text/template/option.go#L58"
                         {
                             final __value__ = _value;
                             if (__value__ == (("invalid" : stdgo.GoString)) || __value__ == (("default" : stdgo.GoString))) {
                                 (@:checkr _t ?? throw "null pointer dereference")._common._option._missingKey = (0 : stdgo._internal.text.template.Template_t_missingkeyaction.T_missingKeyAction);
+                                //"file:///home/runner/.go/go1.21.3/src/text/template/option.go#L61"
                                 return;
                             } else if (__value__ == (("zero" : stdgo.GoString))) {
                                 (@:checkr _t ?? throw "null pointer dereference")._common._option._missingKey = (1 : stdgo._internal.text.template.Template_t_missingkeyaction.T_missingKeyAction);
+                                //"file:///home/runner/.go/go1.21.3/src/text/template/option.go#L64"
                                 return;
                             } else if (__value__ == (("error" : stdgo.GoString))) {
                                 (@:checkr _t ?? throw "null pointer dereference")._common._option._missingKey = (2 : stdgo._internal.text.template.Template_t_missingkeyaction.T_missingKeyAction);
+                                //"file:///home/runner/.go/go1.21.3/src/text/template/option.go#L67"
                                 return;
                             };
                         };
@@ -557,6 +616,7 @@ package stdgo._internal.text.template;
                 };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/text/template/option.go#L71"
         throw stdgo.Go.toInterface((("unrecognized option: " : stdgo.GoString) + _opt?.__copy__() : stdgo.GoString));
     }
     @:keep
@@ -564,10 +624,14 @@ package stdgo._internal.text.template;
     static public function option( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _opt:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo._internal.text.template.Template_template.Template> {
         var _opt = new stdgo.Slice<stdgo.GoString>(_opt.length, 0, ..._opt);
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
-        @:check2r _t._init();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/option.go#L43"
+        _t._init();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/option.go#L44"
         for (__16 => _s in _opt) {
-            @:check2r _t._setOption(_s?.__copy__());
+            //"file:///home/runner/.go/go1.21.3/src/text/template/option.go#L45"
+            _t._setOption(_s?.__copy__());
         };
+        //"file:///home/runner/.go/go1.21.3/src/text/template/option.go#L47"
         return _t;
     }
     @:keep
@@ -575,14 +639,18 @@ package stdgo._internal.text.template;
     static public function parseFS( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _fsys:stdgo._internal.io.fs.Fs_fs.FS, _patterns:haxe.Rest<stdgo.GoString>):{ var _0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>; var _1 : stdgo.Error; } {
         var _patterns = new stdgo.Slice<stdgo.GoString>(_patterns.length, 0, ..._patterns);
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
-        @:check2r _t._init();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/helper.go#L147"
+        _t._init();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/helper.go#L148"
         return stdgo._internal.text.template.Template__parsefs._parseFS(_t, _fsys, _patterns);
     }
     @:keep
     @:tdfield
     static public function parseGlob( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _pattern:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
-        @:check2r _t._init();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/helper.go#L118"
+        _t._init();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/helper.go#L119"
         return stdgo._internal.text.template.Template__parseglob._parseGlob(_t, _pattern?.__copy__());
     }
     @:keep
@@ -590,7 +658,9 @@ package stdgo._internal.text.template;
     static public function parseFiles( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _filenames:haxe.Rest<stdgo.GoString>):{ var _0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>; var _1 : stdgo.Error; } {
         var _filenames = new stdgo.Slice<stdgo.GoString>(_filenames.length, 0, ..._filenames);
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
-        @:check2r _t._init();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/helper.go#L56"
+        _t._init();
+        //"file:///home/runner/.go/go1.21.3/src/text/template/helper.go#L57"
         return stdgo._internal.text.template.Template__parsefiles._parseFiles(_t, stdgo._internal.text.template.Template__readfileos._readFileOS, ...(_filenames : Array<stdgo.GoString>));
     }
     @:keep
@@ -599,19 +669,24 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L233"
             if (({
                 final value = (@:checkr _t ?? throw "null pointer dereference")._common;
                 (value == null || (value : Dynamic).__nil__);
             })) {
+                //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L234"
                 return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             };
             var _b:stdgo._internal.strings.Strings_builder.Builder = ({} : stdgo._internal.strings.Strings_builder.Builder);
-            @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L237"
+            (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
             {
-                final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rUnlock;
+                final __f__ = (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rUnlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L239"
             for (_name => _tmpl in (@:checkr _t ?? throw "null pointer dereference")._common._tmpl) {
+                //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L240"
                 if ((({
                     final value = (@:checkr _tmpl ?? throw "null pointer dereference").tree;
                     (value == null || (value : Dynamic).__nil__);
@@ -619,17 +694,23 @@ package stdgo._internal.text.template;
                     final value = (@:checkr _tmpl ?? throw "null pointer dereference").tree.root;
                     (value == null || (value : Dynamic).__nil__);
                 }) : Bool)) {
+                    //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L241"
                     continue;
                 };
-                if (@:check2 _b.len() == ((0 : stdgo.GoInt))) {
-                    @:check2 _b.writeString(("; defined templates are: " : stdgo.GoString));
+                //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L243"
+                if (_b.len() == ((0 : stdgo.GoInt))) {
+                    //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L244"
+                    _b.writeString(("; defined templates are: " : stdgo.GoString));
                 } else {
-                    @:check2 _b.writeString((", " : stdgo.GoString));
+                    //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L246"
+                    _b.writeString((", " : stdgo.GoString));
                 };
+                //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L248"
                 stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>)), ("%q" : stdgo.GoString), stdgo.Go.toInterface(_name));
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L250"
             {
-                final __ret__:stdgo.GoString = (@:check2 _b.string() : stdgo.GoString)?.__copy__();
+                final __ret__:stdgo.GoString = (_b.string() : stdgo.GoString)?.__copy__();
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -654,7 +735,7 @@ package stdgo._internal.text.template;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -708,10 +789,12 @@ package stdgo._internal.text.template;
             } catch(_) {
                 { _0 : ({} : stdgo._internal.reflect.Reflect_value.Value), _1 : false };
             }, _value = __tmp__._0, _ok = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L213"
             if (!_ok) {
                 _value = stdgo._internal.reflect.Reflect_valueof.valueOf(_data)?.__copy__();
             };
             var _state = (stdgo.Go.setRef(({ _tmpl : _t, _wr : _wr, _vars : (new stdgo.Slice<stdgo._internal.text.template.Template_t_variable.T_variable>(1, 1, ...[(new stdgo._internal.text.template.Template_t_variable.T_variable(("$" : stdgo.GoString), _value?.__copy__()) : stdgo._internal.text.template.Template_t_variable.T_variable)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template.Template_t_variable.T_variable)])) : stdgo.Slice<stdgo._internal.text.template.Template_t_variable.T_variable>) } : stdgo._internal.text.template.Template_t_state.T_state)) : stdgo.Ref<stdgo._internal.text.template.Template_t_state.T_state>);
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L221"
             if ((({
                 final value = (@:checkr _t ?? throw "null pointer dereference").tree;
                 (value == null || (value : Dynamic).__nil__);
@@ -719,9 +802,12 @@ package stdgo._internal.text.template;
                 final value = (@:checkr _t ?? throw "null pointer dereference").tree.root;
                 (value == null || (value : Dynamic).__nil__);
             }) : Bool)) {
-                @:check2r _state._errorf(("%q is an incomplete or empty template" : stdgo.GoString), stdgo.Go.toInterface(@:check2r _t.name()));
+                //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L222"
+                _state._errorf(("%q is an incomplete or empty template" : stdgo.GoString), stdgo.Go.toInterface(_t.name()));
             };
-            @:check2r _state._walk(_value?.__copy__(), stdgo.Go.asInterface((@:checkr _t ?? throw "null pointer dereference").tree.root));
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L224"
+            _state._walk(_value?.__copy__(), stdgo.Go.asInterface((@:checkr _t ?? throw "null pointer dereference").tree.root));
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L225"
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -747,7 +833,7 @@ package stdgo._internal.text.template;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -788,20 +874,24 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function execute( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _wr:stdgo._internal.io.Io_writer.Writer, _data:stdgo.AnyInterface):stdgo.Error {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
-        return @:check2r _t._execute(_wr, _data);
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L207"
+        return _t._execute(_wr, _data);
     }
     @:keep
     @:tdfield
     static public function executeTemplate( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _wr:stdgo._internal.io.Io_writer.Writer, _name:stdgo.GoString, _data:stdgo.AnyInterface):stdgo.Error {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
-        var _tmpl = @:check2r _t.lookup(_name?.__copy__());
+        var _tmpl = _t.lookup(_name?.__copy__());
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L190"
         if (({
             final value = _tmpl;
             (value == null || (value : Dynamic).__nil__);
         })) {
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L191"
             return stdgo._internal.fmt.Fmt_errorf.errorf(("template: no template %q associated with template %q" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface((@:checkr _t ?? throw "null pointer dereference")._name));
         };
-        return @:check2r _tmpl.execute(_wr, _data);
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec.go#L193"
+        return _tmpl.execute(_wr, _data);
     }
     @:embedded
     @:embeddededffieldsffun

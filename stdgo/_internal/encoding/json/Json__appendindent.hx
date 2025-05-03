@@ -11,24 +11,35 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.G
             };
             var _needIndent = (false : Bool);
             var _depth = (0 : stdgo.GoInt);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L124"
             for (__4 => _c in _src) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L125"
                 (@:checkr _scan ?? throw "null pointer dereference")._bytes++;
                 var _v = ((@:checkr _scan ?? throw "null pointer dereference")._step(_scan, _c) : stdgo.GoInt);
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L127"
                 if (_v == ((9 : stdgo.GoInt))) {
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L128"
                     continue;
                 };
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L130"
                 if (_v == ((11 : stdgo.GoInt))) {
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L131"
                     break;
                 };
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L133"
                 if (((_needIndent && _v != ((5 : stdgo.GoInt)) : Bool) && (_v != (8 : stdgo.GoInt)) : Bool)) {
                     _needIndent = false;
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L135"
                     _depth++;
                     _dst = stdgo._internal.encoding.json.Json__appendnewline._appendNewline(_dst, _prefix?.__copy__(), _indent?.__copy__(), _depth);
                 };
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L141"
                 if (_v == ((0 : stdgo.GoInt))) {
                     _dst = (_dst.__append__(_c) : stdgo.Slice<stdgo.GoUInt8>);
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L143"
                     continue;
                 };
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L147"
                 {
                     final __value__ = _c;
                     if (__value__ == ((123 : stdgo.GoUInt8)) || __value__ == ((91 : stdgo.GoUInt8))) {
@@ -40,9 +51,11 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.G
                     } else if (__value__ == ((58 : stdgo.GoUInt8))) {
                         _dst = (_dst.__append__(_c, (32 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                     } else if (__value__ == ((125 : stdgo.GoUInt8)) || __value__ == ((93 : stdgo.GoUInt8))) {
+                        //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L158"
                         if (_needIndent) {
                             _needIndent = false;
                         } else {
+                            //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L162"
                             _depth--;
                             _dst = stdgo._internal.encoding.json.Json__appendnewline._appendNewline(_dst, _prefix?.__copy__(), _indent?.__copy__(), _depth);
                         };
@@ -52,7 +65,9 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.G
                     };
                 };
             };
-            if (@:check2r _scan._eof() == ((11 : stdgo.GoInt))) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L170"
+            if (_scan._eof() == ((11 : stdgo.GoInt))) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L171"
                 {
                     final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (_dst.__slice__(0, _origLen) : stdgo.Slice<stdgo.GoUInt8>), _1 : (@:checkr _scan ?? throw "null pointer dereference")._err };
                     for (defer in __deferstack__) {
@@ -63,6 +78,7 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.G
                     return __ret__;
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L173"
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _dst, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
@@ -89,7 +105,7 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.G
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

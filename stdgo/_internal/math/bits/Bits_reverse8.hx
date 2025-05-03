@@ -1,5 +1,6 @@
 package stdgo._internal.math.bits;
 function reverse8(_x:stdgo.GoUInt8):stdgo.GoUInt8 {
+        //"file:///home/runner/.go/go1.21.3/src/math/bits/bits.go#L235"
         return (stdgo.Go.str(0,
 128,
 "@",

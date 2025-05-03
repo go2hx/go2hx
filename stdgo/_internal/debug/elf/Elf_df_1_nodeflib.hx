@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final dF_1_NODEFLIB : stdgo._internal.debug.elf.Elf_dynflag1.DynFlag1 = 2048i32;
+final dF_1_NODEFLIB : stdgo._internal.debug.elf.Elf_dynflag1.DynFlag1 = 2048i64;

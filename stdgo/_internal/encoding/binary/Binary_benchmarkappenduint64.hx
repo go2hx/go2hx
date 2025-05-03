@@ -1,6 +1,8 @@
 package stdgo._internal.encoding.binary;
 function benchmarkAppendUint64(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
-        @:check2r _b.setBytes((8i64 : stdgo.GoInt64));
+        //"file:///home/runner/.go/go1.21.3/src/encoding/binary/binary_test.go#L736"
+        _b.setBytes((8i64 : stdgo.GoInt64));
+        //"file:///home/runner/.go/go1.21.3/src/encoding/binary/binary_test.go#L737"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {

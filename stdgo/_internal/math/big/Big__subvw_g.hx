@@ -2,6 +2,7 @@ package stdgo._internal.math.big;
 function _subVW_g(_z:stdgo.Slice<stdgo._internal.math.big.Big_word.Word>, _x:stdgo.Slice<stdgo._internal.math.big.Big_word.Word>, _y:stdgo._internal.math.big.Big_word.Word):stdgo._internal.math.big.Big_word.Word {
         var _c = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word);
         _c = _y;
+        //"file:///home/runner/.go/go1.21.3/src/math/big/arith.go#L122"
         {
             var _i = (0 : stdgo.GoInt);
             while (((_i < (_z.length) : Bool) && (_i < (_x.length) : Bool) : Bool)) {
@@ -11,5 +12,6 @@ _c = (_cc : stdgo._internal.math.big.Big_word.Word);
                 _i++;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/big/arith.go#L127"
         return _c;
     }

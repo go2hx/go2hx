@@ -1,10 +1,13 @@
 package stdgo._internal.crypto.rc4;
 function newCipher(_key:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.rc4.Rc4_cipher.Cipher>; var _1 : stdgo.Error; } {
         var _k = (_key.length : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/rc4/rc4.go#L33"
         if (((_k < (1 : stdgo.GoInt) : Bool) || (_k > (256 : stdgo.GoInt) : Bool) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/rc4/rc4.go#L34"
             return { _0 : null, _1 : stdgo.Go.asInterface((_k : stdgo._internal.crypto.rc4.Rc4_keysizeerror.KeySizeError)) };
         };
         var _c:stdgo._internal.crypto.rc4.Rc4_cipher.Cipher = ({} : stdgo._internal.crypto.rc4.Rc4_cipher.Cipher);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/rc4/rc4.go#L37"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (256 : stdgo.GoInt) : Bool)) {
@@ -13,6 +16,7 @@ function newCipher(_key:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._
             };
         };
         var _j:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/rc4/rc4.go#L41"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (256 : stdgo.GoInt) : Bool)) {
@@ -30,5 +34,6 @@ function newCipher(_key:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._
                 _i++;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/rc4/rc4.go#L45"
         return { _0 : (stdgo.Go.setRef(_c) : stdgo.Ref<stdgo._internal.crypto.rc4.Rc4_cipher.Cipher>), _1 : (null : stdgo.Error) };
     }

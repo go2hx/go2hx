@@ -1,2 +1,2 @@
 package stdgo._internal.archive.zip;
-final _s_IFLNK : stdgo.GoUInt64 = 40960i32;
+final _s_IFLNK : stdgo.GoUInt64 = 40960i64;

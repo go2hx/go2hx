@@ -4,15 +4,18 @@ package stdgo._internal.internal.fuzz;
     @:tdfield
     static public function read( _cr:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_contextreader.T_contextReader>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _cr:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_contextreader.T_contextReader> = _cr;
+        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1175"
         {
             var _ctxErr = ((@:checkr _cr ?? throw "null pointer dereference")._ctx.err() : stdgo.Error);
             if (_ctxErr != null) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1176"
                 return { _0 : (0 : stdgo.GoInt), _1 : _ctxErr };
             };
         };
         var _done = (new stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_t_nocopy.T_noCopy>(0, () -> ({} : stdgo._internal.internal.fuzz.Fuzz_t_nocopy.T_noCopy)) : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_t_nocopy.T_noCopy>);
         var _n:stdgo.GoInt = (0 : stdgo.GoInt);
         var _err:stdgo.Error = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1184"
         stdgo.Go.routine(() -> ({
             var a = function():Void {
                 {
@@ -20,10 +23,12 @@ package stdgo._internal.internal.fuzz;
                     _n = @:tmpset0 __tmp__._0;
                     _err = @:tmpset0 __tmp__._1;
                 };
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1186"
                 if (_done != null) _done.__close__();
             };
             a();
         }));
+        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1189"
         {
             {
                 var __select__ = true;
@@ -40,6 +45,7 @@ var __c__1 = null;
                         {
                             __c__0.__get__();
                             {
+                                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1191"
                                 return { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _cr ?? throw "null pointer dereference")._ctx.err() };
                             };
                         };
@@ -53,6 +59,7 @@ var __c__1 = null;
                         {
                             __c__1.__get__();
                             {
+                                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1193"
                                 return { _0 : _n, _1 : _err };
                             };
                         };

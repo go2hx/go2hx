@@ -1,2 +1,2 @@
 package stdgo._internal.text.scanner;
-final scanIdents : stdgo.GoUInt64 = 4i32;
+final scanIdents : stdgo.GoUInt64 = 4i64;

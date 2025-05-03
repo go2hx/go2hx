@@ -5,17 +5,21 @@ package stdgo._internal.debug.dwarf;
     static public function string( _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_enumtype.EnumType>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_enumtype.EnumType> = _t;
         var _s = (("enum" : stdgo.GoString) : stdgo.GoString);
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L295"
         if ((@:checkr _t ?? throw "null pointer dereference").enumName != ((stdgo.Go.str() : stdgo.GoString))) {
             _s = (_s + (((" " : stdgo.GoString) + (@:checkr _t ?? throw "null pointer dereference").enumName?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };
         _s = (_s + ((" {" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L299"
         for (_i => _v in (@:checkr _t ?? throw "null pointer dereference").val) {
+            //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L300"
             if ((_i > (0 : stdgo.GoInt) : Bool)) {
                 _s = (_s + (("; " : stdgo.GoString))?.__copy__() : stdgo.GoString);
             };
             _s = (_s + ((((@:checkr _v ?? throw "null pointer dereference").name + ("=" : stdgo.GoString)?.__copy__() : stdgo.GoString) + stdgo._internal.strconv.Strconv_formatint.formatInt((@:checkr _v ?? throw "null pointer dereference").val, (10 : stdgo.GoInt))?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };
         _s = (_s + (("}" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L306"
         return _s?.__copy__();
     }
     @:embedded

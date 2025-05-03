@@ -6,18 +6,24 @@ package stdgo._internal.encoding.json;
         @:recv var _se:stdgo._internal.encoding.json.Json_t_sliceencoder.T_sliceEncoder = _se?.__copy__();
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L803"
             if (_v.isNil()) {
-                @:check2r _e.writeString(("null" : stdgo.GoString));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L804"
+                _e.writeString(("null" : stdgo.GoString));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L805"
                 return;
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L807"
             {
                 (@:checkr _e ?? throw "null pointer dereference")._ptrLevel++;
                 if (((@:checkr _e ?? throw "null pointer dereference")._ptrLevel > (1000u32 : stdgo.GoUInt) : Bool)) {
                     var _ptr = ({ _ptr : stdgo.Go.toInterface(_v.unsafePointer()), _len : _v.len() } : stdgo._internal.encoding.json.Json_t__struct_20.T__struct_20);
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L816"
                     {
                         var __tmp__ = ((@:checkr _e ?? throw "null pointer dereference")._ptrSeen != null && (@:checkr _e ?? throw "null pointer dereference")._ptrSeen.__exists__(stdgo.Go.toInterface(stdgo.Go.asInterface(_ptr))) ? { _0 : (@:checkr _e ?? throw "null pointer dereference")._ptrSeen[stdgo.Go.toInterface(stdgo.Go.asInterface(_ptr))], _1 : true } : { _0 : ({} : stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue), _1 : false }), __4:stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (_ok) {
-                            @:check2r _e._error(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError(_v?.__copy__(), stdgo._internal.fmt.Fmt_sprintf.sprintf(("encountered a cycle via %s" : stdgo.GoString), stdgo.Go.toInterface(_v.type()))?.__copy__()) : stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError>)));
+                            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L817"
+                            _e._error(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError(_v?.__copy__(), stdgo._internal.fmt.Fmt_sprintf.sprintf(("encountered a cycle via %s" : stdgo.GoString), stdgo.Go.toInterface(_v.type()))?.__copy__()) : stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError>)));
                         };
                     };
                     (@:checkr _e ?? throw "null pointer dereference")._ptrSeen[stdgo.Go.toInterface(stdgo.Go.asInterface(_ptr))] = (new stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue() : stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue);
@@ -28,7 +34,9 @@ package stdgo._internal.encoding.json;
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L822"
             _se._arrayEnc(_e, _v?.__copy__(), _opts?.__copy__());
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L823"
             (@:checkr _e ?? throw "null pointer dereference")._ptrLevel--;
             {
                 for (defer in __deferstack__) {
@@ -47,7 +55,7 @@ package stdgo._internal.encoding.json;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

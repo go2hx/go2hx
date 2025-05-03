@@ -6,5 +6,6 @@ function _absClock(_abs:stdgo.GoUInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.G
         _sec = (_sec - ((_hour * (3600 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
         _min = (_sec / (60 : stdgo.GoInt) : stdgo.GoInt);
         _sec = (_sec - ((_min * (60 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/time/time.go#L578"
         return { _0 : _hour, _1 : _min, _2 : _sec };
     }

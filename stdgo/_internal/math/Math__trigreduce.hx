@@ -2,7 +2,9 @@ package stdgo._internal.math;
 function _trigReduce(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } {
         var _j = (0 : stdgo.GoUInt64), _z = (0 : stdgo.GoFloat64);
         {};
+        //"file:///home/runner/.go/go1.21.3/src/math/trig_reduce.go#L33"
         if ((_x < (0.7853981633974483 : stdgo.GoFloat64) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/math/trig_reduce.go#L34"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : _x };
                 _j = __tmp__._0;
@@ -12,7 +14,7 @@ function _trigReduce(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoUInt64; var _1 : std
         };
         var _ix = (stdgo._internal.math.Math_float64bits.float64bits(_x) : stdgo.GoUInt64);
         var _exp = (((((_ix >> (52i64 : stdgo.GoUInt64) : stdgo.GoUInt64) & (2047i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt) - (1023 : stdgo.GoInt) : stdgo.GoInt) - (52 : stdgo.GoInt) : stdgo.GoInt);
-        _ix = (_ix & ((((9218868437227405312i64 : stdgo.GoUInt64)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+        _ix = (_ix & ((((9218868437227405312i64 : stdgo.GoUInt64)) ^ (-1i64 : stdgo.GoInt32) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _ix = (_ix | ((4503599627370496i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         var __0 = (((_exp + (61 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) / (64u32 : stdgo.GoUInt) : stdgo.GoUInt), __1 = (((_exp + (61 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) % (64u32 : stdgo.GoUInt) : stdgo.GoUInt);
 var _bitshift = __1, _digit = __0;
@@ -32,11 +34,15 @@ var _bitshift = __1, _digit = __0;
         _hi = (_hi >> ((12i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _hi = (_hi | ((_e << (52i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _z = stdgo._internal.math.Math_float64frombits.float64frombits(_hi);
+        //"file:///home/runner/.go/go1.21.3/src/math/trig_reduce.go#L68"
         if ((_j & (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((1i64 : stdgo.GoUInt64))) {
+            //"file:///home/runner/.go/go1.21.3/src/math/trig_reduce.go#L69"
             _j++;
             _j = (_j & ((7i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+            //"file:///home/runner/.go/go1.21.3/src/math/trig_reduce.go#L71"
             _z--;
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/trig_reduce.go#L74"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } = { _0 : _j, _1 : (_z * (0.7853981633974483 : stdgo.GoFloat64) : stdgo.GoFloat64) };
             _j = __tmp__._0;

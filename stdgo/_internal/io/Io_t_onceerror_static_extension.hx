@@ -6,11 +6,13 @@ package stdgo._internal.io;
         @:recv var _a:stdgo.Ref<stdgo._internal.io.Io_t_onceerror.T_onceError> = _a;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2r _a.lock();
+            //"file:///home/runner/.go/go1.21.3/src/io/pipe.go#L30"
+            _a.lock();
             {
-                final __f__ = @:check2r _a.unlock;
+                final __f__ = _a.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/io/pipe.go#L32"
             {
                 final __ret__:stdgo.Error = (@:checkr _a ?? throw "null pointer dereference")._err;
                 for (defer in __deferstack__) {
@@ -37,7 +39,7 @@ package stdgo._internal.io;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -80,12 +82,15 @@ package stdgo._internal.io;
         @:recv var _a:stdgo.Ref<stdgo._internal.io.Io_t_onceerror.T_onceError> = _a;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2r _a.lock();
+            //"file:///home/runner/.go/go1.21.3/src/io/pipe.go#L22"
+            _a.lock();
             {
-                final __f__ = @:check2r _a.unlock;
+                final __f__ = _a.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/io/pipe.go#L24"
             if ((@:checkr _a ?? throw "null pointer dereference")._err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/io/pipe.go#L25"
                 {
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
@@ -113,7 +118,7 @@ package stdgo._internal.io;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

@@ -4,12 +4,14 @@ package stdgo._internal.testing.slogtest;
     @:tdfield
     static public function string( _r:stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_t_replace.T_replace>):stdgo.GoString {
         @:recv var _r:stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_t_replace.T_replace> = _r;
+        //"file:///home/runner/.go/go1.21.3/src/testing/slogtest/slogtest.go#L321"
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("<replace(%v)>" : stdgo.GoString), (@:checkr _r ?? throw "null pointer dereference")._v)?.__copy__();
     }
     @:keep
     @:tdfield
     static public function logValue( _r:stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_t_replace.T_replace>):stdgo._internal.log.slog.Slog_value.Value {
         @:recv var _r:stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_t_replace.T_replace> = _r;
+        //"file:///home/runner/.go/go1.21.3/src/testing/slogtest/slogtest.go#L318"
         return stdgo._internal.log.slog.Slog_anyvalue.anyValue((@:checkr _r ?? throw "null pointer dereference")._v)?.__copy__();
     }
 }

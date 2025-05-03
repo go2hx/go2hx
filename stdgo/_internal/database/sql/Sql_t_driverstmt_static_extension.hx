@@ -6,12 +6,15 @@ package stdgo._internal.database.sql;
         @:recv var _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt> = _ds;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L670"
             (@:checkr _ds ?? throw "null pointer dereference").lock();
             {
                 final __f__ = (@:checkr _ds ?? throw "null pointer dereference").unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L672"
             if ((@:checkr _ds ?? throw "null pointer dereference")._closed) {
+                //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L673"
                 {
                     final __ret__:stdgo.Error = (@:checkr _ds ?? throw "null pointer dereference")._closeErr;
                     for (defer in __deferstack__) {
@@ -24,6 +27,7 @@ package stdgo._internal.database.sql;
             };
             (@:checkr _ds ?? throw "null pointer dereference")._closed = true;
             (@:checkr _ds ?? throw "null pointer dereference")._closeErr = (@:checkr _ds ?? throw "null pointer dereference")._si.close();
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L677"
             {
                 final __ret__:stdgo.Error = (@:checkr _ds ?? throw "null pointer dereference")._closeErr;
                 for (defer in __deferstack__) {
@@ -50,7 +54,7 @@ package stdgo._internal.database.sql;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

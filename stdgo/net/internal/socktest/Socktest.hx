@@ -1,10 +1,10 @@
 package stdgo.net.internal.socktest;
-var filterSocket : FilterType = 0i32;
-var filterConnect : FilterType = 1i32;
-var filterListen : FilterType = 2i32;
-var filterAccept : FilterType = 3i32;
-var filterGetsockoptInt : FilterType = 4i32;
-var filterClose : FilterType = 5i32;
+var filterSocket : FilterType = 0i64;
+var filterConnect : FilterType = 1i64;
+var filterListen : FilterType = 2i64;
+var filterAccept : FilterType = 3i64;
+var filterGetsockoptInt : FilterType = 4i64;
+var filterClose : FilterType = 5i64;
 typedef Switch = stdgo._internal.net.internal.socktest.Socktest_switch.Switch;
 typedef Status = stdgo._internal.net.internal.socktest.Socktest_status.Status;
 typedef Stat = stdgo._internal.net.internal.socktest.Socktest_stat.Stat;

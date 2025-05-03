@@ -1,5 +1,6 @@
 package stdgo._internal.crypto.x509;
 function newCertPool():stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool> {
+        //"file:///home/runner/.go/go1.21.3/src/crypto/x509/cert_pool.go#L60"
         return (stdgo.Go.setRef(({ _byName : (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoInt>>();
             x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoInt>);

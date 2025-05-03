@@ -1,2 +1,2 @@
 package stdgo._internal.internal.coverage;
-final numCtrsOffset : stdgo.GoUInt64 = 0i32;
+final numCtrsOffset : stdgo.GoUInt64 = 0i64;

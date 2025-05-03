@@ -1,2 +1,2 @@
 package stdgo._internal.debug.pe;
-final iMAGE_FILE_MACHINE_MIPS16 : stdgo.GoUInt64 = 614i32;
+final iMAGE_FILE_MACHINE_MIPS16 : stdgo.GoUInt64 = 614i64;

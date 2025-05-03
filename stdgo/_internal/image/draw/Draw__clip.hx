@@ -13,6 +13,7 @@ function _clip(_dst:stdgo._internal.image.draw.Draw_image.Image, _r:stdgo.Ref<st
             x.min = __tmp__?.min;
             x.max = __tmp__?.max;
         };
+        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L87"
         if (_mask != null) {
             {
                 var __tmp__ = (@:checkr _r ?? throw "null pointer dereference").intersect(_mask.bounds().add(_orig.sub((_mp : stdgo._internal.image.Image_point.Point)?.__copy__())?.__copy__())?.__copy__())?.__copy__();
@@ -23,11 +24,14 @@ function _clip(_dst:stdgo._internal.image.draw.Draw_image.Image, _r:stdgo.Ref<st
         };
         var _dx = ((@:checkr _r ?? throw "null pointer dereference").min.x - _orig.x : stdgo.GoInt);
         var _dy = ((@:checkr _r ?? throw "null pointer dereference").min.y - _orig.y : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L92"
         if (((_dx == (0 : stdgo.GoInt)) && (_dy == (0 : stdgo.GoInt)) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L93"
             return;
         };
         (@:checkr _sp ?? throw "null pointer dereference").x = ((@:checkr _sp ?? throw "null pointer dereference").x + (_dx) : stdgo.GoInt);
         (@:checkr _sp ?? throw "null pointer dereference").y = ((@:checkr _sp ?? throw "null pointer dereference").y + (_dy) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L97"
         if (({
             final value = _mp;
             (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));

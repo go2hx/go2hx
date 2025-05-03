@@ -1,5 +1,5 @@
 package stdgo.strconv;
-var intSize : stdgo.GoUInt64 = 32i32;
+var intSize : stdgo.GoUInt64 = 32i64;
 var errRange(get, set) : stdgo.Error;
 private function get_errRange():stdgo.Error return stdgo._internal.strconv.Strconv_errrange.errRange;
 private function set_errRange(v:stdgo.Error):stdgo.Error {

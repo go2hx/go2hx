@@ -4,25 +4,29 @@ package stdgo._internal.log.slog;
     @:tdfield
     static public function handle( _h:stdgo.Ref<stdgo._internal.log.slog.Slog_texthandler.TextHandler>, __892:stdgo._internal.context.Context_context.Context, _r:stdgo._internal.log.slog.Slog_record.Record):stdgo.Error {
         @:recv var _h:stdgo.Ref<stdgo._internal.log.slog.Slog_texthandler.TextHandler> = _h;
-        return @:check2r (@:checkr _h ?? throw "null pointer dereference")._commonHandler._handle(_r?.__copy__());
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/text_handler.go#L95"
+        return (@:checkr _h ?? throw "null pointer dereference")._commonHandler._handle(_r?.__copy__());
     }
     @:keep
     @:tdfield
     static public function withGroup( _h:stdgo.Ref<stdgo._internal.log.slog.Slog_texthandler.TextHandler>, _name:stdgo.GoString):stdgo._internal.log.slog.Slog_handler.Handler {
         @:recv var _h:stdgo.Ref<stdgo._internal.log.slog.Slog_texthandler.TextHandler> = _h;
-        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _commonHandler : @:check2r (@:checkr _h ?? throw "null pointer dereference")._commonHandler._withGroup(_name?.__copy__()) } : stdgo._internal.log.slog.Slog_texthandler.TextHandler)) : stdgo.Ref<stdgo._internal.log.slog.Slog_texthandler.TextHandler>));
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/text_handler.go#L55"
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _commonHandler : (@:checkr _h ?? throw "null pointer dereference")._commonHandler._withGroup(_name?.__copy__()) } : stdgo._internal.log.slog.Slog_texthandler.TextHandler)) : stdgo.Ref<stdgo._internal.log.slog.Slog_texthandler.TextHandler>));
     }
     @:keep
     @:tdfield
     static public function withAttrs( _h:stdgo.Ref<stdgo._internal.log.slog.Slog_texthandler.TextHandler>, _attrs:stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>):stdgo._internal.log.slog.Slog_handler.Handler {
         @:recv var _h:stdgo.Ref<stdgo._internal.log.slog.Slog_texthandler.TextHandler> = _h;
-        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _commonHandler : @:check2r (@:checkr _h ?? throw "null pointer dereference")._commonHandler._withAttrs(_attrs) } : stdgo._internal.log.slog.Slog_texthandler.TextHandler)) : stdgo.Ref<stdgo._internal.log.slog.Slog_texthandler.TextHandler>));
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/text_handler.go#L51"
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _commonHandler : (@:checkr _h ?? throw "null pointer dereference")._commonHandler._withAttrs(_attrs) } : stdgo._internal.log.slog.Slog_texthandler.TextHandler)) : stdgo.Ref<stdgo._internal.log.slog.Slog_texthandler.TextHandler>));
     }
     @:keep
     @:tdfield
     static public function enabled( _h:stdgo.Ref<stdgo._internal.log.slog.Slog_texthandler.TextHandler>, __892:stdgo._internal.context.Context_context.Context, _level:stdgo._internal.log.slog.Slog_level.Level):Bool {
         @:recv var _h:stdgo.Ref<stdgo._internal.log.slog.Slog_texthandler.TextHandler> = _h;
-        return @:check2r (@:checkr _h ?? throw "null pointer dereference")._commonHandler._enabled(_level);
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/text_handler.go#L45"
+        return (@:checkr _h ?? throw "null pointer dereference")._commonHandler._enabled(_level);
     }
     @:embedded
     @:embeddededffieldsffun

@@ -4,7 +4,8 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _string( _a:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_arraytype.T_arrayType>):stdgo.GoString {
         @:recv var _a:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_arraytype.T_arrayType> = _a;
-        return @:check2r _a._safeString((({
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L328"
+        return _a._safeString((({
             final x = new stdgo.GoMap.GoIntMap<Bool>();
             x.__defaultValue__ = () -> false;
             {};
@@ -15,16 +16,20 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _safeString( _a:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_arraytype.T_arrayType>, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>):stdgo.GoString {
         @:recv var _a:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_arraytype.T_arrayType> = _a;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L321"
         if ((_seen[(@:checkr _a ?? throw "null pointer dereference").commonType.id] ?? false)) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L322"
             return (@:checkr _a ?? throw "null pointer dereference").commonType.name?.__copy__();
         };
         _seen[(@:checkr _a ?? throw "null pointer dereference").commonType.id] = true;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L325"
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("[%d]%s" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _a ?? throw "null pointer dereference").len), stdgo.Go.toInterface((@:checkr _a ?? throw "null pointer dereference").elem._gobType()._safeString(_seen)))?.__copy__();
     }
     @:keep
     @:tdfield
     static public function _init( _a:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_arraytype.T_arrayType>, _elem:stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType, _len:stdgo.GoInt):Void {
         @:recv var _a:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_arraytype.T_arrayType> = _a;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L315"
         stdgo._internal.encoding.gob.Gob__settypeid._setTypeId(stdgo.Go.asInterface(_a));
         (@:checkr _a ?? throw "null pointer dereference").elem = _elem._id();
         (@:checkr _a ?? throw "null pointer dereference").len = _len;

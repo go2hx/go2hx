@@ -4,6 +4,7 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function marshalText( _i:stdgo._internal.encoding.json.Json_t_textint.T_textint):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _i:stdgo._internal.encoding.json.Json_t_textint.T_textint = _i;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L852"
         return stdgo._internal.encoding.json.Json__tenc._tenc(("TI:%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_i)));
     }
 }

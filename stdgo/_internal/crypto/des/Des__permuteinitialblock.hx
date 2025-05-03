@@ -14,5 +14,6 @@ function _permuteInitialBlock(_block:stdgo.GoUInt64):stdgo.GoUInt64 {
         _block = (_block ^ ((((_b1 ^ _b2 : stdgo.GoUInt64) ^ (_b1 >> (6i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) ^ (_b2 << (6i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _b1 = (_block & (-6148914692668172971i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         _block = (_block ^ (((_b1 ^ (_b1 >> (33i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) ^ (_b1 << (33i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/des/block.go#L182"
         return _block;
     }

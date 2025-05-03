@@ -1,2 +1,2 @@
 package stdgo._internal.unicode.utf8;
-final _mask3 : stdgo.GoUInt64 = 15i32;
+final _mask3 : stdgo.GoUInt64 = 15i64;

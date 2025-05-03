@@ -1,5 +1,6 @@
 package stdgo._internal.crypto.internal.nistec.fiat;
 function _p256InvertEndianness(_v:stdgo.Slice<stdgo.GoUInt8>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/fiat/p256.go#L131"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < ((_v.length) / (2 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {

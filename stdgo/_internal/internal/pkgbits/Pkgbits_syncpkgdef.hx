@@ -1,2 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-final syncPkgDef : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker = 17i32;
+final syncPkgDef : stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker = 17i64;

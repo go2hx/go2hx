@@ -5,8 +5,10 @@ package stdgo._internal.encoding.hex;
     static public function write( _e:stdgo.Ref<stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder> = _e;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/hex/hex.go#L160"
         while ((((_p.length) > (0 : stdgo.GoInt) : Bool) && ((@:checkr _e ?? throw "null pointer dereference")._err == null) : Bool)) {
             var _chunkSize = (512 : stdgo.GoInt);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/hex/hex.go#L162"
             if (((_p.length) < _chunkSize : Bool)) {
                 _chunkSize = (_p.length);
             };
@@ -20,6 +22,7 @@ package stdgo._internal.encoding.hex;
             _n = (_n + ((_written / (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
             _p = (_p.__slice__(_chunkSize) : stdgo.Slice<stdgo.GoUInt8>);
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/hex/hex.go#L172"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _e ?? throw "null pointer dereference")._err };
             _n = __tmp__._0;

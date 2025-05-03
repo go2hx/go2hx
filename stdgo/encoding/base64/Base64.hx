@@ -1,6 +1,6 @@
 package stdgo.encoding.base64;
-var stdPadding : stdgo.GoInt32 = 61i32;
-var noPadding : stdgo.GoInt32 = -1i32;
+var stdPadding : stdgo.GoInt32 = 61i64;
+var noPadding : stdgo.GoInt32 = -1i64;
 var stdEncoding(get, set) : stdgo.Ref<stdgo._internal.encoding.base64.Base64_encoding.Encoding>;
 private function get_stdEncoding():stdgo.Ref<stdgo._internal.encoding.base64.Base64_encoding.Encoding> return stdgo._internal.encoding.base64.Base64_stdencoding.stdEncoding;
 private function set_stdEncoding(v:stdgo.Ref<stdgo._internal.encoding.base64.Base64_encoding.Encoding>):stdgo.Ref<stdgo._internal.encoding.base64.Base64_encoding.Encoding> {

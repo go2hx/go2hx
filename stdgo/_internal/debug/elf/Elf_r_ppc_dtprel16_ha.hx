@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final r_PPC_DTPREL16_HA : stdgo._internal.debug.elf.Elf_r_ppc.R_PPC = 77i32;
+final r_PPC_DTPREL16_HA : stdgo._internal.debug.elf.Elf_r_ppc.R_PPC = 77i64;

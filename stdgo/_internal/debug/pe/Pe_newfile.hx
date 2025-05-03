@@ -3,34 +3,45 @@ function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 : stdgo.Re
         var _f = (stdgo.Go.setRef(({} : stdgo._internal.debug.pe.Pe_file.File)) : stdgo.Ref<stdgo._internal.debug.pe.Pe_file.File>);
         var _sr = stdgo._internal.io.Io_newsectionreader.newSectionReader(_r, (0i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64));
         var _dosheader:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(96, 96).__setNumber32__();
+        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L80"
         {
             var __tmp__ = _r.readAt((_dosheader.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (0i64 : stdgo.GoInt64)), __2:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L81"
                 return { _0 : null, _1 : _err };
             };
         };
         var _base:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L84"
         if (((_dosheader[(0 : stdgo.GoInt)] == (77 : stdgo.GoUInt8)) && (_dosheader[(1 : stdgo.GoInt)] == (90 : stdgo.GoUInt8)) : Bool)) {
             var _signoff = (stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.uint32((_dosheader.__slice__((60 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt64);
             var _sign:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
+            //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L87"
             _r.readAt((_sign.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _signoff);
+            //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L88"
             if (!((((_sign[(0 : stdgo.GoInt)] == ((80 : stdgo.GoUInt8)) && _sign[(1 : stdgo.GoInt)] == ((69 : stdgo.GoUInt8)) : Bool) && _sign[(2 : stdgo.GoInt)] == ((0 : stdgo.GoUInt8)) : Bool) && (_sign[(3 : stdgo.GoInt)] == (0 : stdgo.GoUInt8)) : Bool))) {
+                //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L89"
                 return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("invalid PE file signature: % x" : stdgo.GoString), stdgo.Go.toInterface(_sign)) };
             };
             _base = (_signoff + (4i64 : stdgo.GoInt64) : stdgo.GoInt64);
         } else {
             _base = (0i64 : stdgo.GoInt64);
         };
-        @:check2r _sr.seek(_base, (0 : stdgo.GoInt));
+        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L95"
+        _sr.seek(_base, (0 : stdgo.GoInt));
+        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L96"
         {
             var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleendian.littleEndian), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _f ?? throw "null pointer dereference").fileHeader) : stdgo.Ref<stdgo._internal.debug.pe.Pe_fileheader.FileHeader>)))) : stdgo.Error);
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L97"
                 return { _0 : null, _1 : _err };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L99"
         {
             final __value__ = (@:checkr _f ?? throw "null pointer dereference").fileHeader.machine;
             if (__value__ == ((34404 : stdgo.GoUInt16)) || __value__ == ((43620 : stdgo.GoUInt16)) || __value__ == ((452 : stdgo.GoUInt16)) || __value__ == ((332 : stdgo.GoUInt16)) || __value__ == ((20530 : stdgo.GoUInt16)) || __value__ == ((20580 : stdgo.GoUInt16)) || __value__ == ((20776 : stdgo.GoUInt16)) || __value__ == ((0 : stdgo.GoUInt16))) {} else {
+                //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L110"
                 return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("unrecognized PE machine: %#x" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _f ?? throw "null pointer dereference").fileHeader.machine)) };
             };
         };
@@ -40,7 +51,9 @@ function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 : stdgo.Re
             (@:checkr _f ?? throw "null pointer dereference").stringTable = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L117"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L118"
             return { _0 : null, _1 : _err };
         };
         {
@@ -48,7 +61,9 @@ function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 : stdgo.Re
             (@:checkr _f ?? throw "null pointer dereference").cOFFSymbols = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L123"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L124"
             return { _0 : null, _1 : _err };
         };
         {
@@ -56,14 +71,18 @@ function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 : stdgo.Re
             (@:checkr _f ?? throw "null pointer dereference").symbols = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L127"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L128"
             return { _0 : null, _1 : _err };
         };
         {
-            var __tmp__ = @:check2r _sr.seek((_base + (stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _f ?? throw "null pointer dereference").fileHeader))) : stdgo.GoInt64) : stdgo.GoInt64), (0 : stdgo.GoInt));
+            var __tmp__ = _sr.seek((_base + (stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _f ?? throw "null pointer dereference").fileHeader))) : stdgo.GoInt64) : stdgo.GoInt64), (0 : stdgo.GoInt));
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L133"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L134"
             return { _0 : null, _1 : _err };
         };
         {
@@ -71,28 +90,36 @@ function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 : stdgo.Re
             (@:checkr _f ?? throw "null pointer dereference").optionalHeader = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L139"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L140"
             return { _0 : null, _1 : _err };
         };
         (@:checkr _f ?? throw "null pointer dereference").sections = (new stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_section.Section>>(((@:checkr _f ?? throw "null pointer dereference").fileHeader.numberOfSections : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_section.Section>>);
+        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L145"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < ((@:checkr _f ?? throw "null pointer dereference").fileHeader.numberOfSections : stdgo.GoInt) : Bool)) {
                 var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.pe.Pe_sectionheader32.SectionHeader32)) : stdgo.Ref<stdgo._internal.debug.pe.Pe_sectionheader32.SectionHeader32>);
-{
+//"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L147"
+                {
                     var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleendian.littleEndian), stdgo.Go.toInterface(stdgo.Go.asInterface(_sh))) : stdgo.Error);
                     if (_err != null) {
+                        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L148"
                         return { _0 : null, _1 : _err };
                     };
                 };
-var __tmp__ = @:check2r _sh._fullName((@:checkr _f ?? throw "null pointer dereference").stringTable), _name:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-if (_err != null) {
+var __tmp__ = _sh._fullName((@:checkr _f ?? throw "null pointer dereference").stringTable), _name:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+//"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L151"
+                if (_err != null) {
+                    //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L152"
                     return { _0 : null, _1 : _err };
                 };
 var _s = (stdgo.Go.setRef(({} : stdgo._internal.debug.pe.Pe_section.Section)) : stdgo.Ref<stdgo._internal.debug.pe.Pe_section.Section>);
 (@:checkr _s ?? throw "null pointer dereference").sectionHeader = ({ name : _name.__copy__(), virtualSize : (@:checkr _sh ?? throw "null pointer dereference").virtualSize, virtualAddress : (@:checkr _sh ?? throw "null pointer dereference").virtualAddress, size : (@:checkr _sh ?? throw "null pointer dereference").sizeOfRawData, offset : (@:checkr _sh ?? throw "null pointer dereference").pointerToRawData, pointerToRelocations : (@:checkr _sh ?? throw "null pointer dereference").pointerToRelocations, pointerToLineNumbers : (@:checkr _sh ?? throw "null pointer dereference").pointerToLineNumbers, numberOfRelocations : (@:checkr _sh ?? throw "null pointer dereference").numberOfRelocations, numberOfLineNumbers : (@:checkr _sh ?? throw "null pointer dereference").numberOfLineNumbers, characteristics : (@:checkr _sh ?? throw "null pointer dereference").characteristics } : stdgo._internal.debug.pe.Pe_sectionheader.SectionHeader);
 var _r2 = (_r : stdgo._internal.io.Io_readerat.ReaderAt);
-if ((@:checkr _sh ?? throw "null pointer dereference").pointerToRawData == ((0u32 : stdgo.GoUInt32))) {
+//"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L168"
+                if ((@:checkr _sh ?? throw "null pointer dereference").pointerToRawData == ((0u32 : stdgo.GoUInt32))) {
                     _r2 = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader() : stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader)) : stdgo.Ref<stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader>));
                 };
 (@:checkr _s ?? throw "null pointer dereference")._sr = stdgo._internal.io.Io_newsectionreader.newSectionReader(_r2, ((@:checkr _s ?? throw "null pointer dereference").sectionHeader.offset : stdgo.GoInt64), ((@:checkr _s ?? throw "null pointer dereference").sectionHeader.size : stdgo.GoInt64));
@@ -101,6 +128,7 @@ if ((@:checkr _sh ?? throw "null pointer dereference").pointerToRawData == ((0u3
                 _i++;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L175"
         for (_i => _ in (@:checkr _f ?? throw "null pointer dereference").sections) {
             var _err:stdgo.Error = (null : stdgo.Error);
             {
@@ -108,9 +136,12 @@ if ((@:checkr _sh ?? throw "null pointer dereference").pointerToRawData == ((0u3
                 (@:checkr (@:checkr _f ?? throw "null pointer dereference").sections[(_i : stdgo.GoInt)] ?? throw "null pointer dereference").relocs = @:tmpset0 __tmp__._0;
                 _err = @:tmpset0 __tmp__._1;
             };
+            //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L178"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L179"
                 return { _0 : null, _1 : _err };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/debug/pe/file.go#L183"
         return { _0 : _f, _1 : (null : stdgo.Error) };
     }

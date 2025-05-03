@@ -2,16 +2,20 @@ package stdgo._internal.database.sql;
 function drivers():stdgo.Slice<stdgo.GoString> {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 stdgo._internal.database.sql.Sql__driversmu._driversMu.rLock();
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L65"
+            stdgo._internal.database.sql.Sql__driversmu._driversMu.rLock();
             {
-                final __f__ = @:check2 stdgo._internal.database.sql.Sql__driversmu._driversMu.rUnlock;
+                final __f__ = stdgo._internal.database.sql.Sql__driversmu._driversMu.rUnlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _list = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (stdgo._internal.database.sql.Sql__drivers._drivers.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L68"
             for (_name => _ in stdgo._internal.database.sql.Sql__drivers._drivers) {
                 _list = (_list.__append__(_name?.__copy__()) : stdgo.Slice<stdgo.GoString>);
             };
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L71"
             stdgo._internal.sort.Sort_strings.strings(_list);
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L72"
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -37,7 +41,7 @@ function drivers():stdgo.Slice<stdgo.GoString> {
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

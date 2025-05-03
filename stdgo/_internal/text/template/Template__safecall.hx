@@ -6,6 +6,7 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_value.Value, _args:stdgo
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/text/template/funcs.go#L359"
                         {
                             var _r = ({
                                 final r = stdgo.Go.recover_exception;
@@ -13,6 +14,7 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_value.Value, _args:stdgo
                                 r;
                             } : stdgo.AnyInterface);
                             if (_r != null) {
+                                //"file:///home/runner/.go/go1.21.3/src/text/template/funcs.go#L360"
                                 {
                                     var __tmp__ = try {
                                         { _0 : (stdgo.Go.typeAssert((_r : stdgo.Error)) : stdgo.Error), _1 : true };
@@ -32,7 +34,9 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_value.Value, _args:stdgo
                 }) });
             };
             var _ret = _fun.call(_args);
+            //"file:///home/runner/.go/go1.21.3/src/text/template/funcs.go#L368"
             if (((_ret.length == (2 : stdgo.GoInt)) && !_ret[(1 : stdgo.GoInt)].isNil() : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/text/template/funcs.go#L369"
                 {
                     final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : stdgo.Error; } = {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : stdgo.Error; } = { _0 : _ret[(0 : stdgo.GoInt)], _1 : (stdgo.Go.typeAssert((_ret[(1 : stdgo.GoInt)].interface_() : stdgo.Error)) : stdgo.Error) };
@@ -50,6 +54,7 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_value.Value, _args:stdgo
                     return __ret__;
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/funcs.go#L371"
             {
                 final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : stdgo.Error; } = {
                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : stdgo.Error; } = { _0 : _ret[(0 : stdgo.GoInt)], _1 : (null : stdgo.Error) };
@@ -83,7 +88,7 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_value.Value, _args:stdgo
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

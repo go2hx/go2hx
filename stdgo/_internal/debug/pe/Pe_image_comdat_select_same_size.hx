@@ -1,2 +1,2 @@
 package stdgo._internal.debug.pe;
-final iMAGE_COMDAT_SELECT_SAME_SIZE : stdgo.GoUInt64 = 3i32;
+final iMAGE_COMDAT_SELECT_SAME_SIZE : stdgo.GoUInt64 = 3i64;

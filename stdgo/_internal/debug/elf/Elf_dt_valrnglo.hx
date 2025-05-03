@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final dT_VALRNGLO : stdgo._internal.debug.elf.Elf_dyntag.DynTag = 1879047424i32;
+final dT_VALRNGLO : stdgo._internal.debug.elf.Elf_dyntag.DynTag = 1879047424i64;

@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final r_ALPHA_IMMED_GP_16 : stdgo._internal.debug.elf.Elf_r_alpha.R_ALPHA = 19i32;
+final r_ALPHA_IMMED_GP_16 : stdgo._internal.debug.elf.Elf_r_alpha.R_ALPHA = 19i64;

@@ -1,2 +1,2 @@
 package stdgo._internal.hash.fnv;
-final _prime64 : stdgo.GoUInt64 = 1099511628211i32;
+final _prime64 : stdgo.GoUInt64 = 1099511628211i64;

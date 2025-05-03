@@ -4,9 +4,12 @@ package stdgo._internal.debug.dwarf;
     @:tdfield
     static public function string( _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_unsupportedtype.UnsupportedType>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_unsupportedtype.UnsupportedType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L356"
         if ((@:checkr _t ?? throw "null pointer dereference").commonType.name != ((stdgo.Go.str() : stdgo.GoString))) {
+            //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L357"
             return (@:checkr _t ?? throw "null pointer dereference").commonType.name?.__copy__();
         };
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L359"
         return ((((@:checkr _t ?? throw "null pointer dereference").commonType.name + ("(unsupported type " : stdgo.GoString)?.__copy__() : stdgo.GoString) + ((@:checkr _t ?? throw "null pointer dereference").tag.string() : stdgo.GoString)?.__copy__() : stdgo.GoString) + (")" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
     }
     @:embedded

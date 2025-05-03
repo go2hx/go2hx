@@ -1,5 +1,6 @@
 package stdgo._internal.html.template;
 function _makeEscaper(_n:stdgo.Ref<stdgo._internal.html.template.Template_t_namespace.T_nameSpace>):stdgo._internal.html.template.Template_t_escaper.T_escaper {
+        //"file:///home/runner/.go/go1.21.3/src/html/template/escape.go#L115"
         return (new stdgo._internal.html.template.Template_t_escaper.T_escaper(_n, ({
             final x = new stdgo.GoMap.GoStringMap<stdgo._internal.html.template.Template_t_context.T_context>();
             x.__defaultValue__ = () -> ({} : stdgo._internal.html.template.Template_t_context.T_context);

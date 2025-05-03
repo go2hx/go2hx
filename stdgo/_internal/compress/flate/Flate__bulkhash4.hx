@@ -1,11 +1,14 @@
 package stdgo._internal.compress.flate;
 function _bulkHash4(_b:stdgo.Slice<stdgo.GoUInt8>, _dst:stdgo.Slice<stdgo.GoUInt32>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L302"
         if (((_b.length) < (4 : stdgo.GoInt) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L303"
             return;
         };
         var _hb = ((((_b[(3 : stdgo.GoInt)] : stdgo.GoUInt32) | ((_b[(2 : stdgo.GoInt)] : stdgo.GoUInt32) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_b[(1 : stdgo.GoInt)] : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_b[(0 : stdgo.GoInt)] : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
         _dst[(0 : stdgo.GoInt)] = (((_hb * (506832829u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) >> (15i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
         var _end = (((_b.length) - (4 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L308"
         {
             var _i = (1 : stdgo.GoInt);
             while ((_i < _end : Bool)) {

@@ -4,12 +4,14 @@ package stdgo._internal.debug.elf;
     @:tdfield
     static public function goString( _i:stdgo._internal.debug.elf.Elf_r_riscv.R_RISCV):stdgo.GoString {
         @:recv var _i:stdgo._internal.debug.elf.Elf_r_riscv.R_RISCV = _i;
+        //"file:///home/runner/.go/go1.21.3/src/debug/elf/elf.go#L3093"
         return stdgo._internal.debug.elf.Elf__stringname._stringName((_i : stdgo.GoUInt32), stdgo._internal.debug.elf.Elf__rriscvstrings._rriscvStrings, true)?.__copy__();
     }
     @:keep
     @:tdfield
     static public function string( _i:stdgo._internal.debug.elf.Elf_r_riscv.R_RISCV):stdgo.GoString {
         @:recv var _i:stdgo._internal.debug.elf.Elf_r_riscv.R_RISCV = _i;
+        //"file:///home/runner/.go/go1.21.3/src/debug/elf/elf.go#L3092"
         return stdgo._internal.debug.elf.Elf__stringname._stringName((_i : stdgo.GoUInt32), stdgo._internal.debug.elf.Elf__rriscvstrings._rriscvStrings, false)?.__copy__();
     }
 }

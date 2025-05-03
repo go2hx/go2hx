@@ -1,5 +1,6 @@
 package stdgo._internal.net.http.fcgi;
 function _newResponse(_c:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child>, _req:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>):stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_response.T_response> {
+        //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L84"
         return (stdgo.Go.setRef(({ _req : _req, _header : (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
             x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoString>);

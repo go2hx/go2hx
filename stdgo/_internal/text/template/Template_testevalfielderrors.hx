@@ -6,21 +6,26 @@ function testEvalFieldErrors(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>)) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoString>>)), _want : ("<nil>" : stdgo.GoString) } : stdgo._internal.text.template.Template_t__struct_4.T__struct_4)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _src : ("" : stdgo.GoString), _value : (null : stdgo.AnyInterface), _want : ("" : stdgo.GoString) } : stdgo._internal.text.template.Template_t__struct_4.T__struct_4)])) : stdgo.Slice<stdgo._internal.text.template.Template_t__struct_4.T__struct_4>);
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1523"
         for (__8 => _tc in _tests) {
-            @:check2r _t.run(_tc._name?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1524"
+            _t.run(_tc._name?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
                 var _tmpl = ({
-                    @:tupleArg var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tc._src?.__copy__());
+                    @:tupleArg var __tmp__ = stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tc._src?.__copy__());
                     var __f__ = stdgo._internal.text.template.Template_must.must;
-                    var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tc._src?.__copy__());
+                    var __tmp__ = stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tc._src?.__copy__());
                     __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>), (__tmp__._1 : stdgo.Error));
                 });
-                var _err = (@:check2r _tmpl.execute(stdgo._internal.io.Io_discard.discard, _tc._value) : stdgo.Error);
+                var _err = (_tmpl.execute(stdgo._internal.io.Io_discard.discard, _tc._value) : stdgo.Error);
                 var _got = (("<nil>" : stdgo.GoString) : stdgo.GoString);
+                //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1528"
                 if (_err != null) {
                     _got = _err.error()?.__copy__();
                 };
+                //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1531"
                 if (!stdgo._internal.strings.Strings_hassuffix.hasSuffix(_got?.__copy__(), _tc._want?.__copy__())) {
-                    @:check2r _t.fatalf(("got error %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tc._want));
+                    //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1532"
+                    _t.fatalf(("got error %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tc._want));
                 };
             });
         };

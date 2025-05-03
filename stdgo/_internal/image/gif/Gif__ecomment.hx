@@ -1,2 +1,2 @@
 package stdgo._internal.image.gif;
-final _eComment : stdgo.GoUInt64 = 254i32;
+final _eComment : stdgo.GoUInt64 = 254i64;

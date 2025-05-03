@@ -6,6 +6,7 @@ package stdgo._internal.archive.zip;
         @:recv var _b:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf> = _b;
         var _b2 = (((_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf)).__slice__(0, _n) : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf);
         (_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf).__setData__((((_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf)).__slice__(_n) : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf));
+        //"file:///home/runner/.go/go1.21.3/src/archive/zip/reader.go#L739"
         return _b2;
     }
     @:keep
@@ -14,6 +15,7 @@ package stdgo._internal.archive.zip;
         @:recv var _b:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf> = _b;
         var _v = (stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.uint64((_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf)) : stdgo.GoUInt64);
         (_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf).__setData__((((_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf)).__slice__((8 : stdgo.GoInt)) : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf));
+        //"file:///home/runner/.go/go1.21.3/src/archive/zip/reader.go#L733"
         return _v;
     }
     @:keep
@@ -22,6 +24,7 @@ package stdgo._internal.archive.zip;
         @:recv var _b:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf> = _b;
         var _v = (stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.uint32((_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf)) : stdgo.GoUInt32);
         (_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf).__setData__((((_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf)).__slice__((4 : stdgo.GoInt)) : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf));
+        //"file:///home/runner/.go/go1.21.3/src/archive/zip/reader.go#L727"
         return _v;
     }
     @:keep
@@ -30,6 +33,7 @@ package stdgo._internal.archive.zip;
         @:recv var _b:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf> = _b;
         var _v = (stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.uint16((_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf)) : stdgo.GoUInt16);
         (_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf).__setData__((((_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf)).__slice__((2 : stdgo.GoInt)) : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf));
+        //"file:///home/runner/.go/go1.21.3/src/archive/zip/reader.go#L721"
         return _v;
     }
     @:keep
@@ -38,6 +42,7 @@ package stdgo._internal.archive.zip;
         @:recv var _b:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf> = _b;
         var _v = (((_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf))[(0 : stdgo.GoInt)] : stdgo.GoUInt8);
         (_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf).__setData__((((_b : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf)).__slice__((1 : stdgo.GoInt)) : stdgo._internal.archive.zip.Zip_t_readbuf.T_readBuf));
+        //"file:///home/runner/.go/go1.21.3/src/archive/zip/reader.go#L715"
         return _v;
     }
 }

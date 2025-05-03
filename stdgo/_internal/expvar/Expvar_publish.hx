@@ -2,18 +2,22 @@ package stdgo._internal.expvar;
 function publish(_name:stdgo.GoString, _v:stdgo._internal.expvar.Expvar_var.Var):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/expvar/expvar.go#L283"
             {
-                var __tmp__ = @:check2 stdgo._internal.expvar.Expvar__vars._vars.loadOrStore(stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_v)), __8:stdgo.AnyInterface = __tmp__._0, _dup:Bool = __tmp__._1;
+                var __tmp__ = stdgo._internal.expvar.Expvar__vars._vars.loadOrStore(stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_v)), __8:stdgo.AnyInterface = __tmp__._0, _dup:Bool = __tmp__._1;
                 if (_dup) {
+                    //"file:///home/runner/.go/go1.21.3/src/expvar/expvar.go#L284"
                     stdgo._internal.log.Log_panicln.panicln(stdgo.Go.toInterface(("Reuse of exported var name:" : stdgo.GoString)), stdgo.Go.toInterface(_name));
                 };
             };
-            @:check2 stdgo._internal.expvar.Expvar__varkeysmu._varKeysMu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/expvar/expvar.go#L286"
+            stdgo._internal.expvar.Expvar__varkeysmu._varKeysMu.lock();
             {
-                final __f__ = @:check2 stdgo._internal.expvar.Expvar__varkeysmu._varKeysMu.unlock;
+                final __f__ = stdgo._internal.expvar.Expvar__varkeysmu._varKeysMu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             stdgo._internal.expvar.Expvar__varkeys._varKeys = (stdgo._internal.expvar.Expvar__varkeys._varKeys.__append__(_name?.__copy__()) : stdgo.Slice<stdgo.GoString>);
+            //"file:///home/runner/.go/go1.21.3/src/expvar/expvar.go#L289"
             stdgo._internal.sort.Sort_strings.strings(stdgo._internal.expvar.Expvar__varkeys._varKeys);
             {
                 for (defer in __deferstack__) {
@@ -32,7 +36,7 @@ function publish(_name:stdgo.GoString, _v:stdgo._internal.expvar.Expvar_var.Var)
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

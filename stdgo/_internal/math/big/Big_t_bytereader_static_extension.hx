@@ -4,6 +4,7 @@ package stdgo._internal.math.big;
     @:tdfield
     static public function unreadByte( _r:stdgo._internal.math.big.Big_t_bytereader.T_byteReader):stdgo.Error {
         @:recv var _r:stdgo._internal.math.big.Big_t_bytereader.T_byteReader = _r?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/math/big/intconv.go#L228"
         return _r.unreadRune();
     }
     @:keep
@@ -11,9 +12,11 @@ package stdgo._internal.math.big;
     static public function readByte( _r:stdgo._internal.math.big.Big_t_bytereader.T_byteReader):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo._internal.math.big.Big_t_bytereader.T_byteReader = _r?.__copy__();
         var __tmp__ = _r.readRune(), _ch:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        //"file:///home/runner/.go/go1.21.3/src/math/big/intconv.go#L221"
         if (((_size != (1 : stdgo.GoInt)) && (_err == null) : Bool)) {
             _err = stdgo._internal.fmt.Fmt_errorf.errorf(("invalid rune %#U" : stdgo.GoString), stdgo.Go.toInterface(_ch));
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/big/intconv.go#L224"
         return { _0 : (_ch : stdgo.GoUInt8), _1 : _err };
     }
     @:embedded

@@ -1,2 +1,2 @@
 package stdgo._internal.crypto.aes;
-final blockSize : stdgo.GoUInt64 = 16i32;
+final blockSize : stdgo.GoUInt64 = 16i64;

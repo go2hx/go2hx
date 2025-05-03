@@ -1,5 +1,6 @@
 package stdgo._internal.math.bits;
 function reverse16(_x:stdgo.GoUInt16):stdgo.GoUInt16 {
+        //"file:///home/runner/.go/go1.21.3/src/math/bits/bits.go#L240"
         return (((stdgo.Go.str(0,
 128,
 "@",

@@ -3,6 +3,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _v = ({} : stdgo._internal.reflect.Reflect_value.Value), _isBuiltin = false, _ok = false;
         try {
+            //"file:///home/runner/.go/go1.21.3/src/text/template/funcs.go#L142"
             if ((({
                 final value = _tmpl;
                 (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
@@ -10,14 +11,17 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                 final value = (@:checkr _tmpl ?? throw "null pointer dereference")._common;
                 (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
             }) : Bool)) {
-                @:check2 (@:checkr _tmpl ?? throw "null pointer dereference")._common._muFuncs.rLock();
+                //"file:///home/runner/.go/go1.21.3/src/text/template/funcs.go#L143"
+                (@:checkr _tmpl ?? throw "null pointer dereference")._common._muFuncs.rLock();
                 {
-                    final __f__ = @:check2 (@:checkr _tmpl ?? throw "null pointer dereference")._common._muFuncs.rUnlock;
+                    final __f__ = (@:checkr _tmpl ?? throw "null pointer dereference")._common._muFuncs.rUnlock;
                     __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
+                //"file:///home/runner/.go/go1.21.3/src/text/template/funcs.go#L145"
                 {
                     var _fn = (((@:checkr _tmpl ?? throw "null pointer dereference")._common._execFuncs[_name] ?? ({} : stdgo._internal.reflect.Reflect_value.Value))?.__copy__() : stdgo._internal.reflect.Reflect_value.Value);
                     if (_fn.isValid()) {
+                        //"file:///home/runner/.go/go1.21.3/src/text/template/funcs.go#L146"
                         {
                             final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = {
                                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : false, _2 : true };
@@ -39,9 +43,11 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/funcs.go#L149"
             {
                 var _fn = ((stdgo._internal.text.template.Template__builtinfuncs._builtinFuncs()[_name] ?? ({} : stdgo._internal.reflect.Reflect_value.Value))?.__copy__() : stdgo._internal.reflect.Reflect_value.Value);
                 if (_fn.isValid()) {
+                    //"file:///home/runner/.go/go1.21.3/src/text/template/funcs.go#L150"
                     {
                         final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = {
                             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : true, _2 : true };
@@ -62,6 +68,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/funcs.go#L152"
             {
                 final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = {
                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false, _2 : false };
@@ -97,7 +104,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

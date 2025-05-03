@@ -1,11 +1,11 @@
 package stdgo.text.tabwriter;
-var filterHTML : stdgo.GoUInt = 1i32;
-var stripEscape : stdgo.GoUInt = 2i32;
-var alignRight : stdgo.GoUInt = 4i32;
-var discardEmptyColumns : stdgo.GoUInt = 8i32;
-var tabIndent : stdgo.GoUInt = 16i32;
-var debug : stdgo.GoUInt = 32i32;
-var escape : stdgo.GoInt32 = 255i32;
+var filterHTML : stdgo.GoUInt = 1i64;
+var stripEscape : stdgo.GoUInt = 2i64;
+var alignRight : stdgo.GoUInt = 4i64;
+var discardEmptyColumns : stdgo.GoUInt = 8i64;
+var tabIndent : stdgo.GoUInt = 16i64;
+var debug : stdgo.GoUInt = 32i64;
+var escape : stdgo.GoInt32 = 255i64;
 typedef Writer = stdgo._internal.text.tabwriter.Tabwriter_writer.Writer;
 typedef WriterPointer = stdgo._internal.text.tabwriter.Tabwriter_writerpointer.WriterPointer;
 /**

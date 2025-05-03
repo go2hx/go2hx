@@ -4,6 +4,7 @@ package stdgo._internal.crypto.aes;
     @:tdfield
     static public function inAESPackage( _:stdgo.Ref<stdgo._internal.crypto.aes.Aes_t_testblockmode.T_testBlockMode>):Bool {
         @:recv var _:stdgo.Ref<stdgo._internal.crypto.aes.Aes_t_testblockmode.T_testBlockMode> = _;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/aes/modes_test.go#L70"
         return true;
     }
     @:keep
@@ -15,6 +16,7 @@ package stdgo._internal.crypto.aes;
     @:tdfield
     static public function blockSize( _:stdgo.Ref<stdgo._internal.crypto.aes.Aes_t_testblockmode.T_testBlockMode>):stdgo.GoInt {
         @:recv var _:stdgo.Ref<stdgo._internal.crypto.aes.Aes_t_testblockmode.T_testBlockMode> = _;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/aes/modes_test.go#L68"
         return (0 : stdgo.GoInt);
     }
 }

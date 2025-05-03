@@ -8,10 +8,13 @@ package stdgo._internal.image.png;
         try {
             var __0 = (_m.bounds().dx() : stdgo.GoInt64), __1 = (_m.bounds().dy() : stdgo.GoInt64);
 var _mh = __1, _mw = __0;
+            //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L601"
             if (((((_mw <= (0i64 : stdgo.GoInt64) : Bool) || (_mh <= (0i64 : stdgo.GoInt64) : Bool) : Bool) || (_mw >= (4294967296i64 : stdgo.GoInt64) : Bool) : Bool) || (_mh >= (4294967296i64 : stdgo.GoInt64) : Bool) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L602"
                 return stdgo.Go.asInterface(((((("invalid image size: " : stdgo.GoString) + stdgo._internal.strconv.Strconv_formatint.formatInt(_mw, (10 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("x" : stdgo.GoString)?.__copy__() : stdgo.GoString) + stdgo._internal.strconv.Strconv_formatint.formatInt(_mh, (10 : stdgo.GoInt))?.__copy__() : stdgo.GoString) : stdgo._internal.image.png.Png_formaterror.FormatError));
             };
             var _e:stdgo.Ref<stdgo._internal.image.png.Png_t_encoder.T_encoder> = (null : stdgo.Ref<stdgo._internal.image.png.Png_t_encoder.T_encoder>);
+            //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L606"
             if ((@:checkr _enc ?? throw "null pointer dereference").bufferPool != null) {
                 var _buffer = (@:checkr _enc ?? throw "null pointer dereference").bufferPool.get();
                 _e = (({
@@ -19,12 +22,14 @@ var _mh = __1, _mw = __0;
                     ({ _enc : e._enc, _w : e._w, _m : e._m, _cb : e._cb, _err : e._err, _header : e._header, _footer : e._footer, _tmp : e._tmp, _cr : e._cr, _pr : e._pr, _zw : e._zw, _zwLevel : e._zwLevel, _bw : e._bw } : stdgo._internal.image.png.Png_t_encoder.T_encoder);
                 }));
             };
+            //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L611"
             if (({
                 final value = _e;
                 (value == null || (value : Dynamic).__nil__);
             })) {
                 _e = (stdgo.Go.setRef((new stdgo._internal.image.png.Png_t_encoder.T_encoder() : stdgo._internal.image.png.Png_t_encoder.T_encoder)) : stdgo.Ref<stdgo._internal.image.png.Png_t_encoder.T_encoder>);
             };
+            //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L614"
             if ((@:checkr _enc ?? throw "null pointer dereference").bufferPool != null) {
                 {
                     var _a0 = (({
@@ -39,6 +44,7 @@ var _mh = __1, _mw = __0;
             (@:checkr _e ?? throw "null pointer dereference")._w = _w;
             (@:checkr _e ?? throw "null pointer dereference")._m = _m;
             var _pal:stdgo._internal.image.color.Color_palette.Palette = (new stdgo._internal.image.color.Color_palette.Palette(0, 0) : stdgo._internal.image.color.Color_palette.Palette);
+            //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L624"
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo._internal.image.Image_palettedimage.PalettedImage)) : stdgo._internal.image.Image_palettedimage.PalettedImage), _1 : true };
@@ -56,7 +62,9 @@ var _mh = __1, _mw = __0;
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L627"
             if (_pal != null) {
+                //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L628"
                 if (((_pal.length) <= (2 : stdgo.GoInt) : Bool)) {
                     (@:checkr _e ?? throw "null pointer dereference")._cb = (7 : stdgo.GoInt);
                 } else if (((_pal.length) <= (4 : stdgo.GoInt) : Bool)) {
@@ -67,6 +75,7 @@ var _mh = __1, _mw = __0;
                     (@:checkr _e ?? throw "null pointer dereference")._cb = (10 : stdgo.GoInt);
                 };
             } else {
+                //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L638"
                 {
                     final __value__ = _m.colorModel();
                     if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.image.color.Color_graymodel.grayModel))) {
@@ -74,12 +83,14 @@ var _mh = __1, _mw = __0;
                     } else if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.image.color.Color_gray16model.gray16Model))) {
                         (@:checkr _e ?? throw "null pointer dereference")._cb = (12 : stdgo.GoInt);
                     } else if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.image.color.Color_rgbamodel.rGBAModel)) || stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.image.color.Color_nrgbamodel.nRGBAModel)) || stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.image.color.Color_alphamodel.alphaModel))) {
+                        //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L644"
                         if (stdgo._internal.image.png.Png__opaque._opaque(_m)) {
                             (@:checkr _e ?? throw "null pointer dereference")._cb = (6 : stdgo.GoInt);
                         } else {
                             (@:checkr _e ?? throw "null pointer dereference")._cb = (11 : stdgo.GoInt);
                         };
                     } else {
+                        //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L650"
                         if (stdgo._internal.image.png.Png__opaque._opaque(_m)) {
                             (@:checkr _e ?? throw "null pointer dereference")._cb = (14 : stdgo.GoInt);
                         } else {
@@ -92,12 +103,18 @@ var _mh = __1, _mw = __0;
                 var __tmp__ = stdgo._internal.io.Io_writestring.writeString(_w, (stdgo.Go.str(137, "PNG\r\n", 26, "\n") : stdgo.GoString)?.__copy__());
                 (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
-            @:check2r _e._writeIHDR();
+            //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L659"
+            _e._writeIHDR();
+            //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L660"
             if (_pal != null) {
-                @:check2r _e._writePLTEAndTRNS(_pal);
+                //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L661"
+                _e._writePLTEAndTRNS(_pal);
             };
-            @:check2r _e._writeIDATs();
-            @:check2r _e._writeIEND();
+            //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L663"
+            _e._writeIDATs();
+            //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L664"
+            _e._writeIEND();
+            //"file:///home/runner/.go/go1.21.3/src/image/png/writer.go#L665"
             {
                 final __ret__:stdgo.Error = (@:checkr _e ?? throw "null pointer dereference")._err;
                 for (defer in __deferstack__) {
@@ -124,7 +141,7 @@ var _mh = __1, _mw = __0;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

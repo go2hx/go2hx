@@ -19,12 +19,14 @@ package stdgo._internal.net.rpc;
     @:tdfield
     static public function less( _m:stdgo._internal.net.rpc.Rpc_t_methodarray.T_methodArray, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _m:stdgo._internal.net.rpc.Rpc_t_methodarray.T_methodArray = _m;
+        //"file:///home/runner/.go/go1.21.3/src/net/rpc/debug.go#L64"
         return (_m[(_i : stdgo.GoInt)].type._method.name < _m[(_j : stdgo.GoInt)].type._method.name : Bool);
     }
     @:keep
     @:tdfield
     static public function len( _m:stdgo._internal.net.rpc.Rpc_t_methodarray.T_methodArray):stdgo.GoInt {
         @:recv var _m:stdgo._internal.net.rpc.Rpc_t_methodarray.T_methodArray = _m;
+        //"file:///home/runner/.go/go1.21.3/src/net/rpc/debug.go#L63"
         return (_m.length);
     }
 }

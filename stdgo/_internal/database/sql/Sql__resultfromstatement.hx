@@ -3,13 +3,16 @@ function _resultFromStatement(_ctx:stdgo._internal.context.Context_context.Conte
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L2634"
             (@:checkr _ds ?? throw "null pointer dereference").lock();
             {
                 final __f__ = (@:checkr _ds ?? throw "null pointer dereference").unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = stdgo._internal.database.sql.Sql__driverargsconnlocked._driverArgsConnLocked(_ci, _ds, _args), _dargs:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L2638"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L2639"
                 {
                     final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.database.sql.Sql_result.Result), _1 : _err };
                     for (defer in __deferstack__) {
@@ -21,7 +24,9 @@ function _resultFromStatement(_ctx:stdgo._internal.context.Context_context.Conte
                 };
             };
             var __tmp__ = stdgo._internal.database.sql.Sql__ctxdriverstmtexec._ctxDriverStmtExec(_ctx, (@:checkr _ds ?? throw "null pointer dereference")._si, _dargs), _resi:stdgo._internal.database.sql.driver.Driver_result.Result = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L2643"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L2644"
                 {
                     final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.database.sql.Sql_result.Result), _1 : _err };
                     for (defer in __deferstack__) {
@@ -32,6 +37,7 @@ function _resultFromStatement(_ctx:stdgo._internal.context.Context_context.Conte
                     return __ret__;
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L2646"
             {
                 final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface((new stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult((@:checkr _ds ?? throw "null pointer dereference").locker, _resi) : stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult)), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
@@ -58,7 +64,7 @@ function _resultFromStatement(_ctx:stdgo._internal.context.Context_context.Conte
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

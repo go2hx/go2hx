@@ -5,8 +5,10 @@ package stdgo._internal.internal.coverage.calloc;
     static public function allocateCounters( _ca:stdgo.Ref<stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt32> {
         @:recv var _ca:stdgo.Ref<stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc> = _ca;
         {};
+        //"file:///home/runner/.go/go1.21.3/src/internal/coverage/calloc/batchcounteralloc.go#L19"
         if ((_n > (@:checkr _ca ?? throw "null pointer dereference")._pool.capacity : Bool)) {
             var _siz = (8192 : stdgo.GoInt);
+            //"file:///home/runner/.go/go1.21.3/src/internal/coverage/calloc/batchcounteralloc.go#L21"
             if ((_n > (8192 : stdgo.GoInt) : Bool)) {
                 _siz = _n;
             };
@@ -14,6 +16,7 @@ package stdgo._internal.internal.coverage.calloc;
         };
         var _rv = ((@:checkr _ca ?? throw "null pointer dereference")._pool.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt32>);
         (@:checkr _ca ?? throw "null pointer dereference")._pool = ((@:checkr _ca ?? throw "null pointer dereference")._pool.__slice__(_n) : stdgo.Slice<stdgo.GoUInt32>);
+        //"file:///home/runner/.go/go1.21.3/src/internal/coverage/calloc/batchcounteralloc.go#L28"
         return _rv;
     }
 }

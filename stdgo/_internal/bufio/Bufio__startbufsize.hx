@@ -1,2 +1,2 @@
 package stdgo._internal.bufio;
-final _startBufSize : stdgo.GoUInt64 = 4096i32;
+final _startBufSize : stdgo.GoUInt64 = 4096i64;

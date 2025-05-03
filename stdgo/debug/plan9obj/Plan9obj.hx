@@ -1,8 +1,8 @@
 package stdgo.debug.plan9obj;
-var magic64 : stdgo.GoUInt64 = 32768i32;
-var magic386 : stdgo.GoUInt64 = 491i32;
-var magicAMD64 : stdgo.GoUInt64 = 35479i32;
-var magicARM : stdgo.GoUInt64 = 1607i32;
+var magic64 : stdgo.GoUInt64 = 32768i64;
+var magic386 : stdgo.GoUInt64 = 491i64;
+var magicAMD64 : stdgo.GoUInt64 = 35479i64;
+var magicARM : stdgo.GoUInt64 = 1607i64;
 var errNoSymbols(get, set) : stdgo.Error;
 private function get_errNoSymbols():stdgo.Error return stdgo._internal.debug.plan9obj.Plan9obj_errnosymbols.errNoSymbols;
 private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {

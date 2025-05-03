@@ -1,13 +1,18 @@
 package stdgo._internal.crypto.ecdh;
 function _isLess(_a:stdgo.Slice<stdgo.GoUInt8>, _b:stdgo.Slice<stdgo.GoUInt8>):Bool {
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdh/nist.go#L141"
         if ((_a.length) != ((_b.length))) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/ecdh/nist.go#L142"
             throw stdgo.Go.toInterface(("crypto/ecdh: internal error: mismatched isLess inputs" : stdgo.GoString));
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdh/nist.go#L148"
         if (((_a.length) > (72 : stdgo.GoInt) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/ecdh/nist.go#L149"
             throw stdgo.Go.toInterface(("crypto/ecdh: internal error: isLess input too large" : stdgo.GoString));
         };
         var __0 = (new stdgo.Slice<stdgo.GoUInt8>((72 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), __1 = (new stdgo.Slice<stdgo.GoUInt8>((72 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
 var _bufB = __1, _bufA = __0;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdh/nist.go#L152"
         for (_i => _ in _a) {
             {
                 final __tmp__0 = _a[(((_a.length) - _i : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)];
@@ -21,6 +26,7 @@ var _bufB = __1, _bufA = __0;
             };
         };
         var _borrow:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdh/nist.go#L158"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_bufA.length) : Bool)) {
@@ -33,5 +39,6 @@ var _limbB = __1, _limbA = __0;
                 _i = (_i + ((8 : stdgo.GoInt)) : stdgo.GoInt);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdh/nist.go#L164"
         return _borrow == ((1i64 : stdgo.GoUInt64));
     }

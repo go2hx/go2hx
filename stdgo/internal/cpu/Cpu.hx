@@ -41,7 +41,7 @@ private function set_s390X(v:stdgo._internal.internal.cpu.Cpu_t__struct_5.T__str
         stdgo._internal.internal.cpu.Cpu_s390x.s390X = v;
         return v;
     }
-var cacheLinePadSize : stdgo.GoUInt64 = 64i32;
+var cacheLinePadSize : stdgo.GoUInt64 = 64i64;
 var cacheLineSize(get, set) : stdgo.GoUIntptr;
 private function get_cacheLineSize():stdgo.GoUIntptr return stdgo._internal.internal.cpu.Cpu_cachelinesize.cacheLineSize;
 private function set_cacheLineSize(v:stdgo.GoUIntptr):stdgo.GoUIntptr {

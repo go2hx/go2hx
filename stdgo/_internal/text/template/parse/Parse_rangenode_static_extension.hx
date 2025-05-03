@@ -4,7 +4,8 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function copy( _r:stdgo.Ref<stdgo._internal.text.template.parse.Parse_rangenode.RangeNode>):stdgo._internal.text.template.parse.Parse_node.Node {
         @:recv var _r:stdgo.Ref<stdgo._internal.text.template.parse.Parse_rangenode.RangeNode> = _r;
-        return stdgo.Go.asInterface(@:check2r (@:checkr _r ?? throw "null pointer dereference").branchNode._tr._newRange((@:checkr _r ?? throw "null pointer dereference").branchNode.pos, (@:checkr _r ?? throw "null pointer dereference").branchNode.line, @:check2r (@:checkr _r ?? throw "null pointer dereference").branchNode.pipe.copyPipe(), @:check2r (@:checkr _r ?? throw "null pointer dereference").branchNode.list.copyList(), @:check2r (@:checkr _r ?? throw "null pointer dereference").branchNode.elseList.copyList()));
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L956"
+        return stdgo.Go.asInterface((@:checkr _r ?? throw "null pointer dereference").branchNode._tr._newRange((@:checkr _r ?? throw "null pointer dereference").branchNode.pos, (@:checkr _r ?? throw "null pointer dereference").branchNode.line, (@:checkr _r ?? throw "null pointer dereference").branchNode.pipe.copyPipe(), (@:checkr _r ?? throw "null pointer dereference").branchNode.list.copyList(), (@:checkr _r ?? throw "null pointer dereference").branchNode.elseList.copyList()));
     }
     @:embedded
     @:embeddededffieldsffun

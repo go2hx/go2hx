@@ -1,6 +1,6 @@
 package stdgo.image.draw;
-var over : Op = 0i32;
-var src : Op = 1i32;
+var over : Op = 0i64;
+var src : Op = 1i64;
 var floydSteinberg(get, set) : Drawer;
 private function get_floydSteinberg():Drawer return stdgo._internal.image.draw.Draw_floydsteinberg.floydSteinberg;
 private function set_floydSteinberg(v:Drawer):stdgo._internal.image.draw.Draw_drawer.Drawer {

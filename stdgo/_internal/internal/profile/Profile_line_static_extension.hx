@@ -4,13 +4,16 @@ package stdgo._internal.internal.profile;
     @:tdfield
     static public function _encode( _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_line.Line>, _b:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_buffer.T_buffer>):Void {
         @:recv var _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_line.Line> = _p;
+        //"file:///home/runner/.go/go1.21.3/src/internal/profile/encode.go#L425"
         stdgo._internal.internal.profile.Profile__encodeuint64opt._encodeUint64Opt(_b, (1 : stdgo.GoInt), (@:checkr _p ?? throw "null pointer dereference")._functionIDX);
+        //"file:///home/runner/.go/go1.21.3/src/internal/profile/encode.go#L426"
         stdgo._internal.internal.profile.Profile__encodeint64opt._encodeInt64Opt(_b, (2 : stdgo.GoInt), (@:checkr _p ?? throw "null pointer dereference").line);
     }
     @:keep
     @:tdfield
     static public function _decoder( _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_line.Line>):stdgo.Slice<stdgo._internal.internal.profile.Profile_t_decoder.T_decoder> {
         @:recv var _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_line.Line> = _p;
+        //"file:///home/runner/.go/go1.21.3/src/internal/profile/encode.go#L421"
         return stdgo._internal.internal.profile.Profile__linedecoder._lineDecoder;
     }
 }

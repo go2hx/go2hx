@@ -4,6 +4,7 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function marshalJSON( _:stdgo._internal.encoding.json.Json_t_marshalpanic.T_marshalPanic):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _:stdgo._internal.encoding.json.Json_t_marshalpanic.T_marshalPanic = _?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L1138"
         throw stdgo.Go.toInterface((57005 : stdgo.GoInt));
     }
 }

@@ -1,5 +1,6 @@
 package stdgo._internal.fmt;
 function _errorHandler(_errp:stdgo.Ref<stdgo.Error>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/fmt/scan.go#L1058"
         {
             var _e = ({
                 final r = stdgo.Go.recover_exception;
@@ -7,6 +8,7 @@ function _errorHandler(_errp:stdgo.Ref<stdgo.Error>):Void {
                 r;
             } : stdgo.AnyInterface);
             if (_e != null) {
+                //"file:///home/runner/.go/go1.21.3/src/fmt/scan.go#L1059"
                 {
                     var __tmp__ = try {
                         { _0 : (stdgo.Go.typeAssert((_e : stdgo._internal.fmt.Fmt_t_scanerror.T_scanError)) : stdgo._internal.fmt.Fmt_t_scanerror.T_scanError), _1 : true };
@@ -32,6 +34,7 @@ function _errorHandler(_errp:stdgo.Ref<stdgo.Error>):Void {
                                 x.error = __tmp__.error;
                             };
                         } else {
+                            //"file:///home/runner/.go/go1.21.3/src/fmt/scan.go#L1064"
                             throw stdgo.Go.toInterface(_e);
                         };
                     };

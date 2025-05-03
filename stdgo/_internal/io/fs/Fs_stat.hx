@@ -2,6 +2,7 @@ package stdgo._internal.io.fs;
 function stat(_fsys:stdgo._internal.io.fs.Fs_fs.FS, _name:stdgo.GoString):{ var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/io/fs/stat.go#L21"
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : stdgo._internal.io.fs.Fs_statfs.StatFS)) : stdgo._internal.io.fs.Fs_statfs.StatFS), _1 : true };
@@ -9,17 +10,21 @@ function stat(_fsys:stdgo._internal.io.fs.Fs_fs.FS, _name:stdgo.GoString):{ var 
                     { _0 : (null : stdgo._internal.io.fs.Fs_statfs.StatFS), _1 : false };
                 }, _fsys = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
+                    //"file:///home/runner/.go/go1.21.3/src/io/fs/stat.go#L22"
                     return _fsys.stat(_name?.__copy__());
                 };
             };
             var __tmp__ = _fsys.open(_name?.__copy__()), _file:stdgo._internal.io.fs.Fs_file.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/io/fs/stat.go#L26"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/io/fs/stat.go#L27"
                 return { _0 : (null : stdgo._internal.io.fs.Fs_fileinfo.FileInfo), _1 : _err };
             };
             {
                 final __f__ = _file.close;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/io/fs/stat.go#L30"
             {
                 final __ret__:{ var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; } = _file.stat();
                 for (defer in __deferstack__) {
@@ -46,7 +51,7 @@ function stat(_fsys:stdgo._internal.io.fs.Fs_fs.FS, _name:stdgo.GoString):{ var 
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

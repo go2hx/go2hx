@@ -4,15 +4,19 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function getU( _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_>):stdgo.Ref<stdgo._internal.text.template.Template_u.U> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L242"
         return (@:checkr _t ?? throw "null pointer dereference").u;
     }
     @:keep
     @:tdfield
     static public function myError( _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_>, _error:Bool):{ var _0 : Bool; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L234"
         if (_error) {
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L235"
             return { _0 : true, _1 : stdgo._internal.text.template.Template__myerror._myError };
         };
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L237"
         return { _0 : false, _1 : (null : stdgo.Error) };
     }
     @:keep
@@ -20,9 +24,11 @@ package stdgo._internal.text.template;
     static public function mAdd( _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_>, _a:stdgo.GoInt, _b:stdgo.Slice<stdgo.GoInt>):stdgo.Slice<stdgo.GoInt> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_> = _t;
         var _v = (new stdgo.Slice<stdgo.GoInt>((_b.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L224"
         for (_i => _x in _b) {
             _v[(_i : stdgo.GoInt)] = (_x + _a : stdgo.GoInt);
         };
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L227"
         return _v;
     }
     @:keep
@@ -88,30 +94,35 @@ package stdgo._internal.text.template;
             x.tmpl = __tmp__?.tmpl;
             x._unexported = __tmp__?._unexported;
         };
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L219"
         return _n;
     }
     @:keep
     @:tdfield
     static public function method3( _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_>, _v:stdgo.AnyInterface):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L213"
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("Method3: %v" : stdgo.GoString), _v)?.__copy__();
     }
     @:keep
     @:tdfield
     static public function method2( _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_>, _a:stdgo.GoUInt16, _b:stdgo.GoString):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L209"
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("Method2: %d %s" : stdgo.GoString), stdgo.Go.toInterface(_a), stdgo.Go.toInterface(_b))?.__copy__();
     }
     @:keep
     @:tdfield
     static public function method1( _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_>, _a:stdgo.GoInt):stdgo.GoInt {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L205"
         return _a;
     }
     @:keep
     @:tdfield
     static public function method0( _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_t_.T_> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L201"
         return ("M0" : stdgo.GoString);
     }
 }

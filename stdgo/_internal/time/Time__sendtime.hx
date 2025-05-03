@@ -1,5 +1,6 @@
 package stdgo._internal.time;
 function _sendTime(_c:stdgo.AnyInterface, _seq:stdgo.GoUIntptr):Void {
+        //"file:///home/runner/.go/go1.21.3/src/time/sleep.go#L144"
         {
             var __select__ = true;
             var __c__0 = (stdgo.Go.typeAssert((_c : stdgo.Chan<stdgo._internal.time.Time_time.Time>)) : stdgo.Chan<stdgo._internal.time.Time_time.Time>);

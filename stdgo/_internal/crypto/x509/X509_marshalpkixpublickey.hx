@@ -3,6 +3,7 @@ function marshalPKIXPublicKey(_pub:stdgo.AnyInterface):{ var _0 : stdgo.Slice<st
         var _publicKeyBytes:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _publicKeyAlgorithm:stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier = ({} : stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier);
         var _err:stdgo.Error = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/x509/x509.go#L155"
         {
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__marshalpublickey._marshalPublicKey(_pub);
@@ -11,10 +12,12 @@ function marshalPKIXPublicKey(_pub:stdgo.AnyInterface):{ var _0 : stdgo.Slice<st
                 _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/crypto/x509/x509.go#L156"
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
         };
         var _pkix = ({ algo : _publicKeyAlgorithm?.__copy__(), bitString : ({ bytes : _publicKeyBytes, bitLength : ((8 : stdgo.GoInt) * (_publicKeyBytes.length) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_bitstring.BitString) } : stdgo._internal.crypto.x509.X509_t_pkixpublickey.T_pkixPublicKey);
         var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_pkix))), _ret:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __1:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/x509/x509.go#L168"
         return { _0 : _ret, _1 : (null : stdgo.Error) };
     }

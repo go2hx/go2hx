@@ -1,21 +1,25 @@
 package stdgo._internal.internal.fuzz;
 function runFuzzWorker(_ctx:stdgo._internal.context.Context_context.Context, _fn:stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> stdgo.Error):stdgo.Error {
         var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__getworkercomm._getWorkerComm(), _comm:stdgo._internal.internal.fuzz.Fuzz_t_workercomm.T_workerComm = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L486"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L487"
             return _err;
         };
         var _srv = (stdgo.Go.setRef(({ _workerComm : _comm?.__copy__(), _fuzzFn : function(_e:stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry):{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Error; } {
             var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
             try {
                 var _timer = stdgo._internal.time.Time_afterfunc.afterFunc((10000000000i64 : stdgo._internal.time.Time_duration.Duration), function():Void {
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L493"
                     throw stdgo.Go.toInterface(("deadlocked!" : stdgo.GoString));
                 });
                 {
-                    final __f__ = @:check2r _timer.stop;
+                    final __f__ = _timer.stop;
                     __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
                 var _start = (stdgo._internal.time.Time_now.now()?.__copy__() : stdgo._internal.time.Time_time.Time);
                 var _err = (_fn(_e?.__copy__()) : stdgo.Error);
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L498"
                 {
                     final __ret__:{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Error; } = { _0 : stdgo._internal.time.Time_since.since(_start?.__copy__()), _1 : _err };
                     for (defer in __deferstack__) {
@@ -42,7 +46,7 @@ function runFuzzWorker(_ctx:stdgo._internal.context.Context_context.Context, _fn
                 {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                    if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                         if (__exception__.message == "__return__") throw "__return__";
                         exe = stdgo.Go.toInterface(__exception__.message);
                     };
@@ -79,5 +83,6 @@ function runFuzzWorker(_ctx:stdgo._internal.context.Context_context.Context, _fn
                 };
             };
         }, _m : stdgo._internal.internal.fuzz.Fuzz__newmutator._newMutator() } : stdgo._internal.internal.fuzz.Fuzz_t_workerserver.T_workerServer)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_workerserver.T_workerServer>);
-        return @:check2r _srv._serve(_ctx);
+        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L502"
+        return _srv._serve(_ctx);
     }

@@ -12,6 +12,7 @@ function _encryptBlockGo(_xk:stdgo.Slice<stdgo.GoUInt32>, _dst:stdgo.Slice<stdgo
         var _nr = (((_xk.length) / (4 : stdgo.GoInt) : stdgo.GoInt) - (2 : stdgo.GoInt) : stdgo.GoInt);
         var _k = (4 : stdgo.GoInt);
         var _t0:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _t1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _t2:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _t3:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/aes/block.go#L62"
         {
             var _r = (0 : stdgo.GoInt);
             while ((_r < _nr : Bool)) {
@@ -42,8 +43,12 @@ _k = (_k + ((4 : stdgo.GoInt)) : stdgo.GoInt);
         _s2 = (_s2 ^ (_xk[((_k + (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoUInt32);
         _s3 = (_s3 ^ (_xk[((_k + (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoUInt32);
         _dst[(15 : stdgo.GoInt)];
+        //"file:///home/runner/.go/go1.21.3/src/crypto/aes/block.go#L83"
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_dst.__slice__((0 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _s0);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/aes/block.go#L84"
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_dst.__slice__((4 : stdgo.GoInt), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _s1);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/aes/block.go#L85"
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_dst.__slice__((8 : stdgo.GoInt), (12 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _s2);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/aes/block.go#L86"
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_dst.__slice__((12 : stdgo.GoInt), (16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _s3);
     }

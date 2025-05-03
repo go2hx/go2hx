@@ -1,2 +1,2 @@
 package stdgo._internal.log;
-final lUTC : stdgo.GoUInt64 = 32i32;
+final lUTC : stdgo.GoUInt64 = 32i64;

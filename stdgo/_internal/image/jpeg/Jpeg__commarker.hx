@@ -1,2 +1,2 @@
 package stdgo._internal.image.jpeg;
-final _comMarker : stdgo.GoUInt64 = 254i32;
+final _comMarker : stdgo.GoUInt64 = 254i64;

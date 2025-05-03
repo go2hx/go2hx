@@ -11,7 +11,9 @@ package stdgo._internal.encoding.gob;
     static public function readByte( _b:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_benchmarkbuf.T_benchmarkBuf>):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_benchmarkbuf.T_benchmarkBuf> = _b;
         var _c = (0 : stdgo.GoUInt8), _err = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/timing_test.go#L210"
         if (((@:checkr _b ?? throw "null pointer dereference")._offset >= ((@:checkr _b ?? throw "null pointer dereference")._data.length) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/timing_test.go#L211"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : stdgo._internal.io.Io_eof.eOF };
                 _c = __tmp__._0;
@@ -20,7 +22,9 @@ package stdgo._internal.encoding.gob;
             };
         };
         _c = (@:checkr _b ?? throw "null pointer dereference")._data[((@:checkr _b ?? throw "null pointer dereference")._offset : stdgo.GoInt)];
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/timing_test.go#L214"
         (@:checkr _b ?? throw "null pointer dereference")._offset++;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/timing_test.go#L215"
         return { _0 : _c, _1 : _err };
     }
     @:keep
@@ -29,7 +33,9 @@ package stdgo._internal.encoding.gob;
         @:recv var _b:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_benchmarkbuf.T_benchmarkBuf> = _b;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         _n = _p.__copyTo__(((@:checkr _b ?? throw "null pointer dereference")._data.__slice__((@:checkr _b ?? throw "null pointer dereference")._offset) : stdgo.Slice<stdgo.GoUInt8>));
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/timing_test.go#L202"
         if (_n == ((0 : stdgo.GoInt))) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/timing_test.go#L203"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
                 _n = __tmp__._0;
@@ -38,6 +44,7 @@ package stdgo._internal.encoding.gob;
             };
         };
         (@:checkr _b ?? throw "null pointer dereference")._offset = ((@:checkr _b ?? throw "null pointer dereference")._offset + (_n) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/timing_test.go#L206"
         return { _0 : _n, _1 : _err };
     }
 }

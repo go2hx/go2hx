@@ -4,6 +4,7 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function marshalJSON( _b:stdgo._internal.encoding.json.Json_t_jsonbyte.T_jsonbyte):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo._internal.encoding.json.Json_t_jsonbyte.T_jsonbyte = _b;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L840"
         return stdgo._internal.encoding.json.Json__tenc._tenc(("{\"JB\":%d}" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_b)));
     }
 }

@@ -8,6 +8,7 @@ function parse(_data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Ref<stdgo._internal.inter
             _name = @:tmpset0 __tmp__._1?.__copy__();
             _data = @:tmpset0 __tmp__._2;
         };
+        //"file:///home/runner/.go/go1.21.3/src/internal/txtar/archive.go#L82"
         while (_name != ((stdgo.Go.str() : stdgo.GoString))) {
             var _f = (new stdgo._internal.internal.txtar.Txtar_file.File(_name?.__copy__(), (null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo._internal.internal.txtar.Txtar_file.File);
             {
@@ -18,5 +19,6 @@ function parse(_data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Ref<stdgo._internal.inter
             };
             (@:checkr _a ?? throw "null pointer dereference").files = ((@:checkr _a ?? throw "null pointer dereference").files.__append__(_f?.__copy__()) : stdgo.Slice<stdgo._internal.internal.txtar.Txtar_file.File>);
         };
+        //"file:///home/runner/.go/go1.21.3/src/internal/txtar/archive.go#L87"
         return _a;
     }

@@ -4,6 +4,7 @@ package stdgo._internal.net.url;
     @:tdfield
     static public function error( _e:stdgo._internal.net.url.Url_invalidhosterror.InvalidHostError):stdgo.GoString {
         @:recv var _e:stdgo._internal.net.url.Url_invalidhosterror.InvalidHostError = _e;
+        //"file:///home/runner/.go/go1.21.3/src/net/url/url.go#L93"
         return ((("invalid character " : stdgo.GoString) + stdgo._internal.strconv.Strconv_quote.quote((_e : stdgo.GoString)?.__copy__())?.__copy__() : stdgo.GoString) + (" in host name" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
     }
 }

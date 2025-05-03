@@ -2,6 +2,7 @@ package stdgo._internal.math.big;
 function _measureSqr(_words:stdgo.GoInt, _nruns:stdgo.GoInt, _mode:stdgo.GoString):stdgo._internal.time.Time_duration.Duration {
         var __0 = (stdgo._internal.math.big.Big__basicsqrthreshold._basicSqrThreshold : stdgo.GoInt), __1 = (stdgo._internal.math.big.Big__karatsubasqrthreshold._karatsubaSqrThreshold : stdgo.GoInt);
 var _initKaratsubaSqr = __1, _initBasicSqr = __0;
+        //"file:///home/runner/.go/go1.21.3/src/math/big/calibrate_test.go#L124"
         {
             final __value__ = _mode;
             if (__value__ == (("mul(x, x)" : stdgo.GoString))) {
@@ -18,10 +19,12 @@ var _initKaratsubaSqr = __1, _initBasicSqr = __0;
             };
         };
         var _testval:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        //"file:///home/runner/.go/go1.21.3/src/math/big/calibrate_test.go#L134"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _nruns : Bool)) {
                 var _res = (stdgo._internal.testing.Testing_benchmark.benchmark(function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+                    //"file:///home/runner/.go/go1.21.3/src/math/big/calibrate_test.go#L135"
                     stdgo._internal.math.big.Big__benchmarknatsqr._benchmarkNatSqr(_b, _words);
                 }).__copy__() : stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult);
 _testval = (_testval + (_res.nsPerOp()) : stdgo.GoInt64);
@@ -35,5 +38,6 @@ _testval = (_testval + (_res.nsPerOp()) : stdgo.GoInt64);
             stdgo._internal.math.big.Big__basicsqrthreshold._basicSqrThreshold = @:binopAssign __tmp__0;
             stdgo._internal.math.big.Big__karatsubasqrthreshold._karatsubaSqrThreshold = @:binopAssign __tmp__1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/big/calibrate_test.go#L142"
         return (_testval : stdgo._internal.time.Time_duration.Duration);
     }

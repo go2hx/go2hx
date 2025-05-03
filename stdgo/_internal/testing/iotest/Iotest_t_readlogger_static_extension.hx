@@ -10,11 +10,15 @@ package stdgo._internal.testing.iotest;
             _n = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger.go#L41"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger.go#L42"
             stdgo._internal.log.Log_printf.printf(("%s %x: %v" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _l ?? throw "null pointer dereference")._prefix), stdgo.Go.toInterface((_p.__slice__((0 : stdgo.GoInt), _n) : stdgo.Slice<stdgo.GoUInt8>)), stdgo.Go.toInterface(_err));
         } else {
+            //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger.go#L44"
             stdgo._internal.log.Log_printf.printf(("%s %x" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _l ?? throw "null pointer dereference")._prefix), stdgo.Go.toInterface((_p.__slice__((0 : stdgo.GoInt), _n) : stdgo.Slice<stdgo.GoUInt8>)));
         };
+        //"file:///home/runner/.go/go1.21.3/src/testing/iotest/logger.go#L46"
         return { _0 : _n, _1 : _err };
     }
 }

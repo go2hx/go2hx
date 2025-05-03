@@ -4,7 +4,8 @@ package stdgo._internal.archive.zip;
     @:tdfield
     static public function close( _rc:stdgo.Ref<stdgo._internal.archive.zip.Zip_readcloser.ReadCloser>):stdgo.Error {
         @:recv var _rc:stdgo.Ref<stdgo._internal.archive.zip.Zip_readcloser.ReadCloser> = _rc;
-        return @:check2r (@:checkr _rc ?? throw "null pointer dereference")._f.close();
+        //"file:///home/runner/.go/go1.21.3/src/archive/zip/reader.go#L199"
+        return (@:checkr _rc ?? throw "null pointer dereference")._f.close();
     }
     @:embedded
     @:embeddededffieldsffun

@@ -4,6 +4,7 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function error( _e:stdgo.Ref<stdgo._internal.encoding.json.Json_invalidutf8error.InvalidUTF8Error>):stdgo.GoString {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.json.Json_invalidutf8error.InvalidUTF8Error> = _e;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L225"
         return (("json: invalid UTF-8 in string: " : stdgo.GoString) + stdgo._internal.strconv.Strconv_quote.quote((@:checkr _e ?? throw "null pointer dereference").s?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__();
     }
 }

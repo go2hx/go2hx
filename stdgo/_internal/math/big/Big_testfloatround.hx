@@ -1,5 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatRound(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L427"
         for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_t__struct_17.T__struct_17>(64, 64, ...[
 ({ _prec : (5u32 : stdgo.GoUInt), _x : ("1000" : stdgo.GoString), _zero : ("1000" : stdgo.GoString), _neven : ("1000" : stdgo.GoString), _naway : ("1000" : stdgo.GoString), _away : ("1000" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_17.T__struct_17),
 ({ _prec : (5u32 : stdgo.GoUInt), _x : ("1001" : stdgo.GoString), _zero : ("1001" : stdgo.GoString), _neven : ("1001" : stdgo.GoString), _naway : ("1001" : stdgo.GoString), _away : ("1001" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_17.T__struct_17),
@@ -71,13 +72,21 @@ function testFloatRound(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Voi
             var _n = (stdgo._internal.math.big.Big__frombinary._fromBinary(_test._naway?.__copy__()) : stdgo.GoInt64);
             var _a = (stdgo._internal.math.big.Big__frombinary._fromBinary(_test._away?.__copy__()) : stdgo.GoInt64);
             var _prec = (_test._prec : stdgo.GoUInt);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L510"
             stdgo._internal.math.big.Big__testfloatround._testFloatRound(_t, _x, _z, _prec, (2 : stdgo._internal.math.big.Big_roundingmode.RoundingMode));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L511"
             stdgo._internal.math.big.Big__testfloatround._testFloatRound(_t, _x, _e, _prec, (0 : stdgo._internal.math.big.Big_roundingmode.RoundingMode));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L512"
             stdgo._internal.math.big.Big__testfloatround._testFloatRound(_t, _x, _n, _prec, (1 : stdgo._internal.math.big.Big_roundingmode.RoundingMode));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L513"
             stdgo._internal.math.big.Big__testfloatround._testFloatRound(_t, _x, _a, _prec, (3 : stdgo._internal.math.big.Big_roundingmode.RoundingMode));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L515"
             stdgo._internal.math.big.Big__testfloatround._testFloatRound(_t, _x, _z, _prec, (4 : stdgo._internal.math.big.Big_roundingmode.RoundingMode));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L516"
             stdgo._internal.math.big.Big__testfloatround._testFloatRound(_t, _x, _a, _prec, (5 : stdgo._internal.math.big.Big_roundingmode.RoundingMode));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L518"
             stdgo._internal.math.big.Big__testfloatround._testFloatRound(_t, -_x, -_a, _prec, (4 : stdgo._internal.math.big.Big_roundingmode.RoundingMode));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L519"
             stdgo._internal.math.big.Big__testfloatround._testFloatRound(_t, -_x, -_z, _prec, (5 : stdgo._internal.math.big.Big_roundingmode.RoundingMode));
         };
     }

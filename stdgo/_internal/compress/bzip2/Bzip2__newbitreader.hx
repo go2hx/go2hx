@@ -5,8 +5,10 @@ function _newBitReader(_r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.c
         } catch(_) {
             { _0 : (null : stdgo._internal.io.Io_bytereader.ByteReader), _1 : false };
         }, _byter = __tmp__._0, _ok = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/compress/bzip2/bit_reader.go#L27"
         if (!_ok) {
             _byter = stdgo.Go.asInterface(stdgo._internal.bufio.Bufio_newreader.newReader(_r));
         };
+        //"file:///home/runner/.go/go1.21.3/src/compress/bzip2/bit_reader.go#L30"
         return ({ _r : _byter } : stdgo._internal.compress.bzip2.Bzip2_t_bitreader.T_bitReader);
     }

@@ -1,8 +1,8 @@
 package stdgo.hash.crc32;
-var size : stdgo.GoUInt64 = 4i32;
-var iEEE : stdgo.GoUInt64 = 3988292384i32;
-var castagnoli : stdgo.GoUInt64 = 2197175160i32;
-var koopman : stdgo.GoUInt64 = 3945912366i32;
+var size : stdgo.GoUInt64 = 4i64;
+var iEEE : stdgo.GoUInt64 = 3988292384i64;
+var castagnoli : stdgo.GoUInt64 = 2197175160i64;
+var koopman : stdgo.GoUInt64 = 3945912366i64;
 var iEEETable(get, set) : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_table.Table>;
 private function get_iEEETable():stdgo.Ref<stdgo._internal.hash.crc32.Crc32_table.Table> return stdgo._internal.hash.crc32.Crc32_ieeetable.iEEETable;
 private function set_iEEETable(v:stdgo.Ref<stdgo._internal.hash.crc32.Crc32_table.Table>):stdgo.Ref<stdgo._internal.hash.crc32.Crc32_table.Table> {

@@ -4,7 +4,9 @@ package stdgo._internal.testing.slogtest;
     @:tdfield
     static public function handle( _h:stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper>, _ctx:stdgo._internal.context.Context_context.Context, _r:stdgo._internal.log.slog.Slog_record.Record):stdgo.Error {
         @:recv var _h:stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper> = _h;
+        //"file:///home/runner/.go/go1.21.3/src/testing/slogtest/slogtest.go#L302"
         (@:checkr _h ?? throw "null pointer dereference")._mod((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record>));
+        //"file:///home/runner/.go/go1.21.3/src/testing/slogtest/slogtest.go#L303"
         return (@:checkr _h ?? throw "null pointer dereference").handler.handle(_ctx, _r?.__copy__());
     }
     @:embedded

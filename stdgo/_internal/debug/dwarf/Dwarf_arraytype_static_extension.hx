@@ -4,15 +4,19 @@ package stdgo._internal.debug.dwarf;
     @:tdfield
     static public function size( _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_arraytype.ArrayType>):stdgo.GoInt64 {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_arraytype.ArrayType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L126"
         if ((@:checkr _t ?? throw "null pointer dereference").count == ((-1i64 : stdgo.GoInt64))) {
+            //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L127"
             return (0i64 : stdgo.GoInt64);
         };
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L129"
         return ((@:checkr _t ?? throw "null pointer dereference").count * (@:checkr _t ?? throw "null pointer dereference").type.size() : stdgo.GoInt64);
     }
     @:keep
     @:tdfield
     static public function string( _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_arraytype.ArrayType>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_arraytype.ArrayType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L122"
         return (((("[" : stdgo.GoString) + stdgo._internal.strconv.Strconv_formatint.formatInt((@:checkr _t ?? throw "null pointer dereference").count, (10 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("]" : stdgo.GoString)?.__copy__() : stdgo.GoString) + ((@:checkr _t ?? throw "null pointer dereference").type.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
     }
     @:embedded

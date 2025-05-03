@@ -4,17 +4,23 @@ function testGobEncoderIndirectField(_t:stdgo.Ref<stdgo._internal.testing.Testin
         var _enc = stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo.Go.asInterface(_b));
         var _s = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct(("HIJKL" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct>);
         var _sp = stdgo.Go.pointer(_s);
-        var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.encoding.gob.Gob_gobtestindirectencdec.GobTestIndirectEncDec((17 : stdgo.GoInt), stdgo.Go.pointer(_sp)) : stdgo._internal.encoding.gob.Gob_gobtestindirectencdec.GobTestIndirectEncDec)))) : stdgo.Error);
+        var _err = (_enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.encoding.gob.Gob_gobtestindirectencdec.GobTestIndirectEncDec((17 : stdgo.GoInt), stdgo.Go.pointer(_sp)) : stdgo._internal.encoding.gob.Gob_gobtestindirectencdec.GobTestIndirectEncDec)))) : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L307"
         if (_err != null) {
-            @:check2r _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L308"
+            _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         var _dec = stdgo._internal.encoding.gob.Gob_newdecoder.newDecoder(stdgo.Go.asInterface(_b));
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_gobtestindirectencdec.GobTestIndirectEncDec)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_gobtestindirectencdec.GobTestIndirectEncDec>);
-        _err = @:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
+        _err = _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L313"
         if (_err != null) {
-            @:check2r _t.fatal(stdgo.Go.toInterface(("decode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L314"
+            _t.fatal(stdgo.Go.toInterface(("decode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L316"
         if (((@:checkr _x ?? throw "null pointer dereference").g.value.value : stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct)._s != (("HIJKL" : stdgo.GoString))) {
-            @:check2r _t.errorf(("expected `HIJKL` got %s" : stdgo.GoString), stdgo.Go.toInterface(((@:checkr _x ?? throw "null pointer dereference").g.value.value : stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct)._s));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L317"
+            _t.errorf(("expected `HIJKL` got %s" : stdgo.GoString), stdgo.Go.toInterface(((@:checkr _x ?? throw "null pointer dereference").g.value.value : stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct)._s));
         };
     }

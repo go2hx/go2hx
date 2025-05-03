@@ -2,11 +2,13 @@ package stdgo._internal.runtime.pprof;
 function lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile> {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/pprof.go#L226"
             stdgo._internal.runtime.pprof.Pprof__lockprofiles._lockProfiles();
             {
                 final __f__ = stdgo._internal.runtime.pprof.Pprof__unlockprofiles._unlockProfiles;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/pprof.go#L228"
             {
                 final __ret__:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile> = (stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m[_name] ?? (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>));
                 for (defer in __deferstack__) {
@@ -33,7 +35,7 @@ function lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.pprof.Pp
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

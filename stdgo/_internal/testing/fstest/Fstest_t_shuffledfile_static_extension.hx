@@ -5,9 +5,12 @@ package stdgo._internal.testing.fstest;
     static public function readDir( _f:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_shuffledfile.T_shuffledFile>, _n:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_direntry.DirEntry>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_shuffledfile.T_shuffledFile> = _f;
         var __tmp__ = (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _f ?? throw "null pointer dereference").file) : stdgo._internal.io.fs.Fs_readdirfile.ReadDirFile)) : stdgo._internal.io.fs.Fs_readdirfile.ReadDirFile).readDir(_n), _dirents:stdgo.Slice<stdgo._internal.io.fs.Fs_direntry.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/testfs_test.go#L63"
         stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_dirents), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
+            //"file:///home/runner/.go/go1.21.3/src/testing/fstest/testfs_test.go#L64"
             return (_dirents[(_i : stdgo.GoInt)].name() > _dirents[(_j : stdgo.GoInt)].name() : Bool);
         });
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/testfs_test.go#L66"
         return { _0 : _dirents, _1 : _err };
     }
     @:embedded

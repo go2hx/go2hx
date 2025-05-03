@@ -47,14 +47,17 @@ function _testCrossCheck(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>, _c
 (4096 : stdgo.GoInt),
 (5000 : stdgo.GoInt),
 (10000 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
+        //"file:///home/runner/.go/go1.21.3/src/hash/crc32/crc32_test.go#L97"
         for (__4 => _length in _lengths) {
             var _p = (new stdgo.Slice<stdgo.GoUInt8>((_length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             stdgo._internal.math.rand.Rand_read.read(_p);
             var _crcInit = (stdgo._internal.math.rand.Rand_int63.int63() : stdgo.GoUInt32);
             var _crc1 = (_crcFunc1(_crcInit, _p) : stdgo.GoUInt32);
             var _crc2 = (_crcFunc2(_crcInit, _p) : stdgo.GoUInt32);
+            //"file:///home/runner/.go/go1.21.3/src/hash/crc32/crc32_test.go#L103"
             if (_crc1 != (_crc2)) {
-                @:check2r _t.errorf(("mismatch: 0x%x vs 0x%x (buffer length %d)" : stdgo.GoString), stdgo.Go.toInterface(_crc1), stdgo.Go.toInterface(_crc2), stdgo.Go.toInterface(_length));
+                //"file:///home/runner/.go/go1.21.3/src/hash/crc32/crc32_test.go#L104"
+                _t.errorf(("mismatch: 0x%x vs 0x%x (buffer length %d)" : stdgo.GoString), stdgo.Go.toInterface(_crc1), stdgo.Go.toInterface(_crc2), stdgo.Go.toInterface(_length));
             };
         };
     }

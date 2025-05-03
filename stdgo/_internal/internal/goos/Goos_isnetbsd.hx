@@ -1,2 +1,2 @@
 package stdgo._internal.internal.goos;
-final isNetbsd : stdgo.GoUInt64 = 0i32;
+final isNetbsd : stdgo.GoUInt64 = 0i64;

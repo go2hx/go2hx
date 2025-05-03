@@ -2,6 +2,7 @@ package stdgo._internal.io.fs;
 function readFile(_fsys:stdgo._internal.io.fs.Fs_fs.FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/io/fs/readfile.go#L33"
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_fsys) : stdgo._internal.io.fs.Fs_readfilefs.ReadFileFS)) : stdgo._internal.io.fs.Fs_readfilefs.ReadFileFS), _1 : true };
@@ -9,11 +10,14 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_fs.FS, _name:stdgo.GoString):{ 
                     { _0 : (null : stdgo._internal.io.fs.Fs_readfilefs.ReadFileFS), _1 : false };
                 }, _fsys = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
+                    //"file:///home/runner/.go/go1.21.3/src/io/fs/readfile.go#L34"
                     return _fsys.readFile(_name?.__copy__());
                 };
             };
             var __tmp__ = _fsys.open(_name?.__copy__()), _file:stdgo._internal.io.fs.Fs_file.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/io/fs/readfile.go#L38"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/io/fs/readfile.go#L39"
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
             {
@@ -21,27 +25,34 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_fs.FS, _name:stdgo.GoString):{ 
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _size:stdgo.GoInt = (0 : stdgo.GoInt);
+            //"file:///home/runner/.go/go1.21.3/src/io/fs/readfile.go#L44"
             {
                 var __tmp__ = _file.stat(), _info:stdgo._internal.io.fs.Fs_fileinfo.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
                     var _size64 = (_info.size() : stdgo.GoInt64);
+                    //"file:///home/runner/.go/go1.21.3/src/io/fs/readfile.go#L46"
                     if (((_size64 : stdgo.GoInt) : stdgo.GoInt64) == (_size64)) {
                         _size = (_size64 : stdgo.GoInt);
                     };
                 };
             };
             var _data = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (_size + (1 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+            //"file:///home/runner/.go/go1.21.3/src/io/fs/readfile.go#L52"
             while (true) {
+                //"file:///home/runner/.go/go1.21.3/src/io/fs/readfile.go#L53"
                 if (((_data.length) >= _data.capacity : Bool)) {
                     var _d = ((_data.__slice__(0, _data.capacity) : stdgo.Slice<stdgo.GoUInt8>).__append__((0 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                     _data = (_d.__slice__(0, (_data.length)) : stdgo.Slice<stdgo.GoUInt8>);
                 };
                 var __tmp__ = _file.read((_data.__slice__((_data.length), _data.capacity) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 _data = (_data.__slice__(0, ((_data.length) + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+                //"file:///home/runner/.go/go1.21.3/src/io/fs/readfile.go#L59"
                 if (_err != null) {
+                    //"file:///home/runner/.go/go1.21.3/src/io/fs/readfile.go#L60"
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
                         _err = (null : stdgo.Error);
                     };
+                    //"file:///home/runner/.go/go1.21.3/src/io/fs/readfile.go#L63"
                     {
                         final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _data, _1 : _err };
                         for (defer in __deferstack__) {
@@ -70,7 +81,7 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_fs.FS, _name:stdgo.GoString):{ 
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

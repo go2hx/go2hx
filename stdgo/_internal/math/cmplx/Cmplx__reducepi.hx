@@ -1,11 +1,13 @@
 package stdgo._internal.math.cmplx;
 function _reducePi(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
+        //"file:///home/runner/.go/go1.21.3/src/math/cmplx/tan.go#L132"
         if ((stdgo._internal.math.Math_abs.abs(_x) < (1.073741824e+09 : stdgo.GoFloat64) : Bool)) {
             {};
             var _t = (_x / (3.141592653589793 : stdgo.GoFloat64) : stdgo.GoFloat64);
-            _t = (_t + (0.5 : stdgo.GoFloat64) : stdgo.GoFloat64);
+            _t = (_t + ((0.5 : stdgo.GoFloat64)) : stdgo.GoFloat64);
             _t = ((_t : stdgo.GoInt64) : stdgo.GoFloat64);
+            //"file:///home/runner/.go/go1.21.3/src/math/cmplx/tan.go#L149"
             return (((((_x - (_t * (3.141592502593994 : stdgo.GoFloat64) : stdgo.GoFloat64) : stdgo.GoFloat64)) - (_t * (1.5099578831723193e-07 : stdgo.GoFloat64) : stdgo.GoFloat64) : stdgo.GoFloat64)) - (_t * (1.0780605716316238e-14 : stdgo.GoFloat64) : stdgo.GoFloat64) : stdgo.GoFloat64);
         };
         {};
@@ -50,8 +52,11 @@ var _bitshift = __1, _digit = __0;
         _hi = (_hi >> ((12i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _hi = (_hi | ((_e << (52i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _x = stdgo._internal.math.Math_float64frombits.float64frombits(_hi);
+        //"file:///home/runner/.go/go1.21.3/src/math/cmplx/tan.go#L214"
         if ((_x > (0.5 : stdgo.GoFloat64) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/math/cmplx/tan.go#L215"
             _x--;
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/cmplx/tan.go#L217"
         return ((3.141592653589793 : stdgo.GoFloat64) * _x : stdgo.GoFloat64);
     }

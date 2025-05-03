@@ -7,8 +7,10 @@ function formatDirEntry(_dir:stdgo._internal.io.fs.Fs_direntry.DirEntry):stdgo.G
         _b = (_b.__append__(...(_mode : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = (_b.__append__((32 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         _b = (_b.__append__(...(_name : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+        //"file:///home/runner/.go/go1.21.3/src/io/fs/format.go#L72"
         if (_dir.isDir()) {
             _b = (_b.__append__((47 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
         };
+        //"file:///home/runner/.go/go1.21.3/src/io/fs/format.go#L75"
         return (_b : stdgo.GoString)?.__copy__();
     }

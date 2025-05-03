@@ -1,5 +1,5 @@
 package stdgo.image.jpeg;
-var defaultQuality : stdgo.GoUInt64 = 75i32;
+var defaultQuality : stdgo.GoUInt64 = 75i64;
 typedef Reader = stdgo._internal.image.jpeg.Jpeg_reader.Reader;
 typedef Options = stdgo._internal.image.jpeg.Jpeg_options.Options;
 typedef FormatError = stdgo._internal.image.jpeg.Jpeg_formaterror.FormatError;

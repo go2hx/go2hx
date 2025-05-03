@@ -10,27 +10,35 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.
                 __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             var _start = (0 : stdgo.GoInt);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L54"
             for (_i => _c in _src) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L55"
                 if ((_escape && (((_c == ((60 : stdgo.GoUInt8)) || _c == ((62 : stdgo.GoUInt8)) : Bool) || (_c == (38 : stdgo.GoUInt8)) : Bool)) : Bool)) {
                     _dst = (_dst.__append__(...((_src.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                     _dst = (_dst.__append__((92 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), stdgo._internal.encoding.json.Json__hex._hex[((_c >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)], stdgo._internal.encoding.json.Json__hex._hex[((_c & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoUInt8>);
                     _start = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
                 };
-                if (((((_escape && _c == ((226 : stdgo.GoUInt8)) : Bool) && ((_i + (2 : stdgo.GoInt) : stdgo.GoInt) < (_src.length) : Bool) : Bool) && _src[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] == ((128 : stdgo.GoUInt8)) : Bool) && ((_src[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)] & (((1 : stdgo.GoUInt8) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt8)) : stdgo.GoUInt8) == (168 : stdgo.GoUInt8)) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L61"
+                if (((((_escape && _c == ((226 : stdgo.GoUInt8)) : Bool) && ((_i + (2 : stdgo.GoInt) : stdgo.GoInt) < (_src.length) : Bool) : Bool) && _src[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] == ((128 : stdgo.GoUInt8)) : Bool) && ((_src[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)] & (((1 : stdgo.GoUInt8) ^ (-1i64 : stdgo.GoInt32) : stdgo.GoUInt8)) : stdgo.GoUInt8) == (168 : stdgo.GoUInt8)) : Bool)) {
                     _dst = (_dst.__append__(...((_src.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                     _dst = (_dst.__append__((92 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), stdgo._internal.encoding.json.Json__hex._hex[((_src[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)] & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]) : stdgo.Slice<stdgo.GoUInt8>);
                     _start = (_i + ((("\u2029" : stdgo.GoString) : stdgo.GoString).length) : stdgo.GoInt);
                 };
                 var _v = ((@:checkr _scan ?? throw "null pointer dereference")._step(_scan, _c) : stdgo.GoInt);
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L67"
                 if ((_v >= (9 : stdgo.GoInt) : Bool)) {
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L68"
                     if (_v == ((11 : stdgo.GoInt))) {
+                        //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L69"
                         break;
                     };
                     _dst = (_dst.__append__(...((_src.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
                     _start = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
                 };
             };
-            if (@:check2r _scan._eof() == ((11 : stdgo.GoInt))) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L75"
+            if (_scan._eof() == ((11 : stdgo.GoInt))) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L76"
                 {
                     final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (_dst.__slice__(0, _origLen) : stdgo.Slice<stdgo.GoUInt8>), _1 : (@:checkr _scan ?? throw "null pointer dereference")._err };
                     for (defer in __deferstack__) {
@@ -42,6 +50,7 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.
                 };
             };
             _dst = (_dst.__append__(...((_src.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/indent.go#L79"
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _dst, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
@@ -68,7 +77,7 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

@@ -4,6 +4,7 @@ package stdgo._internal.compress.flate;
     @:tdfield
     static public function error( _e:stdgo.Ref<stdgo._internal.compress.flate.Flate_writeerror.WriteError>):stdgo.GoString {
         @:recv var _e:stdgo.Ref<stdgo._internal.compress.flate.Flate_writeerror.WriteError> = _e;
+        //"file:///home/runner/.go/go1.21.3/src/compress/flate/inflate.go#L65"
         return (((("flate: write error at offset " : stdgo.GoString) + stdgo._internal.strconv.Strconv_formatint.formatInt((@:checkr _e ?? throw "null pointer dereference").offset, (10 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + (": " : stdgo.GoString)?.__copy__() : stdgo.GoString) + (@:checkr _e ?? throw "null pointer dereference").err.error()?.__copy__() : stdgo.GoString)?.__copy__();
     }
 }

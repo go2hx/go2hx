@@ -4,7 +4,9 @@ function _drawRGBA(_dst:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>, _r:std
 var _dx = __2, _x1 = __1, _x0 = __0;
         var __0 = (_r.min.y : stdgo.GoInt), __1 = (_r.max.y : stdgo.GoInt), __2 = (1 : stdgo.GoInt);
 var _dy = __2, _y1 = __1, _y0 = __0;
+        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L798"
         if (((stdgo.Go.toInterface(stdgo.Go.asInterface(_dst)) == stdgo.Go.toInterface(_src)) && _r.overlaps(_r.add(_sp.sub(_r.min?.__copy__())?.__copy__())?.__copy__()) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L799"
             if (((_sp.y < _r.min.y : Bool) || (_sp.y == (_r.min.y) && (_sp.x < _r.min.x : Bool) : Bool) : Bool)) {
                 {
                     final __tmp__0 = (_x1 - (1 : stdgo.GoInt) : stdgo.GoInt);
@@ -29,8 +31,9 @@ var _dy = __2, _y1 = __1, _y0 = __0;
         var _sx0 = ((_sp.x + _x0 : stdgo.GoInt) - _r.min.x : stdgo.GoInt);
         var _mx0 = ((_mp.x + _x0 : stdgo.GoInt) - _r.min.x : stdgo.GoInt);
         var _sx1 = (_sx0 + ((_x1 - _x0 : stdgo.GoInt)) : stdgo.GoInt);
-        var _i0 = (@:check2r _dst.pixOffset(_x0, _y0) : stdgo.GoInt);
+        var _i0 = (_dst.pixOffset(_x0, _y0) : stdgo.GoInt);
         var _di = (_dx * (4 : stdgo.GoInt) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L819"
         {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_src) : stdgo._internal.image.Image_rgba64image.RGBA64Image)) : stdgo._internal.image.Image_rgba64image.RGBA64Image), _1 : true };
@@ -38,11 +41,15 @@ var _dy = __2, _y1 = __1, _y0 = __0;
                 { _0 : (null : stdgo._internal.image.Image_rgba64image.RGBA64Image), _1 : false };
             }, _src0 = __tmp__._0, __0 = __tmp__._1;
             if (_src0 != null) {
+                //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L820"
                 if (_mask == null) {
+                    //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L821"
                     if (_op == ((0 : stdgo._internal.image.draw.Draw_op.Op))) {
+                        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L822"
                         {
                             var _y = (_y0 : stdgo.GoInt);
                             while (_y != (_y1)) {
+                                //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L823"
                                 {
                                     var __0 = (_i0 : stdgo.GoInt), __1 = (_sx0 : stdgo.GoInt), __2 = (_mx0 : stdgo.GoInt);
 var _mx = __2, _sx = __1, _i = __0;
@@ -80,9 +87,11 @@ _i0 = (_i0 + ((_dy * (@:checkr _dst ?? throw "null pointer dereference").stride 
                             };
                         };
                     } else {
+                        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L839"
                         {
                             var _y = (_y0 : stdgo.GoInt);
                             while (_y != (_y1)) {
+                                //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L840"
                                 {
                                     var __0 = (_i0 : stdgo.GoInt), __1 = (_sx0 : stdgo.GoInt), __2 = (_mx0 : stdgo.GoInt);
 var _mx = __2, _sx = __1, _i = __0;
@@ -115,6 +124,7 @@ _i0 = (_i0 + ((_dy * (@:checkr _dst ?? throw "null pointer dereference").stride 
                             };
                         };
                     };
+                    //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L851"
                     return;
                 } else {
                     var __tmp__ = try {
@@ -123,10 +133,13 @@ _i0 = (_i0 + ((_dy * (@:checkr _dst ?? throw "null pointer dereference").stride 
                         { _0 : (null : stdgo._internal.image.Image_rgba64image.RGBA64Image), _1 : false };
                     }, _mask0 = __tmp__._0, __1 = __tmp__._1;
                     if (_mask0 != null) {
+                        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L854"
                         if (_op == ((0 : stdgo._internal.image.draw.Draw_op.Op))) {
+                            //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L855"
                             {
                                 var _y = (_y0 : stdgo.GoInt);
                                 while (_y != (_y1)) {
+                                    //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L856"
                                     {
                                         var __0 = (_i0 : stdgo.GoInt), __1 = (_sx0 : stdgo.GoInt), __2 = (_mx0 : stdgo.GoInt);
 var _mx = __2, _sx = __1, _i = __0;
@@ -165,9 +178,11 @@ _i0 = (_i0 + ((_dy * (@:checkr _dst ?? throw "null pointer dereference").stride 
                                 };
                             };
                         } else {
+                            //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L873"
                             {
                                 var _y = (_y0 : stdgo.GoInt);
                                 while (_y != (_y1)) {
+                                    //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L874"
                                     {
                                         var __0 = (_i0 : stdgo.GoInt), __1 = (_sx0 : stdgo.GoInt), __2 = (_mx0 : stdgo.GoInt);
 var _mx = __2, _sx = __1, _i = __0;
@@ -201,20 +216,24 @@ _i0 = (_i0 + ((_dy * (@:checkr _dst ?? throw "null pointer dereference").stride 
                                 };
                             };
                         };
+                        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L886"
                         return;
                     };
                 };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L895"
         {
             var _y = (_y0 : stdgo.GoInt);
             while (_y != (_y1)) {
+                //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L896"
                 {
                     var __0 = (_i0 : stdgo.GoInt), __1 = (_sx0 : stdgo.GoInt), __2 = (_mx0 : stdgo.GoInt);
 var _mx = __2, _sx = __1, _i = __0;
                     while (_sx != (_sx1)) {
                         var _ma = ((65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-if (_mask != null) {
+//"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L898"
+                        if (_mask != null) {
                             {
                                 var __tmp__ = _mask.at(_mx, _my).rGBA();
                                 _ma = @:tmpset0 __tmp__._3;
@@ -222,7 +241,8 @@ if (_mask != null) {
                         };
 var __tmp__ = _src.at(_sx, _sy).rGBA(), _sr:stdgo.GoUInt32 = __tmp__._0, _sg:stdgo.GoUInt32 = __tmp__._1, _sb:stdgo.GoUInt32 = __tmp__._2, _sa:stdgo.GoUInt32 = __tmp__._3;
 var _d = ((@:checkr _dst ?? throw "null pointer dereference").pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-if (_op == ((0 : stdgo._internal.image.draw.Draw_op.Op))) {
+//"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L903"
+                        if (_op == ((0 : stdgo._internal.image.draw.Draw_op.Op))) {
                             var _dr = (_d[(0 : stdgo.GoInt)] : stdgo.GoUInt32);
                             var _dg = (_d[(1 : stdgo.GoInt)] : stdgo.GoUInt32);
                             var _db = (_d[(2 : stdgo.GoInt)] : stdgo.GoUInt32);

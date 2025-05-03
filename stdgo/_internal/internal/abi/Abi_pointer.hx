@@ -1,2 +1,2 @@
 package stdgo._internal.internal.abi;
-final pointer : stdgo._internal.internal.abi.Abi_kind.Kind = 22i32;
+final pointer : stdgo._internal.internal.abi.Abi_kind.Kind = 22i64;

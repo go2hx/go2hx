@@ -1,2 +1,2 @@
 package stdgo._internal.compress.lzw;
-final _tableSize : stdgo.GoUInt64 = 16384i32;
+final _tableSize : stdgo.GoUInt64 = 16384i64;

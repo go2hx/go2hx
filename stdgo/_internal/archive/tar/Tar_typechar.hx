@@ -1,2 +1,2 @@
 package stdgo._internal.archive.tar;
-final typeChar : stdgo.GoInt32 = 51i32;
+final typeChar : stdgo.GoInt32 = 51i64;

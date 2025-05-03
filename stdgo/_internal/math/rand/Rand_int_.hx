@@ -1,4 +1,5 @@
 package stdgo._internal.math.rand;
 function int_():stdgo.GoInt {
-        return @:check2r stdgo._internal.math.rand.Rand__globalrand._globalRand().int_();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L438"
+        return stdgo._internal.math.rand.Rand__globalrand._globalRand().int_();
     }

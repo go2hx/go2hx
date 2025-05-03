@@ -19,12 +19,14 @@ package stdgo._internal.slices;
     @:tdfield
     static public function less( _s:stdgo._internal.slices.Slices_t_mystructs.T_myStructs, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _s:stdgo._internal.slices.Slices_t_mystructs.T_myStructs = _s;
+        //"file:///home/runner/.go/go1.21.3/src/slices/sort_benchmark_test.go#L203"
         return ((@:checkr _s[(_i : stdgo.GoInt)] ?? throw "null pointer dereference")._n < (@:checkr _s[(_j : stdgo.GoInt)] ?? throw "null pointer dereference")._n : Bool);
     }
     @:keep
     @:tdfield
     static public function len( _s:stdgo._internal.slices.Slices_t_mystructs.T_myStructs):stdgo.GoInt {
         @:recv var _s:stdgo._internal.slices.Slices_t_mystructs.T_myStructs = _s;
+        //"file:///home/runner/.go/go1.21.3/src/slices/sort_benchmark_test.go#L202"
         return (_s.length);
     }
 }

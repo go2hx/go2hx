@@ -1,2 +1,2 @@
 package stdgo._internal.image.jpeg;
-final _maxCodeLength : stdgo.GoUInt64 = 16i32;
+final _maxCodeLength : stdgo.GoUInt64 = 16i64;

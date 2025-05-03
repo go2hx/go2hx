@@ -1,2 +1,2 @@
 package stdgo._internal.compress.flate;
-final _baseMatchLength : stdgo.GoUInt64 = 3i32;
+final _baseMatchLength : stdgo.GoUInt64 = 3i64;

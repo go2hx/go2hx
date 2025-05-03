@@ -1,2 +1,2 @@
 package stdgo._internal.encoding.gob;
-final _firstUserId : stdgo.GoUInt64 = 64i32;
+final _firstUserId : stdgo.GoUInt64 = 64i64;

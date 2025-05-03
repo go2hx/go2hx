@@ -5,14 +5,20 @@ function _encFloat64Slice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_en
         } catch(_) {
             { _0 : (null : stdgo.Slice<stdgo.GoFloat64>), _1 : false };
         }, _slice = __tmp__._0, _ok = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/enc_helpers.go#L160"
         if (!_ok) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/enc_helpers.go#L162"
             return false;
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/enc_helpers.go#L164"
         for (__8 => _x in _slice) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/enc_helpers.go#L165"
             if (((_x != (0 : stdgo.GoFloat64)) || (@:checkr _state ?? throw "null pointer dereference")._sendZero : Bool)) {
                 var _bits = (stdgo._internal.encoding.gob.Gob__floatbits._floatBits(_x) : stdgo.GoUInt64);
-                @:check2r _state._encodeUint(_bits);
+                //"file:///home/runner/.go/go1.21.3/src/encoding/gob/enc_helpers.go#L167"
+                _state._encodeUint(_bits);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/enc_helpers.go#L170"
         return true;
     }

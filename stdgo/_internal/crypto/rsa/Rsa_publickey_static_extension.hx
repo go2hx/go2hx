@@ -9,15 +9,19 @@ package stdgo._internal.crypto.rsa;
         } catch(_) {
             { _0 : (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey>), _1 : false };
         }, _xx = __tmp__._0, _ok = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/rsa/rsa.go#L63"
         if (!_ok) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/rsa/rsa.go#L64"
             return false;
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/rsa/rsa.go#L66"
         return (stdgo._internal.crypto.rsa.Rsa__bigintequal._bigIntEqual((@:checkr _pub ?? throw "null pointer dereference").n, (@:checkr _xx ?? throw "null pointer dereference").n) && ((@:checkr _pub ?? throw "null pointer dereference").e == (@:checkr _xx ?? throw "null pointer dereference").e) : Bool);
     }
     @:keep
     @:tdfield
     static public function size( _pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey>):stdgo.GoInt {
         @:recv var _pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey> = _pub;
-        return (((@:check2r (@:checkr _pub ?? throw "null pointer dereference").n.bitLen() + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/rsa/rsa.go#L57"
+        return ((((@:checkr _pub ?? throw "null pointer dereference").n.bitLen() + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
     }
 }

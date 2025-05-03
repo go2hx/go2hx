@@ -1,6 +1,7 @@
 package stdgo._internal.encoding.xml;
 function _defaultStart(_typ:stdgo._internal.reflect.Reflect_type_.Type_, _finfo:stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>, _startTemplate:stdgo.Ref<stdgo._internal.encoding.xml.Xml_startelement.StartElement>):stdgo._internal.encoding.xml.Xml_startelement.StartElement {
         var _start:stdgo._internal.encoding.xml.Xml_startelement.StartElement = ({} : stdgo._internal.encoding.xml.Xml_startelement.StartElement);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/xml/marshal.go#L669"
         if (({
             final value = _startTemplate;
             (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
@@ -18,5 +19,6 @@ function _defaultStart(_typ:stdgo._internal.reflect.Reflect_type_.Type_, _finfo:
         } else {
             _start.name.local = _typ.elem().name()?.__copy__();
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/xml/marshal.go#L682"
         return _start?.__copy__();
     }

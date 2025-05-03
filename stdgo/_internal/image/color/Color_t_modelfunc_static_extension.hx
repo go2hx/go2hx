@@ -4,6 +4,7 @@ package stdgo._internal.image.color;
     @:tdfield
     static public function convert( _m:stdgo.Ref<stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc>, _c:stdgo._internal.image.color.Color_color.Color):stdgo._internal.image.color.Color_color.Color {
         @:recv var _m:stdgo.Ref<stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc> = _m;
+        //"file:///home/runner/.go/go1.21.3/src/image/color/color.go#L161"
         return (@:checkr _m ?? throw "null pointer dereference")._f(_c);
     }
 }

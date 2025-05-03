@@ -1,2 +1,2 @@
 package stdgo._internal.compress.zlib;
-final _zlibMaxWindow : stdgo.GoUInt64 = 7i32;
+final _zlibMaxWindow : stdgo.GoUInt64 = 7i64;

@@ -1,4 +1,5 @@
 package stdgo._internal.flag;
 function parsed():Bool {
-        return @:check2r stdgo._internal.flag.Flag_commandline.commandLine.parsed();
+        //"file:///home/runner/.go/go1.21.3/src/flag/flag.go#L1193"
+        return stdgo._internal.flag.Flag_commandline.commandLine.parsed();
     }

@@ -1,8 +1,9 @@
 package stdgo._internal.encoding.json;
 function _boolEncoder(_e:stdgo.Ref<stdgo._internal.encoding.json.Json_t_encodestate.T_encodeState>, _v:stdgo._internal.reflect.Reflect_value.Value, _opts:stdgo._internal.encoding.json.Json_t_encopts.T_encOpts):Void {
-        var _b = @:check2r _e.availableBuffer();
+        var _b = _e.availableBuffer();
         _b = stdgo._internal.encoding.json.Json__mayappendquote._mayAppendQuote(_b, _opts._quoted);
         _b = stdgo._internal.strconv.Strconv_appendbool.appendBool(_b, _v.bool_());
         _b = stdgo._internal.encoding.json.Json__mayappendquote._mayAppendQuote(_b, _opts._quoted);
-        @:check2r _e.write(_b);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L509"
+        _e.write(_b);
     }

@@ -26,7 +26,8 @@ package stdgo._internal.reflect;
     static public function unsafeAddr( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoUIntptr throw "Value:reflect.unsafeAddr is not yet implemented";
     @:keep
     @:tdfield
-    static public function uint( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoUInt64 @:splitdeps @:splitdeps {
+    static public function uint( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoUInt64 {
+        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
         var value = @:privateAccess _v.value.value;
         final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
         if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
@@ -59,26 +60,28 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
                 throw new stdgo._internal.reflect.Reflect_valueerror.ValueError("reflect.Value.Uint", _v.kind());
         };
         return value;
-    };
+    }
     @:keep
     @:tdfield
-    static public function canUint( _v:stdgo._internal.reflect.Reflect_value.Value):Bool @:splitdeps {
+    static public function canUint( _v:stdgo._internal.reflect.Reflect_value.Value):Bool {
+        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
         return switch _v.kind() {
             case stdgo._internal.internal.reflect.Reflect.KindType.uint, stdgo._internal.internal.reflect.Reflect.KindType.uint8, stdgo._internal.internal.reflect.Reflect.KindType.uint16, stdgo._internal.internal.reflect.Reflect.KindType.uint32, stdgo._internal.internal.reflect.Reflect.KindType.uint64, stdgo._internal.internal.reflect.Reflect.KindType.uintptr:
                 true;
             default:
                 false;
         };
-    };
+    }
     @:keep
     @:tdfield
-    static public function type( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo._internal.reflect.Reflect_type_.Type_ @:splitdeps {
+    static public function type( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo._internal.reflect.Reflect_type_.Type_ {
+        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
         if (@:privateAccess _v.value == null) {
             var t = new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.GoType.invalidType);
             return @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t), t);
         };
         return @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(_v.value.type), _v.value.type);
-    };
+    }
     @:keep
     @:tdfield
     static public function trySend( _v:stdgo._internal.reflect.Reflect_value.Value, _x:stdgo._internal.reflect.Reflect_value.Value):Bool throw "Value:reflect.trySend is not yet implemented";
@@ -126,7 +129,8 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
     static public function slice3( _v:stdgo._internal.reflect.Reflect_value.Value, _i:stdgo.GoInt, _j:stdgo.GoInt, _k:stdgo.GoInt):stdgo._internal.reflect.Reflect_value.Value throw "Value:reflect.slice3 is not yet implemented";
     @:keep
     @:tdfield
-    static public function slice( _v:stdgo._internal.reflect.Reflect_value.Value, _i:stdgo.GoInt, _j:stdgo.GoInt):stdgo._internal.reflect.Reflect_value.Value @:splitdeps {
+    static public function slice( _v:stdgo._internal.reflect.Reflect_value.Value, _i:stdgo.GoInt, _j:stdgo.GoInt):stdgo._internal.reflect.Reflect_value.Value {
+        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
         var value = @:privateAccess _v.value.value;
         var t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
         if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
@@ -156,7 +160,7 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
                 throw new stdgo._internal.reflect.Reflect_valueerror.ValueError("reflect.Value.Slice", k);
         };
         return new stdgo._internal.reflect.Reflect_value.Value(new stdgo.AnyInterface(value, new stdgo._internal.internal.reflect.Reflect._Type(t)));
-    };
+    }
     @:keep
     @:tdfield
     static public function setString( _v:stdgo._internal.reflect.Reflect_value.Value, _x:stdgo.GoString):Void {
@@ -372,27 +376,22 @@ stdgo._internal.internal.reflect.Reflect._set(_v);
     static public function overflowComplex( _v:stdgo._internal.reflect.Reflect_value.Value, _x:stdgo.GoComplex128):Bool throw "Value:reflect.overflowComplex is not yet implemented";
     @:keep
     @:tdfield
-    static public function numField( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoInt {
-        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
-        return _v.type().numField();
-    }
+    static public function numField( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoInt return _v.type().numField();
     @:keep
     @:tdfield
     static public function methodByName( _v:stdgo._internal.reflect.Reflect_value.Value, _name:stdgo.GoString):stdgo._internal.reflect.Reflect_value.Value throw "Value:reflect.methodByName is not yet implemented";
     @:keep
     @:tdfield
-    static public function numMethod( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoInt {
-        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
-        return _v.type().numMethod();
-    }
+    static public function numMethod( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoInt return _v.type().numMethod();
     @:keep
     @:tdfield
     static public function method( _v:stdgo._internal.reflect.Reflect_value.Value, _i:stdgo.GoInt):stdgo._internal.reflect.Reflect_value.Value throw "Value:reflect.method is not yet implemented";
     @:keep
     @:tdfield
-    static public function mapRange( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.Ref<stdgo._internal.reflect.Reflect_mapiter.MapIter> @:splitdeps {
+    static public function mapRange( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.Ref<stdgo._internal.reflect.Reflect_mapiter.MapIter> {
+        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
         return new stdgo._internal.reflect.Reflect_mapiter.MapIter(@:privateAccess _v.value.value, @:privateAccess _v.value.type);
-    };
+    }
     @:keep
     @:tdfield
     static public function setIterValue( _v:stdgo._internal.reflect.Reflect_value.Value, _iter:stdgo.Ref<stdgo._internal.reflect.Reflect_mapiter.MapIter>):Void throw "Value:reflect.setIterValue is not yet implemented";
@@ -407,7 +406,8 @@ stdgo._internal.internal.reflect.Reflect._set(_v);
     static public function mapIndex( _v:stdgo._internal.reflect.Reflect_value.Value, _key:stdgo._internal.reflect.Reflect_value.Value):stdgo._internal.reflect.Reflect_value.Value throw "Value:reflect.mapIndex is not yet implemented";
     @:keep
     @:tdfield
-    static public function len( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoInt @:splitdeps {
+    static public function len( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoInt {
+        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
         final _v = _v.__copy__();
         var value = @:privateAccess _v.value.value;
         if (value == null) return 0;
@@ -441,7 +441,7 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
                 trace(k.string());
 throw "not supported";
         };
-    };
+    }
     @:keep
     @:tdfield
     static public function kind( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo._internal.reflect.Reflect_kind.Kind return _v.type().kind();
@@ -570,7 +570,8 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
     static public function canInt( _v:stdgo._internal.reflect.Reflect_value.Value):Bool throw "Value:reflect.canInt is not yet implemented";
     @:keep
     @:tdfield
-    static public function index( _v:stdgo._internal.reflect.Reflect_value.Value, _i:stdgo.GoInt):stdgo._internal.reflect.Reflect_value.Value @:splitdeps {
+    static public function index( _v:stdgo._internal.reflect.Reflect_value.Value, _i:stdgo.GoInt):stdgo._internal.reflect.Reflect_value.Value {
+        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
         final _v = _v.__copy__();
         var value = @:privateAccess _v.value.value;
         final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
@@ -611,10 +612,11 @@ new stdgo._internal.reflect.Reflect_value.Value(new stdgo.AnyInterface((value : 
             default:
                 throw "not supported";
         };
-    };
+    }
     @:keep
     @:tdfield
-    static public function float_( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoFloat64 @:splitdeps {
+    static public function float_( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoFloat64 {
+        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
         var value = @:privateAccess _v.value.value;
         final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
         if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
@@ -639,7 +641,7 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
                 throw new stdgo._internal.reflect.Reflect_valueerror.ValueError("reflect.Value.Float", _v.kind());
         };
         return value;
-    };
+    }
     @:keep
     @:tdfield
     static public function canFloat( _v:stdgo._internal.reflect.Reflect_value.Value):Bool throw "Value:reflect.canFloat is not yet implemented";
@@ -737,7 +739,8 @@ if (_v.numMethod() != 0) {
     }
     @:keep
     @:tdfield
-    static public function complex( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoComplex128 @:splitdeps {
+    static public function complex( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoComplex128 {
+        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
         var value = @:privateAccess _v.value.value;
         final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
         if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
@@ -760,7 +763,7 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
                 throw new stdgo._internal.reflect.Reflect_valueerror.ValueError("Value.Complex", _v.kind());
         };
         return value;
-    };
+    }
     @:keep
     @:tdfield
     static public function canComplex( _v:stdgo._internal.reflect.Reflect_value.Value):Bool throw "Value:reflect.canComplex is not yet implemented";
@@ -775,25 +778,27 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
     static public function callSlice( _v:stdgo._internal.reflect.Reflect_value.Value, _in:stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>):stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value> throw "Value:reflect.callSlice is not yet implemented";
     @:keep
     @:tdfield
-    static public function call( _v:stdgo._internal.reflect.Reflect_value.Value, _in:stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>):stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value> @:splitdeps {
+    static public function call( _v:stdgo._internal.reflect.Reflect_value.Value, _in:stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>):stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value> {
+        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
         final gt = @:privateAccess stdgo._internal.internal.reflect.Reflect.getUnderlying(_v.value.type._common());
         switch gt {
             case signature(_, _.get() => params, _.get() => out, _):
                 final values = new stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>(0, 0);
-std.Reflect.callMethod(null, _v.interface_().value, _in.__toArray__().map(value -> value.interface_().value));
+std.Reflect.callMethod(null, _v.interface_().value, _in.__toArray__().map( value -> return value.interface_().value));
 return values;
             default:
                 throw "unsupported: " + gt;
         };
-    };
+    }
     @:keep
     @:tdfield
     static public function canSet( _v:stdgo._internal.reflect.Reflect_value.Value):Bool throw "Value:reflect.canSet is not yet implemented";
     @:keep
     @:tdfield
-    static public function canAddr( _v:stdgo._internal.reflect.Reflect_value.Value):Bool @:splitdeps {
+    static public function canAddr( _v:stdgo._internal.reflect.Reflect_value.Value):Bool {
+        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
         return @:privateAccess _v.canAddrBool;
-    };
+    }
     @:keep
     @:tdfield
     static public function bytes( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.Slice<stdgo.GoUInt8> {
@@ -838,7 +843,8 @@ switch elem {
     }
     @:keep
     @:tdfield
-    static public function bool_( _v:stdgo._internal.reflect.Reflect_value.Value):Bool @:splitdeps {
+    static public function bool_( _v:stdgo._internal.reflect.Reflect_value.Value):Bool {
+        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
         var value = @:privateAccess _v.value.value;
         final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
         if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
@@ -861,12 +867,12 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
                 throw new stdgo._internal.reflect.Reflect_valueerror.ValueError("reflect.Value.Bool", _v.kind());
         };
         return value;
-    };
+    }
     @:keep
     @:tdfield
     static public function addr( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo._internal.reflect.Reflect_value.Value {
         @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
-        final gt = @:privateAccess stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> _v.value.type._common() });
+        final gt = @:privateAccess stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> return _v.value.type._common() });
         final t = new stdgo._internal.internal.reflect.Reflect._Type(gt);
         return new stdgo._internal.reflect.Reflect_value.Value(new stdgo.AnyInterface(stdgo.Go.pointer(@:privateAccess _v.value.value), t));
     }

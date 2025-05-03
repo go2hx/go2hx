@@ -1,8 +1,9 @@
 package stdgo._internal.crypto.internal.nistec;
 function _p521B():stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element> {
-        @:check2 stdgo._internal.crypto.internal.nistec.Nistec___p521bonce.__p521BOnce.do_(function():Void {
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/p521.go#L114"
+        stdgo._internal.crypto.internal.nistec.Nistec___p521bonce.__p521BOnce.do_(function():Void {
             {
-                var __tmp__ = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>).setBytes((new stdgo.Slice<stdgo.GoUInt8>(66, 66, ...[
+                var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>).setBytes((new stdgo.Slice<stdgo.GoUInt8>(66, 66, ...[
 (0 : stdgo.GoUInt8),
 (81 : stdgo.GoUInt8),
 (149 : stdgo.GoUInt8),
@@ -72,5 +73,6 @@ function _p521B():stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p52
                 stdgo._internal.crypto.internal.nistec.Nistec___p521b.__p521B = @:tmpset0 __tmp__._0;
             };
         });
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/p521.go#L117"
         return stdgo._internal.crypto.internal.nistec.Nistec___p521b.__p521B;
     }

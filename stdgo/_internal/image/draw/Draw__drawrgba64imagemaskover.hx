@@ -4,7 +4,9 @@ function _drawRGBA64ImageMaskOver(_dst:stdgo.Ref<stdgo._internal.image.Image_rgb
 var _dx = __2, _x1 = __1, _x0 = __0;
         var __0 = (_r.min.y : stdgo.GoInt), __1 = (_r.max.y : stdgo.GoInt), __2 = (1 : stdgo.GoInt);
 var _dy = __2, _y1 = __1, _y0 = __0;
+        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L752"
         if (((stdgo.Go.toInterface(stdgo.Go.asInterface(_dst)) == stdgo.Go.toInterface(_src)) && _r.overlaps(_r.add(_sp.sub(_r.min?.__copy__())?.__copy__())?.__copy__()) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L753"
             if (((_sp.y < _r.min.y : Bool) || (_sp.y == (_r.min.y) && (_sp.x < _r.min.x : Bool) : Bool) : Bool)) {
                 {
                     final __tmp__0 = (_x1 - (1 : stdgo.GoInt) : stdgo.GoInt);
@@ -29,16 +31,18 @@ var _dy = __2, _y1 = __1, _y0 = __0;
         var _sx0 = ((_sp.x + _x0 : stdgo.GoInt) - _r.min.x : stdgo.GoInt);
         var _mx0 = ((_mp.x + _x0 : stdgo.GoInt) - _r.min.x : stdgo.GoInt);
         var _sx1 = (_sx0 + ((_x1 - _x0 : stdgo.GoInt)) : stdgo.GoInt);
-        var _i0 = (@:check2r _dst.pixOffset(_x0, _y0) : stdgo.GoInt);
+        var _i0 = (_dst.pixOffset(_x0, _y0) : stdgo.GoInt);
         var _di = (_dx * (4 : stdgo.GoInt) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L766"
         {
             var _y = (_y0 : stdgo.GoInt);
             while (_y != (_y1)) {
+                //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L767"
                 {
                     var __0 = (_i0 : stdgo.GoInt), __1 = (_sx0 : stdgo.GoInt), __2 = (_mx0 : stdgo.GoInt);
 var _mx = __2, _sx = __1, _i = __0;
                     while (_sx != (_sx1)) {
-                        var _mi = (@:check2r _mask.pixOffset(_mx, _my) : stdgo.GoInt);
+                        var _mi = (_mask.pixOffset(_mx, _my) : stdgo.GoInt);
 var _ma = ((@:checkr _mask ?? throw "null pointer dereference").pix[(_mi : stdgo.GoInt)] : stdgo.GoUInt32);
 _ma = (_ma | ((_ma << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
 var _srgba = (_src.rGBA64At(_sx, _sy).__copy__() : stdgo._internal.image.color.Color_rgba64.RGBA64);

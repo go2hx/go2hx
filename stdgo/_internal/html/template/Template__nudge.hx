@@ -1,5 +1,6 @@
 package stdgo._internal.html.template;
 function _nudge(_c:stdgo._internal.html.template.Template_t_context.T_context):stdgo._internal.html.template.Template_t_context.T_context {
+        //"file:///home/runner/.go/go1.21.3/src/html/template/escape.go#L443"
         {
             final __value__ = _c._state;
             if (__value__ == ((1 : stdgo._internal.html.template.Template_t_state.T_state))) {
@@ -22,5 +23,6 @@ function _nudge(_c:stdgo._internal.html.template.Template_t_context.T_context):s
                 };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/html/template/escape.go#L454"
         return _c?.__copy__();
     }

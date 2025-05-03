@@ -4,6 +4,7 @@ package stdgo._internal.text.scanner;
     @:tdfield
     static public function read( _:stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _:stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader = _?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/text/scanner/scanner_test.go#L524"
         return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_errnoprogress.errNoProgress };
     }
 }

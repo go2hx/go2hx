@@ -4,25 +4,29 @@ package stdgo._internal.log.slog;
     @:tdfield
     static public function handle( _h:stdgo.Ref<stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler>, __766:stdgo._internal.context.Context_context.Context, _r:stdgo._internal.log.slog.Slog_record.Record):stdgo.Error {
         @:recv var _h:stdgo.Ref<stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler> = _h;
-        return @:check2r (@:checkr _h ?? throw "null pointer dereference")._commonHandler._handle(_r?.__copy__());
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/json_handler.go#L91"
+        return (@:checkr _h ?? throw "null pointer dereference")._commonHandler._handle(_r?.__copy__());
     }
     @:keep
     @:tdfield
     static public function withGroup( _h:stdgo.Ref<stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler>, _name:stdgo.GoString):stdgo._internal.log.slog.Slog_handler.Handler {
         @:recv var _h:stdgo.Ref<stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler> = _h;
-        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _commonHandler : @:check2r (@:checkr _h ?? throw "null pointer dereference")._commonHandler._withGroup(_name?.__copy__()) } : stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler)) : stdgo.Ref<stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler>));
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/json_handler.go#L57"
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _commonHandler : (@:checkr _h ?? throw "null pointer dereference")._commonHandler._withGroup(_name?.__copy__()) } : stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler)) : stdgo.Ref<stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler>));
     }
     @:keep
     @:tdfield
     static public function withAttrs( _h:stdgo.Ref<stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler>, _attrs:stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>):stdgo._internal.log.slog.Slog_handler.Handler {
         @:recv var _h:stdgo.Ref<stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler> = _h;
-        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _commonHandler : @:check2r (@:checkr _h ?? throw "null pointer dereference")._commonHandler._withAttrs(_attrs) } : stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler)) : stdgo.Ref<stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler>));
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/json_handler.go#L53"
+        return stdgo.Go.asInterface((stdgo.Go.setRef(({ _commonHandler : (@:checkr _h ?? throw "null pointer dereference")._commonHandler._withAttrs(_attrs) } : stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler)) : stdgo.Ref<stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler>));
     }
     @:keep
     @:tdfield
     static public function enabled( _h:stdgo.Ref<stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler>, __766:stdgo._internal.context.Context_context.Context, _level:stdgo._internal.log.slog.Slog_level.Level):Bool {
         @:recv var _h:stdgo.Ref<stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler> = _h;
-        return @:check2r (@:checkr _h ?? throw "null pointer dereference")._commonHandler._enabled(_level);
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/json_handler.go#L47"
+        return (@:checkr _h ?? throw "null pointer dereference")._commonHandler._enabled(_level);
     }
     @:embedded
     @:embeddededffieldsffun

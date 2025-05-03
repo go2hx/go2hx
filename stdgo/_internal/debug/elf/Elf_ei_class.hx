@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final eI_CLASS : stdgo.GoUInt64 = 4i32;
+final eI_CLASS : stdgo.GoUInt64 = 4i64;

@@ -1,5 +1,6 @@
 package stdgo._internal.math.bits;
 function len8(_x:stdgo.GoUInt8):stdgo.GoInt {
+        //"file:///home/runner/.go/go1.21.3/src/math/bits/bits.go#L311"
         return ((stdgo.Go.str(0,
 1,
 2,

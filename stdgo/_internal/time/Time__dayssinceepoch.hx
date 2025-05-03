@@ -12,5 +12,6 @@ function _daysSinceEpoch(_year:stdgo.GoInt):stdgo.GoUInt64 {
         _d = (_d + (((1461i64 : stdgo.GoUInt64) * _n : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _n = _y;
         _d = (_d + (((365i64 : stdgo.GoUInt64) * _n : stdgo.GoUInt64)) : stdgo.GoUInt64);
+        //"file:///home/runner/.go/go1.21.3/src/time/time.go#L1090"
         return _d;
     }

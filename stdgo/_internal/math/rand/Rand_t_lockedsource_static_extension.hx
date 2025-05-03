@@ -5,53 +5,67 @@ package stdgo._internal.math.rand;
     static public function _read( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>, _p:stdgo.Slice<stdgo.GoUInt8>, _readVal:stdgo.Pointer<stdgo.GoInt64>, _readPos:stdgo.Pointer<stdgo.GoInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource> = _r;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        @:check2 (@:checkr _r ?? throw "null pointer dereference")._lk.lock();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L543"
+        (@:checkr _r ?? throw "null pointer dereference")._lk.lock();
         {
             var __tmp__ = stdgo._internal.math.rand.Rand__read._read(_p, stdgo.Go.asInterface((@:checkr _r ?? throw "null pointer dereference")._s), _readVal, _readPos);
             _n = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
-        @:check2 (@:checkr _r ?? throw "null pointer dereference")._lk.unlock();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L545"
+        (@:checkr _r ?? throw "null pointer dereference")._lk.unlock();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L546"
         return { _0 : _n, _1 : _err };
     }
     @:keep
     @:tdfield
     static public function _seed( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>, _seed:stdgo.GoInt64):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource> = _r;
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L534"
         if (({
             final value = (@:checkr _r ?? throw "null pointer dereference")._s;
             (value == null || (value : Dynamic).__nil__);
         })) {
             (@:checkr _r ?? throw "null pointer dereference")._s = stdgo._internal.math.rand.Rand__newsource._newSource(_seed);
         } else {
-            @:check2r (@:checkr _r ?? throw "null pointer dereference")._s.seed(_seed);
+            //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L537"
+            (@:checkr _r ?? throw "null pointer dereference")._s.seed(_seed);
         };
     }
     @:keep
     @:tdfield
     static public function _seedPos( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>, _seed:stdgo.GoInt64, _readPos:stdgo.Pointer<stdgo.GoInt8>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource> = _r;
-        @:check2 (@:checkr _r ?? throw "null pointer dereference")._lk.lock();
-        @:check2r _r._seed(_seed);
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L525"
+        (@:checkr _r ?? throw "null pointer dereference")._lk.lock();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L526"
+        _r._seed(_seed);
         _readPos.value = (0 : stdgo.GoInt8);
-        @:check2 (@:checkr _r ?? throw "null pointer dereference")._lk.unlock();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L528"
+        (@:checkr _r ?? throw "null pointer dereference")._lk.unlock();
     }
     @:keep
     @:tdfield
     static public function seed( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>, _seed:stdgo.GoInt64):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource> = _r;
-        @:check2 (@:checkr _r ?? throw "null pointer dereference")._lk.lock();
-        @:check2r _r._seed(_seed);
-        @:check2 (@:checkr _r ?? throw "null pointer dereference")._lk.unlock();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L518"
+        (@:checkr _r ?? throw "null pointer dereference")._lk.lock();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L519"
+        _r._seed(_seed);
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L520"
+        (@:checkr _r ?? throw "null pointer dereference")._lk.unlock();
     }
     @:keep
     @:tdfield
     static public function uint64( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>):stdgo.GoUInt64 {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource> = _r;
         var _n = (0 : stdgo.GoUInt64);
-        @:check2 (@:checkr _r ?? throw "null pointer dereference")._lk.lock();
-        _n = @:check2r (@:checkr _r ?? throw "null pointer dereference")._s.uint64();
-        @:check2 (@:checkr _r ?? throw "null pointer dereference")._lk.unlock();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L511"
+        (@:checkr _r ?? throw "null pointer dereference")._lk.lock();
+        _n = (@:checkr _r ?? throw "null pointer dereference")._s.uint64();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L513"
+        (@:checkr _r ?? throw "null pointer dereference")._lk.unlock();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L514"
         return _n;
     }
     @:keep
@@ -59,9 +73,12 @@ package stdgo._internal.math.rand;
     static public function int63( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>):stdgo.GoInt64 {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource> = _r;
         var _n = (0 : stdgo.GoInt64);
-        @:check2 (@:checkr _r ?? throw "null pointer dereference")._lk.lock();
-        _n = @:check2r (@:checkr _r ?? throw "null pointer dereference")._s.int63();
-        @:check2 (@:checkr _r ?? throw "null pointer dereference")._lk.unlock();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L504"
+        (@:checkr _r ?? throw "null pointer dereference")._lk.lock();
+        _n = (@:checkr _r ?? throw "null pointer dereference")._s.int63();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L506"
+        (@:checkr _r ?? throw "null pointer dereference")._lk.unlock();
+        //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L507"
         return _n;
     }
 }

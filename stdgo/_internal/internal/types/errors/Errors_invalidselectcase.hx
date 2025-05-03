@@ -1,2 +1,2 @@
 package stdgo._internal.internal.types.errors;
-final invalidSelectCase : stdgo._internal.internal.types.errors.Errors_code.Code = 118i32;
+final invalidSelectCase : stdgo._internal.internal.types.errors.Errors_code.Code = 118i64;

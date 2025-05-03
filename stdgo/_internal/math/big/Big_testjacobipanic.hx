@@ -11,17 +11,22 @@ function testJacobiPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Vo
                             stdgo.Go.recover_exception = null;
                             r;
                         } : stdgo.AnyInterface);
+                        //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L1748"
                         if (((_msg == null) || (_msg == stdgo.Go.toInterface(("test failure" : stdgo.GoString))) : Bool)) {
+                            //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L1749"
                             throw stdgo.Go.toInterface(_msg);
                         };
-                        @:check2r _t.log(_msg);
+                        //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L1751"
+                        _t.log(_msg);
                     };
                     a();
                 }) });
             };
             var _x = stdgo._internal.math.big.Big_newint.newInt((1i64 : stdgo.GoInt64));
             var _y = stdgo._internal.math.big.Big_newint.newInt((2i64 : stdgo.GoInt64));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L1756"
             stdgo._internal.math.big.Big_jacobi.jacobi(_x, _y);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/int_test.go#L1757"
             throw stdgo.Go.toInterface(("test failure" : stdgo.GoString));
             {
                 for (defer in __deferstack__) {
@@ -40,7 +45,7 @@ function testJacobiPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Vo
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

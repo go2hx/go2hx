@@ -1,7 +1,7 @@
 package stdgo.io;
-var seekStart : stdgo.GoUInt64 = 0i32;
-var seekCurrent : stdgo.GoUInt64 = 1i32;
-var seekEnd : stdgo.GoUInt64 = 2i32;
+var seekStart : stdgo.GoUInt64 = 0i64;
+var seekCurrent : stdgo.GoUInt64 = 1i64;
+var seekEnd : stdgo.GoUInt64 = 2i64;
 var errShortWrite(get, set) : stdgo.Error;
 private function get_errShortWrite():stdgo.Error return stdgo._internal.io.Io_errshortwrite.errShortWrite;
 private function set_errShortWrite(v:stdgo.Error):stdgo.Error {

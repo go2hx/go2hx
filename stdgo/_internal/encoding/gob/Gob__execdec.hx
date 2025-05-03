@@ -7,10 +7,13 @@ function _execDec(_instr:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T
                 final __f__ = stdgo._internal.encoding.gob.Gob__testerror._testError;
                 __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
-            var _v = (@:check2r _state._decodeUint() : stdgo.GoInt);
+            var _v = (_state._decodeUint() : stdgo.GoInt);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L326"
             if ((_v + (@:checkr _state ?? throw "null pointer dereference")._fieldnum : stdgo.GoInt) != ((6 : stdgo.GoInt))) {
-                @:check2r _t.fatalf(("decoding field number %d, got %d" : stdgo.GoString), stdgo.Go.toInterface((6 : stdgo.GoInt)), stdgo.Go.toInterface((_v + (@:checkr _state ?? throw "null pointer dereference")._fieldnum : stdgo.GoInt)));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L327"
+                _t.fatalf(("decoding field number %d, got %d" : stdgo.GoString), stdgo.Go.toInterface((6 : stdgo.GoInt)), stdgo.Go.toInterface((_v + (@:checkr _state ?? throw "null pointer dereference")._fieldnum : stdgo.GoInt)));
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L329"
             (@:checkr _instr ?? throw "null pointer dereference")._op(_instr, _state, _value.elem()?.__copy__());
             (@:checkr _state ?? throw "null pointer dereference")._fieldnum = (6 : stdgo.GoInt);
             {
@@ -30,7 +33,7 @@ function _execDec(_instr:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

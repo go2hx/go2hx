@@ -1,2 +1,2 @@
 package stdgo._internal.debug.pe;
-final iMAGE_DIRECTORY_ENTRY_RESOURCE : stdgo.GoUInt64 = 2i32;
+final iMAGE_DIRECTORY_ENTRY_RESOURCE : stdgo.GoUInt64 = 2i64;

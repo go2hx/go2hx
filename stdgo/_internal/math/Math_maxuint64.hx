@@ -1,2 +1,2 @@
 package stdgo._internal.math;
-final maxUint64 : stdgo.GoUInt64 = 0i32;
+final maxUint64 : stdgo.GoUInt64 = 0i64;

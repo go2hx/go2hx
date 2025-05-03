@@ -4,11 +4,13 @@ package stdgo._internal.internal.xcoff;
     @:tdfield
     static public function data( _s:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_section.Section>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _s:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_section.Section> = _s;
-        var _dat = (new stdgo.Slice<stdgo.GoUInt8>((@:check2r (@:checkr _s ?? throw "null pointer dereference")._sr.size() : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        var __tmp__ = @:check2r (@:checkr _s ?? throw "null pointer dereference")._sr.readAt(_dat, (0i64 : stdgo.GoInt64)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var _dat = (new stdgo.Slice<stdgo.GoUInt8>(((@:checkr _s ?? throw "null pointer dereference")._sr.size() : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+        var __tmp__ = (@:checkr _s ?? throw "null pointer dereference")._sr.readAt(_dat, (0i64 : stdgo.GoInt64)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/internal/xcoff/file.go#L469"
         if (_n == ((_dat.length))) {
             _err = (null : stdgo.Error);
         };
+        //"file:///home/runner/.go/go1.21.3/src/internal/xcoff/file.go#L472"
         return { _0 : (_dat.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
     }
     @:embedded

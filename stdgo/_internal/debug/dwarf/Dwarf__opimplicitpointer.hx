@@ -1,2 +1,2 @@
 package stdgo._internal.debug.dwarf;
-final _opImplicitPointer : stdgo.GoUInt64 = 160i32;
+final _opImplicitPointer : stdgo.GoUInt64 = 160i64;

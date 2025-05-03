@@ -4,6 +4,7 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function write( _e:stdgo._internal.text.template.Template_errorwriter.ErrorWriter, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _e:stdgo._internal.text.template.Template_errorwriter.ErrorWriter = _e;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1359"
         return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.text.template.Template__alwayserror._alwaysError };
     }
 }

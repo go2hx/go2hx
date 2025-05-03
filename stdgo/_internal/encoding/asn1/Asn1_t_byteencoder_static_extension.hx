@@ -10,6 +10,7 @@ package stdgo._internal.encoding.asn1;
     @:tdfield
     static public function len( _c:stdgo._internal.encoding.asn1.Asn1_t_byteencoder.T_byteEncoder):stdgo.GoInt {
         @:recv var _c:stdgo._internal.encoding.asn1.Asn1_t_byteencoder.T_byteEncoder = _c;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/marshal.go#L34"
         return (1 : stdgo.GoInt);
     }
 }

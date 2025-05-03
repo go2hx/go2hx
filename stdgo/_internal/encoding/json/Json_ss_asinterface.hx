@@ -1,6 +1,7 @@
 package stdgo._internal.encoding.json;
 class SS_asInterface {
     @:keep
+    @:pointer
     @:tdfield
     public dynamic function unmarshalJSON(_data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error return @:_0 __self__.unmarshalJSON(_data);
     public function new(__self__, __type__) {

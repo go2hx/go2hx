@@ -1,6 +1,6 @@
 package stdgo.unicode.utf16;
-var maxRune : stdgo.GoInt32 = 1114111i32;
-var replacementChar : stdgo.GoInt32 = 65533i32;
+var maxRune : stdgo.GoInt32 = 1114111i64;
+var replacementChar : stdgo.GoInt32 = 65533i64;
 /**
     * Package utf16 implements encoding and decoding of UTF-16 sequences.
 **/

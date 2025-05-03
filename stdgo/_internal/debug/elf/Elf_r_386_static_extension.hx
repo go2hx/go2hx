@@ -4,12 +4,14 @@ package stdgo._internal.debug.elf;
     @:tdfield
     static public function goString( _i:stdgo._internal.debug.elf.Elf_r_386.R_386):stdgo.GoString {
         @:recv var _i:stdgo._internal.debug.elf.Elf_r_386.R_386 = _i;
+        //"file:///home/runner/.go/go1.21.3/src/debug/elf/elf.go#L2164"
         return stdgo._internal.debug.elf.Elf__stringname._stringName((_i : stdgo.GoUInt32), stdgo._internal.debug.elf.Elf__r386strings._r386Strings, true)?.__copy__();
     }
     @:keep
     @:tdfield
     static public function string( _i:stdgo._internal.debug.elf.Elf_r_386.R_386):stdgo.GoString {
         @:recv var _i:stdgo._internal.debug.elf.Elf_r_386.R_386 = _i;
+        //"file:///home/runner/.go/go1.21.3/src/debug/elf/elf.go#L2163"
         return stdgo._internal.debug.elf.Elf__stringname._stringName((_i : stdgo.GoUInt32), stdgo._internal.debug.elf.Elf__r386strings._r386Strings, false)?.__copy__();
     }
 }

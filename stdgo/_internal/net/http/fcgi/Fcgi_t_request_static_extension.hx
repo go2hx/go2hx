@@ -6,18 +6,25 @@ package stdgo._internal.net.http.fcgi;
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request> = _r;
         var _text = (@:checkr _r ?? throw "null pointer dereference")._rawParams;
         (@:checkr _r ?? throw "null pointer dereference")._rawParams = (null : stdgo.Slice<stdgo.GoUInt8>);
+        //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L51"
         while (((_text.length) > (0 : stdgo.GoInt) : Bool)) {
             var __tmp__ = stdgo._internal.net.http.fcgi.Fcgi__readsize._readSize(_text), _keyLen:stdgo.GoUInt32 = __tmp__._0, _n:stdgo.GoInt = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L53"
             if (_n == ((0 : stdgo.GoInt))) {
+                //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L54"
                 return;
             };
             _text = (_text.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
             var __tmp__ = stdgo._internal.net.http.fcgi.Fcgi__readsize._readSize(_text), _valLen:stdgo.GoUInt32 = __tmp__._0, _n:stdgo.GoInt = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L58"
             if (_n == ((0 : stdgo.GoInt))) {
+                //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L59"
                 return;
             };
             _text = (_text.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
+            //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L62"
             if ((((_keyLen : stdgo.GoInt) + (_valLen : stdgo.GoInt) : stdgo.GoInt) > (_text.length) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L63"
                 return;
             };
             var _key = (stdgo._internal.net.http.fcgi.Fcgi__readstring._readString(_text, _keyLen)?.__copy__() : stdgo.GoString);

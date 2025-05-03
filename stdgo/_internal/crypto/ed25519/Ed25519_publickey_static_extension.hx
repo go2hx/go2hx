@@ -9,9 +9,12 @@ package stdgo._internal.crypto.ed25519;
         } catch(_) {
             { _0 : (new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey), _1 : false };
         }, _xx = __tmp__._0, _ok = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ed25519/ed25519.go#L47"
         if (!_ok) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/ed25519/ed25519.go#L48"
             return false;
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ed25519/ed25519.go#L50"
         return stdgo._internal.crypto.subtle.Subtle_constanttimecompare.constantTimeCompare(_pub, _xx) == ((1 : stdgo.GoInt));
     }
 }

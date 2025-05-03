@@ -4,6 +4,7 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function gobDecode( _i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_iszerobuginterface.T_isZeroBugInterface>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_iszerobuginterface.T_isZeroBugInterface> = _i;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L746"
         return (null : stdgo.Error);
     }
     @:keep
@@ -11,6 +12,7 @@ package stdgo._internal.encoding.gob;
     static public function gobEncode( _i:stdgo._internal.encoding.gob.Gob_t_iszerobuginterface.T_isZeroBugInterface):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _i:stdgo._internal.encoding.gob.Gob_t_iszerobuginterface.T_isZeroBugInterface = _i?.__copy__();
         var _b = (null : stdgo.Slice<stdgo.GoUInt8>), _e = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L742"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
             _b = __tmp__._0;

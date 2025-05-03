@@ -1,2 +1,2 @@
 package stdgo._internal.archive.tar;
-final typeSymlink : stdgo.GoInt32 = 50i32;
+final typeSymlink : stdgo.GoInt32 = 50i64;

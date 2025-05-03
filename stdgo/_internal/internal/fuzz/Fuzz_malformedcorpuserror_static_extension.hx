@@ -5,9 +5,11 @@ package stdgo._internal.internal.fuzz;
     static public function error( _e:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_malformedcorpuserror.MalformedCorpusError>):stdgo.GoString {
         @:recv var _e:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_malformedcorpuserror.MalformedCorpusError> = _e;
         var _msgs:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
+        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/fuzz.go#L967"
         for (__8 => _s in (@:checkr _e ?? throw "null pointer dereference")._errs) {
             _msgs = (_msgs.__append__(_s.error()?.__copy__()) : stdgo.Slice<stdgo.GoString>);
         };
+        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/fuzz.go#L970"
         return stdgo._internal.strings.Strings_join.join(_msgs, ("\n" : stdgo.GoString))?.__copy__();
     }
 }

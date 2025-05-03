@@ -4,6 +4,7 @@ package stdgo._internal.math.bits;
     @:tdfield
     static public function error( _e:stdgo._internal.math.bits.Bits_t_errorstring.T_errorString):stdgo.GoString {
         @:recv var _e:stdgo._internal.math.bits.Bits_t_errorstring.T_errorString = _e;
+        //"file:///home/runner/.go/go1.21.3/src/math/bits/bits_errors_bootstrap.go#L18"
         return (("runtime error: " : stdgo.GoString) + (_e : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
     }
     @:keep

@@ -6,6 +6,7 @@ function _panics(_f:() -> Void):Bool {
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/slices/slices_test.go#L632"
                         {
                             var _x = ({
                                 final r = stdgo.Go.recover_exception;
@@ -20,7 +21,9 @@ function _panics(_f:() -> Void):Bool {
                     a();
                 }) });
             };
+            //"file:///home/runner/.go/go1.21.3/src/slices/slices_test.go#L636"
             _f();
+            //"file:///home/runner/.go/go1.21.3/src/slices/slices_test.go#L637"
             {
                 final __ret__:Bool = _b = false;
                 for (defer in __deferstack__) {
@@ -47,7 +50,7 @@ function _panics(_f:() -> Void):Bool {
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

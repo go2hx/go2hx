@@ -4,6 +4,7 @@ package stdgo._internal.debug.dwarf;
     @:tdfield
     static public function string( _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_voidtype.VoidType>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_voidtype.VoidType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/type.go#L137"
         return ("void" : stdgo.GoString);
     }
     @:embedded

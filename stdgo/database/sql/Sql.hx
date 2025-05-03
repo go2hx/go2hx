@@ -1,12 +1,12 @@
 package stdgo.database.sql;
-var levelDefault : IsolationLevel = 0i32;
-var levelReadUncommitted : IsolationLevel = 1i32;
-var levelReadCommitted : IsolationLevel = 2i32;
-var levelWriteCommitted : IsolationLevel = 3i32;
-var levelRepeatableRead : IsolationLevel = 4i32;
-var levelSnapshot : IsolationLevel = 5i32;
-var levelSerializable : IsolationLevel = 6i32;
-var levelLinearizable : IsolationLevel = 7i32;
+var levelDefault : IsolationLevel = 0i64;
+var levelReadUncommitted : IsolationLevel = 1i64;
+var levelReadCommitted : IsolationLevel = 2i64;
+var levelWriteCommitted : IsolationLevel = 3i64;
+var levelRepeatableRead : IsolationLevel = 4i64;
+var levelSnapshot : IsolationLevel = 5i64;
+var levelSerializable : IsolationLevel = 6i64;
+var levelLinearizable : IsolationLevel = 7i64;
 var errNoRows(get, set) : stdgo.Error;
 private function get_errNoRows():stdgo.Error return stdgo._internal.database.sql.Sql_errnorows.errNoRows;
 private function set_errNoRows(v:stdgo.Error):stdgo.Error {

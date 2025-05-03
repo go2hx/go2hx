@@ -1,8 +1,8 @@
 package stdgo.crypto.dsa;
-var l1024N160 : ParameterSizes = 0i32;
-var l2048N224 : ParameterSizes = 1i32;
-var l2048N256 : ParameterSizes = 2i32;
-var l3072N256 : ParameterSizes = 3i32;
+var l1024N160 : ParameterSizes = 0i64;
+var l2048N224 : ParameterSizes = 1i64;
+var l2048N256 : ParameterSizes = 2i64;
+var l3072N256 : ParameterSizes = 3i64;
 var errInvalidPublicKey(get, set) : stdgo.Error;
 private function get_errInvalidPublicKey():stdgo.Error return stdgo._internal.crypto.dsa.Dsa_errinvalidpublickey.errInvalidPublicKey;
 private function set_errInvalidPublicKey(v:stdgo.Error):stdgo.Error {

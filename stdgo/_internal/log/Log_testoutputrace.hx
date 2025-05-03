@@ -3,20 +3,25 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Voi
         var _b:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer);
         var _l = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), (0 : stdgo.GoInt));
         var _wg:stdgo._internal.sync.Sync_waitgroup.WaitGroup = ({} : stdgo._internal.sync.Sync_waitgroup.WaitGroup);
-        @:check2 _wg.add((100 : stdgo.GoInt));
+        //"file:///home/runner/.go/go1.21.3/src/log/log_test.go#L113"
+        _wg.add((100 : stdgo.GoInt));
+        //"file:///home/runner/.go/go1.21.3/src/log/log_test.go#L114"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (100 : stdgo.GoInt) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/log/log_test.go#L115"
                 stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
                         try {
                             {
-                                final __f__ = @:check2 _wg.done;
+                                final __f__ = _wg.done;
                                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
                             };
-                            @:check2r _l.setFlags((0 : stdgo.GoInt));
-                            @:check2r _l.output((0 : stdgo.GoInt), (stdgo.Go.str() : stdgo.GoString).__copy__());
+                            //"file:///home/runner/.go/go1.21.3/src/log/log_test.go#L117"
+                            _l.setFlags((0 : stdgo.GoInt));
+                            //"file:///home/runner/.go/go1.21.3/src/log/log_test.go#L118"
+                            _l.output((0 : stdgo.GoInt), (stdgo.Go.str() : stdgo.GoString).__copy__());
                             {
                                 for (defer in __deferstack__) {
                                     if (defer.ran) continue;
@@ -34,7 +39,7 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Voi
                             {
                                 var exe:Dynamic = __exception__.native;
                                 if ((exe is haxe.ValueException)) exe = exe.value;
-                                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                                     if (__exception__.message == "__return__") throw "__return__";
                                     exe = stdgo.Go.toInterface(__exception__.message);
                                 };
@@ -76,5 +81,6 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Voi
                 _i++;
             };
         };
-        @:check2 _wg.wait_();
+        //"file:///home/runner/.go/go1.21.3/src/log/log_test.go#L121"
+        _wg.wait_();
     }

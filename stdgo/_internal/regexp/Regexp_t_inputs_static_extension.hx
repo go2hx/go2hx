@@ -4,18 +4,24 @@ package stdgo._internal.regexp;
     @:tdfield
     static public function _init( _i:stdgo.Ref<stdgo._internal.regexp.Regexp_t_inputs.T_inputs>, _r:stdgo._internal.io.Io_runereader.RuneReader, _b:stdgo.Slice<stdgo.GoUInt8>, _s:stdgo.GoString):{ var _0 : stdgo._internal.regexp.Regexp_t_input.T_input; var _1 : stdgo.GoInt; } {
         @:recv var _i:stdgo.Ref<stdgo._internal.regexp.Regexp_t_inputs.T_inputs> = _i;
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L86"
         if (_r != null) {
-            return { _0 : @:check2r _i._newReader(_r), _1 : (0 : stdgo.GoInt) };
+            //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L87"
+            return { _0 : _i._newReader(_r), _1 : (0 : stdgo.GoInt) };
         };
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L89"
         if (_b != null) {
-            return { _0 : @:check2r _i._newBytes(_b), _1 : (_b.length) };
+            //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L90"
+            return { _0 : _i._newBytes(_b), _1 : (_b.length) };
         };
-        return { _0 : @:check2r _i._newString(_s?.__copy__()), _1 : (_s.length) };
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L92"
+        return { _0 : _i._newString(_s?.__copy__()), _1 : (_s.length) };
     }
     @:keep
     @:tdfield
     static public function _clear( _i:stdgo.Ref<stdgo._internal.regexp.Regexp_t_inputs.T_inputs>):Void {
         @:recv var _i:stdgo.Ref<stdgo._internal.regexp.Regexp_t_inputs.T_inputs> = _i;
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L76"
         if ((@:checkr _i ?? throw "null pointer dereference")._bytes._str != null) {
             (@:checkr _i ?? throw "null pointer dereference")._bytes._str = (null : stdgo.Slice<stdgo.GoUInt8>);
         } else if ((@:checkr _i ?? throw "null pointer dereference")._reader._r != null) {
@@ -31,6 +37,7 @@ package stdgo._internal.regexp;
         (@:checkr _i ?? throw "null pointer dereference")._reader._r = _r;
         (@:checkr _i ?? throw "null pointer dereference")._reader._atEOT = false;
         (@:checkr _i ?? throw "null pointer dereference")._reader._pos = (0 : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L70"
         return stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _i ?? throw "null pointer dereference")._reader) : stdgo.Ref<stdgo._internal.regexp.Regexp_t_inputreader.T_inputReader>));
     }
     @:keep
@@ -38,6 +45,7 @@ package stdgo._internal.regexp;
     static public function _newString( _i:stdgo.Ref<stdgo._internal.regexp.Regexp_t_inputs.T_inputs>, _s:stdgo.GoString):stdgo._internal.regexp.Regexp_t_input.T_input {
         @:recv var _i:stdgo.Ref<stdgo._internal.regexp.Regexp_t_inputs.T_inputs> = _i;
         (@:checkr _i ?? throw "null pointer dereference")._string._str = _s?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L63"
         return stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _i ?? throw "null pointer dereference")._string) : stdgo.Ref<stdgo._internal.regexp.Regexp_t_inputstring.T_inputString>));
     }
     @:keep
@@ -45,6 +53,7 @@ package stdgo._internal.regexp;
     static public function _newBytes( _i:stdgo.Ref<stdgo._internal.regexp.Regexp_t_inputs.T_inputs>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo._internal.regexp.Regexp_t_input.T_input {
         @:recv var _i:stdgo.Ref<stdgo._internal.regexp.Regexp_t_inputs.T_inputs> = _i;
         (@:checkr _i ?? throw "null pointer dereference")._bytes._str = _b;
+        //"file:///home/runner/.go/go1.21.3/src/regexp/exec.go#L58"
         return stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _i ?? throw "null pointer dereference")._bytes) : stdgo.Ref<stdgo._internal.regexp.Regexp_t_inputbytes.T_inputBytes>));
     }
 }

@@ -31,18 +31,20 @@ function testInterfaceValues(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>
 ({ _text : ("{{le (index .Slice 1) .Zero}}" : stdgo.GoString), _out : ("false" : stdgo.GoString) } : stdgo._internal.text.template.Template_t__struct_5.T__struct_5),
 ({ _text : ("{{lt (index .Slice 0) .One}}" : stdgo.GoString), _out : ("true" : stdgo.GoString) } : stdgo._internal.text.template.Template_t__struct_5.T__struct_5),
 ({ _text : ("{{lt (index .Slice 1) .Zero}}" : stdgo.GoString), _out : ("false" : stdgo.GoString) } : stdgo._internal.text.template.Template_t__struct_5.T__struct_5)].concat([for (i in 30 ... (30 > 30 ? 30 : 30 : stdgo.GoInt).toBasic()) ({ _text : ("" : stdgo.GoString), _out : ("" : stdgo.GoString) } : stdgo._internal.text.template.Template_t__struct_5.T__struct_5)])) : stdgo.Slice<stdgo._internal.text.template.Template_t__struct_5.T__struct_5>);
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1620"
         for (__8 => _tt in _tests) {
             var _tmpl = ({
-                @:tupleArg var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tt._text?.__copy__());
+                @:tupleArg var __tmp__ = stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tt._text?.__copy__());
                 var __f__ = stdgo._internal.text.template.Template_must.must;
-                var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tt._text?.__copy__());
+                var __tmp__ = stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tt._text?.__copy__());
                 __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>), (__tmp__._1 : stdgo.Error));
             });
             var _buf:stdgo._internal.strings.Strings_builder.Builder = ({} : stdgo._internal.strings.Strings_builder.Builder);
-            var _err = (@:check2r _tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>)), stdgo.Go.toInterface(({
+            var _err = (_tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>)), stdgo.Go.toInterface(({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.AnyInterface>();
                 x.__defaultValue__ = () -> (null : stdgo.AnyInterface);
                 x.set(("PlusOne" : stdgo.GoString), stdgo.Go.toInterface(function(_n:stdgo.GoInt):stdgo.GoInt {
+                    //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1625"
                     return (_n + (1 : stdgo.GoInt) : stdgo.GoInt);
                 }));
 x.set(("Slice" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(0 : stdgo.GoInt), (1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)));
@@ -52,19 +54,28 @@ x.set(("Nil" : stdgo.GoString), (null : stdgo.AnyInterface));
 x.set(("Zero" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoInt)));
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>))) : stdgo.Error);
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1633"
             if (stdgo._internal.strings.Strings_hasprefix.hasPrefix(_tt._out?.__copy__(), ("ERROR:" : stdgo.GoString))) {
                 var _e = (stdgo._internal.strings.Strings_trimspace.trimSpace(stdgo._internal.strings.Strings_trimprefix.trimPrefix(_tt._out?.__copy__(), ("ERROR:" : stdgo.GoString))?.__copy__())?.__copy__() : stdgo.GoString);
+                //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1635"
                 if (((_err == null) || !stdgo._internal.strings.Strings_contains.contains(_err.error()?.__copy__(), _e?.__copy__()) : Bool)) {
-                    @:check2r _t.errorf(("%s: Execute: %v, want error %q" : stdgo.GoString), stdgo.Go.toInterface(_tt._text), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_e));
+                    //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1636"
+                    _t.errorf(("%s: Execute: %v, want error %q" : stdgo.GoString), stdgo.Go.toInterface(_tt._text), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_e));
                 };
+                //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1638"
                 continue;
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1640"
             if (_err != null) {
-                @:check2r _t.errorf(("%s: Execute: %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._text), stdgo.Go.toInterface(_err));
+                //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1641"
+                _t.errorf(("%s: Execute: %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._text), stdgo.Go.toInterface(_err));
+                //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1642"
                 continue;
             };
-            if ((@:check2 _buf.string() : stdgo.GoString) != (_tt._out)) {
-                @:check2r _t.errorf(("%s: template output = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_tt._text), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>))), stdgo.Go.toInterface(_tt._out));
+            //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1644"
+            if ((_buf.string() : stdgo.GoString) != (_tt._out)) {
+                //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L1645"
+                _t.errorf(("%s: template output = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_tt._text), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>))), stdgo.Go.toInterface(_tt._out));
             };
         };
     }

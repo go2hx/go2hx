@@ -4,6 +4,7 @@ package stdgo._internal.crypto.ecdh;
     @:tdfield
     static public function curve( _k:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>):stdgo._internal.crypto.ecdh.Ecdh_curve.Curve {
         @:recv var _k:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey> = _k;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdh/ecdh.go#L99"
         return (@:checkr _k ?? throw "null pointer dereference")._curve;
     }
     @:keep
@@ -15,9 +16,12 @@ package stdgo._internal.crypto.ecdh;
         } catch(_) {
             { _0 : (null : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>), _1 : false };
         }, _xx = __tmp__._0, _ok = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdh/ecdh.go#L91"
         if (!_ok) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/ecdh/ecdh.go#L92"
             return false;
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdh/ecdh.go#L94"
         return ((stdgo.Go.toInterface((@:checkr _k ?? throw "null pointer dereference")._curve) == stdgo.Go.toInterface((@:checkr _xx ?? throw "null pointer dereference")._curve)) && (stdgo._internal.crypto.subtle.Subtle_constanttimecompare.constantTimeCompare((@:checkr _k ?? throw "null pointer dereference")._publicKey, (@:checkr _xx ?? throw "null pointer dereference")._publicKey) == (1 : stdgo.GoInt)) : Bool);
     }
     @:keep
@@ -25,6 +29,7 @@ package stdgo._internal.crypto.ecdh;
     static public function bytes( _k:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _k:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey> = _k;
         var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(133, 133).__setNumber32__();
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdh/ecdh.go#L79"
         return ((_buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...((@:checkr _k ?? throw "null pointer dereference")._publicKey : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
     }
 }

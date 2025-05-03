@@ -1,2 +1,2 @@
 package stdgo._internal.internal.goexperiment;
-final regabiWrappersInt : stdgo.GoUInt64 = 0i32;
+final regabiWrappersInt : stdgo.GoUInt64 = 0i64;

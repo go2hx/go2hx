@@ -1,5 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatFloat32(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L826"
         for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_t__struct_21.T__struct_21>(56, 56, ...[
 ({ _x : ("0" : stdgo.GoString), _out : (0 : stdgo.GoFloat64), _acc : (0 : stdgo._internal.math.big.Big_accuracy.Accuracy) } : stdgo._internal.math.big.Big_t__struct_21.T__struct_21),
 ({ _x : ("1e-1000" : stdgo.GoString), _out : (0 : stdgo.GoFloat64), _acc : (-1 : stdgo._internal.math.big.Big_accuracy.Accuracy) } : stdgo._internal.math.big.Big_t__struct_21.T__struct_21),
@@ -57,31 +58,39 @@ function testFloatFloat32(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):V
 ({ _x : ("1e10000" : stdgo.GoString), _out : (stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt)) : stdgo.GoFloat32), _acc : (1 : stdgo._internal.math.big.Big_accuracy.Accuracy) } : stdgo._internal.math.big.Big_t__struct_21.T__struct_21),
 ({ _x : ("0x1.ffffff0p2147483646" : stdgo.GoString), _out : (stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt)) : stdgo.GoFloat32), _acc : (1 : stdgo._internal.math.big.Big_accuracy.Accuracy) } : stdgo._internal.math.big.Big_t__struct_21.T__struct_21),
 ({ _x : ("Inf" : stdgo.GoString), _out : (stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt)) : stdgo.GoFloat32), _acc : (0 : stdgo._internal.math.big.Big_accuracy.Accuracy) } : stdgo._internal.math.big.Big_t__struct_21.T__struct_21)].concat([for (i in 56 ... (56 > 56 ? 56 : 56 : stdgo.GoInt).toBasic()) ({ _x : ("" : stdgo.GoString), _out : (0 : stdgo.GoFloat32), _acc : ((0 : stdgo.GoInt8) : stdgo._internal.math.big.Big_accuracy.Accuracy) } : stdgo._internal.math.big.Big_t__struct_21.T__struct_21)])) : stdgo.Slice<stdgo._internal.math.big.Big_t__struct_21.T__struct_21>)) {
+            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L908"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (2 : stdgo.GoInt) : Bool)) {
                     var __0 = (_test._x.__copy__() : stdgo.GoString), __1 = (_test._out : stdgo.GoFloat32), __2 = (_test._acc : stdgo._internal.math.big.Big_accuracy.Accuracy);
 var _tacc = __2, _tout = __1, _tx = __0;
-if (_i != ((0 : stdgo.GoInt))) {
+//"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L911"
+                    if (_i != ((0 : stdgo.GoInt))) {
                         _tx = (("-" : stdgo.GoString) + _tx.__copy__() : stdgo.GoString).__copy__();
                         _tout = -_tout;
                         _tacc = -_tacc;
                     };
-{
+//"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L918"
+                    {
                         var __tmp__ = stdgo._internal.strconv.Strconv_parsefloat.parseFloat(_tx.__copy__(), (32 : stdgo.GoInt)), _f:stdgo.GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (((_err == null) && !stdgo._internal.math.big.Big__alike32._alike32((_f : stdgo.GoFloat32), _tout) : Bool)) {
-                            @:check2r _t.errorf(("%s: got %g; want %g (incorrect test data)" : stdgo.GoString), stdgo.Go.toInterface(_tx), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_tout));
+                            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L919"
+                            _t.errorf(("%s: got %g; want %g (incorrect test data)" : stdgo.GoString), stdgo.Go.toInterface(_tx), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_tout));
                         };
                     };
 var _x = stdgo._internal.math.big.Big__makefloat._makeFloat(_tx.__copy__());
-var __tmp__ = @:check2r _x.float32(), _out:stdgo.GoFloat32 = __tmp__._0, _acc:stdgo._internal.math.big.Big_accuracy.Accuracy = __tmp__._1;
-if ((!stdgo._internal.math.big.Big__alike32._alike32(_out, _tout) || (_acc != _tacc) : Bool)) {
-                        @:check2r _t.errorf(("%s: got %g (%#08x, %s); want %g (%#08x, %s)" : stdgo.GoString), stdgo.Go.toInterface(_tx), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(stdgo._internal.math.Math_float32bits.float32bits(_out)), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)), stdgo.Go.toInterface(_test._out), stdgo.Go.toInterface(stdgo._internal.math.Math_float32bits.float32bits(_test._out)), stdgo.Go.toInterface(stdgo.Go.asInterface(_tacc)));
+var __tmp__ = _x.float32(), _out:stdgo.GoFloat32 = __tmp__._0, _acc:stdgo._internal.math.big.Big_accuracy.Accuracy = __tmp__._1;
+//"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L924"
+                    if ((!stdgo._internal.math.big.Big__alike32._alike32(_out, _tout) || (_acc != _tacc) : Bool)) {
+                        //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L925"
+                        _t.errorf(("%s: got %g (%#08x, %s); want %g (%#08x, %s)" : stdgo.GoString), stdgo.Go.toInterface(_tx), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(stdgo._internal.math.Math_float32bits.float32bits(_out)), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)), stdgo.Go.toInterface(_test._out), stdgo.Go.toInterface(stdgo._internal.math.Math_float32bits.float32bits(_test._out)), stdgo.Go.toInterface(stdgo.Go.asInterface(_tacc)));
                     };
 var _x2:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_);
-var __tmp__ = @:check2r @:check2 _x2.setFloat64((_out : stdgo.GoFloat64)).float32(), _out2:stdgo.GoFloat32 = __tmp__._0, _acc2:stdgo._internal.math.big.Big_accuracy.Accuracy = __tmp__._1;
-if ((!stdgo._internal.math.big.Big__alike32._alike32(_out2, _out) || (_acc2 != (0 : stdgo._internal.math.big.Big_accuracy.Accuracy)) : Bool)) {
-                        @:check2r _t.errorf(("idempotency test: got %g (%s); want %g (Exact)" : stdgo.GoString), stdgo.Go.toInterface(_out2), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc2)), stdgo.Go.toInterface(_out));
+var __tmp__ = _x2.setFloat64((_out : stdgo.GoFloat64)).float32(), _out2:stdgo.GoFloat32 = __tmp__._0, _acc2:stdgo._internal.math.big.Big_accuracy.Accuracy = __tmp__._1;
+//"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L931"
+                    if ((!stdgo._internal.math.big.Big__alike32._alike32(_out2, _out) || (_acc2 != (0 : stdgo._internal.math.big.Big_accuracy.Accuracy)) : Bool)) {
+                        //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L932"
+                        _t.errorf(("idempotency test: got %g (%s); want %g (Exact)" : stdgo.GoString), stdgo.Go.toInterface(_out2), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc2)), stdgo.Go.toInterface(_out));
                     };
                     _i++;
                 };

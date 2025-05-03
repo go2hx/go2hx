@@ -1,2 +1,2 @@
 package stdgo._internal.archive.zip;
-final _creatorUnix : stdgo.GoUInt64 = 3i32;
+final _creatorUnix : stdgo.GoUInt64 = 3i64;

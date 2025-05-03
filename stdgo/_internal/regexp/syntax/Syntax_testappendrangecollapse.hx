@@ -1,6 +1,7 @@
 package stdgo._internal.regexp.syntax;
 function testAppendRangeCollapse(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         var _r:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
+        //"file:///home/runner/.go/go1.21.3/src/regexp/syntax/parse_test.go#L447"
         {
             var _i = ((65 : stdgo.GoInt32) : stdgo.GoInt32);
             while ((_i <= (90 : stdgo.GoInt32) : Bool)) {
@@ -9,7 +10,9 @@ _r = stdgo._internal.regexp.syntax.Syntax__appendrange._appendRange(_r, ((_i + (
                 _i++;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/regexp/syntax/parse_test.go#L451"
         if ((_r : stdgo.GoString) != (("AZaz" : stdgo.GoString))) {
-            @:check2r _t.errorf(("appendRange interlaced A-Z a-z = %s, want AZaz" : stdgo.GoString), stdgo.Go.toInterface((_r : stdgo.GoString)));
+            //"file:///home/runner/.go/go1.21.3/src/regexp/syntax/parse_test.go#L452"
+            _t.errorf(("appendRange interlaced A-Z a-z = %s, want AZaz" : stdgo.GoString), stdgo.Go.toInterface((_r : stdgo.GoString)));
         };
     }

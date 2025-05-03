@@ -1,5 +1,6 @@
 package stdgo._internal.net.http.pprof;
 function _sleep(_r:stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, _d:stdgo._internal.time.Time_duration.Duration):Void {
+        //"file:///home/runner/.go/go1.21.3/src/net/http/pprof/pprof.go#L111"
         {
             var __select__ = true;
             var __c__0 = null;
@@ -18,7 +19,7 @@ var __c__1 = null;
                     };
                 } else if ({
                     if (__c__1 == null) {
-                        __c__1 = @:check2r _r.context().done();
+                        __c__1 = _r.context().done();
                     };
                     __c__1 != null && __c__1.__isGet__(true);
                 }) {

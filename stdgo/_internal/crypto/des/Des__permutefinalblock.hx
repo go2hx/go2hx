@@ -14,5 +14,6 @@ function _permuteFinalBlock(_block:stdgo.GoUInt64):stdgo.GoUInt64 {
         _b1 = (_block >> (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         _b2 = (_block << (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         _block = (_block ^ ((((_b1 ^ _b2 : stdgo.GoUInt64) ^ (_b1 << (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) ^ (_b2 >> (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/des/block.go#L208"
         return _block;
     }

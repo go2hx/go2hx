@@ -60,10 +60,6 @@ function add(_wg, _delta) {
 	@:define("target.threaded") {
 		@:privateAccess _wg.mutex.acquire();
 		@:privateAccess _wg.counter += _delta;
-		if (@:privateAccess _wg.counter < 0) {
-			@:privateAccess _wg.mutex.release();
-			throw "sync: negative WaitGroup counter";
-		}
 		@:privateAccess _wg.mutex.release();
 	}
 }
@@ -73,8 +69,9 @@ function done(_wg) {
 	@:define("target.threaded") {
 		@:privateAccess _wg.mutex.acquire();
 		@:privateAccess _wg.counter--;
-		if (@:privateAccess _wg.counter <= 0) {
-			@:privateAccess _wg.lock.release();
+		if (@:privateAccess _wg.counter < 0) {
+			@:privateAccess _wg.mutex.release();
+			throw "sync: negative WaitGroup counter";
 		}
 		@:privateAccess _wg.mutex.release();
 	}
@@ -83,8 +80,21 @@ function done(_wg) {
 @:recv(WaitGroup)
 overload extern inline function wait_(_wg) {
 	@:define("target.threaded") {
-		@:privateAccess @:define("target.threaded") _wg.lock.wait();
-	}
+		while (true) {
+			if (@:privateAccess !_wg.mutex.tryAcquire()) {
+				stdgo._internal.internal.Async.tick();
+				std.Sys.sleep(0.001);
+				continue;
+			}
+			if (@:privateAccess _wg.counter <= 0) {
+				@:privateAccess _wg.mutex.release();
+				break;
+			}
+			@:privateAccess _wg.mutex.release();
+			stdgo._internal.internal.Async.tick();
+			std.Sys.sleep(0.001);
+		}
+	};
 }
 
 @:recv(Once)

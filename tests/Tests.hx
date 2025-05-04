@@ -403,6 +403,8 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 private function complete(modules:Array<typer.HaxeAst.Module>, data:{excludes:Array<String>, hxml:String, ?main:String}) {
 	timeout = 0;
 	completeBool = true;
+	if (modules != null)
+		runningCount--;
 	spawnTargets(modules, data);
 	runNewTest();
 }
@@ -458,6 +460,7 @@ function runNewTest() {
 		args.push(globalPath);
 	}
 	// trace(args.join(" "));
+	runningCount++;
 	instance = Compiler.createCompilerInstanceFromArgs(args);
 	instance.data = {excludes: exclude, hxml: hxml};
 	final compiled = Compiler.compileFromInstance(instance);

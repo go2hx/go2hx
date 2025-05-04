@@ -79,4 +79,4 @@ analysis/tests/unit/gotomod/*
 analysis/tests/unit/pointermod/*
 !tests/logs/*.log
 tests/logs/*.md
-stdgo/*
+tmp_*

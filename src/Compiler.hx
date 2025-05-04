@@ -85,7 +85,6 @@ private function receivedData(instance, buff, client) {
 	runBuildTools(modules, instance, programArgs);
 	Sys.setCwd(cwd);
 	onComplete(modules, instance.data);
-	instance = null;
 	programArgs = null;
 }
 
@@ -120,7 +119,6 @@ function runCompilerFromArgs(args:Array<String>) {
 			};
 		compileFromInstance(instance);
 	});
-
 	#if !js
 	while (true)
 		updateLoop();
@@ -298,8 +296,7 @@ function closeCompiler(code:Int = 0, instance:Null<CompilerInstanceData> = null)
 		} catch (_) {}
 	}
 	#end
-	for (client in clients)
-		client.stream.close();
+	client.stream.close();
 	#if (target.threaded)
 	process.close();
 	#end
@@ -318,13 +315,7 @@ function setupCompiler(instance:CompilerInstanceData, ready:Void->Void) {
 	server.bind(new sys.net.Host("127.0.0.1"), instance.port);
 	instance.port = server.getPort();
 	Sys.println('listening on local port: ${instance.port}');
-	#end
-	resetCount = 0;
-	// server.noDelay(true);
-	#if (target.threaded)
-	process = new sys.io.Process("./go4hx", ['' + instance.port], false);
-	#else
-	jsProcess(instance);
+	startGo4hx(instance);
 	#end
 	server.listen(0, () -> {
 		accept(server, instance, ready);
@@ -332,11 +323,20 @@ function setupCompiler(instance:CompilerInstanceData, ready:Void->Void) {
 	#if js listenNodeJS(server, instance); #end
 }
 
+function startGo4hx(instance) {
+	resetCount = 0;
+	// server.noDelay(true);
+	#if (target.threaded)
+	process = new sys.io.Process("./go4hx", ['' + instance.port], false);
+	#else
+	jsProcess(instance);
+	#end
+}
+
 function accept(server, instance, ready) {
 	Sys.println("accepted connection");
-	final client:Client = {stream: server.accept(), id: -1};
+	client = {stream: server.accept(), id: -1};
 	client.reset();
-	clients.push(client);
 	var pos = 0;
 	var buff:Bytes = null;
 	client.stream.readStart(bytes -> {
@@ -352,6 +352,7 @@ function accept(server, instance, ready) {
 		instance.log("progress: " + pos + "/" + buff.length);
 		bytes = null;
 		if (pos == buff.length) {
+			client.runnable = true;
 			receivedData(instance, buff, client);
 			// reset data
 			client.reset();
@@ -406,6 +407,7 @@ function healthCheck(instance) {
 function listenNodeJS(server:Tcp, instance:CompilerInstanceData) {
 	@:privateAccess server.s.listen(instance.port, () -> {
 		instance.port = server.getPort();
+		startGo4hx(instance);
 		Sys.println('nodejs server listening on local port: ${instance.port}');
 	});
 }
@@ -691,21 +693,18 @@ function compileFromInstance(instance:CompilerInstanceData):Bool {
 }
 
 function getClient() {
-	for (client in clients) {
-		if (client.runnable)
-			return client;
-		if (++client.retries > 2 * 240) { // 240 seconds
-			trace("Client has retried too many times, giving up");
-			trace(instanceCache[client.id].data, client.id);
-		}
+	if (client.runnable)
+		return client;
+	if (++client.retries > 2 * 240) { // 240 seconds
+		trace("Client has retried too many times, giving up");
 	}
+	Sys.println("Tried to get client when it's not runnable");
+	Sys.exit(1);
 	return null;
 }
 
 function write(args:Array<String>, instance:CompilerInstanceData):Bool {
 	final client = getClient();
-	if (client == null)
-		return false;
 	for (i in 0...instanceCache.length) {
 		if (instanceCache[i] != null)
 			continue;
@@ -767,7 +766,7 @@ final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodep
 final cwd = Sys.getCwd();
 final loop = Loop.getDefault();
 final server = new Tcp(loop);
-var clients:Array<Client> = [];
+var client:Client = null;
 #if (target.threaded)
 var process:sys.io.Process = null;
 var mainThread = sys.thread.Thread.current();

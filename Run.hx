@@ -82,8 +82,10 @@ function main() {
 		return;
 	}
 	if (goCommand != "go") {
+		final last = args.pop();
 		args.push("-gocmd");
 		args.push(goCommand);
+		args.push(last);
 	}
 	if ((index = args.indexOf("-compiler_cpp")) != -1 || (index = args.indexOf("--compiler_cpp")) != -1) {
 		args.remove(args[index]);

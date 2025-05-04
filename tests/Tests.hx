@@ -89,7 +89,9 @@ function main() {
 	trace(tests.length);
 	trace(tasks.length);
 	if (!dryRun) {
-		Compiler.setupCompiler(new CompilerInstanceData(), () -> {}); // amount of processes to spawn
+		Compiler.setupCompiler(new CompilerInstanceData(), () -> {
+			complete(null, null);
+		}); // amount of processes to spawn
 		Compiler.onComplete = complete;
 		Compiler.onUnknownExit = close;
 		final timer = new haxe.Timer(100);
@@ -218,35 +220,6 @@ function update() {
 		trace("last task logs:", lastTaskLogs);
 		trace("tests left:", tests.length);
 		close();
-	}
-	var removeTests = [];
-	for (i in 0...tests.length) {
-		final test = tests[i];
-		final hxmlName = sanatize(Path.withoutExtension(test));
-		final hxml = "golibs/" + type + "_" + hxmlName + ".hxml";
-		final args = [test, '--norun', '--hxml', hxml];
-		if (testBool)
-			args.push("--test");
-		if (noDepsBool)
-			args.push("-nodeps");
-		if (globalPath == "") {
-			args.push(path);
-		} else {
-			args.push(globalPath);
-		}
-		// trace(args.join(" "));
-		instance = Compiler.createCompilerInstanceFromArgs(args);
-		instance.data = {excludes: excludeFuncArgs[i], hxml: hxml};
-
-		final compiled = Compiler.compileFromInstance(instance);
-		timeout = 0;
-		if (!compiled) {
-			break;
-		}
-		removeTests.push(test);
-	}
-	for (test in removeTests) {
-		tests.remove(test);
 	}
 	if (tasks.length > 0) {
 		final task = tasks.pop();
@@ -430,6 +403,13 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 private function complete(modules:Array<typer.HaxeAst.Module>, data:{excludes:Array<String>, hxml:String, ?main:String}) {
 	timeout = 0;
 	completeBool = true;
+	spawnTargets(modules, data);
+	runNewTest();
+}
+
+function spawnTargets(modules, data) {
+	if (modules == null)
+		return;
 	// spawn targets
 	final paths = Compiler.mainPaths(modules);
 	for (path in paths) {
@@ -458,6 +438,30 @@ private function complete(modules:Array<typer.HaxeAst.Module>, data:{excludes:Ar
 			main: main
 		});
 	}
+}
+
+function runNewTest() {
+	final test = tests.pop();
+	final exclude = excludeFuncArgs.pop();
+	if (test == null)
+		return;
+	final hxmlName = sanatize(Path.withoutExtension(test));
+	final hxml = "golibs/" + type + "_" + hxmlName + ".hxml";
+	final args = [test, '--norun', '--hxml', hxml];
+	if (testBool)
+		args.push("--test");
+	if (noDepsBool)
+		args.push("-nodeps");
+	if (globalPath == "") {
+		args.push(path);
+	} else {
+		args.push(globalPath);
+	}
+	// trace(args.join(" "));
+	instance = Compiler.createCompilerInstanceFromArgs(args);
+	instance.data = {excludes: exclude, hxml: hxml};
+	final compiled = Compiler.compileFromInstance(instance);
+	timeout = 0;
 }
 
 private function createTargetOutput(target:String, type:String, name:String):String {

@@ -8,7 +8,7 @@ func main() {
 		println("hi")
 		return 0
 	}
-	_ = iterSmall
+	_ = iterSmall()
 	goto end
 end:
 	println("end")

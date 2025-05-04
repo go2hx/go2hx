@@ -17,6 +17,7 @@ Loop:
 		// Flags.
 		case 'i':
 			c = '-'
+			println("-")
 		case '-':
 			return 0
 		}

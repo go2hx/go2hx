@@ -587,7 +587,11 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 					rhs[i] = &ast.IndexExpr{X: stmt.X, Index: createPos(token.Pos(0))}
 				}
 			}
-			init := &ast.AssignStmt{Lhs: lhs, Tok: stmt.Tok, TokPos: stmt.TokPos, Rhs: rhs}
+			itok := token.ASSIGN
+			if stmt.Tok != token.ILLEGAL {
+				itok = stmt.Tok
+			}
+			init := &ast.AssignStmt{Lhs: lhs, Tok: itok, TokPos: stmt.TokPos, Rhs: rhs}
 			forStmt := &ast.ForStmt{For: stmt.Body.Rbrace, Init: init, Body: stmt.Body, Cond: &ast.BinaryExpr{X: lhs[0], Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{stmt.X}}}, Post: &ast.IncDecStmt{X: lhs[0], Tok: token.INC}}
 			for labelName, stmt2 := range fs.labelMapLoop {
 				if stmt == stmt2 {

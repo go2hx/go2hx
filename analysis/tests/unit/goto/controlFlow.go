@@ -18,11 +18,12 @@ Loop:
 	for i := range fields {
 		finfo := i == 1
 		if finfo {
+			println("continue")
 			continue
 		}
 		for j := range parents[:len(parents)-1] {
 			if parents[j] != fields[j+1] {
-
+				println("continue Loop")
 				continue Loop
 			}
 		}
@@ -40,6 +41,7 @@ Loop:
 	}
 	if !recurse {
 		// We have no business with this element.
+		println("!recurse")
 		return false, nil
 	}
 	// The element is not a perfect match for any field, but one
@@ -53,6 +55,7 @@ Loop:
 		}
 		switch t := tokType.(type) {
 		case int:
+			println(t)
 			// the recursion depth of unmarshalPath is limited to the path length specified
 			// by the struct field tag, so we don't increment the depth here.
 			consumed2, err := true, error(nil)

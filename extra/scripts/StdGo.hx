@@ -36,19 +36,66 @@ function main() {
 	}
 	for (path in excludes)
 		list.remove(path);
-	runCompiler();
+	trace(libs);
+	Compiler.setupCompiler(new Compiler.CompilerInstanceData(), () -> {
+		// kickstart
+		complete(null, null);
+	}); // amount of processes to spawn
+	Compiler.onComplete = complete;
+	if (libs.length == 0)
+		return;
+	#if !js
+	while (true)
+		update();
+	#else
+	final timer = new haxe.Timer(500);
+	timer.run = update;
+	#end
 }
 
-private function runCompiler() {
-	final args = libs.concat(['--nocomments', '--out', '.', '--norun', '--test']);
+private function complete(modules:Array<typer.HaxeAst.Module>, _) {
+	final lib = libs.pop();
+	if (lib == null) {
+		Compiler.closeCompiler();
+		return;
+	}
+	hxml = "stdgo/" + sanatize(lib);
+	args = [lib, '--nocomments', '--out', '.', '--norun'];
+	if (varTraceBool)
+		args.push("--vartrace");
+	if (stackBool)
+		args.push("--stack");
+	if (noMain.indexOf(lib) == -1 && !releaseBool) {
+		args.push('--hxml');
+		args.push(hxml);
+		args.push('--test');
+	}
+	if (debugBool)
+		args.push("-debug");
 	args.push(path);
-	trace(args.join(" "));
-	Compiler.runCompilerFromArgs(args);
+	instance = Compiler.createCompilerInstanceFromArgs(args);
+	Compiler.compileFromInstance(instance);
 }
 
 var instance:Compiler.CompilerInstanceData = null;
 var compiled:Bool = false;
+var args:Array<String> = [];
 var hxml = "";
+var varTraceBool = MacroCompiler.getDefine("vartrace") != null;
+var stackBool = MacroCompiler.getDefine("stack") != null;
+var releaseBool = MacroCompiler.getDefine("release") != null;
+var debugBool = MacroCompiler.getDefine("cdebug") != null;
+
+function update() {
+	#if !js
+	Compiler.updateLoop();
+	#end
+}
+
+private function sanatize(s:String):String {
+	s = StringTools.replace(s, "/", "_");
+	return s;
+}
 
 final noMain = [
 	"testing/internal/testdeps",

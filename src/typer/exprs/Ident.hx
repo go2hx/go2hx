@@ -1,7 +1,7 @@
 package typer.exprs;
 
 function typeIdent(expr:GoAst.Ident, info:Info, isSelect:Bool):MacroExpr {
-	var name = typer.exprs.Ident.nameIdent(expr.name, true, false, info, isSelect, expr.objPath);
+	var name = typer.exprs.Ident.nameIdent(expr.name, true, true, info, isSelect, expr.objPath);
 	return macro $i{name};
 }
 

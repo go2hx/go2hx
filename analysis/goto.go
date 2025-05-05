@@ -851,6 +851,10 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 									x = key
 								}
 							}
+						} else {
+							x.Obj = ast.NewObj(ast.Var, x.Name)
+							child.Key = x
+							fs.tempVarWithTypeExpr(x, &ast.Ident{Name: "int"})
 						}
 					}
 					fs.labelMapPost[labelName] = &ast.IncDecStmt{X: x, Tok: token.INC}

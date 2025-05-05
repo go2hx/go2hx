@@ -1,7 +1,7 @@
 package typer.exprs;
 
 function typeIdent(expr:GoAst.Ident, info:Info, isSelect:Bool):MacroExpr {
-	var name = typer.exprs.Ident.nameIdent(expr.name, true, true, info, isSelect, expr.objPath);
+	var name = typer.exprs.Ident.nameIdent(expr.name, true, false, info, isSelect, expr.objPath);
 	return macro $i{name};
 }
 
@@ -26,11 +26,6 @@ function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:B
 		if (name == "false" || name == "true") {
 			name = "_" + name;
 		}
-	} else {
-		if (name == "nil")
-			return "null";
-		if (name == "false" || name == "true")
-			return name;
 	}
 	var setUnique = false;
 	if (rename && info.renameIdents.exists(name)) {
@@ -44,6 +39,13 @@ function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:B
 			name = name = "_" + name;
 		} else {
 			name = untitle(name);
+		}
+	}
+	if (!overwrite) {
+		if (name == "nil")
+			return "null";
+		if (name == "false" || name == "true") {
+			return name;
 		}
 	}
 	if (!formatField && rename && info.restricted != null && info.restricted.indexOf(name) != -1) {

@@ -32,26 +32,26 @@ func f3() int {
 		var b any = "hello"
 		doubleBreak := false
 		for {
-			//println("in for loop")
+			println("in for loop")
 			switch b.(type) {
 			case int:
 				doubleBreak = true
 				break
 			}
-			//println(doubleBreak)
+			println(doubleBreak)
 			if doubleBreak {
 				break
 			}
 			b = int(10)
 		}
-		//println("out of for loop")
+		println("out of for loop")
 		goto test
-		//println("goto middle")
+		println("goto middle")
 	test:
-		//println("jump to goto test")
+		println("jump to goto test")
 	}
 	//test2:
 
-	//println("out of if statement")
+	println("out of if statement")
 	return 2
 }

@@ -1,17 +1,18 @@
 package main
 
 func main() {
-	// TODO reenable
-	/*	const (
-			stateInit = iota // Zero value must be stateInit
-			stateDict
-		)
+	const (
+		stateInit = iota // Zero value must be stateInit
+		stateDict
+	)
 
-		switch 0 {
-		case stateInit:
-			goto readLiteral
-		case stateDict:
-		}
+	switch 0 {
+	case stateInit:
+		println("goto readLiteral")
+		goto readLiteral
+	case stateDict:
+	}
 
-	readLiteral:*/
+readLiteral:
+	println("readLiteral")
 }

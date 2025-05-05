@@ -27,6 +27,7 @@ loop:
 	if i < 100 {
 		goto loop
 	}
+	println(i)
 	return
 
 gogoloop:

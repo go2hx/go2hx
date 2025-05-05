@@ -1,8 +1,8 @@
 package main
 
 func main() {
-	for _, key := range map[string]int{"hello": 0} {
-		println(key)
+	for key, value := range map[string]int{"hello": 0} {
+		println(key, value)
 	}
 	goto JUMP
 JUMP:

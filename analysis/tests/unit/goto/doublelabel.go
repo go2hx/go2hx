@@ -10,12 +10,15 @@ LABEL2:
 			if y {
 				x = false
 				if i == 2 {
+					println("goto LABEL")
 					goto LABEL
 				} else {
+					println("goto LABEL2")
 					goto LABEL2
 				}
 			} else {
 				y = true
+				println("continue")
 				continue
 			}
 		}

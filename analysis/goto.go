@@ -587,7 +587,11 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 					rhs[i] = &ast.IndexExpr{X: stmt.X, Index: createPos(token.Pos(0))}
 				}
 			}
-			init := &ast.AssignStmt{Lhs: lhs, Tok: stmt.Tok, TokPos: stmt.TokPos, Rhs: rhs}
+			itok := token.ASSIGN
+			if stmt.Tok != token.ILLEGAL {
+				itok = stmt.Tok
+			}
+			init := &ast.AssignStmt{Lhs: lhs, Tok: itok, TokPos: stmt.TokPos, Rhs: rhs}
 			forStmt := &ast.ForStmt{For: stmt.Body.Rbrace, Init: init, Body: stmt.Body, Cond: &ast.BinaryExpr{X: lhs[0], Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{stmt.X}}}, Post: &ast.IncDecStmt{X: lhs[0], Tok: token.INC}}
 			for labelName, stmt2 := range fs.labelMapLoop {
 				if stmt == stmt2 {
@@ -608,32 +612,60 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		case *ast.GenDecl:
 			isVar := false
 			stmts := []ast.Stmt{}
+			iotaFlag := false // is iota being used in the declaration?
 			for _, spec := range decl.Specs {
 				switch spec := spec.(type) {
 				case *ast.ValueSpec:
 					isVar = true
-					names := []ast.Expr{}
-					for i, name := range spec.Names {
-						ident := fs.tempVarWithTypeExpr(name, spec.Type)
-						if len(spec.Values) > i {
-							names = append(names, ident)
+					if len(spec.Values) > 0 {
+						if idt, ok := spec.Values[0].(*ast.Ident); ok {
+							if idt.Name == "iota" {
+								iotaFlag = true
+							}
 						}
 					}
-					for i := range spec.Values {
-						spec.Values[i] = fs.changeVars(spec.Values[i])
+					names := []ast.Expr{}
+					for i, name := range spec.Names {
+						typ := spec.Type
+						if iotaFlag {
+							typ = &ast.Ident{Name: "int"}
+						}
+						ident := fs.tempVarWithTypeExpr(name, typ)
+						if len(spec.Values) > i || iotaFlag {
+							names = append(names, ident)
+						}
+						if iotaFlag {
+							v := strconv.Itoa(spec.Names[i].Obj.Data.(int)) // this will panic if it does not work
+							bl := &ast.BasicLit{Kind: token.INT, Value: v}
+							if len(spec.Values) > i {
+								spec.Values[i] = bl
+							} else {
+								spec.Values = append(spec.Values, bl)
+							}
+						}
 					}
-					if len(names) > 0 && decl.Tok != token.CONST {
-						stmts = append(stmts, &ast.AssignStmt{Lhs: names, Rhs: spec.Values, Tok: token.ASSIGN})
+					if iotaFlag && len(names) > 0 {
+						ass := ast.AssignStmt{Lhs: names, Rhs: spec.Values, Tok: token.ASSIGN}
+						stmts = append(stmts, &ass)
+					} else {
+						for i := range spec.Values {
+							spec.Values[i] = fs.changeVars(spec.Values[i])
+						}
+						if len(names) > 0 && decl.Tok != token.CONST {
+							stmts = append(stmts, &ast.AssignStmt{Lhs: names, Rhs: spec.Values, Tok: token.ASSIGN})
+						}
 					}
 				default:
 				}
 			}
+
 			if !isVar {
 				return []ast.Stmt{stmt}
 			} else {
 				return stmts
 			}
 		}
+
 	case *ast.AssignStmt:
 		if stmt.Tok == token.DEFINE {
 			for i, expr := range stmt.Lhs {
@@ -819,6 +851,10 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 									x = key
 								}
 							}
+						} else {
+							x.Obj = ast.NewObj(ast.Var, x.Name)
+							child.Key = x
+							fs.tempVarWithTypeExpr(x, &ast.Ident{Name: "int"})
 						}
 					}
 					fs.labelMapPost[labelName] = &ast.IncDecStmt{X: x, Tok: token.INC}

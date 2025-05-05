@@ -1,7 +1,8 @@
 package main
 
 func main() {
-	println(unmarshalPath())
+	c, _ := unmarshalPath() // nil err prints differently between go2hx and go
+	println(c)
 }
 
 type Token struct{}

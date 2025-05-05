@@ -35,11 +35,13 @@ package stdgo._internal.os;
     static public function truncate( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _size:stdgo.GoInt64):stdgo.Error {
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
         #if (sys || hxnodejs) {
+            @:privateAccess _f.mutex.acquire();
             @:privateAccess _f._output.flush();
             @:privateAccess _f._output.close();
             final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
             sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0, (_size : stdgo.GoInt).toBasic()));
             @:privateAccess _f._output = sys.io.File.write(@:privateAccess _f._file._name);
+            @:privateAccess _f.mutex.release();
         } #else null #end;
         return null;
     }
@@ -127,10 +129,10 @@ package stdgo._internal.os;
                 } #else null #end;
                 final b = _b.toBytes();
                 final i = @:privateAccess _f._output.writeBytes(b, 0, b.length);
-                @:privateAccess _f._output.flush();
                 #if !eval {
                     @:privateAccess cast(_f._output, sys.io.FileOutput).seek(t, sys.io.FileSeek.SeekBegin);
                 } #else null #end;
+                @:privateAccess _f._output.flush();
                 @:privateAccess _f.mutex.release();
                 return { _0 : i, _1 : null };
             } catch(e) {
@@ -145,11 +147,10 @@ package stdgo._internal.os;
     @:tdfield
     static public function write( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
-        @:privateAccess _f.mutex.acquire();
         if (_b.length == 0) {
-            @:privateAccess _f.mutex.release();
             return { _0 : 0, _1 : null };
         };
+        @:privateAccess _f.mutex.acquire();
         final b = _b.toBytes();
         final i = @:privateAccess _f._output.writeBytes(b, 0, b.length);
         @:privateAccess _f.mutex.release();
@@ -171,8 +172,8 @@ package stdgo._internal.os;
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
         #if (sys || hxnodejs) {
             if (_b.length == 0) return { _0 : 0, _1 : null };
+            @:privateAccess _f.mutex.acquire();
             try {
-                @:privateAccess _f.mutex.acquire();
                 var offset = _off.toBasic().low;
                 final b = _b.toBytes();
                 var t = 0;
@@ -205,7 +206,13 @@ package stdgo._internal.os;
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
         @:privateAccess _f.mutex.acquire();
         final b = @:privateAccess _b.toBytes();
-        final i = @:privateAccess _f._input.readBytes(b, 0, b.length);
+        var i = 0;
+        try {
+            i = @:privateAccess _f._input.readBytes(b, 0, b.length);
+        } catch(e:haxe.io.Eof) {
+            @:privateAccess _f.mutex.release();
+            return { _0 : 0, _1 : stdgo._internal.io.Io_eof.eOF };
+        };
         @:privateAccess _b.__bytes__ = b;
         @:privateAccess _f.mutex.release();
         return { _0 : i, _1 : null };

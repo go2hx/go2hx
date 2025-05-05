@@ -17,17 +17,23 @@ function testGobEncoderIgnoreNonStructField(_t:stdgo.Ref<stdgo._internal.testing
         var _tgobber__pointer__ = stdgo.Go.pointer(_tgobber);
         var _tgobber__pointer__ = stdgo.Go.pointer(_tgobber);
         var _tgobber__pointer__ = stdgo.Go.pointer(_tgobber);
-        var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.encoding.gob.Gob_gobtest3.GobTest3((17 : stdgo.GoInt), _gobber__pointer__, _bgobber__pointer__, _tgobber__pointer__) : stdgo._internal.encoding.gob.Gob_gobtest3.GobTest3)))) : stdgo.Error);
+        var _err = (_enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.encoding.gob.Gob_gobtest3.GobTest3((17 : stdgo.GoInt), _gobber__pointer__, _bgobber__pointer__, _tgobber__pointer__) : stdgo._internal.encoding.gob.Gob_gobtest3.GobTest3)))) : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L636"
         if (_err != null) {
-            @:check2r _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L637"
+            _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         var _dec = stdgo._internal.encoding.gob.Gob_newdecoder.newDecoder(stdgo.Go.asInterface(_b));
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_gobtestignoreencoder.GobTestIgnoreEncoder)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_gobtestignoreencoder.GobTestIgnoreEncoder>);
-        _err = @:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
+        _err = _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L642"
         if (_err != null) {
-            @:check2r _t.fatal(stdgo.Go.toInterface(("decode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L643"
+            _t.fatal(stdgo.Go.toInterface(("decode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L645"
         if ((@:checkr _x ?? throw "null pointer dereference").x != ((17 : stdgo.GoInt))) {
-            @:check2r _t.errorf(("expected 17 got %c" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _x ?? throw "null pointer dereference").x));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/gobencdec_test.go#L646"
+            _t.errorf(("expected 17 got %c" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _x ?? throw "null pointer dereference").x));
         };
     }

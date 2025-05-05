@@ -1,2 +1,2 @@
 package stdgo._internal.math.big;
-final _testsNumber : stdgo.GoUInt64 = 65536i32;
+final _testsNumber : stdgo.GoUInt64 = 65536i64;

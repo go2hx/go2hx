@@ -4,6 +4,7 @@ package stdgo._internal.regexp;
     @:tdfield
     static public function string( _t:stdgo._internal.regexp.Regexp_findtest.FindTest):stdgo.GoString {
         @:recv var _t:stdgo._internal.regexp.Regexp_findtest.FindTest = _t?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/regexp/find_test.go#L25"
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("pat: %#q text: %#q" : stdgo.GoString), stdgo.Go.toInterface(_t._pat), stdgo.Go.toInterface(_t._text))?.__copy__();
     }
 }

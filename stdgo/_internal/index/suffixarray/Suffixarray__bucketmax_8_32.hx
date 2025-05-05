@@ -4,6 +4,7 @@ function _bucketMax_8_32(_text:stdgo.Slice<stdgo.GoUInt8>, _freq:stdgo.Slice<std
         _freq = (_freq.__slice__(0, (256 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>);
         _bucket = (_bucket.__slice__(0, (256 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>);
         var _total = ((0 : stdgo.GoInt32) : stdgo.GoInt32);
+        //"file:///home/runner/.go/go1.21.3/src/index/suffixarray/sais.go#L253"
         for (_i => _n in _freq) {
             _total = (_total + (_n) : stdgo.GoInt32);
             _bucket[(_i : stdgo.GoInt)] = _total;

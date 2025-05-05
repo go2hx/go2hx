@@ -4,7 +4,7 @@ function isPathSeparator(_c:stdgo.GoUInt8):Bool {
         #if (sys || hxnodejs) {
             final sep = switch Sys.systemName() {
                 case "Windows":
-                    "\\".code;
+                    untyped "\\".code;
                 default:
                     "/".code;
             };

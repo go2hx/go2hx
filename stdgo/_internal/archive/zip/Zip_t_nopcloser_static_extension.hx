@@ -4,6 +4,7 @@ package stdgo._internal.archive.zip;
     @:tdfield
     static public function close( _w:stdgo._internal.archive.zip.Zip_t_nopcloser.T_nopCloser):stdgo.Error {
         @:recv var _w:stdgo._internal.archive.zip.Zip_t_nopcloser.T_nopCloser = _w?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/archive/zip/writer.go#L611"
         return (null : stdgo.Error);
     }
     @:embedded

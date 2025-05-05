@@ -13,16 +13,22 @@ function testNewLineCharacters(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T
 ("c3VyZQ\n==" : stdgo.GoString),
 ("c3VyZQ=\n=" : stdgo.GoString),
 ("c3VyZQ=\r\n\r\n=" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/base64/base64_test.go#L358"
         for (__0 => _e in _examples) {
-            var __tmp__ = @:check2r stdgo._internal.encoding.base64.Base64_stdencoding.stdEncoding.decodeString(_e?.__copy__()), _buf:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.encoding.base64.Base64_stdencoding.stdEncoding.decodeString(_e?.__copy__()), _buf:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/encoding/base64/base64_test.go#L360"
             if (_err != null) {
-                @:check2r _t.errorf(("Decode(%q) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_e), stdgo.Go.toInterface(_err));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/base64/base64_test.go#L361"
+                _t.errorf(("Decode(%q) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_e), stdgo.Go.toInterface(_err));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/base64/base64_test.go#L362"
                 continue;
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/base64/base64_test.go#L364"
             {
                 var _s = ((_buf : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_s != (("sure" : stdgo.GoString))) {
-                    @:check2r _t.errorf(("Decode(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_e), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(("sure" : stdgo.GoString)));
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/base64/base64_test.go#L365"
+                    _t.errorf(("Decode(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_e), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(("sure" : stdgo.GoString)));
                 };
             };
         };

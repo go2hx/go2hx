@@ -1,8 +1,8 @@
 package stdgo.runtime.metrics;
-var kindBad : ValueKind = 0i32;
-var kindUint64 : ValueKind = 1i32;
-var kindFloat64 : ValueKind = 2i32;
-var kindFloat64Histogram : ValueKind = 3i32;
+var kindBad : ValueKind = 0i64;
+var kindUint64 : ValueKind = 1i64;
+var kindFloat64 : ValueKind = 2i64;
+var kindFloat64Histogram : ValueKind = 3i64;
 typedef Description = stdgo._internal.runtime.metrics.Metrics_description.Description;
 typedef Float64Histogram = stdgo._internal.runtime.metrics.Metrics_float64histogram.Float64Histogram;
 typedef Sample = stdgo._internal.runtime.metrics.Metrics_sample.Sample;

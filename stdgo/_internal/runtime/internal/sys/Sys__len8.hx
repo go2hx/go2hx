@@ -1,5 +1,6 @@
 package stdgo._internal.runtime.internal.sys;
 function len8(_x:stdgo.GoUInt8):stdgo.GoInt {
+        //"file:///home/runner/.go/go1.21.3/src/runtime/internal/sys/intrinsics.go#L160"
         return ((stdgo.Go.str(0,
 1,
 2,

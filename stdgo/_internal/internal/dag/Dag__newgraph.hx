@@ -1,5 +1,6 @@
 package stdgo._internal.internal.dag;
 function _newGraph():stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph> {
+        //"file:///home/runner/.go/go1.21.3/src/internal/dag/parse.go#L57"
         return (stdgo.Go.setRef(({ _byLabel : ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();
             x.__defaultValue__ = () -> (0 : stdgo.GoInt);

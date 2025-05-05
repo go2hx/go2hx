@@ -10,11 +10,15 @@ x.set((new stdgo._internal.encoding.json.Json_t_unmarshalertext.T_unmarshalerTex
 x.set((new stdgo._internal.encoding.json.Json_t_unmarshalertext.T_unmarshalerText(("z" : stdgo.GoString), ("a" : stdgo.GoString)) : stdgo._internal.encoding.json.Json_t_unmarshalertext.T_unmarshalerText), (4 : stdgo.GoInt));
             cast x;
         } : stdgo.GoMap<stdgo._internal.encoding.json.Json_t_unmarshalertext.T_unmarshalerText, stdgo.GoInt>))), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L904"
         if (_err != null) {
-            @:check2r _t.fatalf(("Failed to Marshal text.Marshaler: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L905"
+            _t.fatalf(("Failed to Marshal text.Marshaler: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         {};
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L908"
         if ((_b : stdgo.GoString) != (("{\"a:z\":3,\"x:y\":1,\"y:x\":2,\"z:a\":4}" : stdgo.GoString))) {
-            @:check2r _t.errorf(("Marshal map with text.Marshaler keys: got %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(("{\"a:z\":3,\"x:y\":1,\"y:x\":2,\"z:a\":4}" : stdgo.GoString)));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L909"
+            _t.errorf(("Marshal map with text.Marshaler keys: got %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(("{\"a:z\":3,\"x:y\":1,\"y:x\":2,\"z:a\":4}" : stdgo.GoString)));
         };
     }

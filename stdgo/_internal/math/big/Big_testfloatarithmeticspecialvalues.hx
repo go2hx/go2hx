@@ -6,43 +6,53 @@ function testFloatArithmeticSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.T
         var _yy = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         var _got = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         var _want = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1605"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (4 : stdgo.GoInt) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1606"
                 for (__8 => _x in _args) {
-                    @:check2r _xx.setFloat64(_x);
+                    //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1607"
+                    _xx.setFloat64(_x);
+                    //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1611"
                     {
-                        var __tmp__ = @:check2r _xx.float64(), _got:stdgo.GoFloat64 = __tmp__._0, _acc:stdgo._internal.math.big.Big_accuracy.Accuracy = __tmp__._1;
+                        var __tmp__ = _xx.float64(), _got:stdgo.GoFloat64 = __tmp__._0, _acc:stdgo._internal.math.big.Big_accuracy.Accuracy = __tmp__._1;
                         if (((_got != _x) || (_acc != (0 : stdgo._internal.math.big.Big_accuracy.Accuracy)) : Bool)) {
-                            @:check2r _t.errorf(("Float(%g) == %g (%s)" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)));
+                            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1612"
+                            _t.errorf(("Float(%g) == %g (%s)" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)));
                         };
                     };
+                    //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1614"
                     for (__9 => _y in _args) {
-                        @:check2r _yy.setFloat64(_y);
+                        //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1615"
+                        _yy.setFloat64(_y);
                         var _op:stdgo.GoString = ("" : stdgo.GoString), _z:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), _f:(stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>) -> stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = null;
+                        //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1621"
                         {
                             final __value__ = _i;
                             if (__value__ == ((0 : stdgo.GoInt))) {
                                 _op = ("+" : stdgo.GoString);
                                 _z = (_x + _y : stdgo.GoFloat64);
-                                _f = @:selectorExprRecv stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.add;
+                                _f = stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.add;
                             } else if (__value__ == ((1 : stdgo.GoInt))) {
                                 _op = ("-" : stdgo.GoString);
                                 _z = (_x - _y : stdgo.GoFloat64);
-                                _f = @:selectorExprRecv stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.sub;
+                                _f = stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.sub;
                             } else if (__value__ == ((2 : stdgo.GoInt))) {
                                 _op = ("*" : stdgo.GoString);
                                 _z = (_x * _y : stdgo.GoFloat64);
-                                _f = @:selectorExprRecv stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.mul;
+                                _f = stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.mul;
                             } else if (__value__ == ((3 : stdgo.GoInt))) {
                                 _op = ("/" : stdgo.GoString);
                                 _z = (_x / _y : stdgo.GoFloat64);
-                                _f = @:selectorExprRecv stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.quo;
+                                _f = stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.quo;
                             } else {
+                                //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1639"
                                 throw stdgo.Go.toInterface(("unreachable" : stdgo.GoString));
                             };
                         };
                         var _errnan:Bool = false;
+                        //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1643"
                         ({
                             var a = function():Void {
                                 var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
@@ -50,6 +60,7 @@ function testFloatArithmeticSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.T
                                     {
                                         __deferstack__.unshift({ ran : false, f : () -> ({
                                             var a = function():Void {
+                                                //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1645"
                                                 {
                                                     var _p = ({
                                                         final r = stdgo.Go.recover_exception;
@@ -65,6 +76,7 @@ function testFloatArithmeticSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.T
                                             a();
                                         }) });
                                     };
+                                    //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1650"
                                     _f(_got, _xx, _yy);
                                     {
                                         for (defer in __deferstack__) {
@@ -83,7 +95,7 @@ function testFloatArithmeticSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.T
                                     {
                                         var exe:Dynamic = __exception__.native;
                                         if ((exe is haxe.ValueException)) exe = exe.value;
-                                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                                        if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                                             if (__exception__.message == "__return__") throw "__return__";
                                             exe = stdgo.Go.toInterface(__exception__.message);
                                         };
@@ -122,19 +134,29 @@ function testFloatArithmeticSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.T
                             };
                             a();
                         });
+                        //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1652"
                         if (stdgo._internal.math.Math_isnan.isNaN(_z)) {
+                            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1653"
                             if (!_errnan) {
-                                @:check2r _t.errorf(("%5g %s %5g = %5s; want ErrNaN panic" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_op), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)));
+                                //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1654"
+                                _t.errorf(("%5g %s %5g = %5s; want ErrNaN panic" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_op), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)));
                             };
+                            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1656"
                             continue;
                         };
+                        //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1658"
                         if (_errnan) {
-                            @:check2r _t.errorf(("%5g %s %5g panicked with ErrNan; want %5s" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_op), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
+                            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1659"
+                            _t.errorf(("%5g %s %5g panicked with ErrNan; want %5s" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_op), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
+                            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1660"
                             continue;
                         };
-                        @:check2r _want.setFloat64(_z);
+                        //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1662"
+                        _want.setFloat64(_z);
+                        //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1663"
                         if (!stdgo._internal.math.big.Big__alike._alike(_got, _want)) {
-                            @:check2r _t.errorf(("%5g %s %5g = %5s; want %5s" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_op), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
+                            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L1664"
+                            _t.errorf(("%5g %s %5g = %5s; want %5s" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_op), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
                         };
                     };
                 };

@@ -4,6 +4,7 @@ package stdgo._internal.internal.abi;
     @:tdfield
     static public function numMethod( _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType>):stdgo.GoInt {
         @:recv var _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/internal/abi/type.go#L438"
         return ((@:checkr _t ?? throw "null pointer dereference").methods.length);
     }
     @:embedded

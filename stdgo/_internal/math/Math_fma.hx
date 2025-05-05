@@ -2,10 +2,14 @@ package stdgo._internal.math;
 function fMA(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64, _z:stdgo.GoFloat64):stdgo.GoFloat64 {
         var __0 = (stdgo._internal.math.Math_float64bits.float64bits(_x) : stdgo.GoUInt64), __1 = (stdgo._internal.math.Math_float64bits.float64bits(_y) : stdgo.GoUInt64), __2 = (stdgo._internal.math.Math_float64bits.float64bits(_z) : stdgo.GoUInt64);
 var _bz = __2, _by = __1, _bx = __0;
-        if (((((_x == (0 : stdgo.GoFloat64) || _y == (0 : stdgo.GoFloat64) : Bool) || _z == (0 : stdgo.GoFloat64) : Bool) || (_bx & (9218868437227405312i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((9218868437227405312i64 : stdgo.GoUInt64)) : Bool) || ((_by & (9218868437227405312i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == (9218868437227405312i64 : stdgo.GoUInt64)) : Bool)) {
+        //"file:///home/runner/.go/go1.21.3/src/math/fma.go#L99"
+        if (((((_x == ((0 : stdgo.GoFloat64)) || _y == ((0 : stdgo.GoFloat64)) : Bool) || _z == ((0 : stdgo.GoFloat64)) : Bool) || (_bx & (9218868437227405312i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((9218868437227405312i64 : stdgo.GoUInt64)) : Bool) || ((_by & (9218868437227405312i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == (9218868437227405312i64 : stdgo.GoUInt64)) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/math/fma.go#L100"
             return ((_x * _y : stdgo.GoFloat64) + _z : stdgo.GoFloat64);
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/fma.go#L104"
         if ((_bz & (9218868437227405312i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((9218868437227405312i64 : stdgo.GoUInt64))) {
+            //"file:///home/runner/.go/go1.21.3/src/math/fma.go#L105"
             return _z;
         };
         var __tmp__ = stdgo._internal.math.Math__split._split(_bx), _xs:stdgo.GoUInt32 = __tmp__._0, _xe:stdgo.GoInt32 = __tmp__._1, _xm:stdgo.GoUInt64 = __tmp__._2;
@@ -23,6 +27,7 @@ var _zm2 = __1, _zm1 = __0;
             _pm2 = @:tmpset0 __tmp__._1;
         };
         _pe = (_pe - ((_is62zero : stdgo.GoInt32)) : stdgo.GoInt32);
+        //"file:///home/runner/.go/go1.21.3/src/math/fma.go#L131"
         if (((_pe < _ze : Bool) || (_pe == (_ze) && (_pm1 < _zm1 : Bool) : Bool) : Bool)) {
             {
                 final __tmp__0 = _zs;
@@ -43,7 +48,9 @@ var _zm2 = __1, _zm1 = __0;
                 _zm2 = @:binopAssign __tmp__7;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/fma.go#L136"
         if ((((_ps != (_zs) && _pe == (_ze) : Bool) && _pm1 == (_zm1) : Bool) && (_pm2 == _zm2) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/math/fma.go#L137"
             return (0 : stdgo.GoFloat64);
         };
         {
@@ -52,6 +59,7 @@ var _zm2 = __1, _zm1 = __0;
             _zm2 = @:tmpset0 __tmp__._1;
         };
         var _m:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _c:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        //"file:///home/runner/.go/go1.21.3/src/math/fma.go#L145"
         if (_ps == (_zs)) {
             {
                 var __tmp__ = stdgo._internal.math.bits.Bits_add64.add64(_pm2, _zm2, (0i64 : stdgo.GoUInt64));
@@ -87,9 +95,12 @@ var _zm2 = __1, _zm1 = __0;
             };
             _m = (_m | (stdgo._internal.math.Math__nonzero._nonzero(_pm2)) : stdgo.GoUInt64);
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/fma.go#L163"
         if (((_pe > (2045 : stdgo.GoInt32) : Bool) || (_pe == ((2045 : stdgo.GoInt32)) && (((_m + (512i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) >> (63i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((1i64 : stdgo.GoUInt64)) : Bool) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/math/fma.go#L165"
             return stdgo._internal.math.Math_float64frombits.float64frombits((((_ps : stdgo.GoUInt64) << (63i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | (9218868437227405312i64 : stdgo.GoUInt64) : stdgo.GoUInt64));
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/fma.go#L167"
         if ((_pe < (0 : stdgo.GoInt32) : Bool)) {
             var _n = (-_pe : stdgo.GoUInt);
             _m = ((_m >> _n : stdgo.GoUInt64) | stdgo._internal.math.Math__nonzero._nonzero((_m & ((((1i64 : stdgo.GoUInt64) << _n : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64)) : stdgo.GoUInt64);
@@ -97,5 +108,6 @@ var _zm2 = __1, _zm1 = __0;
         };
         _m = (((((_m + (512i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) >> (10i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) & (-1 ^ stdgo._internal.math.Math__zero._zero((((_m & (1023i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) ^ (512i64 : stdgo.GoUInt64) : stdgo.GoUInt64))) : stdgo.GoUInt64);
         _pe = (_pe & (-(stdgo._internal.math.Math__nonzero._nonzero(_m) : stdgo.GoInt32)) : stdgo.GoInt32);
+        //"file:///home/runner/.go/go1.21.3/src/math/fma.go#L174"
         return stdgo._internal.math.Math_float64frombits.float64frombits(((((_ps : stdgo.GoUInt64) << (63i64 : stdgo.GoUInt64) : stdgo.GoUInt64) + ((_pe : stdgo.GoUInt64) << (52i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) + _m : stdgo.GoUInt64));
     }

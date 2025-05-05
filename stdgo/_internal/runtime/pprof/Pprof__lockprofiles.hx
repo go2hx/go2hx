@@ -1,6 +1,8 @@
 package stdgo._internal.runtime.pprof;
 function _lockProfiles():Void {
-        @:check2 stdgo._internal.runtime.pprof.Pprof__profiles._profiles._mu.lock();
+        //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/pprof.go#L183"
+        stdgo._internal.runtime.pprof.Pprof__profiles._profiles._mu.lock();
+        //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/pprof.go#L184"
         if (stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m == null) {
             stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m = ({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>>();

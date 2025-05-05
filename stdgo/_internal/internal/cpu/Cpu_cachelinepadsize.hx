@@ -1,2 +1,2 @@
 package stdgo._internal.internal.cpu;
-final cacheLinePadSize : stdgo.GoUInt64 = 64i32;
+final cacheLinePadSize : stdgo.GoUInt64 = 64i64;

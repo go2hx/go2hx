@@ -4,11 +4,15 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function unmarshalJSON( _t:stdgo.Ref<stdgo._internal.encoding.json.Json_time3339.Time3339>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _t:stdgo.Ref<stdgo._internal.encoding.json.Json_time3339.Time3339> = _t;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode_test.go#L2063"
         if (((((_b.length) < (2 : stdgo.GoInt) : Bool) || _b[(0 : stdgo.GoInt)] != ((34 : stdgo.GoUInt8)) : Bool) || (_b[((_b.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] != (34 : stdgo.GoUInt8)) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode_test.go#L2064"
             return stdgo._internal.fmt.Fmt_errorf.errorf(("types: failed to unmarshal non-string value %q as an RFC 3339 time" : stdgo.GoString), stdgo.Go.toInterface(_b));
         };
         var __tmp__ = stdgo._internal.time.Time_parse.parse(("2006-01-02T15:04:05Z07:00" : stdgo.GoString), ((_b.__slice__((1 : stdgo.GoInt), ((_b.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__()), _tm:stdgo._internal.time.Time_time.Time = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode_test.go#L2067"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode_test.go#L2068"
             return _err;
         };
         {
@@ -21,6 +25,7 @@ package stdgo._internal.encoding.json;
             x._ext = __tmp__?._ext;
             x._loc = __tmp__?._loc;
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode_test.go#L2071"
         return (null : stdgo.Error);
     }
 }

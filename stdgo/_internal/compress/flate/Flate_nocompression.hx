@@ -1,2 +1,2 @@
 package stdgo._internal.compress.flate;
-final noCompression : stdgo.GoUInt64 = 0i32;
+final noCompression : stdgo.GoUInt64 = 0i64;

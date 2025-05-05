@@ -9,9 +9,12 @@ package stdgo._internal.crypto.ecdsa;
         } catch(_) {
             { _0 : (null : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey>), _1 : false };
         }, _xx = __tmp__._0, _ok = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdsa/ecdsa.go#L75"
         if (!_ok) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/ecdsa/ecdsa.go#L76"
             return false;
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdsa/ecdsa.go#L78"
         return ((stdgo._internal.crypto.ecdsa.Ecdsa__bigintequal._bigIntEqual((@:checkr _pub ?? throw "null pointer dereference").x, (@:checkr _xx ?? throw "null pointer dereference").x) && stdgo._internal.crypto.ecdsa.Ecdsa__bigintequal._bigIntEqual((@:checkr _pub ?? throw "null pointer dereference").y, (@:checkr _xx ?? throw "null pointer dereference").y) : Bool) && (stdgo.Go.toInterface((@:checkr _pub ?? throw "null pointer dereference").curve) == stdgo.Go.toInterface((@:checkr _xx ?? throw "null pointer dereference").curve)) : Bool);
     }
     @:keep
@@ -19,12 +22,17 @@ package stdgo._internal.crypto.ecdsa;
     static public function eCDH( _k:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>; var _1 : stdgo.Error; } {
         @:recv var _k:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey> = _k;
         var _c = (stdgo._internal.crypto.ecdsa.Ecdsa__curvetoecdh._curveToECDH((@:checkr _k ?? throw "null pointer dereference").curve) : stdgo._internal.crypto.ecdh.Ecdh_curve.Curve);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdsa/ecdsa.go#L59"
         if (_c == null) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/ecdsa/ecdsa.go#L60"
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("ecdsa: unsupported curve by crypto/ecdh" : stdgo.GoString)) };
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdsa/ecdsa.go#L62"
         if (!(@:checkr _k ?? throw "null pointer dereference").curve.isOnCurve((@:checkr _k ?? throw "null pointer dereference").x, (@:checkr _k ?? throw "null pointer dereference").y)) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/ecdsa/ecdsa.go#L63"
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("ecdsa: invalid public key" : stdgo.GoString)) };
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdsa/ecdsa.go#L65"
         return _c.newPublicKey(stdgo._internal.crypto.elliptic.Elliptic_marshal.marshal((@:checkr _k ?? throw "null pointer dereference").curve, (@:checkr _k ?? throw "null pointer dereference").x, (@:checkr _k ?? throw "null pointer dereference").y));
     }
     @:embedded

@@ -6,20 +6,24 @@ package stdgo._internal.archive.zip;
         @:recv var _w:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_pooledflatewriter.T_pooledFlateWriter> = _w;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L55"
+            (@:checkr _w ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.unlock;
+                final __f__ = (@:checkr _w ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _err:stdgo.Error = (null : stdgo.Error);
+            //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L58"
             if (({
                 final value = (@:checkr _w ?? throw "null pointer dereference")._fw;
                 (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
             })) {
-                _err = @:check2r (@:checkr _w ?? throw "null pointer dereference")._fw.close();
-                @:check2 stdgo._internal.archive.zip.Zip__flatewriterpool._flateWriterPool.put(stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _w ?? throw "null pointer dereference")._fw)));
+                _err = (@:checkr _w ?? throw "null pointer dereference")._fw.close();
+                //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L60"
+                stdgo._internal.archive.zip.Zip__flatewriterpool._flateWriterPool.put(stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _w ?? throw "null pointer dereference")._fw)));
                 (@:checkr _w ?? throw "null pointer dereference")._fw = null;
             };
+            //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L63"
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -45,7 +49,7 @@ package stdgo._internal.archive.zip;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -89,15 +93,18 @@ package stdgo._internal.archive.zip;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
-            @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L46"
+            (@:checkr _w ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.unlock;
+                final __f__ = (@:checkr _w ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L48"
             if (({
                 final value = (@:checkr _w ?? throw "null pointer dereference")._fw;
                 (value == null || (value : Dynamic).__nil__);
             })) {
+                //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L49"
                 {
                     final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("Write after Close" : stdgo.GoString)) };
@@ -115,9 +122,10 @@ package stdgo._internal.archive.zip;
                     return __ret__;
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L51"
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = ({
-                    @:assignTranslate final __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._fw.write(_p);
+                    @:explicitConversion final __tmp__ = (@:checkr _w ?? throw "null pointer dereference")._fw.write(_p);
                     { _0 : __tmp__._0, _1 : __tmp__._1 };
                 });
                 _n = __ret__._0;
@@ -146,7 +154,7 @@ package stdgo._internal.archive.zip;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

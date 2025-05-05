@@ -1,2 +1,2 @@
 package stdgo._internal.debug.pe;
-final iMAGE_FILE_MACHINE_THUMB : stdgo.GoUInt64 = 450i32;
+final iMAGE_FILE_MACHINE_THUMB : stdgo.GoUInt64 = 450i64;

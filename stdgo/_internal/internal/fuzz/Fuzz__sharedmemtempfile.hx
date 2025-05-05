@@ -4,7 +4,9 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
         var _m = (null : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_sharedmem.T_sharedMem>), _err = (null : stdgo.Error);
         try {
             var __tmp__ = stdgo._internal.os.Os_createtemp.createTemp((stdgo.Go.str() : stdgo.GoString)?.__copy__(), ("fuzz-*" : stdgo.GoString)), _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/mem.go#L69"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/mem.go#L70"
                 return {
                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_sharedmem.T_sharedMem>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                     _m = __tmp__._0;
@@ -15,18 +17,23 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/mem.go#L73"
                         if (_err != null) {
-                            @:check2r _f.close();
-                            stdgo._internal.os.Os_remove.remove(@:check2r _f.name()?.__copy__());
+                            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/mem.go#L74"
+                            _f.close();
+                            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/mem.go#L75"
+                            stdgo._internal.os.Os_remove.remove(_f.name()?.__copy__());
                         };
                     };
                     a();
                 }) });
             };
             var _totalSize = (stdgo._internal.internal.fuzz.Fuzz__sharedmemsize._sharedMemSize(_size) : stdgo.GoInt);
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/mem.go#L81"
             {
-                var _err = (@:check2r _f.truncate((_totalSize : stdgo.GoInt64)) : stdgo.Error);
+                var _err = (_f.truncate((_totalSize : stdgo.GoInt64)) : stdgo.Error);
                 if (_err != null) {
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/mem.go#L82"
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_sharedmem.T_sharedMem>; var _1 : stdgo.Error; } = {
                             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_sharedmem.T_sharedMem>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
@@ -46,6 +53,7 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
                 };
             };
             var _removeOnClose = (true : Bool);
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/mem.go#L87"
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_sharedmem.T_sharedMem>; var _1 : stdgo.Error; } = stdgo._internal.internal.fuzz.Fuzz__sharedmemmapfile._sharedMemMapFile(_f, _totalSize, _removeOnClose);
                 _m = __ret__._0;
@@ -74,7 +82,7 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

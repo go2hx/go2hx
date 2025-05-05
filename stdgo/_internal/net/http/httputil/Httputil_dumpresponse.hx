@@ -4,7 +4,9 @@ function dumpResponse(_resp:stdgo.Ref<stdgo._internal.net.http.Http_response.Res
         var _err:stdgo.Error = (null : stdgo.Error);
         var _save = ((@:checkr _resp ?? throw "null pointer dereference").body : stdgo._internal.io.Io_readcloser.ReadCloser);
         var _savecl = ((@:checkr _resp ?? throw "null pointer dereference").contentLength : stdgo.GoInt64);
+        //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L311"
         if (!_body) {
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L314"
             if ((@:checkr _resp ?? throw "null pointer dereference").contentLength == ((0i64 : stdgo.GoInt64))) {
                 (@:checkr _resp ?? throw "null pointer dereference").body = stdgo._internal.net.http.httputil.Httputil__emptybody._emptyBody;
             } else {
@@ -19,18 +21,24 @@ function dumpResponse(_resp:stdgo.Ref<stdgo._internal.net.http.Http_response.Res
                 (@:checkr _resp ?? throw "null pointer dereference").body = @:tmpset0 __tmp__._1;
                 _err = @:tmpset0 __tmp__._2;
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L323"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L324"
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
         };
-        _err = @:check2r _resp.write(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)));
+        _err = _resp.write(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)));
+        //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L328"
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.net.http.httputil.Httputil__errnobody._errNoBody))) {
             _err = (null : stdgo.Error);
         };
         (@:checkr _resp ?? throw "null pointer dereference").body = _save;
         (@:checkr _resp ?? throw "null pointer dereference").contentLength = _savecl;
+        //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L333"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L334"
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
         };
-        return { _0 : @:check2 _b.bytes(), _1 : (null : stdgo.Error) };
+        //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L336"
+        return { _0 : _b.bytes(), _1 : (null : stdgo.Error) };
     }

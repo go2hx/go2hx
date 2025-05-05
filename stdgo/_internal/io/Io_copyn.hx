@@ -6,7 +6,9 @@ function copyN(_dst:stdgo._internal.io.Io_writer.Writer, _src:stdgo._internal.io
             _written = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/io/io.go#L366"
         if (_written == (_n)) {
+            //"file:///home/runner/.go/go1.21.3/src/io/io.go#L367"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                 _written = __tmp__._0;
@@ -14,8 +16,10 @@ function copyN(_dst:stdgo._internal.io.Io_writer.Writer, _src:stdgo._internal.io
                 __tmp__;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/io/io.go#L369"
         if (((_written < _n : Bool) && (_err == null) : Bool)) {
             _err = stdgo._internal.io.Io_eof.eOF;
         };
+        //"file:///home/runner/.go/go1.21.3/src/io/io.go#L373"
         return { _0 : _written, _1 : _err };
     }

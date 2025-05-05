@@ -11,7 +11,9 @@ function _encodeAndRecover(_value:stdgo.AnyInterface):{ var _0 : stdgo.Error; va
                             stdgo.Go.recover_exception = null;
                             r;
                         } : stdgo.AnyInterface);
+                        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L933"
                         if (_e != null) {
+                            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L934"
                             {
                                 final __type__ = _e;
                                 if (stdgo.Go.typeEquals((__type__ : stdgo.Error))) {
@@ -27,7 +29,8 @@ function _encodeAndRecover(_value:stdgo.AnyInterface):{ var _0 : stdgo.Error; va
                     a();
                 }) });
             };
-            _encodeErr = @:check2r stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo._internal.io.Io_discard.discard).encode(_value);
+            _encodeErr = stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo._internal.io.Io_discard.discard).encode(_value);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encoder_test.go#L944"
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -53,7 +56,7 @@ function _encodeAndRecover(_value:stdgo.AnyInterface):{ var _0 : stdgo.Error; va
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

@@ -3,44 +3,59 @@ function lgamma(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
         var _lgamma = (0 : stdgo.GoFloat64), _sign = (0 : stdgo.GoInt);
         {};
         _sign = (1 : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L189"
         if (stdgo._internal.math.Math_isnan.isNaN(_x)) {
             _lgamma = _x;
+            //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L192"
             return { _0 : _lgamma, _1 : _sign };
         } else if (stdgo._internal.math.Math_isinf.isInf(_x, (0 : stdgo.GoInt))) {
             _lgamma = _x;
+            //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L195"
             return { _0 : _lgamma, _1 : _sign };
-        } else if (_x == (0 : stdgo.GoFloat64)) {
+        } else if (_x == ((0 : stdgo.GoFloat64))) {
             _lgamma = stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt));
+            //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L198"
             return { _0 : _lgamma, _1 : _sign };
         };
         var _neg = (false : Bool);
+        //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L202"
         if ((_x < (0 : stdgo.GoFloat64) : Bool)) {
             _x = -_x;
             _neg = true;
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L207"
         if ((_x < (8.470329472543003e-22 : stdgo.GoFloat64) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L208"
             if (_neg) {
                 _sign = (-1 : stdgo.GoInt);
             };
             _lgamma = -stdgo._internal.math.Math_log.log(_x);
+            //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L212"
             return { _0 : _lgamma, _1 : _sign };
         };
         var _nadj:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+        //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L215"
         if (_neg) {
+            //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L216"
             if ((_x >= (4.503599627370496e+15 : stdgo.GoFloat64) : Bool)) {
                 _lgamma = stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt));
+                //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L218"
                 return { _0 : _lgamma, _1 : _sign };
             };
             var _t = (stdgo._internal.math.Math__sinpi._sinPi(_x) : stdgo.GoFloat64);
-            if (_t == (0 : stdgo.GoFloat64)) {
+            //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L221"
+            if (_t == ((0 : stdgo.GoFloat64))) {
                 _lgamma = stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt));
+                //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L223"
                 return { _0 : _lgamma, _1 : _sign };
             };
             _nadj = stdgo._internal.math.Math_log.log(((3.141592653589793 : stdgo.GoFloat64) / stdgo._internal.math.Math_abs.abs((_t * _x : stdgo.GoFloat64)) : stdgo.GoFloat64));
+            //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L226"
             if ((_t < (0 : stdgo.GoFloat64) : Bool)) {
                 _sign = (-1 : stdgo.GoInt);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L231"
         {
             var __switchIndex__ = -1;
             var __run__ = true;
@@ -48,13 +63,16 @@ function lgamma(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
                 __run__ = false;
                 if (((_x == (1 : stdgo.GoFloat64)) || (_x == (2 : stdgo.GoFloat64)) : Bool)) {
                     _lgamma = (0 : stdgo.GoFloat64);
+                    //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L234"
                     return { _0 : _lgamma, _1 : _sign };
                     break;
                 } else if ((_x < (2 : stdgo.GoFloat64) : Bool)) {
                     var _y:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
                     var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                    //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L238"
                     if ((_x <= (0.9 : stdgo.GoFloat64) : Bool)) {
                         _lgamma = -stdgo._internal.math.Math_log.log(_x);
+                        //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L240"
                         if ((_x >= (0.7316321449683623 : stdgo.GoFloat64) : Bool)) {
                             _y = ((1 : stdgo.GoFloat64) - _x : stdgo.GoFloat64);
                             _i = (0 : stdgo.GoInt);
@@ -67,6 +85,7 @@ function lgamma(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
                         };
                     } else {
                         _lgamma = (0 : stdgo.GoFloat64);
+                        //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L253"
                         if ((_x >= (1.7316321449683623 : stdgo.GoFloat64) : Bool)) {
                             _y = ((2 : stdgo.GoFloat64) - _x : stdgo.GoFloat64);
                             _i = (0 : stdgo.GoInt);
@@ -78,6 +97,7 @@ function lgamma(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
                             _i = (2 : stdgo.GoInt);
                         };
                     };
+                    //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L265"
                     {
                         final __value__ = _i;
                         if (__value__ == ((0 : stdgo.GoInt))) {
@@ -108,6 +128,7 @@ function lgamma(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
                     var _q = ((1 : stdgo.GoFloat64) + (_y * ((stdgo._internal.math.Math___lgamr.__lgamR[(1 : stdgo.GoInt)] + (_y * ((stdgo._internal.math.Math___lgamr.__lgamR[(2 : stdgo.GoInt)] + (_y * ((stdgo._internal.math.Math___lgamr.__lgamR[(3 : stdgo.GoInt)] + (_y * ((stdgo._internal.math.Math___lgamr.__lgamR[(4 : stdgo.GoInt)] + (_y * ((stdgo._internal.math.Math___lgamr.__lgamR[(5 : stdgo.GoInt)] + (_y * stdgo._internal.math.Math___lgamr.__lgamR[(6 : stdgo.GoInt)] : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoFloat64) : stdgo.GoFloat64);
                     _lgamma = (((0.5 : stdgo.GoFloat64) * _y : stdgo.GoFloat64) + (_p / _q : stdgo.GoFloat64) : stdgo.GoFloat64);
                     var _z = (1 : stdgo.GoFloat64);
+                    //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L292"
                     {
                         var __switchIndex__ = -1;
                         var __run__ = true;
@@ -117,6 +138,7 @@ function lgamma(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
                                 final __value__ = _i;
                                 if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (7 : stdgo.GoInt)))) {
                                     _z = (_z * ((_y + (6 : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoFloat64);
+                                    //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L295"
                                     @:fallthrough {
                                         __switchIndex__ = 1;
                                         __run__ = true;
@@ -125,6 +147,7 @@ function lgamma(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
                                     break;
                                 } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (__value__ == (6 : stdgo.GoInt)))) {
                                     _z = (_z * ((_y + (5 : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoFloat64);
+                                    //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L298"
                                     @:fallthrough {
                                         __switchIndex__ = 2;
                                         __run__ = true;
@@ -133,6 +156,7 @@ function lgamma(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
                                     break;
                                 } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == (5 : stdgo.GoInt)))) {
                                     _z = (_z * ((_y + (4 : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoFloat64);
+                                    //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L301"
                                     @:fallthrough {
                                         __switchIndex__ = 3;
                                         __run__ = true;
@@ -141,6 +165,7 @@ function lgamma(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
                                     break;
                                 } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && (__value__ == (4 : stdgo.GoInt)))) {
                                     _z = (_z * ((_y + (3 : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoFloat64);
+                                    //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L304"
                                     @:fallthrough {
                                         __switchIndex__ = 4;
                                         __run__ = true;
@@ -171,8 +196,10 @@ function lgamma(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
                 break;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L318"
         if (_neg) {
             _lgamma = (_nadj - _lgamma : stdgo.GoFloat64);
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/lgamma.go#L321"
         return { _0 : _lgamma, _1 : _sign };
     }

@@ -7,13 +7,16 @@ package stdgo._internal.internal.fuzz;
         var _err = (null : stdgo.Error);
         var _enc = stdgo._internal.encoding.json.Json_newencoder.newEncoder(stdgo.Go.asInterface((@:checkr _wc ?? throw "null pointer dereference")._workerComm._fuzzIn));
         var _dec = stdgo._internal.encoding.json.Json_newdecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(({ _ctx : _ctx, _r : stdgo.Go.asInterface((@:checkr _wc ?? throw "null pointer dereference")._workerComm._fuzzOut) } : stdgo._internal.internal.fuzz.Fuzz_t_contextreader.T_contextReader)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_contextreader.T_contextReader>)));
+        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1155"
         {
-            var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_c))) : stdgo.Error);
+            var _err = (_enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_c))) : stdgo.Error);
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1156"
                 return _err;
             };
         };
-        return _err = @:check2r _dec.decode(_resp);
+        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1158"
+        return _err = _dec.decode(_resp);
     }
     @:keep
     @:tdfield
@@ -21,15 +24,17 @@ package stdgo._internal.internal.fuzz;
         @:recv var _wc:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_workerclient.T_workerClient> = _wc;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 (@:checkr _wc ?? throw "null pointer dereference")._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1143"
+            (@:checkr _wc ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = @:check2 (@:checkr _wc ?? throw "null pointer dereference")._mu.unlock;
+                final __f__ = (@:checkr _wc ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _c = ({ ping : (stdgo.Go.setRef((new stdgo._internal.internal.fuzz.Fuzz_t_pingargs.T_pingArgs() : stdgo._internal.internal.fuzz.Fuzz_t_pingargs.T_pingArgs)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_pingargs.T_pingArgs>) } : stdgo._internal.internal.fuzz.Fuzz_t_call.T_call);
             var _resp:stdgo._internal.internal.fuzz.Fuzz_t_pingresponse.T_pingResponse = ({} : stdgo._internal.internal.fuzz.Fuzz_t_pingresponse.T_pingResponse);
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1147"
             {
-                final __ret__:stdgo.Error = @:check2r _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_pingresponse.T_pingResponse>))));
+                final __ret__:stdgo.Error = _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_pingresponse.T_pingResponse>))));
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -54,7 +59,7 @@ package stdgo._internal.internal.fuzz;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -98,13 +103,16 @@ package stdgo._internal.internal.fuzz;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _entryOut = ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry), _resp = ({} : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse), _isInternalError = false, _err = (null : stdgo.Error);
         try {
-            @:check2 (@:checkr _wc ?? throw "null pointer dereference")._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1075"
+            (@:checkr _wc ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = @:check2 (@:checkr _wc ?? throw "null pointer dereference")._mu.unlock;
+                final __f__ = (@:checkr _wc ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__smartGet__(), _mem = __tmp__._0, _ok = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1079"
             if (!_ok) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1080"
                 {
                     final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry), _1 : (new stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse() : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse), _2 : true, _3 : stdgo._internal.internal.fuzz.Fuzz__errsharedmemclosed._errSharedMemClosed };
@@ -126,10 +134,13 @@ package stdgo._internal.internal.fuzz;
                     return __ret__;
                 };
             };
-            @:check2r _mem._header()._count = (0i64 : stdgo.GoInt64);
+            _mem._header()._count = (0i64 : stdgo.GoInt64);
             var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__corpusentrydata._corpusEntryData(_entryIn?.__copy__()), _inp:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1084"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1085"
                 (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__send__(_mem);
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1086"
                 {
                     final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry), _1 : (new stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse() : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse), _2 : true, _3 : _err };
@@ -151,11 +162,15 @@ package stdgo._internal.internal.fuzz;
                     return __ret__;
                 };
             };
-            @:check2r _mem._setValue(_inp);
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1088"
+            _mem._setValue(_inp);
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1089"
             (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__send__(_mem);
             var _c = ({ fuzz : (stdgo.Go.setRef(_args) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_fuzzargs.T_fuzzArgs>) } : stdgo._internal.internal.fuzz.Fuzz_t_call.T_call);
-            var _callErr = (@:check2r _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse>)))) : stdgo.Error);
+            var _callErr = (_wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse>)))) : stdgo.Error);
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1093"
             if (_resp.internalErr != ((stdgo.Go.str() : stdgo.GoString))) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1094"
                 {
                     final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry), _1 : (new stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse() : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse), _2 : true, _3 : stdgo._internal.errors.Errors_new_.new_(_resp.internalErr?.__copy__()) };
@@ -182,7 +197,9 @@ package stdgo._internal.internal.fuzz;
                 _mem = @:tmpset0 __tmp__._0;
                 _ok = @:tmpset0 __tmp__._1;
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1097"
             if (!_ok) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1098"
                 {
                     final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry), _1 : (new stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse() : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse), _2 : true, _3 : stdgo._internal.internal.fuzz.Fuzz__errsharedmemclosed._errSharedMemClosed };
@@ -207,13 +224,16 @@ package stdgo._internal.internal.fuzz;
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1100"
                         (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__send__(_mem);
                     };
                     a();
                 }) });
             };
-            _resp.count = @:check2r _mem._header()._count;
-            if (!stdgo._internal.bytes.Bytes_equal.equal(_inp, @:check2r _mem._valueRef())) {
+            _resp.count = _mem._header()._count;
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1103"
+            if (!stdgo._internal.bytes.Bytes_equal.equal(_inp, _mem._valueRef())) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1104"
                 {
                     final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry), _1 : (new stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse() : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse), _2 : true, _3 : stdgo._internal.errors.Errors_new_.new_(("workerServer.fuzz modified input" : stdgo.GoString)) };
@@ -236,9 +256,12 @@ package stdgo._internal.internal.fuzz;
                 };
             };
             var _needEntryOut = ((_callErr != null || _resp.err != ((stdgo.Go.str() : stdgo.GoString)) : Bool) || ((!_args.warmup && (_resp.coverageData != null) : Bool)) : Bool);
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1108"
             if (_needEntryOut) {
                 var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__unmarshalcorpusfile._unmarshalCorpusFile(_inp), _valuesOut:stdgo.Slice<stdgo.AnyInterface> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1110"
                 if (_err != null) {
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1111"
                     {
                         final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = {
                             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry), _1 : (new stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse() : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse), _2 : true, _3 : stdgo._internal.fmt.Fmt_errorf.errorf(("unmarshaling fuzz input value after call: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
@@ -260,13 +283,17 @@ package stdgo._internal.internal.fuzz;
                         return __ret__;
                     };
                 };
-                (@:checkr (@:checkr _wc ?? throw "null pointer dereference")._m ?? throw "null pointer dereference")._r._restore(@:check2r _mem._header()._randState, @:check2r _mem._header()._randInc);
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1113"
+                (@:checkr (@:checkr _wc ?? throw "null pointer dereference")._m ?? throw "null pointer dereference")._r._restore(_mem._header()._randState, _mem._header()._randInc);
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1114"
                 if (!_args.warmup) {
                     var _numMutations = (((((_resp.count - (1i64 : stdgo.GoInt64) : stdgo.GoInt64)) % (5i64 : stdgo.GoInt64) : stdgo.GoInt64)) + (1i64 : stdgo.GoInt64) : stdgo.GoInt64);
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1117"
                     {
                         var _i = ((0i64 : stdgo.GoInt64) : stdgo.GoInt64);
                         while ((_i < _numMutations : Bool)) {
-                            @:check2r (@:checkr _wc ?? throw "null pointer dereference")._m._mutate(_valuesOut, @:check2r _mem._valueRef().capacity);
+                            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1118"
+                            (@:checkr _wc ?? throw "null pointer dereference")._m._mutate(_valuesOut, _mem._valueRef().capacity);
                             _i++;
                         };
                     };
@@ -275,10 +302,12 @@ package stdgo._internal.internal.fuzz;
                 var _h = stdgo._internal.crypto.sha256.Sha256_sum256.sum256(_dataOut)?.__copy__();
                 var _name = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%x" : stdgo.GoString), stdgo.Go.toInterface((_h.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)))?.__copy__() : stdgo.GoString);
                 _entryOut = ({ parent : _entryIn.path?.__copy__(), path : _name?.__copy__(), data : _dataOut, generation : (_entryIn.generation + (1 : stdgo.GoInt) : stdgo.GoInt), values : (null : stdgo.Slice<stdgo.AnyInterface>), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry);
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1131"
                 if (_args.warmup) {
                     _entryOut.isSeed = _entryIn.isSeed;
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1138"
             {
                 final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = {
                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : _entryOut?.__copy__(), _1 : _resp?.__copy__(), _2 : false, _3 : _callErr };
@@ -316,7 +345,7 @@ package stdgo._internal.internal.fuzz;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -360,13 +389,16 @@ package stdgo._internal.internal.fuzz;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _entryOut = ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry), _resp = ({} : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse), _retErr = (null : stdgo.Error);
         try {
-            @:check2 (@:checkr _wc ?? throw "null pointer dereference")._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L989"
+            (@:checkr _wc ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = @:check2 (@:checkr _wc ?? throw "null pointer dereference")._mu.unlock;
+                final __f__ = (@:checkr _wc ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__smartGet__(), _mem = __tmp__._0, _ok = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L993"
             if (!_ok) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L994"
                 {
                     final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = { _0 : ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry), _1 : (new stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse() : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse), _2 : stdgo._internal.internal.fuzz.Fuzz__errsharedmemclosed._errSharedMemClosed };
@@ -389,14 +421,17 @@ package stdgo._internal.internal.fuzz;
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L996"
                         (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__send__(_mem);
                     };
                     a();
                 }) });
             };
-            @:check2r _mem._header()._count = (0i64 : stdgo.GoInt64);
+            _mem._header()._count = (0i64 : stdgo.GoInt64);
             var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__corpusentrydata._corpusEntryData(_entryIn?.__copy__()), _inp:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L999"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1000"
                 {
                     final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = { _0 : ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry), _1 : (new stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse() : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse), _2 : _err };
@@ -416,14 +451,17 @@ package stdgo._internal.internal.fuzz;
                     return __ret__;
                 };
             };
-            @:check2r _mem._setValue(_inp);
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1002"
+            _mem._setValue(_inp);
             _entryOut = _entryIn?.__copy__();
             {
                 var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__unmarshalcorpusfile._unmarshalCorpusFile(_inp);
                 _entryOut.values = @:tmpset0 __tmp__._0;
                 _err = @:tmpset0 __tmp__._1;
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1005"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1006"
                 {
                     final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = { _0 : ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry), _1 : (new stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse() : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse), _2 : stdgo._internal.fmt.Fmt_errorf.errorf(("workerClient.minimize unmarshaling provided value: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
@@ -443,20 +481,26 @@ package stdgo._internal.internal.fuzz;
                     return __ret__;
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1008"
             for (_i => _v in _entryOut.values) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1009"
                 if (!stdgo._internal.internal.fuzz.Fuzz__isminimizable._isMinimizable(stdgo._internal.reflect.Reflect_typeof.typeOf(_v))) {
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1010"
                     continue;
                 };
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1013"
                 (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__send__(_mem);
                 _args.index = _i;
                 var _c = ({ minimize : (stdgo.Go.setRef(_args) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_minimizeargs.T_minimizeArgs>) } : stdgo._internal.internal.fuzz.Fuzz_t_call.T_call);
-                var _callErr = (@:check2r _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse>)))) : stdgo.Error);
+                var _callErr = (_wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse>)))) : stdgo.Error);
                 {
                     var __tmp__ = (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__smartGet__();
                     _mem = @:tmpset0 __tmp__._0;
                     _ok = @:tmpset0 __tmp__._1;
                 };
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1018"
                 if (!_ok) {
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1019"
                     {
                         final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = {
                             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = { _0 : ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry), _1 : (new stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse() : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse), _2 : stdgo._internal.internal.fuzz.Fuzz__errsharedmemclosed._errSharedMemClosed };
@@ -476,9 +520,12 @@ package stdgo._internal.internal.fuzz;
                         return __ret__;
                     };
                 };
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1022"
                 if (_callErr != null) {
                     _retErr = _callErr;
-                    if (!@:check2r _mem._header()._rawInMem) {
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1024"
+                    if (!_mem._header()._rawInMem) {
+                        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1026"
                         {
                             final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = {
                                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = { _0 : _entryIn?.__copy__(), _1 : (new stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse() : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse), _2 : _retErr };
@@ -498,27 +545,33 @@ package stdgo._internal.internal.fuzz;
                             return __ret__;
                         };
                     };
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1031"
                     {
                         final __type__ = _entryOut.values[(_i : stdgo.GoInt)];
                         if (stdgo.Go.typeEquals((__type__ : stdgo.GoString))) {
-                            _entryOut.values[(_i : stdgo.GoInt)] = stdgo.Go.toInterface((@:check2r _mem._valueCopy() : stdgo.GoString));
+                            _entryOut.values[(_i : stdgo.GoInt)] = stdgo.Go.toInterface((_mem._valueCopy() : stdgo.GoString));
                         } else if (stdgo.Go.typeEquals((__type__ : stdgo.Slice<stdgo.GoUInt8>))) {
-                            _entryOut.values[(_i : stdgo.GoInt)] = stdgo.Go.toInterface(@:check2r _mem._valueCopy());
+                            _entryOut.values[(_i : stdgo.GoInt)] = stdgo.Go.toInterface(_mem._valueCopy());
                         } else {
+                            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1037"
                             throw stdgo.Go.toInterface(("impossible" : stdgo.GoString));
                         };
                     };
                     _entryOut.data = stdgo._internal.internal.fuzz.Fuzz__marshalcorpusfile._marshalCorpusFile(...(_entryOut.values : Array<stdgo.AnyInterface>));
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1041"
                     break;
                 };
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1044"
                 if (_resp.wroteToMem) {
-                    _entryOut.data = @:check2r _mem._valueCopy();
+                    _entryOut.data = _mem._valueCopy();
                     {
                         var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__unmarshalcorpusfile._unmarshalCorpusFile(_entryOut.data);
                         _entryOut.values = @:tmpset0 __tmp__._0;
                         _err = @:tmpset0 __tmp__._1;
                     };
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1048"
                     if (_err != null) {
+                        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1049"
                         {
                             final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = {
                                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = { _0 : ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry), _1 : (new stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse() : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse), _2 : stdgo._internal.fmt.Fmt_errorf.errorf(("workerClient.minimize unmarshaling minimized value: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
@@ -539,22 +592,29 @@ package stdgo._internal.internal.fuzz;
                         };
                     };
                 };
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1054"
                 if (_args.timeout != ((0i64 : stdgo._internal.time.Time_duration.Duration))) {
                     _args.timeout = (_args.timeout - (_resp.duration) : stdgo._internal.time.Time_duration.Duration);
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1056"
                     if ((_args.timeout <= (0i64 : stdgo._internal.time.Time_duration.Duration) : Bool)) {
+                        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1057"
                         break;
                     };
                 };
+                //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1060"
                 if (_args.limit != ((0i64 : stdgo.GoInt64))) {
-                    _args.limit = (_args.limit - (@:check2r _mem._header()._count) : stdgo.GoInt64);
+                    _args.limit = (_args.limit - (_mem._header()._count) : stdgo.GoInt64);
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1062"
                     if ((_args.limit <= (0i64 : stdgo.GoInt64) : Bool)) {
+                        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1063"
                         break;
                     };
                 };
             };
-            _resp.count = @:check2r _mem._header()._count;
+            _resp.count = _mem._header()._count;
             var _h = stdgo._internal.crypto.sha256.Sha256_sum256.sum256(_entryOut.data)?.__copy__();
             _entryOut.path = stdgo._internal.fmt.Fmt_sprintf.sprintf(("%x" : stdgo.GoString), stdgo.Go.toInterface((_h.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)))?.__copy__();
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L1070"
             {
                 final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = {
                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_t_minimizeresponse.T_minimizeResponse; var _2 : stdgo.Error; } = { _0 : _entryOut?.__copy__(), _1 : _resp?.__copy__(), _2 : _retErr };
@@ -590,7 +650,7 @@ package stdgo._internal.internal.fuzz;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -633,15 +693,19 @@ package stdgo._internal.internal.fuzz;
         @:recv var _wc:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_workerclient.T_workerClient> = _wc;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 (@:checkr _wc ?? throw "null pointer dereference")._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L958"
+            (@:checkr _wc ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = @:check2 (@:checkr _wc ?? throw "null pointer dereference")._mu.unlock;
+                final __f__ = (@:checkr _wc ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L963"
             {
-                var _err = (@:check2r (@:checkr _wc ?? throw "null pointer dereference")._workerComm._fuzzIn.close() : stdgo.Error);
+                var _err = ((@:checkr _wc ?? throw "null pointer dereference")._workerComm._fuzzIn.close() : stdgo.Error);
                 if (_err != null) {
-                    @:check2r (@:checkr _wc ?? throw "null pointer dereference")._workerComm._fuzzOut.close();
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L964"
+                    (@:checkr _wc ?? throw "null pointer dereference")._workerComm._fuzzOut.close();
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L965"
                     {
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
@@ -652,10 +716,13 @@ package stdgo._internal.internal.fuzz;
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L970"
             {
                 var __tmp__ = stdgo._internal.io.Io_copy.copy(stdgo._internal.io.Io_discard.discard, stdgo.Go.asInterface((@:checkr _wc ?? throw "null pointer dereference")._workerComm._fuzzOut)), __8:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    @:check2r (@:checkr _wc ?? throw "null pointer dereference")._workerComm._fuzzOut.close();
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L971"
+                    (@:checkr _wc ?? throw "null pointer dereference")._workerComm._fuzzOut.close();
+                    //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L972"
                     {
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
@@ -666,8 +733,9 @@ package stdgo._internal.internal.fuzz;
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/worker.go#L974"
             {
-                final __ret__:stdgo.Error = @:check2r (@:checkr _wc ?? throw "null pointer dereference")._workerComm._fuzzOut.close();
+                final __ret__:stdgo.Error = (@:checkr _wc ?? throw "null pointer dereference")._workerComm._fuzzOut.close();
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -692,7 +760,7 @@ package stdgo._internal.internal.fuzz;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

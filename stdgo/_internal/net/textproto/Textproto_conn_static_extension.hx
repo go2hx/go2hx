@@ -6,11 +6,15 @@ package stdgo._internal.net.textproto;
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _c:stdgo.Ref<stdgo._internal.net.textproto.Textproto_conn.Conn> = _c;
         var _id = (0 : stdgo.GoUInt), _err = (null : stdgo.Error);
-        _id = @:check2r _c.next();
-        @:check2r _c.startRequest(_id);
-        _err = @:check2r _c.printfLine(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));
-        @:check2r _c.endRequest(_id);
+        _id = _c.next();
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/textproto.go#L114"
+        _c.startRequest(_id);
+        _err = _c.printfLine(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/textproto.go#L116"
+        _c.endRequest(_id);
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/textproto.go#L117"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/net/textproto/textproto.go#L118"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt; var _1 : stdgo.Error; } = { _0 : (0u32 : stdgo.GoUInt), _1 : _err };
                 _id = __tmp__._0;
@@ -18,6 +22,7 @@ package stdgo._internal.net.textproto;
                 __tmp__;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/textproto.go#L120"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt; var _1 : stdgo.Error; } = { _0 : _id, _1 : (null : stdgo.Error) };
             _id = __tmp__._0;
@@ -29,6 +34,7 @@ package stdgo._internal.net.textproto;
     @:tdfield
     static public function close( _c:stdgo.Ref<stdgo._internal.net.textproto.Textproto_conn.Conn>):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.textproto.Textproto_conn.Conn> = _c;
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/textproto.go#L75"
         return (@:checkr _c ?? throw "null pointer dereference")._conn.close();
     }
     @:embedded

@@ -1,8 +1,8 @@
 package stdgo.unicode.utf8;
-var runeError : stdgo.GoInt32 = 65533i32;
-var runeSelf : stdgo.GoUInt64 = 128i32;
-var maxRune : stdgo.GoInt32 = 1114111i32;
-var uTFMax : stdgo.GoUInt64 = 4i32;
+var runeError : stdgo.GoInt32 = 65533i64;
+var runeSelf : stdgo.GoUInt64 = 128i64;
+var maxRune : stdgo.GoInt32 = 1114111i64;
+var uTFMax : stdgo.GoUInt64 = 4i64;
 /**
     * Package utf8 implements functions and constants to support text encoded in
     * UTF-8. It includes functions to translate between runes and UTF-8 byte sequences.

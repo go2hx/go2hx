@@ -1,2 +1,2 @@
 package stdgo._internal.time;
-final _hasMonotonic : stdgo.GoUInt64 = 0i32;
+final _hasMonotonic : stdgo.GoUInt64 = 0i64;

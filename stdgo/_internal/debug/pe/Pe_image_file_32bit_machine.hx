@@ -1,2 +1,2 @@
 package stdgo._internal.debug.pe;
-final iMAGE_FILE_32BIT_MACHINE : stdgo.GoUInt64 = 256i32;
+final iMAGE_FILE_32BIT_MACHINE : stdgo.GoUInt64 = 256i64;

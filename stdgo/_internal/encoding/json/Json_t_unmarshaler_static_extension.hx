@@ -9,6 +9,7 @@ package stdgo._internal.encoding.json;
             var x = (_u : stdgo._internal.encoding.json.Json_t_unmarshaler.T_unmarshaler);
             x.t = __tmp__?.t;
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode_test.go#L93"
         return (null : stdgo.Error);
     }
 }

@@ -4,6 +4,7 @@ package stdgo._internal.testing.quick;
     @:tdfield
     static public function error( _s:stdgo._internal.testing.quick.Quick_setuperror.SetupError):stdgo.GoString {
         @:recv var _s:stdgo._internal.testing.quick.Quick_setuperror.SetupError = _s;
+        //"file:///home/runner/.go/go1.21.3/src/testing/quick/quick.go#L225"
         return (_s : stdgo.GoString)?.__copy__();
     }
 }

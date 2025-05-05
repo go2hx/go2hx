@@ -7,9 +7,11 @@ package stdgo._internal.fmt;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         _n = _b.__copyTo__(_r.value);
         _r.value = ((_r.value).__slice__(_n) : stdgo._internal.fmt.Fmt_t_stringreader.T_stringReader);
+        //"file:///home/runner/.go/go1.21.3/src/fmt/scan.go#L89"
         if (_n == ((0 : stdgo.GoInt))) {
             _err = stdgo._internal.io.Io_eof.eOF;
         };
+        //"file:///home/runner/.go/go1.21.3/src/fmt/scan.go#L92"
         return { _0 : _n, _1 : _err };
     }
 }

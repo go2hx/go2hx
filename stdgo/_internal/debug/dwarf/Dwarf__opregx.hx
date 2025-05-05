@@ -1,2 +1,2 @@
 package stdgo._internal.debug.dwarf;
-final _opRegx : stdgo.GoUInt64 = 144i32;
+final _opRegx : stdgo.GoUInt64 = 144i64;

@@ -3,16 +3,22 @@ function _process(_sig:stdgo._internal.os.Os_signal.Signal):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _n = (stdgo._internal.os.signal.Signal__signum._signum(_sig) : stdgo.GoInt);
+            //"file:///home/runner/.go/go1.21.3/src/os/signal/signal.go#L234"
             if ((_n < (0 : stdgo.GoInt) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/os/signal/signal.go#L235"
                 return;
             };
+            //"file:///home/runner/.go/go1.21.3/src/os/signal/signal.go#L238"
             stdgo._internal.os.signal.Signal__handlers._handlers.lock();
             {
                 final __f__ = stdgo._internal.os.signal.Signal__handlers._handlers.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/os/signal/signal.go#L241"
             for (_c => _h in stdgo._internal.os.signal.Signal__handlers._handlers._m) {
-                if (@:check2r _h._want(_n)) {
+                //"file:///home/runner/.go/go1.21.3/src/os/signal/signal.go#L242"
+                if (_h._want(_n)) {
+                    //"file:///home/runner/.go/go1.21.3/src/os/signal/signal.go#L244"
                     {
                         var __select__ = true;
                         var __c__0 = _c;
@@ -34,8 +40,11 @@ function _process(_sig:stdgo._internal.os.Os_signal.Signal):Void {
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/os/signal/signal.go#L252"
             for (__0 => _d in stdgo._internal.os.signal.Signal__handlers._handlers._stopping) {
-                if (@:check2r _d._h._want(_n)) {
+                //"file:///home/runner/.go/go1.21.3/src/os/signal/signal.go#L253"
+                if (_d._h._want(_n)) {
+                    //"file:///home/runner/.go/go1.21.3/src/os/signal/signal.go#L254"
                     {
                         var __select__ = true;
                         var __c__0 = _d._c;
@@ -74,7 +83,7 @@ function _process(_sig:stdgo._internal.os.Os_signal.Signal):Void {
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

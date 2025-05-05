@@ -5,12 +5,14 @@ package stdgo._internal.expvar;
     static public function string( _f:stdgo._internal.expvar.Expvar_func.Func):stdgo.GoString {
         @:recv var _f:stdgo._internal.expvar.Expvar_func.Func = _f;
         var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(_f()), _v:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __4:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/expvar/expvar.go#L269"
         return (_v : stdgo.GoString)?.__copy__();
     }
     @:keep
     @:tdfield
     static public function value( _f:stdgo._internal.expvar.Expvar_func.Func):stdgo.AnyInterface {
         @:recv var _f:stdgo._internal.expvar.Expvar_func.Func = _f;
+        //"file:///home/runner/.go/go1.21.3/src/expvar/expvar.go#L264"
         return _f();
     }
 }

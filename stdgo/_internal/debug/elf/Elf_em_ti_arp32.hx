@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final eM_TI_ARP32 : stdgo._internal.debug.elf.Elf_machine.Machine = 143i32;
+final eM_TI_ARP32 : stdgo._internal.debug.elf.Elf_machine.Machine = 143i64;

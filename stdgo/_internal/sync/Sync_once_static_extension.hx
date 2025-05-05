@@ -6,11 +6,13 @@ package stdgo._internal.sync;
         @:recv var _o:stdgo.Ref<stdgo._internal.sync.Sync_once.Once> = _o;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 (@:checkr _o ?? throw "null pointer dereference")._m.lock();
+            //"file:///home/runner/.go/go1.21.3/src/sync/once.go#L70"
+            (@:checkr _o ?? throw "null pointer dereference")._m.lock();
             {
-                final __f__ = @:check2 (@:checkr _o ?? throw "null pointer dereference")._m.unlock;
+                final __f__ = (@:checkr _o ?? throw "null pointer dereference")._m.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/sync/once.go#L72"
             if ((@:checkr _o ?? throw "null pointer dereference")._done == ((0u32 : stdgo.GoUInt32))) {
                 {
                     var _a0 = stdgo.Go.pointer((@:checkr _o ?? throw "null pointer dereference")._done);
@@ -18,6 +20,7 @@ package stdgo._internal.sync;
                     final __f__ = stdgo._internal.sync.atomic_.Atomic__storeuint32.storeUint32;
                     __deferstack__.unshift({ ran : false, f : () -> __f__(_a0, _a1) });
                 };
+                //"file:///home/runner/.go/go1.21.3/src/sync/once.go#L74"
                 _f();
             };
             {
@@ -37,7 +40,7 @@ package stdgo._internal.sync;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

@@ -3,7 +3,9 @@ function _blockGeneric(_dig:stdgo.Ref<stdgo._internal.crypto.sha512.Sha512_t_dig
         var _w:stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(80, 80).__setNumber64__();
         var __0 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)] : stdgo.GoUInt64), __1 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)] : stdgo.GoUInt64), __2 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(2 : stdgo.GoInt)] : stdgo.GoUInt64), __3 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(3 : stdgo.GoInt)] : stdgo.GoUInt64), __4 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(4 : stdgo.GoInt)] : stdgo.GoUInt64), __5 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(5 : stdgo.GoInt)] : stdgo.GoUInt64), __6 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(6 : stdgo.GoInt)] : stdgo.GoUInt64), __7 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(7 : stdgo.GoInt)] : stdgo.GoUInt64);
 var _h7 = __7, _h6 = __6, _h5 = __5, _h4 = __4, _h3 = __3, _h2 = __2, _h1 = __1, _h0 = __0;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/sha512/sha512block.go#L99"
         while (((_p.length) >= (128 : stdgo.GoInt) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/sha512/sha512block.go#L100"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (16 : stdgo.GoInt) : Bool)) {
@@ -12,6 +14,7 @@ _w[(_i : stdgo.GoInt)] = (((((((((_p[(_j : stdgo.GoInt)] : stdgo.GoUInt64) << (5
                     _i++;
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/crypto/sha512/sha512block.go#L105"
             {
                 var _i = (16 : stdgo.GoInt);
                 while ((_i < (80 : stdgo.GoInt) : Bool)) {
@@ -25,6 +28,7 @@ _w[(_i : stdgo.GoInt)] = (((_t1 + _w[(_i - (7 : stdgo.GoInt) : stdgo.GoInt)] : s
             };
             var __0 = (_h0 : stdgo.GoUInt64), __1 = (_h1 : stdgo.GoUInt64), __2 = (_h2 : stdgo.GoUInt64), __3 = (_h3 : stdgo.GoUInt64), __4 = (_h4 : stdgo.GoUInt64), __5 = (_h5 : stdgo.GoUInt64), __6 = (_h6 : stdgo.GoUInt64), __7 = (_h7 : stdgo.GoUInt64);
 var _h = __7, _g = __6, _f = __5, _e = __4, _d = __3, _c = __2, _b = __1, _a = __0;
+            //"file:///home/runner/.go/go1.21.3/src/crypto/sha512/sha512block.go#L116"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (80 : stdgo.GoInt) : Bool)) {

@@ -1,10 +1,12 @@
 package stdgo._internal.math.bits;
 function len16(_x:stdgo.GoUInt16):stdgo.GoInt {
         var _n = (0 : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/math/bits/bits.go#L316"
         if ((_x >= (256 : stdgo.GoUInt16) : Bool)) {
             _x = (_x >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt16);
             _n = (8 : stdgo.GoInt);
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/bits/bits.go#L320"
         return _n = (_n + ((stdgo.Go.str(0,
 1,
 2,

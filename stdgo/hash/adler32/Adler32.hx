@@ -1,5 +1,5 @@
 package stdgo.hash.adler32;
-var size : stdgo.GoUInt64 = 4i32;
+var size : stdgo.GoUInt64 = 4i64;
 /**
     * Package adler32 implements the Adler-32 checksum.
     * 

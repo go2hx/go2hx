@@ -1,2 +1,2 @@
 package stdgo._internal.internal.abi;
-final kindMask : stdgo.GoUInt64 = 31i32;
+final kindMask : stdgo.GoUInt64 = 31i64;

@@ -94,6 +94,7 @@ function runGC() {
 		js.Node.global.gc();
 	#elseif hl
 	hl.Gc.major();
+	#elseif cpp
 	cpp.vm.Gc.run(true);
 	#end
 }
@@ -237,7 +238,8 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 				break;
 		}
 	}
-	for (option in (argHandler.options : Array<Dynamic>)) {
+	final options:Array<{args:Array<Dynamic>, flags:Array<Dynamic>}> = argHandler.options;
+	for (option in options) {
 		if (passthroughArgs.indexOf(option.flags[0]) != -1)
 			continue;
 		for (i in 0...args.length) {
@@ -365,9 +367,7 @@ function accept(server, instance, ready) {
 }
 
 private function setBytes(buff:Bytes, bytes:Bytes, pos:Int):Int {
-	#if hl
-	@:privateAccess buff.b.blit(pos, bytes, 0, bytes.length);
-	#elseif js
+	#if js
 	@:privateAccess buff.b.set(bytes.b, pos);
 	#else
 	buff.blit(pos, bytes, 0, bytes.length);
@@ -378,9 +378,7 @@ private function setBytes(buff:Bytes, bytes:Bytes, pos:Int):Int {
 function createBuffer(client, bytes, instance):Bytes {
 	final len:Int = haxe.Int64.toInt(bytes.getInt64(0));
 	instance.log("alloc " + len);
-	#if !hl
 	client.stream.size = len;
-	#end
 	return Bytes.alloc(len);
 }
 
@@ -676,14 +674,15 @@ function compileFromInstance(instance:CompilerInstanceData):Bool {
 			continue;
 		if (io.Data.stdgoList.indexOf(path) != -1)
 			continue;
-		var command = '${instance.goCommand} get $path';
+		final goCommand = instance.goCommand;
+		var command = '$goCommand get $path';
 		Sys.setCwd(instance.localPath);
 		#if (target.threaded)
-		final proc = new sys.io.Process('${instance.goCommand} mod init go2hxlib');
+		final proc = new sys.io.Process('$goCommand mod init go2hxlib');
 		proc.exitCode();
 		proc.close();
 		#else
-		Sys.command('${instance.goCommand} mod init go2hxlib');
+		Sys.command('$goCommand mod init go2hxlib');
 		#end
 		Sys.println(command);
 		Sys.command(command);
@@ -788,7 +787,7 @@ class Client {
 	public function reset() {
 		runnable = true;
 		retries = 0;
-		#if !hl stream.size = 8; #end
+		stream.size = 8;
 	}
 }
 

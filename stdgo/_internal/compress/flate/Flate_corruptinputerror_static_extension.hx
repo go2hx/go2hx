@@ -4,6 +4,7 @@ package stdgo._internal.compress.flate;
     @:tdfield
     static public function error( _e:stdgo._internal.compress.flate.Flate_corruptinputerror.CorruptInputError):stdgo.GoString {
         @:recv var _e:stdgo._internal.compress.flate.Flate_corruptinputerror.CorruptInputError = _e;
+        //"file:///home/runner/.go/go1.21.3/src/compress/flate/inflate.go#L36"
         return (("flate: corrupt input before offset " : stdgo.GoString) + stdgo._internal.strconv.Strconv_formatint.formatInt((_e : stdgo.GoInt64), (10 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__();
     }
 }

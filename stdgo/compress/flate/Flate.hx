@@ -1,9 +1,9 @@
 package stdgo.compress.flate;
-var noCompression : stdgo.GoUInt64 = 0i32;
-var bestSpeed : stdgo.GoUInt64 = 1i32;
-var bestCompression : stdgo.GoUInt64 = 9i32;
-var defaultCompression : stdgo.GoUInt64 = -1i32;
-var huffmanOnly : stdgo.GoUInt64 = -2i32;
+var noCompression : stdgo.GoUInt64 = 0i64;
+var bestSpeed : stdgo.GoUInt64 = 1i64;
+var bestCompression : stdgo.GoUInt64 = 9i64;
+var defaultCompression : stdgo.GoUInt64 = -1i64;
+var huffmanOnly : stdgo.GoUInt64 = -2i64;
 typedef Resetter = stdgo._internal.compress.flate.Flate_resetter.Resetter;
 typedef Reader = stdgo._internal.compress.flate.Flate_reader.Reader;
 typedef Writer = stdgo._internal.compress.flate.Flate_writer.Writer;

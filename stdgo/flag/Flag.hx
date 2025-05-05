@@ -1,7 +1,7 @@
 package stdgo.flag;
-var continueOnError : ErrorHandling = 0i32;
-var exitOnError : ErrorHandling = 1i32;
-var panicOnError : ErrorHandling = 2i32;
+var continueOnError : ErrorHandling = 0i64;
+var exitOnError : ErrorHandling = 1i64;
+var panicOnError : ErrorHandling = 2i64;
 var errHelp(get, set) : stdgo.Error;
 private function get_errHelp():stdgo.Error return stdgo._internal.flag.Flag_errhelp.errHelp;
 private function set_errHelp(v:stdgo.Error):stdgo.Error {

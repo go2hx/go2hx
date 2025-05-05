@@ -4,15 +4,19 @@ package stdgo._internal.debug.gosym;
     @:tdfield
     static public function _uint( _f:stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt64 {
         @:recv var _f:stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab = _f?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/debug/gosym/pclntab.go#L424"
         if (_f._sz == ((4 : stdgo.GoInt))) {
+            //"file:///home/runner/.go/go1.21.3/src/debug/gosym/pclntab.go#L425"
             return (_f.lineTable._binary.uint32(_b) : stdgo.GoUInt64);
         };
+        //"file:///home/runner/.go/go1.21.3/src/debug/gosym/pclntab.go#L427"
         return _f.lineTable._binary.uint64(_b);
     }
     @:keep
     @:tdfield
     static public function _funcOff( _f:stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab, _i:stdgo.GoInt):stdgo.GoUInt64 {
         @:recv var _f:stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab = _f?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/debug/gosym/pclntab.go#L419"
         return _f._uint((_f.lineTable._functab.__slice__((((((2 : stdgo.GoInt) * _i : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)) * _f._sz : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
     }
     @:keep
@@ -20,15 +24,18 @@ package stdgo._internal.debug.gosym;
     static public function _pc( _f:stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab, _i:stdgo.GoInt):stdgo.GoUInt64 {
         @:recv var _f:stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab = _f?.__copy__();
         var _u = (_f._uint((_f.lineTable._functab.__slice__((((2 : stdgo.GoInt) * _i : stdgo.GoInt) * _f._sz : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt64);
+        //"file:///home/runner/.go/go1.21.3/src/debug/gosym/pclntab.go#L411"
         if ((_f.lineTable._version >= (4 : stdgo._internal.debug.gosym.Gosym_t_version.T_version) : Bool)) {
             _u = (_u + (_f.lineTable._textStart) : stdgo.GoUInt64);
         };
+        //"file:///home/runner/.go/go1.21.3/src/debug/gosym/pclntab.go#L414"
         return _u;
     }
     @:keep
     @:tdfield
     static public function count( _f:stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab):stdgo.GoInt {
         @:recv var _f:stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab = _f?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/debug/gosym/pclntab.go#L405"
         return (_f.lineTable._nfunctab : stdgo.GoInt);
     }
     @:embedded

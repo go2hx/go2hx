@@ -17,8 +17,10 @@ function testLocalRemoteTypesMismatch(_t:stdgo.Ref<stdgo._internal.testing.Testi
 (0 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _v:stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_emptystruct.T_emptyStruct>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_emptystruct.T_emptyStruct>>);
         var _buf = stdgo._internal.bytes.Bytes_newbuffer.newBuffer(_testData);
-        var _err = (@:check2r stdgo._internal.encoding.gob.Gob_newdecoder.newDecoder(stdgo.Go.asInterface(_buf)).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_emptystruct.T_emptyStruct>>>))) : stdgo.Error);
+        var _err = (stdgo._internal.encoding.gob.Gob_newdecoder.newDecoder(stdgo.Go.asInterface(_buf)).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_emptystruct.T_emptyStruct>>>))) : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L1618"
         if (_err == null) {
-            @:check2r _t.error(stdgo.Go.toInterface(("Encode/Decode: expected error but got err == nil" : stdgo.GoString)));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L1619"
+            _t.error(stdgo.Go.toInterface(("Encode/Decode: expected error but got err == nil" : stdgo.GoString)));
         };
     }

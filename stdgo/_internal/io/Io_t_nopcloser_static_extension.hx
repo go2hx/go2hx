@@ -4,6 +4,7 @@ package stdgo._internal.io;
     @:tdfield
     static public function close( _:stdgo._internal.io.Io_t_nopcloser.T_nopCloser):stdgo.Error {
         @:recv var _:stdgo._internal.io.Io_t_nopcloser.T_nopCloser = _?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/io/io.go#L685"
         return (null : stdgo.Error);
     }
     @:embedded

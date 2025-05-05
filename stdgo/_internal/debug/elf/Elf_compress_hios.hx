@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final cOMPRESS_HIOS : stdgo._internal.debug.elf.Elf_compressiontype.CompressionType = 1879048191i32;
+final cOMPRESS_HIOS : stdgo._internal.debug.elf.Elf_compressiontype.CompressionType = 1879048191i64;

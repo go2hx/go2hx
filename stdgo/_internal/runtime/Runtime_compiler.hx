@@ -1,2 +1,2 @@
 package stdgo._internal.runtime;
-final compiler : stdgo.GoString = "go2hx";
+final compiler : stdgo.GoString = ("go2hx" : stdgo.GoString);

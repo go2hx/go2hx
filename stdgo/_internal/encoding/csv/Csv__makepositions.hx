@@ -11,21 +11,26 @@ function _makePositions(_text:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.Slice
         var __0 = (1 : stdgo.GoInt), __1 = (1 : stdgo.GoInt);
 var _col = __1, _line = __0;
         var _recNum = (0 : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/csv/reader_test.go#L536"
         while (((_text.length) > (0 : stdgo.GoInt) : Bool)) {
             var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decoderuneinstring.decodeRuneInString(_text?.__copy__()), _r:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/encoding/csv/reader_test.go#L538"
             {
                 final __value__ = _r;
                 if (__value__ == ((10 : stdgo.GoInt32))) {
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/csv/reader_test.go#L540"
                     _line++;
                     _col = (1 : stdgo.GoInt);
                     _buf = (_buf.__append__((10 : stdgo.GoUInt8)) : stdgo.Slice<stdgo.GoUInt8>);
                 } else if (__value__ == ((167 : stdgo.GoInt32))) {
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/csv/reader_test.go#L544"
                     if ((_positions.length) == ((0 : stdgo.GoInt))) {
                         _positions = (_positions.__append__((new stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>(0, 0, ...[].concat([for (i in 0 ... (0 > 0 ? 0 : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt>(2, 2).__setNumber32__()])) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>)) : stdgo.Slice<stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>>);
                     };
                     _positions[((_positions.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (_positions[((_positions.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].__append__((new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[_line, _col]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__()) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>);
                 } else if (__value__ == ((182 : stdgo.GoInt32))) {
                     _positions = (_positions.__append__((new stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>(0, 0, ...[].concat([for (i in 0 ... (0 > 0 ? 0 : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt>(2, 2).__setNumber32__()])) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>)) : stdgo.Slice<stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>>);
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/csv/reader_test.go#L550"
                     _recNum++;
                 } else if (__value__ == ((8721 : stdgo.GoInt32))) {
                     _errPositions[_recNum] = (new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[_line, _col]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__();
@@ -36,5 +41,6 @@ var _col = __1, _line = __0;
             };
             _text = (_text.__slice__(_size) : stdgo.GoString)?.__copy__();
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/csv/reader_test.go#L559"
         return { _0 : _positions, _1 : _errPositions, _2 : (_buf : stdgo.GoString)?.__copy__() };
     }

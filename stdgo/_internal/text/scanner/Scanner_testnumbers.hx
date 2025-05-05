@@ -1,5 +1,6 @@
 package stdgo._internal.text.scanner;
 function testNumbers(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/text/scanner/scanner_test.go#L716"
         for (__0 => _test in (new stdgo.Slice<stdgo._internal.text.scanner.Scanner_t__struct_0.T__struct_0>(95, 95, ...[
 ({ _tok : (-3 : stdgo.GoInt32), _src : ("0b0" : stdgo.GoString), _tokens : ("0b0" : stdgo.GoString), _err : (stdgo.Go.str() : stdgo.GoString)?.__copy__() } : stdgo._internal.text.scanner.Scanner_t__struct_0.T__struct_0),
 ({ _tok : (-3 : stdgo.GoInt32), _src : ("0b1010" : stdgo.GoString), _tokens : ("0b1010" : stdgo.GoString), _err : (stdgo.Go.str() : stdgo.GoString)?.__copy__() } : stdgo._internal.text.scanner.Scanner_t__struct_0.T__struct_0),
@@ -96,33 +97,44 @@ function testNumbers(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
 ({ _tok : (-4 : stdgo.GoInt32), _src : ("2.7_e0" : stdgo.GoString), _tokens : ("2.7_e0" : stdgo.GoString), _err : ("\'_\' must separate successive digits" : stdgo.GoString) } : stdgo._internal.text.scanner.Scanner_t__struct_0.T__struct_0),
 ({ _tok : (-3 : stdgo.GoInt32), _src : ("0x___0" : stdgo.GoString), _tokens : ("0x___0" : stdgo.GoString), _err : ("\'_\' must separate successive digits" : stdgo.GoString) } : stdgo._internal.text.scanner.Scanner_t__struct_0.T__struct_0),
 ({ _tok : (-4 : stdgo.GoInt32), _src : ("0x1.0_p0" : stdgo.GoString), _tokens : ("0x1.0_p0" : stdgo.GoString), _err : ("\'_\' must separate successive digits" : stdgo.GoString) } : stdgo._internal.text.scanner.Scanner_t__struct_0.T__struct_0)].concat([for (i in 95 ... (95 > 95 ? 95 : 95 : stdgo.GoInt).toBasic()) ({ _tok : (0 : stdgo.GoInt32), _src : ("" : stdgo.GoString), _tokens : ("" : stdgo.GoString), _err : ("" : stdgo.GoString) } : stdgo._internal.text.scanner.Scanner_t__struct_0.T__struct_0)])) : stdgo.Slice<stdgo._internal.text.scanner.Scanner_t__struct_0.T__struct_0>)) {
-            var _s = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.text.scanner.Scanner_scanner.Scanner)) : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>).init(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newreader.newReader(_test._src?.__copy__())));
+            var _s = (stdgo.Go.setRef(({} : stdgo._internal.text.scanner.Scanner_scanner.Scanner)) : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>).init(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newreader.newReader(_test._src?.__copy__())));
             var _err:stdgo.GoString = ("" : stdgo.GoString);
             (@:checkr _s ?? throw "null pointer dereference").error = function(_s:stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, _msg:stdgo.GoString):Void {
+                //"file:///home/runner/.go/go1.21.3/src/text/scanner/scanner_test.go#L852"
                 if (_err == ((stdgo.Go.str() : stdgo.GoString))) {
                     _err = _msg?.__copy__();
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/scanner/scanner_test.go#L857"
             for (_i => _want in stdgo._internal.strings.Strings_split.split(_test._tokens?.__copy__(), (" " : stdgo.GoString))) {
                 _err = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
-                var _tok = (@:check2r _s.scan() : stdgo.GoInt32);
-                var _lit = (@:check2r _s.tokenText()?.__copy__() : stdgo.GoString);
+                var _tok = (_s.scan() : stdgo.GoInt32);
+                var _lit = (_s.tokenText()?.__copy__() : stdgo.GoString);
+                //"file:///home/runner/.go/go1.21.3/src/text/scanner/scanner_test.go#L861"
                 if (_i == ((0 : stdgo.GoInt))) {
+                    //"file:///home/runner/.go/go1.21.3/src/text/scanner/scanner_test.go#L862"
                     if (_tok != (_test._tok)) {
-                        @:check2r _t.errorf(("%q: got token %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._src), stdgo.Go.toInterface(stdgo._internal.text.scanner.Scanner_tokenstring.tokenString(_tok)), stdgo.Go.toInterface(stdgo._internal.text.scanner.Scanner_tokenstring.tokenString(_test._tok)));
+                        //"file:///home/runner/.go/go1.21.3/src/text/scanner/scanner_test.go#L863"
+                        _t.errorf(("%q: got token %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._src), stdgo.Go.toInterface(stdgo._internal.text.scanner.Scanner_tokenstring.tokenString(_tok)), stdgo.Go.toInterface(stdgo._internal.text.scanner.Scanner_tokenstring.tokenString(_test._tok)));
                     };
+                    //"file:///home/runner/.go/go1.21.3/src/text/scanner/scanner_test.go#L865"
                     if (_err != (_test._err)) {
-                        @:check2r _t.errorf(("%q: got error %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._src), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_test._err));
+                        //"file:///home/runner/.go/go1.21.3/src/text/scanner/scanner_test.go#L866"
+                        _t.errorf(("%q: got error %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._src), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_test._err));
                     };
                 };
+                //"file:///home/runner/.go/go1.21.3/src/text/scanner/scanner_test.go#L869"
                 if (_lit != (_want)) {
-                    @:check2r _t.errorf(("%q: got literal %q (%s); want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._src), stdgo.Go.toInterface(_lit), stdgo.Go.toInterface(stdgo._internal.text.scanner.Scanner_tokenstring.tokenString(_tok)), stdgo.Go.toInterface(_want));
+                    //"file:///home/runner/.go/go1.21.3/src/text/scanner/scanner_test.go#L870"
+                    _t.errorf(("%q: got literal %q (%s); want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._src), stdgo.Go.toInterface(_lit), stdgo.Go.toInterface(stdgo._internal.text.scanner.Scanner_tokenstring.tokenString(_tok)), stdgo.Go.toInterface(_want));
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/text/scanner/scanner_test.go#L875"
             {
-                var _tok = (@:check2r _s.scan() : stdgo.GoInt32);
+                var _tok = (_s.scan() : stdgo.GoInt32);
                 if (_tok != ((-1 : stdgo.GoInt32))) {
-                    @:check2r _t.errorf(("%q: got %s; want EOF" : stdgo.GoString), stdgo.Go.toInterface(_test._src), stdgo.Go.toInterface(stdgo._internal.text.scanner.Scanner_tokenstring.tokenString(_tok)));
+                    //"file:///home/runner/.go/go1.21.3/src/text/scanner/scanner_test.go#L876"
+                    _t.errorf(("%q: got %s; want EOF" : stdgo.GoString), stdgo.Go.toInterface(_test._src), stdgo.Go.toInterface(stdgo._internal.text.scanner.Scanner_tokenstring.tokenString(_tok)));
                 };
             };
         };

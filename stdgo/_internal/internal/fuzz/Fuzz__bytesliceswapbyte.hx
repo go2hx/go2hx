@@ -1,12 +1,15 @@
 package stdgo._internal.internal.fuzz;
 function _byteSliceSwapByte(_m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_mutator.T_mutator>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
+        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/mutators_byteslice.go#L109"
         if (((_b.length) <= (1 : stdgo.GoInt) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/mutators_byteslice.go#L110"
             return (null : stdgo.Slice<stdgo.GoUInt8>);
         };
-        var _src = (@:check2r _m._rand((_b.length)) : stdgo.GoInt);
-        var _dst = (@:check2r _m._rand((_b.length)) : stdgo.GoInt);
+        var _src = (_m._rand((_b.length)) : stdgo.GoInt);
+        var _dst = (_m._rand((_b.length)) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/mutators_byteslice.go#L114"
         while (_dst == (_src)) {
-            _dst = @:check2r _m._rand((_b.length));
+            _dst = _m._rand((_b.length));
         };
         {
             final __tmp__0 = _b[(_dst : stdgo.GoInt)];
@@ -18,5 +21,6 @@ function _byteSliceSwapByte(_m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_mu
             __tmp__2[__tmp__3] = @:binopAssign __tmp__0;
             __tmp__4[__tmp__5] = @:binopAssign __tmp__1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/internal/fuzz/mutators_byteslice.go#L118"
         return _b;
     }

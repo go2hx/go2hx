@@ -1,2 +1,2 @@
 package stdgo._internal.strconv;
-final _nSmalls : stdgo.GoUInt64 = 100i32;
+final _nSmalls : stdgo.GoUInt64 = 100i64;

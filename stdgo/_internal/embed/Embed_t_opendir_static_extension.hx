@@ -5,38 +5,48 @@ package stdgo._internal.embed;
     static public function readDir( _d:stdgo.Ref<stdgo._internal.embed.Embed_t_opendir.T_openDir>, _count:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_direntry.DirEntry>; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.embed.Embed_t_opendir.T_openDir> = _d;
         var _n = (((@:checkr _d ?? throw "null pointer dereference")._files.length) - (@:checkr _d ?? throw "null pointer dereference")._offset : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/embed/embed.go#L415"
         if (_n == ((0 : stdgo.GoInt))) {
+            //"file:///home/runner/.go/go1.21.3/src/embed/embed.go#L416"
             if ((_count <= (0 : stdgo.GoInt) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/embed/embed.go#L417"
                 return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs_direntry.DirEntry>), _1 : (null : stdgo.Error) };
             };
+            //"file:///home/runner/.go/go1.21.3/src/embed/embed.go#L419"
             return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs_direntry.DirEntry>), _1 : stdgo._internal.io.Io_eof.eOF };
         };
+        //"file:///home/runner/.go/go1.21.3/src/embed/embed.go#L421"
         if (((_count > (0 : stdgo.GoInt) : Bool) && (_n > _count : Bool) : Bool)) {
             _n = _count;
         };
         var _list = (new stdgo.Slice<stdgo._internal.io.fs.Fs_direntry.DirEntry>((_n : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo._internal.io.fs.Fs_direntry.DirEntry>);
+        //"file:///home/runner/.go/go1.21.3/src/embed/embed.go#L425"
         for (_i => _ in _list) {
             _list[(_i : stdgo.GoInt)] = stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _d ?? throw "null pointer dereference")._files[((@:checkr _d ?? throw "null pointer dereference")._offset + _i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>));
         };
         (@:checkr _d ?? throw "null pointer dereference")._offset = ((@:checkr _d ?? throw "null pointer dereference")._offset + (_n) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/embed/embed.go#L429"
         return { _0 : _list, _1 : (null : stdgo.Error) };
     }
     @:keep
     @:tdfield
     static public function read( _d:stdgo.Ref<stdgo._internal.embed.Embed_t_opendir.T_openDir>, _0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.embed.Embed_t_opendir.T_openDir> = _d;
+        //"file:///home/runner/.go/go1.21.3/src/embed/embed.go#L410"
         return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("read" : stdgo.GoString), path : (@:checkr (@:checkr _d ?? throw "null pointer dereference")._f ?? throw "null pointer dereference")._name?.__copy__(), err : stdgo._internal.errors.Errors_new_.new_(("is a directory" : stdgo.GoString)) } : stdgo._internal.io.fs.Fs_patherror.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>)) };
     }
     @:keep
     @:tdfield
     static public function stat( _d:stdgo.Ref<stdgo._internal.embed.Embed_t_opendir.T_openDir>):{ var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.embed.Embed_t_opendir.T_openDir> = _d;
+        //"file:///home/runner/.go/go1.21.3/src/embed/embed.go#L407"
         return { _0 : stdgo.Go.asInterface((@:checkr _d ?? throw "null pointer dereference")._f), _1 : (null : stdgo.Error) };
     }
     @:keep
     @:tdfield
     static public function close( _d:stdgo.Ref<stdgo._internal.embed.Embed_t_opendir.T_openDir>):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.embed.Embed_t_opendir.T_openDir> = _d;
+        //"file:///home/runner/.go/go1.21.3/src/embed/embed.go#L406"
         return (null : stdgo.Error);
     }
 }

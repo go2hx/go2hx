@@ -4,19 +4,25 @@ package stdgo._internal.testing.fstest;
     @:tdfield
     static public function readAt( _f:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile>, _b:stdgo.Slice<stdgo.GoUInt8>, _offset:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile> = _f;
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L206"
         if (((_offset < (0i64 : stdgo.GoInt64) : Bool) || (_offset > ((@:checkr (@:checkr _f ?? throw "null pointer dereference")._mapFileInfo._f ?? throw "null pointer dereference").data.length : stdgo.GoInt64) : Bool) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L207"
             return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("read" : stdgo.GoString), path : (@:checkr _f ?? throw "null pointer dereference")._path?.__copy__(), err : stdgo._internal.io.fs.Fs_errinvalid.errInvalid } : stdgo._internal.io.fs.Fs_patherror.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>)) };
         };
         var _n = (_b.__copyTo__(((@:checkr (@:checkr _f ?? throw "null pointer dereference")._mapFileInfo._f ?? throw "null pointer dereference").data.__slice__(_offset) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L210"
         if ((_n < (_b.length) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L211"
             return { _0 : _n, _1 : stdgo._internal.io.Io_eof.eOF };
         };
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L213"
         return { _0 : _n, _1 : (null : stdgo.Error) };
     }
     @:keep
     @:tdfield
     static public function seek( _f:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile>, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile> = _f;
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L190"
         {
             final __value__ = _whence;
             if (__value__ == ((0 : stdgo.GoInt))) {} else if (__value__ == ((1 : stdgo.GoInt))) {
@@ -25,36 +31,46 @@ package stdgo._internal.testing.fstest;
                 _offset = (_offset + (((@:checkr (@:checkr _f ?? throw "null pointer dereference")._mapFileInfo._f ?? throw "null pointer dereference").data.length : stdgo.GoInt64)) : stdgo.GoInt64);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L198"
         if (((_offset < (0i64 : stdgo.GoInt64) : Bool) || (_offset > ((@:checkr (@:checkr _f ?? throw "null pointer dereference")._mapFileInfo._f ?? throw "null pointer dereference").data.length : stdgo.GoInt64) : Bool) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L199"
             return { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("seek" : stdgo.GoString), path : (@:checkr _f ?? throw "null pointer dereference")._path?.__copy__(), err : stdgo._internal.io.fs.Fs_errinvalid.errInvalid } : stdgo._internal.io.fs.Fs_patherror.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>)) };
         };
         (@:checkr _f ?? throw "null pointer dereference")._offset = _offset;
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L202"
         return { _0 : _offset, _1 : (null : stdgo.Error) };
     }
     @:keep
     @:tdfield
     static public function read( _f:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile> = _f;
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L178"
         if (((@:checkr _f ?? throw "null pointer dereference")._offset >= ((@:checkr (@:checkr _f ?? throw "null pointer dereference")._mapFileInfo._f ?? throw "null pointer dereference").data.length : stdgo.GoInt64) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L179"
             return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
         };
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L181"
         if (((@:checkr _f ?? throw "null pointer dereference")._offset < (0i64 : stdgo.GoInt64) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L182"
             return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("read" : stdgo.GoString), path : (@:checkr _f ?? throw "null pointer dereference")._path?.__copy__(), err : stdgo._internal.io.fs.Fs_errinvalid.errInvalid } : stdgo._internal.io.fs.Fs_patherror.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>)) };
         };
         var _n = (_b.__copyTo__(((@:checkr (@:checkr _f ?? throw "null pointer dereference")._mapFileInfo._f ?? throw "null pointer dereference").data.__slice__((@:checkr _f ?? throw "null pointer dereference")._offset) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
         (@:checkr _f ?? throw "null pointer dereference")._offset = ((@:checkr _f ?? throw "null pointer dereference")._offset + ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L186"
         return { _0 : _n, _1 : (null : stdgo.Error) };
     }
     @:keep
     @:tdfield
     static public function close( _f:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile>):stdgo.Error {
         @:recv var _f:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile> = _f;
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L175"
         return (null : stdgo.Error);
     }
     @:keep
     @:tdfield
     static public function stat( _f:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile>):{ var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile> = _f;
+        //"file:///home/runner/.go/go1.21.3/src/testing/fstest/mapfs.go#L173"
         return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _f ?? throw "null pointer dereference")._mapFileInfo) : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo>)), _1 : (null : stdgo.Error) };
     }
     @:embedded

@@ -3,10 +3,13 @@ function testBadRecursiveType(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_
         {};
         var _rec:stdgo._internal.encoding.gob.Gob_t_testbadrecursivetype___localname___rec_23209.T_testBadRecursiveType___localname___Rec_23209 = (null : stdgo._internal.encoding.gob.Gob_t_testbadrecursivetype___localname___rec_23209.T_testBadRecursiveType___localname___Rec_23209);
         var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
-        var _err = (@:check2r stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo.Go.asInterface(_b)).encode(stdgo.Go.toInterface(stdgo.Go.pointer(_rec))) : stdgo.Error);
+        var _err = (stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo.Go.asInterface(_b)).encode(stdgo.Go.toInterface(stdgo.Go.pointer(_rec))) : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L1001"
         if (_err == null) {
-            @:check2r _t.error(stdgo.Go.toInterface(("expected error; got none" : stdgo.GoString)));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L1002"
+            _t.error(stdgo.Go.toInterface(("expected error; got none" : stdgo.GoString)));
         } else if (!stdgo._internal.strings.Strings_contains.contains(_err.error()?.__copy__(), ("recursive" : stdgo.GoString))) {
-            @:check2r _t.error(stdgo.Go.toInterface(("expected recursive type error; got" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L1004"
+            _t.error(stdgo.Go.toInterface(("expected recursive type error; got" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
     }

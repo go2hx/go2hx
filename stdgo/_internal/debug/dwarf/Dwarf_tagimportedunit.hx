@@ -1,2 +1,2 @@
 package stdgo._internal.debug.dwarf;
-final tagImportedUnit : stdgo._internal.debug.dwarf.Dwarf_tag.Tag = 61i32;
+final tagImportedUnit : stdgo._internal.debug.dwarf.Dwarf_tag.Tag = 61i64;

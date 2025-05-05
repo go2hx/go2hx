@@ -6,6 +6,11 @@ function newClientWithCodec(_codec:stdgo._internal.net.rpc.Rpc_clientcodec.Clien
             {};
             x;
         } : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>>) : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>>) } : stdgo._internal.net.rpc.Rpc_client.Client)) : stdgo.Ref<stdgo._internal.net.rpc.Rpc_client.Client>);
-        stdgo.Go.routine(() -> @:check2r _client._input());
+        //"file:///home/runner/.go/go1.21.3/src/net/rpc/client.go#L206"
+        {
+            {};
+            stdgo.Go.routine(() -> _client._input());
+        };
+        //"file:///home/runner/.go/go1.21.3/src/net/rpc/client.go#L207"
         return _client;
     }

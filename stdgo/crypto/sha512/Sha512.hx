@@ -1,9 +1,9 @@
 package stdgo.crypto.sha512;
-var size : stdgo.GoUInt64 = 64i32;
-var size224 : stdgo.GoUInt64 = 28i32;
-var size256 : stdgo.GoUInt64 = 32i32;
-var size384 : stdgo.GoUInt64 = 48i32;
-var blockSize : stdgo.GoUInt64 = 128i32;
+var size : stdgo.GoUInt64 = 64i64;
+var size224 : stdgo.GoUInt64 = 28i64;
+var size256 : stdgo.GoUInt64 = 32i64;
+var size384 : stdgo.GoUInt64 = 48i64;
+var blockSize : stdgo.GoUInt64 = 128i64;
 /**
     * Package sha512 implements the SHA-384, SHA-512, SHA-512/224, and SHA-512/256
     * hash algorithms as defined in FIPS 180-4.

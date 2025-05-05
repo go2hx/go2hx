@@ -1,5 +1,6 @@
 package stdgo._internal.html.template;
 function _isHTMLSpaceOrASCIIAlnum(_c:stdgo.GoUInt8):Bool {
+        //"file:///home/runner/.go/go1.21.3/src/html/template/url.go#L182"
         return (((_c < (128 : stdgo.GoUInt8) : Bool)) && ((0 : stdgo.GoUInt8) != (((stdgo.Go.str(0,
 "6",
 0,

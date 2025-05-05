@@ -5,5 +5,6 @@ function setGoroutineLabels(_ctx:stdgo._internal.context.Context_context.Context
         } catch(_) {
             { _0 : (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_labelmap.T_labelMap>), _1 : false };
         }, _ctxLabels = __tmp__._0, __0 = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/runtime.go#L37"
         stdgo._internal.runtime.pprof.Pprof__runtime_setproflabel._runtime_setProfLabel((stdgo.Go.toInterface(_ctxLabels) : stdgo._internal.unsafe.Unsafe.UnsafePointer));
     }

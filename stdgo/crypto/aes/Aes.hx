@@ -1,5 +1,5 @@
 package stdgo.crypto.aes;
-var blockSize : stdgo.GoUInt64 = 16i32;
+var blockSize : stdgo.GoUInt64 = 16i64;
 typedef KeyTest = stdgo._internal.crypto.aes.Aes_keytest.KeyTest;
 typedef CryptTest = stdgo._internal.crypto.aes.Aes_crypttest.CryptTest;
 typedef KeySizeError = stdgo._internal.crypto.aes.Aes_keysizeerror.KeySizeError;

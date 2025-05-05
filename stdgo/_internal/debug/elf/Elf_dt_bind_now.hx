@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final dT_BIND_NOW : stdgo._internal.debug.elf.Elf_dyntag.DynTag = 24i32;
+final dT_BIND_NOW : stdgo._internal.debug.elf.Elf_dyntag.DynTag = 24i64;

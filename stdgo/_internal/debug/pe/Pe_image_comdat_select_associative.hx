@@ -1,2 +1,2 @@
 package stdgo._internal.debug.pe;
-final iMAGE_COMDAT_SELECT_ASSOCIATIVE : stdgo.GoUInt64 = 5i32;
+final iMAGE_COMDAT_SELECT_ASSOCIATIVE : stdgo.GoUInt64 = 5i64;

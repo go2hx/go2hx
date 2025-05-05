@@ -1,8 +1,10 @@
 package stdgo._internal.math.big;
 function benchmarkParseFloatLargeExp(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L743"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L744"
                 for (__16 => _s in (new stdgo.Slice<stdgo.GoString>(21, 21, ...[
 ("1e0" : stdgo.GoString),
 ("1e-10" : stdgo.GoString),
@@ -26,9 +28,11 @@ function benchmarkParseFloatLargeExp(_b:stdgo.Ref<stdgo._internal.testing.Testin
 ("1e5000" : stdgo.GoString),
 ("1e10000" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
                     var _x:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_);
-                    var __tmp__ = @:check2 _x.parse(_s?.__copy__(), (0 : stdgo.GoInt)), __17:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = __tmp__._0, __18:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                    var __tmp__ = _x.parse(_s?.__copy__(), (0 : stdgo.GoInt)), __17:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = __tmp__._0, __18:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                    //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L769"
                     if (_err != null) {
-                        @:check2r _b.fatalf(("%s: %v" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_err));
+                        //"file:///home/runner/.go/go1.21.3/src/math/big/floatconv_test.go#L770"
+                        _b.fatalf(("%s: %v" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_err));
                     };
                 };
                 _i++;

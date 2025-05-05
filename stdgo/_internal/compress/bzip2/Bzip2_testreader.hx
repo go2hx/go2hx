@@ -11,9 +11,11 @@ function testReader(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
 ({ _desc : ("1MiB sawtooth" : stdgo.GoString), _input : stdgo._internal.compress.bzip2.Bzip2__mustloadfile._mustLoadFile(("testdata/pass-sawtooth.bz2" : stdgo.GoString)), _output : ({
             var a = function():stdgo.Slice<stdgo.GoUInt8> {
                 var _b = (new stdgo.Slice<stdgo.GoUInt8>((1048576 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+                //"file:///home/runner/.go/go1.21.3/src/compress/bzip2/bzip2_test.go#L102"
                 for (_i => _ in _b) {
                     _b[(_i : stdgo.GoInt)] = (_i : stdgo.GoUInt8);
                 };
+                //"file:///home/runner/.go/go1.21.3/src/compress/bzip2/bzip2_test.go#L105"
                 return _b;
             };
             a();
@@ -22,21 +24,28 @@ function testReader(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
 ({ _desc : ("out-of-range selector - issue 8363" : stdgo.GoString), _input : stdgo._internal.compress.bzip2.Bzip2__mustdecodehex._mustDecodeHex(("425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb943117724538509000000000" : stdgo.GoString)), _fail : true, _output : (null : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.compress.bzip2.Bzip2_t__struct_0.T__struct_0),
 ({ _desc : ("bad block size - issue 13941" : stdgo.GoString), _input : stdgo._internal.compress.bzip2.Bzip2__mustdecodehex._mustDecodeHex(("425a683131415926535936dc55330063ffc0006000200020a40830008b0008b8bb9229c28481b6e2a998" : stdgo.GoString)), _fail : true, _output : (null : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.compress.bzip2.Bzip2_t__struct_0.T__struct_0),
 ({ _desc : ("bad huffman delta" : stdgo.GoString), _input : stdgo._internal.compress.bzip2.Bzip2__mustdecodehex._mustDecodeHex(("425a6836314159265359b1f7404b000000400040002000217d184682ee48a70a12163ee80960" : stdgo.GoString)), _fail : true, _output : (null : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.compress.bzip2.Bzip2_t__struct_0.T__struct_0)].concat([for (i in 12 ... (12 > 12 ? 12 : 12 : stdgo.GoInt).toBasic()) ({ _desc : ("" : stdgo.GoString), _input : (null : stdgo.Slice<stdgo.GoUInt8>), _output : (null : stdgo.Slice<stdgo.GoUInt8>), _fail : false } : stdgo._internal.compress.bzip2.Bzip2_t__struct_0.T__struct_0)])) : stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2_t__struct_0.T__struct_0>);
+        //"file:///home/runner/.go/go1.21.3/src/compress/bzip2/bzip2_test.go#L134"
         for (_i => _v in _vectors) {
             var _rd = (stdgo._internal.compress.bzip2.Bzip2_newreader.newReader(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newreader.newReader(_v._input))) : stdgo._internal.io.Io_reader.Reader);
             var __tmp__ = stdgo._internal.io.Io_readall.readAll(_rd), _buf:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/compress/bzip2/bzip2_test.go#L138"
             {
                 var _fail = (_err != null : Bool);
                 if (_fail != (_v._fail)) {
+                    //"file:///home/runner/.go/go1.21.3/src/compress/bzip2/bzip2_test.go#L139"
                     if (_fail) {
-                        @:check2r _t.errorf(("test %d (%s), unexpected failure: %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc), stdgo.Go.toInterface(_err));
+                        //"file:///home/runner/.go/go1.21.3/src/compress/bzip2/bzip2_test.go#L140"
+                        _t.errorf(("test %d (%s), unexpected failure: %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc), stdgo.Go.toInterface(_err));
                     } else {
-                        @:check2r _t.errorf(("test %d (%s), unexpected success" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc));
+                        //"file:///home/runner/.go/go1.21.3/src/compress/bzip2/bzip2_test.go#L142"
+                        _t.errorf(("test %d (%s), unexpected success" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc));
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/compress/bzip2/bzip2_test.go#L145"
             if ((!_v._fail && !stdgo._internal.bytes.Bytes_equal.equal(_buf, _v._output) : Bool)) {
-                @:check2r _t.errorf(("test %d (%s), output mismatch:\ngot  %s\nwant %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc), stdgo.Go.toInterface(stdgo._internal.compress.bzip2.Bzip2__trim._trim(_buf)), stdgo.Go.toInterface(stdgo._internal.compress.bzip2.Bzip2__trim._trim(_v._output)));
+                //"file:///home/runner/.go/go1.21.3/src/compress/bzip2/bzip2_test.go#L146"
+                _t.errorf(("test %d (%s), output mismatch:\ngot  %s\nwant %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc), stdgo.Go.toInterface(stdgo._internal.compress.bzip2.Bzip2__trim._trim(_buf)), stdgo.Go.toInterface(stdgo._internal.compress.bzip2.Bzip2__trim._trim(_v._output)));
             };
         };
     }

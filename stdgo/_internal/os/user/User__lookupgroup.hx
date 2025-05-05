@@ -3,13 +3,16 @@ function _lookupGroup(_groupname:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._int
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var __tmp__ = stdgo._internal.os.Os_open.open(("/etc/group" : stdgo.GoString)), _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/os/user/lookup_unix.go#L202"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/os/user/lookup_unix.go#L203"
                 return { _0 : null, _1 : _err };
             };
             {
-                final __f__ = @:check2r _f.close;
+                final __f__ = _f.close;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/os/user/lookup_unix.go#L206"
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.os.user.User_group.Group>; var _1 : stdgo.Error; } = stdgo._internal.os.user.User__findgroupname._findGroupName(_groupname?.__copy__(), stdgo.Go.asInterface(_f));
                 for (defer in __deferstack__) {
@@ -36,7 +39,7 @@ function _lookupGroup(_groupname:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._int
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

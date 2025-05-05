@@ -2,6 +2,7 @@ package stdgo._internal.net.http.fcgi;
 function serve(_l:stdgo._internal.net.Net_listener.Listener, _handler:stdgo._internal.net.http.Http_handler.Handler):stdgo.Error {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L340"
             if (_l == null) {
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
@@ -9,7 +10,9 @@ function serve(_l:stdgo._internal.net.Net_listener.Listener, _handler:stdgo._int
                     _l = @:tmpset0 __tmp__._0;
                     _err = @:tmpset0 __tmp__._1;
                 };
+                //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L343"
                 if (_err != null) {
+                    //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L344"
                     return _err;
                 };
                 {
@@ -17,12 +20,16 @@ function serve(_l:stdgo._internal.net.Net_listener.Listener, _handler:stdgo._int
                     __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L348"
             if (_handler == null) {
                 _handler = stdgo.Go.asInterface(stdgo._internal.net.http.Http_defaultservemux.defaultServeMux);
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L351"
             while (true) {
                 var __tmp__ = _l.accept(), _rw:stdgo._internal.net.Net_conn.Conn = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L353"
                 if (_err != null) {
+                    //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L354"
                     {
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
@@ -33,7 +40,11 @@ function serve(_l:stdgo._internal.net.Net_listener.Listener, _handler:stdgo._int
                     };
                 };
                 var _c = stdgo._internal.net.http.fcgi.Fcgi__newchild._newChild(_rw, _handler);
-                stdgo.Go.routine(() -> @:check2r _c._serve());
+                //"file:///home/runner/.go/go1.21.3/src/net/http/fcgi/child.go#L357"
+                {
+                    {};
+                    stdgo.Go.routine(() -> _c._serve());
+                };
             };
             {
                 for (defer in __deferstack__) {
@@ -52,7 +63,7 @@ function serve(_l:stdgo._internal.net.Net_listener.Listener, _handler:stdgo._int
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

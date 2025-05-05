@@ -4,6 +4,7 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function reset( _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>):Void {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer> = _e;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encode.go#L72"
         if ((((@:checkr _e ?? throw "null pointer dereference")._data.length) >= (1073741824 : stdgo.GoInt) : Bool)) {
             (@:checkr _e ?? throw "null pointer dereference")._data = ((@:checkr _e ?? throw "null pointer dereference")._scratch.__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         } else {
@@ -14,12 +15,14 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function bytes( _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer> = _e;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encode.go#L68"
         return (@:checkr _e ?? throw "null pointer dereference")._data;
     }
     @:keep
     @:tdfield
     static public function len( _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>):stdgo.GoInt {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer> = _e;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encode.go#L64"
         return ((@:checkr _e ?? throw "null pointer dereference")._data.length);
     }
     @:keep
@@ -33,6 +36,7 @@ package stdgo._internal.encoding.gob;
     static public function write( _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer> = _e;
         (@:checkr _e ?? throw "null pointer dereference")._data = ((@:checkr _e ?? throw "null pointer dereference")._data.__append__(...(_p : Array<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/encode.go#L56"
         return { _0 : (_p.length), _1 : (null : stdgo.Error) };
     }
     @:keep

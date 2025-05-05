@@ -1,2 +1,2 @@
 package stdgo._internal.internal.xcoff;
-final sTYP_DWARF : stdgo.GoUInt64 = 16i32;
+final sTYP_DWARF : stdgo.GoUInt64 = 16i64;

@@ -1,5 +1,6 @@
 package stdgo._internal.math.big;
 function testDecimalRounding(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/math/big/decimal_test.go#L57"
         for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_t__struct_9.T__struct_9>(20, 20, ...[
 ({ _x : (0i64 : stdgo.GoUInt64), _n : (0 : stdgo.GoInt), _down : ("0" : stdgo.GoString), _even : ("0" : stdgo.GoString), _up : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_9.T__struct_9),
 ({ _x : (0i64 : stdgo.GoUInt64), _n : (1 : stdgo.GoInt), _down : ("0" : stdgo.GoString), _even : ("0" : stdgo.GoString), _up : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_9.T__struct_9),
@@ -23,28 +24,40 @@ function testDecimalRounding(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>
 ({ _x : (12999999i64 : stdgo.GoUInt64), _n : (4 : stdgo.GoInt), _down : ("12990000" : stdgo.GoString), _even : ("13000000" : stdgo.GoString), _up : ("13000000" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_9.T__struct_9)].concat([for (i in 20 ... (20 > 20 ? 20 : 20 : stdgo.GoInt).toBasic()) ({ _x : (0 : stdgo.GoUInt64), _n : (0 : stdgo.GoInt), _down : ("" : stdgo.GoString), _even : ("" : stdgo.GoString), _up : ("" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_9.T__struct_9)])) : stdgo.Slice<stdgo._internal.math.big.Big_t__struct_9.T__struct_9>)) {
             var _x = ((new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._setUint64(_test._x) : stdgo._internal.math.big.Big_t_nat.T_nat);
             var _d:stdgo._internal.math.big.Big_t_decimal.T_decimal = ({} : stdgo._internal.math.big.Big_t_decimal.T_decimal);
-            @:check2 _d._init(_x, (0 : stdgo.GoInt));
-            @:check2 _d._roundDown(_test._n);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/decimal_test.go#L91"
+            _d._init(_x, (0 : stdgo.GoInt));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/decimal_test.go#L92"
+            _d._roundDown(_test._n);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/decimal_test.go#L93"
             {
-                var _got = ((@:check2 _d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+                var _got = ((_d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_got != (_test._down)) {
-                    @:check2r _t.errorf(("roundDown(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._down));
+                    //"file:///home/runner/.go/go1.21.3/src/math/big/decimal_test.go#L94"
+                    _t.errorf(("roundDown(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._down));
                 };
             };
-            @:check2 _d._init(_x, (0 : stdgo.GoInt));
-            @:check2 _d._round(_test._n);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/decimal_test.go#L97"
+            _d._init(_x, (0 : stdgo.GoInt));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/decimal_test.go#L98"
+            _d._round(_test._n);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/decimal_test.go#L99"
             {
-                var _got = ((@:check2 _d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+                var _got = ((_d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_got != (_test._even)) {
-                    @:check2r _t.errorf(("round(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._even));
+                    //"file:///home/runner/.go/go1.21.3/src/math/big/decimal_test.go#L100"
+                    _t.errorf(("round(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._even));
                 };
             };
-            @:check2 _d._init(_x, (0 : stdgo.GoInt));
-            @:check2 _d._roundUp(_test._n);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/decimal_test.go#L103"
+            _d._init(_x, (0 : stdgo.GoInt));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/decimal_test.go#L104"
+            _d._roundUp(_test._n);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/decimal_test.go#L105"
             {
-                var _got = ((@:check2 _d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+                var _got = ((_d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_got != (_test._up)) {
-                    @:check2r _t.errorf(("roundUp(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._up));
+                    //"file:///home/runner/.go/go1.21.3/src/math/big/decimal_test.go#L106"
+                    _t.errorf(("roundUp(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._up));
                 };
             };
         };

@@ -1552,16 +1552,22 @@ function _p384Square(_out1:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat
             _x467 = @:tmpset0 __tmp__._1;
         };
         var _x468:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x468__pointer__ = stdgo.Go.pointer(_x468);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/fiat/p384_fiat64.go#L1473"
         stdgo._internal.crypto.internal.nistec.fiat.Fiat__p384cmovznzu64._p384CmovznzU64(_x468__pointer__, (_x467 : stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384uint1.T_p384Uint1), _x454, _x441);
         var _x469:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x469__pointer__ = stdgo.Go.pointer(_x469);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/fiat/p384_fiat64.go#L1475"
         stdgo._internal.crypto.internal.nistec.fiat.Fiat__p384cmovznzu64._p384CmovznzU64(_x469__pointer__, (_x467 : stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384uint1.T_p384Uint1), _x456, _x443);
         var _x470:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x470__pointer__ = stdgo.Go.pointer(_x470);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/fiat/p384_fiat64.go#L1477"
         stdgo._internal.crypto.internal.nistec.fiat.Fiat__p384cmovznzu64._p384CmovznzU64(_x470__pointer__, (_x467 : stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384uint1.T_p384Uint1), _x458, _x445);
         var _x471:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x471__pointer__ = stdgo.Go.pointer(_x471);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/fiat/p384_fiat64.go#L1479"
         stdgo._internal.crypto.internal.nistec.fiat.Fiat__p384cmovznzu64._p384CmovznzU64(_x471__pointer__, (_x467 : stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384uint1.T_p384Uint1), _x460, _x447);
         var _x472:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x472__pointer__ = stdgo.Go.pointer(_x472);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/fiat/p384_fiat64.go#L1481"
         stdgo._internal.crypto.internal.nistec.fiat.Fiat__p384cmovznzu64._p384CmovznzU64(_x472__pointer__, (_x467 : stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384uint1.T_p384Uint1), _x462, _x449);
         var _x473:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x473__pointer__ = stdgo.Go.pointer(_x473);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/fiat/p384_fiat64.go#L1483"
         stdgo._internal.crypto.internal.nistec.fiat.Fiat__p384cmovznzu64._p384CmovznzU64(_x473__pointer__, (_x467 : stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384uint1.T_p384Uint1), _x464, _x451);
         _out1[(0 : stdgo.GoInt)] = _x468;
         _out1[(1 : stdgo.GoInt)] = _x469;

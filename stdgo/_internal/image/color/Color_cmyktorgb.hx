@@ -4,5 +4,6 @@ function cMYKToRGB(_c:stdgo.GoUInt8, _m:stdgo.GoUInt8, _y:stdgo.GoUInt8, _k:stdg
         var _r = (((((65535u32 : stdgo.GoUInt32) - ((_c : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32)) * _w : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         var _g = (((((65535u32 : stdgo.GoUInt32) - ((_m : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32)) * _w : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         var _b = (((((65535u32 : stdgo.GoUInt32) - ((_y : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32)) * _w : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        //"file:///home/runner/.go/go1.21.3/src/image/color/ycbcr.go#L341"
         return { _0 : ((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), _1 : ((_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8), _2 : ((_b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8) };
     }

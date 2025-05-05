@@ -48,19 +48,26 @@ function testNumberIsValid(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):
 ("-0E-0" : stdgo.GoString),
 ("-0e+1" : stdgo.GoString),
 ("-0e-34" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L65"
         for (__4 => _test in _validTests) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L66"
             if (!stdgo._internal.encoding.json.Json__isvalidnumber._isValidNumber(_test?.__copy__())) {
-                @:check2r _t.errorf(("%s should be valid" : stdgo.GoString), stdgo.Go.toInterface(_test));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L67"
+                _t.errorf(("%s should be valid" : stdgo.GoString), stdgo.Go.toInterface(_test));
             };
             var _f:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), _f__pointer__ = stdgo.Go.pointer(_f);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L71"
             {
                 var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_test : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(_f__pointer__)) : stdgo.Error);
                 if (_err != null) {
-                    @:check2r _t.errorf(("%s should be valid but Unmarshal failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_test), stdgo.Go.toInterface(_err));
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L72"
+                    _t.errorf(("%s should be valid but Unmarshal failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_test), stdgo.Go.toInterface(_err));
                 };
             };
-            if (!@:check2r _jsonNumberRegexp.matchString(_test?.__copy__())) {
-                @:check2r _t.errorf(("%s should be valid but regexp does not match" : stdgo.GoString), stdgo.Go.toInterface(_test));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L75"
+            if (!_jsonNumberRegexp.matchString(_test?.__copy__())) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L76"
+                _t.errorf(("%s should be valid but regexp does not match" : stdgo.GoString), stdgo.Go.toInterface(_test));
             };
         };
         var _invalidTests = (new stdgo.Slice<stdgo.GoString>(21, 21, ...[
@@ -85,19 +92,26 @@ function testNumberIsValid(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):
 ("1." : stdgo.GoString),
 ("01" : stdgo.GoString),
 ("1.e1" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L104"
         for (__5 => _test in _invalidTests) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L105"
             if (stdgo._internal.encoding.json.Json__isvalidnumber._isValidNumber(_test?.__copy__())) {
-                @:check2r _t.errorf(("%s should be invalid" : stdgo.GoString), stdgo.Go.toInterface(_test));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L106"
+                _t.errorf(("%s should be invalid" : stdgo.GoString), stdgo.Go.toInterface(_test));
             };
             var _f:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), _f__pointer__ = stdgo.Go.pointer(_f);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L110"
             {
                 var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_test : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(_f__pointer__)) : stdgo.Error);
                 if (_err == null) {
-                    @:check2r _t.errorf(("%s should be invalid but unmarshal wrote %v" : stdgo.GoString), stdgo.Go.toInterface(_test), stdgo.Go.toInterface(_f));
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L111"
+                    _t.errorf(("%s should be invalid but unmarshal wrote %v" : stdgo.GoString), stdgo.Go.toInterface(_test), stdgo.Go.toInterface(_f));
                 };
             };
-            if (@:check2r _jsonNumberRegexp.matchString(_test?.__copy__())) {
-                @:check2r _t.errorf(("%s should be invalid but matches regexp" : stdgo.GoString), stdgo.Go.toInterface(_test));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L114"
+            if (_jsonNumberRegexp.matchString(_test?.__copy__())) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/number_test.go#L115"
+                _t.errorf(("%s should be invalid but matches regexp" : stdgo.GoString), stdgo.Go.toInterface(_test));
             };
         };
     }

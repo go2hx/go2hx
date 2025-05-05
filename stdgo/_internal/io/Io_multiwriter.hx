@@ -2,7 +2,9 @@ package stdgo._internal.io;
 function multiWriter(_writers:haxe.Rest<stdgo._internal.io.Io_writer.Writer>):stdgo._internal.io.Io_writer.Writer {
         var _writers = new stdgo.Slice<stdgo._internal.io.Io_writer.Writer>(_writers.length, 0, ..._writers);
         var _allWriters = (new stdgo.Slice<stdgo._internal.io.Io_writer.Writer>((0 : stdgo.GoInt).toBasic(), (_writers.length)) : stdgo.Slice<stdgo._internal.io.Io_writer.Writer>);
+        //"file:///home/runner/.go/go1.21.3/src/io/multi.go#L129"
         for (__3 => _w in _writers) {
+            //"file:///home/runner/.go/go1.21.3/src/io/multi.go#L130"
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo.Ref<stdgo._internal.io.Io_t_multiwriter.T_multiWriter>)) : stdgo.Ref<stdgo._internal.io.Io_t_multiwriter.T_multiWriter>), _1 : true };
@@ -16,5 +18,6 @@ function multiWriter(_writers:haxe.Rest<stdgo._internal.io.Io_writer.Writer>):st
                 };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/io/multi.go#L136"
         return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.io.Io_t_multiwriter.T_multiWriter(_allWriters) : stdgo._internal.io.Io_t_multiwriter.T_multiWriter)) : stdgo.Ref<stdgo._internal.io.Io_t_multiwriter.T_multiWriter>));
     }

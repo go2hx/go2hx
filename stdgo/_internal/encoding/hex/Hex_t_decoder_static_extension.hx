@@ -5,6 +5,7 @@ package stdgo._internal.encoding.hex;
     static public function read( _d:stdgo.Ref<stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder> = _d;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/hex/hex.go#L190"
         if (((((@:checkr _d ?? throw "null pointer dereference")._in.length) < (2 : stdgo.GoInt) : Bool) && ((@:checkr _d ?? throw "null pointer dereference")._err == null) : Bool)) {
             var _numCopy:stdgo.GoInt = (0 : stdgo.GoInt), _numRead:stdgo.GoInt = (0 : stdgo.GoInt);
             _numCopy = ((@:checkr _d ?? throw "null pointer dereference")._arr.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((@:checkr _d ?? throw "null pointer dereference")._in);
@@ -14,7 +15,9 @@ package stdgo._internal.encoding.hex;
                 (@:checkr _d ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             (@:checkr _d ?? throw "null pointer dereference")._in = ((@:checkr _d ?? throw "null pointer dereference")._arr.__slice__(0, (_numCopy + _numRead : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/hex/hex.go#L195"
             if (((stdgo.Go.toInterface((@:checkr _d ?? throw "null pointer dereference")._err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF)) && ((((@:checkr _d ?? throw "null pointer dereference")._in.length) % (2 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/hex/hex.go#L197"
                 {
                     var _a = ((stdgo.Go.str(255,
 255,
@@ -272,6 +275,7 @@ package stdgo._internal.encoding.hex;
                 };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/hex/hex.go#L206"
         {
             var _numAvail = (((@:checkr _d ?? throw "null pointer dereference")._in.length) / (2 : stdgo.GoInt) : stdgo.GoInt);
             if (((_p.length) > _numAvail : Bool)) {
@@ -280,6 +284,7 @@ package stdgo._internal.encoding.hex;
         };
         var __tmp__ = stdgo._internal.encoding.hex.Hex_decode.decode(_p, ((@:checkr _d ?? throw "null pointer dereference")._in.__slice__(0, ((_p.length) * (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), _numDec:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         (@:checkr _d ?? throw "null pointer dereference")._in = ((@:checkr _d ?? throw "null pointer dereference")._in.__slice__(((2 : stdgo.GoInt) * _numDec : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/hex/hex.go#L211"
         if (_err != null) {
             {
                 final __tmp__0 = (null : stdgo.Slice<stdgo.GoUInt8>);
@@ -288,7 +293,9 @@ package stdgo._internal.encoding.hex;
                 (@:checkr _d ?? throw "null pointer dereference")._err = @:binopAssign __tmp__1;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/hex/hex.go#L215"
         if ((((@:checkr _d ?? throw "null pointer dereference")._in.length) < (2 : stdgo.GoInt) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/hex/hex.go#L216"
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numDec, _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
                 _n = __tmp__._0;
@@ -296,6 +303,7 @@ package stdgo._internal.encoding.hex;
                 __tmp__;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/hex/hex.go#L218"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numDec, _1 : (null : stdgo.Error) };
             _n = __tmp__._0;

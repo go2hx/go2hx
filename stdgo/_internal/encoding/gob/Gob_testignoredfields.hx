@@ -20,14 +20,19 @@ x.set(("two" : stdgo.GoString), (2 : stdgo.GoInt));
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
         var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
-        @:check2r stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo.Go.asInterface(_b)).encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_it0)));
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L983"
+        stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo.Go.asInterface(_b)).encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_it0)));
         var _dec = stdgo._internal.encoding.gob.Gob_newdecoder.newDecoder(stdgo.Go.asInterface(_b));
         var _rt1:stdgo._internal.encoding.gob.Gob_rt1.RT1 = ({} : stdgo._internal.encoding.gob.Gob_rt1.RT1);
-        var _err = (@:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_rt1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_rt1.RT1>)))) : stdgo.Error);
+        var _err = (_dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_rt1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_rt1.RT1>)))) : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L988"
         if (_err != null) {
-            @:check2r _t.error(stdgo.Go.toInterface(("error: " : stdgo.GoString)), stdgo.Go.toInterface(_err));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L989"
+            _t.error(stdgo.Go.toInterface(("error: " : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L991"
         if ((((_it0.a : stdgo.GoInt) != (_rt1.a) || _it0.b != (_rt1.b) : Bool) || (_it0.c != _rt1.c) : Bool)) {
-            @:check2r _t.errorf(("rt0->rt1: expected %v; got %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_it0)), stdgo.Go.toInterface(stdgo.Go.asInterface(_rt1)));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L992"
+            _t.errorf(("rt0->rt1: expected %v; got %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_it0)), stdgo.Go.toInterface(stdgo.Go.asInterface(_rt1)));
         };
     }

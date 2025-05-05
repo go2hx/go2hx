@@ -1,12 +1,16 @@
 package stdgo._internal.html.template;
 function _decodeCSS(_s:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         var _i = (stdgo._internal.bytes.Bytes_indexbyte.indexByte(_s, (92 : stdgo.GoUInt8)) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/html/template/css.go#L60"
         if (_i == ((-1 : stdgo.GoInt))) {
+            //"file:///home/runner/.go/go1.21.3/src/html/template/css.go#L61"
             return _s;
         };
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (_s.length)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+        //"file:///home/runner/.go/go1.21.3/src/html/template/css.go#L67"
         while ((_s.length) != ((0 : stdgo.GoInt))) {
             var _i = (stdgo._internal.bytes.Bytes_indexbyte.indexByte(_s, (92 : stdgo.GoUInt8)) : stdgo.GoInt);
+            //"file:///home/runner/.go/go1.21.3/src/html/template/css.go#L69"
             if (_i == ((-1 : stdgo.GoInt))) {
                 _i = (_s.length);
             };
@@ -16,15 +20,21 @@ function _decodeCSS(_s:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
                 _b = @:binopAssign __tmp__0;
                 _s = @:binopAssign __tmp__1;
             };
+            //"file:///home/runner/.go/go1.21.3/src/html/template/css.go#L73"
             if (((_s.length) < (2 : stdgo.GoInt) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/html/template/css.go#L74"
                 break;
             };
+            //"file:///home/runner/.go/go1.21.3/src/html/template/css.go#L78"
             if (stdgo._internal.html.template.Template__ishex._isHex(_s[(1 : stdgo.GoInt)])) {
                 var _j = (2 : stdgo.GoInt);
+                //"file:///home/runner/.go/go1.21.3/src/html/template/css.go#L82"
                 while ((((_j < (_s.length) : Bool) && (_j < (7 : stdgo.GoInt) : Bool) : Bool) && stdgo._internal.html.template.Template__ishex._isHex(_s[(_j : stdgo.GoInt)]) : Bool)) {
+                    //"file:///home/runner/.go/go1.21.3/src/html/template/css.go#L83"
                     _j++;
                 };
                 var _r = (stdgo._internal.html.template.Template__hexdecode._hexDecode((_s.__slice__((1 : stdgo.GoInt), _j) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt32);
+                //"file:///home/runner/.go/go1.21.3/src/html/template/css.go#L86"
                 if ((_r > (1114111 : stdgo.GoInt32) : Bool)) {
                     {
                         final __tmp__0 = (_r / (16 : stdgo.GoInt32) : stdgo.GoInt32);
@@ -50,5 +60,6 @@ function _decodeCSS(_s:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
                 };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/html/template/css.go#L100"
         return _b;
     }

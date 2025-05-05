@@ -8,6 +8,7 @@ function valid(_data:stdgo.Slice<stdgo.GoUInt8>):Bool {
                 final __f__ = stdgo._internal.encoding.json.Json__freescanner._freeScanner;
                 __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/scanner.go#L25"
             {
                 final __ret__:Bool = stdgo._internal.encoding.json.Json__checkvalid._checkValid(_data, _scan) == null;
                 for (defer in __deferstack__) {
@@ -34,7 +35,7 @@ function valid(_data:stdgo.Slice<stdgo.GoUInt8>):Bool {
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

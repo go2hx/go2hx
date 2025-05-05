@@ -4,12 +4,14 @@ package stdgo._internal.debug.elf;
     @:tdfield
     static public function goString( _i:stdgo._internal.debug.elf.Elf_sectionflag.SectionFlag):stdgo.GoString {
         @:recv var _i:stdgo._internal.debug.elf.Elf_sectionflag.SectionFlag = _i;
+        //"file:///home/runner/.go/go1.21.3/src/debug/elf/elf.go#L724"
         return stdgo._internal.debug.elf.Elf__flagname._flagName((_i : stdgo.GoUInt32), stdgo._internal.debug.elf.Elf__shfstrings._shfStrings, true)?.__copy__();
     }
     @:keep
     @:tdfield
     static public function string( _i:stdgo._internal.debug.elf.Elf_sectionflag.SectionFlag):stdgo.GoString {
         @:recv var _i:stdgo._internal.debug.elf.Elf_sectionflag.SectionFlag = _i;
+        //"file:///home/runner/.go/go1.21.3/src/debug/elf/elf.go#L723"
         return stdgo._internal.debug.elf.Elf__flagname._flagName((_i : stdgo.GoUInt32), stdgo._internal.debug.elf.Elf__shfstrings._shfStrings, false)?.__copy__();
     }
 }

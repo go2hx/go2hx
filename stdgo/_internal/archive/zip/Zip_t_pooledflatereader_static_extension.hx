@@ -6,17 +6,21 @@ package stdgo._internal.archive.zip;
         @:recv var _r:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_pooledflatereader.T_pooledFlateReader> = _r;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 (@:checkr _r ?? throw "null pointer dereference")._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L93"
+            (@:checkr _r ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = @:check2 (@:checkr _r ?? throw "null pointer dereference")._mu.unlock;
+                final __f__ = (@:checkr _r ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _err:stdgo.Error = (null : stdgo.Error);
+            //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L96"
             if ((@:checkr _r ?? throw "null pointer dereference")._fr != null) {
                 _err = (@:checkr _r ?? throw "null pointer dereference")._fr.close();
-                @:check2 stdgo._internal.archive.zip.Zip__flatereaderpool._flateReaderPool.put(stdgo.Go.toInterface((@:checkr _r ?? throw "null pointer dereference")._fr));
+                //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L98"
+                stdgo._internal.archive.zip.Zip__flatereaderpool._flateReaderPool.put(stdgo.Go.toInterface((@:checkr _r ?? throw "null pointer dereference")._fr));
                 (@:checkr _r ?? throw "null pointer dereference")._fr = (null : stdgo._internal.io.Io_readcloser.ReadCloser);
             };
+            //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L101"
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -42,7 +46,7 @@ package stdgo._internal.archive.zip;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -86,12 +90,15 @@ package stdgo._internal.archive.zip;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
-            @:check2 (@:checkr _r ?? throw "null pointer dereference")._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L84"
+            (@:checkr _r ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = @:check2 (@:checkr _r ?? throw "null pointer dereference")._mu.unlock;
+                final __f__ = (@:checkr _r ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L86"
             if ((@:checkr _r ?? throw "null pointer dereference")._fr == null) {
+                //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L87"
                 {
                     final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("Read after Close" : stdgo.GoString)) };
@@ -109,9 +116,10 @@ package stdgo._internal.archive.zip;
                     return __ret__;
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/archive/zip/register.go#L89"
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = ({
-                    @:assignTranslate final __tmp__ = (@:checkr _r ?? throw "null pointer dereference")._fr.read(_p);
+                    @:explicitConversion final __tmp__ = (@:checkr _r ?? throw "null pointer dereference")._fr.read(_p);
                     { _0 : __tmp__._0, _1 : __tmp__._1 };
                 });
                 _n = __ret__._0;
@@ -140,7 +148,7 @@ package stdgo._internal.archive.zip;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

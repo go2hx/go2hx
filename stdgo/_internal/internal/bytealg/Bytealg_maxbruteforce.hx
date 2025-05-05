@@ -1,2 +1,2 @@
 package stdgo._internal.internal.bytealg;
-final maxBruteForce : stdgo.GoUInt64 = 0i32;
+final maxBruteForce : stdgo.GoUInt64 = 0i64;

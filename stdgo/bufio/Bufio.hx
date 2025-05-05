@@ -1,6 +1,6 @@
 package stdgo.bufio;
-var defaultBufSize : stdgo.GoUInt64 = 4096i32;
-var maxScanTokenSize : stdgo.GoUInt64 = 65536i32;
+var defaultBufSize : stdgo.GoUInt64 = 4096i64;
+var maxScanTokenSize : stdgo.GoUInt64 = 65536i64;
 var errInvalidUnreadByte(get, set) : stdgo.Error;
 private function get_errInvalidUnreadByte():stdgo.Error return stdgo._internal.bufio.Bufio_errinvalidunreadbyte.errInvalidUnreadByte;
 private function set_errInvalidUnreadByte(v:stdgo.Error):stdgo.Error {

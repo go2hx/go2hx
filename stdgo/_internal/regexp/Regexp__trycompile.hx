@@ -6,6 +6,7 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.reg
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/regexp/exec_test.go#L266"
                         {
                             var _r = ({
                                 final r = stdgo.Go.recover_exception;
@@ -20,9 +21,10 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.reg
                     a();
                 }) });
             };
+            //"file:///home/runner/.go/go1.21.3/src/regexp/exec_test.go#L270"
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>; var _1 : stdgo.Error; } = ({
-                    @:assignTranslate final __tmp__ = stdgo._internal.regexp.Regexp_compile.compile(_s?.__copy__());
+                    @:explicitConversion final __tmp__ = stdgo._internal.regexp.Regexp_compile.compile(_s?.__copy__());
                     { _0 : __tmp__._0, _1 : __tmp__._1 };
                 });
                 _re = __ret__._0;
@@ -51,7 +53,7 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.reg
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

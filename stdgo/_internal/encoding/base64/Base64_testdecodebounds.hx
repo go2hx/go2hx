@@ -3,10 +3,11 @@ function testDecodeBounds(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):V
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
-            var _s = (@:check2r stdgo._internal.encoding.base64.Base64_stdencoding.stdEncoding.encodeToString((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__() : stdgo.GoString);
+            var _s = (stdgo._internal.encoding.base64.Base64_stdencoding.stdEncoding.encodeToString((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__() : stdgo.GoString);
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/encoding/base64/base64_test.go#L254"
                         {
                             var _err = ({
                                 final r = stdgo.Go.recover_exception;
@@ -14,16 +15,19 @@ function testDecodeBounds(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):V
                                 r;
                             } : stdgo.AnyInterface);
                             if (_err != null) {
-                                @:check2r _t.fatalf(("Decode panicked unexpectedly: %v\n%s" : stdgo.GoString), _err, stdgo.Go.toInterface(stdgo._internal.runtime.debug.Debug_stack.stack()));
+                                //"file:///home/runner/.go/go1.21.3/src/encoding/base64/base64_test.go#L255"
+                                _t.fatalf(("Decode panicked unexpectedly: %v\n%s" : stdgo.GoString), _err, stdgo.Go.toInterface(stdgo._internal.runtime.debug.Debug_stack.stack()));
                             };
                         };
                     };
                     a();
                 }) });
             };
-            var __tmp__ = @:check2r stdgo._internal.encoding.base64.Base64_stdencoding.stdEncoding.decode((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_s : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.encoding.base64.Base64_stdencoding.stdEncoding.decode((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_s : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/encoding/base64/base64_test.go#L259"
             if (((_n != (_buf.length)) || (_err != null) : Bool)) {
-                @:check2r _t.fatalf(("StdEncoding.Decode = %d, %v, want %d, nil" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((_buf.length)));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/base64/base64_test.go#L260"
+                _t.fatalf(("StdEncoding.Decode = %d, %v, want %d, nil" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((_buf.length)));
             };
             {
                 for (defer in __deferstack__) {
@@ -42,7 +46,7 @@ function testDecodeBounds(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):V
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

@@ -1,2 +1,2 @@
 package stdgo._internal.archive.zip;
-final _creatorVFAT : stdgo.GoUInt64 = 14i32;
+final _creatorVFAT : stdgo.GoUInt64 = 14i64;

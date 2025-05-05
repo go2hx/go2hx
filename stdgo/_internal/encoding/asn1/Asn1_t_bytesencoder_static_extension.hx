@@ -4,7 +4,9 @@ package stdgo._internal.encoding.asn1;
     @:tdfield
     static public function encode( _b:stdgo._internal.encoding.asn1.Asn1_t_bytesencoder.T_bytesEncoder, _dst:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _b:stdgo._internal.encoding.asn1.Asn1_t_bytesencoder.T_bytesEncoder = _b;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/marshal.go#L48"
         if (_dst.__copyTo__(_b) != ((_b.length))) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/marshal.go#L49"
             throw stdgo.Go.toInterface(("internal error" : stdgo.GoString));
         };
     }
@@ -12,6 +14,7 @@ package stdgo._internal.encoding.asn1;
     @:tdfield
     static public function len( _b:stdgo._internal.encoding.asn1.Asn1_t_bytesencoder.T_bytesEncoder):stdgo.GoInt {
         @:recv var _b:stdgo._internal.encoding.asn1.Asn1_t_bytesencoder.T_bytesEncoder = _b;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/asn1/marshal.go#L44"
         return (_b.length);
     }
 }

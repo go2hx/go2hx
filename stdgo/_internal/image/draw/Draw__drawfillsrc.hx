@@ -4,8 +4,9 @@ function _drawFillSrc(_dst:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>, _r:
         var _sg8 = ((_sg >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
         var _sb8 = ((_sb >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
         var _sa8 = ((_sa >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
-        var _i0 = (@:check2r _dst.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
+        var _i0 = (_dst.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         var _i1 = (_i0 + (_r.dx() * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L421"
         {
             var _i = (_i0 : stdgo.GoInt);
             while ((_i < _i1 : Bool)) {
@@ -17,12 +18,14 @@ function _drawFillSrc(_dst:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>, _r:
             };
         };
         var _firstRow = ((@:checkr _dst ?? throw "null pointer dereference").pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>);
+        //"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L428"
         {
             var _y = (_r.min.y + (1 : stdgo.GoInt) : stdgo.GoInt);
             while ((_y < _r.max.y : Bool)) {
                 _i0 = (_i0 + ((@:checkr _dst ?? throw "null pointer dereference").stride) : stdgo.GoInt);
 _i1 = (_i1 + ((@:checkr _dst ?? throw "null pointer dereference").stride) : stdgo.GoInt);
-((@:checkr _dst ?? throw "null pointer dereference").pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_firstRow);
+//"file:///home/runner/.go/go1.21.3/src/image/draw/draw.go#L431"
+                ((@:checkr _dst ?? throw "null pointer dereference").pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_firstRow);
                 _y++;
             };
         };

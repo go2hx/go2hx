@@ -1,9 +1,12 @@
 package stdgo._internal.crypto.des;
 function _initFeistelBox():Void {
+        //"file:///home/runner/.go/go1.21.3/src/crypto/des/block.go#L96"
         for (_s => _ in stdgo._internal.crypto.des.Des__sboxes._sBoxes.__copy__()) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/des/block.go#L97"
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (4 : stdgo.GoInt) : Bool)) {
+                    //"file:///home/runner/.go/go1.21.3/src/crypto/des/block.go#L98"
                     {
                         var _j = (0 : stdgo.GoInt);
                         while ((_j < (16 : stdgo.GoInt) : Bool)) {

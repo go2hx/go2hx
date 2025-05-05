@@ -1,2 +1,2 @@
 package stdgo._internal.hash.maphash;
-final _m1 : stdgo.GoUInt64 = 0i32;
+final _m1 : stdgo.GoUInt64 = 0i64;

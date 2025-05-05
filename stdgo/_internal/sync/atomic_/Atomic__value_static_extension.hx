@@ -11,5 +11,8 @@ package stdgo._internal.sync.atomic_;
     static public function store( _v:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__value.Value>, _val:stdgo.AnyInterface):Void throw "Value:sync.atomic_.store is not yet implemented";
     @:keep
     @:tdfield
-    static public function load( _v:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__value.Value>):stdgo.AnyInterface throw "Value:sync.atomic_.load is not yet implemented";
+    static public function load( _v:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__value.Value>):stdgo.AnyInterface {
+        @:recv var _v:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__value.Value> = _v;
+        return @:privateAccess _v._v;
+    }
 }

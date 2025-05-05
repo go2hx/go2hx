@@ -16,5 +16,6 @@ x.set(("two" : stdgo.GoString), (2 : stdgo.GoInt));
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
         _dt.t = (new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(11 : stdgo.GoInt), (22 : stdgo.GoInt), (33 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__();
         _dt.s = (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("hi" : stdgo.GoString), ("joe" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L1376"
         return _dt?.__copy__();
     }

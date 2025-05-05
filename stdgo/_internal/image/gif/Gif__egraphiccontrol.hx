@@ -1,2 +1,2 @@
 package stdgo._internal.image.gif;
-final _eGraphicControl : stdgo.GoUInt64 = 249i32;
+final _eGraphicControl : stdgo.GoUInt64 = 249i64;

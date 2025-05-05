@@ -1,11 +1,13 @@
 package stdgo._internal.image.jpeg;
 function _idct(_src:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/image/jpeg/idct.go#L74"
         {
             var _y = (0 : stdgo.GoInt);
             while ((_y < (8 : stdgo.GoInt) : Bool)) {
                 var _y8 = (_y * (8 : stdgo.GoInt) : stdgo.GoInt);
 var _s = (_src.__slice__(_y8, (_y8 + (8 : stdgo.GoInt) : stdgo.GoInt), (_y8 + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>);
-if (((((((_s[(1 : stdgo.GoInt)] == ((0 : stdgo.GoInt32)) && _s[(2 : stdgo.GoInt)] == ((0 : stdgo.GoInt32)) : Bool) && _s[(3 : stdgo.GoInt)] == ((0 : stdgo.GoInt32)) : Bool) && _s[(4 : stdgo.GoInt)] == ((0 : stdgo.GoInt32)) : Bool) && _s[(5 : stdgo.GoInt)] == ((0 : stdgo.GoInt32)) : Bool) && _s[(6 : stdgo.GoInt)] == ((0 : stdgo.GoInt32)) : Bool) && (_s[(7 : stdgo.GoInt)] == (0 : stdgo.GoInt32)) : Bool)) {
+//"file:///home/runner/.go/go1.21.3/src/image/jpeg/idct.go#L78"
+                if (((((((_s[(1 : stdgo.GoInt)] == ((0 : stdgo.GoInt32)) && _s[(2 : stdgo.GoInt)] == ((0 : stdgo.GoInt32)) : Bool) && _s[(3 : stdgo.GoInt)] == ((0 : stdgo.GoInt32)) : Bool) && _s[(4 : stdgo.GoInt)] == ((0 : stdgo.GoInt32)) : Bool) && _s[(5 : stdgo.GoInt)] == ((0 : stdgo.GoInt32)) : Bool) && _s[(6 : stdgo.GoInt)] == ((0 : stdgo.GoInt32)) : Bool) && (_s[(7 : stdgo.GoInt)] == (0 : stdgo.GoInt32)) : Bool)) {
                     var _dc = (_s[(0 : stdgo.GoInt)] << (3i64 : stdgo.GoUInt64) : stdgo.GoInt32);
                     _s[(0 : stdgo.GoInt)] = _dc;
                     _s[(1 : stdgo.GoInt)] = _dc;
@@ -15,6 +17,7 @@ if (((((((_s[(1 : stdgo.GoInt)] == ((0 : stdgo.GoInt32)) && _s[(2 : stdgo.GoInt)
                     _s[(5 : stdgo.GoInt)] = _dc;
                     _s[(6 : stdgo.GoInt)] = _dc;
                     _s[(7 : stdgo.GoInt)] = _dc;
+                    //"file:///home/runner/.go/go1.21.3/src/image/jpeg/idct.go#L89"
                     {
                         _y++;
                         continue;
@@ -60,6 +63,7 @@ _s[(7 : stdgo.GoInt)] = (((_x7 - _x1 : stdgo.GoInt32)) >> (8i64 : stdgo.GoUInt64
                 _y++;
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/image/jpeg/idct.go#L141"
         {
             var _x = (0 : stdgo.GoInt);
             while ((_x < (8 : stdgo.GoInt) : Bool)) {

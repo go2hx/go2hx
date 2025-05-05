@@ -1,5 +1,5 @@
 package stdgo.internal.syscall.unix;
-var uTIME_OMIT : stdgo.GoUInt64 = -2i32;
+var uTIME_OMIT : stdgo.GoUInt64 = -2i64;
 class Unix {
     static public inline function fcntl(_fd:stdgo.GoInt, _cmd:stdgo.GoInt, _arg:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return stdgo._internal.internal.syscall.unix.Unix_fcntl.fcntl(_fd, _cmd, _arg);
     static public inline function kernelVersion():{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } return stdgo._internal.internal.syscall.unix.Unix_kernelversion.kernelVersion();

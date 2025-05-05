@@ -1,2 +1,2 @@
 package stdgo._internal.bufio;
-final _minReadBufferSize : stdgo.GoUInt64 = 16i32;
+final _minReadBufferSize : stdgo.GoUInt64 = 16i64;

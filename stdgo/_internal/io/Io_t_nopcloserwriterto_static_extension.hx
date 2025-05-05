@@ -5,8 +5,9 @@ package stdgo._internal.io;
     static public function writeTo( _c:stdgo._internal.io.Io_t_nopcloserwriterto.T_nopCloserWriterTo, _w:stdgo._internal.io.Io_writer.Writer):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _c:stdgo._internal.io.Io_t_nopcloserwriterto.T_nopCloserWriterTo = _c?.__copy__();
         var _n = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/io/io.go#L694"
         return ({
-            @:assignTranslate final __tmp__ = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c.reader) : stdgo._internal.io.Io_writerto.WriterTo)) : stdgo._internal.io.Io_writerto.WriterTo).writeTo(_w);
+            @:explicitConversion final __tmp__ = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c.reader) : stdgo._internal.io.Io_writerto.WriterTo)) : stdgo._internal.io.Io_writerto.WriterTo).writeTo(_w);
             { _0 : __tmp__._0, _1 : __tmp__._1 };
         });
     }
@@ -14,6 +15,7 @@ package stdgo._internal.io;
     @:tdfield
     static public function close( _:stdgo._internal.io.Io_t_nopcloserwriterto.T_nopCloserWriterTo):stdgo.Error {
         @:recv var _:stdgo._internal.io.Io_t_nopcloserwriterto.T_nopCloserWriterTo = _?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/io/io.go#L691"
         return (null : stdgo.Error);
     }
     @:embedded

@@ -6,17 +6,20 @@ package stdgo._internal.net.http.httputil;
         @:recv var _m:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter> = _m;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L711"
+            (@:checkr _m ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.unlock;
+                final __f__ = (@:checkr _m ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             (@:checkr _m ?? throw "null pointer dereference")._flushPending = false;
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L714"
             if (({
                 final value = (@:checkr _m ?? throw "null pointer dereference")._t;
                 (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
             })) {
-                @:check2r (@:checkr _m ?? throw "null pointer dereference")._t.stop();
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L715"
+                (@:checkr _m ?? throw "null pointer dereference")._t.stop();
             };
             {
                 for (defer in __deferstack__) {
@@ -35,7 +38,7 @@ package stdgo._internal.net.http.httputil;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -78,12 +81,15 @@ package stdgo._internal.net.http.httputil;
         @:recv var _m:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter> = _m;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L701"
+            (@:checkr _m ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.unlock;
+                final __f__ = (@:checkr _m ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L703"
             if (!(@:checkr _m ?? throw "null pointer dereference")._flushPending) {
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L704"
                 {
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
@@ -93,6 +99,7 @@ package stdgo._internal.net.http.httputil;
                     return;
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L706"
             (@:checkr _m ?? throw "null pointer dereference")._flush();
             (@:checkr _m ?? throw "null pointer dereference")._flushPending = false;
             {
@@ -112,7 +119,7 @@ package stdgo._internal.net.http.httputil;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -156,9 +163,10 @@ package stdgo._internal.net.http.httputil;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
-            @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L681"
+            (@:checkr _m ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.unlock;
+                final __f__ = (@:checkr _m ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
@@ -166,8 +174,11 @@ package stdgo._internal.net.http.httputil;
                 _n = @:tmpset0 __tmp__._0;
                 _err = @:tmpset0 __tmp__._1;
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L684"
             if (((@:checkr _m ?? throw "null pointer dereference")._latency < (0i64 : stdgo._internal.time.Time_duration.Duration) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L685"
                 (@:checkr _m ?? throw "null pointer dereference")._flush();
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L686"
                 {
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
@@ -177,7 +188,9 @@ package stdgo._internal.net.http.httputil;
                     return { _0 : _n, _1 : _err };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L688"
             if ((@:checkr _m ?? throw "null pointer dereference")._flushPending) {
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L689"
                 {
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
@@ -187,15 +200,18 @@ package stdgo._internal.net.http.httputil;
                     return { _0 : _n, _1 : _err };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L691"
             if (({
                 final value = (@:checkr _m ?? throw "null pointer dereference")._t;
                 (value == null || (value : Dynamic).__nil__);
             })) {
-                (@:checkr _m ?? throw "null pointer dereference")._t = stdgo._internal.time.Time_afterfunc.afterFunc((@:checkr _m ?? throw "null pointer dereference")._latency, @:check2r _m._delayedFlush);
+                (@:checkr _m ?? throw "null pointer dereference")._t = stdgo._internal.time.Time_afterfunc.afterFunc((@:checkr _m ?? throw "null pointer dereference")._latency, _m._delayedFlush);
             } else {
-                @:check2r (@:checkr _m ?? throw "null pointer dereference")._t.reset((@:checkr _m ?? throw "null pointer dereference")._latency);
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L694"
+                (@:checkr _m ?? throw "null pointer dereference")._t.reset((@:checkr _m ?? throw "null pointer dereference")._latency);
             };
             (@:checkr _m ?? throw "null pointer dereference")._flushPending = true;
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/reverseproxy.go#L697"
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -221,7 +237,7 @@ package stdgo._internal.net.http.httputil;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

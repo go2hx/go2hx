@@ -4,8 +4,10 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_request.Req
         try {
             var _save = ((@:checkr _req ?? throw "null pointer dereference").body : stdgo._internal.io.Io_readcloser.ReadCloser);
             var _dummyBody = (false : Bool);
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L80"
             if (!_body) {
                 var _contentLength = (stdgo._internal.net.http.httputil.Httputil__outgoinglength._outgoingLength(_req) : stdgo.GoInt64);
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L82"
                 if (_contentLength != ((0i64 : stdgo.GoInt64))) {
                     (@:checkr _req ?? throw "null pointer dereference").body = stdgo._internal.io.Io_nopcloser.nopCloser(stdgo._internal.io.Io_limitreader.limitReader(stdgo.Go.asInterface((120 : stdgo._internal.net.http.httputil.Httputil_t_neverending.T_neverEnding)), _contentLength));
                     _dummyBody = true;
@@ -18,11 +20,14 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_request.Req
                     (@:checkr _req ?? throw "null pointer dereference").body = @:tmpset0 __tmp__._1;
                     _err = @:tmpset0 __tmp__._2;
                 };
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L89"
                 if (_err != null) {
+                    //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L90"
                     return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                 };
             };
             var _reqSend = _req;
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L99"
             if ((@:checkr (@:checkr _req ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").scheme == (("https" : stdgo.GoString))) {
                 _reqSend = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_request.Request)) : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
                 {
@@ -72,29 +77,35 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_request.Req
             var _buf:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer);
             var __tmp__ = stdgo._internal.io.Io_pipe.pipe(), _pr:stdgo.Ref<stdgo._internal.io.Io_pipereader.PipeReader> = __tmp__._0, _pw:stdgo.Ref<stdgo._internal.io.Io_pipewriter.PipeWriter> = __tmp__._1;
             {
-                final __f__ = @:check2r _pr.close;
+                final __f__ = _pr.close;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
-                final __f__ = @:check2r _pw.close;
+                final __f__ = _pw.close;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _dr = (stdgo.Go.setRef(({ _c : (new stdgo.Chan<stdgo._internal.io.Io_reader.Reader>(0, () -> (null : stdgo._internal.io.Io_reader.Reader)) : stdgo.Chan<stdgo._internal.io.Io_reader.Reader>) } : stdgo._internal.net.http.httputil.Httputil_t_delegatereader.T_delegateReader)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_delegatereader.T_delegateReader>);
             var _t = (stdgo.Go.setRef(({ dial : function(_net:stdgo.GoString, _addr:stdgo.GoString):{ var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } {
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L120"
                 return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn(stdgo._internal.io.Io_multiwriter.multiWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), stdgo.Go.asInterface(_pw)), stdgo.Go.asInterface(_dr)) : stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn>)), _1 : (null : stdgo.Error) };
             } } : stdgo._internal.net.http.Http_transport.Transport)) : stdgo.Ref<stdgo._internal.net.http.Http_transport.Transport>);
             {
-                final __f__ = @:check2r _t.closeIdleConnections;
+                final __f__ = _t.closeIdleConnections;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _quitReadCh = (new stdgo.Chan<stdgo._internal.net.http.httputil.Httputil_t_failuretoreadbody.T_failureToReadBody>(0, () -> ({} : stdgo._internal.net.http.httputil.Httputil_t_failuretoreadbody.T_failureToReadBody)) : stdgo.Chan<stdgo._internal.net.http.httputil.Httputil_t_failuretoreadbody.T_failureToReadBody>);
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L130"
             stdgo.Go.routine(() -> ({
                 var a = function():Void {
                     var __tmp__ = stdgo._internal.net.http.Http_readrequest.readRequest(stdgo._internal.bufio.Bufio_newreader.newReader(stdgo.Go.asInterface(_pr))), _req:stdgo.Ref<stdgo._internal.net.http.Http_request.Request> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L132"
                     if (_err == null) {
+                        //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L135"
                         stdgo._internal.io.Io_copy.copy(stdgo._internal.io.Io_discard.discard, (@:checkr _req ?? throw "null pointer dereference").body);
+                        //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L136"
                         (@:checkr _req ?? throw "null pointer dereference").body.close();
                     };
+                    //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L138"
                     {
                         var __select__ = true;
                         var __c__0 = (@:checkr _dr ?? throw "null pointer dereference")._c;
@@ -116,6 +127,7 @@ var __c__1 = null;
                                 {
                                     __c__1.__get__();
                                     {
+                                        //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L142"
                                         if ((@:checkr _dr ?? throw "null pointer dereference")._c != null) (@:checkr _dr ?? throw "null pointer dereference")._c.__close__();
                                     };
                                 };
@@ -129,12 +141,16 @@ __c__1.__reset__();
                 };
                 a();
             }));
-            var __tmp__ = @:check2r _t.roundTrip(_reqSend), __8:stdgo.Ref<stdgo._internal.net.http.Http_response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _t.roundTrip(_reqSend), __8:stdgo.Ref<stdgo._internal.net.http.Http_response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             (@:checkr _req ?? throw "null pointer dereference").body = _save;
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L149"
             if (_err != null) {
-                @:check2r _pw.close();
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L150"
+                _pw.close();
                 (@:checkr _dr ?? throw "null pointer dereference")._err = _err;
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L152"
                 if (_quitReadCh != null) _quitReadCh.__close__();
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L153"
                 {
                     final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                     for (defer in __deferstack__) {
@@ -145,8 +161,10 @@ __c__1.__reset__();
                     return __ret__;
                 };
             };
-            var _dump = @:check2 _buf.bytes();
+            var _dump = _buf.bytes();
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L162"
             if (_dummyBody) {
+                //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L163"
                 {
                     var _i = (stdgo._internal.bytes.Bytes_index.index(_dump, ((("\r\n\r\n" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
                     if ((_i >= (0 : stdgo.GoInt) : Bool)) {
@@ -154,6 +172,7 @@ __c__1.__reset__();
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/net/http/httputil/dump.go#L167"
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _dump, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
@@ -180,7 +199,7 @@ __c__1.__reset__();
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

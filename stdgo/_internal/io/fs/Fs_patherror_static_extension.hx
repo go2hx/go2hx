@@ -9,18 +9,21 @@ package stdgo._internal.io.fs;
         } catch(_) {
             { _0 : (null : stdgo._internal.io.fs.Fs_t__interface_0.T__interface_0), _1 : false };
         }, _t = __tmp__._0, _ok = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/io/fs/fs.go#L257"
         return (_ok && _t.timeout() : Bool);
     }
     @:keep
     @:tdfield
     static public function unwrap( _e:stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>):stdgo.Error {
         @:recv var _e:stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError> = _e;
+        //"file:///home/runner/.go/go1.21.3/src/io/fs/fs.go#L252"
         return (@:checkr _e ?? throw "null pointer dereference").err;
     }
     @:keep
     @:tdfield
     static public function error( _e:stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>):stdgo.GoString {
         @:recv var _e:stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError> = _e;
+        //"file:///home/runner/.go/go1.21.3/src/io/fs/fs.go#L250"
         return (((((@:checkr _e ?? throw "null pointer dereference").op + (" " : stdgo.GoString)?.__copy__() : stdgo.GoString) + (@:checkr _e ?? throw "null pointer dereference").path?.__copy__() : stdgo.GoString) + (": " : stdgo.GoString)?.__copy__() : stdgo.GoString) + (@:checkr _e ?? throw "null pointer dereference").err.error()?.__copy__() : stdgo.GoString)?.__copy__();
     }
 }

@@ -11,12 +11,12 @@ private function set_zR(v:Rectangle):stdgo._internal.image.Image_rectangle.Recta
         stdgo._internal.image.Image_zr.zR = v;
         return v;
     }
-var yCbCrSubsampleRatio444 : YCbCrSubsampleRatio = 0i32;
-var yCbCrSubsampleRatio422 : YCbCrSubsampleRatio = 1i32;
-var yCbCrSubsampleRatio420 : YCbCrSubsampleRatio = 2i32;
-var yCbCrSubsampleRatio440 : YCbCrSubsampleRatio = 3i32;
-var yCbCrSubsampleRatio411 : YCbCrSubsampleRatio = 4i32;
-var yCbCrSubsampleRatio410 : YCbCrSubsampleRatio = 5i32;
+var yCbCrSubsampleRatio444 : YCbCrSubsampleRatio = 0i64;
+var yCbCrSubsampleRatio422 : YCbCrSubsampleRatio = 1i64;
+var yCbCrSubsampleRatio420 : YCbCrSubsampleRatio = 2i64;
+var yCbCrSubsampleRatio440 : YCbCrSubsampleRatio = 3i64;
+var yCbCrSubsampleRatio411 : YCbCrSubsampleRatio = 4i64;
+var yCbCrSubsampleRatio410 : YCbCrSubsampleRatio = 5i64;
 var errFormat(get, set) : stdgo.Error;
 private function get_errFormat():stdgo.Error return stdgo._internal.image.Image_errformat.errFormat;
 private function set_errFormat(v:stdgo.Error):stdgo.Error {

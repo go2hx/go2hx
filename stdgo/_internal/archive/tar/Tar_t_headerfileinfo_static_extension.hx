@@ -4,6 +4,7 @@ package stdgo._internal.archive.tar;
     @:tdfield
     static public function string( _fi:stdgo._internal.archive.tar.Tar_t_headerfileinfo.T_headerFileInfo):stdgo.GoString {
         @:recv var _fi:stdgo._internal.archive.tar.Tar_t_headerfileinfo.T_headerFileInfo = _fi?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L611"
         return stdgo._internal.io.fs.Fs_formatfileinfo.formatFileInfo(stdgo.Go.asInterface(_fi))?.__copy__();
     }
     @:keep
@@ -12,17 +13,21 @@ package stdgo._internal.archive.tar;
         @:recv var _fi:stdgo._internal.archive.tar.Tar_t_headerfileinfo.T_headerFileInfo = _fi?.__copy__();
         var _mode = ((0 : stdgo.GoUInt32) : stdgo._internal.io.fs.Fs_filemode.FileMode);
         _mode = ((@:checkr _fi._h ?? throw "null pointer dereference").mode : stdgo._internal.io.fs.Fs_filemode.FileMode).perm();
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L566"
         if (((@:checkr _fi._h ?? throw "null pointer dereference").mode & (2048i64 : stdgo.GoInt64) : stdgo.GoInt64) != ((0i64 : stdgo.GoInt64))) {
             _mode = (_mode | ((8388608u32 : stdgo._internal.io.fs.Fs_filemode.FileMode)) : stdgo._internal.io.fs.Fs_filemode.FileMode);
         };
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L569"
         if (((@:checkr _fi._h ?? throw "null pointer dereference").mode & (1024i64 : stdgo.GoInt64) : stdgo.GoInt64) != ((0i64 : stdgo.GoInt64))) {
             _mode = (_mode | ((4194304u32 : stdgo._internal.io.fs.Fs_filemode.FileMode)) : stdgo._internal.io.fs.Fs_filemode.FileMode);
         };
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L572"
         if (((@:checkr _fi._h ?? throw "null pointer dereference").mode & (512i64 : stdgo.GoInt64) : stdgo.GoInt64) != ((0i64 : stdgo.GoInt64))) {
             _mode = (_mode | ((1048576u32 : stdgo._internal.io.fs.Fs_filemode.FileMode)) : stdgo._internal.io.fs.Fs_filemode.FileMode);
         };
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L577"
         {
-            var _m = (((@:checkr _fi._h ?? throw "null pointer dereference").mode : stdgo._internal.io.fs.Fs_filemode.FileMode) & (((4095u32 : stdgo._internal.io.fs.Fs_filemode.FileMode) ^ (-1i32 : stdgo.GoInt32) : stdgo._internal.io.fs.Fs_filemode.FileMode)) : stdgo._internal.io.fs.Fs_filemode.FileMode);
+            var _m = (((@:checkr _fi._h ?? throw "null pointer dereference").mode : stdgo._internal.io.fs.Fs_filemode.FileMode) & (((4095u32 : stdgo._internal.io.fs.Fs_filemode.FileMode) ^ (-1i64 : stdgo.GoInt32) : stdgo._internal.io.fs.Fs_filemode.FileMode)) : stdgo._internal.io.fs.Fs_filemode.FileMode);
             {
                 final __value__ = _m;
                 if (__value__ == ((16384u32 : stdgo._internal.io.fs.Fs_filemode.FileMode))) {
@@ -41,6 +46,7 @@ package stdgo._internal.archive.tar;
                 };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L593"
         {
             final __value__ = (@:checkr _fi._h ?? throw "null pointer dereference").typeflag;
             if (__value__ == ((50 : stdgo.GoUInt8))) {
@@ -56,39 +62,47 @@ package stdgo._internal.archive.tar;
                 _mode = (_mode | ((33554432u32 : stdgo._internal.io.fs.Fs_filemode.FileMode)) : stdgo._internal.io.fs.Fs_filemode.FileMode);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L607"
         return _mode;
     }
     @:keep
     @:tdfield
     static public function name( _fi:stdgo._internal.archive.tar.Tar_t_headerfileinfo.T_headerFileInfo):stdgo.GoString {
         @:recv var _fi:stdgo._internal.archive.tar.Tar_t_headerfileinfo.T_headerFileInfo = _fi?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L554"
         if (_fi.isDir()) {
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L555"
             return stdgo._internal.path.Path_base.base(stdgo._internal.path.Path_clean.clean((@:checkr _fi._h ?? throw "null pointer dereference").name?.__copy__())?.__copy__())?.__copy__();
         };
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L557"
         return stdgo._internal.path.Path_base.base((@:checkr _fi._h ?? throw "null pointer dereference").name?.__copy__())?.__copy__();
     }
     @:keep
     @:tdfield
     static public function sys( _fi:stdgo._internal.archive.tar.Tar_t_headerfileinfo.T_headerFileInfo):stdgo.AnyInterface {
         @:recv var _fi:stdgo._internal.archive.tar.Tar_t_headerfileinfo.T_headerFileInfo = _fi?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L550"
         return stdgo.Go.toInterface(stdgo.Go.asInterface(_fi._h));
     }
     @:keep
     @:tdfield
     static public function modTime( _fi:stdgo._internal.archive.tar.Tar_t_headerfileinfo.T_headerFileInfo):stdgo._internal.time.Time_time.Time {
         @:recv var _fi:stdgo._internal.archive.tar.Tar_t_headerfileinfo.T_headerFileInfo = _fi?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L549"
         return (@:checkr _fi._h ?? throw "null pointer dereference").modTime?.__copy__();
     }
     @:keep
     @:tdfield
     static public function isDir( _fi:stdgo._internal.archive.tar.Tar_t_headerfileinfo.T_headerFileInfo):Bool {
         @:recv var _fi:stdgo._internal.archive.tar.Tar_t_headerfileinfo.T_headerFileInfo = _fi?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L548"
         return _fi.mode().isDir();
     }
     @:keep
     @:tdfield
     static public function size( _fi:stdgo._internal.archive.tar.Tar_t_headerfileinfo.T_headerFileInfo):stdgo.GoInt64 {
         @:recv var _fi:stdgo._internal.archive.tar.Tar_t_headerfileinfo.T_headerFileInfo = _fi?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/common.go#L547"
         return (@:checkr _fi._h ?? throw "null pointer dereference").size;
     }
 }

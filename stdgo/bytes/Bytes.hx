@@ -1,5 +1,5 @@
 package stdgo.bytes;
-var minRead : stdgo.GoUInt64 = 512i32;
+var minRead : stdgo.GoUInt64 = 512i64;
 var errTooLarge(get, set) : stdgo.Error;
 private function get_errTooLarge():stdgo.Error return stdgo._internal.bytes.Bytes_errtoolarge.errTooLarge;
 private function set_errTooLarge(v:stdgo.Error):stdgo.Error {

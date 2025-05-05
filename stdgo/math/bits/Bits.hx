@@ -1,6 +1,6 @@
 package stdgo.math.bits;
-var uintSize : stdgo.GoUInt64 = 32i32;
-var deBruijn64 : stdgo.GoUInt64 = 285870213051353865i32;
+var uintSize : stdgo.GoUInt64 = 32i64;
+var deBruijn64 : stdgo.GoUInt64 = 285870213051353865i64;
 /**
     * Package bits implements bit counting and manipulation
     * functions for the predeclared unsigned integer types.

@@ -29,12 +29,14 @@ package stdgo._internal.internal.fmtsort;
     @:tdfield
     static public function less( _o:stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_sortedmap.SortedMap>, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _o:stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_sortedmap.SortedMap> = _o;
+        //"file:///home/runner/.go/go1.21.3/src/internal/fmtsort/sort.go#L27"
         return (stdgo._internal.internal.fmtsort.Fmtsort__compare._compare((@:checkr _o ?? throw "null pointer dereference").key[(_i : stdgo.GoInt)], (@:checkr _o ?? throw "null pointer dereference").key[(_j : stdgo.GoInt)]) < (0 : stdgo.GoInt) : Bool);
     }
     @:keep
     @:tdfield
     static public function len( _o:stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_sortedmap.SortedMap>):stdgo.GoInt {
         @:recv var _o:stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_sortedmap.SortedMap> = _o;
+        //"file:///home/runner/.go/go1.21.3/src/internal/fmtsort/sort.go#L26"
         return ((@:checkr _o ?? throw "null pointer dereference").key.length);
     }
 }

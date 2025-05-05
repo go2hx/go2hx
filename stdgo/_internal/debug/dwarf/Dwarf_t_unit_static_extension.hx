@@ -4,18 +4,21 @@ package stdgo._internal.debug.dwarf;
     @:tdfield
     static public function _addrsize( _u:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit>):stdgo.GoInt {
         @:recv var _u:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit> = _u;
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/unit.go#L37"
         return (@:checkr _u ?? throw "null pointer dereference")._asize;
     }
     @:keep
     @:tdfield
     static public function _dwarf64( _u:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit>):{ var _0 : Bool; var _1 : Bool; } {
         @:recv var _u:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit> = _u;
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/unit.go#L33"
         return { _0 : (@:checkr _u ?? throw "null pointer dereference")._is64, _1 : true };
     }
     @:keep
     @:tdfield
     static public function _version( _u:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit>):stdgo.GoInt {
         @:recv var _u:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit> = _u;
+        //"file:///home/runner/.go/go1.21.3/src/debug/dwarf/unit.go#L29"
         return (@:checkr _u ?? throw "null pointer dereference")._vers;
     }
 }

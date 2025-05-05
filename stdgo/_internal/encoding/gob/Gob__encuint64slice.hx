@@ -5,13 +5,19 @@ function _encUint64Slice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_enc
         } catch(_) {
             { _0 : (null : stdgo.Slice<stdgo.GoUInt64>), _1 : false };
         }, _slice = __tmp__._0, _ok = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/enc_helpers.go#L382"
         if (!_ok) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/enc_helpers.go#L384"
             return false;
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/enc_helpers.go#L386"
         for (__8 => _x in _slice) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/enc_helpers.go#L387"
             if (((_x != (0i64 : stdgo.GoUInt64)) || (@:checkr _state ?? throw "null pointer dereference")._sendZero : Bool)) {
-                @:check2r _state._encodeUint(_x);
+                //"file:///home/runner/.go/go1.21.3/src/encoding/gob/enc_helpers.go#L388"
+                _state._encodeUint(_x);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/enc_helpers.go#L391"
         return true;
     }

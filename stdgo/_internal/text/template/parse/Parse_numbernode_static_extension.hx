@@ -21,38 +21,45 @@ package stdgo._internal.text.template.parse;
             x.complex128 = __tmp__?.complex128;
             x.text = __tmp__?.text;
         };
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L748"
         return stdgo.Go.asInterface(_nn);
     }
     @:keep
     @:tdfield
     static public function _tree( _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_numbernode.NumberNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> {
         @:recv var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_numbernode.NumberNode> = _n;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L742"
         return (@:checkr _n ?? throw "null pointer dereference")._tr;
     }
     @:keep
     @:tdfield
     static public function _writeTo( _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_numbernode.NumberNode>, _sb:stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>):Void {
         @:recv var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_numbernode.NumberNode> = _n;
-        @:check2r _sb.writeString((@:check2r _n.string() : stdgo.GoString)?.__copy__());
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L738"
+        _sb.writeString((_n.string() : stdgo.GoString)?.__copy__());
     }
     @:keep
     @:tdfield
     static public function string( _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_numbernode.NumberNode>):stdgo.GoString {
         @:recv var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_numbernode.NumberNode> = _n;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L734"
         return (@:checkr _n ?? throw "null pointer dereference").text?.__copy__();
     }
     @:keep
     @:tdfield
     static public function _simplifyComplex( _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_numbernode.NumberNode>):Void {
         @:recv var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_numbernode.NumberNode> = _n;
-        (@:checkr _n ?? throw "null pointer dereference").isFloat = ((@:checkr _n ?? throw "null pointer dereference").complex128 : stdgo.GoComplex128).imag == (0 : stdgo.GoFloat64);
+        (@:checkr _n ?? throw "null pointer dereference").isFloat = ((@:checkr _n ?? throw "null pointer dereference").complex128 : stdgo.GoComplex128).imag == ((0 : stdgo.GoFloat64));
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L720"
         if ((@:checkr _n ?? throw "null pointer dereference").isFloat) {
             (@:checkr _n ?? throw "null pointer dereference").float64 = ((@:checkr _n ?? throw "null pointer dereference").complex128 : stdgo.GoComplex128).real;
             (@:checkr _n ?? throw "null pointer dereference").isInt = (((@:checkr _n ?? throw "null pointer dereference").float64 : stdgo.GoInt64) : stdgo.GoFloat64) == ((@:checkr _n ?? throw "null pointer dereference").float64);
+            //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L723"
             if ((@:checkr _n ?? throw "null pointer dereference").isInt) {
                 (@:checkr _n ?? throw "null pointer dereference").int64 = ((@:checkr _n ?? throw "null pointer dereference").float64 : stdgo.GoInt64);
             };
             (@:checkr _n ?? throw "null pointer dereference").isUint = (((@:checkr _n ?? throw "null pointer dereference").float64 : stdgo.GoUInt64) : stdgo.GoFloat64) == ((@:checkr _n ?? throw "null pointer dereference").float64);
+            //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L727"
             if ((@:checkr _n ?? throw "null pointer dereference").isUint) {
                 (@:checkr _n ?? throw "null pointer dereference").uint64 = ((@:checkr _n ?? throw "null pointer dereference").float64 : stdgo.GoUInt64);
             };

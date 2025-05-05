@@ -5,8 +5,8 @@ private function set_maxLen(v:stdgo.GoInt):stdgo.GoInt {
         stdgo._internal.internal.bytealg.Bytealg_maxlen.maxLen = v;
         return v;
     }
-var primeRK : stdgo.GoUInt64 = 16777619i32;
-var maxBruteForce : stdgo.GoUInt64 = 0i32;
+var primeRK : stdgo.GoUInt64 = 16777619i64;
+var maxBruteForce : stdgo.GoUInt64 = 0i64;
 class Bytealg {
     /**
         * HashStrBytes returns the hash and the appropriate multiplicative

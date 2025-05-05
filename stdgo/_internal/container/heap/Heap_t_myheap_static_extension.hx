@@ -4,22 +4,33 @@ package stdgo._internal.container.heap;
     @:tdfield
     static public function _verify( _h:stdgo._internal.container.heap.Heap_t_myheap.T_myHeap, _t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>, _i:stdgo.GoInt):Void {
         @:recv var _h:stdgo._internal.container.heap.Heap_t_myheap.T_myHeap = _h;
-        @:check2r _t.helper();
-        var _n = (@:check2 _h.len() : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L36"
+        _t.helper();
+        var _n = (_h.len() : stdgo.GoInt);
         var _j1 = (((2 : stdgo.GoInt) * _i : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
         var _j2 = (((2 : stdgo.GoInt) * _i : stdgo.GoInt) + (2 : stdgo.GoInt) : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L40"
         if ((_j1 < _n : Bool)) {
-            if (@:check2 _h.less(_j1, _i)) {
-                @:check2r _t.errorf(("heap invariant invalidated [%d] = %d > [%d] = %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_h[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_j1), stdgo.Go.toInterface(_h[(_j1 : stdgo.GoInt)]));
+            //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L41"
+            if (_h.less(_j1, _i)) {
+                //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L42"
+                _t.errorf(("heap invariant invalidated [%d] = %d > [%d] = %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_h[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_j1), stdgo.Go.toInterface(_h[(_j1 : stdgo.GoInt)]));
+                //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L43"
                 return;
             };
+            //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L45"
             _h._verify(_t, _j1);
         };
+        //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L47"
         if ((_j2 < _n : Bool)) {
-            if (@:check2 _h.less(_j2, _i)) {
-                @:check2r _t.errorf(("heap invariant invalidated [%d] = %d > [%d] = %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_h[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_j1), stdgo.Go.toInterface(_h[(_j2 : stdgo.GoInt)]));
+            //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L48"
+            if (_h.less(_j2, _i)) {
+                //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L49"
+                _t.errorf(("heap invariant invalidated [%d] = %d > [%d] = %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_h[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_j1), stdgo.Go.toInterface(_h[(_j2 : stdgo.GoInt)]));
+                //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L50"
                 return;
             };
+            //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L52"
             _h._verify(_t, _j2);
         };
     }
@@ -35,16 +46,18 @@ package stdgo._internal.container.heap;
         @:recv var _h:stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap> = _h;
         var _v = (null : stdgo.AnyInterface);
         {
-            final __tmp__0 = stdgo.Go.toInterface(((_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap))[(@:check2r _h.len() - (1 : stdgo.GoInt) : stdgo.GoInt)]);
-            (_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap).__setData__((((_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap)).__slice__(0, (@:check2r _h.len() - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap));
+            final __tmp__0 = stdgo.Go.toInterface(((_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap))[(_h.len() - (1 : stdgo.GoInt) : stdgo.GoInt)]);
+            (_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap).__setData__((((_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap)).__slice__(0, (_h.len() - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap));
             _v = @:binopAssign __tmp__0;
         };
+        //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L28"
         return _v;
     }
     @:keep
     @:tdfield
     static public function len( _h:stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap>):stdgo.GoInt {
         @:recv var _h:stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap> = _h;
+        //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L23"
         return ((_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap).length);
     }
     @:keep
@@ -66,6 +79,7 @@ package stdgo._internal.container.heap;
     @:tdfield
     static public function less( _h:stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap>, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _h:stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap> = _h;
+        //"file:///home/runner/.go/go1.21.3/src/container/heap/heap_test.go#L15"
         return (((_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap))[(_i : stdgo.GoInt)] < ((_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap))[(_j : stdgo.GoInt)] : Bool);
     }
 }

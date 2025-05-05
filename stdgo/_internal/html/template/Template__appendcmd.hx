@@ -1,5 +1,6 @@
 package stdgo._internal.html.template;
 function _appendCmd(_cmds:stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>>, _cmd:stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>):stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>> {
+        //"file:///home/runner/.go/go1.21.3/src/html/template/escape.go#L406"
         {
             var _n = (_cmds.length : stdgo.GoInt);
             if (_n != ((0 : stdgo.GoInt))) {
@@ -13,10 +14,13 @@ function _appendCmd(_cmds:stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.pa
                 } catch(_) {
                     { _0 : (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode>), _1 : false };
                 }, _next = __tmp__._0, _okNext = __tmp__._1;
+                //"file:///home/runner/.go/go1.21.3/src/html/template/escape.go#L409"
                 if (((_okLast && _okNext : Bool) && ((stdgo._internal.html.template.Template__redundantfuncs._redundantFuncs[(@:checkr _last ?? throw "null pointer dereference").ident] ?? (null : stdgo.GoMap<stdgo.GoString, Bool>))[(@:checkr _next ?? throw "null pointer dereference").ident] ?? false) : Bool)) {
+                    //"file:///home/runner/.go/go1.21.3/src/html/template/escape.go#L410"
                     return _cmds;
                 };
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/html/template/escape.go#L413"
         return (_cmds.__append__(_cmd) : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>>);
     }

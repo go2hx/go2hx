@@ -7,5 +7,6 @@ function _unquote(_s:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoString; var 
             _ok = @:tmpset0 __tmp__._1;
         };
         _t = (_s : stdgo.GoString)?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode.go#L1176"
         return { _0 : _t, _1 : _ok };
     }

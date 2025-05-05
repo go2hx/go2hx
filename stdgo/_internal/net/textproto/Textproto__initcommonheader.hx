@@ -6,6 +6,7 @@ function _initCommonHeader():Void {
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        //"file:///home/runner/.go/go1.21.3/src/net/textproto/reader.go#L779"
         for (__0 => _v in (new stdgo.Slice<stdgo.GoString>(39, 39, ...[
 ("Accept" : stdgo.GoString),
 ("Accept-Charset" : stdgo.GoString),

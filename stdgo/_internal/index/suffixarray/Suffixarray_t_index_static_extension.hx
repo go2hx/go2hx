@@ -4,12 +4,14 @@ package stdgo._internal.index.suffixarray;
     @:tdfield
     static public function _at( _x:stdgo.Ref<stdgo._internal.index.suffixarray.Suffixarray_t_index.T_index>, _i:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _x:stdgo.Ref<stdgo._internal.index.suffixarray.Suffixarray_t_index.T_index> = _x;
-        return ((@:checkr _x ?? throw "null pointer dereference")._data.__slice__(@:check2 (@:checkr _x ?? throw "null pointer dereference")._sa._get(_i)) : stdgo.Slice<stdgo.GoUInt8>);
+        //"file:///home/runner/.go/go1.21.3/src/index/suffixarray/suffixarray_test.go#L225"
+        return ((@:checkr _x ?? throw "null pointer dereference")._data.__slice__((@:checkr _x ?? throw "null pointer dereference")._sa._get(_i)) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     @:tdfield
     static public function swap( _x:stdgo.Ref<stdgo._internal.index.suffixarray.Suffixarray_t_index.T_index>, _i:stdgo.GoInt, _j:stdgo.GoInt):Void {
         @:recv var _x:stdgo.Ref<stdgo._internal.index.suffixarray.Suffixarray_t_index.T_index> = _x;
+        //"file:///home/runner/.go/go1.21.3/src/index/suffixarray/suffixarray_test.go#L217"
         if ((@:checkr _x ?? throw "null pointer dereference")._sa._int32 != null) {
             {
                 final __tmp__0 = (@:checkr _x ?? throw "null pointer dereference")._sa._int32[(_j : stdgo.GoInt)];
@@ -38,12 +40,14 @@ package stdgo._internal.index.suffixarray;
     @:tdfield
     static public function less( _x:stdgo.Ref<stdgo._internal.index.suffixarray.Suffixarray_t_index.T_index>, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _x:stdgo.Ref<stdgo._internal.index.suffixarray.Suffixarray_t_index.T_index> = _x;
-        return (stdgo._internal.bytes.Bytes_compare.compare(@:check2r _x._at(_i), @:check2r _x._at(_j)) < (0 : stdgo.GoInt) : Bool);
+        //"file:///home/runner/.go/go1.21.3/src/index/suffixarray/suffixarray_test.go#L215"
+        return (stdgo._internal.bytes.Bytes_compare.compare(_x._at(_i), _x._at(_j)) < (0 : stdgo.GoInt) : Bool);
     }
     @:keep
     @:tdfield
     static public function len( _x:stdgo.Ref<stdgo._internal.index.suffixarray.Suffixarray_t_index.T_index>):stdgo.GoInt {
         @:recv var _x:stdgo.Ref<stdgo._internal.index.suffixarray.Suffixarray_t_index.T_index> = _x;
-        return @:check2 (@:checkr _x ?? throw "null pointer dereference")._sa._len();
+        //"file:///home/runner/.go/go1.21.3/src/index/suffixarray/suffixarray_test.go#L214"
+        return (@:checkr _x ?? throw "null pointer dereference")._sa._len();
     }
 }

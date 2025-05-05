@@ -11,6 +11,11 @@ function openDB(_c:stdgo._internal.database.sql.driver.Driver_connector.Connecto
             {};
             x;
         } : stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>) : stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>), _stop : _cancel } : stdgo._internal.database.sql.Sql_db.DB)) : stdgo.Ref<stdgo._internal.database.sql.Sql_db.DB>);
-        stdgo.Go.routine(() -> @:check2r _db._connectionOpener(_ctx));
+        //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L791"
+        {
+            final __tmp__0 = _ctx;
+            stdgo.Go.routine(() -> _db._connectionOpener(__tmp__0));
+        };
+        //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L793"
         return _db;
     }

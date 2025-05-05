@@ -1,2 +1,2 @@
 package stdgo._internal.unicode;
-final titleCase : stdgo.GoUInt64 = 2i32;
+final titleCase : stdgo.GoUInt64 = 2i64;

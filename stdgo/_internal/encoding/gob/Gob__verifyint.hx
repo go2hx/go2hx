@@ -9,11 +9,14 @@ function _verifyInt(_i:stdgo.GoInt64, _t:stdgo.Ref<stdgo._internal.testing.Testi
             };
             var _b = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>);
             var _encState = stdgo._internal.encoding.gob.Gob__newencoderstate._newEncoderState(_b);
-            @:check2r _encState._encodeInt(_i);
-            var _decState = stdgo._internal.encoding.gob.Gob__newdecodestate._newDecodeState(stdgo._internal.encoding.gob.Gob__newdecbuffer._newDecBuffer(@:check2r _b.bytes()));
-            var _j = (@:check2r _decState._decodeInt() : stdgo.GoInt64);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L88"
+            _encState._encodeInt(_i);
+            var _decState = stdgo._internal.encoding.gob.Gob__newdecodestate._newDecodeState(stdgo._internal.encoding.gob.Gob__newdecbuffer._newDecBuffer(_b.bytes()));
+            var _j = (_decState._decodeInt() : stdgo.GoInt64);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L91"
             if (_i != (_j)) {
-                @:check2r _t.errorf(("Encode/Decode: sent %#x received %#x" : stdgo.GoString), stdgo.Go.toInterface((_i : stdgo.GoUInt64)), stdgo.Go.toInterface((_j : stdgo.GoUInt64)));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/gob/codec_test.go#L92"
+                _t.errorf(("Encode/Decode: sent %#x received %#x" : stdgo.GoString), stdgo.Go.toInterface((_i : stdgo.GoUInt64)), stdgo.Go.toInterface((_j : stdgo.GoUInt64)));
             };
             {
                 for (defer in __deferstack__) {
@@ -32,7 +35,7 @@ function _verifyInt(_i:stdgo.GoInt64, _t:stdgo.Ref<stdgo._internal.testing.Testi
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

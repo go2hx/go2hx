@@ -1,2 +1,2 @@
 package stdgo._internal.archive.zip;
-final _s_IFDIR : stdgo.GoUInt64 = 16384i32;
+final _s_IFDIR : stdgo.GoUInt64 = 16384i64;

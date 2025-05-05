@@ -4,14 +4,20 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function less( _x:stdgo._internal.encoding.json.Json_t_byindex.T_byIndex, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _x:stdgo._internal.encoding.json.Json_t_byindex.T_byIndex = _x;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L1056"
         for (_k => _xik in _x[(_i : stdgo.GoInt)]._index) {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L1057"
             if ((_k >= (_x[(_j : stdgo.GoInt)]._index.length) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L1058"
                 return false;
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L1060"
             if (_xik != (_x[(_j : stdgo.GoInt)]._index[(_k : stdgo.GoInt)])) {
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L1061"
                 return (_xik < _x[(_j : stdgo.GoInt)]._index[(_k : stdgo.GoInt)] : Bool);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L1064"
         return ((_x[(_i : stdgo.GoInt)]._index.length) < (_x[(_j : stdgo.GoInt)]._index.length) : Bool);
     }
     @:keep
@@ -33,6 +39,7 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function len( _x:stdgo._internal.encoding.json.Json_t_byindex.T_byIndex):stdgo.GoInt {
         @:recv var _x:stdgo._internal.encoding.json.Json_t_byindex.T_byIndex = _x;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L1051"
         return (_x.length);
     }
 }

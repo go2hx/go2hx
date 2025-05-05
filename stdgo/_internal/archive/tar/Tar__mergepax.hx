@@ -1,11 +1,15 @@
 package stdgo._internal.archive.tar;
 function _mergePAX(_hdr:stdgo.Ref<stdgo._internal.archive.tar.Tar_header.Header>, _paxHdrs:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.Error {
         var _err = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L262"
         for (_k => _v in _paxHdrs) {
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L263"
             if (_v == ((stdgo.Go.str() : stdgo.GoString))) {
+                //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L264"
                 continue;
             };
             var _id64:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L267"
             {
                 final __value__ = _k;
                 if (__value__ == (("path" : stdgo.GoString))) {
@@ -55,7 +59,9 @@ function _mergePAX(_hdr:stdgo.Ref<stdgo._internal.archive.tar.Tar_header.Header>
                         _err = @:tmpset0 __tmp__._1;
                     };
                 } else {
+                    //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L291"
                     if (stdgo._internal.strings.Strings_hasprefix.hasPrefix(_k?.__copy__(), ("SCHILY.xattr." : stdgo.GoString))) {
+                        //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L292"
                         if ((@:checkr _hdr ?? throw "null pointer dereference").xattrs == null) {
                             (@:checkr _hdr ?? throw "null pointer dereference").xattrs = (({
                                 final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
@@ -68,10 +74,13 @@ function _mergePAX(_hdr:stdgo.Ref<stdgo._internal.archive.tar.Tar_header.Header>
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L298"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L299"
                 return _err = stdgo._internal.archive.tar.Tar_errheader.errHeader;
             };
         };
         (@:checkr _hdr ?? throw "null pointer dereference").pAXRecords = _paxHdrs;
+        //"file:///home/runner/.go/go1.21.3/src/archive/tar/reader.go#L303"
         return _err = (null : stdgo.Error);
     }

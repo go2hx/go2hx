@@ -1,4 +1,2 @@
 package stdgo._internal.internal.testenv;
-function hasLink():Bool {
-        return true;
-    }
+function hasLink():Bool return false;

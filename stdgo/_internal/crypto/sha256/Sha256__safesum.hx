@@ -6,6 +6,7 @@ function _safeSum(_h:stdgo._internal.hash.Hash_hash.Hash):{ var _0 : stdgo.Slice
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/crypto/sha256/sha256_test.go#L268"
                         {
                             var _r = ({
                                 final r = stdgo.Go.recover_exception;
@@ -20,6 +21,7 @@ function _safeSum(_h:stdgo._internal.hash.Hash_hash.Hash):{ var _0 : stdgo.Slice
                     a();
                 }) });
             };
+            //"file:///home/runner/.go/go1.21.3/src/crypto/sha256/sha256_test.go#L273"
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = {
                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _h.sum((null : stdgo.Slice<stdgo.GoUInt8>)), _1 : (null : stdgo.Error) };
@@ -53,7 +55,7 @@ function _safeSum(_h:stdgo._internal.hash.Hash_hash.Hash):{ var _0 : stdgo.Slice
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

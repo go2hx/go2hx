@@ -4,27 +4,32 @@ function testUnexportedRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>)
         try {
             var _buf:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer);
             var _u1 = ({ _a : (1 : stdgo.GoInt32) } : stdgo._internal.encoding.binary.Binary_unexported.Unexported);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/binary/binary_test.go#L385"
             {
                 var _err = (stdgo._internal.encoding.binary.Binary_write.write(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleendian.littleEndian), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_u1) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_unexported.Unexported>)))) : stdgo.Error);
                 if (_err != null) {
-                    @:check2r _t.fatal(stdgo.Go.toInterface(_err));
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/binary/binary_test.go#L386"
+                    _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/encoding/binary/binary_test.go#L390"
                         if (({
                             final r = stdgo.Go.recover_exception;
                             stdgo.Go.recover_exception = null;
                             r;
                         }) == null) {
-                            @:check2r _t.fatal(stdgo.Go.toInterface(("did not panic" : stdgo.GoString)));
+                            //"file:///home/runner/.go/go1.21.3/src/encoding/binary/binary_test.go#L391"
+                            _t.fatal(stdgo.Go.toInterface(("did not panic" : stdgo.GoString)));
                         };
                     };
                     a();
                 }) });
             };
             var _u2:stdgo._internal.encoding.binary.Binary_unexported.Unexported = ({} : stdgo._internal.encoding.binary.Binary_unexported.Unexported);
+            //"file:///home/runner/.go/go1.21.3/src/encoding/binary/binary_test.go#L395"
             stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleendian.littleEndian), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_u2) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_unexported.Unexported>))));
             {
                 for (defer in __deferstack__) {
@@ -43,7 +48,7 @@ function testUnexportedRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>)
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

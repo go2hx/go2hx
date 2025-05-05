@@ -4,12 +4,14 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _string( _g:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_gobencodertype.T_gobEncoderType>):stdgo.GoString {
         @:recv var _g:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_gobencodertype.T_gobEncoderType> = _g;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L345"
         return (@:checkr _g ?? throw "null pointer dereference").commonType.name?.__copy__();
     }
     @:keep
     @:tdfield
     static public function _safeString( _g:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_gobencodertype.T_gobEncoderType>, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>):stdgo.GoString {
         @:recv var _g:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_gobencodertype.T_gobEncoderType> = _g;
+        //"file:///home/runner/.go/go1.21.3/src/encoding/gob/type.go#L342"
         return (@:checkr _g ?? throw "null pointer dereference").commonType.name?.__copy__();
     }
     @:embedded

@@ -5,6 +5,7 @@ function _marshalKeyUsage(_ku:stdgo._internal.crypto.x509.X509_keyusage.KeyUsage
         _a[(0 : stdgo.GoInt)] = stdgo._internal.crypto.x509.X509__reversebitsinabyte._reverseBitsInAByte((_ku : stdgo.GoUInt8));
         _a[(1 : stdgo.GoInt)] = stdgo._internal.crypto.x509.X509__reversebitsinabyte._reverseBitsInAByte(((_ku >> (8i64 : stdgo.GoUInt64) : stdgo._internal.crypto.x509.X509_keyusage.KeyUsage) : stdgo.GoUInt8));
         var _l = (1 : stdgo.GoInt);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/x509/x509.go#L1325"
         if (_a[(1 : stdgo.GoInt)] != ((0 : stdgo.GoUInt8))) {
             _l = (2 : stdgo.GoInt);
         };
@@ -15,5 +16,6 @@ function _marshalKeyUsage(_ku:stdgo._internal.crypto.x509.X509_keyusage.KeyUsage
             _ext.value = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/x509/x509.go#L1332"
         return { _0 : _ext?.__copy__(), _1 : _err };
     }

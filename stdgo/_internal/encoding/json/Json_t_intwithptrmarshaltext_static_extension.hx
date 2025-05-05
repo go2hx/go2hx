@@ -4,12 +4,14 @@ package stdgo._internal.encoding.json;
     @:pointer
     @:tdfield
     static public function unmarshalText( _b:stdgo.Pointer<stdgo._internal.encoding.json.Json_t_intwithptrmarshaltext.T_intWithPtrMarshalText>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
-        return @:isptr (new stdgo.Pointer<stdgo._internal.encoding.json.Json_t_intwithmarshaltext.T_intWithMarshalText>(() -> (_b.value : stdgo._internal.encoding.json.Json_t_intwithmarshaltext.T_intWithMarshalText), v -> (_b.value = (v : stdgo._internal.encoding.json.Json_t_intwithptrmarshaltext.T_intWithPtrMarshalText) : stdgo._internal.encoding.json.Json_t_intwithmarshaltext.T_intWithMarshalText)) : stdgo._internal.encoding.json.Json_t_intwithmarshaltextpointer.T_intWithMarshalTextPointer).unmarshalText(_data);
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode_test.go#L383"
+        return (new stdgo.Pointer<stdgo._internal.encoding.json.Json_t_intwithmarshaltext.T_intWithMarshalText>(() -> (_b.value : stdgo._internal.encoding.json.Json_t_intwithmarshaltext.T_intWithMarshalText), v -> (_b.value = (v : stdgo._internal.encoding.json.Json_t_intwithptrmarshaltext.T_intWithPtrMarshalText) : stdgo._internal.encoding.json.Json_t_intwithmarshaltext.T_intWithMarshalText)) : stdgo._internal.encoding.json.Json_t_intwithmarshaltextpointer.T_intWithMarshalTextPointer).unmarshalText(_data);
     }
     @:keep
     @:pointer
     @:tdfield
     static public function marshalText( _b:stdgo.Pointer<stdgo._internal.encoding.json.Json_t_intwithptrmarshaltext.T_intWithPtrMarshalText>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
+        //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode_test.go#L379"
         return (_b.value : stdgo._internal.encoding.json.Json_t_intwithmarshaltext.T_intWithMarshalText).marshalText();
     }
 }

@@ -1,2 +1,2 @@
 package stdgo._internal.debug.pe;
-final iMAGE_DIRECTORY_ENTRY_EXCEPTION : stdgo.GoUInt64 = 3i32;
+final iMAGE_DIRECTORY_ENTRY_EXCEPTION : stdgo.GoUInt64 = 3i64;

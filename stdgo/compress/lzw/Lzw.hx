@@ -1,6 +1,6 @@
 package stdgo.compress.lzw;
-var lSB : Order = 0i32;
-var mSB : Order = 1i32;
+var lSB : Order = 0i64;
+var mSB : Order = 1i64;
 typedef Reader = stdgo._internal.compress.lzw.Lzw_reader.Reader;
 typedef Writer = stdgo._internal.compress.lzw.Lzw_writer.Writer;
 typedef Order = stdgo._internal.compress.lzw.Lzw_order.Order;

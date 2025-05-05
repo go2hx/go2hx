@@ -1,2 +1,2 @@
 package stdgo._internal.image.png;
-final _itNone : stdgo.GoUInt64 = 0i32;
+final _itNone : stdgo.GoUInt64 = 0i64;

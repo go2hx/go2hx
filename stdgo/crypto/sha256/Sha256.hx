@@ -1,7 +1,7 @@
 package stdgo.crypto.sha256;
-var size : stdgo.GoUInt64 = 32i32;
-var size224 : stdgo.GoUInt64 = 28i32;
-var blockSize : stdgo.GoUInt64 = 64i32;
+var size : stdgo.GoUInt64 = 32i64;
+var size224 : stdgo.GoUInt64 = 28i64;
+var blockSize : stdgo.GoUInt64 = 64i64;
 /**
     * Package sha256 implements the SHA224 and SHA256 hash algorithms as defined
     * in FIPS 180-4.

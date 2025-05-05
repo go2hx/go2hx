@@ -4,31 +4,40 @@ package stdgo._internal.html.template;
     @:tdfield
     static public function _mangle( _c:stdgo._internal.html.template.Template_t_context.T_context, _templateName:stdgo.GoString):stdgo.GoString {
         @:recv var _c:stdgo._internal.html.template.Template_t_context.T_context = _c?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/html/template/context.go#L53"
         if (_c._state == ((0 : stdgo._internal.html.template.Template_t_state.T_state))) {
+            //"file:///home/runner/.go/go1.21.3/src/html/template/context.go#L54"
             return _templateName?.__copy__();
         };
         var _s = (((_templateName + ("$htmltemplate_" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_c._state.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+        //"file:///home/runner/.go/go1.21.3/src/html/template/context.go#L57"
         if (_c._delim != ((0 : stdgo._internal.html.template.Template_t_delim.T_delim))) {
             _s = (_s + ((("_" : stdgo.GoString) + (_c._delim.string() : stdgo.GoString)?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };
+        //"file:///home/runner/.go/go1.21.3/src/html/template/context.go#L60"
         if (_c._urlPart != ((0 : stdgo._internal.html.template.Template_t_urlpart.T_urlPart))) {
             _s = (_s + ((("_" : stdgo.GoString) + (_c._urlPart.string() : stdgo.GoString)?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };
+        //"file:///home/runner/.go/go1.21.3/src/html/template/context.go#L63"
         if (_c._jsCtx != ((0 : stdgo._internal.html.template.Template_t_jsctx.T_jsCtx))) {
             _s = (_s + ((("_" : stdgo.GoString) + (_c._jsCtx.string() : stdgo.GoString)?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };
+        //"file:///home/runner/.go/go1.21.3/src/html/template/context.go#L66"
         if (_c._attr != ((0 : stdgo._internal.html.template.Template_t_attr.T_attr))) {
             _s = (_s + ((("_" : stdgo.GoString) + (_c._attr.string() : stdgo.GoString)?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };
+        //"file:///home/runner/.go/go1.21.3/src/html/template/context.go#L69"
         if (_c._element != ((0 : stdgo._internal.html.template.Template_t_element.T_element))) {
             _s = (_s + ((("_" : stdgo.GoString) + (_c._element.string() : stdgo.GoString)?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };
+        //"file:///home/runner/.go/go1.21.3/src/html/template/context.go#L72"
         return _s?.__copy__();
     }
     @:keep
     @:tdfield
     static public function _eq( _c:stdgo._internal.html.template.Template_t_context.T_context, _d:stdgo._internal.html.template.Template_t_context.T_context):Bool {
         @:recv var _c:stdgo._internal.html.template.Template_t_context.T_context = _c?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/html/template/context.go#L40"
         return ((((((_c._state == (_d._state) && _c._delim == (_d._delim) : Bool) && _c._urlPart == (_d._urlPart) : Bool) && _c._jsCtx == (_d._jsCtx) : Bool) && _c._attr == (_d._attr) : Bool) && _c._element == (_d._element) : Bool) && (_c._err == _d._err) : Bool);
     }
     @:keep
@@ -36,12 +45,14 @@ package stdgo._internal.html.template;
     static public function string( _c:stdgo._internal.html.template.Template_t_context.T_context):stdgo.GoString {
         @:recv var _c:stdgo._internal.html.template.Template_t_context.T_context = _c?.__copy__();
         var _err:stdgo.Error = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/html/template/context.go#L32"
         if (({
             final value = _c._err;
             (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
         })) {
             _err = stdgo.Go.asInterface(_c._err);
         };
+        //"file:///home/runner/.go/go1.21.3/src/html/template/context.go#L35"
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("{%v %v %v %v %v %v %v}" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._state)), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._delim)), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._urlPart)), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._jsCtx)), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._attr)), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._element)), stdgo.Go.toInterface(_err))?.__copy__();
     }
 }

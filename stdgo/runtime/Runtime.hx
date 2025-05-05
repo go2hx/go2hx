@@ -1,5 +1,5 @@
 package stdgo.runtime;
-var compiler : stdgo.GoString = "go2hx";
+var compiler : stdgo.GoString = ("go2hx" : stdgo.GoString);
 var dlogEnabled : Bool = false;
 var debugLogBytes : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 var debugLogStringLimit : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

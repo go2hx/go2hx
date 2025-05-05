@@ -1,5 +1,6 @@
 package stdgo._internal.html.template;
 function _isHTMLSpace(_c:stdgo.GoUInt8):Bool {
+        //"file:///home/runner/.go/go1.21.3/src/html/template/url.go#L178"
         return (((_c <= (32 : stdgo.GoUInt8) : Bool)) && ((0 : stdgo.GoUInt8) != (((stdgo.Go.str(0,
 "6",
 0,

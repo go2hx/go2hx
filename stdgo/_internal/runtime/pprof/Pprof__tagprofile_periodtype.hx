@@ -1,2 +1,2 @@
 package stdgo._internal.runtime.pprof;
-final _tagProfile_PeriodType : stdgo.GoUInt64 = 11i32;
+final _tagProfile_PeriodType : stdgo.GoUInt64 = 11i64;

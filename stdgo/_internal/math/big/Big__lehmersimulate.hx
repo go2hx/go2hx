@@ -6,6 +6,7 @@ function _lehmerSimulate(a:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, b:
         var _n = ((@:checkr a ?? throw "null pointer dereference")._abs.length : stdgo.GoInt);
         var _h = (stdgo._internal.math.big.Big__nlz._nlz((@:checkr a ?? throw "null pointer dereference")._abs[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoUInt);
         _a1 = (((@:checkr a ?? throw "null pointer dereference")._abs[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] << _h : stdgo._internal.math.big.Big_word.Word) | ((@:checkr a ?? throw "null pointer dereference")._abs[(_n - (2 : stdgo.GoInt) : stdgo.GoInt)] >> (((32u32 : stdgo.GoUInt) - _h : stdgo.GoUInt)) : stdgo._internal.math.big.Big_word.Word) : stdgo._internal.math.big.Big_word.Word);
+        //"file:///home/runner/.go/go1.21.3/src/math/big/int.go#L673"
         if (_n == (_m)) {
             _a2 = (((@:checkr b ?? throw "null pointer dereference")._abs[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] << _h : stdgo._internal.math.big.Big_word.Word) | ((@:checkr b ?? throw "null pointer dereference")._abs[(_n - (2 : stdgo.GoInt) : stdgo.GoInt)] >> (((32u32 : stdgo.GoUInt) - _h : stdgo.GoUInt)) : stdgo._internal.math.big.Big_word.Word) : stdgo._internal.math.big.Big_word.Word);
         } else if (_n == ((_m + (1 : stdgo.GoInt) : stdgo.GoInt))) {
@@ -30,6 +31,7 @@ function _lehmerSimulate(a:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, b:
             _v1 = @:binopAssign __tmp__1;
             _v2 = @:binopAssign __tmp__2;
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/big/int.go#L696"
         while (((_a2 >= _v2 : Bool) && ((_a1 - _a2 : stdgo._internal.math.big.Big_word.Word) >= (_v1 + _v2 : stdgo._internal.math.big.Big_word.Word) : Bool) : Bool)) {
             var __0 = (_a1 / _a2 : stdgo._internal.math.big.Big_word.Word), __1 = (_a1 % _a2 : stdgo._internal.math.big.Big_word.Word);
 var _r = __1, _q = __0;
@@ -57,5 +59,6 @@ var _r = __1, _q = __0;
             };
             _even = !_even;
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/big/int.go#L703"
         return { _0 : _u0, _1 : _u1, _2 : _v0, _3 : _v1, _4 : _even };
     }

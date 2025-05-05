@@ -17,6 +17,8 @@ function _newProfileBuilder(_w:stdgo._internal.io.Io_writer.Writer):stdgo.Ref<st
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>) } : stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder)) : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
-        @:check2r _b._readMapping();
+        //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/proto.go#L270"
+        _b._readMapping();
+        //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/proto.go#L271"
         return _b;
     }

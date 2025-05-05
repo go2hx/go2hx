@@ -6,11 +6,13 @@ package stdgo._internal.database.sql;
         @:recv var _dr:stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult = _dr?.__copy__();
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L3488"
             _dr.lock();
             {
                 final __f__ = _dr.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L3490"
             {
                 final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = _dr._resi.rowsAffected();
                 for (defer in __deferstack__) {
@@ -37,7 +39,7 @@ package stdgo._internal.database.sql;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -80,11 +82,13 @@ package stdgo._internal.database.sql;
         @:recv var _dr:stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult = _dr?.__copy__();
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L3482"
             _dr.lock();
             {
                 final __f__ = _dr.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L3484"
             {
                 final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = _dr._resi.lastInsertId();
                 for (defer in __deferstack__) {
@@ -111,7 +115,7 @@ package stdgo._internal.database.sql;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

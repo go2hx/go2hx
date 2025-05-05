@@ -64,6 +64,7 @@ function _p521Sub(_out1:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fi
             _x18 = @:tmpset0 __tmp__._1;
         };
         var _x19:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x19__pointer__ = stdgo.Go.pointer(_x19);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/fiat/p521_fiat64.go#L3261"
         stdgo._internal.crypto.internal.nistec.fiat.Fiat__p521cmovznzu64._p521CmovznzU64(_x19__pointer__, (_x18 : stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521uint1.T_p521Uint1), (0i64 : stdgo.GoUInt64), (-1i64 : stdgo.GoUInt64));
         var _x20:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _x21:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

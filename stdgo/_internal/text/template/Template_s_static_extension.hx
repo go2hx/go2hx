@@ -4,6 +4,7 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function method0( _:stdgo._internal.text.template.Template_s.S):stdgo.GoString {
         @:recv var _:stdgo._internal.text.template.Template_s.S = _;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/exec_test.go#L93"
         return ("M0" : stdgo.GoString);
     }
 }

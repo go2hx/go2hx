@@ -1,12 +1,15 @@
 package stdgo._internal.image.jpeg;
 function _scale(_dst:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>, _src:stdgo.Ref<stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/image/jpeg/writer.go#L471"
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (4 : stdgo.GoInt) : Bool)) {
                 var _dstOff = ((((_i & (2 : stdgo.GoInt) : stdgo.GoInt)) << (4i64 : stdgo.GoUInt64) : stdgo.GoInt) | (((_i & (1 : stdgo.GoInt) : stdgo.GoInt)) << (2i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoInt);
-{
+//"file:///home/runner/.go/go1.21.3/src/image/jpeg/writer.go#L473"
+                {
                     var _y = (0 : stdgo.GoInt);
                     while ((_y < (4 : stdgo.GoInt) : Bool)) {
+                        //"file:///home/runner/.go/go1.21.3/src/image/jpeg/writer.go#L474"
                         {
                             var _x = (0 : stdgo.GoInt);
                             while ((_x < (4 : stdgo.GoInt) : Bool)) {

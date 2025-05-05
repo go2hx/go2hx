@@ -4,6 +4,7 @@ package stdgo._internal.sort;
     @:tdfield
     static public function sort( _x:stdgo._internal.sort.Sort_stringslice.StringSlice):Void {
         @:recv var _x:stdgo._internal.sort.Sort_stringslice.StringSlice = _x;
+        //"file:///home/runner/.go/go1.21.3/src/sort/sort.go#L158"
         stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface(_x));
     }
     @:keep
@@ -25,18 +26,21 @@ package stdgo._internal.sort;
     @:tdfield
     static public function less( _x:stdgo._internal.sort.Sort_stringslice.StringSlice, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _x:stdgo._internal.sort.Sort_stringslice.StringSlice = _x;
+        //"file:///home/runner/.go/go1.21.3/src/sort/sort.go#L154"
         return (_x[(_i : stdgo.GoInt)] < _x[(_j : stdgo.GoInt)] : Bool);
     }
     @:keep
     @:tdfield
     static public function len( _x:stdgo._internal.sort.Sort_stringslice.StringSlice):stdgo.GoInt {
         @:recv var _x:stdgo._internal.sort.Sort_stringslice.StringSlice = _x;
+        //"file:///home/runner/.go/go1.21.3/src/sort/sort.go#L153"
         return (_x.length);
     }
     @:keep
     @:tdfield
     static public function search( _p:stdgo._internal.sort.Sort_stringslice.StringSlice, _x:stdgo.GoString):stdgo.GoInt {
         @:recv var _p:stdgo._internal.sort.Sort_stringslice.StringSlice = _p;
+        //"file:///home/runner/.go/go1.21.3/src/sort/search.go#L150"
         return stdgo._internal.sort.Sort_searchstrings.searchStrings(_p, _x?.__copy__());
     }
 }

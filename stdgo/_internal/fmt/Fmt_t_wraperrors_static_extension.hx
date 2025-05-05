@@ -4,12 +4,14 @@ package stdgo._internal.fmt;
     @:tdfield
     static public function unwrap( _e:stdgo.Ref<stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors>):stdgo.Slice<stdgo.Error> {
         @:recv var _e:stdgo.Ref<stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors> = _e;
+        //"file:///home/runner/.go/go1.21.3/src/fmt/errors.go#L77"
         return (@:checkr _e ?? throw "null pointer dereference")._errs;
     }
     @:keep
     @:tdfield
     static public function error( _e:stdgo.Ref<stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors>):stdgo.GoString {
         @:recv var _e:stdgo.Ref<stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors> = _e;
+        //"file:///home/runner/.go/go1.21.3/src/fmt/errors.go#L73"
         return (@:checkr _e ?? throw "null pointer dereference")._msg?.__copy__();
     }
 }

@@ -8,6 +8,7 @@ function _mulAddWWW_g(_x:stdgo._internal.math.big.Big_word.Word, _y:stdgo._inter
             _lo = @:tmpset0 __tmp__._0;
             _cc = @:tmpset0 __tmp__._1;
         };
+        //"file:///home/runner/.go/go1.21.3/src/math/big/arith.go#L54"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.math.big.Big_word.Word; var _1 : stdgo._internal.math.big.Big_word.Word; } = { _0 : ((_hi + _cc : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word), _1 : (_lo : stdgo._internal.math.big.Big_word.Word) };
             _z1 = __tmp__._0;

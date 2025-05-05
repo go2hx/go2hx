@@ -4,6 +4,7 @@ package stdgo._internal.testing.quick;
     @:tdfield
     static public function generate( _m:stdgo._internal.testing.quick.Quick_t_mystruct.T_myStruct, _r:stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>, __0:stdgo.GoInt):stdgo._internal.reflect.Reflect_value.Value {
         @:recv var _m:stdgo._internal.testing.quick.Quick_t_mystruct.T_myStruct = _m?.__copy__();
+        //"file:///home/runner/.go/go1.21.3/src/testing/quick/quick_test.go#L218"
         return stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface(({ _x : (42 : stdgo.GoInt) } : stdgo._internal.testing.quick.Quick_t_mystruct.T_myStruct))))?.__copy__();
     }
 }

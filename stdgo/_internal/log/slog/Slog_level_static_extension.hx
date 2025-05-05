@@ -4,6 +4,7 @@ package stdgo._internal.log.slog;
     @:tdfield
     static public function level( _l:stdgo._internal.log.slog.Slog_level.Level):stdgo._internal.log.slog.Slog_level.Level {
         @:recv var _l:stdgo._internal.log.slog.Slog_level.Level = _l;
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L150"
         return _l;
     }
     @:keep
@@ -16,6 +17,7 @@ package stdgo._internal.log.slog;
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
+                        //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L118"
                         if (_err != null) {
                             _err = stdgo._internal.fmt.Fmt_errorf.errorf(("slog: level string %q: %w" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_err));
                         };
@@ -25,6 +27,7 @@ package stdgo._internal.log.slog;
             };
             var _name = (_s?.__copy__() : stdgo.GoString);
             var _offset = (0 : stdgo.GoInt);
+            //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L125"
             {
                 var _i = (stdgo._internal.strings.Strings_indexany.indexAny(_s?.__copy__(), ("+-" : stdgo.GoString)) : stdgo.GoInt);
                 if ((_i >= (0 : stdgo.GoInt) : Bool)) {
@@ -34,7 +37,9 @@ package stdgo._internal.log.slog;
                         _offset = @:tmpset0 __tmp__._0;
                         _err = @:tmpset0 __tmp__._1;
                     };
+                    //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L128"
                     if (_err != null) {
+                        //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L129"
                         {
                             for (defer in __deferstack__) {
                                 if (defer.ran) continue;
@@ -46,6 +51,7 @@ package stdgo._internal.log.slog;
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L132"
             {
                 final __value__ = stdgo._internal.strings.Strings_toupper.toUpper(_name?.__copy__());
                 if (__value__ == (("DEBUG" : stdgo.GoString))) {
@@ -57,6 +63,7 @@ package stdgo._internal.log.slog;
                 } else if (__value__ == (("ERROR" : stdgo.GoString))) {
                     _l.value = (8 : stdgo._internal.log.slog.Slog_level.Level);
                 } else {
+                    //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L142"
                     {
                         final __ret__:stdgo.Error = _err = stdgo._internal.errors.Errors_new_.new_(("unknown name" : stdgo.GoString));
                         for (defer in __deferstack__) {
@@ -69,6 +76,7 @@ package stdgo._internal.log.slog;
                 };
             };
             _l.value = (_l.value + ((_offset : stdgo._internal.log.slog.Slog_level.Level)) : stdgo._internal.log.slog.Slog_level.Level);
+            //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L145"
             {
                 final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
@@ -95,7 +103,7 @@ package stdgo._internal.log.slog;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
@@ -136,12 +144,14 @@ package stdgo._internal.log.slog;
     @:pointer
     @:tdfield
     static public function unmarshalText( _l:stdgo.Pointer<stdgo._internal.log.slog.Slog_level.Level>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
-        return @:isptr (_l : stdgo._internal.log.slog.Slog_levelpointer.LevelPointer)._parse((_data : stdgo.GoString)?.__copy__());
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L113"
+        return (_l : stdgo._internal.log.slog.Slog_levelpointer.LevelPointer)._parse((_data : stdgo.GoString)?.__copy__());
     }
     @:keep
     @:tdfield
     static public function marshalText( _l:stdgo._internal.log.slog.Slog_level.Level):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _l:stdgo._internal.log.slog.Slog_level.Level = _l;
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L104"
         return { _0 : ((_l.string() : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
     }
     @:keep
@@ -149,15 +159,19 @@ package stdgo._internal.log.slog;
     @:tdfield
     static public function unmarshalJSON( _l:stdgo.Pointer<stdgo._internal.log.slog.Slog_level.Level>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         var __tmp__ = stdgo._internal.strconv.Strconv_unquote.unquote((_data : stdgo.GoString)?.__copy__()), _s:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L95"
         if (_err != null) {
+            //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L96"
             return _err;
         };
-        return @:isptr (_l : stdgo._internal.log.slog.Slog_levelpointer.LevelPointer)._parse(_s?.__copy__());
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L98"
+        return (_l : stdgo._internal.log.slog.Slog_levelpointer.LevelPointer)._parse(_s?.__copy__());
     }
     @:keep
     @:tdfield
     static public function marshalJSON( _l:stdgo._internal.log.slog.Slog_level.Level):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _l:stdgo._internal.log.slog.Slog_level.Level = _l;
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L85"
         return { _0 : stdgo._internal.strconv.Strconv_appendquote.appendQuote((null : stdgo.Slice<stdgo.GoUInt8>), (_l.string() : stdgo.GoString)?.__copy__()), _1 : (null : stdgo.Error) };
     }
     @:keep
@@ -165,18 +179,26 @@ package stdgo._internal.log.slog;
     static public function string( _l:stdgo._internal.log.slog.Slog_level.Level):stdgo.GoString {
         @:recv var _l:stdgo._internal.log.slog.Slog_level.Level = _l;
         var _str = (function(_base:stdgo.GoString, _val:stdgo._internal.log.slog.Slog_level.Level):stdgo.GoString {
+            //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L61"
             if (_val == ((0 : stdgo._internal.log.slog.Slog_level.Level))) {
+                //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L62"
                 return _base?.__copy__();
             };
+            //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L64"
             return stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s%+d" : stdgo.GoString), stdgo.Go.toInterface(_base), stdgo.Go.toInterface(stdgo.Go.asInterface(_val)))?.__copy__();
         } : (stdgo.GoString, stdgo._internal.log.slog.Slog_level.Level) -> stdgo.GoString);
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L67"
         if ((_l < (0 : stdgo._internal.log.slog.Slog_level.Level) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L69"
             return _str(("DEBUG" : stdgo.GoString), (_l - (-4 : stdgo._internal.log.slog.Slog_level.Level) : stdgo._internal.log.slog.Slog_level.Level))?.__copy__();
         } else if ((_l < (4 : stdgo._internal.log.slog.Slog_level.Level) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L71"
             return _str(("INFO" : stdgo.GoString), (_l - (0 : stdgo._internal.log.slog.Slog_level.Level) : stdgo._internal.log.slog.Slog_level.Level))?.__copy__();
         } else if ((_l < (8 : stdgo._internal.log.slog.Slog_level.Level) : Bool)) {
+            //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L73"
             return _str(("WARN" : stdgo.GoString), (_l - (4 : stdgo._internal.log.slog.Slog_level.Level) : stdgo._internal.log.slog.Slog_level.Level))?.__copy__();
         } else {
+            //"file:///home/runner/.go/go1.21.3/src/log/slog/level.go#L75"
             return _str(("ERROR" : stdgo.GoString), (_l - (8 : stdgo._internal.log.slog.Slog_level.Level) : stdgo._internal.log.slog.Slog_level.Level))?.__copy__();
         };
     }

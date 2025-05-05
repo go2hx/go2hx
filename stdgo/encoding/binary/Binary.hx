@@ -17,9 +17,9 @@ private function set_nativeEndian(v:stdgo._internal.encoding.binary.Binary_t_nat
         stdgo._internal.encoding.binary.Binary_nativeendian.nativeEndian = v;
         return v;
     }
-var maxVarintLen16 : stdgo.GoUInt64 = 3i32;
-var maxVarintLen32 : stdgo.GoUInt64 = 5i32;
-var maxVarintLen64 : stdgo.GoUInt64 = 10i32;
+var maxVarintLen16 : stdgo.GoUInt64 = 3i64;
+var maxVarintLen32 : stdgo.GoUInt64 = 5i64;
+var maxVarintLen64 : stdgo.GoUInt64 = 10i64;
 typedef ByteOrder = stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder;
 typedef AppendByteOrder = stdgo._internal.encoding.binary.Binary_appendbyteorder.AppendByteOrder;
 typedef Struct = stdgo._internal.encoding.binary.Binary_struct.Struct;

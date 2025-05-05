@@ -29,6 +29,7 @@ function _fiatScalarOpp(_out1:stdgo.Ref<stdgo._internal.crypto.internal.edwards2
             _x8 = @:tmpset0 __tmp__._1;
         };
         var _x9:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x9__pointer__ = stdgo.Go.pointer(_x9);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/edwards25519/scalar_fiat.go#L492"
         stdgo._internal.crypto.internal.edwards25519.Edwards25519__fiatscalarcmovznzu64._fiatScalarCmovznzU64(_x9__pointer__, (_x8 : stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalaruint1.T_fiatScalarUint1), (0i64 : stdgo.GoUInt64), (-1i64 : stdgo.GoUInt64));
         var _x10:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _x11:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

@@ -10,6 +10,7 @@ package stdgo._internal.encoding.json;
             stdgo._internal.encoding.json.Json__mapcycle._mapCycle[("x" : stdgo.GoString)] = stdgo.Go.toInterface(stdgo._internal.encoding.json.Json__mapcycle._mapCycle);
             stdgo._internal.encoding.json.Json__slicecycle._sliceCycle[(0 : stdgo.GoInt)] = stdgo.Go.toInterface(stdgo._internal.encoding.json.Json__slicecycle._sliceCycle);
             stdgo._internal.encoding.json.Json__slicenocycle._sliceNoCycle[(1 : stdgo.GoInt)] = stdgo.Go.toInterface((stdgo._internal.encoding.json.Json__slicenocycle._sliceNoCycle.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.AnyInterface>));
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode_test.go#L207"
             {
                 var _i = (1000 : stdgo.GoInt);
                 while ((_i > (0 : stdgo.GoInt) : Bool)) {

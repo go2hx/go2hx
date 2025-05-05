@@ -3,13 +3,16 @@ function _rowsiFromStatement(_ctx:stdgo._internal.context.Context_context.Contex
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L2802"
             (@:checkr _ds ?? throw "null pointer dereference").lock();
             {
                 final __f__ = (@:checkr _ds ?? throw "null pointer dereference").unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = stdgo._internal.database.sql.Sql__driverargsconnlocked._driverArgsConnLocked(_ci, _ds, _args), _dargs:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L2805"
             if (_err != null) {
+                //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L2806"
                 {
                     final __ret__:{ var _0 : stdgo._internal.database.sql.driver.Driver_rows.Rows; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.database.sql.driver.Driver_rows.Rows), _1 : _err };
                     for (defer in __deferstack__) {
@@ -20,6 +23,7 @@ function _rowsiFromStatement(_ctx:stdgo._internal.context.Context_context.Contex
                     return __ret__;
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/database/sql/sql.go#L2808"
             {
                 final __ret__:{ var _0 : stdgo._internal.database.sql.driver.Driver_rows.Rows; var _1 : stdgo.Error; } = stdgo._internal.database.sql.Sql__ctxdriverstmtquery._ctxDriverStmtQuery(_ctx, (@:checkr _ds ?? throw "null pointer dereference")._si, _dargs);
                 for (defer in __deferstack__) {
@@ -46,7 +50,7 @@ function _rowsiFromStatement(_ctx:stdgo._internal.context.Context_context.Contex
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

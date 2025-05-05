@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.ecdsa;
 function _signAsm(_priv:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_privatekey.PrivateKey>, _csprng:stdgo._internal.io.Io_reader.Reader, _hash:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var _sig = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/ecdsa/ecdsa_noasm.go#L16"
         return {
             @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.ecdsa.Ecdsa__errnoasm._errNoAsm };
             _sig = __tmp__._0;

@@ -1,2 +1,2 @@
 package stdgo._internal.debug.dwarf;
-final tagCallSite : stdgo._internal.debug.dwarf.Dwarf_tag.Tag = 72i32;
+final tagCallSite : stdgo._internal.debug.dwarf.Dwarf_tag.Tag = 72i64;

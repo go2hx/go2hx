@@ -1,6 +1,6 @@
 package stdgo.crypto.rsa;
-var pSSSaltLengthAuto : stdgo.GoUInt64 = 0i32;
-var pSSSaltLengthEqualsHash : stdgo.GoUInt64 = -1i32;
+var pSSSaltLengthAuto : stdgo.GoUInt64 = 0i64;
+var pSSSaltLengthEqualsHash : stdgo.GoUInt64 = -1i64;
 var errMessageTooLong(get, set) : stdgo.Error;
 private function get_errMessageTooLong():stdgo.Error return stdgo._internal.crypto.rsa.Rsa_errmessagetoolong.errMessageTooLong;
 private function set_errMessageTooLong(v:stdgo.Error):stdgo.Error {

@@ -1,5 +1,6 @@
 package stdgo._internal.text.template;
 function _builtins():stdgo._internal.text.template.Template_funcmap.FuncMap {
+        //"file:///home/runner/.go/go1.21.3/src/text/template/funcs.go#L40"
         return (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.AnyInterface>();
             x.__defaultValue__ = () -> (null : stdgo.AnyInterface);

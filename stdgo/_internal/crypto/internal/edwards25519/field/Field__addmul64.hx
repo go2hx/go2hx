@@ -6,5 +6,6 @@ function _addMul64(_v:stdgo._internal.crypto.internal.edwards25519.field.Field_t
             var __tmp__ = stdgo._internal.math.bits.Bits_add64.add64(_hi, _v._hi, _c);
             _hi = @:tmpset0 __tmp__._0;
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/edwards25519/field/fe_generic.go#L26"
         return (new stdgo._internal.crypto.internal.edwards25519.field.Field_t_uint128.T_uint128(_lo, _hi) : stdgo._internal.crypto.internal.edwards25519.field.Field_t_uint128.T_uint128);
     }

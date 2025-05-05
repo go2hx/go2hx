@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final eM_ME16 : stdgo._internal.debug.elf.Elf_machine.Machine = 59i32;
+final eM_ME16 : stdgo._internal.debug.elf.Elf_machine.Machine = 59i64;

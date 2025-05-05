@@ -1,2 +1,2 @@
 package stdgo._internal.net.http.fcgi;
-final _typeData : stdgo._internal.net.http.fcgi.Fcgi_t_rectype.T_recType = 8i32;
+final _typeData : stdgo._internal.net.http.fcgi.Fcgi_t_rectype.T_recType = 8i64;

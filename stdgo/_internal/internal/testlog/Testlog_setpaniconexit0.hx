@@ -2,9 +2,10 @@ package stdgo._internal.internal.testlog;
 function setPanicOnExit0(_v:Bool):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 stdgo._internal.internal.testlog.Testlog__paniconexit0._panicOnExit0._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/internal/testlog/exit.go#L30"
+            stdgo._internal.internal.testlog.Testlog__paniconexit0._panicOnExit0._mu.lock();
             {
-                final __f__ = @:check2 stdgo._internal.internal.testlog.Testlog__paniconexit0._panicOnExit0._mu.unlock;
+                final __f__ = stdgo._internal.internal.testlog.Testlog__paniconexit0._panicOnExit0._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             stdgo._internal.internal.testlog.Testlog__paniconexit0._panicOnExit0._val = _v;
@@ -25,7 +26,7 @@ function setPanicOnExit0(_v:Bool):Void {
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

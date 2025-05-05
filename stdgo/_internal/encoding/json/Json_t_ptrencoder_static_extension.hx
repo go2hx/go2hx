@@ -6,18 +6,24 @@ package stdgo._internal.encoding.json;
         @:recv var _pe:stdgo._internal.encoding.json.Json_t_ptrencoder.T_ptrEncoder = _pe?.__copy__();
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L864"
             if (_v.isNil()) {
-                @:check2r _e.writeString(("null" : stdgo.GoString));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L865"
+                _e.writeString(("null" : stdgo.GoString));
+                //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L866"
                 return;
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L868"
             {
                 (@:checkr _e ?? throw "null pointer dereference")._ptrLevel++;
                 if (((@:checkr _e ?? throw "null pointer dereference")._ptrLevel > (1000u32 : stdgo.GoUInt) : Bool)) {
                     var _ptr = (_v.interface_() : stdgo.AnyInterface);
+                    //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L872"
                     {
                         var __tmp__ = ((@:checkr _e ?? throw "null pointer dereference")._ptrSeen != null && (@:checkr _e ?? throw "null pointer dereference")._ptrSeen.__exists__(_ptr) ? { _0 : (@:checkr _e ?? throw "null pointer dereference")._ptrSeen[_ptr], _1 : true } : { _0 : ({} : stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue), _1 : false }), __4:stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (_ok) {
-                            @:check2r _e._error(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError(_v?.__copy__(), stdgo._internal.fmt.Fmt_sprintf.sprintf(("encountered a cycle via %s" : stdgo.GoString), stdgo.Go.toInterface(_v.type()))?.__copy__()) : stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError>)));
+                            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L873"
+                            _e._error(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError(_v?.__copy__(), stdgo._internal.fmt.Fmt_sprintf.sprintf(("encountered a cycle via %s" : stdgo.GoString), stdgo.Go.toInterface(_v.type()))?.__copy__()) : stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError>)));
                         };
                     };
                     (@:checkr _e ?? throw "null pointer dereference")._ptrSeen[_ptr] = (new stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue() : stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue);
@@ -28,7 +34,9 @@ package stdgo._internal.encoding.json;
                     };
                 };
             };
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L878"
             _pe._elemEnc(_e, _v.elem()?.__copy__(), _opts?.__copy__());
+            //"file:///home/runner/.go/go1.21.3/src/encoding/json/encode.go#L879"
             (@:checkr _e ?? throw "null pointer dereference")._ptrLevel--;
             {
                 for (defer in __deferstack__) {
@@ -47,7 +55,7 @@ package stdgo._internal.encoding.json;
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

@@ -1,5 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatSetMantExp(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
+        //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L243"
         for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_t__struct_15.T__struct_15>(16, 16, ...[
 ({ _frac : ("0" : stdgo.GoString), _exp : (0 : stdgo.GoInt), _z : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_15.T__struct_15),
 ({ _frac : ("+0" : stdgo.GoString), _exp : (0 : stdgo.GoInt), _z : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_t__struct_15.T__struct_15),
@@ -20,13 +21,18 @@ function testFloatSetMantExp(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>
             var _frac = stdgo._internal.math.big.Big__makefloat._makeFloat(_test._frac?.__copy__());
             var _want = stdgo._internal.math.big.Big__makefloat._makeFloat(_test._z?.__copy__());
             var _z:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_);
-            @:check2 _z.setMantExp(_frac, _test._exp);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L268"
+            _z.setMantExp(_frac, _test._exp);
+            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L269"
             if (!stdgo._internal.math.big.Big__alike._alike((stdgo.Go.setRef(_z) : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>), _want)) {
-                @:check2r _t.errorf(("SetMantExp(%s, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._frac), stdgo.Go.toInterface(_test._exp), stdgo.Go.toInterface(@:check2 _z.text((103 : stdgo.GoUInt8), (10 : stdgo.GoInt))), stdgo.Go.toInterface(_test._z));
+                //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L270"
+                _t.errorf(("SetMantExp(%s, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._frac), stdgo.Go.toInterface(_test._exp), stdgo.Go.toInterface(_z.text((103 : stdgo.GoUInt8), (10 : stdgo.GoInt))), stdgo.Go.toInterface(_test._z));
             };
             var _mant = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
-            if (@:check2r @:check2 _z.setMantExp(_mant, @:check2r _want.mantExp(_mant)).cmp(_want) != ((0 : stdgo.GoInt))) {
-                @:check2r _t.errorf(("Inverse property not satisfied: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(@:check2 _z.text((103 : stdgo.GoUInt8), (10 : stdgo.GoInt))), stdgo.Go.toInterface(_test._z));
+            //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L274"
+            if (_z.setMantExp(_mant, _want.mantExp(_mant)).cmp(_want) != ((0 : stdgo.GoInt))) {
+                //"file:///home/runner/.go/go1.21.3/src/math/big/float_test.go#L275"
+                _t.errorf(("Inverse property not satisfied: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_z.text((103 : stdgo.GoUInt8), (10 : stdgo.GoInt))), stdgo.Go.toInterface(_test._z));
             };
         };
     }

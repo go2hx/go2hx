@@ -4,16 +4,21 @@ package stdgo._internal.crypto.rc4;
     @:tdfield
     static public function xORKeyStream( _c:stdgo.Ref<stdgo._internal.crypto.rc4.Rc4_cipher.Cipher>, _dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.rc4.Rc4_cipher.Cipher> = _c;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/rc4/rc4.go#L62"
         if ((_src.length) == ((0 : stdgo.GoInt))) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/rc4/rc4.go#L63"
             return;
         };
+        //"file:///home/runner/.go/go1.21.3/src/crypto/rc4/rc4.go#L65"
         if (stdgo._internal.crypto.internal.alias.Alias_inexactoverlap.inexactOverlap((_dst.__slice__(0, (_src.length)) : stdgo.Slice<stdgo.GoUInt8>), _src)) {
+            //"file:///home/runner/.go/go1.21.3/src/crypto/rc4/rc4.go#L66"
             throw stdgo.Go.toInterface(("crypto/rc4: invalid buffer overlap" : stdgo.GoString));
         };
         var __0 = ((@:checkr _c ?? throw "null pointer dereference")._i : stdgo.GoUInt8), __1 = ((@:checkr _c ?? throw "null pointer dereference")._j : stdgo.GoUInt8);
 var _j = __1, _i = __0;
         _dst[((_src.length) - (1 : stdgo.GoInt) : stdgo.GoInt)];
         _dst = (_dst.__slice__(0, (_src.length)) : stdgo.Slice<stdgo.GoUInt8>);
+        //"file:///home/runner/.go/go1.21.3/src/crypto/rc4/rc4.go#L71"
         for (_k => _v in _src) {
             _i = (_i + ((1 : stdgo.GoUInt8)) : stdgo.GoUInt8);
             var _x = ((@:checkr _c ?? throw "null pointer dereference")._s[(_i : stdgo.GoInt)] : stdgo.GoUInt32);
@@ -42,6 +47,7 @@ var _j = __1, _i = __0;
     @:tdfield
     static public function reset( _c:stdgo.Ref<stdgo._internal.crypto.rc4.Rc4_cipher.Cipher>):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.rc4.Rc4_cipher.Cipher> = _c;
+        //"file:///home/runner/.go/go1.21.3/src/crypto/rc4/rc4.go#L53"
         for (_i => _ in (@:checkr _c ?? throw "null pointer dereference")._s.__copy__()) {
             (@:checkr _c ?? throw "null pointer dereference")._s[(_i : stdgo.GoInt)] = (0u32 : stdgo.GoUInt32);
         };

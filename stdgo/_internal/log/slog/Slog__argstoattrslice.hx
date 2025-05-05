@@ -1,6 +1,7 @@
 package stdgo._internal.log.slog;
 function _argsToAttrSlice(_args:stdgo.Slice<stdgo.AnyInterface>):stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr> {
         var _attr:stdgo._internal.log.slog.Slog_attr.Attr = ({} : stdgo._internal.log.slog.Slog_attr.Attr), _attrs:stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr> = (null : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/attr.go#L76"
         while (((_args.length) > (0 : stdgo.GoInt) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.log.slog.Slog__argstoattr._argsToAttr(_args);
@@ -9,5 +10,6 @@ function _argsToAttrSlice(_args:stdgo.Slice<stdgo.AnyInterface>):stdgo.Slice<std
             };
             _attrs = (_attrs.__append__(_attr) : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
         };
+        //"file:///home/runner/.go/go1.21.3/src/log/slog/attr.go#L80"
         return _attrs;
     }

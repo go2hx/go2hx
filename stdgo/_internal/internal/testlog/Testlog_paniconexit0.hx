@@ -2,11 +2,13 @@ package stdgo._internal.internal.testlog;
 function panicOnExit0():Bool {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 stdgo._internal.internal.testlog.Testlog__paniconexit0._panicOnExit0._mu.lock();
+            //"file:///home/runner/.go/go1.21.3/src/internal/testlog/exit.go#L15"
+            stdgo._internal.internal.testlog.Testlog__paniconexit0._panicOnExit0._mu.lock();
             {
-                final __f__ = @:check2 stdgo._internal.internal.testlog.Testlog__paniconexit0._panicOnExit0._mu.unlock;
+                final __f__ = stdgo._internal.internal.testlog.Testlog__paniconexit0._panicOnExit0._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
+            //"file:///home/runner/.go/go1.21.3/src/internal/testlog/exit.go#L17"
             {
                 final __ret__:Bool = stdgo._internal.internal.testlog.Testlog__paniconexit0._panicOnExit0._val;
                 for (defer in __deferstack__) {
@@ -33,7 +35,7 @@ function panicOnExit0():Bool {
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

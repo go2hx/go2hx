@@ -1,2 +1,2 @@
 package stdgo._internal.debug.elf;
-final r_RISCV_ADD32 : stdgo._internal.debug.elf.Elf_r_riscv.R_RISCV = 35i32;
+final r_RISCV_ADD32 : stdgo._internal.debug.elf.Elf_r_riscv.R_RISCV = 35i64;

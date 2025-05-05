@@ -8,7 +8,9 @@ function do_(_ctx:stdgo._internal.context.Context_context.Context, _labels:stdgo
                 __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             _ctx = stdgo._internal.runtime.pprof.Pprof_withlabels.withLabels(_ctx, _labels?.__copy__());
+            //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/runtime.go#L50"
             stdgo._internal.runtime.pprof.Pprof_setgoroutinelabels.setGoroutineLabels(_ctx);
+            //"file:///home/runner/.go/go1.21.3/src/runtime/pprof/runtime.go#L51"
             _f(_ctx);
             {
                 for (defer in __deferstack__) {
@@ -27,7 +29,7 @@ function do_(_ctx:stdgo._internal.context.Context_context.Context, _labels:stdgo
             {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
                     if (__exception__.message == "__return__") throw "__return__";
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };

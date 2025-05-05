@@ -1,2 +1,2 @@
 package stdgo._internal.internal.abi;
-final stackBig : stdgo.GoUInt64 = 4096i32;
+final stackBig : stdgo.GoUInt64 = 4096i64;

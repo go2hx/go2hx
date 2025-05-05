@@ -1,6 +1,7 @@
 package stdgo._internal.internal.bytealg;
 function hashStrRev(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
         var _hash = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        //"file:///home/runner/.go/go1.21.3/src/internal/bytealg/bytealg.go#L89"
         {
             var _i = ((_sep.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             while ((_i >= (0 : stdgo.GoInt) : Bool)) {
@@ -9,9 +10,11 @@ function hashStrRev(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : std
             };
         };
         var _pow:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), _sq:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32);
+        //"file:///home/runner/.go/go1.21.3/src/internal/bytealg/bytealg.go#L93"
         {
             var _i = (_sep.length : stdgo.GoInt);
             while ((_i > (0 : stdgo.GoInt) : Bool)) {
+                //"file:///home/runner/.go/go1.21.3/src/internal/bytealg/bytealg.go#L94"
                 if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _pow = (_pow * (_sq) : stdgo.GoUInt32);
                 };
@@ -19,5 +22,6 @@ _sq = (_sq * (_sq) : stdgo.GoUInt32);
                 _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt);
             };
         };
+        //"file:///home/runner/.go/go1.21.3/src/internal/bytealg/bytealg.go#L99"
         return { _0 : _hash, _1 : _pow };
     }

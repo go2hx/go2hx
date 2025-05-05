@@ -4,30 +4,35 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function copy( _d:stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode>):stdgo._internal.text.template.parse.Parse_node.Node {
         @:recv var _d:stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode> = _d;
-        return stdgo.Go.asInterface(@:check2r (@:checkr _d ?? throw "null pointer dereference")._tr._newDot((@:checkr _d ?? throw "null pointer dereference").pos));
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L454"
+        return stdgo.Go.asInterface((@:checkr _d ?? throw "null pointer dereference")._tr._newDot((@:checkr _d ?? throw "null pointer dereference").pos));
     }
     @:keep
     @:tdfield
     static public function _tree( _d:stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> {
         @:recv var _d:stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode> = _d;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L450"
         return (@:checkr _d ?? throw "null pointer dereference")._tr;
     }
     @:keep
     @:tdfield
     static public function _writeTo( _d:stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode>, _sb:stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode> = _d;
-        @:check2r _sb.writeString((@:check2r _d.string() : stdgo.GoString)?.__copy__());
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L446"
+        _sb.writeString((_d.string() : stdgo.GoString)?.__copy__());
     }
     @:keep
     @:tdfield
     static public function string( _d:stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode>):stdgo.GoString {
         @:recv var _d:stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode> = _d;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L442"
         return ("." : stdgo.GoString);
     }
     @:keep
     @:tdfield
     static public function type( _d:stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode>):stdgo._internal.text.template.parse.Parse_nodetype.NodeType {
         @:recv var _d:stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode> = _d;
+        //"file:///home/runner/.go/go1.21.3/src/text/template/parse/node.go#L438"
         return (5 : stdgo._internal.text.template.parse.Parse_nodetype.NodeType);
     }
     @:embedded

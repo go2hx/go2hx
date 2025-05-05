@@ -1,2 +1,2 @@
 package stdgo._internal.internal.coverage;
-final firstCtrOffset : stdgo.GoUInt64 = 3i32;
+final firstCtrOffset : stdgo.GoUInt64 = 3i64;

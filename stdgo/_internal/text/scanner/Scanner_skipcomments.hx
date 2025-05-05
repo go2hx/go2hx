@@ -1,2 +1,2 @@
 package stdgo._internal.text.scanner;
-final skipComments : stdgo.GoUInt64 = 512i32;
+final skipComments : stdgo.GoUInt64 = 512i64;

@@ -35,17 +35,17 @@ function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:B
 			setUnique = true;
 		}
 	} else {
+		if (!overwrite) {
+			if (name == "nil")
+				return "null";
+			if (name == "false" || name == "true") {
+				return name;
+			}
+		}
 		if (name.charAt(0) == "_") {
 			name = name = "_" + name;
 		} else {
 			name = untitle(name);
-		}
-	}
-	if (!overwrite) {
-		if (name == "nil")
-			return "null";
-		if (name == "false" || name == "true") {
-			return name;
 		}
 	}
 	if (!formatField && rename && info.restricted != null && info.restricted.indexOf(name) != -1) {

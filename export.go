@@ -805,7 +805,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 					basic, ok := checker.TypeOf(obj.Names[j]).Underlying().(*types.Basic)
 					if ok {
 						e := analysis.GetConstant(basic, c.Val(), nil)
-						if len(values) == 0 && j == 0 {
+						if len(values) == 0 && j == 0 || j >= len(values) {
 							values = append(values, parseData(e))
 						} else {
 							values[j] = parseData(e)

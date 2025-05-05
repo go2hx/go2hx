@@ -33,6 +33,7 @@ var offset = 0;
 var run:String = "";
 var runOnly:String = "";
 var lastTaskLogs = [];
+final runnerCount = haxe.macro.Compiler.getDefine("runnerCount") ?? "2";
 var dryRun = false;
 var unitBool = false;
 var stdBool = false;
@@ -221,7 +222,7 @@ function update() {
 		trace("tests left:", tests.length);
 		close();
 	}
-	if (tasks.length > 0) {
+	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount)) {
 		final task = tasks.pop();
 		if (!noLogs) {
 			Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);

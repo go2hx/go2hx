@@ -98,8 +98,16 @@ abstract GoUInt16(UInt16) from UInt16 from Int to UInt16 {
 	@:op(A ^ B) private static function xor(a:GoUInt16, b:GoUInt16):GoUInt16
 		return clamp(a.toBasic() ^ b.toBasic());
 
-	@:op(A % B) private static function mod(a:GoUInt16, b:GoUInt16):GoUInt16
+	@:op(A % B) private static function mod(a:GoUInt16, b:GoUInt16):GoUInt16 {
+		if (b == 0) {
+			#if numberlinkerror
+			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#else
+			throw "divide by zero";
+			#end
+		}
 		return clamp(a.toBasic() % b.toBasic());
+	}
 
 	@:op(A / B) private static function div(a:GoUInt16, b:GoUInt16):GoUInt16 {
 		if (b == 0) {

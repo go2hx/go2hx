@@ -15,11 +15,11 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 		return this;
 
 	@:to inline function toComplex128():GoComplex128 {
-		return toFloat64() + new GoComplex128(0,0);
+		return toFloat64() + new GoComplex128(0, 0);
 	}
 
 	@:to inline function toComplex64():GoComplex64 {
-		return toFloat32() + new GoComplex64(0,0);
+		return toFloat32() + new GoComplex64(0, 0);
 	}
 
 	@:to inline function toInt():GoInt
@@ -119,8 +119,16 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 	@:op(A ^ B) private static function xor(a:GoUInt64, b:GoUInt64):GoUInt64
 		return a.toBasic() ^ b.toBasic();
 
-	@:op(A % B) private static function mod(a:GoUInt64, b:GoUInt64):GoUInt64
+	@:op(A % B) private static function mod(a:GoUInt64, b:GoUInt64):GoUInt64 {
+		if (b == 0) {
+			#if numberlinkerror
+			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#else
+			throw "divide by zero";
+			#end
+		}
 		return a.toBasic() % b.toBasic();
+	}
 
 	@:op(A / B) private static function div(a:GoUInt64, b:GoUInt64):GoUInt64 {
 		if (b == 0) {

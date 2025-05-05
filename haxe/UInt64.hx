@@ -50,7 +50,7 @@ abstract UInt64(Int64) from Int64 to Int64 {
 	@:commutative @:op(A * B) private static function mulFloat(lhs:UInt64, rhs:Float):UInt64;
 
 	@:op(A % B) public static function mod(lhs:UInt64, rhs:UInt64):UInt64
-		return Int64.mod(lhs, rhs);
+		return lhs - (lhs / rhs * rhs);
 
 	@:op(A % B) private static function modI(lhs:UInt64, rhs:Int):UInt64;
 

@@ -71,8 +71,16 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 	@:op(A ^ B) private static function xor(a:GoUInt32, b:GoUInt32):GoUInt32
 		return clamp(a.toBasic() ^ b.toBasic());
 
-	@:op(A % B) private static function mod(a:GoUInt32, b:GoUInt32):GoUInt32
-		return clamp(a.toBasic() % b.toBasic());
+	@:op(A % B) private static function mod(a:GoUInt32, b:GoUInt32):GoUInt32 {
+		if (b == 0) {
+			#if numberlinkerror
+			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#else
+			throw "divide by zero";
+			#end
+		}
+		return a - (a / b * b);
+	}
 
 	@:op(A / B) private static function div(a:GoUInt32, b:GoUInt32):GoUInt32 {
 		if (b == 0) {
@@ -82,6 +90,8 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 			throw "divide by zero";
 			#end
 		}
+		if (b == 1)
+			return a;
 		return clamp(Std.int(a.toBasic() / b.toBasic()));
 	}
 
@@ -115,7 +125,7 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 		return a.toBasic() == b.toBasic();
 
 	@:op(A != B) private static function notEquals(a:GoUInt32, b:GoUInt32):Bool
-		return !equals(a,b);
+		return !equals(a, b);
 
 	@:op(A > B) private static function gt(a:GoUInt32, b:GoUInt32):Bool
 		return a.toBasic() > b.toBasic();

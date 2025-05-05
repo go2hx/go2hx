@@ -28,7 +28,7 @@ var maxUint : stdgo.GoUInt64 = 4294967295i64;
 var maxUint8 : stdgo.GoUInt64 = 255i64;
 var maxUint16 : stdgo.GoUInt64 = 65535i64;
 var maxUint32 : stdgo.GoUInt64 = 4294967295i64;
-var maxUint64 : stdgo.GoUInt64 = 0i64;
+var maxUint64 : stdgo.GoUInt64 = -1i64;
 var reduceThreshold : stdgo.GoUInt64 = 536870912i64;
 var expGo(get, set) : stdgo.GoFloat64 -> stdgo.GoFloat64;
 private function get_expGo():stdgo.GoFloat64 -> stdgo.GoFloat64 return stdgo._internal.math.Math_expgo.expGo;

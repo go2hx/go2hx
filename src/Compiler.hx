@@ -325,7 +325,7 @@ function setupCompiler(instance:CompilerInstanceData, ready:Void->Void) {
 	#if js listenNodeJS(server, instance); #end
 }
 
-function startGo4hx(instance) {
+function startGo4hx(instance:CompilerInstanceData) {
 	resetCount = 0;
 	// server.noDelay(true);
 	#if (target.threaded)

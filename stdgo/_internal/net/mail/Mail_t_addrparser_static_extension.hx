@@ -358,12 +358,12 @@ package stdgo._internal.net.mail;
     static public function _consumeQuotedString( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser> = _p;
         var _qs = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var _escaped_2:Bool = false;
-        var _qsb_1:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
-        var _i_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _size_4:stdgo.GoInt = (0 : stdgo.GoInt);
         var _r_3:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var loopBreak = false;
+        var _escaped_2:Bool = false;
+        var _qsb_1:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
+        var _i_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"

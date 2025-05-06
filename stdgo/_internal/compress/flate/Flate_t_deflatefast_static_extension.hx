@@ -106,23 +106,23 @@ package stdgo._internal.compress.flate;
     @:tdfield
     static public function _encode( _e:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast>, _dst:stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>, _src:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token> {
         @:recv var _e:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast> = _e;
-        var _x_27:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _now_23:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _cv_17:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _nextEmit_15:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _prevHash_28:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _l_26:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _offset_24:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _candidate_21:stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry = ({} : stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry);
-        var _currHash_29:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _t_25:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _bytesBetweenHashLookups_22:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _cv_17:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _currHash_29:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _x_27:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _skip_19:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _nextHash_18:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _s_16:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _nextEmit_15:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _offset_30:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _offset_24:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _now_23:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _s_16:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _candidate_21:stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry = ({} : stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry);
         var _nextS_20:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _nextHash_18:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _sLimit_14:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _l_26:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"

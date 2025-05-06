@@ -36,7 +36,7 @@ func GetConstant(basic *types.Basic, value constant.Value, node ast.Node) (e ast
 			d, ok := constant.Int64Val(constant.ToInt(value))
 			if !ok {
 				// not exact
-				e = &ast.BasicLit{Kind: token.INT, Value: "0"}
+				e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
 			} else {
 				e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
 			}

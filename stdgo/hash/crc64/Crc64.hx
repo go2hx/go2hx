@@ -1,7 +1,7 @@
 package stdgo.hash.crc64;
 var size : stdgo.GoUInt64 = 8i64;
-var iSO : stdgo.GoUInt64 = 0i64;
-var eCMA : stdgo.GoUInt64 = 0i64;
+var iSO : stdgo.GoUInt64 = -2882303761517117440i64;
+var eCMA : stdgo.GoUInt64 = -3932672073523589310i64;
 typedef Table = stdgo._internal.hash.crc64.Crc64_table.Table;
 typedef TablePointer = stdgo._internal.hash.crc64.Crc64_tablepointer.TablePointer;
 /**

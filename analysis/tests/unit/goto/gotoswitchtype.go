@@ -15,7 +15,7 @@ func f(a any) {
 	case int:
 		println(a + 10)
 	case float64:
-		println(a + 1.2)
+		println("floatt64")
 	}
 	goto JUMP
 JUMP:

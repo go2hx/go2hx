@@ -13,82 +13,82 @@ function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoS
                 final __value__ = _gotoNext;
                 if (__value__ == (0i64)) {
                     0i64;
-                    _gotoNext = 2919373i64;
-                } else if (__value__ == (2919373i64)) {
+                    _gotoNext = 2573291i64;
+                } else if (__value__ == (2573291i64)) {
                     //"file://#L0"
                     if ((((_pattern.length) > (0 : stdgo.GoInt) : Bool) && (_pattern[(0 : stdgo.GoInt)] == (42 : stdgo.GoUInt8)) : Bool)) {
-                        _gotoNext = 2919415i64;
+                        _gotoNext = 2573333i64;
                     } else {
-                        _gotoNext = 2919459i64;
+                        _gotoNext = 2573377i64;
                     };
-                } else if (__value__ == (2919415i64)) {
+                } else if (__value__ == (2573333i64)) {
                     _pattern = (_pattern.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                     _star = true;
-                    _gotoNext = 2919373i64;
-                } else if (__value__ == (2919459i64)) {
+                    _gotoNext = 2573291i64;
+                } else if (__value__ == (2573377i64)) {
                     _inrange_10 = false;
-                    _gotoNext = 2919487i64;
-                } else if (__value__ == (2919487i64)) {
+                    _gotoNext = 2573405i64;
+                } else if (__value__ == (2573405i64)) {
                     _i_11 = (0 : stdgo.GoInt);
                     scanBreak = false;
-                    _gotoNext = 2919494i64;
-                } else if (__value__ == (2919494i64)) {
+                    _gotoNext = 2573412i64;
+                } else if (__value__ == (2573412i64)) {
                     //"file://#L0"
                     if (!scanBreak && ((_i_11 < (_pattern.length) : Bool))) {
-                        _gotoNext = 2919527i64;
+                        _gotoNext = 2573445i64;
                     } else {
-                        _gotoNext = 2919776i64;
+                        _gotoNext = 2573694i64;
                     };
-                } else if (__value__ == (2919523i64)) {
+                } else if (__value__ == (2573441i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/path/match.go#L100"
                     _i_11++;
-                    _gotoNext = 2919494i64;
-                } else if (__value__ == (2919527i64)) {
-                    _gotoNext = 2919531i64;
-                } else if (__value__ == (2919531i64)) {
+                    _gotoNext = 2573412i64;
+                } else if (__value__ == (2573445i64)) {
+                    _gotoNext = 2573449i64;
+                } else if (__value__ == (2573449i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/path/match.go#L101"
                     {
                         final __value__ = _pattern[(_i_11 : stdgo.GoInt)];
                         if (__value__ == ((92 : stdgo.GoUInt8))) {
-                            _gotoNext = 2919553i64;
+                            _gotoNext = 2573471i64;
                         } else if (__value__ == ((91 : stdgo.GoUInt8))) {
-                            _gotoNext = 2919660i64;
+                            _gotoNext = 2573578i64;
                         } else if (__value__ == ((93 : stdgo.GoUInt8))) {
-                            _gotoNext = 2919690i64;
+                            _gotoNext = 2573608i64;
                         } else if (__value__ == ((42 : stdgo.GoUInt8))) {
-                            _gotoNext = 2919721i64;
+                            _gotoNext = 2573639i64;
                         } else {
-                            _gotoNext = 2919523i64;
+                            _gotoNext = 2573441i64;
                         };
                     };
-                } else if (__value__ == (2919553i64)) {
+                } else if (__value__ == (2573471i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/path/match.go#L104"
                     if (((_i_11 + (1 : stdgo.GoInt) : stdgo.GoInt) < (_pattern.length) : Bool)) {
-                        _gotoNext = 2919643i64;
+                        _gotoNext = 2573561i64;
                     } else {
-                        _gotoNext = 2919523i64;
+                        _gotoNext = 2573441i64;
                     };
-                } else if (__value__ == (2919643i64)) {
+                } else if (__value__ == (2573561i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/path/match.go#L105"
                     _i_11++;
-                    _gotoNext = 2919523i64;
-                } else if (__value__ == (2919660i64)) {
+                    _gotoNext = 2573441i64;
+                } else if (__value__ == (2573578i64)) {
                     _inrange_10 = true;
-                    _gotoNext = 2919523i64;
-                } else if (__value__ == (2919690i64)) {
+                    _gotoNext = 2573441i64;
+                } else if (__value__ == (2573608i64)) {
                     _inrange_10 = false;
-                    _gotoNext = 2919523i64;
-                } else if (__value__ == (2919721i64)) {
+                    _gotoNext = 2573441i64;
+                } else if (__value__ == (2573639i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/path/match.go#L112"
                     if (!_inrange_10) {
-                        _gotoNext = 2919746i64;
+                        _gotoNext = 2573664i64;
                     } else {
-                        _gotoNext = 2919523i64;
+                        _gotoNext = 2573441i64;
                     };
-                } else if (__value__ == (2919746i64)) {
+                } else if (__value__ == (2573664i64)) {
                     scanBreak = true;
-                    _gotoNext = 2919494i64;
-                } else if (__value__ == (2919776i64)) {
+                    _gotoNext = 2573412i64;
+                } else if (__value__ == (2573694i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/path/match.go#L117"
                     return {
                         @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoString; var _2 : stdgo.GoString; } = { _0 : _star, _1 : (_pattern.__slice__((0 : stdgo.GoInt), _i_11) : stdgo.GoString)?.__copy__(), _2 : (_pattern.__slice__(_i_11) : stdgo.GoString)?.__copy__() };

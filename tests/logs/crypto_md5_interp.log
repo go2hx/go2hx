@@ -9,28 +9,12 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 -- FAIL: TestGolden
 
 === RUN  TestGoldenMarshal
-Exception: Negative vector index: -1
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.crypto.md5._Md5_testgoldenmarshal.Md5_testgoldenmarshal_Fields_.testGoldenMarshal (./stdgo/_internal/crypto/md5/Md5_testgoldenmarshal.hx line 40 column 27)
-Called from stdgo._internal.crypto.md5.T_digest_asInterface.sum (./stdgo/_internal/crypto/md5/Md5_t_digest_asinterface.hx line 8 column 104)
-Called from stdgo._internal.crypto.md5.T_digest_static_extension.sum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 35 column 21)
-Called from stdgo._internal.crypto.md5.T_digest_static_extension._checkSum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 10 column 9)
-Called from stdgo._internal.encoding.binary.T_littleEndian_static_extension.putUint64 (./stdgo/_internal/encoding/binary/Binary_t_littleendian_static_extension.hx line 29 column 9)
-Called from stdgo._Slice.Slice_Impl_.__set__ (./stdgo/Slice.hx line 194 column 1821)
 
--- FAIL: TestGoldenMarshal
+-- PASS: TestGoldenMarshal
 
 === RUN  TestLarge
-Exception: Negative vector index: -24
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.crypto.md5._Md5_testlarge.Md5_testlarge_Fields_.testLarge (./stdgo/_internal/crypto/md5/Md5_testlarge.hx line 36 column 97)
-Called from stdgo._internal.crypto.md5.T_digest_asInterface.sum (./stdgo/_internal/crypto/md5/Md5_t_digest_asinterface.hx line 8 column 104)
-Called from stdgo._internal.crypto.md5.T_digest_static_extension.sum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 35 column 21)
-Called from stdgo._internal.crypto.md5.T_digest_static_extension._checkSum (./stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 10 column 9)
-Called from stdgo._internal.encoding.binary.T_littleEndian_static_extension.putUint64 (./stdgo/_internal/encoding/binary/Binary_t_littleendian_static_extension.hx line 29 column 9)
-Called from stdgo._Slice.Slice_Impl_.__set__ (./stdgo/Slice.hx line 194 column 1821)
 
--- FAIL: TestLarge
+-- PASS: TestLarge
 
 === RUN  TestBlockGeneric
 Exception: Null Access

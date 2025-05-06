@@ -27,5 +27,6 @@
  "interp|crypto",
  "interp|bufio",
  "interp|encoding/base32",
- "interp|io"
+ "interp|io",
+ "interp|hash"
 ]

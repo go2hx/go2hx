@@ -6,6 +6,8 @@ function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):MacroExpr {
 			final s = HaxeAst.makeString("not implemented: " + info.funcName);
 			return macro {
 				trace("funclit");
+				trace($s);
+				Sys.exit(1);
 				throw $s;
 			};
 		}

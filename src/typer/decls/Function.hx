@@ -65,7 +65,12 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 
 	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
-		macro throw ${HaxeAst.makeString(func.recvName + ":" + info.global.path + "." + func.name + " is not yet implemented")};
+		final s = HaxeAst.makeString(func.recvName + ":" + info.global.path + "." + func.name + " is not yet implemented");
+		macro {
+			trace($s);
+			@:define("(sys || hxnodejs)") Sys.exit(1);
+			throw $s;
+		};
 	} else {
 		var block = typer.stmts.Block.typeBlockStmt(func.body, info, true);
 		if (func.name == "_init" && func.varType == null) {

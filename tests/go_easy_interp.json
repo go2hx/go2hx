@@ -356,5 +356,6 @@
  "interp|bug312",
  "interp|const4",
  "interp|bug320",
- "interp|escape"
+ "interp|escape",
+ "interp|range"
 ]

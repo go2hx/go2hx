@@ -325,13 +325,13 @@ package stdgo._internal.go.doc.comment;
     @:tdfield
     static public function _paragraph( _d:stdgo.Ref<stdgo._internal.go.doc.comment.Comment_t_parsedoc.T_parseDoc>, _lines:stdgo.Slice<stdgo.GoString>):stdgo._internal.go.doc.comment.Comment_block.Block {
         @:recv var _d:stdgo.Ref<stdgo._internal.go.doc.comment.Comment_t_parsedoc.T_parseDoc> = _d;
-        var _def_11:stdgo.Ref<stdgo._internal.go.doc.comment.Comment_linkdef.LinkDef> = (null : stdgo.Ref<stdgo._internal.go.doc.comment.Comment_linkdef.LinkDef>);
-        var _line_10:stdgo.GoString = ("" : stdgo.GoString);
-        var _iterator_3652651_9:stdgo.GoInt = (0 : stdgo.GoInt);
         var _defs_8:stdgo.Slice<stdgo.Ref<stdgo._internal.go.doc.comment.Comment_linkdef.LinkDef>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.go.doc.comment.Comment_linkdef.LinkDef>>);
         var _def_14:stdgo.Ref<stdgo._internal.go.doc.comment.Comment_linkdef.LinkDef> = (null : stdgo.Ref<stdgo._internal.go.doc.comment.Comment_linkdef.LinkDef>);
-        var _iterator_3652769_13:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _iterator_3631809_13:stdgo.GoInt = (0 : stdgo.GoInt);
         var _ok_12:Bool = false;
+        var _def_11:stdgo.Ref<stdgo._internal.go.doc.comment.Comment_linkdef.LinkDef> = (null : stdgo.Ref<stdgo._internal.go.doc.comment.Comment_linkdef.LinkDef>);
+        var _line_10:stdgo.GoString = ("" : stdgo.GoString);
+        var _iterator_3631691_9:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"
@@ -342,12 +342,12 @@ package stdgo._internal.go.doc.comment;
                 if (__value__ == (0i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/go/doc/comment/parse.go#L649"
                     if ((0i64 : stdgo.GoInt) < (_lines.length)) {
-                        _gotoNext = 3652751i64;
+                        _gotoNext = 3631791i64;
                     } else {
-                        _gotoNext = 3652755i64;
+                        _gotoNext = 3631795i64;
                     };
-                } else if (__value__ == (3652663i64)) {
-                    _line_10 = _lines[(_iterator_3652651_9 : stdgo.GoInt)]?.__copy__();
+                } else if (__value__ == (3631703i64)) {
+                    _line_10 = _lines[(_iterator_3631691_9 : stdgo.GoInt)]?.__copy__();
                     {
                         var __tmp__ = stdgo._internal.go.doc.comment.Comment__parselink._parseLink(_line_10?.__copy__());
                         _def_11 = @:tmpset0 __tmp__._0;
@@ -355,78 +355,78 @@ package stdgo._internal.go.doc.comment;
                     };
                     //"file:///home/runner/.go/go1.21.3/src/go/doc/comment/parse.go#L651"
                     if (!_ok_12) {
-                        _gotoNext = 3652703i64;
+                        _gotoNext = 3631743i64;
                     } else {
-                        _gotoNext = 3652726i64;
+                        _gotoNext = 3631766i64;
                     };
-                } else if (__value__ == (3652703i64)) {
-                    _gotoNext = 3652893i64;
-                } else if (__value__ == (3652726i64)) {
+                } else if (__value__ == (3631743i64)) {
+                    _gotoNext = 3631933i64;
+                } else if (__value__ == (3631766i64)) {
                     _defs_8 = (_defs_8.__append__(_def_11) : stdgo.Slice<stdgo.Ref<stdgo._internal.go.doc.comment.Comment_linkdef.LinkDef>>);
                     //"file:///home/runner/.go/go1.21.3/src/go/doc/comment/parse.go#L649"
-                    _iterator_3652651_9++;
-                    _gotoNext = 3652752i64;
-                } else if (__value__ == (3652751i64)) {
+                    _iterator_3631691_9++;
+                    _gotoNext = 3631792i64;
+                } else if (__value__ == (3631791i64)) {
                     {
                         final __tmp__0 = 0i64;
                         final __tmp__1 = _lines[(0i64 : stdgo.GoInt)]?.__copy__();
-                        _iterator_3652651_9 = @:binopAssign __tmp__0;
+                        _iterator_3631691_9 = @:binopAssign __tmp__0;
                         _line_10 = @:binopAssign __tmp__1;
                     };
-                    _gotoNext = 3652752i64;
-                } else if (__value__ == (3652752i64)) {
+                    _gotoNext = 3631792i64;
+                } else if (__value__ == (3631792i64)) {
                     //"file://#L0"
-                    if (_iterator_3652651_9 < (_lines.length)) {
-                        _gotoNext = 3652663i64;
+                    if (_iterator_3631691_9 < (_lines.length)) {
+                        _gotoNext = 3631703i64;
                     } else {
-                        _gotoNext = 3652755i64;
+                        _gotoNext = 3631795i64;
                     };
-                } else if (__value__ == (3652755i64)) {
+                } else if (__value__ == (3631795i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/go/doc/comment/parse.go#L656"
                     if ((0i64 : stdgo.GoInt) < (_defs_8.length)) {
-                        _gotoNext = 3652878i64;
+                        _gotoNext = 3631918i64;
                     } else {
-                        _gotoNext = 3652882i64;
+                        _gotoNext = 3631922i64;
                     };
-                } else if (__value__ == (3652759i64)) {
+                } else if (__value__ == (3631799i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/go/doc/comment/parse.go#L656"
-                    _iterator_3652769_13++;
-                    _gotoNext = 3652879i64;
-                } else if (__value__ == (3652780i64)) {
-                    _def_14 = _defs_8[(_iterator_3652769_13 : stdgo.GoInt)];
+                    _iterator_3631809_13++;
+                    _gotoNext = 3631919i64;
+                } else if (__value__ == (3631820i64)) {
+                    _def_14 = _defs_8[(_iterator_3631809_13 : stdgo.GoInt)];
                     (@:checkr _d ?? throw "null pointer dereference").doc.links = ((@:checkr _d ?? throw "null pointer dereference").doc.links.__append__(_def_14) : stdgo.Slice<stdgo.Ref<stdgo._internal.go.doc.comment.Comment_linkdef.LinkDef>>);
                     //"file:///home/runner/.go/go1.21.3/src/go/doc/comment/parse.go#L658"
                     if (({
                         final value = ((@:checkr _d ?? throw "null pointer dereference")._links[(@:checkr _def_14 ?? throw "null pointer dereference").text] ?? (null : stdgo.Ref<stdgo._internal.go.doc.comment.Comment_linkdef.LinkDef>));
                         (value == null || (value : Dynamic).__nil__);
                     })) {
-                        _gotoNext = 3652845i64;
+                        _gotoNext = 3631885i64;
                     } else {
-                        _gotoNext = 3652759i64;
+                        _gotoNext = 3631799i64;
                     };
-                } else if (__value__ == (3652845i64)) {
+                } else if (__value__ == (3631885i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._links[(@:checkr _def_14 ?? throw "null pointer dereference").text] = _def_14;
-                    _gotoNext = 3652759i64;
-                } else if (__value__ == (3652878i64)) {
+                    _gotoNext = 3631799i64;
+                } else if (__value__ == (3631918i64)) {
                     {
                         final __tmp__0 = 0i64;
                         final __tmp__1 = _defs_8[(0i64 : stdgo.GoInt)];
-                        _iterator_3652769_13 = @:binopAssign __tmp__0;
+                        _iterator_3631809_13 = @:binopAssign __tmp__0;
                         _def_14 = @:binopAssign __tmp__1;
                     };
-                    _gotoNext = 3652879i64;
-                } else if (__value__ == (3652879i64)) {
+                    _gotoNext = 3631919i64;
+                } else if (__value__ == (3631919i64)) {
                     //"file://#L0"
-                    if (_iterator_3652769_13 < (_defs_8.length)) {
-                        _gotoNext = 3652780i64;
+                    if (_iterator_3631809_13 < (_defs_8.length)) {
+                        _gotoNext = 3631820i64;
                     } else {
-                        _gotoNext = 3652882i64;
+                        _gotoNext = 3631922i64;
                     };
-                } else if (__value__ == (3652882i64)) {
+                } else if (__value__ == (3631922i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/go/doc/comment/parse.go#L662"
                     return (null : stdgo._internal.go.doc.comment.Comment_block.Block);
-                    _gotoNext = 3652893i64;
-                } else if (__value__ == (3652893i64)) {
+                    _gotoNext = 3631933i64;
+                } else if (__value__ == (3631933i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/go/doc/comment/parse.go#L665"
                     return stdgo.Go.asInterface((stdgo.Go.setRef(({ text : (new stdgo.Slice<stdgo._internal.go.doc.comment.Comment_text.Text>(1, 1, ...[stdgo.Go.asInterface((stdgo._internal.strings.Strings_join.join(_lines, ("\n" : stdgo.GoString)) : stdgo._internal.go.doc.comment.Comment_plain.Plain))]) : stdgo.Slice<stdgo._internal.go.doc.comment.Comment_text.Text>) } : stdgo._internal.go.doc.comment.Comment_paragraph.Paragraph)) : stdgo.Ref<stdgo._internal.go.doc.comment.Comment_paragraph.Paragraph>));
                     _gotoNext = -1i64;

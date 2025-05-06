@@ -251,21 +251,21 @@ package stdgo._internal.compress.flate;
     @:tdfield
     static public function _deflate( _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> = _d;
-        var _hh_12:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
-        var _ok_8:Bool = false;
-        var _minIndex_5:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _lookahead_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_13:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _newOffset_7:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hh_2:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
-        var _hash_1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _index_10:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _prevOffset_4:stdgo.GoInt = (0 : stdgo.GoInt);
-        var loopBreak = false;
-        var _hash_11:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _newIndex_9:stdgo.GoInt = (0 : stdgo.GoInt);
         var _newLength_6:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _newOffset_7:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hash_11:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _minIndex_5:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _prevOffset_4:stdgo.GoInt = (0 : stdgo.GoInt);
         var _prevLength_3:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hash_1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _lookahead_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var loopBreak = false;
+        var _i_13:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hh_12:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
+        var _newIndex_9:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _ok_8:Bool = false;
+        var _hh_2:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"
@@ -276,128 +276,128 @@ package stdgo._internal.compress.flate;
                 if (__value__ == (0i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L381"
                     if (((((@:checkr _d ?? throw "null pointer dereference")._windowEnd - (@:checkr _d ?? throw "null pointer dereference")._index : stdgo.GoInt) < (262 : stdgo.GoInt) : Bool) && !(@:checkr _d ?? throw "null pointer dereference")._sync : Bool)) {
-                        _gotoNext = 3703163i64;
+                        _gotoNext = 3662822i64;
                     } else {
-                        _gotoNext = 3703179i64;
+                        _gotoNext = 3662838i64;
                     };
-                } else if (__value__ == (3703163i64)) {
+                } else if (__value__ == (3662822i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L382"
                     return;
-                    _gotoNext = 3703179i64;
-                } else if (__value__ == (3703179i64)) {
+                    _gotoNext = 3662838i64;
+                } else if (__value__ == (3662838i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._maxInsertIndex = ((@:checkr _d ?? throw "null pointer dereference")._windowEnd - (3 : stdgo.GoInt) : stdgo.GoInt);
-                    _gotoNext = 3703234i64;
-                } else if (__value__ == (3703234i64)) {
+                    _gotoNext = 3662893i64;
+                } else if (__value__ == (3662893i64)) {
                     0i64;
                     loopBreak = false;
-                    _gotoNext = 3703241i64;
-                } else if (__value__ == (3703241i64)) {
+                    _gotoNext = 3662900i64;
+                } else if (__value__ == (3662900i64)) {
                     //"file://#L0"
                     if (!loopBreak) {
-                        _gotoNext = 3703245i64;
+                        _gotoNext = 3662904i64;
                     } else {
-                        _gotoNext = 3707144i64;
+                        _gotoNext = 3666803i64;
                     };
-                } else if (__value__ == (3703245i64)) {
+                } else if (__value__ == (3662904i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L389"
                     if (((@:checkr _d ?? throw "null pointer dereference")._index > (@:checkr _d ?? throw "null pointer dereference")._windowEnd : Bool)) {
-                        _gotoNext = 3703274i64;
+                        _gotoNext = 3662933i64;
                     } else {
-                        _gotoNext = 3703312i64;
+                        _gotoNext = 3662971i64;
                     };
-                } else if (__value__ == (3703274i64)) {
+                } else if (__value__ == (3662933i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L390"
                     throw stdgo.Go.toInterface(("index > windowEnd" : stdgo.GoString));
-                    _gotoNext = 3703312i64;
-                } else if (__value__ == (3703312i64)) {
+                    _gotoNext = 3662971i64;
+                } else if (__value__ == (3662971i64)) {
                     _lookahead_0 = ((@:checkr _d ?? throw "null pointer dereference")._windowEnd - (@:checkr _d ?? throw "null pointer dereference")._index : stdgo.GoInt);
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L393"
                     if ((_lookahead_0 < (262 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 3703394i64;
+                        _gotoNext = 3663053i64;
                     } else {
-                        _gotoNext = 3703937i64;
+                        _gotoNext = 3663596i64;
                     };
-                } else if (__value__ == (3703394i64)) {
+                } else if (__value__ == (3663053i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L394"
                     if (!(@:checkr _d ?? throw "null pointer dereference")._sync) {
-                        _gotoNext = 3703410i64;
+                        _gotoNext = 3663069i64;
                     } else {
-                        _gotoNext = 3703435i64;
+                        _gotoNext = 3663094i64;
                     };
-                } else if (__value__ == (3703410i64)) {
+                } else if (__value__ == (3663069i64)) {
                     loopBreak = true;
-                    _gotoNext = 3703241i64;
-                } else if (__value__ == (3703435i64)) {
+                    _gotoNext = 3662900i64;
+                } else if (__value__ == (3663094i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L397"
                     if (((@:checkr _d ?? throw "null pointer dereference")._index > (@:checkr _d ?? throw "null pointer dereference")._windowEnd : Bool)) {
-                        _gotoNext = 3703460i64;
+                        _gotoNext = 3663119i64;
                     } else {
-                        _gotoNext = 3703501i64;
+                        _gotoNext = 3663160i64;
                     };
-                } else if (__value__ == (3703460i64)) {
+                } else if (__value__ == (3663119i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L398"
                     throw stdgo.Go.toInterface(("index > windowEnd" : stdgo.GoString));
-                    _gotoNext = 3703501i64;
-                } else if (__value__ == (3703501i64)) {
+                    _gotoNext = 3663160i64;
+                } else if (__value__ == (3663160i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L400"
                     if (_lookahead_0 == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 3703519i64;
+                        _gotoNext = 3663178i64;
                     } else {
-                        _gotoNext = 3703937i64;
+                        _gotoNext = 3663596i64;
                     };
-                } else if (__value__ == (3703519i64)) {
+                } else if (__value__ == (3663178i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L402"
                     if ((@:checkr _d ?? throw "null pointer dereference")._byteAvailable) {
-                        _gotoNext = 3703586i64;
+                        _gotoNext = 3663245i64;
                     } else {
-                        _gotoNext = 3703769i64;
+                        _gotoNext = 3663428i64;
                     };
-                } else if (__value__ == (3703586i64)) {
+                } else if (__value__ == (3663245i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._tokens = ((@:checkr _d ?? throw "null pointer dereference")._tokens.__append__(stdgo._internal.compress.flate.Flate__literaltoken._literalToken(((@:checkr _d ?? throw "null pointer dereference")._window[((@:checkr _d ?? throw "null pointer dereference")._index - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32))) : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
                     (@:checkr _d ?? throw "null pointer dereference")._byteAvailable = false;
-                    _gotoNext = 3703769i64;
-                } else if (__value__ == (3703769i64)) {
+                    _gotoNext = 3663428i64;
+                } else if (__value__ == (3663428i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L407"
                     if ((((@:checkr _d ?? throw "null pointer dereference")._tokens.length) > (0 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 3703790i64;
+                        _gotoNext = 3663449i64;
                     } else {
-                        _gotoNext = 3703915i64;
+                        _gotoNext = 3663574i64;
                     };
-                } else if (__value__ == (3703790i64)) {
+                } else if (__value__ == (3663449i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L408"
                     {
                         (@:checkr _d ?? throw "null pointer dereference")._err = _d._writeBlock((@:checkr _d ?? throw "null pointer dereference")._tokens, (@:checkr _d ?? throw "null pointer dereference")._index);
                         if ((@:checkr _d ?? throw "null pointer dereference")._err != null) {
-                            _gotoNext = 3703854i64;
+                            _gotoNext = 3663513i64;
                         } else {
-                            _gotoNext = 3703881i64;
+                            _gotoNext = 3663540i64;
                         };
                     };
-                } else if (__value__ == (3703854i64)) {
+                } else if (__value__ == (3663513i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L409"
                     return;
-                    _gotoNext = 3703881i64;
-                } else if (__value__ == (3703881i64)) {
+                    _gotoNext = 3663540i64;
+                } else if (__value__ == (3663540i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._tokens = ((@:checkr _d ?? throw "null pointer dereference")._tokens.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
-                    _gotoNext = 3703915i64;
-                } else if (__value__ == (3703915i64)) {
+                    _gotoNext = 3663574i64;
+                } else if (__value__ == (3663574i64)) {
                     loopBreak = true;
-                    _gotoNext = 3703241i64;
-                } else if (__value__ == (3703937i64)) {
+                    _gotoNext = 3662900i64;
+                } else if (__value__ == (3663596i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L416"
                     if (((@:checkr _d ?? throw "null pointer dereference")._index < (@:checkr _d ?? throw "null pointer dereference")._maxInsertIndex : Bool)) {
-                        _gotoNext = 3703967i64;
+                        _gotoNext = 3663626i64;
                     } else {
-                        _gotoNext = 3704216i64;
+                        _gotoNext = 3663875i64;
                     };
-                } else if (__value__ == (3703967i64)) {
+                } else if (__value__ == (3663626i64)) {
                     _hash_1 = stdgo._internal.compress.flate.Flate__hash4._hash4(((@:checkr _d ?? throw "null pointer dereference")._window.__slice__((@:checkr _d ?? throw "null pointer dereference")._index, ((@:checkr _d ?? throw "null pointer dereference")._index + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                     _hh_2 = stdgo.Go.pointer((@:checkr _d ?? throw "null pointer dereference")._hashHead[((_hash_1 & (131071u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)]);
                     (@:checkr _d ?? throw "null pointer dereference")._chainHead = (_hh_2.value : stdgo.GoInt);
                     (@:checkr _d ?? throw "null pointer dereference")._hashPrev[((@:checkr _d ?? throw "null pointer dereference")._index & (32767 : stdgo.GoInt) : stdgo.GoInt)] = ((@:checkr _d ?? throw "null pointer dereference")._chainHead : stdgo.GoUInt32);
                     _hh_2.value = (((@:checkr _d ?? throw "null pointer dereference")._index + (@:checkr _d ?? throw "null pointer dereference")._hashOffset : stdgo.GoInt) : stdgo.GoUInt32);
-                    _gotoNext = 3704216i64;
-                } else if (__value__ == (3704216i64)) {
+                    _gotoNext = 3663875i64;
+                } else if (__value__ == (3663875i64)) {
                     _prevLength_3 = (@:checkr _d ?? throw "null pointer dereference")._length;
                     _prevOffset_4 = (@:checkr _d ?? throw "null pointer dereference")._offset;
                     (@:checkr _d ?? throw "null pointer dereference")._length = (3 : stdgo.GoInt);
@@ -405,21 +405,21 @@ package stdgo._internal.compress.flate;
                     _minIndex_5 = ((@:checkr _d ?? throw "null pointer dereference")._index - (32768 : stdgo.GoInt) : stdgo.GoInt);
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L429"
                     if ((_minIndex_5 < (0 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 3704364i64;
+                        _gotoNext = 3664023i64;
                     } else {
-                        _gotoNext = 3704389i64;
+                        _gotoNext = 3664048i64;
                     };
-                } else if (__value__ == (3704364i64)) {
+                } else if (__value__ == (3664023i64)) {
                     _minIndex_5 = (0 : stdgo.GoInt);
-                    _gotoNext = 3704389i64;
-                } else if (__value__ == (3704389i64)) {
+                    _gotoNext = 3664048i64;
+                } else if (__value__ == (3664048i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L433"
                     if (((((@:checkr _d ?? throw "null pointer dereference")._chainHead - (@:checkr _d ?? throw "null pointer dereference")._hashOffset : stdgo.GoInt) >= _minIndex_5 : Bool) && ((((@:checkr _d ?? throw "null pointer dereference")._compressionLevel._fastSkipHashing != ((2147483647 : stdgo.GoInt)) && (_lookahead_0 > (3 : stdgo.GoInt) : Bool) : Bool) || (((@:checkr _d ?? throw "null pointer dereference")._compressionLevel._fastSkipHashing == ((2147483647 : stdgo.GoInt)) && (_lookahead_0 > _prevLength_3 : Bool) : Bool) && (_prevLength_3 < (@:checkr _d ?? throw "null pointer dereference")._compressionLevel._lazy : Bool) : Bool) : Bool)) : Bool)) {
-                        _gotoNext = 3704587i64;
+                        _gotoNext = 3664246i64;
                     } else {
-                        _gotoNext = 3704766i64;
+                        _gotoNext = 3664425i64;
                     };
-                } else if (__value__ == (3704587i64)) {
+                } else if (__value__ == (3664246i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L436"
                     {
                         {
@@ -429,186 +429,186 @@ package stdgo._internal.compress.flate;
                             _ok_8 = @:tmpset0 __tmp__._2;
                         };
                         if (_ok_8) {
-                            _gotoNext = 3704703i64;
+                            _gotoNext = 3664362i64;
                         } else {
-                            _gotoNext = 3704766i64;
+                            _gotoNext = 3664425i64;
                         };
                     };
-                } else if (__value__ == (3704703i64)) {
+                } else if (__value__ == (3664362i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._length = _newLength_6;
                     (@:checkr _d ?? throw "null pointer dereference")._offset = _newOffset_7;
-                    _gotoNext = 3704766i64;
-                } else if (__value__ == (3704766i64)) {
+                    _gotoNext = 3664425i64;
+                } else if (__value__ == (3664425i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L441"
                     if ((((@:checkr _d ?? throw "null pointer dereference")._compressionLevel._fastSkipHashing != ((2147483647 : stdgo.GoInt)) && ((@:checkr _d ?? throw "null pointer dereference")._length >= (4 : stdgo.GoInt) : Bool) : Bool) || (((@:checkr _d ?? throw "null pointer dereference")._compressionLevel._fastSkipHashing == ((2147483647 : stdgo.GoInt)) && (_prevLength_3 >= (4 : stdgo.GoInt) : Bool) : Bool) && ((@:checkr _d ?? throw "null pointer dereference")._length <= _prevLength_3 : Bool) : Bool) : Bool)) {
-                        _gotoNext = 3704925i64;
+                        _gotoNext = 3664584i64;
                     } else {
-                        _gotoNext = 3706676i64;
+                        _gotoNext = 3666335i64;
                     };
-                } else if (__value__ == (3704925i64)) {
+                } else if (__value__ == (3664584i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L445"
                     if ((@:checkr _d ?? throw "null pointer dereference")._compressionLevel._fastSkipHashing != ((2147483647 : stdgo.GoInt))) {
-                        _gotoNext = 3705080i64;
+                        _gotoNext = 3664739i64;
                     } else {
-                        _gotoNext = 3705204i64;
+                        _gotoNext = 3664863i64;
                     };
-                } else if (__value__ == (3705080i64)) {
+                } else if (__value__ == (3664739i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._tokens = ((@:checkr _d ?? throw "null pointer dereference")._tokens.__append__(stdgo._internal.compress.flate.Flate__matchtoken._matchToken((((@:checkr _d ?? throw "null pointer dereference")._length - (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt32), (((@:checkr _d ?? throw "null pointer dereference")._offset - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt32))) : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
-                    _gotoNext = 3705552i64;
-                } else if (__value__ == (3705204i64)) {
-                    _gotoNext = 3705204i64;
+                    _gotoNext = 3665211i64;
+                } else if (__value__ == (3664863i64)) {
+                    _gotoNext = 3664863i64;
                     (@:checkr _d ?? throw "null pointer dereference")._tokens = ((@:checkr _d ?? throw "null pointer dereference")._tokens.__append__(stdgo._internal.compress.flate.Flate__matchtoken._matchToken(((_prevLength_3 - (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt32), ((_prevOffset_4 - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt32))) : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
                     0i64;
-                    _gotoNext = 3705552i64;
-                } else if (__value__ == (3705552i64)) {
+                    _gotoNext = 3665211i64;
+                } else if (__value__ == (3665211i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L454"
                     if (((@:checkr _d ?? throw "null pointer dereference")._length <= (@:checkr _d ?? throw "null pointer dereference")._compressionLevel._fastSkipHashing : Bool)) {
-                        _gotoNext = 3705585i64;
+                        _gotoNext = 3665244i64;
                     } else {
-                        _gotoNext = 3706329i64;
+                        _gotoNext = 3665988i64;
                     };
-                } else if (__value__ == (3705585i64)) {
+                } else if (__value__ == (3665244i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L456"
                     if ((@:checkr _d ?? throw "null pointer dereference")._compressionLevel._fastSkipHashing != ((2147483647 : stdgo.GoInt))) {
-                        _gotoNext = 3705646i64;
+                        _gotoNext = 3665305i64;
                     } else {
-                        _gotoNext = 3705694i64;
+                        _gotoNext = 3665353i64;
                     };
-                } else if (__value__ == (3705646i64)) {
+                } else if (__value__ == (3665305i64)) {
                     _newIndex_9 = ((@:checkr _d ?? throw "null pointer dereference")._index + (@:checkr _d ?? throw "null pointer dereference")._length : stdgo.GoInt);
-                    _gotoNext = 3705747i64;
-                } else if (__value__ == (3705694i64)) {
-                    _gotoNext = 3705694i64;
+                    _gotoNext = 3665406i64;
+                } else if (__value__ == (3665353i64)) {
+                    _gotoNext = 3665353i64;
                     _newIndex_9 = (((@:checkr _d ?? throw "null pointer dereference")._index + _prevLength_3 : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
                     0i64;
-                    _gotoNext = 3705747i64;
-                } else if (__value__ == (3705747i64)) {
+                    _gotoNext = 3665406i64;
+                } else if (__value__ == (3665406i64)) {
                     _index_10 = (@:checkr _d ?? throw "null pointer dereference")._index;
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L462"
                     _index_10++;
-                    _gotoNext = 3705768i64;
-                } else if (__value__ == (3705768i64)) {
+                    _gotoNext = 3665427i64;
+                } else if (__value__ == (3665427i64)) {
                     //"file://#L0"
                     if ((_index_10 < _newIndex_9 : Bool)) {
-                        _gotoNext = 3705807i64;
+                        _gotoNext = 3665466i64;
                     } else {
-                        _gotoNext = 3706192i64;
+                        _gotoNext = 3665851i64;
                     };
-                } else if (__value__ == (3705799i64)) {
+                } else if (__value__ == (3665458i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L462"
                     _index_10++;
-                    _gotoNext = 3705768i64;
-                } else if (__value__ == (3705807i64)) {
+                    _gotoNext = 3665427i64;
+                } else if (__value__ == (3665466i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L463"
                     if ((_index_10 < (@:checkr _d ?? throw "null pointer dereference")._maxInsertIndex : Bool)) {
-                        _gotoNext = 3705842i64;
+                        _gotoNext = 3665501i64;
                     } else {
-                        _gotoNext = 3705799i64;
+                        _gotoNext = 3665458i64;
                     };
-                } else if (__value__ == (3705842i64)) {
+                } else if (__value__ == (3665501i64)) {
                     _hash_11 = stdgo._internal.compress.flate.Flate__hash4._hash4(((@:checkr _d ?? throw "null pointer dereference")._window.__slice__(_index_10, (_index_10 + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                     _hh_12 = stdgo.Go.pointer((@:checkr _d ?? throw "null pointer dereference")._hashHead[((_hash_11 & (131071u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)]);
                     (@:checkr _d ?? throw "null pointer dereference")._hashPrev[(_index_10 & (32767 : stdgo.GoInt) : stdgo.GoInt)] = _hh_12.value;
                     _hh_12.value = ((_index_10 + (@:checkr _d ?? throw "null pointer dereference")._hashOffset : stdgo.GoInt) : stdgo.GoUInt32);
-                    _gotoNext = 3705799i64;
-                } else if (__value__ == (3706192i64)) {
+                    _gotoNext = 3665458i64;
+                } else if (__value__ == (3665851i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._index = _index_10;
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L475"
                     if ((@:checkr _d ?? throw "null pointer dereference")._compressionLevel._fastSkipHashing == ((2147483647 : stdgo.GoInt))) {
-                        _gotoNext = 3706247i64;
+                        _gotoNext = 3665906i64;
                     } else {
-                        _gotoNext = 3706463i64;
+                        _gotoNext = 3666122i64;
                     };
-                } else if (__value__ == (3706247i64)) {
+                } else if (__value__ == (3665906i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._byteAvailable = false;
                     (@:checkr _d ?? throw "null pointer dereference")._length = (3 : stdgo.GoInt);
-                    _gotoNext = 3706463i64;
-                } else if (__value__ == (3706329i64)) {
-                    _gotoNext = 3706329i64;
+                    _gotoNext = 3666122i64;
+                } else if (__value__ == (3665988i64)) {
+                    _gotoNext = 3665988i64;
                     (@:checkr _d ?? throw "null pointer dereference")._index = ((@:checkr _d ?? throw "null pointer dereference")._index + ((@:checkr _d ?? throw "null pointer dereference")._length) : stdgo.GoInt);
                     0i64;
-                    _gotoNext = 3706463i64;
-                } else if (__value__ == (3706463i64)) {
+                    _gotoNext = 3666122i64;
+                } else if (__value__ == (3666122i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L484"
                     if (((@:checkr _d ?? throw "null pointer dereference")._tokens.length) == ((16384 : stdgo.GoInt))) {
-                        _gotoNext = 3706503i64;
+                        _gotoNext = 3666162i64;
                     } else {
-                        _gotoNext = 3703241i64;
+                        _gotoNext = 3662900i64;
                     };
-                } else if (__value__ == (3706503i64)) {
+                } else if (__value__ == (3666162i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L486"
                     {
                         (@:checkr _d ?? throw "null pointer dereference")._err = _d._writeBlock((@:checkr _d ?? throw "null pointer dereference")._tokens, (@:checkr _d ?? throw "null pointer dereference")._index);
                         if ((@:checkr _d ?? throw "null pointer dereference")._err != null) {
-                            _gotoNext = 3706614i64;
+                            _gotoNext = 3666273i64;
                         } else {
-                            _gotoNext = 3706638i64;
+                            _gotoNext = 3666297i64;
                         };
                     };
-                } else if (__value__ == (3706614i64)) {
+                } else if (__value__ == (3666273i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L487"
                     return;
-                    _gotoNext = 3706638i64;
-                } else if (__value__ == (3706638i64)) {
+                    _gotoNext = 3666297i64;
+                } else if (__value__ == (3666297i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._tokens = ((@:checkr _d ?? throw "null pointer dereference")._tokens.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
-                    _gotoNext = 3703241i64;
-                } else if (__value__ == (3706676i64)) {
-                    _gotoNext = 3706676i64;
+                    _gotoNext = 3662900i64;
+                } else if (__value__ == (3666335i64)) {
+                    _gotoNext = 3666335i64;
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L492"
                     if ((((@:checkr _d ?? throw "null pointer dereference")._compressionLevel._fastSkipHashing != (2147483647 : stdgo.GoInt)) || (@:checkr _d ?? throw "null pointer dereference")._byteAvailable : Bool)) {
-                        _gotoNext = 3706734i64;
+                        _gotoNext = 3666393i64;
                     } else {
-                        _gotoNext = 3707056i64;
+                        _gotoNext = 3666715i64;
                     };
-                } else if (__value__ == (3706734i64)) {
+                } else if (__value__ == (3666393i64)) {
                     _i_13 = ((@:checkr _d ?? throw "null pointer dereference")._index - (1 : stdgo.GoInt) : stdgo.GoInt);
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L494"
                     if ((@:checkr _d ?? throw "null pointer dereference")._compressionLevel._fastSkipHashing != ((2147483647 : stdgo.GoInt))) {
-                        _gotoNext = 3706795i64;
+                        _gotoNext = 3666454i64;
                     } else {
-                        _gotoNext = 3706824i64;
+                        _gotoNext = 3666483i64;
                     };
-                } else if (__value__ == (3706795i64)) {
+                } else if (__value__ == (3666454i64)) {
                     _i_13 = (@:checkr _d ?? throw "null pointer dereference")._index;
-                    _gotoNext = 3706824i64;
-                } else if (__value__ == (3706824i64)) {
+                    _gotoNext = 3666483i64;
+                } else if (__value__ == (3666483i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._tokens = ((@:checkr _d ?? throw "null pointer dereference")._tokens.__append__(stdgo._internal.compress.flate.Flate__literaltoken._literalToken(((@:checkr _d ?? throw "null pointer dereference")._window[(_i_13 : stdgo.GoInt)] : stdgo.GoUInt32))) : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L498"
                     if (((@:checkr _d ?? throw "null pointer dereference")._tokens.length) == ((16384 : stdgo.GoInt))) {
-                        _gotoNext = 3706931i64;
+                        _gotoNext = 3666590i64;
                     } else {
-                        _gotoNext = 3707056i64;
+                        _gotoNext = 3666715i64;
                     };
-                } else if (__value__ == (3706931i64)) {
+                } else if (__value__ == (3666590i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L499"
                     {
                         (@:checkr _d ?? throw "null pointer dereference")._err = _d._writeBlock((@:checkr _d ?? throw "null pointer dereference")._tokens, (_i_13 + (1 : stdgo.GoInt) : stdgo.GoInt));
                         if ((@:checkr _d ?? throw "null pointer dereference")._err != null) {
-                            _gotoNext = 3706991i64;
+                            _gotoNext = 3666650i64;
                         } else {
-                            _gotoNext = 3707018i64;
+                            _gotoNext = 3666677i64;
                         };
                     };
-                } else if (__value__ == (3706991i64)) {
+                } else if (__value__ == (3666650i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L500"
                     return;
-                    _gotoNext = 3707018i64;
-                } else if (__value__ == (3707018i64)) {
+                    _gotoNext = 3666677i64;
+                } else if (__value__ == (3666677i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._tokens = ((@:checkr _d ?? throw "null pointer dereference")._tokens.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
-                    _gotoNext = 3707056i64;
-                } else if (__value__ == (3707056i64)) {
+                    _gotoNext = 3666715i64;
+                } else if (__value__ == (3666715i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L505"
                     (@:checkr _d ?? throw "null pointer dereference")._index++;
                     //"file:///home/runner/.go/go1.21.3/src/compress/flate/deflate.go#L506"
                     if ((@:checkr _d ?? throw "null pointer dereference")._compressionLevel._fastSkipHashing == ((2147483647 : stdgo.GoInt))) {
-                        _gotoNext = 3707103i64;
+                        _gotoNext = 3666762i64;
                     } else {
-                        _gotoNext = 3703241i64;
+                        _gotoNext = 3662900i64;
                     };
-                } else if (__value__ == (3707103i64)) {
+                } else if (__value__ == (3666762i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._byteAvailable = true;
-                    _gotoNext = 3703241i64;
-                } else if (__value__ == (3707144i64)) {
+                    _gotoNext = 3662900i64;
+                } else if (__value__ == (3666803i64)) {
                     _gotoNext = -1i64;
                 };
             };

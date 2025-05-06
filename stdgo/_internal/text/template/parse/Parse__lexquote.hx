@@ -1,7 +1,7 @@
 package stdgo._internal.text.template.parse;
 function _lexQuote(_l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>):stdgo._internal.text.template.parse.Parse_t_statefn.T_stateFn {
-        var _r_1:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var loopBreak = false;
+        var _r_1:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"

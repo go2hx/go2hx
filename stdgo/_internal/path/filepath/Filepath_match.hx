@@ -1,16 +1,16 @@
 package stdgo._internal.path.filepath;
 function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.Error; } {
         var _matched = false, _err = (null : stdgo.Error);
-        var _t_2:stdgo.GoString = ("" : stdgo.GoString);
-        var _chunk_1:stdgo.GoString = ("" : stdgo.GoString);
-        var _star_0:Bool = false;
-        var _ok_7:Bool = false;
-        var _i_5:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _ok_3:Bool = false;
         var _t_6:stdgo.GoString = ("" : stdgo.GoString);
+        var _ok_3:Bool = false;
+        var _chunk_1:stdgo.GoString = ("" : stdgo.GoString);
         var _err_4:stdgo.Error = (null : stdgo.Error);
+        var _t_2:stdgo.GoString = ("" : stdgo.GoString);
+        var _star_0:Bool = false;
         var patternBreak = false;
         var _err_8:stdgo.Error = (null : stdgo.Error);
+        var _ok_7:Bool = false;
+        var _i_5:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"

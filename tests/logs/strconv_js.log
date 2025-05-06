@@ -12,14 +12,14 @@
 
 === RUN  TestParseComplex
 ParseComplex(<invalid reflect.Value>, 64) = %!v(MISSING), %!v(MISSING); want %!v(MISSING), %!v(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58640 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58569 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:58123:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testparsecomplex_testParseComplex [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:30559:5)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57885 column 9)
-Called from ._$internal_strconvdottest_Strconvdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 50664 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:65443:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:65444:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58665 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58594 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:58148:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testparsecomplex_testParseComplex [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:30578:5)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57910 column 9)
+Called from ._$internal_strconvdottest_Strconvdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 50683 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:65468:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:65469:3)
 
 -- FAIL: TestParseComplex
 
@@ -300,14 +300,14 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 === RUN  TestCountMallocs
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58524 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58554 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:58162:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testcountmallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:27952:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57885 column 9)
-Called from ._$internal_strconvdottest_Strconvdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 50664 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:65443:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:65444:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58549 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58579 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:58187:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testcountmallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:27971:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57910 column 9)
+Called from ._$internal_strconvdottest_Strconvdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 50683 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:65468:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:65469:3)
 
 -- SKIP: TestCountMallocs
 

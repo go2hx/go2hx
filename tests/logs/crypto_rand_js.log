@@ -1,10 +1,10 @@
 === RUN  TestRead
 Exception: Value:syscall.js.new_ is not yet implemented
-Called from stdgo__$internal_syscall_js_Value_$static_$extension.new_ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62725 column 23)
-Called from .stdgo__$internal_crypto_rand_Rand_$_$getrandom__getRandom (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62851 column 65)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:62841:15
-Called from stdgo__$internal_crypto_rand_T_$reader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62962 column 13)
-Called from stdgo__$internal_crypto_rand_T_$reader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62827 column 68)
+Called from stdgo__$internal_syscall_js_Value_$static_$extension.new_ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62750 column 23)
+Called from .stdgo__$internal_crypto_rand_Rand_$_$getrandom__getRandom (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62876 column 65)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:62866:15
+Called from stdgo__$internal_crypto_rand_T_$reader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62987 column 13)
+Called from stdgo__$internal_crypto_rand_T_$reader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62852 column 68)
 Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17706 column 21)
 Called from .stdgo__$internal_io_Io_$readfull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17692 column 9)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_rand_Rand_$testread_testRead [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:17009:16)
@@ -17,14 +17,14 @@ Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_cry
 
 === RUN  TestPrimeSmall
 Exception: Channel not supported on non threaded targets
-Called from stdgo_ChanData.__smartGet__ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47453 column 24)
-Called from .stdgo__$internal_crypto_internal_randutil_Randutil_$maybereadbyte_maybeReadByte (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47149 column 21)
-Called from .stdgo__$internal_crypto_rand_Rand_$prime_prime (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47096 column 2)
+Called from stdgo_ChanData.__smartGet__ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47472 column 24)
+Called from .stdgo__$internal_crypto_internal_randutil_Randutil_$maybereadbyte_maybeReadByte (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47168 column 21)
+Called from .stdgo__$internal_crypto_rand_Rand_$prime_prime (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47115 column 2)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_rand_$test_Rand_$test_$testprimesmall_testPrimeSmall [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:16543:17)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 78977 column 9)
-Called from ._$internal_crypto_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 59319 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:86098:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:86099:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 79002 column 9)
+Called from ._$internal_crypto_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 59338 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:86123:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:86124:3)
 
 -- FAIL: TestPrimeSmall
 
@@ -34,27 +34,27 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 
 === RUN  TestPrimeNondeterministic
 Exception: Channel not supported on non threaded targets
-Called from stdgo_ChanData.__smartGet__ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47453 column 24)
-Called from .stdgo__$internal_crypto_internal_randutil_Randutil_$maybereadbyte_maybeReadByte (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47149 column 21)
-Called from .stdgo__$internal_crypto_rand_Rand_$prime_prime (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47096 column 2)
+Called from stdgo_ChanData.__smartGet__ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47472 column 24)
+Called from .stdgo__$internal_crypto_internal_randutil_Randutil_$maybereadbyte_maybeReadByte (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47168 column 21)
+Called from .stdgo__$internal_crypto_rand_Rand_$prime_prime (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 47115 column 2)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_rand_$test_Rand_$test_$testprimenondeterministic_testPrimeNondeterministic [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:16504:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 78977 column 9)
-Called from ._$internal_crypto_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 59319 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:86098:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:86099:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 79002 column 9)
+Called from ._$internal_crypto_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 59338 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:86123:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:86124:3)
 
 -- FAIL: TestPrimeNondeterministic
 
 === RUN  TestInt
 Exception: Value:syscall.js.new_ is not yet implemented
-Called from stdgo__$internal_syscall_js_Value_$static_$extension.new_ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62725 column 23)
-Called from .stdgo__$internal_crypto_rand_Rand_$_$getrandom__getRandom (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62851 column 65)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:62841:15
-Called from stdgo__$internal_crypto_rand_T_$reader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62962 column 13)
-Called from stdgo__$internal_crypto_rand_T_$reader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62827 column 68)
+Called from stdgo__$internal_syscall_js_Value_$static_$extension.new_ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62750 column 23)
+Called from .stdgo__$internal_crypto_rand_Rand_$_$getrandom__getRandom (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62876 column 65)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:62866:15
+Called from stdgo__$internal_crypto_rand_T_$reader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62987 column 13)
+Called from stdgo__$internal_crypto_rand_T_$reader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62852 column 68)
 Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17706 column 21)
 Called from .stdgo__$internal_io_Io_$readfull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17692 column 9)
-Called from .stdgo__$internal_crypto_rand_Rand_$int_$_int_ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57035 column 17)
+Called from .stdgo__$internal_crypto_rand_Rand_$int_$_int_ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57054 column 17)
 
 -- FAIL: TestInt
 
@@ -62,11 +62,11 @@ Called from .stdgo__$internal_crypto_rand_Rand_$int_$_int_ (/home/runner/work/go
 - SUBRUN  max=1
 - SUBRUN  max=2
 Exception: Value:syscall.js.new_ is not yet implemented
-Called from stdgo__$internal_syscall_js_Value_$static_$extension.new_ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62725 column 23)
-Called from .stdgo__$internal_crypto_rand_Rand_$_$getrandom__getRandom (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62851 column 65)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:62841:15
-Called from stdgo__$internal_crypto_rand_T_$reader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62962 column 13)
-Called from stdgo__$internal_crypto_rand_T_$reader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62827 column 68)
+Called from stdgo__$internal_syscall_js_Value_$static_$extension.new_ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62750 column 23)
+Called from .stdgo__$internal_crypto_rand_Rand_$_$getrandom__getRandom (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62876 column 65)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:62866:15
+Called from stdgo__$internal_crypto_rand_T_$reader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62987 column 13)
+Called from stdgo__$internal_crypto_rand_T_$reader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 62852 column 68)
 Called from _$internal_crypto_rand_$test_T_$countingReader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 16302 column 28)
 Called from _$internal_crypto_rand_$test_T_$countingReader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 16281 column 76)
 Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17706 column 21)

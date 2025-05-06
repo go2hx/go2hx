@@ -1,12 +1,12 @@
 {
     "passes": [
         "TestGoldenMarshal",
+        "TestLarge",
         "TestLargeHashes",
         "TestAllocations"
     ],
     "fails": [
         "TestGolden",
-        "TestLarge",
         "TestBlockGeneric"
     ],
     "runs": [

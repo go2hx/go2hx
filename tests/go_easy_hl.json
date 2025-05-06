@@ -363,5 +363,6 @@
  "hl|bug312",
  "hl|const4",
  "hl|bug320",
- "hl|escape"
+ "hl|escape",
+ "hl|range"
 ]

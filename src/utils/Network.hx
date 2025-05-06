@@ -104,15 +104,12 @@ class Stream {
 
 	public function new(s, loop) {
 		this.s = s;
-		// this.s.setBlocking(false);
 		this.loop = loop;
 	}
 
 	public function write(b:Bytes, ?onWrite:Bool->Void) {
-		// s.setBlocking(false);
 		s.output.writeBytes(b, 0, b.length);
 		s.output.flush();
-		// s.setBlocking(false);
 		if (onWrite != null)
 			onWrite(true);
 	}
@@ -123,11 +120,7 @@ class Stream {
 
 	public function readStart(call:Bytes->Void) {
 		loop.events.push(() -> {
-			// try {
 			call(s.input.read(size));
-			// } catch (e) {
-			// trace(e);
-			// }
 		});
 	}
 }

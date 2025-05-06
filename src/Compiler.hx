@@ -355,11 +355,7 @@ function accept(server, instance, ready) {
 }
 
 private function setBytes(buff:Bytes, bytes:Bytes, pos:Int):Int {
-	#if js
-	@:privateAccess buff.b.set(bytes.b, pos);
-	#else
 	buff.blit(pos, bytes, 0, bytes.length);
-	#end
 	return pos + bytes.length;
 }
 

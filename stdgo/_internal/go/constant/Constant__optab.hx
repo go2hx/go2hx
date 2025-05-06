@@ -1,0 +1,24 @@
+package stdgo._internal.go.constant;
+var _optab : stdgo.GoMap<stdgo.GoString, stdgo._internal.go.token.Token_token.Token> = ({
+        final x = new stdgo.GoMap.GoStringMap<stdgo._internal.go.token.Token_token.Token>();
+        x.__defaultValue__ = () -> ((0 : stdgo.GoInt) : stdgo._internal.go.token.Token_token.Token);
+        x.set(("!" : stdgo.GoString), (43 : stdgo._internal.go.token.Token_token.Token));
+x.set(("+" : stdgo.GoString), (12 : stdgo._internal.go.token.Token_token.Token));
+x.set(("-" : stdgo.GoString), (13 : stdgo._internal.go.token.Token_token.Token));
+x.set(("*" : stdgo.GoString), (14 : stdgo._internal.go.token.Token_token.Token));
+x.set(("/" : stdgo.GoString), (15 : stdgo._internal.go.token.Token_token.Token));
+x.set(("%" : stdgo.GoString), (16 : stdgo._internal.go.token.Token_token.Token));
+x.set(("<<" : stdgo.GoString), (20 : stdgo._internal.go.token.Token_token.Token));
+x.set((">>" : stdgo.GoString), (21 : stdgo._internal.go.token.Token_token.Token));
+x.set(("&" : stdgo.GoString), (17 : stdgo._internal.go.token.Token_token.Token));
+x.set(("|" : stdgo.GoString), (18 : stdgo._internal.go.token.Token_token.Token));
+x.set(("^" : stdgo.GoString), (19 : stdgo._internal.go.token.Token_token.Token));
+x.set(("&^" : stdgo.GoString), (22 : stdgo._internal.go.token.Token_token.Token));
+x.set(("==" : stdgo.GoString), (39 : stdgo._internal.go.token.Token_token.Token));
+x.set(("!=" : stdgo.GoString), (44 : stdgo._internal.go.token.Token_token.Token));
+x.set(("<" : stdgo.GoString), (40 : stdgo._internal.go.token.Token_token.Token));
+x.set(("<=" : stdgo.GoString), (45 : stdgo._internal.go.token.Token_token.Token));
+x.set((">" : stdgo.GoString), (41 : stdgo._internal.go.token.Token_token.Token));
+x.set((">=" : stdgo.GoString), (46 : stdgo._internal.go.token.Token_token.Token));
+        x;
+    } : stdgo.GoMap<stdgo.GoString, stdgo._internal.go.token.Token_token.Token>);

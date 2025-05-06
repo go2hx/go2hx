@@ -1,0 +1,2 @@
+package stdgo._internal.crypto.internal.edwards25519;
+var __11 = stdgo._internal.crypto.internal.edwards25519.Edwards25519___tmp__3.__tmp__3._1;

@@ -1,0 +1,2 @@
+package stdgo._internal.go.constant;
+var _fracTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(9, 9, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("-1" : stdgo.GoString), ("1.2" : stdgo.GoString), ("-0.991" : stdgo.GoString), ("2.718281828" : stdgo.GoString), ("3.14159265358979323e-10" : stdgo.GoString), ("1e100" : stdgo.GoString), ("1e1000" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);

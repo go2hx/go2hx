@@ -1,0 +1,2 @@
+package stdgo._internal.go.internal.gccgoimporter;
+@:named @:using(stdgo._internal.go.internal.gccgoimporter.Gccgoimporter_importer_static_extension.Importer_static_extension) typedef Importer = (stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.go.types.Types_package.Package>>, stdgo.GoString, stdgo.GoString, stdgo.GoString -> { var _0 : stdgo._internal.io.Io_readcloser.ReadCloser; var _1 : stdgo.Error; }) -> { var _0 : stdgo.Ref<stdgo._internal.go.types.Types_package.Package>; var _1 : stdgo.Error; };

@@ -4,13 +4,13 @@ package stdgo._internal.debug.gosym;
     @:tdfield
     static public function _alineFromLine( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>, _path:stdgo.GoString, _line:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj> = _o;
+        var _incstart_35:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _depth_34:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_33:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
         var _i_32:stdgo.GoInt = (0 : stdgo.GoInt);
         var _val_38:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_37:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
-        var _iterator_3648328_36:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _incstart_35:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _depth_34:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _iterator_3667376_36:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"
@@ -21,133 +21,133 @@ package stdgo._internal.debug.gosym;
                 if (__value__ == (0i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L696"
                     if ((_line < (1 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 3648072i64;
+                        _gotoNext = 3667120i64;
                     } else {
-                        _gotoNext = 3648121i64;
+                        _gotoNext = 3667169i64;
                     };
-                } else if (__value__ == (3648072i64)) {
+                } else if (__value__ == (3667120i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L697"
                     return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError(_path?.__copy__(), _line) : stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError>)) };
-                    _gotoNext = 3648121i64;
-                } else if (__value__ == (3648121i64)) {
+                    _gotoNext = 3667169i64;
+                } else if (__value__ == (3667169i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L700"
                     if ((0i64 : stdgo.GoInt) < ((@:checkr _o ?? throw "null pointer dereference").paths.length)) {
-                        _gotoNext = 3648701i64;
+                        _gotoNext = 3667749i64;
                     } else {
-                        _gotoNext = 3648705i64;
+                        _gotoNext = 3667753i64;
                     };
-                } else if (__value__ == (3648147i64)) {
+                } else if (__value__ == (3667195i64)) {
                     _s_33 = (@:checkr _o ?? throw "null pointer dereference").paths[(_i_32 : stdgo.GoInt)];
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L702"
                     if (_s_33.name != (_path)) {
-                        _gotoNext = 3648189i64;
+                        _gotoNext = 3667237i64;
                     } else {
-                        _gotoNext = 3648250i64;
+                        _gotoNext = 3667298i64;
                     };
-                } else if (__value__ == (3648189i64)) {
+                } else if (__value__ == (3667237i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L700"
                     _i_32++;
-                    _gotoNext = 3648702i64;
-                } else if (__value__ == (3648250i64)) {
+                    _gotoNext = 3667750i64;
+                } else if (__value__ == (3667298i64)) {
                     _depth_34 = (0 : stdgo.GoInt);
                     _line = (_line + ((_s_33.value : stdgo.GoInt)) : stdgo.GoInt);
-                    _gotoNext = 3648304i64;
-                } else if (__value__ == (3648304i64)) {
+                    _gotoNext = 3667352i64;
+                } else if (__value__ == (3667352i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L711"
                     if ((0i64 : stdgo.GoInt) < (((@:checkr _o ?? throw "null pointer dereference").paths.__slice__(_i_32) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_sym.Sym>).length)) {
-                        _gotoNext = 3648656i64;
+                        _gotoNext = 3667704i64;
                     } else {
-                        _gotoNext = 3648661i64;
+                        _gotoNext = 3667709i64;
                     };
-                } else if (__value__ == (3648320i64)) {
+                } else if (__value__ == (3667368i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L711"
-                    _iterator_3648328_36++;
-                    _gotoNext = 3648657i64;
-                } else if (__value__ == (3648346i64)) {
-                    _s_37 = ((@:checkr _o ?? throw "null pointer dereference").paths.__slice__(_i_32) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_sym.Sym>)[(_iterator_3648328_36 : stdgo.GoInt)];
+                    _iterator_3667376_36++;
+                    _gotoNext = 3667705i64;
+                } else if (__value__ == (3667394i64)) {
+                    _s_37 = ((@:checkr _o ?? throw "null pointer dereference").paths.__slice__(_i_32) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_sym.Sym>)[(_iterator_3667376_36 : stdgo.GoInt)];
                     _val_38 = (_s_37.value : stdgo.GoInt);
-                    _gotoNext = 3648374i64;
-                } else if (__value__ == (3648374i64)) {
+                    _gotoNext = 3667422i64;
+                } else if (__value__ == (3667422i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L713"
                     if (((_depth_34 == (1 : stdgo.GoInt)) && (_val_38 >= _line : Bool) : Bool)) {
-                        _gotoNext = 3648386i64;
+                        _gotoNext = 3667434i64;
                     } else if (_s_37.name == ((stdgo.Go.str() : stdgo.GoString))) {
-                        _gotoNext = 3648447i64;
+                        _gotoNext = 3667495i64;
                     } else {
-                        _gotoNext = 3648583i64;
+                        _gotoNext = 3667631i64;
                     };
-                } else if (__value__ == (3648386i64)) {
+                } else if (__value__ == (3667434i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L715"
                     return { _0 : (_line - (1 : stdgo.GoInt) : stdgo.GoInt), _1 : (null : stdgo.Error) };
-                    _gotoNext = 3648320i64;
-                } else if (__value__ == (3648447i64)) {
+                    _gotoNext = 3667368i64;
+                } else if (__value__ == (3667495i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L718"
                     _depth_34--;
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L719"
                     if (_depth_34 == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 3648496i64;
+                        _gotoNext = 3667544i64;
                     } else if (_depth_34 == ((1 : stdgo.GoInt))) {
-                        _gotoNext = 3648543i64;
+                        _gotoNext = 3667591i64;
                     } else {
-                        _gotoNext = 3648320i64;
+                        _gotoNext = 3667368i64;
                     };
-                } else if (__value__ == (3648496i64)) {
+                } else if (__value__ == (3667544i64)) {
                     stdgo._internal.debug.gosym.Gosym__pathloopbreak._pathloopBreak = true;
-                    _gotoNext = 3648657i64;
-                } else if (__value__ == (3648543i64)) {
+                    _gotoNext = 3667705i64;
+                } else if (__value__ == (3667591i64)) {
                     _line = (_line + ((_val_38 - _incstart_35 : stdgo.GoInt)) : stdgo.GoInt);
-                    _gotoNext = 3648320i64;
-                } else if (__value__ == (3648583i64)) {
+                    _gotoNext = 3667368i64;
+                } else if (__value__ == (3667631i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L726"
                     if (_depth_34 == ((1 : stdgo.GoInt))) {
-                        _gotoNext = 3648610i64;
+                        _gotoNext = 3667658i64;
                     } else {
-                        _gotoNext = 3648642i64;
+                        _gotoNext = 3667690i64;
                     };
-                } else if (__value__ == (3648610i64)) {
+                } else if (__value__ == (3667658i64)) {
                     _incstart_35 = _val_38;
-                    _gotoNext = 3648642i64;
-                } else if (__value__ == (3648642i64)) {
+                    _gotoNext = 3667690i64;
+                } else if (__value__ == (3667690i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L729"
                     _depth_34++;
-                    _gotoNext = 3648320i64;
-                } else if (__value__ == (3648656i64)) {
+                    _gotoNext = 3667368i64;
+                } else if (__value__ == (3667704i64)) {
                     {
                         final __tmp__0 = 0i64;
                         final __tmp__1 = ((@:checkr _o ?? throw "null pointer dereference").paths.__slice__(_i_32) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_sym.Sym>)[(0i64 : stdgo.GoInt)];
-                        _iterator_3648328_36 = @:binopAssign __tmp__0;
+                        _iterator_3667376_36 = @:binopAssign __tmp__0;
                         _s_37 = @:binopAssign __tmp__1;
                     };
-                    _gotoNext = 3648657i64;
-                } else if (__value__ == (3648657i64)) {
+                    _gotoNext = 3667705i64;
+                } else if (__value__ == (3667705i64)) {
                     //"file://#L0"
-                    if (_iterator_3648328_36 < (((@:checkr _o ?? throw "null pointer dereference").paths.__slice__(_i_32) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_sym.Sym>).length)) {
-                        _gotoNext = 3648346i64;
+                    if (_iterator_3667376_36 < (((@:checkr _o ?? throw "null pointer dereference").paths.__slice__(_i_32) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_sym.Sym>).length)) {
+                        _gotoNext = 3667394i64;
                     } else {
-                        _gotoNext = 3648661i64;
+                        _gotoNext = 3667709i64;
                     };
-                } else if (__value__ == (3648661i64)) {
+                } else if (__value__ == (3667709i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L732"
                     return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError(_path?.__copy__(), _line) : stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError>)) };
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L700"
                     _i_32++;
-                    _gotoNext = 3648702i64;
-                } else if (__value__ == (3648701i64)) {
+                    _gotoNext = 3667750i64;
+                } else if (__value__ == (3667749i64)) {
                     {
                         final __tmp__0 = 0i64;
                         final __tmp__1 = (@:checkr _o ?? throw "null pointer dereference").paths[(0i64 : stdgo.GoInt)];
                         _i_32 = @:binopAssign __tmp__0;
                         _s_33 = @:binopAssign __tmp__1;
                     };
-                    _gotoNext = 3648702i64;
-                } else if (__value__ == (3648702i64)) {
+                    _gotoNext = 3667750i64;
+                } else if (__value__ == (3667750i64)) {
                     //"file://#L0"
                     if (_i_32 < ((@:checkr _o ?? throw "null pointer dereference").paths.length)) {
-                        _gotoNext = 3648147i64;
+                        _gotoNext = 3667195i64;
                     } else {
-                        _gotoNext = 3648705i64;
+                        _gotoNext = 3667753i64;
                     };
-                } else if (__value__ == (3648705i64)) {
+                } else if (__value__ == (3667753i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L734"
                     return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.asInterface((_path : stdgo._internal.debug.gosym.Gosym_unknownfileerror.UnknownFileError)) };
                     _gotoNext = -1i64;
@@ -161,11 +161,11 @@ package stdgo._internal.debug.gosym;
     @:tdfield
     static public function _lineFromAline( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>, _aline:stdgo.GoInt):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj> = _o;
-        var _s_30:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
-        var _iterator_3647500_29:stdgo.GoInt = (0 : stdgo.GoInt);
         var _tos_28:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt>);
         var _noPath_27:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt>);
         var _val_31:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _s_30:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
+        var _iterator_3666548_29:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"
@@ -177,84 +177,84 @@ package stdgo._internal.debug.gosym;
                     {};
                     _noPath_27 = (stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_t__linefromaline___localname___stackent_16022.T__lineFromAline___localname___stackEnt_16022((stdgo.Go.str() : stdgo.GoString)?.__copy__(), (0 : stdgo.GoInt), (0 : stdgo.GoInt), null) : stdgo._internal.debug.gosym.Gosym_t__linefromaline___localname___stackent_16022.T__lineFromAline___localname___stackEnt_16022)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t__linefromaline___localname___stackent_16022.T__lineFromAline___localname___stackEnt_16022>);
                     _tos_28 = _noPath_27;
-                    _gotoNext = 3647477i64;
-                } else if (__value__ == (3647477i64)) {
+                    _gotoNext = 3666525i64;
+                } else if (__value__ == (3666525i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L665"
                     if ((0i64 : stdgo.GoInt) < ((@:checkr _o ?? throw "null pointer dereference").paths.length)) {
-                        _gotoNext = 3647895i64;
+                        _gotoNext = 3666943i64;
                     } else {
-                        _gotoNext = 3647900i64;
+                        _gotoNext = 3666948i64;
                     };
-                } else if (__value__ == (3647492i64)) {
+                } else if (__value__ == (3666540i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L665"
-                    _iterator_3647500_29++;
-                    _gotoNext = 3647896i64;
-                } else if (__value__ == (3647514i64)) {
-                    _s_30 = (@:checkr _o ?? throw "null pointer dereference").paths[(_iterator_3647500_29 : stdgo.GoInt)];
+                    _iterator_3666548_29++;
+                    _gotoNext = 3666944i64;
+                } else if (__value__ == (3666562i64)) {
+                    _s_30 = (@:checkr _o ?? throw "null pointer dereference").paths[(_iterator_3666548_29 : stdgo.GoInt)];
                     _val_31 = (_s_30.value : stdgo.GoInt);
-                    _gotoNext = 3647540i64;
-                } else if (__value__ == (3647540i64)) {
+                    _gotoNext = 3666588i64;
+                } else if (__value__ == (3666588i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L667"
                     if ((_val_31 > _aline : Bool)) {
-                        _gotoNext = 3647551i64;
+                        _gotoNext = 3666599i64;
                     } else if (_val_31 == ((1 : stdgo.GoInt))) {
-                        _gotoNext = 3647590i64;
+                        _gotoNext = 3666638i64;
                     } else if (_s_30.name == ((stdgo.Go.str() : stdgo.GoString))) {
-                        _gotoNext = 3647675i64;
+                        _gotoNext = 3666723i64;
                     } else {
-                        _gotoNext = 3647831i64;
+                        _gotoNext = 3666879i64;
                     };
-                } else if (__value__ == (3647551i64)) {
+                } else if (__value__ == (3666599i64)) {
                     stdgo._internal.debug.gosym.Gosym__pathloopbreak._pathloopBreak = true;
-                    _gotoNext = 3647896i64;
-                } else if (__value__ == (3647590i64)) {
+                    _gotoNext = 3666944i64;
+                } else if (__value__ == (3666638i64)) {
                     _tos_28 = (stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt(_s_30.name?.__copy__(), _val_31, (0 : stdgo.GoInt), _noPath_27) : stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt>);
-                    _gotoNext = 3647492i64;
-                } else if (__value__ == (3647675i64)) {
+                    _gotoNext = 3666540i64;
+                } else if (__value__ == (3666723i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L677"
                     if (_tos_28 == (_noPath_27)) {
-                        _gotoNext = 3647724i64;
+                        _gotoNext = 3666772i64;
                     } else {
-                        _gotoNext = 3647775i64;
+                        _gotoNext = 3666823i64;
                     };
-                } else if (__value__ == (3647724i64)) {
+                } else if (__value__ == (3666772i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L678"
                     return { _0 : ("<malformed symbol table>" : stdgo.GoString), _1 : (0 : stdgo.GoInt) };
-                    _gotoNext = 3647775i64;
-                } else if (__value__ == (3647775i64)) {
+                    _gotoNext = 3666823i64;
+                } else if (__value__ == (3666823i64)) {
                     (@:checkr (@:checkr _tos_28 ?? throw "null pointer dereference")._prev ?? throw "null pointer dereference")._offset = ((@:checkr (@:checkr _tos_28 ?? throw "null pointer dereference")._prev ?? throw "null pointer dereference")._offset + ((_val_31 - (@:checkr _tos_28 ?? throw "null pointer dereference")._start : stdgo.GoInt)) : stdgo.GoInt);
                     _tos_28 = (@:checkr _tos_28 ?? throw "null pointer dereference")._prev;
-                    _gotoNext = 3647492i64;
-                } else if (__value__ == (3647831i64)) {
+                    _gotoNext = 3666540i64;
+                } else if (__value__ == (3666879i64)) {
                     _tos_28 = (stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt(_s_30.name?.__copy__(), _val_31, (0 : stdgo.GoInt), _tos_28) : stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt>);
-                    _gotoNext = 3647492i64;
-                } else if (__value__ == (3647895i64)) {
+                    _gotoNext = 3666540i64;
+                } else if (__value__ == (3666943i64)) {
                     {
                         final __tmp__0 = 0i64;
                         final __tmp__1 = (@:checkr _o ?? throw "null pointer dereference").paths[(0i64 : stdgo.GoInt)];
-                        _iterator_3647500_29 = @:binopAssign __tmp__0;
+                        _iterator_3666548_29 = @:binopAssign __tmp__0;
                         _s_30 = @:binopAssign __tmp__1;
                     };
-                    _gotoNext = 3647896i64;
-                } else if (__value__ == (3647896i64)) {
+                    _gotoNext = 3666944i64;
+                } else if (__value__ == (3666944i64)) {
                     //"file://#L0"
-                    if (_iterator_3647500_29 < ((@:checkr _o ?? throw "null pointer dereference").paths.length)) {
-                        _gotoNext = 3647514i64;
+                    if (_iterator_3666548_29 < ((@:checkr _o ?? throw "null pointer dereference").paths.length)) {
+                        _gotoNext = 3666562i64;
                     } else {
-                        _gotoNext = 3647900i64;
+                        _gotoNext = 3666948i64;
                     };
-                } else if (__value__ == (3647900i64)) {
+                } else if (__value__ == (3666948i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L689"
                     if (_tos_28 == (_noPath_27)) {
-                        _gotoNext = 3647917i64;
+                        _gotoNext = 3666965i64;
                     } else {
-                        _gotoNext = 3647938i64;
+                        _gotoNext = 3666986i64;
                     };
-                } else if (__value__ == (3647917i64)) {
+                } else if (__value__ == (3666965i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L690"
                     return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (0 : stdgo.GoInt) };
-                    _gotoNext = 3647938i64;
-                } else if (__value__ == (3647938i64)) {
+                    _gotoNext = 3666986i64;
+                } else if (__value__ == (3666986i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/debug/gosym/symtab.go#L692"
                     return { _0 : (@:checkr _tos_28 ?? throw "null pointer dereference")._path?.__copy__(), _1 : (((_aline - (@:checkr _tos_28 ?? throw "null pointer dereference")._start : stdgo.GoInt) - (@:checkr _tos_28 ?? throw "null pointer dereference")._offset : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) };
                     _gotoNext = -1i64;

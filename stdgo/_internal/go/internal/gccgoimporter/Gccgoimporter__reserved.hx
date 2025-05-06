@@ -1,0 +1,2 @@
+package stdgo._internal.go.internal.gccgoimporter;
+var _reserved : stdgo.Ref<stdgo._internal.go.internal.gccgoimporter.Gccgoimporter_t__struct_0.T__struct_0> = (stdgo.Go.setRef(({ type : (null : stdgo._internal.go.types.Types_type_.Type_) } : stdgo._internal.go.internal.gccgoimporter.Gccgoimporter_t__struct_0.T__struct_0)) : stdgo.Ref<stdgo._internal.go.internal.gccgoimporter.Gccgoimporter_t__struct_0.T__struct_0>);

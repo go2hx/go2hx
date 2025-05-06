@@ -1,0 +1,2 @@
+package stdgo._internal.go.types;
+var _cgoPrefixes : stdgo.GoArray<stdgo.GoString> = (new stdgo.GoArray<stdgo.GoString>(8, 8, ...[("_Ciconst_" : stdgo.GoString), ("_Cfconst_" : stdgo.GoString), ("_Csconst_" : stdgo.GoString), ("_Ctype_" : stdgo.GoString), ("_Cvar_" : stdgo.GoString), ("_Cfpvar_fp_" : stdgo.GoString), ("_Cfunc_" : stdgo.GoString), ("_Cmacro_" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>);

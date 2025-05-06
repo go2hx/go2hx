@@ -1,0 +1,28 @@
+package stdgo._internal.go.doc;
+var _predeclaredTypes : stdgo.GoMap<stdgo.GoString, Bool> = ({
+        final x = new stdgo.GoMap.GoStringMap<Bool>();
+        x.__defaultValue__ = () -> false;
+        x.set(("any" : stdgo.GoString), true);
+x.set(("bool" : stdgo.GoString), true);
+x.set(("byte" : stdgo.GoString), true);
+x.set(("comparable" : stdgo.GoString), true);
+x.set(("complex64" : stdgo.GoString), true);
+x.set(("complex128" : stdgo.GoString), true);
+x.set(("error" : stdgo.GoString), true);
+x.set(("float32" : stdgo.GoString), true);
+x.set(("float64" : stdgo.GoString), true);
+x.set(("int" : stdgo.GoString), true);
+x.set(("int8" : stdgo.GoString), true);
+x.set(("int16" : stdgo.GoString), true);
+x.set(("int32" : stdgo.GoString), true);
+x.set(("int64" : stdgo.GoString), true);
+x.set(("rune" : stdgo.GoString), true);
+x.set(("string" : stdgo.GoString), true);
+x.set(("uint" : stdgo.GoString), true);
+x.set(("uint8" : stdgo.GoString), true);
+x.set(("uint16" : stdgo.GoString), true);
+x.set(("uint32" : stdgo.GoString), true);
+x.set(("uint64" : stdgo.GoString), true);
+x.set(("uintptr" : stdgo.GoString), true);
+        x;
+    } : stdgo.GoMap<stdgo.GoString, Bool>);

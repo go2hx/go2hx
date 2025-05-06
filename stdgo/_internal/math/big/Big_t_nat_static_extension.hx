@@ -158,18 +158,18 @@ _t1 = _t1._sub(_t1, stdgo._internal.math.big.Big__nattwo._natTwo);
     @:tdfield
     static public function _probablyPrimeMillerRabin( _n:stdgo._internal.math.big.Big_t_nat.T_nat, _reps:stdgo.GoInt, _force2:Bool):Bool {
         @:recv var _n:stdgo._internal.math.big.Big_t_nat.T_nat = _n;
+        var _q_2:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
+        var _nm1_0:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
+        var nextRandomBreak = false;
+        var _nm3Len_8:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _quotient_7:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
+        var _y_6:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         var _x_5:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         var _nm3_3:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         var _k_1:stdgo.GoUInt = (0 : stdgo.GoUInt);
         var _j_10:stdgo.GoUInt = (0 : stdgo.GoUInt);
         var _i_9:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _quotient_7:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
-        var _y_6:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         var _rand_4:stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand> = (null : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
-        var _q_2:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
-        var _nm1_0:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
-        var nextRandomBreak = false;
-        var _nm3Len_8:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"
@@ -184,60 +184,60 @@ _t1 = _t1._sub(_t1, stdgo._internal.math.big.Big__nattwo._natTwo);
                     _nm3_3 = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._sub(_nm1_0, stdgo._internal.math.big.Big__nattwo._natTwo);
                     _rand_4 = stdgo._internal.math.rand.Rand_new_.new_(stdgo._internal.math.rand.Rand_newsource.newSource((_n[(0 : stdgo.GoInt)] : stdgo.GoInt64)));
                     _nm3Len_8 = _nm3_3._bitLen();
-                    _gotoNext = 4203810i64;
-                } else if (__value__ == (4203810i64)) {
+                    _gotoNext = 4410978i64;
+                } else if (__value__ == (4410978i64)) {
                     _i_9 = (0 : stdgo.GoInt);
                     nextRandomBreak = false;
-                    _gotoNext = 4203823i64;
-                } else if (__value__ == (4203823i64)) {
+                    _gotoNext = 4410991i64;
+                } else if (__value__ == (4410991i64)) {
                     //"file://#L0"
                     if (!nextRandomBreak && ((_i_9 < _reps : Bool))) {
-                        _gotoNext = 4203849i64;
+                        _gotoNext = 4411017i64;
                     } else {
-                        _gotoNext = 4204280i64;
+                        _gotoNext = 4411448i64;
                     };
-                } else if (__value__ == (4203849i64)) {
+                } else if (__value__ == (4411017i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/math/big/prime.go#L100"
                     if (((_i_9 == (_reps - (1 : stdgo.GoInt) : stdgo.GoInt)) && _force2 : Bool)) {
-                        _gotoNext = 4203878i64;
+                        _gotoNext = 4411046i64;
                     } else {
-                        _gotoNext = 4203910i64;
+                        _gotoNext = 4411078i64;
                     };
-                } else if (__value__ == (4203878i64)) {
+                } else if (__value__ == (4411046i64)) {
                     _x_5 = _x_5._set(stdgo._internal.math.big.Big__nattwo._natTwo);
-                    _gotoNext = 4203977i64;
-                } else if (__value__ == (4203910i64)) {
-                    _gotoNext = 4203910i64;
+                    _gotoNext = 4411145i64;
+                } else if (__value__ == (4411078i64)) {
+                    _gotoNext = 4411078i64;
                     _x_5 = _x_5._random(_rand_4, _nm3_3, _nm3Len_8);
                     _x_5 = _x_5._add(_x_5, stdgo._internal.math.big.Big__nattwo._natTwo);
                     0i64;
-                    _gotoNext = 4203977i64;
-                } else if (__value__ == (4203977i64)) {
+                    _gotoNext = 4411145i64;
+                } else if (__value__ == (4411145i64)) {
                     _y_6 = _y_6._expNN(_x_5, _q_2, _n, false);
                     //"file:///home/runner/.go/go1.21.3/src/math/big/prime.go#L107"
                     if (((_y_6._cmp(stdgo._internal.math.big.Big__natone._natOne) == (0 : stdgo.GoInt)) || (_y_6._cmp(_nm1_0) == (0 : stdgo.GoInt)) : Bool)) {
-                        _gotoNext = 4204048i64;
+                        _gotoNext = 4411216i64;
                     } else {
-                        _gotoNext = 4204068i64;
+                        _gotoNext = 4411236i64;
                     };
-                } else if (__value__ == (4204048i64)) {
+                } else if (__value__ == (4411216i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/math/big/prime.go#L99"
                     _i_9++;
-                    _gotoNext = 4203823i64;
-                } else if (__value__ == (4204068i64)) {
+                    _gotoNext = 4410991i64;
+                } else if (__value__ == (4411236i64)) {
                     _j_10 = (1u32 : stdgo.GoUInt);
-                    _gotoNext = 4204068i64;
+                    _gotoNext = 4411236i64;
                     //"file://#L0"
                     if ((_j_10 < _k_1 : Bool)) {
-                        _gotoNext = 4204097i64;
+                        _gotoNext = 4411265i64;
                     } else {
-                        _gotoNext = 4204262i64;
+                        _gotoNext = 4411430i64;
                     };
-                } else if (__value__ == (4204093i64)) {
+                } else if (__value__ == (4411261i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/math/big/prime.go#L110"
                     _j_10++;
-                    _gotoNext = 4204068i64;
-                } else if (__value__ == (4204097i64)) {
+                    _gotoNext = 4411236i64;
+                } else if (__value__ == (4411265i64)) {
                     _y_6 = _y_6._sqr(_y_6);
                     {
                         var __tmp__ = _quotient_7._div(_y_6, _y_6, _n);
@@ -246,32 +246,32 @@ _t1 = _t1._sub(_t1, stdgo._internal.math.big.Big__nattwo._natTwo);
                     };
                     //"file:///home/runner/.go/go1.21.3/src/math/big/prime.go#L113"
                     if (_y_6._cmp(_nm1_0) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 4204176i64;
+                        _gotoNext = 4411344i64;
                     } else {
-                        _gotoNext = 4204210i64;
+                        _gotoNext = 4411378i64;
                     };
-                } else if (__value__ == (4204176i64)) {
+                } else if (__value__ == (4411344i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/math/big/prime.go#L99"
                     _i_9++;
-                    _gotoNext = 4203823i64;
-                } else if (__value__ == (4204210i64)) {
+                    _gotoNext = 4410991i64;
+                } else if (__value__ == (4411378i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/math/big/prime.go#L116"
                     if (_y_6._cmp(stdgo._internal.math.big.Big__natone._natOne) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 4204232i64;
+                        _gotoNext = 4411400i64;
                     } else {
-                        _gotoNext = 4204093i64;
+                        _gotoNext = 4411261i64;
                     };
-                } else if (__value__ == (4204232i64)) {
+                } else if (__value__ == (4411400i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/math/big/prime.go#L117"
                     return false;
-                    _gotoNext = 4204093i64;
-                } else if (__value__ == (4204262i64)) {
+                    _gotoNext = 4411261i64;
+                } else if (__value__ == (4411430i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/math/big/prime.go#L120"
                     return false;
                     //"file:///home/runner/.go/go1.21.3/src/math/big/prime.go#L99"
                     _i_9++;
-                    _gotoNext = 4203823i64;
-                } else if (__value__ == (4204280i64)) {
+                    _gotoNext = 4410991i64;
+                } else if (__value__ == (4411448i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/math/big/prime.go#L123"
                     return true;
                     _gotoNext = -1i64;

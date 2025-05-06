@@ -1,0 +1,21 @@
+package stdgo._internal.go.doc;
+var _predeclaredFuncs : stdgo.GoMap<stdgo.GoString, Bool> = ({
+        final x = new stdgo.GoMap.GoStringMap<Bool>();
+        x.__defaultValue__ = () -> false;
+        x.set(("append" : stdgo.GoString), true);
+x.set(("cap" : stdgo.GoString), true);
+x.set(("close" : stdgo.GoString), true);
+x.set(("complex" : stdgo.GoString), true);
+x.set(("copy" : stdgo.GoString), true);
+x.set(("delete" : stdgo.GoString), true);
+x.set(("imag" : stdgo.GoString), true);
+x.set(("len" : stdgo.GoString), true);
+x.set(("make" : stdgo.GoString), true);
+x.set(("new" : stdgo.GoString), true);
+x.set(("panic" : stdgo.GoString), true);
+x.set(("print" : stdgo.GoString), true);
+x.set(("println" : stdgo.GoString), true);
+x.set(("real" : stdgo.GoString), true);
+x.set(("recover" : stdgo.GoString), true);
+        x;
+    } : stdgo.GoMap<stdgo.GoString, Bool>);

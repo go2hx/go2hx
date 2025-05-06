@@ -1,0 +1,25 @@
+package stdgo._internal.go.token;
+var _tests : stdgo.Slice<stdgo._internal.go.token.Token_t__struct_0.T__struct_0> = (new stdgo.Slice<stdgo._internal.go.token.Token_t__struct_0.T__struct_0>(8, 8, ...[({ _filename : ("a" : stdgo.GoString), _source : (new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), _size : (0 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.go.token.Token_t__struct_0.T__struct_0), ({ _filename : ("b" : stdgo.GoString), _source : ((("01234" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _size : (5 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.go.token.Token_t__struct_0.T__struct_0), ({ _filename : ("c" : stdgo.GoString), _source : ((("\n\n\n\n\n\n\n\n\n" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _size : (9 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(9, 9, ...[(0 : stdgo.GoInt), (1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt), (7 : stdgo.GoInt), (8 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.go.token.Token_t__struct_0.T__struct_0), ({ _filename : ("d" : stdgo.GoString), _source : (null : stdgo.Slice<stdgo.GoUInt8>), _size : (100 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(12, 12, ...[
+(0 : stdgo.GoInt),
+(5 : stdgo.GoInt),
+(10 : stdgo.GoInt),
+(20 : stdgo.GoInt),
+(30 : stdgo.GoInt),
+(70 : stdgo.GoInt),
+(71 : stdgo.GoInt),
+(72 : stdgo.GoInt),
+(80 : stdgo.GoInt),
+(85 : stdgo.GoInt),
+(90 : stdgo.GoInt),
+(99 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.go.token.Token_t__struct_0.T__struct_0), ({ _filename : ("e" : stdgo.GoString), _source : (null : stdgo.Slice<stdgo.GoUInt8>), _size : (777 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(11, 11, ...[
+(0 : stdgo.GoInt),
+(80 : stdgo.GoInt),
+(100 : stdgo.GoInt),
+(120 : stdgo.GoInt),
+(130 : stdgo.GoInt),
+(180 : stdgo.GoInt),
+(267 : stdgo.GoInt),
+(455 : stdgo.GoInt),
+(500 : stdgo.GoInt),
+(567 : stdgo.GoInt),
+(620 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.go.token.Token_t__struct_0.T__struct_0), ({ _filename : ("f" : stdgo.GoString), _source : ((("package p\n\nimport \"fmt\"" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _size : (23 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(0 : stdgo.GoInt), (10 : stdgo.GoInt), (11 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.go.token.Token_t__struct_0.T__struct_0), ({ _filename : ("g" : stdgo.GoString), _source : ((("package p\n\nimport \"fmt\"\n" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _size : (24 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(0 : stdgo.GoInt), (10 : stdgo.GoInt), (11 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.go.token.Token_t__struct_0.T__struct_0), ({ _filename : ("h" : stdgo.GoString), _source : ((("package p\n\nimport \"fmt\"\n " : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _size : (25 : stdgo.GoInt), _lines : (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(0 : stdgo.GoInt), (10 : stdgo.GoInt), (11 : stdgo.GoInt), (24 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.go.token.Token_t__struct_0.T__struct_0)].concat([for (i in 8 ... (8 > 8 ? 8 : 8 : stdgo.GoInt).toBasic()) ({ _filename : ("" : stdgo.GoString), _source : (null : stdgo.Slice<stdgo.GoUInt8>), _size : (0 : stdgo.GoInt), _lines : (null : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.go.token.Token_t__struct_0.T__struct_0)])) : stdgo.Slice<stdgo._internal.go.token.Token_t__struct_0.T__struct_0>);

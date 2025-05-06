@@ -1070,126 +1070,126 @@ package stdgo._internal.encoding.json;
                         _data_0 = @:binopAssign __tmp__0;
                         _i_1 = @:binopAssign __tmp__1;
                     };
-                    _gotoNext = 5361765i64;
-                } else if (__value__ == (5361765i64)) {
+                    _gotoNext = 5096966i64;
+                } else if (__value__ == (5096966i64)) {
                     switchBreak = false;
-                    _gotoNext = 5361774i64;
-                } else if (__value__ == (5361774i64)) {
+                    _gotoNext = 5096975i64;
+                } else if (__value__ == (5096975i64)) {
                     //"file://#L0"
                     if (!switchBreak) {
                         //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode.go#L319"
                         {
                             final __value__ = _data_0[(_i_1 - (1 : stdgo.GoInt) : stdgo.GoInt)];
                             if (__value__ == ((34 : stdgo.GoUInt8))) {
-                                _gotoNext = 5361794i64;
+                                _gotoNext = 5096995i64;
                             } else if (__value__ == ((48 : stdgo.GoUInt8)) || __value__ == ((49 : stdgo.GoUInt8)) || __value__ == ((50 : stdgo.GoUInt8)) || __value__ == ((51 : stdgo.GoUInt8)) || __value__ == ((52 : stdgo.GoUInt8)) || __value__ == ((53 : stdgo.GoUInt8)) || __value__ == ((54 : stdgo.GoUInt8)) || __value__ == ((55 : stdgo.GoUInt8)) || __value__ == ((56 : stdgo.GoUInt8)) || __value__ == ((57 : stdgo.GoUInt8)) || __value__ == ((45 : stdgo.GoUInt8))) {
-                                _gotoNext = 5361983i64;
+                                _gotoNext = 5097184i64;
                             } else if (__value__ == ((116 : stdgo.GoUInt8))) {
-                                _gotoNext = 5362228i64;
+                                _gotoNext = 5097429i64;
                             } else if (__value__ == ((102 : stdgo.GoUInt8))) {
-                                _gotoNext = 5362265i64;
+                                _gotoNext = 5097466i64;
                             } else if (__value__ == ((110 : stdgo.GoUInt8))) {
-                                _gotoNext = 5362304i64;
+                                _gotoNext = 5097505i64;
                             } else {
-                                _gotoNext = 5362344i64;
+                                _gotoNext = 5097545i64;
                             };
                         };
                     } else {
-                        _gotoNext = 5362344i64;
+                        _gotoNext = 5097545i64;
                     };
-                } else if (__value__ == (5361794i64)) {
+                } else if (__value__ == (5096995i64)) {
                     0i64;
-                    _gotoNext = 5361816i64;
-                } else if (__value__ == (5361816i64)) {
+                    _gotoNext = 5097017i64;
+                } else if (__value__ == (5097017i64)) {
                     //"file://#L0"
                     if ((_i_1 < (_data_0.length) : Bool)) {
-                        _gotoNext = 5361841i64;
+                        _gotoNext = 5097042i64;
                     } else {
-                        _gotoNext = 5362344i64;
+                        _gotoNext = 5097545i64;
                     };
-                } else if (__value__ == (5361837i64)) {
+                } else if (__value__ == (5097038i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode.go#L321"
                     _i_1++;
-                    _gotoNext = 5361816i64;
-                } else if (__value__ == (5361841i64)) {
-                    _gotoNext = 5361846i64;
-                } else if (__value__ == (5361846i64)) {
+                    _gotoNext = 5097017i64;
+                } else if (__value__ == (5097042i64)) {
+                    _gotoNext = 5097047i64;
+                } else if (__value__ == (5097047i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode.go#L322"
                     {
                         final __value__ = _data_0[(_i_1 : stdgo.GoInt)];
                         if (__value__ == ((92 : stdgo.GoUInt8))) {
-                            _gotoNext = 5361866i64;
+                            _gotoNext = 5097067i64;
                         } else if (__value__ == ((34 : stdgo.GoUInt8))) {
-                            _gotoNext = 5361904i64;
+                            _gotoNext = 5097105i64;
                         } else {
-                            _gotoNext = 5361837i64;
+                            _gotoNext = 5097038i64;
                         };
                     };
-                } else if (__value__ == (5361866i64)) {
+                } else if (__value__ == (5097067i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode.go#L324"
                     _i_1++;
-                    _gotoNext = 5361837i64;
-                } else if (__value__ == (5361904i64)) {
+                    _gotoNext = 5097038i64;
+                } else if (__value__ == (5097105i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode.go#L326"
                     _i_1++;
                     switchBreak = true;
-                    _gotoNext = 5361774i64;
-                } else if (__value__ == (5361983i64)) {
+                    _gotoNext = 5096975i64;
+                } else if (__value__ == (5097184i64)) {
                     0i64;
-                    _gotoNext = 5362055i64;
-                } else if (__value__ == (5362055i64)) {
+                    _gotoNext = 5097256i64;
+                } else if (__value__ == (5097256i64)) {
                     //"file://#L0"
                     if ((_i_1 < (_data_0.length) : Bool)) {
-                        _gotoNext = 5362080i64;
+                        _gotoNext = 5097281i64;
                     } else {
-                        _gotoNext = 5362344i64;
+                        _gotoNext = 5097545i64;
                     };
-                } else if (__value__ == (5362076i64)) {
+                } else if (__value__ == (5097277i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode.go#L331"
                     _i_1++;
-                    _gotoNext = 5362055i64;
-                } else if (__value__ == (5362080i64)) {
-                    _gotoNext = 5362085i64;
-                } else if (__value__ == (5362085i64)) {
+                    _gotoNext = 5097256i64;
+                } else if (__value__ == (5097281i64)) {
+                    _gotoNext = 5097286i64;
+                } else if (__value__ == (5097286i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode.go#L332"
                     {
                         final __value__ = _data_0[(_i_1 : stdgo.GoInt)];
                         if (__value__ == ((48 : stdgo.GoUInt8)) || __value__ == ((49 : stdgo.GoUInt8)) || __value__ == ((50 : stdgo.GoUInt8)) || __value__ == ((51 : stdgo.GoUInt8)) || __value__ == ((52 : stdgo.GoUInt8)) || __value__ == ((53 : stdgo.GoUInt8)) || __value__ == ((54 : stdgo.GoUInt8)) || __value__ == ((55 : stdgo.GoUInt8)) || __value__ == ((56 : stdgo.GoUInt8)) || __value__ == ((57 : stdgo.GoUInt8)) || __value__ == ((46 : stdgo.GoUInt8)) || __value__ == ((101 : stdgo.GoUInt8)) || __value__ == ((69 : stdgo.GoUInt8)) || __value__ == ((43 : stdgo.GoUInt8)) || __value__ == ((45 : stdgo.GoUInt8))) {
-                            _gotoNext = 5362105i64;
+                            _gotoNext = 5097306i64;
                         } else {
-                            _gotoNext = 5362192i64;
+                            _gotoNext = 5097393i64;
                         };
                     };
-                } else if (__value__ == (5362105i64)) {
-                    _gotoNext = 5362076i64;
-                } else if (__value__ == (5362192i64)) {
+                } else if (__value__ == (5097306i64)) {
+                    _gotoNext = 5097277i64;
+                } else if (__value__ == (5097393i64)) {
                     switchBreak = true;
-                    _gotoNext = 5361774i64;
-                } else if (__value__ == (5362228i64)) {
+                    _gotoNext = 5096975i64;
+                } else if (__value__ == (5097429i64)) {
                     _i_1 = (_i_1 + (((("rue" : stdgo.GoString) : stdgo.GoString).length)) : stdgo.GoInt);
-                    _gotoNext = 5362344i64;
-                } else if (__value__ == (5362265i64)) {
+                    _gotoNext = 5097545i64;
+                } else if (__value__ == (5097466i64)) {
                     _i_1 = (_i_1 + (((("alse" : stdgo.GoString) : stdgo.GoString).length)) : stdgo.GoInt);
-                    _gotoNext = 5362344i64;
-                } else if (__value__ == (5362304i64)) {
+                    _gotoNext = 5097545i64;
+                } else if (__value__ == (5097505i64)) {
                     _i_1 = (_i_1 + (((("ull" : stdgo.GoString) : stdgo.GoString).length)) : stdgo.GoInt);
-                    _gotoNext = 5362344i64;
-                } else if (__value__ == (5362344i64)) {
+                    _gotoNext = 5097545i64;
+                } else if (__value__ == (5097545i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/encoding/json/decode.go#L346"
                     if ((_i_1 < (_data_0.length) : Bool)) {
-                        _gotoNext = 5362361i64;
+                        _gotoNext = 5097562i64;
                     } else {
-                        _gotoNext = 5362416i64;
+                        _gotoNext = 5097617i64;
                     };
-                } else if (__value__ == (5362361i64)) {
+                } else if (__value__ == (5097562i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._opcode = stdgo._internal.encoding.json.Json__stateendvalue._stateEndValue((stdgo.Go.setRef((@:checkr _d ?? throw "null pointer dereference")._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_t_scanner.T_scanner>), _data_0[(_i_1 : stdgo.GoInt)]);
-                    _gotoNext = 5362443i64;
-                } else if (__value__ == (5362416i64)) {
-                    _gotoNext = 5362416i64;
+                    _gotoNext = 5097644i64;
+                } else if (__value__ == (5097617i64)) {
+                    _gotoNext = 5097617i64;
                     (@:checkr _d ?? throw "null pointer dereference")._opcode = (10 : stdgo.GoInt);
                     0i64;
-                    _gotoNext = 5362443i64;
-                } else if (__value__ == (5362443i64)) {
+                    _gotoNext = 5097644i64;
+                } else if (__value__ == (5097644i64)) {
                     (@:checkr _d ?? throw "null pointer dereference")._off = (_i_1 + (1 : stdgo.GoInt) : stdgo.GoInt);
                     _gotoNext = -1i64;
                 };

@@ -1,0 +1,7 @@
+package stdgo._internal.go.build;
+@:keep var __init_go2hx__ = {
+        try {
+            var __tmp__0 = stdgo._internal.go.build.Build__installgoroot._installgoroot, __tmp__1 = stdgo._internal.go.build.Build__errnomodules._errNoModules, __tmp__2 = stdgo._internal.go.build.Build__slashslash._slashSlash, __tmp__3 = stdgo._internal.go.build.Build__slashstar._slashStar, __tmp__4 = stdgo._internal.go.build.Build__starslash._starSlash, __tmp__5 = stdgo._internal.go.build.Build__newline._newline, __tmp__6 = stdgo._internal.go.build.Build__plusbuild._plusBuild, __tmp__7 = stdgo._internal.go.build.Build__gobuildcomment._goBuildComment, __tmp__8 = stdgo._internal.go.build.Build__errmultiplegobuild._errMultipleGoBuild, __tmp__9 = stdgo._internal.go.build.Build__binaryonlycomment._binaryOnlyComment, __tmp__10 = stdgo._internal.go.build.Build_tooldir.toolDir, __tmp__11 = stdgo._internal.go.build.Build__bom._bom, __tmp__12 = stdgo._internal.go.build.Build__errsyntax._errSyntax, __tmp__13 = stdgo._internal.go.build.Build__errnul._errNUL, __tmp__14 = stdgo._internal.go.build.Build__goembed._goEmbed, __tmp__15 = stdgo._internal.go.build.Build__knownos._knownOS, __tmp__16 = stdgo._internal.go.build.Build__unixos._unixOS, __tmp__17 = stdgo._internal.go.build.Build__knownarch._knownArch, __tmp__18 = stdgo._internal.go.build.Build_default_.default_;
+        } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
+        true;
+    };

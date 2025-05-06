@@ -27,5 +27,6 @@
  "hl|internal/platform",
  "hl|crypto",
  "hl|bufio",
- "hl|io"
+ "hl|io",
+ "hl|hash"
 ]

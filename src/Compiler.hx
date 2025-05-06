@@ -5,7 +5,6 @@ package;
  */
 import sys.FileSystem;
 import utils.Network;
-import typer.GoAst.DataType;
 import haxe.Json;
 import haxe.Resource;
 import haxe.ds.Vector;
@@ -16,6 +15,7 @@ import sys.io.File;
 // events
 var onComplete:(modules:Array<typer.HaxeAst.Module>, data:Dynamic) -> Void = null;
 var onUnknownExit:Void->Void = null;
+var modules:Array<typer.HaxeAst.Module> = [];
 
 /**
  * All of the Go AST and type information has been sent over the network.
@@ -31,61 +31,38 @@ var onUnknownExit:Void->Void = null;
  * @param client 
  */
 private function receivedData(instance, buff, client) {
-	final uncompressedData = haxe.zip.Uncompress.run(buff);
-	final result = haxe.Json.parse(uncompressedData.toString());
-	final exportData:DataType = result;
-	final index = Std.parseInt(exportData.index);
-	var instance = instanceCache[index];
-	instanceCache[index] = null; // reset
-
-	Sys.setCwd(cwd);
-
+	final data = decodeData(buff);
 	// IMPORTANT: typing phase Go AST -> Haxe AST
-	final modules = typer.Typer.typeAST(exportData, instance);
+	final module = typer.Package.typePackage(data, instance);
+	mutex.acquire();
+	modules.push(module);
+	mutex.release();
+	// generate the code
+	codegen.CodeGen.create(instance.outputPath, module, instance.root);
+	mutex.acquire();
+	instance.countPkgs++;
+	if (instance.countPkgs >= instance.totalPkgs)
+		end(instance);
+	mutex.release();
+}
 
-	Sys.setCwd(instance.localPath);
-
+function end(instance) {
 	if (instance.noDeps)
-		createBasePkgs(Path.addTrailingSlash(instance.outputPath), modules, cwd);
+		createBasePkgs(instance.outputPath, modules, cwd);
 
-	var isStdgo = false;
-	var alreadyWrapped = false;
-	var isMain = false;
-	for (module in modules) {
-		if (module.isMain) {
-			isMain = true;
-			break;
-		}
-	}
-	codegen.CodeGen.sizeMap = [];
-	for (module in modules) {
-		if (!isStdgo)
-			isStdgo = io.Data.stdgoList.contains(StringTools.replace(module.path, ".", "/"));
-
-		var outputPath = Path.addTrailingSlash(instance.outputPath);
-		final isLibWrap = instance.libwrap && !isMain && !isStdgo && !alreadyWrapped;
-		if (isLibWrap) {
-			alreadyWrapped = true;
-			final libPath = Path.addTrailingSlash(module.name);
-			outputPath += libPath;
-		}
-
-		// generate the code
-		codegen.CodeGen.create(outputPath, module, instance.root);
-
-		// haxelib dev command
-		if (isLibWrap) {
-			final cmd = 'haxelib dev ${module.name} ${instance.outputPath}';
-			Sys.println(cmd);
-			Sys.command(cmd);
-			Sys.println('Include lib: -lib ${module.name}');
-		}
-	}
 	printCodeSize();
 	runBuildTools(modules, instance, programArgs);
 	Sys.setCwd(cwd);
 	onComplete(modules, instance.data);
 	programArgs = null;
+	modules = [];
+}
+
+function decodeData(buff):Any {
+	final uncompressedData = haxe.zip.Uncompress.run(buff);
+	final result = haxe.Json.parse(uncompressedData.toString());
+	// final result = haxe.Json.parse(buff.toString());
+	return result;
 }
 
 function runGC() {
@@ -138,7 +115,7 @@ private function removeArg(args:Array<String>, arg:String):Bool {
 function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData {
 	final args = args.copy();
 	final instance = new CompilerInstanceData();
-	instance.outputPath = "golibs";
+	instance.outputPath = "golibs/";
 	instance.root = "";
 	var help = false;
 	final argHandler = cli.Args.generate([
@@ -158,7 +135,7 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 		@doc("clean the cache and regenerate all files")
 		["-clean-cache", "--clean-cache"] => () -> instance.cleanCache = true,
 		@doc("set output path or file location")
-		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> instance.outputPath = out,
+		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> instance.outputPath = Path.addTrailingSlash(out),
 		@doc("set the root package for all generated files")
 		["-root", "--root", "-r", "--r"] => out -> instance.root = out,
 		@doc("generate Haxe build file from compiler command")
@@ -334,16 +311,21 @@ function startGo4hx(instance:CompilerInstanceData) {
 	jsProcess(instance);
 	#end
 }
-
 function accept(server, instance, ready) {
 	Sys.println("accepted connection");
-	client = {stream: server.accept(), id: -1};
+	client = {stream: server.accept()};
 	client.reset();
 	var pos = 0;
 	var buff:Bytes = null;
+	Sys.setCwd(cwd);
 	client.stream.readStart(bytes -> {
 		if (bytes == null) {
 			healthCheck(instance);
+			return;
+		}
+		if (instance.totalPkgs == 0) {
+			instance.totalPkgs = getLength(bytes);
+			instance.countPkgs = 0;
 			return;
 		}
 		if (buff == null) {
@@ -355,11 +337,17 @@ function accept(server, instance, ready) {
 		bytes = null;
 		if (pos == buff.length) {
 			client.runnable = true;
+			#if target.threaded
+			final b = Bytes.alloc(buff.length);
+			b.blit(0, buff, 0, buff.length);
+			#if !macro threadPool.run(() -> receivedData(instance, b, client)); #end
+			#else
 			receivedData(instance, buff, client);
+			#end
 			// reset data
+			buff = null;
 			client.reset();
 			pos = 0;
-			buff = null;
 		}
 	});
 	if (ready != null)
@@ -375,8 +363,12 @@ private function setBytes(buff:Bytes, bytes:Bytes, pos:Int):Int {
 	return pos + bytes.length;
 }
 
+function getLength(bytes):Int {
+	return haxe.Int64.toInt(bytes.getInt64(0));
+}
+
 function createBuffer(client, bytes, instance):Bytes {
-	final len:Int = haxe.Int64.toInt(bytes.getInt64(0));
+	final len:Int = getLength(bytes);
 	instance.log("alloc " + len);
 	client.stream.size = len;
 	return Bytes.alloc(len);
@@ -704,14 +696,6 @@ function getClient() {
 
 function write(args:Array<String>, instance:CompilerInstanceData):Bool {
 	final client = getClient();
-	for (i in 0...instanceCache.length) {
-		if (instanceCache[i] != null)
-			continue;
-		client.id = i;
-		instanceCache[i] = instance;
-		args.unshift('$i');
-		break;
-	}
 	client.stream.write(Bytes.ofString(args.join(" ")));
 	client.runnable = false;
 	return true;
@@ -720,6 +704,8 @@ function write(args:Array<String>, instance:CompilerInstanceData):Bool {
 final instanceCache = new Vector<CompilerInstanceData>(20);
 
 class CompilerInstanceData {
+	public var countPkgs:Int = 0;
+	public var totalPkgs:Int = 0;
 	public var goCommand:String = "go";
 	public var verbose:Bool = false;
 	public var debugBool:Bool = false;
@@ -766,22 +752,24 @@ final cwd = Sys.getCwd();
 final loop = Loop.getDefault();
 final server = new Tcp(loop);
 var client:Client = null;
-#if (target.threaded)
+#if target.threaded
+#if !macro
+var threadPool = new sys.thread.FixedThreadPool(4);
+#end
 var process:sys.io.Process = null;
 var mainThread = sys.thread.Thread.current();
 #end
+var mutex = #if target.threaded new sys.thread.Mutex(); #else {acquire: () -> {}, release: () -> {}}; #end
 var programArgs = [];
 
 @:structInit
 class Client {
 	public var stream:Stream;
 	public var runnable:Bool = true; // start out as true
-	public var id:Int = 0;
 	public var retries:Int = 0;
 
-	public function new(stream, id) {
+	public function new(stream) {
 		this.stream = stream;
-		this.id = id;
 	}
 
 	public function reset() {

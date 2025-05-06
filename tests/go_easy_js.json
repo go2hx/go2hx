@@ -335,5 +335,7 @@
  "js|closure7",
  "js|deferprint",
  "js|issue8336",
- "js|issue8347"
+ "js|issue8347",
+ "js|issue6866",
+ "js|range"
 ]

@@ -83,7 +83,7 @@ var debugBool = false
 var noDepsBool = false
 var systemGo = false
 
-func compile(conn net.Conn, params []string, index string, debug bool) {
+func compile(conn net.Conn, params []string, debug bool) {
 	args := []string{}
 	testBool = false
 	systemGo = false
@@ -256,7 +256,7 @@ func main() {
 	}
 	_, err = strconv.Atoi(port)
 	if err != nil { // not set to a port, test compile
-		compile(nil, args[1:], "0", true)
+		compile(nil, args[1:], true)
 		return
 	}
 	conn, err := net.Dial("tcp", "127.0.0.1:"+port)
@@ -269,8 +269,7 @@ func main() {
 		input = input[:c]
 		//fmt.Println("input: " + string(input))
 		args := strings.Split(string(input), " ")
-		index := args[0]
-		compile(conn, args[1:], index, false)
+		compile(conn, args, false)
 		//debug.FreeOSMemory()
 	}
 }

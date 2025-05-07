@@ -18,51 +18,51 @@ package stdgo._internal.regexp.syntax;
                 if (__value__ == (0i64)) {
                     _pc_43 = ((@:checkr _p ?? throw "null pointer dereference").start : stdgo.GoUInt32);
                     _i_44 = (stdgo.Go.setRef((@:checkr _p ?? throw "null pointer dereference").inst[(_pc_43 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst>);
-                    _gotoNext = 3546830i64;
-                } else if (__value__ == (3546830i64)) {
+                    _gotoNext = 3462691i64;
+                } else if (__value__ == (3462691i64)) {
                     0i64;
                     loopBreak = false;
-                    _gotoNext = 3546837i64;
-                } else if (__value__ == (3546837i64)) {
+                    _gotoNext = 3462698i64;
+                } else if (__value__ == (3462698i64)) {
                     //"file://#L0"
                     if (!loopBreak) {
-                        _gotoNext = 3546841i64;
+                        _gotoNext = 3462702i64;
                     } else {
-                        _gotoNext = 3547051i64;
+                        _gotoNext = 3462912i64;
                     };
-                } else if (__value__ == (3546841i64)) {
-                    _gotoNext = 3546845i64;
-                } else if (__value__ == (3546845i64)) {
+                } else if (__value__ == (3462702i64)) {
+                    _gotoNext = 3462706i64;
+                } else if (__value__ == (3462706i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/regexp/syntax/prog.go#L175"
                     {
                         final __value__ = (@:checkr _i_44 ?? throw "null pointer dereference").op;
                         if (__value__ == ((3 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
-                            _gotoNext = 3546861i64;
+                            _gotoNext = 3462722i64;
                         } else if (__value__ == ((5 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
-                            _gotoNext = 3546910i64;
+                            _gotoNext = 3462771i64;
                         } else if (__value__ == ((2 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) || __value__ == ((6 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp))) {
-                            _gotoNext = 3546949i64;
+                            _gotoNext = 3462810i64;
                         } else {
-                            _gotoNext = 3546989i64;
+                            _gotoNext = 3462850i64;
                         };
                     };
-                } else if (__value__ == (3546861i64)) {
+                } else if (__value__ == (3462722i64)) {
                     _flag_42 = (_flag_42 | (((@:checkr _i_44 ?? throw "null pointer dereference").arg : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp);
-                    _gotoNext = 3547018i64;
-                } else if (__value__ == (3546910i64)) {
+                    _gotoNext = 3462879i64;
+                } else if (__value__ == (3462771i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/regexp/syntax/prog.go#L179"
                     return (255 : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp);
-                    _gotoNext = 3547018i64;
-                } else if (__value__ == (3546949i64)) {
-                    _gotoNext = 3547018i64;
-                } else if (__value__ == (3546989i64)) {
+                    _gotoNext = 3462879i64;
+                } else if (__value__ == (3462810i64)) {
+                    _gotoNext = 3462879i64;
+                } else if (__value__ == (3462850i64)) {
                     loopBreak = true;
-                    _gotoNext = 3546837i64;
-                } else if (__value__ == (3547018i64)) {
+                    _gotoNext = 3462698i64;
+                } else if (__value__ == (3462879i64)) {
                     _pc_43 = (@:checkr _i_44 ?? throw "null pointer dereference").out;
                     _i_44 = (stdgo.Go.setRef((@:checkr _p ?? throw "null pointer dereference").inst[(_pc_43 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst>);
-                    _gotoNext = 3546837i64;
-                } else if (__value__ == (3547051i64)) {
+                    _gotoNext = 3462698i64;
+                } else if (__value__ == (3462912i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/regexp/syntax/prog.go#L188"
                     return _flag_42;
                     _gotoNext = -1i64;

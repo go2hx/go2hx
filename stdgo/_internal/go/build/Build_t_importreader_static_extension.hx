@@ -119,12 +119,12 @@ package stdgo._internal.go.build;
     @:tdfield
     static public function _findEmbed( _r:stdgo.Ref<stdgo._internal.go.build.Build_t_importreader.T_importReader>, _first:Bool):Bool {
         @:recv var _r:stdgo.Ref<stdgo._internal.go.build.Build_t_importreader.T_importReader> = _r;
-        var reswitchBreak = false;
-        var skipSlashSlashBreak = false;
         var _i_97:stdgo.GoInt = (0 : stdgo.GoInt);
         var _c1_96:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _c_95:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _startLine_94:Bool = false;
+        var reswitchBreak = false;
+        var skipSlashSlashBreak = false;
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"

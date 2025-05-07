@@ -192,20 +192,20 @@ var __tmp__ = _d._decodeBit(), _bit:Bool = __tmp__._0, _err:stdgo.Error = __tmp_
     @:tdfield
     static public function _refine( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder>, _b:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>, _h:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman>, _zigStart:stdgo.GoInt32, _zigEnd:stdgo.GoInt32, _delta:stdgo.GoInt32):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder> = _d;
-        var _val1_20:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _val0_19:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _loopBreak = false;
         var _err_22:stdgo.Error = (null : stdgo.Error);
-        var _bits_21:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _value_17:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _zig_15:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _bit_13:Bool = false;
         var _err_18:stdgo.Error = (null : stdgo.Error);
-        var _z_16:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _err_14:stdgo.Error = (null : stdgo.Error);
-        var _err_25:stdgo.Error = (null : stdgo.Error);
+        var _loopBreak = false;
+        var _bit_13:Bool = false;
         var _err_24:stdgo.Error = (null : stdgo.Error);
+        var _val0_19:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _err_25:stdgo.Error = (null : stdgo.Error);
+        var _bits_21:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _val1_20:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _zig_15:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _err_14:stdgo.Error = (null : stdgo.Error);
         var _bit_23:Bool = false;
+        var _value_17:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _z_16:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"
@@ -1264,14 +1264,14 @@ var _x = __1, _i = __0;
     @:tdfield
     static public function _processDQT( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder>, _n:stdgo.GoInt):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder> = _d;
+        var _err_7:stdgo.Error = (null : stdgo.Error);
+        var _x_6:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _loopBreak = false;
         var _i_12:stdgo.GoInt = (0 : stdgo.GoInt);
         var _err_11:stdgo.Error = (null : stdgo.Error);
         var _i_10:stdgo.GoInt = (0 : stdgo.GoInt);
         var _err_9:stdgo.Error = (null : stdgo.Error);
         var _tq_8:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _err_7:stdgo.Error = (null : stdgo.Error);
-        var _x_6:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"
@@ -1906,13 +1906,13 @@ var _v = __1, _h = __0;
     @:tdfield
     static public function _decodeHuffman( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder>, _h:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman>):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder> = _d;
+        var _err_5:stdgo.Error = (null : stdgo.Error);
+        var _slowPathBreak = false;
+        var _code_4:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _i_3:stdgo.GoInt = (0 : stdgo.GoInt);
         var _n_2:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _v_1:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _err_0:stdgo.Error = (null : stdgo.Error);
-        var _err_5:stdgo.Error = (null : stdgo.Error);
-        var _slowPathBreak = false;
-        var _code_4:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"

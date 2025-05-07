@@ -1,22 +1,22 @@
 package stdgo._internal.go.build;
 function _parseGoEmbed(_args:stdgo.GoString, _pos:stdgo._internal.go.token.Token_position.Position):{ var _0 : stdgo.Slice<stdgo._internal.go.build.Build_t_fileembed.T_fileEmbed>; var _1 : stdgo.Error; } {
-        var _values_4376072 = (new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-        var _keys_4376072 = (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
-        var _pathPos_102:stdgo._internal.go.token.Token_position.Position = ({} : stdgo._internal.go.token.Token_position.Position);
-        var _err_109:stdgo.Error = (null : stdgo.Error);
-        var _i_107:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _j_105:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_103:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _r_110:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var switchBreak = false;
         var _q_108:stdgo.GoString = ("" : stdgo.GoString);
-        var _iterator_4376084 = @:invalid_type null;
+        var _i_107:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _trimSpace_99:() -> Void = null;
+        var _i_103:stdgo.GoInt = (0 : stdgo.GoInt);
         var _list_100:stdgo.Slice<stdgo._internal.go.build.Build_t_fileembed.T_fileEmbed> = (null : stdgo.Slice<stdgo._internal.go.build.Build_t_fileembed.T_fileEmbed>);
         var _trimBytes_98:stdgo.GoInt -> Void = null;
         var _ok_106:Bool = false;
+        var _keys_4376072 = (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
+        var _j_105:stdgo.GoInt = (0 : stdgo.GoInt);
         var _c_104:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _path_101:stdgo.GoString = ("" : stdgo.GoString);
-        var _trimSpace_99:() -> Void = null;
+        var _values_4376072 = (new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
+        var _iterator_4376084 = @:invalid_type null;
+        var _pathPos_102:stdgo._internal.go.token.Token_position.Position = ({} : stdgo._internal.go.token.Token_position.Position);
+        var _r_110:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var switchBreak = false;
+        var _err_109:stdgo.Error = (null : stdgo.Error);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"

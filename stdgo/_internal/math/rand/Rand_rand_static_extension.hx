@@ -77,18 +77,18 @@ _m[(_j : stdgo.GoInt)] = _i;
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i64)) {
-                    _gotoNext = 2830431i64;
-                } else if (__value__ == (2830431i64)) {
+                    _gotoNext = 2787174i64;
+                } else if (__value__ == (2787174i64)) {
                     _f_1 = (_r.float64() : stdgo.GoFloat32);
                     //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L221"
                     if (_f_1 == ((1 : stdgo.GoFloat64))) {
-                        _gotoNext = 2830476i64;
+                        _gotoNext = 2787219i64;
                     } else {
-                        _gotoNext = 2830544i64;
+                        _gotoNext = 2787287i64;
                     };
-                } else if (__value__ == (2830476i64)) {
-                    _gotoNext = 2830431i64;
-                } else if (__value__ == (2830544i64)) {
+                } else if (__value__ == (2787219i64)) {
+                    _gotoNext = 2787174i64;
+                } else if (__value__ == (2787287i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L224"
                     return _f_1;
                     _gotoNext = -1i64;
@@ -111,18 +111,18 @@ _m[(_j : stdgo.GoInt)] = _i;
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i64)) {
-                    _gotoNext = 2829963i64;
-                } else if (__value__ == (2829963i64)) {
+                    _gotoNext = 2786706i64;
+                } else if (__value__ == (2786706i64)) {
                     _f_0 = ((_r.int63() : stdgo.GoFloat64) / (9.223372036854776e+18 : stdgo.GoFloat64) : stdgo.GoFloat64);
                     //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L208"
                     if (_f_0 == ((1 : stdgo.GoFloat64))) {
-                        _gotoNext = 2830018i64;
+                        _gotoNext = 2786761i64;
                     } else {
-                        _gotoNext = 2830080i64;
+                        _gotoNext = 2786823i64;
                     };
-                } else if (__value__ == (2830018i64)) {
-                    _gotoNext = 2829963i64;
-                } else if (__value__ == (2830080i64)) {
+                } else if (__value__ == (2786761i64)) {
+                    _gotoNext = 2786706i64;
+                } else if (__value__ == (2786823i64)) {
                     //"file:///home/runner/.go/go1.21.3/src/math/rand/rand.go#L211"
                     return _f_0;
                     _gotoNext = -1i64;

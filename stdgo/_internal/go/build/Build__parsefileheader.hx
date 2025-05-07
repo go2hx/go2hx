@@ -4,12 +4,12 @@ function _parseFileHeader(_content:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.
         var _i_93:stdgo.GoInt = (0 : stdgo.GoInt);
         var commentsBreak = false;
         var _line_91:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _i_92:stdgo.GoInt = (0 : stdgo.GoInt);
         var linesBreak = false;
-        var _inSlashStar_90:Bool = false;
         var _ended_89:Bool = false;
-        var _p_88:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _end_87:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_92:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _inSlashStar_90:Bool = false;
+        var _p_88:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _gotoNext = 0i64;
         _gotoNext == ((0i64 : stdgo.GoInt));
         //"file://#L0"

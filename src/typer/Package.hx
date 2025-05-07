@@ -18,8 +18,8 @@ typedef IntermediatePackageType = {
 	declFuncs:Array<GoAst.FuncDecl>,
 }
 
-function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData, hashMapTypes:Map<UInt, Dynamic>):HaxeAst.Module {
-	final pkg = typePackageAnalyze(pkg, instance, hashMapTypes);
+function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData):HaxeAst.Module {
+	final pkg = typePackageAnalyze(pkg, instance);
 	return typePackageEmit(pkg);
 }
 
@@ -52,7 +52,10 @@ function setExtern(instance, pkg:GoAst.PackageType) {
 	}
 }
 
-function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData, hashMapTypes:Map<UInt, Dynamic>):IntermediatePackageType {
+function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData):IntermediatePackageType {
+	final hashMapTypes:Map<UInt, Dynamic> = [];
+	for (obj in pkg.typeList)
+		hashMapTypes[obj.hash] = obj;
 	setExtern(instance, pkg);
 	pkg.path = normalizePath(pkg.path);
 	pkg.path = toHaxePath(pkg.path);

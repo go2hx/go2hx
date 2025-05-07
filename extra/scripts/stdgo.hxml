@@ -7,7 +7,9 @@
 -D simulate_num
 -dce full
 -D nolinkstd
-# --interp
--lib hxnodejs
---js export/stdgo.js
---cmd node export/stdgo.js --input-type commonjs
+--hl stdgo.hl
+--cmd hl stdgo.hl
+#--interp
+# -lib hxnodejs
+# --js export/stdgo.js
+# --cmd node export/stdgo.js --input-type commonjs

@@ -10,8 +10,6 @@ import sys.FileSystem;
 import sys.io.File;
 import codegen.Interop;
 
-var splitFiles:Array<String> = [];
-
 function cutPrefix(paths:Array<String>):Array<String> {
 	return paths.length >= 2 ? paths.slice(2) : paths;
 }
@@ -72,6 +70,7 @@ function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
 	var macroContent:Array<TypeDefinition> = [];
 	var count = module.files.length;
 	var hasMacroDef = false;
+	trace(module.path);
 	for (file in module.files) {
 		/*content = pkgPath;
 			macroContent = pkgPath;
@@ -89,7 +88,7 @@ function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
 		var macroFields:Array<haxe.macro.Expr.Field> = [];
 		final cl = macro class C {};
 		final clMacro = macro class C {};
-		splitFiles = [];
+		var splitFiles = [];
 		cl.name = @:privateAccess io.Path.importClassName(paths.pop());
 		// cl.meta = [{name: ":doxName", params: [macro ${shared.Util.makeExpr("⭐ " + clName,)}], pos: null}];
 		clMacro.name = cl.name;
@@ -159,15 +158,15 @@ function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
 		}
 		if (interopDefBool) {
 			interopContent.push(cl);
-			save(outputPath + actualPathInterop + "/", file.name, interopContent, pkgPathInterop, "", false);
+			save(outputPath + actualPathInterop + "/", file.name, interopContent, pkgPathInterop, "", false, splitFiles);
 		}
-		save(outputPath + actualPath + "/", file.name, content, pkgPath + contentImports, "", !file.isMain);
+		save(outputPath + actualPath + "/", file.name, content, pkgPath + contentImports, "", !file.isMain, splitFiles);
 		if (hasMacroDef) {
 			if (interopDefBool) {
 				interopMacroContent.push(clMacro);
-				save(outputPath + actualPathInterop + "/", file.name, interopMacroContent, pkgPath, ".macro", false);
+				save(outputPath + actualPathInterop + "/", file.name, interopMacroContent, pkgPath, ".macro", false, splitFiles);
 			}
-			save(outputPath + actualPath + "/", file.name, macroContent, pkgPath, ".macro");
+			save(outputPath + actualPath + "/", file.name, macroContent, pkgPath, ".macro", false, splitFiles);
 		}
 	}
 }
@@ -188,17 +187,17 @@ private function runCmd(cmd:String) {
 	#end
 }
 
-private function save(dir:String, name:String, content:Array<TypeDefinition>, prefix:String, extension:String = "", splitDepsContent:Bool = true) {
+private function save(dir:String, name:String, content:Array<TypeDefinition>, prefix:String, extension:String, splitDepsContent:Bool, splitFiles:Array<String>) {
 	if (content.length == 0)
 		return;
 	if (splitDepsContent)
-		content = splitDeps(dir, name, prefix, extension, content); // clears out content and saves elsewhere
+		content = splitDeps(dir, name, prefix, extension, content, splitFiles); // clears out content and saves elsewhere
 	final contentString = prefix + content.map(f -> typer.Typer.printer.printTypeDefinition(f, false)).join("");
 	// used to create the main file and/or hold the init func
 	saveRaw(dir, name, contentString, prefix, extension, splitDepsContent);
 }
 
-function splitDeps(dir:String, name:String, prefix:String, extension:String, content:Array<TypeDefinition>):Array<TypeDefinition> {
+function splitDeps(dir:String, name:String, prefix:String, extension:String, content:Array<TypeDefinition>, splitFiles:Array<String>):Array<TypeDefinition> {
 	final newContent = [];
 	for (td in content) {
 		switch td.kind {
@@ -224,13 +223,13 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 		// raw save file
 		final fullPath = dir + "," + name + "_" + td.name.toLowerCase();
 		var contentString = typer.Typer.printer.printTypeDefinition(td, false);
-		if (splitFiles.indexOf(fullPath) != -1) {
+		/*if (splitFiles.indexOf(fullPath) != -1) {
 			appendRaw(dir, name + "_" + td.name.toLowerCase(), contentString, prefix, extension);
-		} else {
+		} else {*/
 			contentString = prefix + contentString;
 			saveRaw(dir, name + "_" + td.name.toLowerCase(), contentString, prefix, extension);
 			splitFiles.push(fullPath);
-		}
+		//}
 	}
 	return newContent;
 }
@@ -238,8 +237,14 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 var sizeMap:Map<String, Int> = [];
 
 private function saveRaw(dir:String, name:String, contentString, prefix:String, extension:String, splitFileBool:Bool = true) {
-	if (!FileSystem.exists(dir))
-		FileSystem.createDirectory(dir);
+	if (!FileSystem.exists(dir)) {
+		try {
+			FileSystem.createDirectory(dir);
+		}catch(e) {
+			trace(dir,name);
+			throw e;
+		}
+	}
 	final path = dir + name + extension + ".hx";
 	var didWrite = utils.Cache.checkHashAndWrite(path, contentString);
 	if (splitFileBool) {

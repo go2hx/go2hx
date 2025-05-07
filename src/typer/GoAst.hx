@@ -10,18 +10,12 @@ typedef Decl = Dynamic;
 typedef Scope = Dynamic;
 typedef ChanDir = Int;
 
-typedef DataType = {
-	args:Array<String>,
-	pkgs:Array<PackageType>,
-	index:String,
-	typeList:Array<Dynamic>,
-};
-
 typedef PackageType = {
 	path:String,
 	name:String,
 	order:Array<String>,
 	files:Array<FileType>,
+	typeList:Array<Dynamic>,
 };
 
 typedef FileType = {

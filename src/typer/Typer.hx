@@ -2,20 +2,6 @@ package typer;
 
 import haxe.macro.Expr as MacroExpr;
 
-function typeAST(data:GoAst.DataType, instance:Compiler.CompilerInstanceData):Array<HaxeAst.Module> {
-	var list:Array<HaxeAst.Module> = [];
-	final hashMapTypes:Map<UInt, Dynamic> = [];
-	for (obj in data.typeList)
-		hashMapTypes[obj.hash] = obj;
-	// module system
-	for (pkg in data.pkgs) {
-		if (pkg.files == null)
-			continue;
-		list.push(Package.typePackage(pkg, instance, hashMapTypes));
-	}
-	return list;
-}
-
 @:structInit
 class FieldType {
 	public var name:String;

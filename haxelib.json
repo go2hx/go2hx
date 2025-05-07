@@ -2,12 +2,12 @@
 	"name": "go2hx",
 	"description": "The Go to Haxe compiler",
 	"dependencies": {},
-	"url": "http://github.com/pxshadow/go2hx",
+	"url": "http://github.com/go2hx/go2hx",
 	"contributors": [
 		"pxshadow",
 		"elliott5"
 	],
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"tags": [
 		"go",
 		"golang",

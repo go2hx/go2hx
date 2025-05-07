@@ -329,7 +329,7 @@ Called from stdgo._internal.os.exec._Exec_lookpath.Exec_lookpath_Fields_.lookPat
 -- FAIL: TestStartProcess
 
 === RUN  TestChmod
-Stat "/tmp/tmp_1aiiqcsvji": mode 0 want 0456
+Stat "/tmp/tmp_z7kgyt6mp7": mode 0 want 0456
 Exception: File:os.chmod is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.os_test._Os_test_testchmod.Os_test_testchmod_Fields_.testChmod (./_internal/os_test/Os_test_testchmod.hx line 100 column 21)
@@ -353,9 +353,9 @@ Called from _internal.os_test._Os_test_testtruncate.Os_test_testtruncate_Fields_
 === RUN  TestTruncateNonexistentFile
 ./stdgo/_internal/os/Os_truncate.hx:3: os.truncate not implemented
 got error: <nil>
-want an ErrNotExist PathError with path "tmp_e2y90wv8gk/nonexistent"
-got error: readFile tmp_e2y90wv8gk/nonexistent: no such file or directory
-want an ErrNotExist PathError with path "tmp_e2y90wv8gk/nonexistent"
+want an ErrNotExist PathError with path "tmp_zr6kvu6w10/nonexistent"
+got error: readFile tmp_zr6kvu6w10/nonexistent: no such file or directory
+want an ErrNotExist PathError with path "tmp_zr6kvu6w10/nonexistent"
 
 -- FAIL: TestTruncateNonexistentFile
 
@@ -446,6 +446,16 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 ./_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 41-46 : Called from here
 ./_internal/os_test/Os_test_testprogwidechdir.hx:231: characters 25-30 : Called from here
 ./stdgo/Go.hx:45: characters 4-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here./_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 41-46 : Uncaught exception :os.sameFile is not yet implemented
+./_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 41-46 : Called from here
+./_internal/os_test/Os_test_testprogwidechdir.hx:231: characters 25-30 : Called from here
+./stdgo/Go.hx:45: characters 4-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
+
+./_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 41-46 : Uncaught exception :os.sameFile is not yet implemented
+./_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 41-46 : Called from here
+./_internal/os_test/Os_test_testprogwidechdir.hx:231: characters 25-30 : Called from here
+./stdgo/Go.hx:45: characters 4-10 : Called from here
 /home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
 
 -- PASS: TestProgWideChdir
@@ -460,16 +470,6 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 #3: Seek(0, 2) = 0, <nil> want 13, nil
 ./stdgo/_internal/os/Os_file_static_extension.hx:103: not supported on eval target
 ./stdgo/_internal/os/Os_file_static_extension.hx:103: not supported on eval target
-./_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 41-46 : Uncaught exception :os.sameFile is not yet implemented
-./_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 41-46 : Called from here
-./_internal/os_test/Os_test_testprogwidechdir.hx:231: characters 25-30 : Called from here
-./stdgo/Go.hx:45: characters 4-10 : Called from here
-/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
-./_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 41-46 : Uncaught exception :os.sameFile is not yet implemented
-./_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 41-46 : Called from here
-./_internal/os_test/Os_test_testprogwidechdir.hx:231: characters 25-30 : Called from here
-./stdgo/Go.hx:45: characters 4-10 : Called from here
-/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
 #5: Seek(-1, 2) = 0, <nil> want 12, nil
 ./stdgo/_internal/os/Os_file_static_extension.hx:103: not supported on eval target
 #6: Seek(8589934592, 0) = 0, <nil> want 8589934592, nil
@@ -608,7 +608,7 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_
 -- PASS: TestLargeWriteToConsole
 
 === RUN  TestStatDirModeExec
-Stat "tmp_ead7zzxk5l": mode 0 want 0111
+Stat "tmp_32k0fsxmva": mode 0 want 0111
 
 -- FAIL: TestStatDirModeExec
 
@@ -677,17 +677,17 @@ Called from stdgo._internal.os.File_static_extension.chdir (./stdgo/_internal/os
 -- FAIL: TestNilFileMethods
 
 === RUN  TestRemoveAllRace
-./_internal/os_test/Os_test_testremoveallrace.hx:102: characters 41-46 : Uncaught exception No such file or directory(rmdir, issuetmp_2r5qtivcke/a/b/b)
+./_internal/os_test/Os_test_testremoveallrace.hx:102: characters 41-46 : Uncaught exception No such file or directory(rmdir, issuetmp_1kfidbktfz/b/b/a/a/b)
 ./_internal/os_test/Os_test_testremoveallrace.hx:102: characters 41-46 : Called from here
 ./_internal/os_test/Os_test_testremoveallrace.hx:108: characters 25-28 : Called from here
 ./stdgo/Go.hx:45: characters 4-10 : Called from here
 /home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
-./_internal/os_test/Os_test_testremoveallrace.hx:102: characters 41-46 : Uncaught exception issuetmp_2r5qtivcke/a/b/a/a/a: No such file or directory
+./_internal/os_test/Os_test_testremoveallrace.hx:102: characters 41-46 : Uncaught exception No such file or directory(rmdir, issuetmp_1kfidbktfz/b/a/b/a)
 ./_internal/os_test/Os_test_testremoveallrace.hx:102: characters 41-46 : Called from here
 ./_internal/os_test/Os_test_testremoveallrace.hx:108: characters 25-28 : Called from here
 ./stdgo/Go.hx:45: characters 4-10 : Called from here
 /home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
-./_internal/os_test/Os_test_testremoveallrace.hx:102: characters 41-46 : Uncaught exception issuetmp_2r5qtivcke/a/b/a/a/a: No such file or directory
+./_internal/os_test/Os_test_testremoveallrace.hx:102: characters 41-46 : Uncaught exception issuetmp_1kfidbktfz/b/a/b/b/a: No such file or directory
 ./_internal/os_test/Os_test_testremoveallrace.hx:102: characters 41-46 : Called from here
 ./_internal/os_test/Os_test_testremoveallrace.hx:108: characters 25-28 : Called from here
 ./stdgo/Go.hx:45: characters 4-10 : Called from here
@@ -790,7 +790,7 @@ Called from stdgo._internal.os._Os_openfile.Os_openfile_Fields_.openFile (./stdg
 -- FAIL: TestDirFSEmptyDir
 
 === RUN  TestDirFSPathsValid
-writeFile tmp_yoz2fsrqy2/control.txt: no such file or directory
+writeFile tmp_f37nk74wcz/control.txt: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.os_test._Os_test_testdirfspathsvalid.Os_test_testdirfspathsvalid_Fields_.testDirFSPathsValid (./_internal/os_test/Os_test_testdirfspathsvalid.hx line 16 column 26)
@@ -1076,7 +1076,7 @@ Called from _internal.os_test._Os_test__teststatandlstat.Os_test__teststatandlst
 -- FAIL: TestDirAndSymlinkStats
 
 === RUN  TestFileAndSymlinkStats
-writeFile tmp_neqy0dytkl/file: no such file or directory
+writeFile tmp_ismct5kkno/file: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.os_test._Os_test_testfileandsymlinkstats.Os_test_testfileandsymlinkstats_Fields_.testFileAndSymlinkStats (./_internal/os_test/Os_test_testfileandsymlinkstats.hx line 14 column 26)
@@ -1095,16 +1095,16 @@ Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (./stdgo/_
 -- FAIL: TestSymlinkWithTrailingSlash
 
 === RUN  TestCreateTemp
-Exception: TestCreateTempBadDirtmp_2dcmm8bz1j/_not_exists_/tmp_vn0lry8zxp: No such file or directory
+Exception: TestCreateTempBadDirtmp_ih2xu763qz/_not_exists_/tmp_lbjgf0jdox: No such file or directory
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.os_test._Os_test_testcreatetemp.Os_test_testcreatetemp_Fields_.testCreateTemp (./_internal/os_test/Os_test_testcreatetemp.hx line 76 column 21)
 
 -- FAIL: TestCreateTemp
 
 === RUN  TestCreateTempPattern
-CreateTemp pattern "tempfile_test" created bad name "tmp_rg914vqh5o"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*" created bad name "tmp_a4e87feuii"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*xyz" created bad name "tmp_7s3w3nv5x1"; want prefix "tempfile_test" & suffix "xyz"
+CreateTemp pattern "tempfile_test" created bad name "tmp_88y3im84v7"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*" created bad name "tmp_frzv3l18r8"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*xyz" created bad name "tmp_7bte8zkxwu"; want prefix "tempfile_test" & suffix "xyz"
 
 -- FAIL: TestCreateTempPattern
 
@@ -1116,32 +1116,32 @@ Called from _internal.os_test._Os_test_testcreatetempbadpattern.Os_test_testcrea
 -- FAIL: TestCreateTempBadPattern
 
 === RUN  TestMkdirTemp
-MkdirTemp(`/_not_exists_`, `foo`) = footmp_j5r3qemr6f, <nil>
+MkdirTemp(`/_not_exists_`, `foo`) = footmp_dmtcr96c7y, <nil>
 - SUBRUN  tempfile_test
 MkdirTemp("temp", "tempfile_test") created bad name
-	"tempfile_testtmp_2no4usctdv"
+	"tempfile_testtmp_c5wdht9r3v"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*
 MkdirTemp("temp", "tempfile_test*") created bad name
-	"tempfile_testtmp_mxbs1uqq70"
+	"tempfile_testtmp_mn9j0m4xdn"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*xyz
 MkdirTemp("temp", "tempfile_test*xyz") created bad name
-	"tempfile_testtmp_rfuijeiefbxyz"
+	"tempfile_testtmp_4cc8c0ztcnxyz"
 did not match pattern
 	"^temp/tempfile_test[0-9]+xyz$"
 - SUBRUN  *xyz
 MkdirTemp("temp", "*xyz") created bad name
-	"tmp_aiqf4rz3qvxyz"
+	"tmp_ld9l0hzsuvxyz"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestMkdirTemp
 
 === RUN  TestMkdirTempBadDir
-TempDir error = (nil)(nil); want PathError for path "MkdirTempBadDirtmp_614la3fcls/not-exist" satisfying IsNotExist
+TempDir error = (nil)(nil); want PathError for path "MkdirTempBadDirtmp_pso1vc521u/not-exist" satisfying IsNotExist
 
 -- FAIL: TestMkdirTempBadDir
 
@@ -1154,7 +1154,7 @@ Called from _internal.os_test._Os_test_testmkdirtempbadpattern.Os_test_testmkdir
 
 ./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
 -- FAIL: TestMkdirTempBadPattern
-chmod: cannot access 'tmp_icgfhmwr3u/x': No such file or directory
+chmod: cannot access 'tmp_xbuijekhct/x': No such file or directory
 [ERROR] ./stdgo/_internal/os/Os_exit.hx
 
    | Uncaught exception :os.exit is not yet implemented

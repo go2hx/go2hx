@@ -34,6 +34,7 @@ var run:String = "";
 var runOnly:String = "";
 var lastTaskLogs = [];
 final runnerCount = haxe.macro.Compiler.getDefine("runnerCount") ?? "2";
+final maxRunnerCount = Std.parseInt(runnerCount);
 var dryRun = false;
 var unitBool = false;
 var stdBool = false;
@@ -90,13 +91,11 @@ function main() {
 	trace(tests.length);
 	trace(tasks.length);
 	if (!dryRun) {
-		Compiler.setupCompiler(new CompilerInstanceData(), () -> {
-			complete(null, null);
-		}); // amount of processes to spawn
 		Compiler.onComplete = complete;
 		Compiler.onUnknownExit = close;
-		final timer = new haxe.Timer(100);
-		timer.run = update;
+		Compiler.setupCompiler(() -> {
+			complete(null, null);
+		}); // amount of processes to spawn
 	}
 }
 
@@ -192,15 +191,15 @@ private function runTests() {
 	}
 }
 
-var runningCount = 0;
+var taskThreadPool = new utils.ThreadPool(4);
 var instance:CompilerInstanceData = null;
 var timeout = 0;
 var retryFailedCount = 2;
 var failedRegressionTasks:Array<TaskData> = [];
 
-function update() {
+function runTasks() {
 	// Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);
-	if (completeBool && tests.length == 0 && tasks.length == 0 && runningCount == 0) {
+	if (completeBool && tests.length == 0 && tasks.length == 0 && taskThreadPool.runningCount == 0) {
 		trace("COMPLETE");
 		close();
 	}
@@ -215,61 +214,56 @@ function update() {
 				suite.buildError(task);
 			}
 		}
-		trace("runningCount:", runningCount);
+		trace("runningCount:", taskThreadPool.runningCount);
 		trace("completeBool:", completeBool);
 		// instance.args is null
 		trace("last task logs:", lastTaskLogs);
 		trace("tests left:", tests.length);
 		close();
 	}
-	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount)) {
+	if (tasks.length > 0) {
+		inline function checkWait():Bool
+			return taskThreadPool.runningCount >= taskThreadPool.maxThreadsCount;
+		while (checkWait()) {
+			Sys.sleep(0.2);
+		}
 		final task = tasks.pop();
 		if (!noLogs) {
-			Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);
+			Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + taskThreadPool.runningCount + " " + lastTaskLogs);
 		}
 		if (hxbBool) {
 			task.args.push("--hxb-lib");
 			task.args.push("go2hx.zip");
 		}
 		final taskString = task.command + " " + task.args.join(" ");
-		lastTaskLogs.push(taskString);
-		runningCount++;
 		trace("task command: " + task.command + " " + task.args.join(" "));
-		final ls:js.node.child_process.ChildProcess = js.node.ChildProcess.spawn(task.command, task.args, {shell: true});
-		ls.stdout.setEncoding('utf8');
-		ls.stderr.setEncoding('utf8');
-		var timeoutTimer = new haxe.Timer((1000 * 60) * 12);
+		runTask(task, taskString);
+		lastTaskLogs.push(taskString);
+		runTasks();
+	}
+}
+
+private function runTask(task:TaskData, taskString:String) {
+	final proc = new sys.io.Process(task.command, task.args);
+		var code:Null<Int> = null;
+		while (code == null) {
+			code = proc.exitCode(false);
+			Sys.sleep(0.001);
+		}
+		task.output += proc.stdout.readAll().toString();
+		task.output += proc.stderr.readAll().toString();
+		/*var timeoutTimer = new haxe.Timer((1000 * 60) * 12);
 		timeoutTimer.run = () -> {
-			runningCount--;
 			trace("TEST TIMEOUT: " + task.command + " " + task.args.join(" "));
 			if (task.runtime) {
 				suite.runtimeError(task);
 			} else {
 				suite.buildError(task);
 			}
-			ls.removeAllListeners();
-			ls.kill();
-		};
-		ls.stdout.on('data', function(data) {
-			if (!noLogs) {
-				log(task.target + "|" + task.path + "|" + task.runtime + "|" + task.stamp());
-				Sys.print(data);
-				log(data);
-			}
-			task.output += data;
-			timeout = 0;
-		});
-		ls.stderr.on('data', function(data) {
-			log(task.target + "|" + task.path + "|" + task.runtime + "|" + task.stamp());
-			Sys.print(data);
-			task.output += data;
-			log(data);
-			timeout = 0;
-		});
-		ls.on('close', function(code) {
-			final output = task.output;
-			// if good close
-			if (code == 0) {
+		};*/
+		final output = task.output;
+		// if good close
+		if (code == 0) {
 				if (task.runtime || task.target == "interp") {
 					final wanted = outputMap[type + "_" + task.path];
 					if (wanted != null && wanted != "") {
@@ -312,10 +306,6 @@ function update() {
 					});
 				}
 			} else {
-				#if js
-				if (code == null)
-					code = 2;
-				#end
 				if (task.runtime || task.target == "interp") {
 					trace("runtime error: " + task.command + " " + task.args.join(" "));
 					// runtime error
@@ -365,13 +355,10 @@ function update() {
 					}
 				}
 			}
-			runningCount--;
 			timeout = 0;
-			timeoutTimer.stop();
+			//timeoutTimer.stop();
 			lastTaskLogs.remove(taskString);
 			completeBool = true;
-		});
-	}
 }
 
 private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array<String>, fails:Array<String>} {
@@ -404,9 +391,8 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 private function complete(modules:Array<typer.HaxeAst.Module>, data:{excludes:Array<String>, hxml:String, ?main:String}) {
 	timeout = 0;
 	completeBool = true;
-	if (modules != null)
-		runningCount--;
 	spawnTargets(modules, data);
+	runTasks();
 	runNewTest();
 }
 
@@ -445,6 +431,7 @@ function spawnTargets(modules, data) {
 
 function runNewTest() {
 	final test = tests.pop();
+	trace(test);
 	final exclude = excludeFuncArgs.pop();
 	if (test == null)
 		return;
@@ -460,8 +447,6 @@ function runNewTest() {
 	} else {
 		args.push(globalPath);
 	}
-	// trace(args.join(" "));
-	runningCount++;
 	instance = Compiler.createCompilerInstanceFromArgs(args);
 	instance.data = {excludes: exclude, hxml: hxml};
 	final compiled = Compiler.compileFromInstance(instance);

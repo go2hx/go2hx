@@ -40,7 +40,7 @@ function main() {
 	Compiler.onComplete = complete;
 	if (libs.length == 0)
 		return;
-	Compiler.setupCompiler(new Compiler.CompilerInstanceData(), () -> {
+	Compiler.setupCompiler(() -> {
 		// kickstart
 		complete(null, null);
 	}); // amount of processes to spawn

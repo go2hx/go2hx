@@ -17,6 +17,7 @@ var onComplete:(modules:Array<typer.HaxeAst.Module>, data:Dynamic) -> Void = nul
 var onUnknownExit:Void->Void = null;
 var modules:Array<typer.HaxeAst.Module> = [];
 var runningList:Array<Task> = [];
+var instance:CompilerInstanceData = null;
 
 
 @:structInit
@@ -93,7 +94,7 @@ private function receivedData(instance:CompilerInstanceData, buff:Bytes) {
 	mutex.release();
 }
 
-function end(instance) {
+function end(instance:CompilerInstanceData) {
 	if (instance.noDeps)
 		createBasePkgs(instance.outputPath, modules, cwd);
 	runBuildTools(modules, instance, programArgs);
@@ -133,13 +134,13 @@ function runCompilerFromArgs(args:Array<String>) {
 		return;
 	}
 
-	final instance = createCompilerInstanceFromArgs(args);
+	instance = createCompilerInstanceFromArgs(args);
 
 	Sys.println("Golang compiler instance");
-	setupCompiler(instance, () -> {
+	setupCompiler(() -> {
 		if (onComplete == null)
 			onComplete = (modules, data) -> {
-				closeCompiler(0, instance);
+				closeCompiler(0);
 			};
 		compileFromInstance(instance);
 	});
@@ -273,11 +274,11 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 	instance.args = args;
 	if (help) {
 		printDoc(argHandler);
-		closeCompiler(0, instance);
+		closeCompiler(0);
 		return instance;
 	}
 	if (args.length <= 1) {
-		closeCompiler(0, instance);
+		closeCompiler(0);
 	}
 
 	return instance;
@@ -294,7 +295,7 @@ private function printDoc(handler:cli.Args.ArgHandler) {
 	}
 }
 
-function closeCompiler(code:Int = 0, instance:Null<CompilerInstanceData> = null) {
+function closeCompiler(code:Int = 0) {
 	Sys.println("CLOSE COMPILER");
 	process.close();
 	Sys.exit(code);
@@ -302,52 +303,68 @@ function closeCompiler(code:Int = 0, instance:Null<CompilerInstanceData> = null)
 
 var resetCount = 0;
 
-function setupCompiler(instance:CompilerInstanceData, ready:Void->Void) {
-	server.bind(new sys.net.Host("127.0.0.1"), instance.port);
+function setupCompiler(ready:Void->Void) {
+	var port = 0;
+	if (instance != null)
+		port = instance.port;
+	server.bind(new sys.net.Host("127.0.0.1"), port);
 	server.listen(1);
-	instance.port = server.host().port;
-	Sys.println('listening on local port: ${instance.port}');
-	startGo4hx(instance);
-	accept(server, instance, ready);
+	port = server.host().port;
+	if (instance != null)
+		instance.port = port;
+	Sys.println('listening on local port: $port');
+	startGo4hx(port);
+	accept(server, ready);
 }
 
-function startGo4hx(instance:CompilerInstanceData) {
+function startGo4hx(port:Int) {
 	resetCount = 0;
 	#if (target.threaded)
-	process = new sys.io.Process("./go4hx", ['' + instance.port], false);
+	process = new sys.io.Process("./go4hx", ['' + port], false);
 	#else
-	jsProcess(instance);
+	jsProcess(port);
 	#end
 }
-function accept(server:Socket, instance:CompilerInstanceData, ready:Void->Void) {
+function accept(server:Socket, ready:Void->Void) {
+	if (instance == null)
+		instance = new CompilerInstanceData();
 	Sys.println("accepted connection");
 	client = server.accept();
 	if (ready != null)
 		ready();
 	var buffSize = 0;
 	Sys.setCwd(cwd);
-	instance.totalPkgs = getLength(client.input.read(8));
 	while (true) {
-		final buff = client.input.read(getLength(client.input.read(8)));
-		final b = Bytes.alloc(buff.length);
-		b.blit(0, buff, 0, buff.length);
-		if (instance.deps.length == 0) {
-			instance.deps = decodeData(b).deps;
-			printDeps(instance.deps);
-		}else{
-			#if (target.threaded && !macro)
-			inline function checkWait():Bool
-				return threadPool.runningCount >= threadPool.maxThreadsCount;
-			if (checkWait()) {
-				slowThreadCheck();
+		buffSize = 0;
+		instance.totalPkgs = getLength(client.input.read(8));
+		var startedPkgs = 0;
+		while (true) {
+			final buff = client.input.read(getLength(client.input.read(8)));
+			final b = Bytes.alloc(buff.length);
+			b.blit(0, buff, 0, buff.length);
+			if (instance.deps.length == 0) {
+				instance.deps = decodeData(b).deps;
+				printDeps(instance.deps);
+			}else{
+				#if (target.threaded && !macro)
+				inline function checkWait():Bool
+					return threadPool.runningCount >= threadPool.maxThreadsCount;
+				if (checkWait()) {
+					slowThreadCheck();
+				}
+				while (checkWait()) {
+					Sys.sleep(0.01);
+				}
+				final instance = instance.copy();
+				threadPool.run(() -> receivedData(instance, b));
+				#else
+				receivedData(instance, b);
+				#end
+				startedPkgs++;
+				if (startedPkgs >= instance.totalPkgs) {
+					break;
+				}
 			}
-			while (checkWait()) {
-				Sys.sleep(0.01);
-			}
-			threadPool.run(() -> receivedData(instance, b));
-			#else
-			receivedData(instance, b);
-			#end
 		}
 	}
 }
@@ -394,7 +411,7 @@ function healthCheck(instance) {
 	#end
 	// close as stream has broken
 	trace("stream has broken");
-	closeCompiler(0, instance);
+	closeCompiler(0);
 	return;
 }
 
@@ -646,7 +663,8 @@ function runTarget(target:String, out:String, args:Array<String>, main:String):S
 	return s;
 }
 
-function compileFromInstance(instance:CompilerInstanceData):Bool {
+function compileFromInstance(inst:CompilerInstanceData):Bool {
+	instance = inst;
 	if (instance.localPath == "")
 		instance.localPath = instance.args[instance.args.length - 1];
 	var httpsString = "https://";

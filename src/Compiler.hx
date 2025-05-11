@@ -57,29 +57,29 @@ private function receivedData(instance:CompilerInstanceData, buff:Bytes) {
 		stamp = nextStamp;
 		return diff;
 	}
-	mutex.acquire();
 	final data:typer.GoAst.PackageType = decodeData(buff);
 	#if (cpp && HXCPP_TRACY)
 	//cpp.vm.tracy.TracyProfiler.zoneScoped(data.path);
 	//cpp.vm.tracy.TracyProfiler.setThreadName(data.path);
 	#end
 	final decodeDataTime = measureTime();
-	//mutex.acquire();
+	mutex.acquire();
 	final task:Task = {stamp: haxe.Timer.stamp(), path: data.path};
 	runningList.push(task);
-	//mutex.release();
+	mutex.release();
 	// IMPORTANT: typing phase Go AST -> Haxe AST
 	final module = typer.Package.typePackage(data, instance);
 	final typePackageTime = measureTime();
-	//mutex.acquire();
+	mutex.acquire();
 	task.state = PRINTING;
 	modules.push(module);
-	//mutex.release();
+	mutex.release();
 	// generate the code
 	codegen.CodeGen.create(instance.outputPath, module, instance.root);
 	final codeGenTime = measureTime();
-	//mutex.acquire();
+	mutex.acquire();
 	task.state = END;
+	instance.countPkgs++;
 	runningList.remove(task);
 	//Sys.println(instance.countPkgs + "/" + instance.totalPkgs);
 	Sys.println(module.path + " " + instance.countPkgs + "/" + instance.totalPkgs);
@@ -90,7 +90,6 @@ private function receivedData(instance:CompilerInstanceData, buff:Bytes) {
 	if (instance.countPkgs >= instance.totalPkgs) {
 		end(instance);
 	}
-	//mutex.release();
 	mutex.release();
 }
 
@@ -105,7 +104,7 @@ function end(instance) {
 	runningList = [];
 }
 
-function decodeData(buff) {
+function decodeData(buff):Dynamic {
 	final uncompressedData = haxe.zip.Uncompress.run(buff);
 	final result = haxe.Json.parse(uncompressedData.toString());
 	// final result = haxe.Json.parse(buff.toString());
@@ -345,8 +344,6 @@ function accept(server:Socket, instance:CompilerInstanceData, ready:Void->Void) 
 			while (checkWait()) {
 				Sys.sleep(0.01);
 			}
-			instance.countPkgs++;
-			final instance = instance.copy();
 			threadPool.run(() -> receivedData(instance, b));
 			#else
 			receivedData(instance, b);

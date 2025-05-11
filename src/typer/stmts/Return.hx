@@ -12,6 +12,7 @@ typedef IntermediateReturnStmtType = {
 };
 
 function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):MacroExpr {
+	return macro null;
 	final stmt = typeReturnStmtAnalyze(stmt, info);
 	return typeReturnStmtEmit(stmt);
 }

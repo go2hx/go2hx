@@ -11,10 +11,10 @@ function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):MacroExpr {
 		}
 		return macro {};
 	}
-	return toExpr(typeStmtList(stmt.list, info, isFunc));
+	return typeStmtList(stmt.list, info, isFunc);
 }
 
-function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):ExprDef {
+function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr {
 	if (isFunc) {
 		info.localIdents = info.localIdents.copy();
 		info.renameIdents = info.renameIdents.copy();
@@ -123,5 +123,5 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 			exprs.push(trydef);
 		}
 	}
-	return EBlock(exprs);
+	return toExpr(EBlock(exprs));
 }

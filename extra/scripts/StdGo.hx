@@ -37,20 +37,13 @@ function main() {
 	for (path in excludes)
 		list.remove(path);
 	trace(libs);
+	Compiler.onComplete = complete;
+	if (libs.length == 0)
+		return;
 	Compiler.setupCompiler(new Compiler.CompilerInstanceData(), () -> {
 		// kickstart
 		complete(null, null);
 	}); // amount of processes to spawn
-	Compiler.onComplete = complete;
-	if (libs.length == 0)
-		return;
-	#if !js
-	while (true)
-		update();
-	#else
-	final timer = new haxe.Timer(500);
-	timer.run = update;
-	#end
 }
 
 private function complete(modules:Array<typer.HaxeAst.Module>, _) {
@@ -85,12 +78,6 @@ var varTraceBool = MacroCompiler.getDefine("vartrace") != null;
 var stackBool = MacroCompiler.getDefine("stack") != null;
 var releaseBool = MacroCompiler.getDefine("release") != null;
 var debugBool = MacroCompiler.getDefine("cdebug") != null;
-
-function update() {
-	#if !js
-	Compiler.updateLoop();
-	#end
-}
 
 private function sanatize(s:String):String {
 	s = StringTools.replace(s, "/", "_");

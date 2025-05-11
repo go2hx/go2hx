@@ -129,13 +129,15 @@ func compile(conn net.Conn, params []string, debug bool) {
 		}
 	}
 	//fmt.Println(excludes)
-	pkgs := getPkgs(initial, excludes)
+	dep := &depth{Path: "init", Excluded: false, Deps: []depth{}}
+	pkgs := getPkgs(initial, excludes, dep)
 	// for _, pkg := range pkgs {
 	// 	println(pkg.PkgPath)
 	// }
 	// return
 	// send amount of pkgs
 	sendLen(conn, len(pkgs))
+	sendData(conn, dep)
 	// send pkg data
 	parsePkgList(conn, pkgs, excludes)
 }
@@ -150,6 +152,12 @@ func defaultExcludes() map[string]bool {
 		excludes[exclude] = true
 	}
 	return excludes
+}
+
+type depth struct {
+	Path     string  `json:"path"`
+	Excluded bool    `json:"excluded"`
+	Deps     []depth `json:"deps"`
 }
 
 func panicIfError(err error) {
@@ -186,17 +194,27 @@ func createLenMessage(b []byte) []byte {
 	return append(bytesBuff, b...)
 }
 
-func getPkgs(list []*packages.Package, excludes map[string]bool) []*packages.Package {
+func getPkgs(list []*packages.Package, excludes map[string]bool, dep *depth) []*packages.Package {
 	newList := []*packages.Package{}
 	for _, pkg := range list {
 		if excludes[pkg.PkgPath] {
+			dep.Deps = append(dep.Deps, depth{
+				Path:     pkg.PkgPath,
+				Excluded: true,
+			})
 			continue
 		}
 		excludes[pkg.PkgPath] = true
+		dep2 := &depth{
+			Path:     pkg.PkgPath,
+			Excluded: false,
+			Deps:     []depth{},
+		}
 		for _, pkg := range pkg.Imports {
-			newList = append(newList, getPkgs([]*packages.Package{pkg}, excludes)...)
+			newList = append(newList, getPkgs([]*packages.Package{pkg}, excludes, dep2)...)
 		}
 		newList = append(newList, pkg)
+		dep.Deps = append(dep.Deps, *dep2)
 	}
 	return newList
 }

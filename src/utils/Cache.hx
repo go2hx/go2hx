@@ -12,39 +12,28 @@ class Cache {
 
 	// allow for migration when the cache changes or to discard the cache all together.
 	private var version:Int = 1;
-
-	// the singleton cache
-	private static var cache:Cache = new Cache();
-	private static var usingCache:Bool = true;
+	static var usingCache:Bool = false;
 	public static final CURRENT_VERSION = 1;
-
-	/**
-	 * Allows you to disable the cache and any operations it does.
-	 * @param state if you want to enable or disable the cache.
-	 */
-	public static function setUseCache(state:Bool) {
-		usingCache = state;
-	}
 
 	/**
 	 * Checks the hash that is in the cache and only writes if it doesn't match.
 	 * Useful for preventing overwriting files that don't need to be.
 	 * @return Only returns True if the function has written anything.
 	 */
-	public static function checkHashAndWrite(path:String, content:String):Bool {
+	public function checkHashAndWrite(path:String, content:String):Bool {
 		if (!usingCache) {
 			File.saveContent(path, content);
 			return true;
 		}
 
 		var currentHash = Md5.encode(content);
-		var cachedHash = cache.fileHashes[path];
+		var cachedHash = fileHashes[path];
 
 		if (currentHash == cachedHash) {
 			return false;
 		}
 
-		cache.fileHashes[path] = currentHash;
+		fileHashes[path] = currentHash;
 		File.saveContent(path, content);
 		return true;
 	}
@@ -53,12 +42,12 @@ class Cache {
 	 * Store the cache
 	 * @param path location to store the cache at
 	 */
-	public static function saveCache(path:String) {
+	public function saveCache(path:String) {
 		if (!usingCache) {
 			return;
 		}
 
-		var serialized = Serializer.run(cache);
+		var serialized = Serializer.run(this);
 		File.saveContent(path, serialized);
 	}
 
@@ -66,15 +55,13 @@ class Cache {
 	 * Load the cache
 	 * @param path location to load the cache from
 	 */
-	public static function loadCache(instance) {
-		final path = haxe.io.Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']);
+	public static function loadCache(path):Cache {
+		if (!usingCache)
+			return new Cache();
+		final path = haxe.io.Path.join([path, '.go2hx_cache']);
 		try {
-			if (!usingCache) {
-				return;
-			}
-
 			if (!FileSystem.exists(path)) {
-				return; // silently skip loading the cache, as it isn't a fatal problem.
+				return new Cache(); // silently skip loading the cache, as it isn't a fatal problem.
 			}
 
 			var content = File.getContent(path);
@@ -85,14 +72,14 @@ class Cache {
 			}
 
 			if (unserialized is Cache) {
-				cache = unserialized;
-				return;
+				return unserialized;
 			}
 
 			Sys.println("Cache: cache is corrupted! new cache will be used.");
 		} catch (e:Dynamic) {
-			Sys.println("Cache: parsing error, " + Std.string(e));
+			Sys.println("Cache: parsing warning, " + Std.string(e));
 		}
+		return null;
 	}
 
 	// empty constructor

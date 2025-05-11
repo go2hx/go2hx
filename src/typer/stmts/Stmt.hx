@@ -6,8 +6,8 @@ function typeStmt(stmt:GoAst.Stmt, info:Info):MacroExpr {
 	var def = switch stmt.id {
 		case "ReturnStmt": Return.typeReturnStmt(stmt, info);
 		case "IfStmt": If.typeIfStmt(stmt, info);
-		case "ExprStmt": ExprStmt.typeExprStmt(stmt, info);
-		case "AssignStmt": Assign.typeAssignStmt(stmt, info);
+		case "ExprStmt": ExprStmt.typeExprStmt(stmt, info); // *
+		// case "AssignStmt": Assign.typeAssignStmt(stmt, info); // *
 		case "ForStmt": For.typeForStmt(stmt, info);
 		case "SwitchStmt": Switch.typeSwitchStmt(stmt, info); // TODO: cleanup
 		case "TypeSwitchStmt": TypeSwitch.typeTypeSwitchStmt(stmt, info);
@@ -23,7 +23,8 @@ function typeStmt(stmt:GoAst.Stmt, info:Info):MacroExpr {
 		case "SendStmt": Send.typeSendStmt(stmt, info);
 		case "EmptyStmt": Empty.typeEmptyStmt();
 		case "BadStmt": Bad.typeBadStmt(info);
-		default: throw info.panic() + "unknown stmt id: " + stmt.id;
+		default: macro null;
+		//default: throw info.panic() + "unknown stmt id: " + stmt.id;
 	}
 	if (def == null)
 		throw info.panic() + "stmt null: " + stmt.id;

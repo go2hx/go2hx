@@ -4,18 +4,37 @@ package;
  * Compiler holds the API to call the compiler and use various callbacks
  */
 import sys.FileSystem;
-import utils.Network;
 import haxe.Json;
 import haxe.Resource;
 import haxe.ds.Vector;
 import haxe.io.Bytes;
 import haxe.io.Path;
 import sys.io.File;
+import sys.net.Socket;
 
 // events
 var onComplete:(modules:Array<typer.HaxeAst.Module>, data:Dynamic) -> Void = null;
 var onUnknownExit:Void->Void = null;
 var modules:Array<typer.HaxeAst.Module> = [];
+var runningList:Array<Task> = [];
+
+
+@:structInit
+class Task {
+	public var stamp:Float = 0;
+	public var path:String = "";
+	public var state:TaskState = TYPING;
+	public function new(stamp, path) {
+		this.stamp = stamp;
+		this.path = path;
+	}
+}
+
+enum TaskState {
+	TYPING;
+	PRINTING;
+	END;
+}
 
 /**
  * All of the Go AST and type information has been sent over the network.
@@ -30,35 +49,63 @@ var modules:Array<typer.HaxeAst.Module> = [];
  * @param buff 
  * @param client 
  */
-private function receivedData(instance, buff, client) {
-	final data = decodeData(buff);
+private function receivedData(instance:CompilerInstanceData, buff:Bytes) {
+	var stamp = haxe.Timer.stamp();
+	function measureTime():Float {
+		final nextStamp = haxe.Timer.stamp();
+		final diff = nextStamp - stamp;
+		stamp = nextStamp;
+		return diff;
+	}
+	mutex.acquire();
+	final data:typer.GoAst.PackageType = decodeData(buff);
+	#if (cpp && HXCPP_TRACY)
+	//cpp.vm.tracy.TracyProfiler.zoneScoped(data.path);
+	//cpp.vm.tracy.TracyProfiler.setThreadName(data.path);
+	#end
+	final decodeDataTime = measureTime();
+	//mutex.acquire();
+	final task:Task = {stamp: haxe.Timer.stamp(), path: data.path};
+	runningList.push(task);
+	//mutex.release();
 	// IMPORTANT: typing phase Go AST -> Haxe AST
 	final module = typer.Package.typePackage(data, instance);
-	mutex.acquire();
+	final typePackageTime = measureTime();
+	//mutex.acquire();
+	task.state = PRINTING;
 	modules.push(module);
-	mutex.release();
+	//mutex.release();
 	// generate the code
 	codegen.CodeGen.create(instance.outputPath, module, instance.root);
-	mutex.acquire();
-	instance.countPkgs++;
-	if (instance.countPkgs >= instance.totalPkgs)
+	final codeGenTime = measureTime();
+	//mutex.acquire();
+	task.state = END;
+	runningList.remove(task);
+	//Sys.println(instance.countPkgs + "/" + instance.totalPkgs);
+	Sys.println(module.path + " " + instance.countPkgs + "/" + instance.totalPkgs);
+	Sys.println("- decodeData : " + decodeDataTime);
+	Sys.println("- typePackage: " + typePackageTime);
+	Sys.println("- codeGen    : " + codeGenTime);
+	Sys.println("- total      : " + (decodeDataTime + typePackageTime + codeGenTime));
+	if (instance.countPkgs >= instance.totalPkgs) {
 		end(instance);
+	}
+	//mutex.release();
 	mutex.release();
 }
 
 function end(instance) {
 	if (instance.noDeps)
 		createBasePkgs(instance.outputPath, modules, cwd);
-
-	printCodeSize();
 	runBuildTools(modules, instance, programArgs);
 	Sys.setCwd(cwd);
 	onComplete(modules, instance.data);
 	programArgs = null;
 	modules = [];
+	runningList = [];
 }
 
-function decodeData(buff):Any {
+function decodeData(buff) {
 	final uncompressedData = haxe.zip.Uncompress.run(buff);
 	final result = haxe.Json.parse(uncompressedData.toString());
 	// final result = haxe.Json.parse(buff.toString());
@@ -97,10 +144,6 @@ function runCompilerFromArgs(args:Array<String>) {
 			};
 		compileFromInstance(instance);
 	});
-	#if !js
-	while (true)
-		updateLoop();
-	#end
 }
 
 private function removeArg(args:Array<String>, arg:String):Bool {
@@ -252,106 +295,75 @@ private function printDoc(handler:cli.Args.ArgHandler) {
 	}
 }
 
-function updateLoop() {
-	loop.run(NoWait);
-	#if (target.threaded)
-	mainThread.events.progress();
-	#end
-	Sys.sleep(0.001);
-}
-
 function closeCompiler(code:Int = 0, instance:Null<CompilerInstanceData> = null) {
-	if (instance != null) {
-		if (FileSystem.exists(instance.outputPath))
-			utils.Cache.saveCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']));
-	}
-
-	#if (debug && !nodejs)
-	if (process != null) {
-		process.kill();
-		try {
-			while (true)
-				Sys.println(process.stdout.readLine());
-		} catch (_) {}
-	}
-	#end
-	client.stream.close();
-	#if (target.threaded)
+	Sys.println("CLOSE COMPILER");
 	process.close();
-	#end
-	server.close();
 	Sys.exit(code);
 }
 
 var resetCount = 0;
 
 function setupCompiler(instance:CompilerInstanceData, ready:Void->Void) {
-	utils.Cache.setUseCache(instance.useCache);
-	if (!instance.cleanCache)
-		utils.Cache.loadCache(instance);
-
-	#if !js
 	server.bind(new sys.net.Host("127.0.0.1"), instance.port);
-	instance.port = server.getPort();
+	server.listen(1);
+	instance.port = server.host().port;
 	Sys.println('listening on local port: ${instance.port}');
 	startGo4hx(instance);
-	#end
-	server.listen(0, () -> {
-		accept(server, instance, ready);
-	});
-	#if js listenNodeJS(server, instance); #end
+	accept(server, instance, ready);
 }
 
 function startGo4hx(instance:CompilerInstanceData) {
 	resetCount = 0;
-	// server.noDelay(true);
 	#if (target.threaded)
 	process = new sys.io.Process("./go4hx", ['' + instance.port], false);
 	#else
 	jsProcess(instance);
 	#end
 }
-function accept(server, instance, ready) {
+function accept(server:Socket, instance:CompilerInstanceData, ready:Void->Void) {
 	Sys.println("accepted connection");
-	client = {stream: server.accept()};
-	client.reset();
-	var pos = 0;
-	var buff:Bytes = null;
-	Sys.setCwd(cwd);
-	client.stream.readStart(bytes -> {
-		if (bytes == null) {
-			healthCheck(instance);
-			return;
-		}
-		if (instance.totalPkgs == 0) {
-			instance.totalPkgs = getLength(bytes);
-			instance.countPkgs = 0;
-			return;
-		}
-		if (buff == null) {
-			buff = createBuffer(client, bytes, instance);
-			bytes = bytes.sub(8, bytes.length - 8);
-		}
-		pos = setBytes(buff, bytes, pos);
-		instance.log("progress: " + pos + "/" + buff.length);
-		bytes = null;
-		if (pos == buff.length) {
-			client.runnable = true;
-			#if target.threaded
-			final b = Bytes.alloc(buff.length);
-			b.blit(0, buff, 0, buff.length);
-			#if !macro threadPool.run(() -> receivedData(instance, b, client)); #end
-			#else
-			receivedData(instance, buff, client);
-			#end
-			// reset data
-			buff = null;
-			client.reset();
-			pos = 0;
-		}
-	});
+	client = server.accept();
 	if (ready != null)
 		ready();
+	var buffSize = 0;
+	Sys.setCwd(cwd);
+	instance.totalPkgs = getLength(client.input.read(8));
+	while (true) {
+		final buff = client.input.read(getLength(client.input.read(8)));
+		final b = Bytes.alloc(buff.length);
+		b.blit(0, buff, 0, buff.length);
+		if (instance.deps.length == 0) {
+			instance.deps = decodeData(b).deps;
+			printDeps(instance.deps);
+		}else{
+			#if (target.threaded && !macro)
+			inline function checkWait():Bool
+				return threadPool.runningCount >= threadPool.maxThreadsCount;
+			if (checkWait()) {
+				slowThreadCheck();
+			}
+			while (checkWait()) {
+				Sys.sleep(0.01);
+			}
+			instance.countPkgs++;
+			final instance = instance.copy();
+			threadPool.run(() -> receivedData(instance, b));
+			#else
+			receivedData(instance, b);
+			#end
+		}
+	}
+}
+
+private function printDeps(deps:Array<Dep>, tab:String="") {
+	for (dep in deps) {
+		var extra = "";
+		if (dep.excluded)
+			continue;
+		Sys.println(tab + dep.path + extra);
+		if (dep.deps != null && dep.deps.length > 0)
+			printDeps(dep.deps, tab + "  ");
+	}
 }
 
 private function setBytes(buff:Bytes, bytes:Bytes, pos:Int):Int {
@@ -389,27 +401,18 @@ function healthCheck(instance) {
 	return;
 }
 
-#if js
-function listenNodeJS(server:Tcp, instance:CompilerInstanceData) {
-	@:privateAccess server.s.listen(instance.port, () -> {
-		instance.port = server.getPort();
-		startGo4hx(instance);
-		Sys.println('nodejs server listening on local port: ${instance.port}');
-	});
-}
-#end
-
-private function printCodeSize() {
-	final sizeMap = codegen.CodeGen.sizeMap;
-	// log size maps
-	var lSize = 0;
-	for (path => size in sizeMap) {
-		if (path.length > lSize)
-			lSize = path.length;
+function slowThreadCheck() {
+	#if target.threaded
+	final stamp = haxe.Timer.stamp();
+	final max = 15;
+	for (task in runningList) {
+		final diff = stamp - task.stamp;
+		//trace(task.path, diff);
+		if (diff > max) {
+			Sys.println('*TASK - ${task.path} ${task.state} slow: $diff');
+		}
 	}
-	for (path => size in sizeMap) {
-		Sys.println('    ${StringTools.rpad(path, " ", lSize)} - ${size}kb');
-	}
+	#end
 }
 
 private function createBasePkgs(outputPath:String, modules:Array<typer.HaxeAst.Module>, cwd:String) {
@@ -679,27 +682,13 @@ function compileFromInstance(instance:CompilerInstanceData):Bool {
 	return write(instance.args, instance);
 }
 
-function getClient() {
-	if (client.runnable)
-		return client;
-	if (++client.retries > 2 * 240) { // 240 seconds
-		trace("Client has retried too many times, giving up");
-	}
-	Sys.println("Tried to get client when it's not runnable");
-	Sys.exit(1);
-	return null;
-}
-
 function write(args:Array<String>, instance:CompilerInstanceData):Bool {
-	final client = getClient();
-	client.stream.write(Bytes.ofString(args.join(" ")));
-	client.runnable = false;
+	client.output.write(Bytes.ofString(args.join(" ")));
 	return true;
 }
 
-final instanceCache = new Vector<CompilerInstanceData>(20);
-
 class CompilerInstanceData {
+	public var deps:Array<Dep> = [];
 	public var countPkgs:Int = 0;
 	public var totalPkgs:Int = 0;
 	public var goCommand:String = "go";
@@ -728,7 +717,7 @@ class CompilerInstanceData {
 	public var test:Bool = false;
 	public var bench:Bool = false;
 	public var noCommentsBool:Bool = false;
-	public final defines:Array<String> = [];
+	public var defines:Array<String> = [];
 
 	public function new(args:Array<String> = null) {
 		if (args != null)
@@ -740,39 +729,61 @@ class CompilerInstanceData {
 			return;
 		Sys.println(s);
 	}
+	public function copy():CompilerInstanceData {
+		final instance = new CompilerInstanceData();
+		instance.deps = deps.copy();
+		instance.countPkgs = countPkgs;
+		instance.totalPkgs = totalPkgs;
+		instance.goCommand = goCommand;
+		instance.verbose = verbose;
+		instance.debugBool = debugBool;
+		instance.noDeps = noDeps;
+		instance.varTraceBool = varTraceBool;
+		instance.stackBool = stackBool;
+		instance.args = args.copy();
+		instance.data = Reflect.copy(data);
+		instance.printGoCode = printGoCode;
+		instance.localPath = localPath;
+		instance.target = target;
+		instance.port = port;
+		instance.targetOutput = targetOutput;
+		instance.libwrap = libwrap;
+		instance.outputPath = outputPath;
+		instance.root = root;
+		instance.buildPath = buildPath;
+		instance.externBool = externBool;
+		instance.hxmlPath = hxmlPath;
+		instance.noRun = noRun;
+		instance.noComments = noComments;
+		instance.useCache = useCache;
+		instance.cleanCache = cleanCache;
+		instance.test = test;
+		instance.bench = bench;
+		instance.noCommentsBool = noCommentsBool;
+		instance.defines = defines.copy();
+		return instance;
+	}
 }
 
 // global vars
 final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodeps", "-debug", "--debug"];
 final cwd = Sys.getCwd();
-final loop = Loop.getDefault();
-final server = new Tcp(loop);
-var client:Client = null;
-#if target.threaded
-#if !macro
-var threadPool = new sys.thread.FixedThreadPool(4);
+final server = new Socket();
+var client:Socket = null;
+#if (target.threaded && !macro)
+var threadPool = new utils.ThreadPool(4);
 #end
-var process:sys.io.Process = null;
+#if target.threaded
 var mainThread = sys.thread.Thread.current();
 #end
+var process:Dynamic = null;
 var mutex = #if target.threaded new sys.thread.Mutex(); #else {acquire: () -> {}, release: () -> {}}; #end
 var programArgs = [];
 
-@:structInit
-class Client {
-	public var stream:Stream;
-	public var runnable:Bool = true; // start out as true
-	public var retries:Int = 0;
-
-	public function new(stream) {
-		this.stream = stream;
-	}
-
-	public function reset() {
-		runnable = true;
-		retries = 0;
-		stream.size = 8;
-	}
+typedef Dep = {
+	path:String,
+	excluded:Bool,
+	deps:Array<Dep>,
 }
 
 #if js
@@ -782,8 +793,8 @@ function jsProcess(instance) {
 	} else {
 		"go4hx.exe";
 	}
-	final child = js.node.ChildProcess.exec('$name ${instance.port}', null, null);
-	child.on('exit', code -> {
+	process = js.node.ChildProcess.exec('$name ${instance.port}', null, null);
+	process.on('exit', code -> {
 		final code:Int = code;
 		Sys.println('child process exited: $code');
 		// print out output
@@ -798,13 +809,13 @@ function jsProcess(instance) {
 			jsProcess(instance);
 		}
 	});
-	child.stderr.on('data', data -> {
+	process.stderr.on('data', data -> {
 		Sys.println('stderr: $data');
 	});
-	child.stdout.on('data', data -> {
+	process.stdout.on('data', data -> {
 		Sys.println('stdout: $data');
 	});
-	child.on('SIGINT', () -> {
+	process.on('SIGINT', () -> {
 		Sys.println('Received SIGINT. Press Control-D to exit.');
 	});
 }

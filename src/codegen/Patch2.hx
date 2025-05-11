@@ -3,18 +3,17 @@ package codegen;
 import sys.FileSystem;
 import haxe.macro.Expr as MacroExpr;
 
-var cache = new Map<String, Array<haxeparser.Data.TypeDecl>>();
-
-function getValue(pack:String, valueName:String):MacroExpr {
+function getValue(pack:String, valueName:String, pkg:typer.Package.IntermediatePackageType):MacroExpr {
 	final path = getPath(pack);
-	final decls:Array<haxeparser.Data.TypeDecl> = getCachedDecls(path);
+	return macro null;
+	final decls:Array<haxeparser.Data.TypeDecl> = getCachedDecls(path, pkg);
 	var expr:MacroExpr = getValueExpr(valueName, decls);
 	return expr;
 }
 
-function getFunction(pack:String, funcName:String, recvName:String):MacroExpr {
+function getFunction(pack:String, funcName:String, recvName:String, pkg:typer.Package.IntermediatePackageType):MacroExpr {
 	final path = getPath(pack);
-	var decls:Array<haxeparser.Data.TypeDecl> = getCachedDecls(path);
+	var decls:Array<haxeparser.Data.TypeDecl> = getCachedDecls(path, pkg);
 	var expr:MacroExpr = getBody(funcName, recvName, decls);
 	if (expr == null)
 		return null;
@@ -68,15 +67,15 @@ function getFunction(pack:String, funcName:String, recvName:String):MacroExpr {
 	return expr;
 }
 
-function getCachedDecls(path:String) {
-	if (!cache.exists(path)) {
+function getCachedDecls(path:String, pkg:typer.Package.IntermediatePackageType) {
+	if (!pkg.cachedDecls.exists(path)) {
 		// uncached
 		if (!FileSystem.exists(path)) {
 			return [];
 		}
-		cache[path] = getDecls(path);
+		pkg.cachedDecls[path] = getDecls(path);
 	}
-	return cache[path];
+	return pkg.cachedDecls[path];
 }
 
 private function getValueExpr(valueName:String, decls:Array<haxeparser.Data.TypeDecl>) {

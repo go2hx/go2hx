@@ -1,6 +1,7 @@
 package typer.exprs;
 
 function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):MacroExpr { // EField
+	return macro null; // FIXME
 	var selName = typer.exprs.Ident.nameIdent(expr.sel.name, false, false, info, false, true);
 	expr.x = GoAst.escapeParensRaw(expr.x);
 	var x = typer.exprs.Expr.typeExpr(expr.x, info);

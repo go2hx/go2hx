@@ -355,7 +355,6 @@ function accept(server:Socket, ready:Void->Void) {
 				while (checkWait()) {
 					Sys.sleep(0.01);
 				}
-				final instance = instance.copy();
 				threadPool.run(() -> receivedData(instance, b));
 				#else
 				receivedData(instance, b);

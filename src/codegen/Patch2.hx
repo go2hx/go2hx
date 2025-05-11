@@ -5,7 +5,6 @@ import haxe.macro.Expr as MacroExpr;
 
 function getValue(pack:String, valueName:String, pkg:typer.Package.IntermediatePackageType):MacroExpr {
 	final path = getPath(pack);
-	return macro null;
 	final decls:Array<haxeparser.Data.TypeDecl> = getCachedDecls(path, pkg);
 	var expr:MacroExpr = getValueExpr(valueName, decls);
 	return expr;

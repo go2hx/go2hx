@@ -69,7 +69,9 @@ private function receivedData(instance:CompilerInstanceData, buff:Bytes) {
 	runningList.push(task);
 	mutex.release();
 	// IMPORTANT: typing phase Go AST -> Haxe AST
+	Sys.setCwd(cwd);
 	final module = typer.Package.typePackage(data, instance);
+	Sys.setCwd(instance.localPath);
 	final typePackageTime = measureTime();
 	mutex.acquire();
 	task.state = PRINTING;
@@ -346,7 +348,7 @@ function accept(server:Socket, ready:Void->Void) {
 				instance.deps = decodeData(b).deps;
 				printDeps(instance.deps);
 			}else{
-				#if (target.threaded && !macro)
+				/*#if (target.threaded && !macro)
 				inline function checkWait():Bool
 					return threadPool.runningCount >= threadPool.maxThreadsCount;
 				if (checkWait()) {
@@ -356,9 +358,9 @@ function accept(server:Socket, ready:Void->Void) {
 					Sys.sleep(0.01);
 				}
 				threadPool.run(() -> receivedData(instance, b));
-				#else
+				#else*/
 				receivedData(instance, b);
-				#end
+				//#end
 				startedPkgs++;
 				if (startedPkgs >= instance.totalPkgs) {
 					break;
@@ -533,7 +535,7 @@ private function runBuildTools(modules:Array<typer.HaxeAst.Module>, instance:Com
 			} else {
 				main = parseMain(main);
 			}
-			var commands = commands.concat(['-m', main]); // copy
+			var commands = ['-m', main].concat(commands); // copy
 			if (instance.target == "interp") {
 				commands = commands.concat(buildTarget(instance.target, "").split(" "));
 				commands = commands.concat(args);

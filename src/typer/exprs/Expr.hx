@@ -23,8 +23,7 @@ function typeExpr(expr:GoAst.Expr, info:Info):MacroExpr {
 		case "IndexListExpr": IndexList.typeIndexListExpr(expr, info);
 		case "BadExpr": Bad.typeBad(info);
 		default:
-			//trace("unknown expr id: " + expr.id);
-			macro throw "unknown expr";
+			throw info.panic() + "unknown expr";
 	};
 	if (def == null)
 		throw info.panic() + "expr null: " + expr.id;

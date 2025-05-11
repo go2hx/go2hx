@@ -7,6 +7,7 @@
 -cp git/haxeparser/src
 -cp git/hxparse/src
 -dce full
--lib hxnodejs
---js export/tests.js
---cmd node export/tests.js --max-old-space-size=2056
+--hl test.hl
+--cmd hl test.hl
+#-lib hxcpp
+#--cpp export/cpp

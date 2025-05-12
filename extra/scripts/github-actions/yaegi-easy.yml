@@ -36,6 +36,7 @@ steps:
         ./_internal/*
         ./stdgo/*
         ./go2hx.*.zip 
+        export
       key: ${{ github.sha }}-build-${{ env.cache-name }}
   # run yaegi easy tests
   - name: clone yaegi
@@ -43,7 +44,7 @@ steps:
   - name: Sort tests
     run: go run ./extra/scripts/sortTests ci
   - name: Run yaegi easy tests
-    run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D targets=::target:: #-D hxb
+    run: ./export/cpp/Tests -yaegi -ci -mode=easy -runnerCount=${{ env.CORES }} -target=::target:: #-D hxb
   - name: Remove stdgo folder
     run: rm -r -d stdgo
   - name: Remove _internal folder

@@ -394,7 +394,7 @@ private function setBytes(buff:Bytes, bytes:Bytes, pos:Int):Int {
 	return pos + bytes.length;
 }
 
-function getLength(bytes):Int {
+function getLength(bytes:haxe.io.Bytes):Int {
 	return haxe.Int64.toInt(bytes.getInt64(0));
 }
 
@@ -711,7 +711,9 @@ function compileFromInstance(inst:CompilerInstanceData):Bool {
 function write(args:Array<String>, instance:CompilerInstanceData):Bool {
 	final bytes = Bytes.ofString(args.join(" "));
 	client.output.bigEndian = false;
-	client.output.writeInt32(bytes.length);
+	final lenBytes = Bytes.alloc(4);
+	lenBytes.setInt32(0, bytes.length);
+	client.output.write(lenBytes);
 	client.output.write(bytes);
 	return true;
 }

@@ -1,5 +1,4 @@
 import Compiler.CompilerInstanceData;
-import haxe.macro.Compiler as MacroCompiler;
 import haxe.Json;
 import sys.io.File;
 import sys.io.FileInput;
@@ -33,8 +32,6 @@ var offset = 0;
 var run:String = "";
 var runOnly:String = "";
 var lastTaskLogs = [];
-final runnerCount = haxe.macro.Compiler.getDefine("runnerCount") ?? "2";
-final maxRunnerCount = Std.parseInt(runnerCount);
 var dryRun = false;
 var unitBool = false;
 var stdBool = false;
@@ -45,33 +42,53 @@ var libsBool = false;
 var noLogs = false;
 
 function main() {
-	final targetDefine = MacroCompiler.getDefine("target") ?? MacroCompiler.getDefine("targets");
-	if (targetDefine != null)
-		target = targetDefine;
 	File.saveContent("test.log", "");
 	logOutput = File.append("test.log", false);
-	// logs
-	noLogs = MacroCompiler.getDefine("nologs") != null;
-	// go by example, stdlib, yaegi, go internal tests, unit regression tests
-	ciBool = MacroCompiler.getDefine("ci") != null;
-	hxbBool = MacroCompiler.getDefine("hxb") != null;
-	unitBool = MacroCompiler.getDefine("unit") != null;
-	stdBool = MacroCompiler.getDefine("std") != null;
-	libsBool = MacroCompiler.getDefine("libs") != null;
-	goBool = MacroCompiler.getDefine("go") != null;
-	globalPath = MacroCompiler.getDefine("path") ?? "";
-	yaegiBool = MacroCompiler.getDefine("yaegi") != null;
-	tinygoBool = MacroCompiler.getDefine("tinygo") != null;
-	sortMode = MacroCompiler.getDefine("mode") ?? (MacroCompiler.getDefine("sort") ?? "");
-	final reportBool = MacroCompiler.getDefine("report") != null;
-	final listAllBool = MacroCompiler.getDefine("listAll") != null;
-	final countStr = MacroCompiler.getDefine("count");
-	testCount = countStr != null ? Std.parseInt(countStr) : 0;
-	final offsetStr = MacroCompiler.getDefine("offset");
-	offset = offsetStr != null ? Std.parseInt(offsetStr) : 0;
-	run = MacroCompiler.getDefine("run") ?? "";
-	runOnly = MacroCompiler.getDefine("runonly") ?? MacroCompiler.getDefine("runOnly") ?? "";
-	dryRun = MacroCompiler.getDefine("dryRun") != null;
+	var listAllBool = false;
+	var reportBool = false;
+	final argHandler = cli.Args.generate([
+		@doc("Set the target for the tests")
+		["-target", "--target"] => arg -> target = arg,
+		@doc("Disable logging")
+		["-nologs", "--nologs"] => () -> noLogs = true,
+		@doc("Enable CI mode")
+		["-ci", "--ci"] => () -> ciBool = true,
+		@doc("Enable HXB mode")
+		["-hxb", "--hxb"] => () -> hxbBool = true,
+		@doc("Enable unit tests")
+		["-unit", "--unit"] => () -> unitBool = true,
+		@doc("Enable standard library")
+		["-std", "--std"] => () -> stdBool = true,
+		@doc("Enable libraries")
+		["-libs", "--libs"] => () -> libsBool = true,
+		@doc("Enable Go mode")
+		["-go", "--go"] => () -> goBool = true,
+		@doc("Set global path")
+		["-path", "--path"] => path -> globalPath = path,
+		@doc("Enable Yaegi mode")
+		["-yaegi", "--yaegi"] => () -> yaegiBool = true,
+		@doc("Enable TinyGo mode")
+		["-tinygo", "--tinygo"] => () -> tinygoBool = true,
+		@doc("Set sort mode")
+		["-mode", "--mode"] => mode -> sortMode = mode,
+		@doc("Set test count")
+		["-count", "--count"] => countStr -> testCount = countStr != null ? Std.parseInt(countStr) : 0,
+		@doc("Set offset")
+		["-offset", "--offset"] => offsetStr -> offset = offsetStr != null ? Std.parseInt(offsetStr) : 0,
+		@doc("Set run command")
+		["-run", "--run"] => runValue -> run = runValue,
+		@doc("Set run only command")
+		["-runonly", "--runonly", "--runOnly"] => runOnlyValue -> runOnly = runOnlyValue,
+		@doc("Enable dry run")
+		["-dryRun", "--dryRun"] => () -> dryRun = true,
+		@doc("Enable report generation")
+		["-report", "--report"] => () -> reportBool = true,
+		@doc("List all items")
+		["-listAll", "--listAll"] => () -> listAllBool = true,
+	]);
+	argHandler.parse(Sys.args());
+
+
 	startStamp = haxe.Timer.stamp();
 	if (listAllBool) {
 		createTestLists();

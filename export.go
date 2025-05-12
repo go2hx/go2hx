@@ -294,6 +294,10 @@ func main() {
 		input = input[:c]
 		//fmt.Println("input: " + string(input))
 		args := strings.Split(string(input), " ")
+		for _, arg := range args {
+			println(arg)
+		}
+		println("total:", len(args))
 		compile(conn, args, false)
 		//debug.FreeOSMemory()
 	}

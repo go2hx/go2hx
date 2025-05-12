@@ -38,7 +38,6 @@ function main() {
 		libs.remove(path);
 	trace(libs);
 	
-    hxml = "stdgo/*";
 	final args = libs.concat(['--nocomments', '--out', '.', '--norun']);
 	if (varTraceBool)
 		args.push("--vartrace");

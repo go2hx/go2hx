@@ -185,10 +185,6 @@ func getLen(conn net.Conn) uint16 {
 	bytesBuff := make([]byte, 2)
 	n, err := conn.Read(bytesBuff)
 	panicIfError(err)
-	if n != 2 {
-		println(n)
-		panic("incorrect read")
-	}
 	return binary.BigEndian.Uint16(bytesBuff)
 }
 

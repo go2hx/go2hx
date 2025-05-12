@@ -323,8 +323,8 @@ function setupCompiler(ready:Void->Void) {
 function startGo4hx(port:Int) {
 	resetCount = 0;
 	#if (target.threaded)
-	sys.thread.Thread.create(() -> Sys.command("./go4hx", ['' + port]));
-	//process = new sys.io.Process("./go4hx", ['' + port], false);
+	//sys.thread.Thread.create(() -> Sys.command("./go4hx", ['' + port]));
+	process = new sys.io.Process("./go4hx", ['' + port], false);
 	#else
 	jsProcess(port);
 	#end
@@ -343,8 +343,8 @@ function accept(server:Socket, ready:Void->Void) {
 		try {
 			instance.totalPkgs = getLength(client.input.read(8));
 		}catch(e) {
-			trace(e);
-			Sys.sleep(2);
+			//trace(e);
+			//Sys.sleep(2);
 			throw e;
 		}
 		var startedPkgs = 0;
@@ -711,7 +711,7 @@ function compileFromInstance(inst:CompilerInstanceData):Bool {
 function write(args:Array<String>, instance:CompilerInstanceData):Bool {
 	final bytes = Bytes.ofString(args.join(" "));
 	client.output.bigEndian = false;
-	client.output.writeUInt16(bytes.length);
+	client.output.writeInt32(bytes.length);
 	client.output.write(bytes);
 	return true;
 }

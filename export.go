@@ -181,11 +181,15 @@ func sendData(conn net.Conn, data any) {
 	panicIfError(err)
 }
 
-func getLen(conn net.Conn) uint16 {
-	bytesBuff := make([]byte, 2)
-	_, err := conn.Read(bytesBuff)
+func getLen(conn net.Conn) uint32 {
+	bytesBuff := make([]byte, 4)
+	n, err := conn.Read(bytesBuff)
+	if n != 4 {
+		println(n)
+		panic("wrong n")
+	}
 	panicIfError(err)
-	return binary.LittleEndian.Uint16(bytesBuff)
+	return binary.LittleEndian.Uint32(bytesBuff)
 }
 
 func sendLen(conn net.Conn, length int) {

@@ -299,7 +299,8 @@ private function printDoc(handler:cli.Args.ArgHandler) {
 
 function closeCompiler(code:Int = 0) {
 	Sys.println("CLOSE COMPILER");
-	process.close();
+	if (process != null)
+		process.close();
 	Sys.exit(code);
 }
 
@@ -322,7 +323,8 @@ function setupCompiler(ready:Void->Void) {
 function startGo4hx(port:Int) {
 	resetCount = 0;
 	#if (target.threaded)
-	process = new sys.io.Process("./go4hx", ['' + port], false);
+	sys.thread.Thread.create(() -> Sys.command("./go4hx", ['' + port]));
+	//process = new sys.io.Process("./go4hx", ['' + port], false);
 	#else
 	jsProcess(port);
 	#end
@@ -338,7 +340,13 @@ function accept(server:Socket, ready:Void->Void) {
 	Sys.setCwd(cwd);
 	while (true) {
 		buffSize = 0;
-		instance.totalPkgs = getLength(client.input.read(8));
+		try {
+			instance.totalPkgs = getLength(client.input.read(8));
+		}catch(e) {
+			trace(e);
+			Sys.sleep(2);
+			throw e;
+		}
 		var startedPkgs = 0;
 		while (true) {
 			final buff = client.input.read(getLength(client.input.read(8)));
@@ -400,14 +408,16 @@ function createBuffer(client, bytes, instance):Bytes {
 function healthCheck(instance) {
 	// health check
 	#if (target.threaded)
-	final code = process.exitCode(false);
-	if (code == null)
-		return;
-	trace("proc code:", code);
-	if (code != 0) {
-		Sys.print(process.stderr.readAll());
-	} else {
-		Sys.print(process.stdout.readAll());
+	if (process != null) {
+		final code = process.exitCode(false);
+		if (code == null)
+			return;
+		trace("proc code:", code);
+		if (code != 0) {
+			Sys.print(process.stderr.readAll());
+		} else {
+			Sys.print(process.stdout.readAll());
+		}
 	}
 	#end
 	// close as stream has broken

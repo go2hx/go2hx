@@ -185,7 +185,7 @@ func getLen(conn net.Conn) uint16 {
 	bytesBuff := make([]byte, 2)
 	_, err := conn.Read(bytesBuff)
 	panicIfError(err)
-	return binary.BigEndian.Uint16(bytesBuff)
+	return binary.LittleEndian.Uint16(bytesBuff)
 }
 
 func sendLen(conn net.Conn, length int) {

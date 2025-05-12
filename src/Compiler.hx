@@ -710,6 +710,7 @@ function compileFromInstance(inst:CompilerInstanceData):Bool {
 
 function write(args:Array<String>, instance:CompilerInstanceData):Bool {
 	final bytes = Bytes.ofString(args.join(" "));
+	client.output.bigEndian = false;
 	client.output.writeUInt16(bytes.length);
 	client.output.write(bytes);
 	return true;

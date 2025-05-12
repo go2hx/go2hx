@@ -1,6 +1,20 @@
 [
     "internal/reflectlite",
     "internal/unsafeheader",
+    "internal/pkgbits",
+    "go/internal/gcimporter",
+    "internal/coverage",
+    "go/internal/srcimporter",
+    "internal/dag",
+    "internal/diff",
+    "internal/fuzz",
+    "internal/lazytemplate",
+    "internal/obscuretestdata",
+    "internal/profile",
+    "internal/sysinfo",
+    "internal/testpty",
+    "internal/trace",
+    "internal/txtar",
     "unsafe",
     "runtime/pprof",
     "runtime/internal/sys",
@@ -50,5 +64,7 @@
     "internal/goexperiment",
     "internal/coverage/rtcov",
     "internal/goarch",
-    "internal/goos"
+    "internal/goos",
+    "reflect/internal/example1",
+    "reflect/internal/example2"
 ]

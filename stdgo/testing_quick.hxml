@@ -1,3 +1,0 @@
--m _internal.testing.quickdottest.Quickdottest
--lib go2hx
--cp .

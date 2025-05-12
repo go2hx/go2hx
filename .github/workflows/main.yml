@@ -16,7 +16,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - uses: cedx/setup-hashlink@v6.2.0
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -46,8 +45,10 @@ jobs:
       - name: Create vendor
         run: go mod vendor
       # compile stdgo
+      - name: Build stdgo automatic compile
+        run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }} -lib hxcpp --cpp export/cpp
       - name: Run stdgo automatic compile
-        run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+        run: ./export/cpp/StdGo
       #- name: Create hxb
       #  run: npx haxelib run go2hx hxb .
       # cache
@@ -1190,9 +1191,6 @@ jobs:
             export
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - run: ls
-      # compile stdgo
-      #- name: Run stdgo automatic compile
-      #  run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: ./export/cpp/Tests -unit -ci -runnerCount=${{ env.CORES }} -target=hl #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -1258,9 +1256,6 @@ jobs:
             export
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - run: ls
-      # compile stdgo
-      #- name: Run stdgo automatic compile
-      #  run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: ./export/cpp/Tests -unit -ci -runnerCount=${{ env.CORES }} -target=interp #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -1329,9 +1324,6 @@ jobs:
             export
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - run: ls
-      # compile stdgo
-      #- name: Run stdgo automatic compile
-      #  run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: ./export/cpp/Tests -unit -ci -runnerCount=${{ env.CORES }} -target=js #-D hxb
       - uses: EndBug/add-and-commit@v9

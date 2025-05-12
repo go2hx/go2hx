@@ -44,9 +44,6 @@ steps:
         export
       key: ${{ github.sha }}-build-${{ env.cache-name }}
   - run: ls
-  # compile stdgo
-  #- name: Run stdgo automatic compile
-  #  run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
   - name: Run unit
     run: ./export/cpp/Tests -unit -ci -runnerCount=${{ env.CORES }} -target=::target:: #-D hxb
   - uses: EndBug/add-and-commit@v9

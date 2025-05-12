@@ -699,7 +699,9 @@ function compileFromInstance(inst:CompilerInstanceData):Bool {
 }
 
 function write(args:Array<String>, instance:CompilerInstanceData):Bool {
-	client.output.write(Bytes.ofString(args.join(" ")));
+	final bytes = Bytes.ofString(args.join(" "));
+	client.output.writeUInt16(bytes.length);
+	client.output.write(bytes);
 	return true;
 }
 

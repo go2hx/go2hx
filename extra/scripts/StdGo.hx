@@ -37,37 +37,20 @@ function main() {
 	for (path in excludes)
 		list.remove(path);
 	trace(libs);
-	Compiler.onComplete = complete;
-	if (libs.length == 0)
-		return;
-	Compiler.setupCompiler(() -> {
-		// kickstart
-		complete(null, null);
-	}); // amount of processes to spawn
-}
-
-private function complete(modules:Array<typer.HaxeAst.Module>, _) {
-	final lib = libs.pop();
-	if (lib == null) {
-		Compiler.closeCompiler();
-		return;
-	}
-	hxml = "stdgo/" + sanatize(lib);
-	args = [lib, '--nocomments', '--out', '.', '--norun'];
+	
+    hxml = "stdgo/*";
+	final args = libs.concat(['--nocomments', '--out', '.', '--norun']);
 	if (varTraceBool)
 		args.push("--vartrace");
 	if (stackBool)
 		args.push("--stack");
-	if (noMain.indexOf(lib) == -1 && !releaseBool) {
-		args.push('--hxml');
-		args.push(hxml);
+	if (!releaseBool) {
 		args.push('--test');
 	}
 	if (debugBool)
 		args.push("-debug");
 	args.push(path);
-	instance = Compiler.createCompilerInstanceFromArgs(args);
-	Compiler.compileFromInstance(instance);
+    Compiler.runCompilerFromArgs(args);
 }
 
 var instance:Compiler.CompilerInstanceData = null;

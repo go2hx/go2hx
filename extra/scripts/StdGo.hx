@@ -48,11 +48,11 @@ function main() {
 	}
 	if (debugBool)
 		args.push("-debug");
+	args.push("-compiler_cpp");
 	args.push(cwd);
-    Compiler.runCompilerFromArgs(args);
+	Sys.command("haxe --run Run " + args.join(" "));
 }
 
-var instance:Compiler.CompilerInstanceData = null;
 var compiled:Bool = false;
 var args:Array<String> = [];
 var hxml = "";

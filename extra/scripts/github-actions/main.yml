@@ -44,10 +44,8 @@ jobs:
       - name: Create vendor
         run: go mod vendor
       # compile stdgo
-      - name: Build stdgo automatic compile
-        run: npx haxe extra/scripts/stdgo.hxml -D HXCPP_GC_BIG_BLOCKS -D runnerCount=${{ env.CORES }} -lib hxcpp --cpp export/cpp
       - name: Run stdgo automatic compile
-        run: ./export/cpp/StdGo
+        run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       #- name: Create hxb
       #  run: npx haxelib run go2hx hxb .
       # cache

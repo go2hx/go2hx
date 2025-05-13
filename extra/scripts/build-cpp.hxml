@@ -6,6 +6,10 @@ extra/scripts/build-each.hxml
 -D std-encoding-utf8
 -D nolinkstd
 --dce full
+#--macro nullSafety("", StrictThreaded)
+-D HXCPP_GC_BIG_BLOCKS
+# -D HXCPP_CHECK_POINTER
+# -D HXCPP_GC_CHECK_POINTER
 -D analyzer-optimize
 -D simulate_num
 -lib hxcpp
@@ -13,7 +17,10 @@ extra/scripts/build-each.hxml
 # -D HXCPP_TELEMETRY
 # -D HXCPP_STACK_TRACE
 # -D HXCPP_STACK_LINE
+# -D HXCPP_CATCH_SEGV
 # -D HXCPP_TRACY_MEMORY
+# -D HXCPP_VERBOSE
+##-D MACOSX_DEPLOYMENT_TARGET
 #-D HXCPP-GC-GENERATIONAL
 # Note: This will inflate the telemetry data A LOT and cost more performance. Please be aware.
 # -D HXCPP_TRACY_INCLUDE_CALLSTACKS

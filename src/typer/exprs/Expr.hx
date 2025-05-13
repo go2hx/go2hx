@@ -95,7 +95,7 @@ function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info
 					if (!isNamed(toType)) {
 						return typer.exprs.Expr.defaultValue(toType, info);
 					} else {
-						return macro null;
+						return @:expicit_conversion macro null;
 					}
 				default:
 			}

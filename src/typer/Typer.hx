@@ -131,8 +131,6 @@ class Info {
 // filepath of export.json also stored here
 // @:formatter off
 
-var printer = new codegen.Printer();
-
 @:forward
 @:forwardStatics
 @:forward.variance

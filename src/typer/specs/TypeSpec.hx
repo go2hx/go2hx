@@ -8,6 +8,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 	var doc:String = codegen.Doc.getDocComment(spec, spec) + codegen.Doc.getSource(spec, info);
 	final patchName = info.global.module.path + ":" + name;
 	final replaceExpr = codegen.Patch.replace[patchName];
+	final printer = new codegen.Printer();
 	if (replaceExpr != null) {
 		final td:TypeDefinition = {
 			name: name,

@@ -1,4 +1,3 @@
-import Compiler.CompilerInstanceData;
 import haxe.Json;
 import sys.io.File;
 import sys.io.FileInput;
@@ -99,21 +98,41 @@ function main() {
 		close();
 		return;
 	}
-	runTests();
+	getTests();
 	if (reportBool) {
 		runReport();
 		Sys.exit(0);
 	}
+	trace(tasks);
 	trace(tests);
 	trace(tests.length);
 	trace(tasks.length);
-	if (!dryRun) {
-		Compiler.onComplete = complete;
-		Compiler.onUnknownExit = close;
-		Compiler.setupCompiler(() -> {
-			complete(null, null);
-		}); // amount of processes to spawn
+	if (dryRun)
+		return;
+	runTasks();
+	runTests();
+}
+
+final cwd = Sys.getCwd();
+
+function runTests() {
+	if (completeBool && tests.length == 0 && tasks.length == 0 && taskThreadPool.runningCount == 0) {
+		trace("COMPLETE");
+		close();
 	}
+	if (tests.length == 0)
+		return;
+
+	final args = tests.concat(['--nocomments', '--norun']);
+	if (testBool) {
+		args.push('--test');
+	}
+	args.push("-compiler_cpp");
+	args.push("--rebuild");
+	args.push(cwd);
+	final command = "haxe --run Run " + args.join(" ");
+	Sys.println(command);
+	Sys.command(command);
 }
 
 private function runReport() {
@@ -172,7 +191,7 @@ private function runReport() {
 	File.saveContent('tests/$testName.md', mdContent.toString());
 }
 
-private function runTests() {
+private function getTests() {
 	if (unitBool)
 		testUnit();
 	if (stdBool)
@@ -209,7 +228,6 @@ private function runTests() {
 }
 
 var taskThreadPool = new utils.ThreadPool(4);
-var instance:CompilerInstanceData = null;
 var timeout = 0;
 var retryFailedCount = 2;
 var failedRegressionTasks:Array<TaskData> = [];
@@ -310,7 +328,7 @@ private function runTask(task:TaskData, taskString:String) {
 					}
 				} else {
 					// trace(task.excludeArgs);
-					final cmd = Compiler.runTarget(task.target, "golibs/" + task.out, task.excludeArgs, task.main).split(" ");
+					final cmd = BuildTools.runTarget(task.target, "golibs/" + task.out, task.excludeArgs, task.main).split(" ");
 					tasks.push({
 						command: cmd[0],
 						args: cmd.slice(1),
@@ -405,14 +423,6 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 	return {passes: passes, fails: fails, runs: runs};
 }
 
-private function complete(modules:Array<typer.HaxeAst.Module>, data:{excludes:Array<String>, hxml:String, ?main:String}) {
-	timeout = 0;
-	completeBool = true;
-	spawnTargets(modules, data);
-	runTasks();
-	runNewTest();
-}
-
 function spawnTargets(modules, data) {
 	if (modules == null)
 		return;
@@ -429,7 +439,7 @@ function spawnTargets(modules, data) {
 			data.hxml = hxml;
 		}
 		final out = createTargetOutput(target, type, path);
-		final outCmd = Compiler.buildTarget(target, "golibs/" + out).split(" ");
+		final outCmd = BuildTools.buildTarget(target, "golibs/" + out).split(" ");
 		final args = [data.hxml].concat(outCmd);
 		if (ciBool)
 			args.unshift("haxe");
@@ -464,9 +474,9 @@ function runNewTest() {
 	} else {
 		args.push(globalPath);
 	}
-	instance = Compiler.createCompilerInstanceFromArgs(args);
+	/*instance = Compiler.createCompilerInstanceFromArgs(args);
 	instance.data = {excludes: exclude, hxml: hxml};
-	final compiled = Compiler.compileFromInstance(instance);
+	final compiled = Compiler.compileFromInstance(instance);*/
 	timeout = 0;
 }
 
@@ -531,8 +541,8 @@ function createRunnableHxml(name:String, prefix:String) {
 	}
 	final main = name;
 	final out = createTargetOutput(target, type, name);
-	final targetLibs = Compiler.targetLibs(target);
-	final outCmd = (Compiler.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
+	final targetLibs = BuildTools.targetLibs(target);
+	final outCmd = (BuildTools.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
 	final args = [hxml].concat(outCmd);
 	// remove ANSI escape codes for colours
 	args.push("-D");

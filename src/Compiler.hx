@@ -16,26 +16,7 @@ import sys.net.Socket;
 var onComplete:(modules:Array<typer.HaxeAst.Module>, data:Dynamic) -> Void = null;
 var onUnknownExit:Void->Void = null;
 var modules:Array<typer.HaxeAst.Module> = [];
-var runningList:Array<Task> = [];
 var instance:CompilerInstanceData = null;
-
-
-@:structInit
-class Task {
-	public var stamp:Float = 0;
-	public var path:String = "";
-	public var state:TaskState = TYPING;
-	public function new(stamp, path) {
-		this.stamp = stamp;
-		this.path = path;
-	}
-}
-
-enum TaskState {
-	TYPING;
-	PRINTING;
-	END;
-}
 
 /**
  * All of the Go AST and type information has been sent over the network.
@@ -50,7 +31,7 @@ enum TaskState {
  * @param buff 
  * @param client 
  */
-private function receivedData(instance:CompilerInstanceData, buff:Bytes) {
+function receivedData(buff:Bytes) {
 	var stamp = haxe.Timer.stamp();
 	function measureTime():Float {
 		final nextStamp = haxe.Timer.stamp();
@@ -58,53 +39,38 @@ private function receivedData(instance:CompilerInstanceData, buff:Bytes) {
 		stamp = nextStamp;
 		return diff;
 	}
+	final instance = getInstanceData();
 	final data:typer.GoAst.PackageType = decodeData(buff);
-	#if (cpp && HXCPP_TRACY)
-	//cpp.vm.tracy.TracyProfiler.zoneScoped(data.path);
-	//cpp.vm.tracy.TracyProfiler.setThreadName(data.path);
-	#end
 	final decodeDataTime = measureTime();
-	mutex.acquire();
-	final task:Task = {stamp: haxe.Timer.stamp(), path: data.path};
-	runningList.push(task);
-	mutex.release();
 	// IMPORTANT: typing phase Go AST -> Haxe AST
 	Sys.setCwd(cwd);
 	final module = typer.Package.typePackage(data, instance);
 	Sys.setCwd(instance.localPath);
 	final typePackageTime = measureTime();
-	mutex.acquire();
-	task.state = PRINTING;
-	modules.push(module);
-	mutex.release();
+	final countPkgs = modules.push(module);
 	// generate the code
 	codegen.CodeGen.create(instance.outputPath, module, instance.root);
 	final codeGenTime = measureTime();
-	mutex.acquire();
-	task.state = END;
-	instance.countPkgs++;
-	runningList.remove(task);
-	//Sys.println(instance.countPkgs + "/" + instance.totalPkgs);
-	Sys.println(module.path + " " + instance.countPkgs + "/" + instance.totalPkgs);
+	Sys.println(module.path);
+	Sys.println(module.path + " " + countPkgs + "/" + instance.totalPkgs);
 	Sys.println("- decodeData : " + decodeDataTime);
 	Sys.println("- typePackage: " + typePackageTime);
 	Sys.println("- codeGen    : " + codeGenTime);
 	Sys.println("- total      : " + (decodeDataTime + typePackageTime + codeGenTime));
-	if (instance.countPkgs >= instance.totalPkgs) {
-		end(instance);
-	}
-	mutex.release();
 }
 
 function end(instance:CompilerInstanceData) {
-	if (instance.noDeps)
-		createBasePkgs(instance.outputPath, modules, cwd);
-	runBuildTools(modules, instance, programArgs);
 	Sys.setCwd(cwd);
+	final mains = mainPaths(modules);
+	if (mains.length > 0) {
+		Sys.println("MAIN:");
+		for (m in mains) {
+			Sys.println("    " + m);
+		}
+	}
 	onComplete(modules, instance.data);
 	programArgs = null;
 	modules = [];
-	runningList = [];
 }
 
 function decodeData(buff):Dynamic {
@@ -299,8 +265,6 @@ private function printDoc(handler:cli.Args.ArgHandler) {
 
 function closeCompiler(code:Int = 0) {
 	Sys.println("CLOSE COMPILER");
-	if (process != null)
-		process.close();
 	Sys.exit(code);
 }
 
@@ -321,10 +285,11 @@ function setupCompiler(ready:Void->Void) {
 }
 
 function startGo4hx(port:Int) {
+	//return;
 	resetCount = 0;
 	#if (target.threaded)
 	//sys.thread.Thread.create(() -> Sys.command("./go4hx", ['' + port]));
-	process = new sys.io.Process("./go4hx", ['' + port], false);
+	process = new sys.io.Process("./go4hx", ['' + port]);
 	#else
 	jsProcess(port);
 	#end
@@ -338,45 +303,36 @@ function accept(server:Socket, ready:Void->Void) {
 		ready();
 	var buffSize = 0;
 	Sys.setCwd(cwd);
+	buffSize = 0;
+	instance.totalPkgs = getLength(client.input.read(8));
+	var startedPkgs = 0;
 	while (true) {
-		buffSize = 0;
-		try {
-			instance.totalPkgs = getLength(client.input.read(8));
-		}catch(e) {
-			//trace(e);
-			//Sys.sleep(2);
-			throw e;
-		}
-		var startedPkgs = 0;
-		while (true) {
-			final buff = client.input.read(getLength(client.input.read(8)));
-			final b = Bytes.alloc(buff.length);
-			b.blit(0, buff, 0, buff.length);
-			if (instance.deps.length == 0) {
-				instance.deps = decodeData(b).deps;
-				printDeps(instance.deps);
-			}else{
-				/*#if (target.threaded && !macro)
-				inline function checkWait():Bool
-					return threadPool.runningCount >= threadPool.maxThreadsCount;
-				if (checkWait()) {
-					slowThreadCheck();
-				}
-				while (checkWait()) {
-					Sys.sleep(0.01);
-				}
-				threadPool.run(() -> receivedData(instance, b));
-				#else*/
-				receivedData(instance, b);
-				//#end
-				startedPkgs++;
-				if (startedPkgs >= instance.totalPkgs) {
-					break;
-				}
+		final buff = client.input.read(getLength(client.input.read(8)));
+		final b = Bytes.alloc(buff.length);
+		b.blit(0, buff, 0, buff.length);
+		// non threading version
+		// receivedDataBuff(b);
+		if (instance.deps.length == 0) {
+			instance.deps = decodeData(b).deps;
+			printDeps(instance.deps);
+		}else{
+			receivedData(buff);
+			startedPkgs++;
+			if (startedPkgs >= instance.totalPkgs) {
+				break;
 			}
 		}
 	}
+	end(instance);
 }
+
+private inline function getInstanceData():CompilerInstanceData {
+	mutex.acquire();
+	final instanceCopy = instance.copy();
+	mutex.release();
+	return instanceCopy;
+}
+
 
 private function printDeps(deps:Array<Dep>, tab:String="") {
 	for (dep in deps) {
@@ -405,73 +361,8 @@ function createBuffer(client, bytes, instance):Bytes {
 	return Bytes.alloc(len);
 }
 
-function healthCheck(instance) {
-	// health check
-	#if (target.threaded)
-	if (process != null) {
-		final code = process.exitCode(false);
-		if (code == null)
-			return;
-		trace("proc code:", code);
-		if (code != 0) {
-			Sys.print(process.stderr.readAll());
-		} else {
-			Sys.print(process.stdout.readAll());
-		}
-	}
-	#end
-	// close as stream has broken
-	trace("stream has broken");
-	closeCompiler(0);
-	return;
-}
 
-function slowThreadCheck() {
-	#if target.threaded
-	final stamp = haxe.Timer.stamp();
-	final max = 15;
-	for (task in runningList) {
-		final diff = stamp - task.stamp;
-		//trace(task.path, diff);
-		if (diff > max) {
-			Sys.println('*TASK - ${task.path} ${task.state} slow: $diff');
-		}
-	}
-	#end
-}
 
-private function createBasePkgs(outputPath:String, modules:Array<typer.HaxeAst.Module>, cwd:String) {
-	Sys.println("create base pkgs: " + outputPath);
-	if (!FileSystem.exists(outputPath + "/stdgo"))
-		FileSystem.createDirectory(outputPath + "/stdgo");
-	for (file in FileSystem.readDirectory(cwd + "/stdgo")) {
-		if (Path.extension(file) == "hx") {
-			final content = File.getContent(cwd + "/stdgo/" + file);
-			File.saveContent(outputPath + "/stdgo/" + file, content);
-		}
-	}
-	Sys.println("copy directory: " + cwd + " to: " + outputPath);
-	shared.Util.copyDirectoryRecursively(cwd + "/haxe", outputPath + "/haxe");
-	final path = "/stdgo/_internal";
-	shared.Util.copyDirectoryRecursively(cwd + path, outputPath + path);
-	for (file in FileSystem.readDirectory(cwd + path)) {
-		if (Path.extension(file) == "hx") {
-			final content = File.getContent(cwd + path + file);
-			File.saveContent(outputPath + path + file, content);
-		}
-	}
-}
-
-function targetLibs(target:String):String {
-	return switch target {
-		case "jvm": "-lib hxjava";
-		case "cs": "-lib hxcs";
-		case "cpp": "-lib hxcpp";
-		case "js": "-lib hxnodejs";
-		default:
-			"";
-	}
-}
 
 function mainPaths(modules:Array<typer.HaxeAst.Module>):Array<String> {
 	final paths:Array<String> = [];
@@ -497,181 +388,6 @@ function mainPkgs(modules:Array<typer.HaxeAst.Module>):Array<String> {
 		paths.push(path);
 	}
 	return paths;
-}
-
-private function runBuildTools(modules:Array<typer.HaxeAst.Module>, instance:CompilerInstanceData, args:Array<String>) {
-	if (instance.target == "") {
-		if (instance.test) {
-			if (!instance.noRun) {
-				instance.target = "hl"; // default test target
-				instance.targetOutput = "test.hl";
-			}
-		} else {
-			instance.noRun = true;
-		}
-	}
-	final paths = mainPaths(modules);
-	final commands = [];
-	if (!instance.noDeps) {
-		commands.push("-lib");
-		commands.push("go2hx");
-	} else {
-		shared.Util.hxmlToArgs(cwd + "/extraParams.hxml", commands);
-	}
-	var cp = instance.outputPath;
-	if (cp != "") {
-		commands.push("-cp");
-		commands.push(cp);
-	}
-	for (define in instance.defines) {
-		commands.push("-D");
-		commands.push(define);
-	}
-	if (instance.bench) {
-		commands.push("-D");
-		commands.push("bench");
-	}
-	if (instance.target != "" && instance.target != "interp") {
-		final main = paths.length > 0 ? paths[0] : "";
-		for (command in buildTarget(instance.target, instance.targetOutput).split(" "))
-			commands.push(command);
-		for (command in targetLibs(instance.target).split(" "))
-			commands.push(command);
-	}
-	if (!instance.noRun && instance.target != "") {
-		for (main in paths) {
-			if (instance.root != "") {
-				main = instance.root + (main == "" ? "" : "." + parseMain(main));
-			} else {
-				main = parseMain(main);
-			}
-			var commands = ['-m', main].concat(commands); // copy
-			if (instance.target == "interp") {
-				commands = commands.concat(buildTarget(instance.target, "").split(" "));
-				commands = commands.concat(args);
-			}
-			final cliCommands = commands.copy();
-			if (instance.noDeps) {
-				final macroDefine = "--macro";
-				for (i in 0...cliCommands.length) {
-					if (i > 0 && cliCommands[i - 1] == macroDefine) {
-						cliCommands[i] = '"' + cliCommands[i] + '"';
-					}
-				}
-			}
-			Sys.println('haxe ' + cliCommands.join(" "));
-			Sys.command('haxe ' + cliCommands.join(" ")); // build without build file
-			// trace("main: " + main);
-			final runCommand = runTarget(instance.target, instance.targetOutput, args, main);
-			if (runCommand != "") {
-				Sys.println(runCommand);
-				Sys.command(runCommand);
-			}
-		}
-	}
-	if (instance.buildPath != "") { // create build file
-		final mains = [for (path in paths) shared.Util.makeExpr(path)];
-		final base = [for (command in commands) shared.Util.makeExpr(command)];
-		final expr = macro function main() {
-			final base = $a{base};
-			final mains = $a{mains};
-			for (main in mains)
-				Sys.command('haxe', base.concat(['-m', main]));
-		}
-		if (!StringTools.endsWith(instance.buildPath, ".hx"))
-			instance.buildPath += ".hx";
-		final content = new haxe.macro.Printer("    ").printExpr(expr);
-		File.saveContent(instance.buildPath, content);
-		// Sys.println('Generated: $buildPath - ' + shared.Util.kbCount(content) + "kb");
-	}
-	if (instance.hxmlPath != "") {
-		if (paths.length == 0 && !instance.noRun) {
-			trace(instance.hxmlPath);
-			throw "No main found";
-		}
-		if (!StringTools.endsWith(instance.hxmlPath, ".hxml"))
-			instance.hxmlPath += ".hxml";
-		final pkgs = mainPkgs(modules);
-		for (i in 0...paths.length) {
-			final main = parseMain(paths[i]);
-			var content = "-m " + main + "\n";
-			for (i in 0...Std.int(commands.length / 2)) {
-				content += commands[i * 2] + " " + commands[i * 2 + 1] + "\n";
-			}
-			var hxmlPath = instance.hxmlPath;
-			var replaceIndex = hxmlPath.indexOf("$");
-			if (replaceIndex != -1) {
-				var hxmlFile = StringTools.replace(pkgs[i], ".", "_");
-				hxmlPath = hxmlPath.substr(0, replaceIndex) + hxmlFile + hxmlPath.substr(replaceIndex + 1);
-			}
-			content = content.substr(0, content.length - 1);
-			File.saveContent(hxmlPath, content);
-			Sys.println('Generated:\n' + hxmlPath + ' - ' + shared.Util.kbCount(content) + "kb");
-		}
-	}
-}
-
-private function parseMain(main:String):String {
-	final index = main.indexOf("_test.");
-	if (index == -1)
-		return '_internal.$main';
-	var s = main.substr(0, index);
-	s = StringTools.replace(s, ".", "/");
-	// main = StringTools.replace(main, "_test.", ".");
-	return '_internal.$main';
-}
-
-function libTarget(target:String):String {
-	return switch target {
-		case "cpp", "cs": '-lib hx$target';
-		case "jvm", "java": "-lib hxjava";
-		default:
-			"";
-	}
-}
-
-function buildTarget(target:String, out:String, ?main:String, ?args:Array<String>):String {
-	return switch target {
-		case "hl": '--hl $out';
-		case "jvm", "cpp", "cs", "js", "lua", "python", "php", "neko": '--$target $out';
-		case "interp": if (main != null && args != null) {
-				'--run $main ' + args.join(" ");
-			} else {
-				"--interp";
-			}
-		default:
-			throw "unknown target: " + target;
-	}
-}
-
-function runTarget(target:String, out:String, args:Array<String>, main:String):String {
-	final index = main.lastIndexOf(".");
-	if (index != -1)
-		main = main.substr(index + 1);
-	var s = switch target {
-		case "interp":
-			"";
-		case "cpp", "cs":
-			"./" + out + "/" + main;
-		case "jvm":
-			'java -jar $out';
-		case "python":
-			if (Sys.systemName() == "Mac") {
-				'python3 $out';
-			} else {
-				'python $out';
-			}
-		case "hl", "neko", "lua", "php":
-			'$target $out';
-		case "js":
-			// --stack-size set because bytes.growSize Maximum call stack size exceeded
-			'node --stack-size=65500 $out';
-		default:
-			throw "unknown target: " + target;
-	};
-	if (args != null && args.length > 0)
-		s += " " + args.join(" ");
-	return s;
 }
 
 function compileFromInstance(inst:CompilerInstanceData):Bool {
@@ -801,12 +517,6 @@ final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodep
 final cwd = Sys.getCwd();
 final server = new Socket();
 var client:Socket = null;
-#if (target.threaded && !macro)
-var threadPool = new utils.ThreadPool(4);
-#end
-#if target.threaded
-var mainThread = sys.thread.Thread.current();
-#end
 var process:Dynamic = null;
 var mutex = #if target.threaded new sys.thread.Mutex(); #else {acquire: () -> {}, release: () -> {}}; #end
 var programArgs = [];
@@ -816,38 +526,3 @@ typedef Dep = {
 	excluded:Bool,
 	deps:Array<Dep>,
 }
-
-#if js
-function jsProcess(instance) {
-	final name = if (Sys.systemName() != "Windows") {
-		"./go4hx";
-	} else {
-		"go4hx.exe";
-	}
-	process = js.node.ChildProcess.exec('$name ${instance.port}', null, null);
-	process.on('exit', code -> {
-		final code:Int = code;
-		Sys.println('child process exited: $code');
-		// print out output
-		Sys.println(child.stdout.read());
-		Sys.println(child.stderr.read());
-		if (resetCount++ > 8) {
-			child.kill();
-			if (onUnknownExit != null)
-				onUnknownExit();
-		} else {
-			child.kill();
-			jsProcess(instance);
-		}
-	});
-	process.stderr.on('data', data -> {
-		Sys.println('stderr: $data');
-	});
-	process.stdout.on('data', data -> {
-		Sys.println('stdout: $data');
-	});
-	process.on('SIGINT', () -> {
-		Sys.println('Received SIGINT. Press Control-D to exit.');
-	});
-}
-#end

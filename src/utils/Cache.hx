@@ -12,6 +12,7 @@ class Cache {
 
 	// allow for migration when the cache changes or to discard the cache all together.
 	private var version:Int = 1;
+	public var printer = new haxe.macro.Printer();
 	static var usingCache:Bool = false;
 	public static final CURRENT_VERSION = 1;
 

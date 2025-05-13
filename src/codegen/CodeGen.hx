@@ -191,7 +191,7 @@ private function save(dir:String, name:String, content:Array<TypeDefinition>, pr
 		return;
 	if (splitDepsContent)
 		content = splitDeps(dir, name, prefix, extension, content, splitFiles, cache); // clears out content and saves elsewhere
-	final contentString = prefix + content.map(f -> typer.Typer.printer.printTypeDefinition(f, false)).join("");
+	final contentString = prefix + content.map(f -> cache.printer.printTypeDefinition(f, false)).join("");
 	// used to create the main file and/or hold the init func
 	saveRaw(dir, name, contentString, prefix, extension, splitDepsContent, cache);
 }
@@ -221,7 +221,7 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 		}
 		// raw save file
 		final fullPath = dir + "," + name + "_" + td.name.toLowerCase();
-		var contentString = typer.Typer.printer.printTypeDefinition(td, false);
+		var contentString = cache.printer.printTypeDefinition(td, false);
 		if (splitFiles.indexOf(fullPath) != -1) {
 			appendRaw(dir, name + "_" + td.name.toLowerCase(), contentString, prefix, extension, cache);
 		} else {

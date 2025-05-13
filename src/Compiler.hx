@@ -17,6 +17,10 @@ var onComplete:(modules:Array<typer.HaxeAst.Module>, data:Dynamic) -> Void = nul
 var onUnknownExit:Void->Void = null;
 var modules:Array<typer.HaxeAst.Module> = [];
 var instance:CompilerInstanceData = null;
+#if target.threaded
+final threadPool = new utils.ThreadPool(1,0.001);
+final threadData = new sys.thread.Deque<haxe.io.Bytes>();
+#end
 
 /**
  * All of the Go AST and type information has been sent over the network.
@@ -310,19 +314,33 @@ function accept(server:Socket, ready:Void->Void) {
 		final buff = client.input.read(getLength(client.input.read(8)));
 		final b = Bytes.alloc(buff.length);
 		b.blit(0, buff, 0, buff.length);
-		// non threading version
-		// receivedDataBuff(b);
 		if (instance.deps.length == 0) {
 			instance.deps = decodeData(b).deps;
 			printDeps(instance.deps);
 		}else{
+			#if target.threaded
+			threadData.add(buff);
+			#else
 			receivedData(buff);
+			#end
 			startedPkgs++;
 			if (startedPkgs >= instance.totalPkgs) {
 				break;
 			}
 		}
 	}
+	#if target.threaded
+	threadPool.loop = () -> {
+		var buff = threadData.pop(true);
+		while (buff != null) {
+			receivedData(buff);
+			buff = threadData.pop(false);
+		}
+	}
+	threadPool.start();
+	while (threadPool.threadsCount > 0)
+		Sys.sleep(0.001);
+	#end
 	end(instance);
 }
 

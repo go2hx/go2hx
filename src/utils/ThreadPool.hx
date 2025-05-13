@@ -4,11 +4,13 @@ import sys.thread.Thread;
 import sys.thread.Deque;
 import sys.thread.Mutex;
 
+//typedef ThreadPool = sys.thread.ElasticThreadPool;
+
 class ThreadPool {
     public var maxThreadsCount = 0;
-    public var runningCount(get, never):Int;
+    public var threadsCount(get, never):Int;
     
-    function get_runningCount():Int {
+    function get_threadsCount():Int {
         var count = 0;
         for (worker in pool) {
             worker.mutex.acquire();
@@ -19,42 +21,31 @@ class ThreadPool {
         return count;
     }
     public var pool:Array<Worker> = [];
-    final queue = new Deque<()->Void>();
-    public function new(maxThreadsCount:Int=4) {
+    public var loop:Void->Void;
+    public function new(maxThreadsCount:Int=4, timeout:Float=0.0) {
         this.maxThreadsCount = maxThreadsCount;
-        pool = [for(i in 0...maxThreadsCount) new Worker(queue)];
     }
-
-    public function run(task:()->Void):Void {
-		queue.add(task);
-	}
+    public function start() {
+        pool = [for(i in 0...maxThreadsCount) new Worker(loop)];
+    }
 }
 
 private class Worker {
 	var thread:Thread;
-	final queue:Deque<Null<()->Void>>;
     public var mutex = new Mutex();
-    public var running = false;
+    public var running = true;
 
-	public function new(queue:Deque<Null<()->Void>>) {
-		this.queue = queue;
-		thread = Thread.create(loop);
-	}
-
-	function loop() {
-        try {
-            while(true) {
-                mutex.acquire();
-                running = false;
-                mutex.release();
-                var task = queue.pop(true);
-                mutex.acquire();
-                running = true;
-                mutex.release();
-                task();
+	public function new(f:Void->Void) {
+		thread = Thread.create(() -> {
+            try {
+                f();
+            }catch(e) {
+                trace(e);
+                Sys.exit(1);
             }
-        }catch(e) {
-            throw e;
-        }
+            mutex.acquire();
+            running = false;
+            mutex.release();
+        });
 	}
 }

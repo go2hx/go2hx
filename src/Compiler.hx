@@ -1,5 +1,4 @@
 package;
-
 /**
  * Compiler holds the API to call the compiler and use various callbacks
  */
@@ -66,11 +65,8 @@ function receivedData(buff:Bytes) {
 function end(instance:CompilerInstanceData) {
 	Sys.setCwd(cwd);
 	final mains = mainPaths(modules);
-	if (mains.length > 0) {
-		Sys.println("MAIN:");
-		for (m in mains) {
-			Sys.println("    " + m);
-		}
+	if (instance.printMain) {
+		File.saveContent("main.txt", mains[0]);
 	}
 	onComplete(modules, instance.data);
 	programArgs = null;
@@ -219,6 +215,7 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 		["-port", "--port"] => port -> instance.port = Std.parseInt(port),
 		@doc("Version of the compiler")
 		["-version", "--version"] => () -> Sys.println(sys.io.File.getContent("version.txt")),
+		["-printmain", "--printmain"] => () -> instance.printMain = true,
 	]);
 
 	argHandler.parse(args);
@@ -290,12 +287,8 @@ function setupCompiler(ready:Void->Void) {
 function startGo4hx(port:Int) {
 	//return;
 	resetCount = 0;
-	#if (target.threaded)
 	//sys.thread.Thread.create(() -> Sys.command("./go4hx", ['' + port]));
 	process = new sys.io.Process("./go4hx", ['' + port]);
-	#else
-	jsProcess(port);
-	#end
 }
 function accept(server:Socket, ready:Void->Void) {
 	if (instance == null)
@@ -332,15 +325,16 @@ function accept(server:Socket, ready:Void->Void) {
 		}
 		#if target.threaded
 		threadPool.loop = () -> {
-			var buff = threadData.pop(true);
+			var buff = threadData.pop(false);
 			while (buff != null) {
 				receivedData(buff);
 				buff = threadData.pop(false);
 			}
 		}
 		threadPool.start();
-		while (threadPool.threadsCount > 0)
+		while (threadPool.threadsCount > 0) {
 			Sys.sleep(0.001);
+		}
 		#end
 		end(instance);
 	}
@@ -455,6 +449,7 @@ function write(args:Array<String>, instance:CompilerInstanceData):Bool {
 }
 
 class CompilerInstanceData {
+	public var printMain:Bool = false;
 	public var deps:Array<Dep> = [];
 	public var countPkgs:Int = 0;
 	public var totalPkgs:Int = 0;
@@ -498,6 +493,7 @@ class CompilerInstanceData {
 	public function copy():CompilerInstanceData {
 		final instance = new CompilerInstanceData();
 		instance.deps = deps.copy();
+		instance.printMain = printMain;
 		instance.countPkgs = countPkgs;
 		instance.totalPkgs = totalPkgs;
 		instance.goCommand = goCommand;

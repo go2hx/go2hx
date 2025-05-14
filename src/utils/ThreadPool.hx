@@ -40,8 +40,7 @@ private class Worker {
             try {
                 f();
             }catch(e) {
-                trace(e);
-                Sys.exit(1);
+                throw e;
             }
             mutex.acquire();
             running = false;

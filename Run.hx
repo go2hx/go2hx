@@ -32,7 +32,6 @@ function main() {
 		Sys.command(command);
 		return;
 	}
-
 	if (args.length > 0 && args.indexOf("clean") != -1) {
 		clean();
 		return;
@@ -87,6 +86,11 @@ function main() {
 		args.push(goCommand);
 		args.push(last);
 	}
+	var debug = false;
+	if ((index = args.indexOf("-compiler_debug")) != -1 || (index = args.indexOf("--compiler_debug")) != -1) {
+		args.remove(args[index]);
+		debug = true;
+	}
 	if ((index = args.indexOf("-compiler_cpp")) != -1 || (index = args.indexOf("--compiler_cpp")) != -1) {
 		args.remove(args[index]);
 		setupCPP(rebuild, args);
@@ -105,6 +109,11 @@ function main() {
 	if ((index = args.indexOf("-compiler_nodejs")) != -1 || (index = args.indexOf("--compiler_nodejs")) != -1) {
 		args.remove(args[index]);
 		setupNodeJS(rebuild, args);
+		return;
+	}
+	if ((index = args.indexOf("-compiler_java")) != -1 || (index = args.indexOf("--compiler_java")) != -1) {
+		args.remove(args[index]);
+		setupJava(rebuild, args);
 		return;
 	}
 	/*var code = 1;
@@ -321,13 +330,27 @@ function setupNodeJS(rebuild:Bool, args:Array<String>) {
 
 function setupCPP(rebuild:Bool, args:Array<String>) {
 	Sys.println("C++ compiler version");
-	final fileName = executable("export/cpp/Main-debug");
+	Sys.putEnv("HXCPP_COMPILE_THREADS", "4");
+	Sys.putEnv("HXCPP_COMPILE_CACHE", "~/hxcache");
+	final fileName = executable("export/cpp/Main");
 	if (!FileSystem.exists("export/cpp") || !FileSystem.exists(fileName) || rebuild) {
 		var cmd = "haxe extra/scripts/build-cpp.hxml";
 		Sys.command(cmd);
 	}
-	// trace(fileName, args);
+	Sys.println(fileName + " " + args.join(" "));
 	Sys.command(fileName, args);
+}
+
+function setupJava(rebuild:Bool, args:Array<String>) {
+	Sys.println("Jvm compiler version");
+	// run build jvm
+	if (!FileSystem.exists("export/build.jvm") || rebuild) {
+		Sys.command("haxe extra/scripts/build-jvm.hxml");
+	}
+	args.unshift("export/build.jar");
+	args.unshift("-jar");
+	trace(args.join(" "));
+	Sys.command("java", args);
 }
 
 function setupHashlink(rebuild:Bool, args:Array<String>) {
@@ -352,6 +375,7 @@ function setupHashlink(rebuild:Bool, args:Array<String>) {
 		Sys.command(cmd);
 	}
 	args.unshift("export/build.hl");
+	Sys.println("hl" + " " + args.join(" "));
 	Sys.command("hl", args);
 }
 

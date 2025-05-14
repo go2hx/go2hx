@@ -62,7 +62,6 @@ function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerIns
 			info.global.externBool = true;
 	}
 
-	info.global.debugBool = instance.debugBool;
 	info.global.varTraceBool = instance.varTraceBool;
 	info.global.funcTraceBool = instance.stackBool;
 	info.global.stackBool = instance.stackBool;

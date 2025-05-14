@@ -3,7 +3,6 @@ package typer.exprs;
 function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 	var args:Array<Expr> = [];
 	var tupleArg:Expr = null;
-	var debugBool = false;
 	var forceType = false;
 	function returnExpr(e:Expr):MacroExpr {
 		switch e.expr {
@@ -77,9 +76,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 		}
 		var type = typeof(expr.fun, info, false);
 		// ellipsis
-		if (expr.ellipsis == -1) {
-			debugBool = true;
-		} else if (expr.ellipsis != 0) {
+		if (expr.ellipsis != 0) {
 			var last = args.pop();
 			var t = typeof(exprArgs[exprArgs.length - 1], info, false);
 			if (elem != null)
@@ -208,21 +205,6 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						genArgs(false);
 						args = args.map(arg -> macro stdgo.Go.toInterface($arg));
 						return (macro @:define("cdebug") stdgo.log.Log.println($a{args}));
-					case "__debug__":
-						if (info.global.debugBool) {
-							return (macro {
-								final values = stdgo.os.Os.openFile("debug_" + stdgo.runtime.Runtime.compiler + ".log", 0, 0);
-								var __f__ = values._0;
-								final __e__ = values._1;
-								if (__e__ != null) {
-									stdgo.log.Log.fatal(stdgo.Go.toInterface(__e__));
-								}
-								__f__.truncate(0);
-								stdgo.log.Log.setFlags(0);
-								stdgo.log.Log.setOutput(stdgo.Go.asInterface(__f__));
-								__f__;
-							});
-						}
 					case "panic":
 						genArgs(false);
 						return returnExpr(macro throw ${typer.exprs.Expr.toAnyInterface(args[0], typeof(expr.args[0], info, false), info)});
@@ -412,11 +394,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 	if (args.length == 0) {
 		genArgs(true, 0);
 	}
-	if (debugBool) {
-		e = macro @:define("debug") trace(stdgo.fmt.Fmt.sprintln($a{args}));
-	} else {
-		e = macro $e($a{args});
-	}
+	e = macro $e($a{args});
 	return returnExpr(e);
 }
 

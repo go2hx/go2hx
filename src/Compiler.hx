@@ -18,7 +18,7 @@ var onUnknownExit:Void->Void = null;
 var modules:Array<typer.HaxeAst.Module> = [];
 var instance:CompilerInstanceData = null;
 #if target.threaded
-final threadPool = new utils.ThreadPool(1,0.001);
+final threadPool = new utils.ThreadPool(4,0.001);
 final threadData = new sys.thread.Deque<haxe.io.Bytes>();
 #end
 
@@ -136,7 +136,6 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 	final argHandler = cli.Args.generate([
 		@doc("Set what command should be used for gocmd get & gocmd mod init")
 		["-gocmd", "--gocmd"] => s -> instance.goCommand = s,
-		["-debug", "--debug"] => () -> instance.debugBool = true,
 		["-help", "--help", "-h", "--h"] => () -> help = true,
 		@doc("don't run the build commands")
 		["-norun", "--norun"] => () -> instance.noRun = true, @doc("go test")
@@ -305,43 +304,46 @@ function accept(server:Socket, ready:Void->Void) {
 	client = server.accept();
 	if (ready != null)
 		ready();
-	var buffSize = 0;
-	Sys.setCwd(cwd);
-	buffSize = 0;
-	instance.totalPkgs = getLength(client.input.read(8));
-	var startedPkgs = 0;
 	while (true) {
-		final buff = client.input.read(getLength(client.input.read(8)));
-		final b = Bytes.alloc(buff.length);
-		b.blit(0, buff, 0, buff.length);
-		if (instance.deps.length == 0) {
-			instance.deps = decodeData(b).deps;
-			printDeps(instance.deps);
-		}else{
-			#if target.threaded
-			threadData.add(buff);
-			#else
-			receivedData(buff);
-			#end
-			startedPkgs++;
-			if (startedPkgs >= instance.totalPkgs) {
-				break;
+		Sys.setCwd(cwd);
+		instance.totalPkgs = getLength(client.input.read(8));
+		var startedPkgs = 0;
+		var stamp = haxe.Timer.stamp();
+		while (true) {
+			final buff = client.input.read(getLength(client.input.read(8)));
+			final b = Bytes.alloc(buff.length);
+			b.blit(0, buff, 0, buff.length);
+			if (instance.deps.length == 0) {
+				instance.deps = decodeData(b).deps;
+				printDeps(instance.deps);
+				Sys.println("total pkgs : " + instance.totalPkgs);
+			}else{
+				#if target.threaded
+				threadData.add(buff);
+				#else
+				receivedData(buff);
+				#end
+				startedPkgs++;
+				if (startedPkgs >= instance.totalPkgs) {
+					Sys.println("threadData load: " + (haxe.Timer.stamp() - stamp));
+					break;
+				}
 			}
 		}
-	}
-	#if target.threaded
-	threadPool.loop = () -> {
-		var buff = threadData.pop(true);
-		while (buff != null) {
-			receivedData(buff);
-			buff = threadData.pop(false);
+		#if target.threaded
+		threadPool.loop = () -> {
+			var buff = threadData.pop(true);
+			while (buff != null) {
+				receivedData(buff);
+				buff = threadData.pop(false);
+			}
 		}
+		threadPool.start();
+		while (threadPool.threadsCount > 0)
+			Sys.sleep(0.001);
+		#end
+		end(instance);
 	}
-	threadPool.start();
-	while (threadPool.threadsCount > 0)
-		Sys.sleep(0.001);
-	#end
-	end(instance);
 }
 
 private inline function getInstanceData():CompilerInstanceData {
@@ -458,7 +460,6 @@ class CompilerInstanceData {
 	public var totalPkgs:Int = 0;
 	public var goCommand:String = "go";
 	public var verbose:Bool = false;
-	public var debugBool:Bool = false;
 	public var noDeps:Bool = false;
 	public var varTraceBool:Bool = false;
 	public var stackBool:Bool = false;
@@ -501,7 +502,6 @@ class CompilerInstanceData {
 		instance.totalPkgs = totalPkgs;
 		instance.goCommand = goCommand;
 		instance.verbose = verbose;
-		instance.debugBool = debugBool;
 		instance.noDeps = noDeps;
 		instance.varTraceBool = varTraceBool;
 		instance.stackBool = stackBool;

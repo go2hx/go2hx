@@ -31,7 +31,6 @@ class Global {
 	public var localSpecs:Map<String, Array<GoAst.Spec>> = [];
 	public var gotoSystem:Bool = false;
 	public var deferBool:Bool = false;
-	public var debugBool:Bool = false;
 	public var varTraceBool:Bool = false;
 	public var funcTraceBool:Bool = false;
 	public var stackBool:Bool = false;
@@ -57,7 +56,6 @@ class Global {
 		g.module = module;
 		g.filePath = filePath;
 		g.varTraceBool = varTraceBool;
-		g.debugBool = debugBool;
 		g.funcTraceBool = funcTraceBool;
 		g.stackBool = stackBool;
 		g.root = root;

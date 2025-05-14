@@ -46,8 +46,6 @@ function main() {
 	if (!releaseBool) {
 		args.push('--test');
 	}
-	if (debugBool)
-		args.push("-debug");
 	args.push("-compiler_cpp");
 	args.push(cwd);
 	Sys.command("haxe --run Run " + args.join(" "));
@@ -59,7 +57,6 @@ var hxml = "";
 var varTraceBool = MacroCompiler.getDefine("vartrace") != null;
 var stackBool = MacroCompiler.getDefine("stack") != null;
 var releaseBool = MacroCompiler.getDefine("release") != null;
-var debugBool = MacroCompiler.getDefine("cdebug") != null;
 
 private function sanatize(s:String):String {
 	s = StringTools.replace(s, "/", "_");

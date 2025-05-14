@@ -79,7 +79,6 @@ var visited map[string]bool
 var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
 
 var testBool = false
-var debugBool = false
 var noDepsBool = false
 var systemGo = false
 
@@ -95,8 +94,6 @@ func compile(conn net.Conn, params []string, debug bool) {
 			testBool = true
 		case "-nodeps", "--nodeps", "-nodep", "--nodep":
 			noDepsBool = true
-		case "-debug", "--debug":
-			debugBool = true
 		default:
 			args = append(args, param)
 		}
@@ -122,7 +119,8 @@ func compile(conn net.Conn, params []string, debug bool) {
 	panicIfError(err)
 	//init
 	methodCache = typeutil.MethodSetCache{}
-	excludes = defaultExcludes()
+	//excludes = defaultExcludes()
+	excludes := map[string]bool{}
 	if len(initial) > 0 {
 		for _, pkg := range initial { //remove initial packages from exclude list
 			delete(excludes, pkg.PkgPath)
@@ -439,7 +437,8 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 	}
 	countInterface = 0
 	countStruct = 0
-	localExcludes := defaultExcludes()
+	//localExcludes := defaultExcludes()
+	localExcludes := map[string]bool{}
 	for _, pkg := range list {
 		checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 		pkgData := PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}

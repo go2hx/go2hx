@@ -50,8 +50,6 @@ jobs:
       #- name: Create hxb
       #  run: npx haxelib run go2hx hxb .
       # cache
-      - name: Build test runner
-        run: npx haxe tests/tests.hxml -lib hxcpp --cpp export/cpp
       - name: Cache setup of stdgo and hxb
         id: cache-setup
         uses: actions/cache/save@v4
@@ -209,7 +207,7 @@ jobs:
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       - name: Create test lists
-        run: haxe tests/tests.hxml --run Tests -ci -listAll
+        run: haxe tests/tests.hxml -D ci -D listAll
       - uses: EndBug/add-and-commit@v9
         with:
             message: create test lists

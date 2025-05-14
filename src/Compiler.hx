@@ -54,12 +54,12 @@ function receivedData(buff:Bytes) {
 	// generate the code
 	codegen.CodeGen.create(instance.outputPath, module, instance.root);
 	final codeGenTime = measureTime();
-	Sys.println(module.path);
-	Sys.println(module.path + " " + countPkgs + "/" + instance.totalPkgs);
-	Sys.println("- decodeData : " + decodeDataTime);
-	Sys.println("- typePackage: " + typePackageTime);
-	Sys.println("- codeGen    : " + codeGenTime);
-	Sys.println("- total      : " + (decodeDataTime + typePackageTime + codeGenTime));
+	Sys.println(module.path + " " + countPkgs + "/" + instance.totalPkgs + " " + (decodeDataTime + typePackageTime + codeGenTime));
+	if (instance.times) {
+		Sys.println("- decodeData : " + decodeDataTime);
+		Sys.println("- typePackage: " + typePackageTime);
+		Sys.println("- codeGen    : " + codeGenTime);
+	}
 }
 
 function end(instance:CompilerInstanceData) {
@@ -216,6 +216,7 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 		@doc("Version of the compiler")
 		["-version", "--version"] => () -> Sys.println(sys.io.File.getContent("version.txt")),
 		["-printmain", "--printmain"] => () -> instance.printMain = true,
+		["-times", "--times"] => () -> instance.times = true,
 	]);
 
 	argHandler.parse(args);
@@ -449,6 +450,7 @@ function write(args:Array<String>, instance:CompilerInstanceData):Bool {
 }
 
 class CompilerInstanceData {
+	public var times:Bool = false;
 	public var printMain:Bool = false;
 	public var deps:Array<Dep> = [];
 	public var countPkgs:Int = 0;

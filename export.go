@@ -205,7 +205,18 @@ func createLenMessage(b []byte) []byte {
 
 func getPkgs(list []*packages.Package, excludes map[string]bool, dep *depth) []*packages.Package {
 	newList := []*packages.Package{}
-	for _, pkg := range list {
+	for i, pkg := range list {
+		continueLoop := false
+		for _, pkg2 := range list[i+1:] {
+			if pkg.PkgPath != pkg2.PkgPath {
+				continue
+			}
+			continueLoop = true
+			break
+		}
+		if continueLoop {
+			continue
+		}
 		if excludes[pkg.PkgPath] {
 			dep.Deps = append(dep.Deps, depth{
 				Path:     pkg.PkgPath,
@@ -413,12 +424,6 @@ func hashType(t types.Type, pkg *PackageData) (value uint32) {
 func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]bool) {
 	// merge packages
 	for i := 0; i < len(list); i++ {
-		if i+1 < len(list) {
-			if list[i].PkgPath == list[i+1].PkgPath {
-				list = append(list[:i], list[i+1:]...)
-				// fall through in order to use test version one
-			}
-		}
 		mergePackage(list[i])
 		if stdgoExports[list[i].PkgPath] {
 			filterFile(list[i].Syntax[0], ast.IsExported, true)

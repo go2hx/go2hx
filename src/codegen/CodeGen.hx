@@ -236,8 +236,11 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 private function saveRaw(dir:String, name:String, contentString, prefix:String, extension:String, splitFileBool:Bool, cache:utils.Cache) {
 	if (!FileSystem.exists(dir)) {
 		try {
+			Compiler.mutex.acquire();
 			FileSystem.createDirectory(dir);
+			Compiler.mutex.release();
 		}catch(e) {
+			trace(e);
 			trace(dir,name);
 			throw e;
 		}

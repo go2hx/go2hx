@@ -46,13 +46,11 @@ function receivedData(buff:Bytes) {
 	final data:typer.GoAst.PackageType = decodeData(buff);
 	final decodeDataTime = measureTime();
 	// IMPORTANT: typing phase Go AST -> Haxe AST
-	Sys.setCwd(cwd);
 	final module = typer.Package.typePackage(data, instance);
-	Sys.setCwd(instance.localPath);
 	final typePackageTime = measureTime();
 	final countPkgs = modules.push(module);
 	// generate the code
-	codegen.CodeGen.create(instance.outputPath, module, instance.root);
+	codegen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
 	final codeGenTime = measureTime();
 	Sys.println(module.path + " " + countPkgs + "/" + instance.totalPkgs + " " + (decodeDataTime + typePackageTime + codeGenTime));
 	if (instance.times) {
@@ -408,7 +406,7 @@ function mainPkgs(modules:Array<typer.HaxeAst.Module>):Array<String> {
 function compileFromInstance(inst:CompilerInstanceData):Bool {
 	instance = inst;
 	if (instance.localPath == "")
-		instance.localPath = instance.args[instance.args.length - 1];
+		instance.localPath = haxe.io.Path.addTrailingSlash(instance.args[instance.args.length - 1]);
 	var httpsString = "https://";
 	for (i in 0...instance.args.length - 1) {
 		var path = instance.args[i];

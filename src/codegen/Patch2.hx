@@ -137,7 +137,6 @@ function getFile(path:String) {
 	final content = sys.io.File.getContent(path);
 	final input = byte.ByteData.ofString(content);
 	final parser = new haxeparser.HaxeParser(input, content);
-	trace(path);
 	return try {
 		parser.parse().decls;
 	} catch (e:haxeparser.HaxeParser.ParserError) {
@@ -158,9 +157,11 @@ function getPaths(pack:String):Array<String> {
 	pack.push(fileName);
 	//pack.push(title(fileName));
 	final fullpath = "std/go/" + pack.join("/");
-	if (!sys.FileSystem.exists(fullpath))
+	if (!sys.FileSystem.exists(fullpath) || !sys.FileSystem.isDirectory(fullpath)) {
 		return [];
-	return [for (path in sys.FileSystem.readDirectory(fullpath)) {
+	}
+	final paths = sys.FileSystem.readDirectory(fullpath);
+	return [for (path in paths) {
 		if (haxe.io.Path.extension(path) != "hx")
 			continue;
 		haxe.io.Path.join([fullpath,path]);

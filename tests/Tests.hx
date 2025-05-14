@@ -436,7 +436,7 @@ function runNewTest() {
 	if (test == null)
 		return;
 	final hxmlName = sanatize(Path.withoutExtension(test));
-	final args = [test, "-compiler_cpp", "--rebuild", "-printmain"];
+	final args = [test, "-compiler_cpp", "-printmain"];
 	if (testBool)
 		args.push("--test");
 	if (noDepsBool)
@@ -663,7 +663,7 @@ private function close() {
 		trace(testCount == 0, offset == 0, output.length > 0, run == "");
 	}
 	logOutput.close();
-	Sys.exit(0);
+	Sys.exit(code);
 }
 
 private function testTinyGo() {

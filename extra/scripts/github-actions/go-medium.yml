@@ -55,7 +55,7 @@ steps:
     run: go run ./extra/scripts/sortTests ci
   # run go medium tests
   - name: Run go medium tests
-    run: ./export/cpp/Tests -go -ci -mode=medium -runnerCount=${{ env.CORES }} -nologs -target=::target:: #-D hxb
+    run: haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D target=::target:: #-D hxb
   - name: Remove stdgo folder
     run: rm -r -d stdgo
   - name: Remove _internal folder

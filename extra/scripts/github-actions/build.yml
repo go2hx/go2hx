@@ -45,7 +45,7 @@ steps:
       key: ${{ github.sha }}-build-${{ env.cache-name }}
   - run: ls
   - name: Run unit
-    run: ./export/cpp/Tests -unit -ci -runnerCount=${{ env.CORES }} -target=::target:: #-D hxb
+    run: haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D target=::target:: #-D hxb
   - uses: EndBug/add-and-commit@v9
     with:
         message: go easy tests update ::target::
@@ -54,7 +54,7 @@ steps:
     if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
     continue-on-error: true
   - name: Run std
-    run: ./export/cpp/Tests -std -ci -runnerCount=${{ env.CORES }} -targets=::target::  #-D hxb
+    run: haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=::target::  #-D hxb
   - uses: EndBug/add-and-commit@v9
     with:
         message: build std tests update ::target::

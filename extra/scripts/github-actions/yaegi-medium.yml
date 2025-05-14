@@ -44,7 +44,7 @@ steps:
   - name: Sort tests
     run: go run ./extra/scripts/sortTests ci
   - name: Run yaegi medium tests
-    run: ./export/cpp/Tests -yaegi -ci -mode=medium -runnerCount=${{ env.CORES }} -target=::target:: #-D hxb
+    run: haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D target=::target:: #-D hxb
   - name: Remove stdgo folder
     run: rm -r -d stdgo
   - name: Remove _internal folder

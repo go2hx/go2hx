@@ -290,7 +290,7 @@ jobs:
             export
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Run lib tests
-        run: ./export/cpp/Tests -libs -ci -runnerCount=${{ env.CORES }} -target=hl #-D hxb
+        run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -344,7 +344,7 @@ jobs:
             export
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Run lib tests
-        run: ./export/cpp/Tests -libs -ci -runnerCount=${{ env.CORES }} -target=interp #-D hxb
+        run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -401,7 +401,7 @@ jobs:
             export
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Run lib tests
-        run: ./export/cpp/Tests -libs -ci -runnerCount=${{ env.CORES }} -target=js #-D hxb
+        run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -471,7 +471,7 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       # run go easy tests
       - name: Run go easy tests
-        run: ./export/cpp/Tests -go -ci -mode=easy -runnerCount=${{ env.CORES }} -nologs -target=hl #-D hxb
+        run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=hl #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -542,7 +542,7 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       # run go easy tests
       - name: Run go easy tests
-        run: ./export/cpp/Tests -go -ci -mode=easy -runnerCount=${{ env.CORES }} -nologs -target=interp #-D hxb
+        run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=interp #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -616,7 +616,7 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       # run go easy tests
       - name: Run go easy tests
-        run: ./export/cpp/Tests -go -ci -mode=easy -runnerCount=${{ env.CORES }} -nologs -target=js #-D hxb
+        run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=js #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -676,7 +676,7 @@ jobs:
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi easy tests
-        run: ./export/cpp/Tests -yaegi -ci -mode=easy -runnerCount=${{ env.CORES }} -target=hl #-D hxb
+        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -736,7 +736,7 @@ jobs:
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi easy tests
-        run: ./export/cpp/Tests -yaegi -ci -mode=easy -runnerCount=${{ env.CORES }} -target=interp #-D hxb
+        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -799,7 +799,7 @@ jobs:
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi easy tests
-        run: ./export/cpp/Tests -yaegi -ci -mode=easy -runnerCount=${{ env.CORES }} -target=js #-D hxb
+        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -870,7 +870,7 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       # run go medium tests
       - name: Run go medium tests
-        run: ./export/cpp/Tests -go -ci -mode=medium -runnerCount=${{ env.CORES }} -nologs -target=hl #-D hxb
+        run: haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D target=hl #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -944,7 +944,7 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       # run go medium tests
       - name: Run go medium tests
-        run: ./export/cpp/Tests -go -ci -mode=medium -runnerCount=${{ env.CORES }} -nologs -target=js #-D hxb
+        run: haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D target=js #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -1004,7 +1004,7 @@ jobs:
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi medium tests
-        run: ./export/cpp/Tests -yaegi -ci -mode=medium -runnerCount=${{ env.CORES }} -target=hl #-D hxb
+        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -1064,7 +1064,7 @@ jobs:
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi medium tests
-        run: ./export/cpp/Tests -yaegi -ci -mode=medium -runnerCount=${{ env.CORES }} -target=interp #-D hxb
+        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -1127,7 +1127,7 @@ jobs:
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi medium tests
-        run: ./export/cpp/Tests -yaegi -ci -mode=medium -runnerCount=${{ env.CORES }} -target=js #-D hxb
+        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -1188,7 +1188,7 @@ jobs:
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - run: ls
       - name: Run unit
-        run: ./export/cpp/Tests -unit -ci -runnerCount=${{ env.CORES }} -target=hl #-D hxb
+        run: haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update hl
@@ -1197,7 +1197,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
       - name: Run std
-        run: ./export/cpp/Tests -std -ci -runnerCount=${{ env.CORES }} -targets=hl  #-D hxb
+        run: haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl  #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update hl
@@ -1253,7 +1253,7 @@ jobs:
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - run: ls
       - name: Run unit
-        run: ./export/cpp/Tests -unit -ci -runnerCount=${{ env.CORES }} -target=interp #-D hxb
+        run: haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update interp
@@ -1262,7 +1262,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
       - name: Run std
-        run: ./export/cpp/Tests -std -ci -runnerCount=${{ env.CORES }} -targets=interp  #-D hxb
+        run: haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp  #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update interp
@@ -1321,7 +1321,7 @@ jobs:
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - run: ls
       - name: Run unit
-        run: ./export/cpp/Tests -unit -ci -runnerCount=${{ env.CORES }} -target=js #-D hxb
+        run: haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update js
@@ -1330,7 +1330,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
       - name: Run std
-        run: ./export/cpp/Tests -std -ci -runnerCount=${{ env.CORES }} -targets=js  #-D hxb
+        run: haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js  #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update js

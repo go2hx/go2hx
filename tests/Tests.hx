@@ -413,7 +413,7 @@ function spawnTargets(path:String, excludes:Array<String>) {
 	trace(path);
 	final out = createTargetOutput(target, type, path);
 	final outCmd = BuildTools.buildTarget(target, "golibs/" + out).split(" ");
-	var args:Array<String> = ["-m", "_internal." + main, "-cp golibs", "extraParams.hxml"];
+	var args:Array<String> = ["-m", "_internal." + main, "-cp golibs", "-lib", "go2hx"];
 	args = args.concat(outCmd);
 	if (ciBool)
 		args.unshift("haxe");
@@ -523,7 +523,7 @@ function createRunnableStd(name:String, prefix:String) {
 	mainPathStd.push(last);
 	mainPathStd.push(last.charAt(0).toUpperCase() + last.substr(1));
 	var mainStd = "_internal." + mainPathStd.join(".");
-	final args = ["-m", mainStd, "-cp", "golibs", "extraParams.hxml"].concat(outCmd);
+	final args = ["-m", mainStd, "-cp", "golibs", "-lib", "go2hx"].concat(outCmd);
 	// remove ANSI escape codes for colours
 	args.push("-D");
 	args.push("message.no-color");

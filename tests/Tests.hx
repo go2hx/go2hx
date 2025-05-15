@@ -91,7 +91,7 @@ function main() {
 	if (!dryRun) {
 		final timer = new haxe.Timer(100);
 		timer.run = update;
-		complete("");
+		complete("", []);
 	}
 }
 
@@ -395,20 +395,19 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 	return {passes: passes, fails: fails, runs: runs};
 }
 
-private function complete(main:String) {
+private function complete(main:String, excludes:Array<String>) {
 	timeout = 0;
 	completeBool = true;
 	if (main != "")
 		runningCount--;
-	spawnTargets(main);
+	spawnTargets(main, excludes);
 	runNewTest();
 }
 
-function spawnTargets(path:String) {
+function spawnTargets(path:String, excludes:Array<String>) {
 	if (path == "")
 		return;
 	// spawn target
-	var excludes = [];
 	final main = path;
 	path = path.charAt(0).toLowerCase() + path.substr(1);
 	trace(path);
@@ -432,7 +431,7 @@ function spawnTargets(path:String) {
 
 function runNewTest() {
 	final test = tests.pop();
-	final exclude = excludeFuncArgs.pop();
+	final excludes = excludeFuncArgs.pop();
 	if (test == null)
 		return;
 	final hxmlName = sanatize(Path.withoutExtension(test));
@@ -457,7 +456,7 @@ function runNewTest() {
 	}
 	// get main.txt for main line
 	final path = haxe.io.Path.normalize(File.getContent("main.txt"));
-	complete(path);
+	complete(path, excludes);
 }
 
 private function createTargetOutput(target:String, type:String, name:String):String {
@@ -507,28 +506,30 @@ private function testStd() { // standard library package tests
 			case "regexp":
 				continue;
 		}
-		createRunnableHxml(name, "stdgo/");
+		createRunnableStd(name, "stdgo/");
 	}
 	Sys.println("______________________");
 	// haxe stdgo/unicode.hxml --interp
 }
 
-function createRunnableHxml(name:String, prefix:String) {
-	final hxml = prefix + StringTools.replace(name, "/", "_") + ".hxml";
-	if (!sys.FileSystem.exists(hxml)) {
-		trace("hxml not found");
-		return;
-	}
+function createRunnableStd(name:String, prefix:String) {
+
 	final main = name;
 	final out = createTargetOutput(target, type, name);
 	final targetLibs = BuildTools.targetLibs(target);
 	final outCmd = (BuildTools.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
-	final args = [hxml].concat(outCmd);
+	final mainPathStd = main.split("/");
+	final last = mainPathStd.pop() + "dottest";
+	mainPathStd.push(last);
+	mainPathStd.push(last.charAt(0).toUpperCase() + last.substr(1));
+	var mainStd = "_internal." + mainPathStd.join(".");
+	final args = ["-m", mainStd].concat(outCmd);
 	// remove ANSI escape codes for colours
 	args.push("-D");
 	args.push("message.no-color");
 	if (ciBool)
 		args.unshift("haxe");
+	trace(args.join(" "));
 	tasks.push({
 		command: ciBool ? "npx" : "haxe",
 		args: args,

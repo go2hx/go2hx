@@ -1,0 +1,2 @@
+package go._std;
+

@@ -37,6 +37,7 @@ steps:
         ./stdgo/*
         ./go2hx.*.zip 
         export
+        golibs
       key: ${{ github.sha }}-build-${{ env.cache-name }}
   # run yaegi easy tests
   - name: clone yaegi

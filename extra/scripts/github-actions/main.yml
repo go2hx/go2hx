@@ -63,6 +63,7 @@ jobs:
             ./stdgo/*
             ./go2hx.*.zip
             export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
   goto:
     timeout-minutes: 15
@@ -117,6 +118,7 @@ jobs:
             ./stdgo/*
             ./go2hx.*.zip
             export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Build interop test
         run: haxelib run go2hx ./tests/interop --nolibwrap
@@ -172,6 +174,7 @@ jobs:
             ./stdgo/*
             ./go2hx.*.zip
             export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - uses: EndBug/add-and-commit@v9
         continue-on-error: true
@@ -244,6 +247,7 @@ jobs:
             ./stdgo/*
             ./go2hx.*.zip
             export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: run compiler
-        run: haxelib run go2hx unicode --test --interp
+        run: haxelib run go2hx unicode --test

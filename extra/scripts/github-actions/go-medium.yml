@@ -47,6 +47,7 @@ steps:
         ./stdgo/*
         ./go2hx.*.zip 
         export
+        golibs
       key: ${{ github.sha }}-build-${{ env.cache-name }}
   - name: clone go
     run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go

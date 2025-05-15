@@ -232,7 +232,7 @@ function update() {
 		final ls:js.node.child_process.ChildProcess = js.node.ChildProcess.spawn(task.command, task.args, {shell: true});
 		ls.stdout.setEncoding('utf8');
 		ls.stderr.setEncoding('utf8');
-		var timeoutTimer = new haxe.Timer((1000 * 60) * 12);
+		var timeoutTimer = new haxe.Timer((1000 * 60) * 5);
 		timeoutTimer.run = () -> {
 			runningCount--;
 			trace("TEST TIMEOUT: " + task.command + " " + task.args.join(" "));

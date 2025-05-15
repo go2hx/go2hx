@@ -56,10 +56,6 @@ steps:
   # run go easy tests
   - name: Run go easy tests
     run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=::target:: #-D hxb
-  - name: Remove stdgo folder
-    run: rm -r -d stdgo
-  - name: Remove _internal folder
-    run: rm -r -d _internal
   # add go_easy.json regression 
   - uses: EndBug/add-and-commit@v9
     with:

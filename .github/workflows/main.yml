@@ -291,10 +291,6 @@ jobs:
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Run lib tests
         run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       - uses: EndBug/add-and-commit@v9
         with:
             message: libs tests update hl
@@ -345,10 +341,6 @@ jobs:
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Run lib tests
         run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       - uses: EndBug/add-and-commit@v9
         with:
             message: libs tests update interp
@@ -402,10 +394,6 @@ jobs:
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Run lib tests
         run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       - uses: EndBug/add-and-commit@v9
         with:
             message: libs tests update js
@@ -472,10 +460,6 @@ jobs:
       # run go easy tests
       - name: Run go easy tests
         run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=hl #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -543,10 +527,6 @@ jobs:
       # run go easy tests
       - name: Run go easy tests
         run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=interp #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -617,10 +597,6 @@ jobs:
       # run go easy tests
       - name: Run go easy tests
         run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=js #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -677,10 +653,6 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi easy tests
         run: haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -737,10 +709,6 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi easy tests
         run: haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -800,10 +768,6 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi easy tests
         run: haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -871,10 +835,6 @@ jobs:
       # run go medium tests
       - name: Run go medium tests
         run: haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D target=hl #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       # add go_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -945,10 +905,6 @@ jobs:
       # run go medium tests
       - name: Run go medium tests
         run: haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D target=js #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       # add go_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -1005,10 +961,6 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi medium tests
         run: haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       # add yaegi_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -1065,10 +1017,6 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi medium tests
         run: haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       # add yaegi_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -1128,10 +1076,6 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi medium tests
         run: haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
       # add yaegi_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:

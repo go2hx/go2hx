@@ -38,7 +38,7 @@ function main() {
 		libs.remove(path);
 	trace(libs);
 	
-	final args = libs.concat(['--nocomments', '--out', '.', '--norun']);
+	final args = libs.concat(['--nocomments', '--norun']);
 	if (varTraceBool)
 		args.push("--vartrace");
 	if (stackBool)

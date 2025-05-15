@@ -44,7 +44,6 @@ steps:
       path: |
         TypeInfoData_go2hx_hxb.hx
         ./_internal/*
-        ./stdgo/*
         ./go2hx.*.zip 
         export
         golibs

@@ -1,2 +1,0 @@
-package stdgo._internal.internal.cpu;
-var x86 : stdgo._internal.internal.cpu.Cpu_t__struct_0.T__struct_0 = ({ hasAES : false, hasADX : false, hasAVX : false, hasAVX2 : false, hasBMI1 : false, hasBMI2 : false, hasERMS : false, hasFMA : false, hasOSXSAVE : false, hasPCLMULQDQ : false, hasPOPCNT : false, hasRDTSCP : false, hasSHA : false, hasSSE3 : false, hasSSSE3 : false, hasSSE41 : false, hasSSE42 : false } : stdgo._internal.internal.cpu.Cpu_t__struct_0.T__struct_0);

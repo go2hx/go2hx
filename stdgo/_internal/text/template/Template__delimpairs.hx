@@ -1,2 +1,0 @@
-package stdgo._internal.text.template;
-var _delimPairs : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(10, 10, ...[(stdgo.Go.str() : stdgo.GoString)?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), ("{{" : stdgo.GoString), ("}}" : stdgo.GoString), ("<<" : stdgo.GoString), (">>" : stdgo.GoString), ("|" : stdgo.GoString), ("|" : stdgo.GoString), ("(日)" : stdgo.GoString), ("(本)" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);

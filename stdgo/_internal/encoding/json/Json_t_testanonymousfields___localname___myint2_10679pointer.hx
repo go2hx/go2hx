@@ -1,2 +1,0 @@
-package stdgo._internal.encoding.json;
-@:keep @:follow @:using(stdgo._internal.encoding.json.Json_t_testanonymousfields___localname___myint2_10679_static_extension.T_testAnonymousFields___localname___MyInt2_10679_static_extension) typedef T_testAnonymousFields___localname___MyInt2_10679Pointer = stdgo.Pointer<stdgo._internal.encoding.json.Json_t_testanonymousfields___localname___myint2_10679.T_testAnonymousFields___localname___MyInt2_10679>;

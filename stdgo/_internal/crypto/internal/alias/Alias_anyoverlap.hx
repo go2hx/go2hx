@@ -1,5 +1,0 @@
-package stdgo._internal.crypto.internal.alias;
-function anyOverlap(_x:stdgo.Slice<stdgo.GoUInt8>, _y:stdgo.Slice<stdgo.GoUInt8>):Bool {
-        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/alias/alias.go#L14"
-        return (((((_x.length) > (0 : stdgo.GoInt) : Bool) && ((_y.length) > (0 : stdgo.GoInt) : Bool) : Bool) && ((new stdgo.GoUIntptr((stdgo.Go.toInterface(stdgo.Go.pointer(_x[(0 : stdgo.GoInt)])) : stdgo._internal.unsafe.Unsafe.UnsafePointer)) : stdgo.GoUIntptr) <= (new stdgo.GoUIntptr((stdgo.Go.toInterface(stdgo.Go.pointer(_y[((_y.length) - (1 : stdgo.GoInt) : stdgo.GoInt)])) : stdgo._internal.unsafe.Unsafe.UnsafePointer)) : stdgo.GoUIntptr) : Bool) : Bool) && ((new stdgo.GoUIntptr((stdgo.Go.toInterface(stdgo.Go.pointer(_y[(0 : stdgo.GoInt)])) : stdgo._internal.unsafe.Unsafe.UnsafePointer)) : stdgo.GoUIntptr) <= (new stdgo.GoUIntptr((stdgo.Go.toInterface(stdgo.Go.pointer(_x[((_x.length) - (1 : stdgo.GoInt) : stdgo.GoInt)])) : stdgo._internal.unsafe.Unsafe.UnsafePointer)) : stdgo.GoUIntptr) : Bool) : Bool);
-    }

@@ -1,2 +1,0 @@
-package stdgo._internal.log.slog;
-var _kindStrings : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(10, 10, ...[("Any" : stdgo.GoString), ("Bool" : stdgo.GoString), ("Duration" : stdgo.GoString), ("Float64" : stdgo.GoString), ("Int64" : stdgo.GoString), ("String" : stdgo.GoString), ("Time" : stdgo.GoString), ("Uint64" : stdgo.GoString), ("Group" : stdgo.GoString), ("LogValuer" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);

@@ -523,7 +523,7 @@ function createRunnableStd(name:String, prefix:String) {
 	mainPathStd.push(last);
 	mainPathStd.push(last.charAt(0).toUpperCase() + last.substr(1));
 	var mainStd = "_internal." + mainPathStd.join(".");
-	final args = ["-m", mainStd].concat(outCmd);
+	final args = ["-m", mainStd, "-cp", "golibs", "extraParams.hxml"].concat(outCmd);
 	// remove ANSI escape codes for colours
 	args.push("-D");
 	args.push("message.no-color");

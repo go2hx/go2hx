@@ -434,10 +434,12 @@ function compileFromInstance(inst:CompilerInstanceData):Bool {
 		Sys.command(command);
 		Sys.setCwd(cwd);
 	}
-	return write(instance.args, instance);
+	return write(instance);
 }
 
-function write(args:Array<String>, instance:CompilerInstanceData):Bool {
+function write(instance:CompilerInstanceData):Bool {
+	final args = instance.args;
+	args.unshift(instance.outputPath);
 	final bytes = Bytes.ofString(args.join(" "));
 	client.output.bigEndian = false;
 	final lenBytes = Bytes.alloc(4);

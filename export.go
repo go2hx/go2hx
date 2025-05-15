@@ -3,7 +3,9 @@ package main
 import (
 	"bytes"
 	"compress/zlib"
+	"crypto/sha256"
 	"encoding/binary"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"go/ast"
@@ -13,11 +15,11 @@ import (
 	"go/token"
 	"go/types"
 	"log"
-	"math/rand"
 	"net"
 	"path"
 	"path/filepath"
 	"runtime"
+	"slices"
 	"sync"
 
 	_ "embed"
@@ -37,6 +39,7 @@ type packageType struct {
 	Order    []string                 `json:"order"`
 	Files    []fileType               `json:"files"`
 	TypeList []map[string]interface{} `json:"typeList"`
+	Checksum string                   `json:"checksum"`
 }
 type fileType struct {
 	Path     string                   `json:"path"`
@@ -110,25 +113,117 @@ func compile(conn net.Conn, params []string, debug bool) {
 		os.Setenv("GOCMD", goCommand)
 	}
 	localPath := args[len(args)-1]
+	outputPath := args[0]
+	// before localPath is chdir
+	versionBytes, _ := os.ReadFile("version.txt")
 	var err error
-	err = os.Chdir(localPath)
-	args = args[0 : len(args)-1] //remove chdir
-	panicIfError(err)
+	panicIfError(os.Chdir(localPath))
+	args = args[1 : len(args)-1] //remove outputPath & remove localPath (chdir)
 	cfg.Tests = testBool
-	initial, err := packages.Load(cfg, &types.StdSizes{WordSize: 4, MaxAlign: 8}, args...)
+	sizes := &types.StdSizes{WordSize: 4, MaxAlign: 8}
+	l, response, err := packages.Init(cfg, sizes, args...)
+	panicIfError(err)
+	deletedPkgs := map[string]bool{}
+	skipPkgs := map[string]bool{}
+	excludes := map[string]bool{}
+	checksumMap := map[string]string{}
+	// checksums
+	for _, pkg := range response.Packages {
+		const hashSize = 32
+		checksumChan := make(chan [hashSize]byte, len(pkg.GoFiles))
+		for _, f := range pkg.GoFiles {
+			f := f
+			go func() {
+				b, err := os.ReadFile(f)
+				panicIfError(err)
+				checksumChan <- sha256.Sum256(b)
+			}()
+		}
+		checksSums := make([][hashSize]byte, len(pkg.GoFiles))
+		for i := range pkg.GoFiles {
+			checksSums[i] = <-checksumChan
+		}
+		slices.SortStableFunc(checksSums, func(a, b [hashSize]byte) int {
+			if len(a) > len(b) {
+				return 1
+			} else if len(a) < len(b) {
+				return -1
+			}
+			for i := range a {
+				if a[i] == b[i] {
+					continue
+				}
+				if a[i] > b[i] {
+					return 1
+				} else {
+					return -1
+				}
+			}
+			return 0
+		})
+		pkgPath := pkg.PkgPath
+		if pkgPath == "sync/atomic" { // special case because atomic is reserved on c++
+			pkgPath = pkgPath + "_"
+		}
+		addedPkg := "_internal"
+		if stdgoList[pkg.PkgPath] { // add stdgo prefix
+			addedPkg = "stdgo/_internal"
+		}
+		dir := path.Join(outputPath, addedPkg, pkgPath)
+		_ = os.MkdirAll(dir, 0750)
+		b, err := os.ReadFile(path.Join(dir, ".go2hx_cache"))
+		checksum := combineCheckSums(checksSums, versionBytes)
+		if err == nil {
+			// checksum is the same
+			if string(b) == checksum {
+				// remove from root
+				index := slices.Index(response.Roots, pkg.ID)
+				if index != -1 {
+					response.Roots = slices.Delete(response.Roots, index, index+1)
+				}
+				// mark as deleted
+				println("deleted:", pkg.PkgPath)
+				deletedPkgs[pkg.PkgPath] = true
+				continue
+			}
+		} else if !os.IsNotExist(err) {
+			panic(err)
+		}
+		// write checksum
+		checksumMap[pkg.PkgPath] = checksum
+	}
+	// add imports for type information
+	for _, pkg := range response.Packages {
+		if deletedPkgs[pkg.PkgPath] {
+			continue
+		}
+		for impPath, _ := range pkg.Imports {
+			// if import move from delete -> skip
+			if deletedPkgs[impPath] {
+				delete(deletedPkgs, impPath)
+				skipPkgs[impPath] = true
+				println("skip:", impPath)
+			}
+		}
+	}
+	newResponsePackages := []*packages.Package{}
+	for _, pkg := range response.Packages {
+		if deletedPkgs[pkg.PkgPath] {
+			continue
+		}
+		newResponsePackages = append(newResponsePackages, pkg)
+	}
+	// refine
+	l.Mode = releaseMode
+	l.Config.Mode = releaseMode
+	response.Packages = newResponsePackages
+	initial, err := packages.Refine(l, response)
 	panicIfError(err)
 	//init
 	methodCache = typeutil.MethodSetCache{}
-	//excludes = defaultExcludes()
-	excludes := map[string]bool{}
-	if len(initial) > 0 {
-		for _, pkg := range initial { //remove initial packages from exclude list
-			delete(excludes, pkg.PkgPath)
-		}
-	}
 	//fmt.Println(excludes)
 	dep := &depth{Path: "init", Excluded: false, Deps: []depth{}}
-	pkgs := getPkgs(initial, excludes, dep)
+	pkgs := getPkgs(initial, excludes, dep, skipPkgs)
 	// for _, pkg := range pkgs {
 	// 	println(pkg.PkgPath)
 	// }
@@ -137,19 +232,17 @@ func compile(conn net.Conn, params []string, debug bool) {
 	sendLen(conn, len(pkgs))
 	sendData(conn, dep)
 	// send pkg data
-	parsePkgList(conn, pkgs, excludes)
+	parsePkgList(conn, pkgs, excludes, checksumMap)
 }
 
-func defaultExcludes() map[string]bool {
-	var excludesData []string
-	err := json.Unmarshal(excludesBytes, &excludesData)
-	panicIfError(err)
-	excludes = make(map[string]bool, len(excludesData))
-	visited = make(map[string]bool)
-	for _, exclude := range excludesData {
-		excludes[exclude] = true
+func combineCheckSums(checksums [][32]byte, versionBytes []byte) string {
+	singleCheckSum := make([]byte, 32*len(checksums))
+	for i := range checksums {
+		singleCheckSum = slices.Insert(singleCheckSum, i*32, checksums[i][:]...)
 	}
-	return excludes
+	singleCheckSum = append(singleCheckSum, versionBytes...)
+	sum := sha256.Sum256(singleCheckSum)
+	return hex.EncodeToString(sum[:])
 }
 
 type depth struct {
@@ -203,9 +296,12 @@ func createLenMessage(b []byte) []byte {
 	return append(bytesBuff, b...)
 }
 
-func getPkgs(list []*packages.Package, excludes map[string]bool, dep *depth) []*packages.Package {
+func getPkgs(list []*packages.Package, excludes map[string]bool, dep *depth, skipPkgs map[string]bool) []*packages.Package {
 	newList := []*packages.Package{}
 	for i, pkg := range list {
+		if skipPkgs[pkg.PkgPath] {
+			continue
+		}
 		continueLoop := false
 		for _, pkg2 := range list[i+1:] {
 			if pkg.PkgPath != pkg2.PkgPath {
@@ -231,7 +327,7 @@ func getPkgs(list []*packages.Package, excludes map[string]bool, dep *depth) []*
 			Deps:     []depth{},
 		}
 		for _, pkg := range pkg.Imports {
-			newList = append(newList, getPkgs([]*packages.Package{pkg}, excludes, dep2)...)
+			newList = append(newList, getPkgs([]*packages.Package{pkg}, excludes, dep2, skipPkgs)...)
 		}
 		newList = append(newList, pkg)
 		dep.Deps = append(dep.Deps, *dep2)
@@ -240,14 +336,16 @@ func getPkgs(list []*packages.Package, excludes map[string]bool, dep *depth) []*
 }
 
 var cfg = &packages.Config{
-	Mode: packages.NeedName |
-		packages.NeedSyntax |
-		packages.NeedImports | packages.NeedDeps | packages.NeedEmbedFiles | packages.NeedEmbedPatterns |
-		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo | packages.NeedModule | packages.NeedTypesSizes,
+	Mode:       releaseMode,
 	BuildFlags: []string{"-tags", "netgo,purego,math_big_pure_go,compiler_bootstrap"}, // build tags
 }
 
-var r = rand.New(rand.NewSource(99))
+const releaseMode packages.LoadMode = packages.NeedName |
+	packages.NeedSyntax |
+	packages.NeedImports | packages.NeedDeps | packages.NeedEmbedFiles | packages.NeedEmbedPatterns |
+	packages.NeedFiles |
+	packages.NeedTypes | packages.NeedTypesInfo |
+	packages.NeedModule | packages.NeedTypesSizes
 
 func main() {
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
@@ -327,10 +425,8 @@ func parseLocalPackage(pkg *packages.Package, pkgData *PackageData, excludes map
 		return
 	}
 	excludes[pkg.PkgPath] = true
-	for _, val := range pkg.Imports {
-		parseLocalPackage(val, pkgData, excludes)
-	}
 	for _, file := range pkg.Syntax {
+		_ = file
 		parseLocalFile(file, pkg, pkgData)
 	}
 }
@@ -344,13 +440,6 @@ func parseLocalFile(file *ast.File, pkg *packages.Package, pkgData *PackageData)
 	analysis.ParseLocalConstants(file, pkg, checker)
 	analysis.ParseLocalPointers(file, checker, pkg.Fset, false)
 	analysis.ParseLocalGotos(file, checker, pkg.Fset, false)
-}
-
-func randomIdentifier() *ast.Ident {
-	b := make([]byte, 8)
-	_, err := r.Read(b)
-	panicIfError(err)
-	return ast.NewIdent(fmt.Sprintf("_%x", b))
 }
 
 func encodeString(s string) string {
@@ -421,7 +510,7 @@ func hashType(t types.Type, pkg *PackageData) (value uint32) {
 	return
 }
 
-func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]bool) {
+func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]bool, checksumMap map[string]string) {
 	// merge packages
 	for i := 0; i < len(list); i++ {
 		mergePackage(list[i])
@@ -442,14 +531,12 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 	}
 	countInterface = 0
 	countStruct = 0
-	//localExcludes := defaultExcludes()
 	localExcludes := map[string]bool{}
 	for _, pkg := range list {
 		checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 		pkgData := PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
 		parseLocalPackage(pkg, &pkgData, localExcludes)
 	}
-	println("2nd pass:", len(list))
 	// 2nd pass
 	var wg sync.WaitGroup
 	for _, pkg := range list {
@@ -457,6 +544,9 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 		pkg := pkg
 		go func() {
 			syntax := parsePkg(pkg)
+			if checksum, exists := checksumMap[pkg.PkgPath]; exists {
+				syntax.Checksum = checksum
+			}
 			sendData(conn, syntax)
 			wg.Done()
 		}()

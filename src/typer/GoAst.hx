@@ -16,6 +16,7 @@ typedef PackageType = {
 	order:Array<String>,
 	files:Array<FileType>,
 	typeList:Array<Dynamic>,
+	checksum:String,
 };
 
 typedef FileType = {

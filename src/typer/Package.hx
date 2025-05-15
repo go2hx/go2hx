@@ -17,6 +17,7 @@ typedef IntermediatePackageType = {
 	varOrder:Array<String>,
 	declFuncs:Array<GoAst.FuncDecl>,
 	cachedDecls:Map<String, Array<haxeparser.Data.TypeDecl>>,
+	checksum:String,
 }
 
 function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData):HaxeAst.Module {
@@ -30,6 +31,7 @@ function typePackageEmit(pkg:typer.Package.IntermediatePackageType):HaxeAst.Modu
 		files: [],
 		isMain: pkg.isMain,
 		name: pkg.name,
+		checksum: pkg.checksum,
 	};
 	final info = pkg.info;
 	info.global.module = module;
@@ -79,6 +81,7 @@ function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerIns
 		files: pkg.files,
 		isMain: pkg.name == "main",
 		cachedDecls: [],
+		checksum: pkg.checksum,
 	};
 
 	if (pkg.order != null) {

@@ -9,7 +9,7 @@ package typer;
  */
 import haxe.macro.Expr;
 
-typedef Module = {name:String, path:String, files:Array<HaxeFileType>, isMain:Bool}
+typedef Module = {name:String, path:String, files:Array<HaxeFileType>, isMain:Bool, checksum:String}
 typedef ImportType = {path:Array<String>, alias:String, doc:String}
 
 typedef HaxeFileType = {

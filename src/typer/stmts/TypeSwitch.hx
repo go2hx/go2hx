@@ -66,7 +66,7 @@ function typeTypeSwitchStmt(stmt:GoAst.TypeSwitchStmt, info:Info):MacroExpr { //
 		final obj:GoAst.CaseClause = stmt.body.list[i];
 		types = [];
 		final cond = condition(obj);
-		final block = toExpr(typer.stmts.Block.typeStmtList(obj.body, info, false));
+		final block = typer.stmts.Block.typeStmtList(obj.body, info, false);
 		if (setVar != "") {
 			switch block.expr {
 				case EBlock(exprs):

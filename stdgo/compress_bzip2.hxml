@@ -1,3 +1,0 @@
--m _internal.compress.bzip2dottest.Bzip2dottest
--lib go2hx
--cp .

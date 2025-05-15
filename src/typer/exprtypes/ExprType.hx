@@ -850,7 +850,7 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 			if (path == "comparable")
 				return null;
 			if (path == null) {
-				trace("underlying null path: " + printer.printComplexType(toComplexType(underlying, info)));
+				trace("underlying null path: " + new codegen.Printer().printComplexType(toComplexType(underlying, info)));
 				throw info.panic() + path;
 			}
 			final p = namedTypePath(path, info);

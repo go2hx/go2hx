@@ -28,7 +28,7 @@ class Printer extends haxe.macro.Printer {
 	}
 
 	override function printExpr(e:Expr):String {
-		if (e == null)
+		if (e == null || e.expr == null)
 			return "#NULL_EXPR";
 		return switch (e.expr) {
 			case EField(e1, n, kind): kind == Safe ? '${printExpr(e1)}?.$n' : '${printExpr(e1)}.$n';

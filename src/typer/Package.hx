@@ -16,10 +16,12 @@ typedef IntermediatePackageType = {
 	files:Array<GoAst.FileType>,
 	varOrder:Array<String>,
 	declFuncs:Array<GoAst.FuncDecl>,
+	cachedDecls:Map<String, Array<haxeparser.Data.TypeDecl>>,
+	checksum:String,
 }
 
-function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData, hashMapTypes:Map<UInt, Dynamic>):HaxeAst.Module {
-	final pkg = typePackageAnalyze(pkg, instance, hashMapTypes);
+function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData):HaxeAst.Module {
+	final pkg = typePackageAnalyze(pkg, instance);
 	return typePackageEmit(pkg);
 }
 
@@ -29,6 +31,7 @@ function typePackageEmit(pkg:typer.Package.IntermediatePackageType):HaxeAst.Modu
 		files: [],
 		isMain: pkg.isMain,
 		name: pkg.name,
+		checksum: pkg.checksum,
 	};
 	final info = pkg.info;
 	info.global.module = module;
@@ -44,16 +47,10 @@ function typePackageEmit(pkg:typer.Package.IntermediatePackageType):HaxeAst.Modu
 	return module;
 }
 
-function setExtern(instance, pkg:GoAst.PackageType) {
-	instance.externBool = false;
-	if (stdgoList.indexOf(pkg.path) != -1) {
-		if (externs.indexOf(pkg.path) != -1)
-			instance.externBool = true;
-	}
-}
-
-function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData, hashMapTypes:Map<UInt, Dynamic>):IntermediatePackageType {
-	setExtern(instance, pkg);
+function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData):IntermediatePackageType {
+	final hashMapTypes:Map<UInt, Dynamic> = [];
+	for (obj in pkg.typeList)
+		hashMapTypes[obj.hash] = obj;
 	pkg.path = normalizePath(pkg.path);
 	pkg.path = toHaxePath(pkg.path);
 
@@ -61,8 +58,12 @@ function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerIns
 	info.global.initBlock = [];
 	info.printGoCode = instance.printGoCode;
 	info.global.path = pkg.path;
-	info.global.externBool = instance.externBool;
-	info.global.debugBool = instance.debugBool;
+	info.global.externBool = false;
+	if (stdgoList.indexOf(pkg.path) != -1) {
+		if (externs.indexOf(pkg.path) != -1)
+			info.global.externBool = true;
+	}
+
 	info.global.varTraceBool = instance.varTraceBool;
 	info.global.funcTraceBool = instance.stackBool;
 	info.global.stackBool = instance.stackBool;
@@ -70,7 +71,7 @@ function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerIns
 	// info.global.module = module;
 	info.global.root = instance.root;
 
-	info.global.hashMapTypes = hashMapTypes;
+	info.global.hashMapTypes = hashMapTypes.copy();
 	final irPkg:IntermediatePackageType = {
 		info: info,
 		varOrder: [],
@@ -79,6 +80,8 @@ function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerIns
 		name: pkg.name,
 		files: pkg.files,
 		isMain: pkg.name == "main",
+		cachedDecls: [],
+		checksum: pkg.checksum,
 	};
 
 	if (pkg.order != null) {

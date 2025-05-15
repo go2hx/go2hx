@@ -5,7 +5,7 @@ function typeExpr(expr:GoAst.Expr, info:Info):MacroExpr {
 		return null;
 	final def = switch expr.id {
 		case "Ident": Ident.typeIdent(expr, info, false);
-		case "CallExpr": Call.typeCallExpr(expr, info);
+		case "CallExpr": Call.typeCallExpr(expr, info); // *
 		case "BasicLit": BasicLit.typeBasicLit(expr, info);
 		case "UnaryExpr": Unary.typeUnaryExpr(expr, info);
 		case "SelectorExpr": Selector.typeSelectorExpr(expr, info);
@@ -23,9 +23,7 @@ function typeExpr(expr:GoAst.Expr, info:Info):MacroExpr {
 		case "IndexListExpr": IndexList.typeIndexListExpr(expr, info);
 		case "BadExpr": Bad.typeBad(info);
 		default:
-			trace("unknown expr id: " + expr.id);
-			null;
-			// (macro throw "unknown expr");
+			throw info.panic() + "unknown expr";
 	};
 	if (def == null)
 		throw info.panic() + "expr null: " + expr.id;
@@ -97,7 +95,7 @@ function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info
 					if (!isNamed(toType)) {
 						return typer.exprs.Expr.defaultValue(toType, info);
 					} else {
-						return macro null;
+						return @:expicit_conversion macro null;
 					}
 				default:
 			}

@@ -1,4 +1,3 @@
-import Compiler.CompilerInstanceData;
 import haxe.macro.Compiler as MacroCompiler;
 import haxe.Json;
 import sys.io.File;
@@ -33,7 +32,7 @@ var offset = 0;
 var run:String = "";
 var runOnly:String = "";
 var lastTaskLogs = [];
-final runnerCount = haxe.macro.Compiler.getDefine("runnerCount") ?? "2";
+final runnerCount = MacroCompiler.getDefine("runnerCount") ?? "2";
 var dryRun = false;
 var unitBool = false;
 var stdBool = false;
@@ -90,13 +89,9 @@ function main() {
 	trace(tests.length);
 	trace(tasks.length);
 	if (!dryRun) {
-		Compiler.setupCompiler(new CompilerInstanceData(), () -> {
-			complete(null, null);
-		}); // amount of processes to spawn
-		Compiler.onComplete = complete;
-		Compiler.onUnknownExit = close;
 		final timer = new haxe.Timer(100);
 		timer.run = update;
+		complete("", []);
 	}
 }
 
@@ -193,7 +188,6 @@ private function runTests() {
 }
 
 var runningCount = 0;
-var instance:CompilerInstanceData = null;
 var timeout = 0;
 var retryFailedCount = 2;
 var failedRegressionTasks:Array<TaskData> = [];
@@ -238,7 +232,7 @@ function update() {
 		final ls:js.node.child_process.ChildProcess = js.node.ChildProcess.spawn(task.command, task.args, {shell: true});
 		ls.stdout.setEncoding('utf8');
 		ls.stderr.setEncoding('utf8');
-		var timeoutTimer = new haxe.Timer((1000 * 60) * 12);
+		var timeoutTimer = new haxe.Timer((1000 * 60) * 5);
 		timeoutTimer.run = () -> {
 			runningCount--;
 			trace("TEST TIMEOUT: " + task.command + " " + task.args.join(" "));
@@ -299,7 +293,7 @@ function update() {
 					}
 				} else {
 					// trace(task.excludeArgs);
-					final cmd = Compiler.runTarget(task.target, "golibs/" + task.out, task.excludeArgs, task.main).split(" ");
+					final cmd = BuildTools.runTarget(task.target, "golibs/" + task.out, task.excludeArgs, task.main).split(" ");
 					tasks.push({
 						command: cmd[0],
 						args: cmd.slice(1),
@@ -401,56 +395,47 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 	return {passes: passes, fails: fails, runs: runs};
 }
 
-private function complete(modules:Array<typer.HaxeAst.Module>, data:{excludes:Array<String>, hxml:String, ?main:String}) {
+private function complete(main:String, excludes:Array<String>) {
 	timeout = 0;
 	completeBool = true;
-	if (modules != null)
+	if (main != "")
 		runningCount--;
-	spawnTargets(modules, data);
+	spawnTargets(main, excludes);
 	runNewTest();
 }
 
-function spawnTargets(modules, data) {
-	if (modules == null)
+function spawnTargets(path:String, excludes:Array<String>) {
+	if (path == "")
 		return;
-	// spawn targets
-	final paths = Compiler.mainPaths(modules);
-	for (path in paths) {
-		final main = path;
-		path = path.charAt(0).toLowerCase() + path.substr(1);
-		if (data.hxml == null) {
-			var hxml = "golibs/" + type + "_" + sanatize(path) + ".hxml";
-			// TODO programatically search and remove _t_ part
-			if (hxml == "golibs/unit_t_4darray.hxml")
-				hxml == "golibs/unit_4darray.hxml";
-			data.hxml = hxml;
-		}
-		final out = createTargetOutput(target, type, path);
-		final outCmd = Compiler.buildTarget(target, "golibs/" + out).split(" ");
-		final args = [data.hxml].concat(outCmd);
-		if (ciBool)
-			args.unshift("haxe");
-		tasks.push({
-			command: ciBool ? "npx" : "haxe",
-			args: args,
-			excludeArgs: data.excludes,
-			path: path,
-			runtime: false,
-			target: target,
-			out: out,
-			main: main
-		});
-	}
+	// spawn target
+	final main = path;
+	path = path.charAt(0).toLowerCase() + path.substr(1);
+	trace(path);
+	final out = createTargetOutput(target, type, path);
+	final outCmd = BuildTools.buildTarget(target, "golibs/" + out).split(" ");
+	var args:Array<String> = ["-m", "_internal." + main, "-cp golibs", "extraParams.hxml"];
+	args = args.concat(outCmd);
+	if (ciBool)
+		args.unshift("haxe");
+	tasks.push({
+		command: ciBool ? "npx" : "haxe",
+		args: args,
+		excludeArgs: excludes,
+		path: path,
+		runtime: false,
+		target: target,
+		out: out,
+		main: main
+	});
 }
 
 function runNewTest() {
 	final test = tests.pop();
-	final exclude = excludeFuncArgs.pop();
+	final excludes = excludeFuncArgs.pop();
 	if (test == null)
 		return;
 	final hxmlName = sanatize(Path.withoutExtension(test));
-	final hxml = "golibs/" + type + "_" + hxmlName + ".hxml";
-	final args = [test, '--norun', '--hxml', hxml];
+	final args = [test, "-compiler_cpp", "-printmain"];
 	if (testBool)
 		args.push("--test");
 	if (noDepsBool)
@@ -462,10 +447,16 @@ function runNewTest() {
 	}
 	// trace(args.join(" "));
 	runningCount++;
-	instance = Compiler.createCompilerInstanceFromArgs(args);
-	instance.data = {excludes: exclude, hxml: hxml};
-	final compiled = Compiler.compileFromInstance(instance);
-	timeout = 0;
+	final command = "haxe --run Run " + args.join(" ");
+	//trace(command);
+	final code = Sys.command(command);
+	if (code != 0) {
+		Sys.println("Compiler failed: " + test);
+		Sys.exit(1);
+	}
+	// get main.txt for main line
+	final path = haxe.io.Path.normalize(File.getContent("main.txt"));
+	complete(path, excludes);
 }
 
 private function createTargetOutput(target:String, type:String, name:String):String {
@@ -515,28 +506,30 @@ private function testStd() { // standard library package tests
 			case "regexp":
 				continue;
 		}
-		createRunnableHxml(name, "stdgo/");
+		createRunnableStd(name, "stdgo/");
 	}
 	Sys.println("______________________");
 	// haxe stdgo/unicode.hxml --interp
 }
 
-function createRunnableHxml(name:String, prefix:String) {
-	final hxml = prefix + StringTools.replace(name, "/", "_") + ".hxml";
-	if (!sys.FileSystem.exists(hxml)) {
-		trace("hxml not found");
-		return;
-	}
+function createRunnableStd(name:String, prefix:String) {
+
 	final main = name;
 	final out = createTargetOutput(target, type, name);
-	final targetLibs = Compiler.targetLibs(target);
-	final outCmd = (Compiler.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
-	final args = [hxml].concat(outCmd);
+	final targetLibs = BuildTools.targetLibs(target);
+	final outCmd = (BuildTools.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
+	final mainPathStd = main.split("/");
+	final last = mainPathStd.pop() + "dottest";
+	mainPathStd.push(last);
+	mainPathStd.push(last.charAt(0).toUpperCase() + last.substr(1));
+	var mainStd = "_internal." + mainPathStd.join(".");
+	final args = ["-m", mainStd, "-cp", "golibs", "extraParams.hxml"].concat(outCmd);
 	// remove ANSI escape codes for colours
 	args.push("-D");
 	args.push("message.no-color");
 	if (ciBool)
 		args.unshift("haxe");
+	trace(args.join(" "));
 	tasks.push({
 		command: ciBool ? "npx" : "haxe",
 		args: args,
@@ -671,7 +664,7 @@ private function close() {
 		trace(testCount == 0, offset == 0, output.length > 0, run == "");
 	}
 	logOutput.close();
-	Compiler.closeCompiler(code);
+	Sys.exit(code);
 }
 
 private function testTinyGo() {

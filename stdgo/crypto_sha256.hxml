@@ -1,3 +1,0 @@
--m _internal.crypto.sha256dottest.Sha256dottest
--lib go2hx
--cp .

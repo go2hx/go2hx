@@ -3,18 +3,16 @@ package codegen;
 import sys.FileSystem;
 import haxe.macro.Expr as MacroExpr;
 
-var cache = new Map<String, Array<haxeparser.Data.TypeDecl>>();
-
-function getValue(pack:String, valueName:String):MacroExpr {
-	final path = getPath(pack);
-	final decls:Array<haxeparser.Data.TypeDecl> = getCachedDecls(path);
+function getValue(pack:String, valueName:String, pkg:typer.Package.IntermediatePackageType):MacroExpr {
+	final paths = getPaths(pack);
+	final decls:Array<haxeparser.Data.TypeDecl> = getCachedDecls(paths, pkg);
 	var expr:MacroExpr = getValueExpr(valueName, decls);
 	return expr;
 }
 
-function getFunction(pack:String, funcName:String, recvName:String):MacroExpr {
-	final path = getPath(pack);
-	var decls:Array<haxeparser.Data.TypeDecl> = getCachedDecls(path);
+function getFunction(pack:String, funcName:String, recvName:String, pkg:typer.Package.IntermediatePackageType):MacroExpr {
+	final paths = getPaths(pack);
+	var decls:Array<haxeparser.Data.TypeDecl> = getCachedDecls(paths, pkg);
 	var expr:MacroExpr = getBody(funcName, recvName, decls);
 	if (expr == null)
 		return null;
@@ -68,15 +66,14 @@ function getFunction(pack:String, funcName:String, recvName:String):MacroExpr {
 	return expr;
 }
 
-function getCachedDecls(path:String) {
-	if (!cache.exists(path)) {
-		// uncached
-		if (!FileSystem.exists(path)) {
-			return [];
-		}
-		cache[path] = getDecls(path);
+function getCachedDecls(paths:Array<String>, pkg:typer.Package.IntermediatePackageType) {
+	if (paths.length == 0)
+		return [];
+	final pathsTogether:String = paths.join(".");
+	if (!pkg.cachedDecls.exists(pathsTogether)) {
+		pkg.cachedDecls[pathsTogether] = getDecls(paths);
 	}
-	return cache[path];
+	return pkg.cachedDecls[pathsTogether];
 }
 
 private function getValueExpr(valueName:String, decls:Array<haxeparser.Data.TypeDecl>) {
@@ -129,29 +126,44 @@ private function getBody(funcName:String, recvName:String, decls:Array<haxeparse
 	return null;
 }
 
-private function getDecls(path:String) {
+private function getDecls(paths:Array<String>) {
+	var decls = [];
+	for (path in paths)
+		decls = decls.concat(getFile(path));
+	return decls;
+}
+
+function getFile(path:String) {
 	final content = sys.io.File.getContent(path);
 	final input = byte.ByteData.ofString(content);
 	final parser = new haxeparser.HaxeParser(input, content);
-	try {
-		return parser.parse().decls;
+	return try {
+		parser.parse().decls;
 	} catch (e:haxeparser.HaxeParser.ParserError) {
 		switch (e.msg) {
 			case SharpError(_):
 			case _:
 				trace(path);
 				var pMsg = new hxparse.Position(e.pos.file, e.pos.min, e.pos.max).format(input);
-				throw('$pMsg: ${e.msg}\n');
+				throw '$pMsg: ${e.msg}\n';
 		}
-		return [];
+		[];
 	}
 }
 
-function getPath(pack:String):String {
+function getPaths(pack:String):Array<String> {
 	final pack = pack.split(".");
 	final fileName = pack.pop();
 	pack.push(fileName);
-	pack.push(title(fileName));
-	final path = "std/go/" + pack.join("/") + ".hx";
-	return path;
+	//pack.push(title(fileName));
+	final fullpath = "std/go/" + pack.join("/");
+	if (!sys.FileSystem.exists(fullpath) || !sys.FileSystem.isDirectory(fullpath)) {
+		return [];
+	}
+	final paths = sys.FileSystem.readDirectory(fullpath);
+	return [for (path in paths) {
+		if (haxe.io.Path.extension(path) != "hx")
+			continue;
+		haxe.io.Path.join([fullpath,path]);
+	}];
 }

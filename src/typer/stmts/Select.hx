@@ -15,7 +15,7 @@ function typeSelectStmt(stmt:GoAst.SelectStmt, info:Info):MacroExpr {
 		if (obj != null && obj.comm != null && obj.comm.id == "AssignStmt" && obj.comm.lhs[0].name != "_") {
 			varName = typer.exprs.Ident.nameIdent(obj.comm.lhs[0].name, false, true, info);
 		}
-		var block = (obj == null || obj.body == null) ? macro {} : toExpr(typer.stmts.Block.typeStmtList(obj.body, info, false));
+		var block = (obj == null || obj.body == null) ? macro {} : typer.stmts.Block.typeStmtList(obj.body, info, false);
 		var cond:Expr = null;
 		if (needsReturn && !HaxeAst.exprWillReturn(block))
 			needsReturn = false;

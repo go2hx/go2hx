@@ -1,3 +1,0 @@
--m _internal.syscall.jsdottest.Jsdottest
--lib go2hx
--cp .

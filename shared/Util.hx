@@ -6,6 +6,9 @@ import haxe.macro.Expr;
 using StringTools;
 
 function makeExpr(o:Dynamic):Expr {
+	if (o == null) {
+		return macro null;
+	}
 	if ((o is String))
 		return toExpr(EConst(CString(o)));
 	if ((o is Int))

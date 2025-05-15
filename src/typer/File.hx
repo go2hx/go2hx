@@ -158,13 +158,12 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 			}
 		}
 	}
-
 	for (decl in declFuncs) { // parse function bodies last
 		if (decl.recv != null && decl.recv.list.length > 0) {
 			recvFunctions.push({decl: decl, path: file.path});
 			continue;
 		}
-		var func = typer.decls.Function.typeFunction(decl, info);
+		var func = typer.decls.Function.typeFunction(decl, info, pkg);
 		if (func != null)
 			data.defs.push(func);
 	}
@@ -191,7 +190,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 				pack: [],
 				kind: TDField(FFun({args: [], expr: expr}), []),
 			});
-			codegen.Patch.addFuncs.remove(key);
+			//codegen.Patch.addFuncs.remove(key);
 		}
 	}
 	for (key => def in codegen.Patch.addTypeDefs) {
@@ -244,11 +243,11 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 			doc: pkgDoc,
 			kind: TDField(FVar(TPath({name: "Bool", pack: []})), [APrivate]),
 		});
-	pass2(data, info, recvFunctions);
+	pass2(data, info, recvFunctions, pkg);
 	return data;
 }
 
-function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:Array<RecvFunction>) {
+function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:Array<RecvFunction>, pkg:typer.Package.IntermediatePackageType) {
 	final defs = data.defs.copy();
 	for (def in defs) {
 		if (def.name == "__go2hxdoc__package")
@@ -494,7 +493,7 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 		}
 		final funcs = [
 			for (decl in local) {
-				var func = typer.decls.Function.typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel, decl.recvName);
+				var func = typer.decls.Function.typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel, pkg, decl.recvName);
 				func;
 			}
 		];

@@ -176,10 +176,14 @@ func compile(conn net.Conn, params []string, debug bool) {
 			// checksum is the same
 			if string(b) == checksum {
 				// remove from root
-				index := slices.Index(response.Roots, pkg.ID)
+				/*index := slices.Index(response.Roots, pkg.ID)
 				if index != -1 {
 					response.Roots = slices.Delete(response.Roots, index, index+1)
-				}
+				}*/
+				response.Roots = slices.DeleteFunc(response.Roots, func(root string) bool {
+					rootPath := strings.Split(root, " ")[0]
+					return pkg.PkgPath == rootPath
+				})
 				// mark as deleted
 				deletePkgs[pkg.PkgPath] = true
 				continue
@@ -197,7 +201,7 @@ func compile(conn net.Conn, params []string, debug bool) {
 		}
 		for impPath, _ := range pkg.Imports {
 			// if import move from delete -> skip
-			if deletePkgs[impPath] && !stdExterns[impPath] {
+			if deletePkgs[impPath] {
 				delete(deletePkgs, impPath)
 				skipPkgs[impPath] = true
 			}
@@ -275,6 +279,7 @@ func getLen(conn net.Conn) uint32 {
 	n, err := conn.Read(bytesBuff)
 	if n != 4 {
 		println(n)
+		println(err)
 		panic("wrong n")
 	}
 	panicIfError(err)

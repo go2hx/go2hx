@@ -326,7 +326,6 @@ func getPkgs(list []*packages.Package, excludes map[string]bool, dep *depth, ski
 		}
 		if !stdExterns[pkg.PkgPath] {
 			for _, pkg := range pkg.Imports {
-				println("pkg.imports:", pkg.PkgPath)
 				newList = append(newList, getPkgs([]*packages.Package{pkg}, excludes, dep2, skipPkgs)...)
 			}
 		}
@@ -391,7 +390,6 @@ func main() {
 	for _, s := range externList {
 		stdExterns[s] = true
 	}
-	fmt.Println(stdExterns)
 	_, err = strconv.Atoi(port)
 	if err != nil { // not set to a port, test compile
 		compile(nil, args[1:], true)
@@ -415,7 +413,7 @@ func main() {
 func memoryStats() {
 	var m runtime.MemStats
 	runtime.ReadMemStats(&m)
-	fmt.Println("memory:", m.Alloc/1024/1024)
+	println("memory:", m.Alloc/1024/1024)
 }
 
 func parseLocalPackage(pkg *packages.Package, pkgData *PackageData, excludes map[string]bool) {
@@ -1320,7 +1318,7 @@ func parseData(node interface{}, pkg *PackageData) map[string]interface{} {
 			case *ast.TypeAssertExpr:
 			case *ast.MapType:
 			default:
-				fmt.Println("issue generic:", reflect.TypeOf(fun))
+				println("issue generic:", reflect.TypeOf(fun).String())
 			}
 		}
 		resolveGeneric(node.Fun)
@@ -1586,5 +1584,5 @@ func parseField(field *ast.Field, pkg *PackageData) map[string]interface{} {
 func printExpr(node any, fset *token.FileSet) {
 	var buf bytes.Buffer
 	printer.Fprint(&buf, fset, node)
-	fmt.Println(buf.String())
+	println(buf.String())
 }

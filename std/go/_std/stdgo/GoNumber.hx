@@ -249,3 +249,17 @@ inline function mulInt(a:Int, b:Int):Int {
 *	rune        alias for int32
 */
  class GoNumber {}
+
+
+ // used to check pos or neg INF for float32 and float64 in operator overload div
+private function float64bits(_f:stdgo.GoFloat64):stdgo.GoUInt64 {
+	final bits = haxe.io.Bytes.alloc(8);
+	bits.setDouble(0, _f.toBasic());
+	return haxe.Int64.make(bits.get(4) | (bits.get(5) << 8) | (bits.get(6) << 16) | (bits.get(7) << 24),
+		bits.get(0) | (bits.get(1) << 8) | (bits.get(2) << 16) | (bits.get(3) << 24));
+}
+
+// Signbit reports whether x is negative or negative zero.
+function signbit(x:stdgo.GoFloat64):Bool {
+	return float64bits(x)&(1<<63) != 0;
+}

@@ -209,10 +209,6 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	}
 }
 
-function errorString(s:stdgo.GoString) {
-	#if no_linkerr
-	return s;
-	#else
-	return stdgo.Go.toInterface(stdgo.Go.asInterface((s : stdgo._internal.math.bits.Bits_t_errorstring.T_errorString)));
-	#end
+inline function errorString(s:stdgo.GoString) {
+	return new Error.T_errorString_asInterface(s);
 }

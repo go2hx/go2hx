@@ -80,7 +80,7 @@ abstract GoFloat64(Float) from Float to Float {
 		#if numberlinkmath
 		if (b == 0) {
 			var flip = a >= 0;
-			if (stdgo._internal.math.Math_signbit.signbit(b))
+			if (GoNumber.signbit(b))
 				flip = !flip;
 			if (flip) {
 				return std.Math.POSITIVE_INFINITY;

@@ -9,6 +9,13 @@ private typedef ReflectKind = stdgo._internal.reflect.Reflect_kind.Kind;
 
 private typedef ReflectMethod = stdgo._internal.reflect.Reflect_method.Method;
 
+private typedef Kind = stdgo._internal.reflect.Reflect_kind.Kind
+private typedef ReflectValue = stdgo._internal.reflect.Reflect_value.Value;
+
+private typedef ReflectStructField = stdgo._internal.reflect.Reflect_structfield.StructField;
+
+private typedef ReflectChanDir = stdgo._internal.reflect.Reflect_chandir.ChanDir;
+
 
 enum abstract KindType(ReflectKind) from Int 
 from stdgo._internal.reflect.Reflect_kind.Kind to stdgo._internal.reflect.Reflect_kind.Kind
@@ -71,8 +78,6 @@ function namedUnderlying(obj:AnyInterface):AnyInterface {
 
 	public function new(?_typ) {}
 }
-
-private typedef ReflectValue = stdgo._internal.reflect.Reflect_value.Value;
 
 function deepValueEqual(v1:ReflectValue, v2:ReflectValue, visited:Map<Visit, Bool>, depth:GoInt):Bool {
 	if (!v1.isValid() || !v2.isValid()) {
@@ -1439,10 +1444,6 @@ class _Type {
 	static public function align(t:_Type):GoInt
 		throw "not implemented align";
 }
-
-private typedef ReflectStructField = stdgo._internal.reflect.Reflect_structfield.StructField;
-
-private typedef ReflectChanDir = stdgo._internal.reflect.Reflect_chandir.ChanDir;
 
 class _Type_asInterface {
 	public dynamic function _uncommon():Dynamic

@@ -400,6 +400,8 @@ function compileFromInstance(inst:CompilerInstanceData):Bool {
 
 function write(instance:CompilerInstanceData):Bool {
 	final args = instance.args;
+	args.unshift("unicode/utf8");
+	args.unshift("reflect");
 	args.unshift(instance.outputPath);
 	final bytes = Bytes.ofString(args.join(" "));
 	client.output.bigEndian = false;

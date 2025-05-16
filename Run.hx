@@ -133,6 +133,7 @@ function main() {
 }
 
 function clean() {
+	return;
 	if (FileSystem.exists("golibs"))
 		deleteDirectoryRecursively("golibs");
 	for (path in FileSystem.readDirectory("stdgo")) {

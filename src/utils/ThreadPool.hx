@@ -40,7 +40,7 @@ private class Worker {
             try {
                 f();
             }catch(e) {
-                throw e;
+                throw e.details();
             }
             mutex.acquire();
             running = false;

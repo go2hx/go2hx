@@ -156,45 +156,6 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 		["-nolibwrap", "--nolibwrap"] => () -> instance.libwrap = false,
 		@doc("all non main packages wrapped as a haxelib library\n\nTarget:")
 		["-libwrap", "--libwrap"] => () -> instance.libwrap = true,
-		@doc('generate C++ code into target directory')
-		["-cpp", "--cpp"] => out -> {
-			instance.target = "cpp";
-			instance.targetOutput = out;
-		},
-		@doc('generate JavaScript code into target file')
-		["-js", "--js", ] => out -> {
-			instance.target = "js";
-			instance.targetOutput = out;
-		},
-		@doc('generate JVM bytecode into target file')
-		["-jvm", "--jvm", "-java", "--java"] => out -> {
-			instance.target = "jvm";
-			instance.targetOutput = out;
-		},
-		@doc('generate Python code into target file')
-		["-python", "--python"] => out -> {
-			instance.target = "python";
-			instance.targetOutput = out;
-		},
-		@doc('generate Lua code into target file')
-		["-lua", "--lua"] => out -> {
-			instance.target = "lua";
-			instance.targetOutput = out;
-		},
-		@doc('generate C# code into target directory')
-		["-cs", "--cs"] => out -> {
-			instance.target = "cs";
-			instance.targetOutput = out;
-		},
-		@doc('generate HashLink .hl bytecode or .c code into target file')
-		["-hl", "--hl", "-hashlink", "--hashlink"] => out -> {
-			instance.target = "hl";
-			instance.targetOutput = out;
-		},
-		@doc('interpret the program using internal macro system')
-		["-eval", "--eval", "-interp", "--interp"] => () -> {
-			instance.target = "interp";
-		}, @doc('json data of tests')
 		// https://pkg.go.dev/cmd/go/internal/test#pkg-variables
 		["-json", "--json"] => () -> instance.defines.push("jsonTest"),
 		@doc('Do not start new tests after the first test failure.')
@@ -332,7 +293,7 @@ function accept(server:Socket, ready:Void->Void) {
 		}
 		threadPool.start();
 		while (threadPool.threadsCount > 0) {
-			Sys.sleep(0.001);
+			Sys.sleep(0.01);
 		}
 		#end
 		end(instance);
@@ -464,7 +425,6 @@ class CompilerInstanceData {
 	public var data:Dynamic = null;
 	public var printGoCode = false;
 	public var localPath = "";
-	public var target = "";
 	public var port:Int = 0;
 	public var targetOutput = "";
 	public var libwrap = false;
@@ -507,7 +467,6 @@ class CompilerInstanceData {
 		instance.data = Reflect.copy(data);
 		instance.printGoCode = printGoCode;
 		instance.localPath = localPath;
-		instance.target = target;
 		instance.port = port;
 		instance.targetOutput = targetOutput;
 		instance.libwrap = libwrap;

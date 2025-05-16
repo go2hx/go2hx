@@ -74,8 +74,8 @@ var stdgoExportsBytes []byte
 //go:embed data/stdgoExterns.json
 var stdgoExternsBytes []byte
 
-var stdgoExterns map[string]bool
-var stdgoExports map[string]bool
+var stdExterns map[string]bool
+var stdExports map[string]bool
 
 var excludes map[string]bool
 var visited map[string]bool
@@ -123,7 +123,7 @@ func compile(conn net.Conn, params []string, debug bool) {
 	sizes := &types.StdSizes{WordSize: 4, MaxAlign: 8}
 	l, response, err := packages.Init(cfg, sizes, args...)
 	panicIfError(err)
-	deletedPkgs := map[string]bool{}
+	deletePkgs := map[string]bool{}
 	skipPkgs := map[string]bool{}
 	excludes := map[string]bool{}
 	checksumMap := map[string]string{}
@@ -170,7 +170,6 @@ func compile(conn net.Conn, params []string, debug bool) {
 			addedPkg = "stdgo/_internal"
 		}
 		dir := path.Join(outputPath, addedPkg, pkgPath)
-		_ = os.MkdirAll(dir, 0750)
 		b, err := os.ReadFile(path.Join(dir, ".go2hx_cache"))
 		checksum := combineCheckSums(checksSums, versionBytes)
 		if err == nil {
@@ -182,8 +181,7 @@ func compile(conn net.Conn, params []string, debug bool) {
 					response.Roots = slices.Delete(response.Roots, index, index+1)
 				}
 				// mark as deleted
-				println("deleted:", pkg.PkgPath)
-				deletedPkgs[pkg.PkgPath] = true
+				deletePkgs[pkg.PkgPath] = true
 				continue
 			}
 		} else if !os.IsNotExist(err) {
@@ -194,21 +192,20 @@ func compile(conn net.Conn, params []string, debug bool) {
 	}
 	// add imports for type information
 	for _, pkg := range response.Packages {
-		if deletedPkgs[pkg.PkgPath] {
+		if deletePkgs[pkg.PkgPath] {
 			continue
 		}
 		for impPath, _ := range pkg.Imports {
 			// if import move from delete -> skip
-			if deletedPkgs[impPath] {
-				delete(deletedPkgs, impPath)
+			if deletePkgs[impPath] && !stdExterns[impPath] {
+				delete(deletePkgs, impPath)
 				skipPkgs[impPath] = true
-				println("skip:", impPath)
 			}
 		}
 	}
 	newResponsePackages := []*packages.Package{}
 	for _, pkg := range response.Packages {
-		if deletedPkgs[pkg.PkgPath] {
+		if deletePkgs[pkg.PkgPath] {
 			continue
 		}
 		newResponsePackages = append(newResponsePackages, pkg)
@@ -229,6 +226,7 @@ func compile(conn net.Conn, params []string, debug bool) {
 	// }
 	// return
 	// send amount of pkgs
+	println("len(pkgs)", len(pkgs))
 	sendLen(conn, len(pkgs))
 	sendData(conn, dep)
 	// send pkg data
@@ -326,8 +324,11 @@ func getPkgs(list []*packages.Package, excludes map[string]bool, dep *depth, ski
 			Excluded: false,
 			Deps:     []depth{},
 		}
-		for _, pkg := range pkg.Imports {
-			newList = append(newList, getPkgs([]*packages.Package{pkg}, excludes, dep2, skipPkgs)...)
+		if !stdExterns[pkg.PkgPath] {
+			for _, pkg := range pkg.Imports {
+				println("pkg.imports:", pkg.PkgPath)
+				newList = append(newList, getPkgs([]*packages.Package{pkg}, excludes, dep2, skipPkgs)...)
+			}
 		}
 		newList = append(newList, pkg)
 		dep.Deps = append(dep.Deps, *dep2)
@@ -381,15 +382,16 @@ func main() {
 	err = json.Unmarshal(stdgoExternsBytes, &externList)
 	panicIfError(err)
 
-	stdgoExports = make(map[string]bool, len(exportList))
-	stdgoExterns = make(map[string]bool, len(externList))
+	stdExports = make(map[string]bool, len(exportList))
+	stdExterns = make(map[string]bool, len(externList))
 
 	for _, s := range exportList {
-		stdgoExports[s] = true
+		stdExports[s] = true
 	}
 	for _, s := range externList {
-		stdgoExterns[s] = true
+		stdExterns[s] = true
 	}
+	fmt.Println(stdExterns)
 	_, err = strconv.Atoi(port)
 	if err != nil { // not set to a port, test compile
 		compile(nil, args[1:], true)
@@ -405,10 +407,6 @@ func main() {
 		input = input[:c]
 		//fmt.Println("input: " + string(input))
 		args := strings.Split(string(input), " ")
-		for _, arg := range args {
-			println(arg)
-		}
-		println("total:", len(args))
 		compile(conn, args, false)
 		//debug.FreeOSMemory()
 	}
@@ -514,10 +512,10 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 	// merge packages
 	for i := 0; i < len(list); i++ {
 		mergePackage(list[i])
-		if stdgoExports[list[i].PkgPath] {
+		if stdExports[list[i].PkgPath] {
 			filterFile(list[i].Syntax[0], ast.IsExported, true)
 		}
-		if (stdgoExterns[list[i].PkgPath]) && !strings.HasSuffix(list[i].PkgPath, "_test") && !strings.HasSuffix(list[i].PkgPath, ".test") { // remove function bodies
+		if (stdExterns[list[i].PkgPath]) && !strings.HasSuffix(list[i].PkgPath, "_test") && !strings.HasSuffix(list[i].PkgPath, ".test") { // remove function bodies
 			for _, file := range list[i].Syntax {
 				for _, d := range file.Decls {
 					switch f := d.(type) {
@@ -559,7 +557,7 @@ func parsePkg(pkg *packages.Package) packageType {
 	data := packageType{}
 	for _, obj := range pkg.TypesInfo.InitOrder {
 		for _, v := range obj.Lhs {
-			if !stdgoExports[pkg.PkgPath] || v.Exported() {
+			if !stdExports[pkg.PkgPath] || v.Exported() {
 				//println(v.Name(), stdgoExports[pkg.PkgPath], v.Exported())
 				data.Order = append(data.Order, v.Name())
 			}

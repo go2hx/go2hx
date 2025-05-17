@@ -1,5 +1,4 @@
 -D go2hx
--cp std/go/_std
 --macro stdgo._internal.internal.Macro.init()
 -D simulate_num
 -D hl_no_opt

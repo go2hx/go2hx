@@ -1,6 +1,7 @@
 package typer.stmts;
-
+// label may exist if a package that is an extern, uses a goto label
 function typeLabeledStmt(stmt:GoAst.LabeledStmt, info:Info):MacroExpr {
-	// analysis/goto is supposed to transforms gotos into a flattened control flow
-	throw info.panic() + "BAD STATEMENT TYPED";
+	final name = HaxeAst.makeString(stmt.label.name);
+	var stmtExpr = typer.stmts.Stmt.typeStmt(stmt.stmt, info);
+	return macro @:label($name) $stmtExpr;
 }

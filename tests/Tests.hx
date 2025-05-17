@@ -557,7 +557,7 @@ private function runInterop() {
 	Sys.println("RUN INTEROP");
 	final libs:Array<{module:String, excludes:Array<String>, main:String}> = Json.parse(File.getContent("data/testLibs.json"));
 	for (lib in libs) {
-		final command = (ciBool ? "npx haxe" : "haxe") + " -cp golibs " + lib.main;
+		final command = (ciBool ? "npx haxe" : "haxe") + " -cp golibs -lib go2hx " + lib.main;
 		final code = Sys.command(command);
 		if (code != 0) {
 			trace(command);

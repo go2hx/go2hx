@@ -46,7 +46,7 @@ function main() {
 	if (!releaseBool) {
 		args.push('--test');
 	}
-	args.push("-compiler_hl");
+	args.push("-compiler_cpp");
 	args.push(cwd);
 	Sys.command("haxe --run Run " + args.join(" "));
 }

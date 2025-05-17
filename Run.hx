@@ -336,10 +336,18 @@ function setupCPP(rebuild:Bool, args:Array<String>) {
 	final fileName = executable("export/cpp/Main");
 	if (!FileSystem.exists("export/cpp") || !FileSystem.exists(fileName) || rebuild) {
 		var cmd = "haxe extra/scripts/build-cpp.hxml";
-		Sys.command(cmd);
+		final code = Sys.command(cmd);
+		if (code != 0) {
+			Sys.println("BUILD FAILED");
+			Sys.exit(1);
+		}
 	}
 	Sys.println(fileName + " " + args.join(" "));
-	Sys.command(fileName, args);
+	final code = Sys.command(fileName, args);
+	if (code != 0) {
+		Sys.println("COMPILER RUN FAILED");
+		Sys.exit(code);
+	}
 }
 
 function setupJava(rebuild:Bool, args:Array<String>) {
@@ -377,7 +385,11 @@ function setupHashlink(rebuild:Bool, args:Array<String>) {
 	}
 	args.unshift("export/build.hl");
 	Sys.println("hl" + " " + args.join(" "));
-	Sys.command("hl", args);
+	final code = Sys.command("hl", args);
+	if (code != 0) {
+		Sys.println("COMPILER RUN FAILED");
+		Sys.exit(code);
+	}
 }
 
 function setupInterp(rebuild:Bool, args:Array<String>) {

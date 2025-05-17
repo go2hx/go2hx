@@ -48,9 +48,6 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 		}
 		exprs = exprs.concat(stmts);
 	}
-	if (list != null && info.global.gotoSystem && isFunc) {
-		exprs = [macro stdgo._internal.internal.Macro.controlFlow($b{exprs})];
-	}
 	// trace(list != null, info.global.deferBool, isFunc);
 	if (list != null && info.global.deferBool && isFunc) { // defer system
 		final ret = typer.stmts.Return.typeReturnStmt({returnPos: 0, results: []}, info);

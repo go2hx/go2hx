@@ -254,9 +254,9 @@ function directlyAssignable(t:Type, v:Type):Bool {
 			switch vgt {
 				case basic(kind2):
 					function untype(kind:BasicKind, kind2:BasicKind):Bool {
-						final index:Int = kind2;
-						var min = 0;
-						var max = 0;
+						final index:BasicKind = kind2;
+						var min:BasicKind = 0;
+						var max:BasicKind = 0;
 						switch kind {
 							case untyped_int_kind:
 								min = int_kind;
@@ -270,7 +270,7 @@ function directlyAssignable(t:Type, v:Type):Bool {
 							default:
 								return false;
 						}
-						return min <= index && max >= index;
+						return (min : Int) <= (index : Int) && (max : Int) >= (index : Int);
 					}
 					if (untype(kind, kind2))
 						return true;
@@ -446,64 +446,6 @@ function implementsMethod(t:Type, v:Type):Bool {
 	}
 }
 
-@:structInit
-class MethodType {
-	public var name:String;
-	public var type:Ref<GoType>;
-	public var recv:Ref<GoType>;
-
-	public function new(name, type, recv) {
-		this.name = name;
-		this.type = type;
-		this.recv = recv;
-	}
-
-	function string():GoString
-		return name;
-
-	public function toString()
-		return '$name: $type';
-}
-
-@:structInit
-class FieldType {
-	public var name:String;
-	public var type:Ref<GoType>;
-	public var tag:String;
-	public var embedded:Bool;
-	public var optional:Bool;
-
-	public function new(name, type, tag, embedded,optional) {
-		this.name = name;
-		this.type = type;
-		this.tag = tag;
-		this.embedded = embedded;
-		this.optional = optional;
-	}
-	public function toString():String {
-		return '$name opt: $optional';
-	}
-}
-
-enum GoType {
-	typeParam(name:String, params:Array<GoType>);
-	invalidType;
-	signature(variadic:Bool, params:Ref<Array<GoType>>, results:Ref<Array<GoType>>, recv:Ref<GoType>, ?typeParams:Ref<Array<GoType>>);
-	basic(kind:BasicKind);
-	_var(name:String, type:Ref<GoType>);
-	tuple(len:Int, vars:Ref<Array<GoType>>);
-	interfaceType(empty:Bool, methods:Array<MethodType>);
-	sliceType(elem:Ref<GoType>);
-	named(path:String, methods:Array<MethodType>, type:GoType, alias:Bool, params:Ref<Array<GoType>>);
-	previouslyNamed(path:String);
-	structType(fields:Array<FieldType>);
-	pointerType(elem:Ref<GoType>);
-	arrayType(elem:Ref<GoType>, len:Int);
-	mapType(key:Ref<GoType>, value:Ref<GoType>);
-	chanType(dir:Int, elem:Ref<GoType>);
-	refType(elem:Ref<GoType>); // can hold named type therefore will ref the TypeInfo map
-}
-
 function isSignature(type:GoType, underlyingBool:Bool = true):Bool {
 	if (type == null)
 		return false;
@@ -536,10 +478,6 @@ function isNamed(type:GoType):Bool {
 			}
 		default: false;
 	}
-}
-
-private typedef Ref<T> = {
-	function get():T;
 }
 
 function isTitle(string:String):Bool {
@@ -832,39 +770,9 @@ function getUnderlying(gt:GoType, once:Bool = false) {
 	}
 }
 
-enum abstract BasicKind(Int) to Int {
-	public final invalid_kind = 0;
-	public final bool_kind;
-	public final int_kind; // 2
-	public final int8_kind;
-	public final int16_kind;
-	public final int32_kind; // 5
-	public final int64_kind;
-	public final uint_kind;
-	public final uint8_kind;
-	public final uint16_kind;
-	public final uint32_kind;
-	public final uint64_kind;
-	public final uintptr_kind;
-	public final float32_kind;
-	public final float64_kind;
-	public final complex64_kind;
-	public final complex128_kind;
-	public final string_kind;
-	public final unsafepointer_kind;
-
-	public final untyped_bool_kind;
-	public final untyped_int_kind;
-	public final untyped_rune_kind;
-	public final untyped_float_kind;
-	public final untyped_complex_kind;
-	public final untyped_string_kind;
-	public final untyped_nil_kind; // 25
-}
-
 function defaultValue(typ:Type):Any {
 	final t:GoType = @:privateAccess (typ : Dynamic)._common();
-	return switch (t : stdgo._internal.internal.reflect.Reflect.GoType) {
+	return switch (t : stdgo._internal.internal.reflect.GoType) {
 		case basic(kind):
 			switch kind {
 				case string_kind: ("" : GoString);
@@ -913,7 +821,7 @@ function _set(value:ReflectValue) {
 
 function defaultValueInternal(typ:_Type):Any {
 	final t:GoType = @:privateAccess typ._common();
-	return switch (t : stdgo._internal.internal.reflect.Reflect.GoType) {
+	return switch (t : stdgo._internal.internal.reflect.GoType) {
 		case basic(kind):
 			switch kind {
 				case string_kind: ("" : GoString);
@@ -1005,7 +913,7 @@ class _Type {
 	}
 
 	static public function numField(t:_Type):GoInt {
-		var type:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess t._common();
+		var type:stdgo._internal.internal.reflect.GoType = @:privateAccess t._common();
 		type = getUnderlying(type);
 		switch type {
 			case structType(fields):

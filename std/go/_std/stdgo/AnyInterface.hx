@@ -47,8 +47,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		if (a == null || b == null) {// null check
 			return a == null && b == null;
 		}
-		var gt:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
-		var gt2:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess (b.type : Dynamic)._common();
+		var gt:stdgo._internal.internal.reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
+		var gt2:stdgo._internal.internal.reflect.GoType = @:privateAccess (b.type : Dynamic)._common();
 		if (gt.match(invalidType) || gt2.match(invalidType))
 			return gt.match(invalidType) && gt2.match(invalidType);
 		if (gt.match(basic(untyped_nil_kind)) || gt2.match(basic(untyped_nil_kind)))
@@ -165,7 +165,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				}
 				true;
 			case invalidType:
-				switch @:privateAccess ((b.type : Dynamic)._common() : stdgo._internal.internal.reflect.Reflect.GoType) {
+				switch @:privateAccess ((b.type : Dynamic)._common() : stdgo._internal.internal.reflect.GoType) {
 					case invalidType: true;
 					default: false;
 				}

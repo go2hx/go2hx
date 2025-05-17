@@ -122,9 +122,9 @@ func compile(conn net.Conn, params []string, debug bool) {
 	dep := &depth{Path: "init", Excluded: false, Deps: []depth{}}
 	excludes := map[string]bool{}
 	checksumMap := map[string]string{}
-	pkgs := processPkgs(localPath, outputPath, checksumMap, excludes, versionBytes, args, dep)
+	pkgs := processPkgs(outputPath, checksumMap, excludes, versionBytes, args, dep)
 	// always required pkgs
-	pkgs = append(pkgs, processPkgs(localPath, outputPath, checksumMap, excludes, versionBytes, []string{
+	pkgs = append(pkgs, processPkgs(outputPath, checksumMap, excludes, versionBytes, []string{
 		"unicode/utf8", "reflect",
 	}, dep)...)
 	println("list pkgs:")
@@ -140,8 +140,7 @@ func compile(conn net.Conn, params []string, debug bool) {
 	parsePkgList(conn, pkgs, excludes, checksumMap)
 }
 
-func processPkgs(localPath, outputPath string, checksumMap map[string]string, excludes map[string]bool, versionBytes []byte, args []string, dep *depth) []*packages.Package {
-	println("args:", strings.Join(args, " "))
+func processPkgs(outputPath string, checksumMap map[string]string, excludes map[string]bool, versionBytes []byte, args []string, dep *depth) []*packages.Package {
 	sizes := &types.StdSizes{WordSize: 4, MaxAlign: 8}
 	l, response, err := packages.Init(cfg, sizes, args...)
 	panicIfError(err)
@@ -213,7 +212,7 @@ func processPkgs(localPath, outputPath string, checksumMap map[string]string, ex
 		if deletePkgs[pkg.PkgPath] {
 			continue
 		}
-		for impPath, _ := range pkg.Imports {
+		for impPath := range pkg.Imports {
 			// if import move from delete -> skip
 			if deletePkgs[impPath] {
 				delete(deletePkgs, impPath)
@@ -226,6 +225,7 @@ func processPkgs(localPath, outputPath string, checksumMap map[string]string, ex
 		if deletePkgs[pkg.PkgPath] {
 			continue
 		}
+		println(pkg.PkgPath)
 		newResponsePackages = append(newResponsePackages, pkg)
 	}
 	// refine
@@ -529,6 +529,7 @@ func parseLocalFile(file *ast.File, pkg *packages.Package, pkgData *PackageData)
 	analysis.ParseLocalTypes(file, pkg, checker, hashType2, &countStruct, &countInterface)
 	analysis.ParseLocalConstants(file, pkg, checker)
 	analysis.ParseLocalPointers(file, checker, pkg.Fset, false)
+	// println("parseLocalFile", pkg.PkgPath, file.Name.Name)
 	analysis.ParseLocalGotos(file, checker, pkg.Fset, false)
 }
 

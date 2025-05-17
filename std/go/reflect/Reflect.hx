@@ -4,8 +4,8 @@ function typeOf(_i) {
 	// // set internal Type
 	if (_i == null)
 		return
-			new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.GoType.basic(stdgo._internal.internal.reflect.Reflect.BasicKind.unsafepointer_kind))),
-			new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.GoType.basic(stdgo._internal.internal.reflect.Reflect.BasicKind.unsafepointer_kind)));
+			new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.basic(stdgo._internal.internal.reflect.BasicKind.unsafepointer_kind))),
+			new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.basic(stdgo._internal.internal.reflect.BasicKind.unsafepointer_kind)));
 	// set internal Type
 	return new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(_i.type), _i.type);
 }
@@ -52,7 +52,7 @@ function addr(_v) {
 	/*if (@:privateAccess !_v.canAddrBool) {
 		throw "can't address bool";
 	}*/
-	final gt = @:privateAccess stdgo._internal.internal.reflect.Reflect.GoType.pointerType({get: () -> _v.value.type._common()});
+	final gt = @:privateAccess stdgo._internal.internal.reflect.GoType.pointerType({get: () -> _v.value.type._common()});
 	final t = new stdgo._internal.internal.reflect.Reflect._Type(gt);
 	return new stdgo._internal.reflect.Reflect_value.Value(new stdgo.AnyInterface(stdgo.Go.pointer(@:privateAccess _v.value.value), t));
 }
@@ -157,7 +157,7 @@ function zero(_typ) {
 @:recv(Value)
 function type(_v) {
 	if (@:privateAccess _v.value == null) {
-		var t = new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.GoType.invalidType);
+		var t = new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.invalidType);
 		return @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t), t);
 	}
 	return @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(_v.value.type), _v.value.type);
@@ -273,10 +273,10 @@ function kind(_v)
 function isValid(_v):Bool {
 	if (@:privateAccess _v.value == null)
 		return false;
-	if (@:privateAccess _v.value.type._common() != stdgo._internal.internal.reflect.Reflect.GoType.invalidType)
+	if (@:privateAccess _v.value.type._common() != stdgo._internal.internal.reflect.GoType.invalidType)
 		return true;
 	return switch @:privateAccess _v.value.type._common() {
-		case stdgo._internal.internal.reflect.Reflect.GoType.basic(stdgo._internal.internal.reflect.Reflect.BasicKind.untyped_nil_kind):
+		case stdgo._internal.internal.reflect.GoType.basic(stdgo._internal.internal.reflect.BasicKind.untyped_nil_kind):
 			false;
 		default:
 			true;
@@ -323,7 +323,7 @@ function field(_v) {
 function bytes(_v) {
 	final _v = _v.__copy__();
 	var value = @:privateAccess _v.value.value;
-	var t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+	var t:stdgo._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
 	if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
 		t = stdgo._internal.internal.reflect.Reflect.getUnderlying(t);
 		switch std.Type.typeof(value) {
@@ -341,17 +341,17 @@ function bytes(_v) {
 		t = @:privateAccess _v.value.type._common();
 	};
 	switch t {
-		case stdgo._internal.internal.reflect.Reflect.GoType.arrayType(_.get() => elem, _):
+		case stdgo._internal.internal.reflect.GoType.arrayType(_.get() => elem, _):
 			switch elem {
-				case stdgo._internal.internal.reflect.Reflect.GoType.basic(stdgo._internal.internal.reflect.Reflect.BasicKind.uint8_kind):
+				case stdgo._internal.internal.reflect.GoType.basic(stdgo._internal.internal.reflect.BasicKind.uint8_kind):
 					return (value : stdgo.GoArray<stdgo.GoByte>).__slice__(0);
 				default:
 					throw new stdgo._internal.reflect.Reflect_valueerror.ValueError("reflect.Value.Bytes", @:privateAccess _v.kind());
 			};
-		case stdgo._internal.internal.reflect.Reflect.GoType.sliceType(_.get() => elem):
+		case stdgo._internal.internal.reflect.GoType.sliceType(_.get() => elem):
 			elem = stdgo._internal.internal.reflect.Reflect.getUnderlying(elem);
 			switch elem {
-				case stdgo._internal.internal.reflect.Reflect.GoType.basic(stdgo._internal.internal.reflect.Reflect.BasicKind.uint8_kind):
+				case stdgo._internal.internal.reflect.GoType.basic(stdgo._internal.internal.reflect.BasicKind.uint8_kind):
 					return value;
 				default:
 					throw new stdgo._internal.reflect.Reflect_valueerror.ValueError("reflect.Value.Bytes", @:privateAccess _v.kind());
@@ -372,7 +372,7 @@ function numMethod(_v)
 @:recv(Value)
 function slice(_v) {
 	var value = @:privateAccess _v.value.value;
-	var t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+	var t:stdgo._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
 	if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
 		switch std.Type.typeof(value) {
 			case TClass(c):
@@ -384,11 +384,11 @@ function slice(_v) {
 		}
 	}
 	switch t {
-		case stdgo._internal.internal.reflect.Reflect.GoType.arrayType(elem, _):
-			t = stdgo._internal.internal.reflect.Reflect.GoType.sliceType(elem);
-		case stdgo._internal.internal.reflect.Reflect.GoType.named(path, methods, stdgo._internal.internal.reflect.Reflect.GoType.arrayType(elem, _), alias,
+		case stdgo._internal.internal.reflect.GoType.arrayType(elem, _):
+			t = stdgo._internal.internal.reflect.GoType.sliceType(elem);
+		case stdgo._internal.internal.reflect.GoType.named(path, methods, stdgo._internal.internal.reflect.GoType.arrayType(elem, _), alias,
 			params):
-			t = stdgo._internal.internal.reflect.Reflect.GoType.named(path, methods, stdgo._internal.internal.reflect.Reflect.GoType.sliceType(elem), alias,
+			t = stdgo._internal.internal.reflect.GoType.named(path, methods, stdgo._internal.internal.reflect.GoType.sliceType(elem), alias,
 				params);
 		default:
 			final _ = false;
@@ -411,7 +411,7 @@ function len(_v) {
 	var value = @:privateAccess _v.value.value;
 	if (value == null)
 		return 0;
-	final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+	final t:stdgo._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
 	if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
 		switch std.Type.typeof(value) {
 			case TClass(c):
@@ -462,7 +462,7 @@ function canUint(_v) {
 @:recv(Value)
 function bool_() {
 	var value = @:privateAccess _v.value.value;
-	final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+	final t:stdgo._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
 	if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
 		switch std.Type.typeof(value) {
 			case TClass(c):
@@ -489,7 +489,7 @@ function bool_() {
 @:recv(Value)
 function complex(_v) {
 	var value = @:privateAccess _v.value.value;
-	final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+	final t:stdgo._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
 	if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
 		switch std.Type.typeof(value) {
 			case TClass(c):
@@ -516,7 +516,7 @@ function complex(_v) {
 @:recv(Value)
 function uint(_v) {
 	var value = @:privateAccess _v.value.value;
-	final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+	final t:stdgo._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
 	if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
 		switch std.Type.typeof(value) {
 			case TClass(c):
@@ -553,7 +553,7 @@ function uint(_v) {
 @:recv(Value)
 function float_(_v) {
 	var value = @:privateAccess _v.value.value;
-	final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+	final t:stdgo._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
 	if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
 		switch std.Type.typeof(value) {
 			case TClass(c):
@@ -582,7 +582,7 @@ function float_(_v) {
 @:recv(Value)
 function int_(_v) {
 	var value = @:privateAccess _v.value.value;
-	final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+	final t:stdgo._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
 	if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
 		switch std.Type.typeof(value) {
 			case TClass(c):
@@ -618,7 +618,7 @@ function int_(_v) {
 function index(_v) {
 	final _v = _v.__copy__();
 	var value = @:privateAccess _v.value.value;
-	final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+	final t:stdgo._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
 	if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
 		switch std.Type.typeof(value) {
 			case TClass(c):
@@ -635,17 +635,17 @@ function index(_v) {
 	};
 	final gt = stdgo._internal.internal.reflect.Reflect.getUnderlying(@:privateAccess _v.value.type._common());
 	return switch gt {
-		case stdgo._internal.internal.reflect.Reflect.GoType.arrayType(_.get() => elem, _):
+		case stdgo._internal.internal.reflect.GoType.arrayType(_.get() => elem, _):
 			final t = @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.unroll(gt, elem));
 			final valueInterface = stdgo._internal.internal.reflect.Reflect.asInterfaceValue((value : stdgo.GoArray<Dynamic>)[_i], t._common());
 			new stdgo._internal.reflect.Reflect_value.Value(new stdgo.AnyInterface(valueInterface, t), value, _i);
-		case stdgo._internal.internal.reflect.Reflect.GoType.sliceType(_.get() => elem):
+		case stdgo._internal.internal.reflect.GoType.sliceType(_.get() => elem):
 			final t = @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.unroll(gt, elem));
 			final valueInterface = stdgo._internal.internal.reflect.Reflect.asInterfaceValue((value : Slice<Dynamic>)[_i], t._common());
 			final value = new stdgo._internal.reflect.Reflect_value.Value(new stdgo.AnyInterface(valueInterface, t), value, _i);
 			@:privateAccess value.canAddrBool = true;
 			value;
-		case stdgo._internal.internal.reflect.Reflect.GoType.basic(kind):
+		case stdgo._internal.internal.reflect.GoType.basic(kind):
 			switch kind {
 				case string_kind:
 					var value = value;
@@ -665,7 +665,7 @@ function new_() {
 	var value = stdgo._internal.internal.reflect.Reflect.defaultValue(_typ);
 	var ptr = new Pointer(() -> value, x -> value = x);
 	return new stdgo._internal.reflect.Reflect_value.Value(new stdgo.AnyInterface(ptr,
-		new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({
+		new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.pointerType({
 			get: () -> @:privateAccess (_typ : Dynamic)._common()
 		}))));
 }
@@ -741,7 +741,7 @@ overload extern inline function string(_v) {
 		return "<invalid Value>";
 	}
 	var value = @:privateAccess _v.value.value;
-	final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+	final t:stdgo._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
 	if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
 		switch std.Type.typeof(value) {
 			case TClass(c):
@@ -758,7 +758,7 @@ overload extern inline function string(_v) {
 	};
 	final underlyingType = stdgo._internal.internal.reflect.Reflect.getUnderlying(t);
 	switch (underlyingType) {
-		case stdgo._internal.internal.reflect.Reflect.GoType.basic(kind):
+		case stdgo._internal.internal.reflect.GoType.basic(kind):
 			switch kind {
 				case string_kind:
 					return value;
@@ -779,11 +779,11 @@ function interface_(_v)
 function isNil(_v) {
 	var value = @:privateAccess _v.value.value;
 	final k = _v.kind();
-	final gt:stdgo._internal.internal.reflect.Reflect.GoType = (_v.type() : Dynamic)._common();
+	final gt:stdgo._internal.internal.reflect.GoType = (_v.type() : Dynamic)._common();
 	return switch k {
 		case stdgo._internal.internal.reflect.Reflect.KindType.pointer:
 			switch gt {
-				case stdgo._internal.internal.reflect.Reflect.GoType.refType(_):
+				case stdgo._internal.internal.reflect.GoType.refType(_):
 					switch std.Type.typeof(value) {
 						case TClass(c):
 							final name = std.Type.getClassName(c);
@@ -839,7 +839,7 @@ function isNil(_v) {
 @:recv(Value)
 function elem(_v) {
 	var value = @:privateAccess _v.value.value;
-	final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+	final t:stdgo._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
 	if (stdgo._internal.internal.reflect.Reflect.isNamed(t)
 		&& !stdgo._internal.internal.reflect.Reflect.isRef(t)
 		&& !stdgo._internal.internal.reflect.Reflect.isPointer(t)) {
@@ -859,12 +859,12 @@ function elem(_v) {
 		case stdgo._internal.internal.reflect.Reflect.KindType.pointer:
 			final t = @:privateAccess stdgo._internal.internal.reflect.Reflect.unroll(t, stdgo._internal.internal.reflect.Reflect.getUnderlying(t));
 			switch t {
-				case stdgo._internal.internal.reflect.Reflect.GoType.refType(_.get() => elem):
+				case stdgo._internal.internal.reflect.GoType.refType(_.get() => elem):
 					final value = new stdgo._internal.reflect.Reflect_value.Value(new stdgo.AnyInterface(value,
 						new stdgo._internal.internal.reflect.Reflect._Type(elem)), null);
 					@:privateAccess value.canAddrBool = true;
 					return value;
-				case stdgo._internal.internal.reflect.Reflect.GoType.pointerType(_.get() => elem):
+				case stdgo._internal.internal.reflect.GoType.pointerType(_.get() => elem):
 					if (value == null) {
 						final value = new stdgo._internal.reflect.Reflect_value.Value(new stdgo.AnyInterface(null,
 							new stdgo._internal.internal.reflect.Reflect._Type(elem)), value);

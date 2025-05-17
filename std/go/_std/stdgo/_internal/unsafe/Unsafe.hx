@@ -9,11 +9,11 @@ abstract UnsafePointer(stdgo.AnyInterface) from stdgo.AnyInterface to stdgo.AnyI
 	public function __toRef__():stdgo.Ref<Dynamic>
 		return this.value;
 
-	public function __convert__(toType:stdgo._internal.internal.reflect.Reflect.GoType):Any {
-		var fromType:stdgo._internal.internal.reflect.Reflect.GoType = (this.type : Dynamic)._common();
+	public function __convert__(toType:stdgo._internal.internal.reflect.GoType):Any {
+		var fromType:stdgo._internal.internal.reflect.GoType = (this.type : Dynamic)._common();
 		var f = null;
 		f = t -> switch t {
-			case stdgo._internal.internal.reflect.Reflect.GoType.refType(_.get() => elem):
+			case stdgo._internal.internal.reflect.GoType.refType(_.get() => elem):
 				f(elem);
 			default:
 				t;

@@ -185,7 +185,6 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 	// global set
 	info.global = data.global;
 	// global vars reset
-	info.global.gotoSystem = false;
 	info.global.deferBool = false;
 	info.locals = data.locals;
 	info.localUnderlyingNames = data.localUnderlyingNames.copy();
@@ -381,7 +380,6 @@ function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.Fie
 
 function funcReset(info:Info) {
 	info.global.deferBool = false;
-	info.global.gotoSystem = false;
 }
 
 function getRecvName(recv:GoAst.Expr, info:Info):String {

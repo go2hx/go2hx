@@ -157,7 +157,7 @@ final structs = [
 				return "<invalid Value>";
 			}
 			var value = @:privateAccess _v.value.value;
-			final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+			final t:stdgo._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
 			if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
 				switch std.Type.typeof(value) {
 					case std.Type.ValueType.TClass(c):
@@ -174,7 +174,7 @@ final structs = [
 			};
 			final underlyingType = stdgo._internal.internal.reflect.Reflect.getUnderlying(t);
 			switch (underlyingType) {
-				case stdgo._internal.internal.reflect.Reflect.GoType.basic(kind):
+				case stdgo._internal.internal.reflect.GoType.basic(kind):
 					switch kind {
 						case string_kind:
 							return value;

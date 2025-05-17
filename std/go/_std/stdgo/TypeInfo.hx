@@ -15,4 +15,4 @@ class TypeInfo {
     };
 }
 
-typedef TypeInternalMap = Map<String,stdgo._internal.internal.reflect.Reflect.GoType>;
+typedef TypeInternalMap = Map<String,stdgo._internal.internal.reflect.GoType>;

@@ -960,11 +960,13 @@ func parseSpecList(list []ast.Spec, pkg *PackageData) []map[string]interface{} {
 				if c, ok := pkg.checker.ObjectOf(obj.Names[j]).(*types.Const); ok {
 					basic, ok := pkg.checker.TypeOf(obj.Names[j]).Underlying().(*types.Basic)
 					if ok {
-						e := analysis.GetConstant(basic, c.Val(), nil)
-						if len(values) == 0 && j == 0 || j >= len(values) {
-							values = append(values, parseData(e, pkg))
-						} else {
-							values[j] = parseData(e, pkg)
+						e := analysis.GetConstant(basic, c.Val(), nil, true)
+						if e != nil {
+							if len(values) == 0 && j == 0 || j >= len(values) {
+								values = append(values, parseData(e, pkg))
+							} else {
+								values[j] = parseData(e, pkg)
+							}
 						}
 					}
 				}

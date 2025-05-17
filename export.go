@@ -116,17 +116,37 @@ func compile(conn net.Conn, params []string, debug bool) {
 	outputPath := args[0]
 	// before localPath is chdir
 	versionBytes, _ := os.ReadFile("version.txt")
-	var err error
 	panicIfError(os.Chdir(localPath))
 	args = args[1 : len(args)-1] //remove outputPath & remove localPath (chdir)
 	cfg.Tests = testBool
+	dep := &depth{Path: "init", Excluded: false, Deps: []depth{}}
+	excludes := map[string]bool{}
+	checksumMap := map[string]string{}
+	pkgs := processPkgs(localPath, outputPath, checksumMap, excludes, versionBytes, args, dep)
+	// always required pkgs
+	pkgs = append(pkgs, processPkgs(localPath, outputPath, checksumMap, excludes, versionBytes, []string{
+		"unicode/utf8", "reflect",
+	}, dep)...)
+	println("list pkgs:")
+	for _, pkg := range pkgs {
+		println("  " + pkg.PkgPath)
+	}
+
+	// send amount of pkgs
+	//println("len(pkgs)", len(pkgs))
+	sendLen(conn, len(pkgs))
+	sendData(conn, dep)
+	// send pkg data
+	parsePkgList(conn, pkgs, excludes, checksumMap)
+}
+
+func processPkgs(localPath, outputPath string, checksumMap map[string]string, excludes map[string]bool, versionBytes []byte, args []string, dep *depth) []*packages.Package {
+	println("args:", strings.Join(args, " "))
 	sizes := &types.StdSizes{WordSize: 4, MaxAlign: 8}
 	l, response, err := packages.Init(cfg, sizes, args...)
 	panicIfError(err)
 	deletePkgs := map[string]bool{}
 	skipPkgs := map[string]bool{}
-	excludes := map[string]bool{}
-	checksumMap := map[string]string{}
 	// checksums
 	for _, pkg := range response.Packages {
 		const hashSize = 32
@@ -161,10 +181,7 @@ func compile(conn net.Conn, params []string, debug bool) {
 			}
 			return 0
 		})
-		pkgPath := pkg.PkgPath
-		if pkgPath == "sync/atomic" { // special case because atomic is reserved on c++
-			pkgPath = pkgPath + "_"
-		}
+		pkgPath := normalizePath(pkg.PkgPath)
 		addedPkg := "_internal"
 		if stdgoList[pkg.PkgPath] { // add stdgo prefix
 			addedPkg = "stdgo/_internal"
@@ -174,17 +191,14 @@ func compile(conn net.Conn, params []string, debug bool) {
 		checksum := combineCheckSums(checksSums, versionBytes)
 		if err == nil {
 			// checksum is the same
-			if string(b) == checksum {
+			sameSum := string(b) == checksum
+			if sameSum {
 				// remove from root
-				/*index := slices.Index(response.Roots, pkg.ID)
-				if index != -1 {
-					response.Roots = slices.Delete(response.Roots, index, index+1)
-				}*/
 				response.Roots = slices.DeleteFunc(response.Roots, func(root string) bool {
 					rootPath := strings.Split(root, " ")[0]
 					return pkg.PkgPath == rootPath
 				})
-				// mark as deleted
+				// mark as delete
 				deletePkgs[pkg.PkgPath] = true
 				continue
 			}
@@ -222,19 +236,7 @@ func compile(conn net.Conn, params []string, debug bool) {
 	panicIfError(err)
 	//init
 	methodCache = typeutil.MethodSetCache{}
-	//fmt.Println(excludes)
-	dep := &depth{Path: "init", Excluded: false, Deps: []depth{}}
-	pkgs := getPkgs(initial, excludes, dep, skipPkgs)
-	// for _, pkg := range pkgs {
-	// 	println(pkg.PkgPath)
-	// }
-	// return
-	// send amount of pkgs
-	println("len(pkgs)", len(pkgs))
-	sendLen(conn, len(pkgs))
-	sendData(conn, dep)
-	// send pkg data
-	parsePkgList(conn, pkgs, excludes, checksumMap)
+	return getPkgs(initial, excludes, dep, skipPkgs)
 }
 
 func combineCheckSums(checksums [][32]byte, versionBytes []byte) string {
@@ -251,6 +253,89 @@ type depth struct {
 	Path     string  `json:"path"`
 	Excluded bool    `json:"excluded"`
 	Deps     []depth `json:"deps"`
+}
+
+func normalizePath(path string) string {
+	path = strings.ReplaceAll(path, ".", "dot")
+	path = strings.ReplaceAll(path, ":", "colon")
+	path = strings.ReplaceAll(path, "go-", "godash")
+	path = strings.ReplaceAll(path, "-", "dash")
+	paths := strings.Split(path, "/")
+	for i := range paths {
+		if slices.Contains(reserved, paths[i]) {
+			paths[i] += "_"
+		}
+	}
+	return strings.Join(paths, "/")
+}
+
+var reserved = []string{
+	"iterator",
+	"keyValueIterator",
+	"switch",
+	"case",
+	"break",
+	"continue",
+	"default",
+	"is",
+	"abstract",
+	"cast",
+	"catch",
+	"class",
+	"do",
+	"function",
+	"dynamic",
+	"else",
+	"enum",
+	"extends",
+	"extern",
+	"final",
+	"for",
+	"function",
+	"if",
+	"interface",
+	"implements",
+	"import",
+	"in",
+	"inline",
+	"macro",
+	"new",
+	"operator",
+	"overload",
+	"override",
+	"package",
+	"private",
+	"public",
+	"return",
+	"static",
+	"this",
+	"throw",
+	"try",
+	"typedef",
+	"untyped",
+	"using",
+	"var",
+	"while",
+	"construct",
+	"null",
+	"in",
+	"wait",
+	"length",
+	"capacity",
+	"bool",
+	"float",
+	"int",
+	"struct",
+	"offsetof",
+	"alignof",
+	"atomic",
+	"map",
+	"comparable",
+	"environ",
+	"trace",
+	"haxe",
+	"std",
+	"_new",
 }
 
 func panicIfError(err error) {
@@ -278,8 +363,12 @@ func getLen(conn net.Conn) uint32 {
 	bytesBuff := make([]byte, 4)
 	n, err := conn.Read(bytesBuff)
 	if n != 4 {
+		if n == 0 {
+			println("CLOSED COMPILER")
+			os.Exit(0)
+		}
 		println(n)
-		println(err)
+		println(err.Error())
 		panic("wrong n")
 	}
 	panicIfError(err)

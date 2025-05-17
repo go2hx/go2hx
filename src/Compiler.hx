@@ -253,13 +253,18 @@ function startGo4hx(port:Int) {
 function accept(server:Socket, ready:Void->Void) {
 	if (instance == null)
 		instance = new CompilerInstanceData();
-	Sys.println("accepted connection");
 	client = server.accept();
+	Sys.println("accepted connection");
 	if (ready != null)
 		ready();
 	while (true) {
 		Sys.setCwd(cwd);
 		instance.totalPkgs = getLength(client.input.read(8));
+		if (instance.totalPkgs == 0) {
+			Sys.println("0 packages to compile");
+			end(instance);
+			continue;
+		}
 		var startedPkgs = 0;
 		var stamp = haxe.Timer.stamp();
 		while (true) {
@@ -272,7 +277,7 @@ function accept(server:Socket, ready:Void->Void) {
 				Sys.println("total pkgs : " + instance.totalPkgs);
 			}else{
 				#if target.threaded
-				threadData.add(buff);
+				threadData.push(buff);
 				#else
 				receivedData(buff);
 				#end
@@ -400,10 +405,6 @@ function compileFromInstance(inst:CompilerInstanceData):Bool {
 
 function write(instance:CompilerInstanceData):Bool {
 	final args = instance.args;
-	if (args.indexOf("unicode/utf8") == -1)
-		args.unshift("unicode/utf8");
-	if (args.indexOf("reflect") == -1)
-		args.unshift("reflect");
 	args.unshift(instance.outputPath);
 	final bytes = Bytes.ofString(args.join(" "));
 	client.output.bigEndian = false;

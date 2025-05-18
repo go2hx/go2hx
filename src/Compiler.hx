@@ -48,11 +48,11 @@ function receivedData(buff:Bytes) {
 	// IMPORTANT: typing phase Go AST -> Haxe AST
 	final module = typer.Package.typePackage(data, instance);
 	final typePackageTime = measureTime();
+	// generate the code
+	codegen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
 	mutex.acquire();
 	final countPkgs = modules.push(module);
 	mutex.release();
-	// generate the code
-	codegen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
 	final codeGenTime = measureTime();
 	Sys.println(module.path + " " + countPkgs + "/" + instance.totalPkgs);
 	if (instance.times) {
@@ -303,14 +303,17 @@ function accept(server:Socket, ready:Void->Void) {
 		}
 		while (true) {
 			mutex.acquire();
-			if (modules.length != 0)
+			if (modules.length != 0) {
+				mutex.release();
 				break;
+			}
 			mutex.release();
 			Sys.sleep(0.001);
 		}
 		#if target.threaded
 		while (threadPool.threadsCount > 0) {
-			Sys.sleep(0.01);
+			trace(threadPool.threadsCount);
+			Sys.sleep(0.5);
 		}
 		#end
 		end(instance);

@@ -200,7 +200,7 @@ function update() {
 	if (tasks.length > 0) {
 		final task = tasks.pop();
 		if (!noLogs) {
-			Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + lastTaskLogs);
+			Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + lastTaskLogs.length);
 		}
 		if (hxbBool) {
 			task.args.push("--hxb-lib");

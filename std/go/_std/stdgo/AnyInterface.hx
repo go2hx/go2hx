@@ -210,5 +210,5 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 }
 
 inline function errorString(s:stdgo.GoString) {
-	return new Error.T_errorString_asInterface(s);
+	return stdgo.Go.toInterface(new Error.T_errorString_asInterface(s));
 }

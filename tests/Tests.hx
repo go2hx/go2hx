@@ -222,6 +222,8 @@ function update() {
 			}
 			ls.removeAllListeners();
 			ls.kill();
+			trace("COMPLETE");
+			close();
 		};
 		ls.stdout.on('data', function(data) {
 			if (!noLogs) {

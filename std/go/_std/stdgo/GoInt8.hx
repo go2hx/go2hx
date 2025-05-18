@@ -85,11 +85,7 @@ abstract GoInt8(Int8) from Int8 from Int to Int8 {
 
 	@:op(A % B) private static function mod(a:GoInt8, b:GoInt8):GoInt8 {
 		if (b == 0) {
-			#if numberlinkerror
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
-			#else
-			throw "divide by zero";
-			#end
 		}
 		return clamp(Std.int(a.toBasic() % b.toBasic()));
 	}
@@ -119,11 +115,7 @@ abstract GoInt8(Int8) from Int8 from Int to Int8 {
 
 	@:op(A / B) private static function div(a:GoInt8, b:GoInt8):GoInt8 {
 		if (b == 0) {
-			#if numberlinkerror
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
-			#else
-			throw "divide by zero";
-			#end
 		}
 		return clamp(Std.int(a.toBasic() / b.toBasic()));
 	}

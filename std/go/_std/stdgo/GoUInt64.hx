@@ -121,22 +121,14 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 
 	@:op(A % B) private static function mod(a:GoUInt64, b:GoUInt64):GoUInt64 {
 		if (b == 0) {
-			#if numberlinkerror
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
-			#else
-			throw "divide by zero";
-			#end
 		}
 		return a.toBasic() % b.toBasic();
 	}
 
 	@:op(A / B) private static function div(a:GoUInt64, b:GoUInt64):GoUInt64 {
 		if (b == 0) {
-			#if numberlinkerror
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
-			#else
-			throw "divide by zero";
-			#end
 		}
 		return a.toBasic() / b.toBasic();
 	}

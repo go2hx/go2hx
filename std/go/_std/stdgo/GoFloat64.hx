@@ -77,7 +77,6 @@ abstract GoFloat64(Float) from Float to Float {
 	}
 
 	@:op(A / B) private static function div(a:GoFloat, b:GoFloat):GoFloat {
-		#if numberlinkmath
 		if (b == 0) {
 			var flip = a >= 0;
 			if (GoNumber.signbit(b))
@@ -88,7 +87,6 @@ abstract GoFloat64(Float) from Float to Float {
 				return std.Math.NEGATIVE_INFINITY;
 			}
 		}
-		#end
 		return a.toBasic() / b.toBasic();
 	}
 

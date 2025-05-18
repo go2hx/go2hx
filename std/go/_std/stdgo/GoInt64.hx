@@ -97,22 +97,14 @@ abstract GoInt64(Int64) from Int64 to Int64 {
 
 	@:op(A % B) public static function mod(a:GoInt64, b:GoInt64):GoInt64 {
 		if (b == 0) {
-			#if numberlinkerror
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
-			#else
-			throw "divide by zero";
-			#end
 		}
 		return a.toBasic() % b.toBasic();
 	}
 
 	@:op(A / B) public static function div(a:GoInt64, b:GoInt64):GoInt64 {
 		if (b == 0) {
-			#if numberlinkerror
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
-			#else
-			throw "divide by zero";
-			#end
 		}
 		return a.toBasic() / b.toBasic();
 	}

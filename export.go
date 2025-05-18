@@ -19,8 +19,10 @@ import (
 	"path"
 	"path/filepath"
 	"runtime"
+	"runtime/debug"
 	"slices"
 	"sync"
+	"time"
 
 	_ "embed"
 	"os"
@@ -443,6 +445,7 @@ const releaseMode packages.LoadMode = packages.NeedName |
 	packages.NeedModule | packages.NeedTypesSizes
 
 func main() {
+	debug.SetMemoryLimit(2000000000)
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
 
 	// set log output to log.out
@@ -622,20 +625,32 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 			}
 		}
 	}
-	countInterface = 0
-	countStruct = 0
-	localExcludes := map[string]bool{}
-	for _, pkg := range list {
-		checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
-		pkgData := PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
-		parseLocalPackage(pkg, &pkgData, localExcludes)
-	}
 	// 2nd pass
 	var wg sync.WaitGroup
+	var mutex sync.Mutex
+	var runningCount int = 0
 	for _, pkg := range list {
 		wg.Add(1)
+		mutex.Lock()
+		runningCount++
+		mutex.Unlock()
+		for {
+			mutex.Lock()
+			if runningCount < 20 {
+				mutex.Unlock()
+				break
+			}
+			mutex.Unlock()
+			time.Sleep(time.Millisecond * 3)
+		}
+		memoryStats()
 		pkg := pkg
+		// TODO make this not eat up so much memory
 		go func() {
+			localExcludes := map[string]bool{}
+			checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
+			pkgData := PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
+			parseLocalPackage(pkg, &pkgData, localExcludes)
 			// parse
 			syntax := parsePkg(pkg)
 			// set checksum
@@ -650,6 +665,9 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 			//runtime.GC()
 			//memoryStats()
 			wg.Done()
+			mutex.Lock()
+			runningCount--
+			mutex.Unlock()
 		}()
 	}
 	wg.Wait()
@@ -665,6 +683,7 @@ func parsePkg(pkg *packages.Package) *packageType {
 				data.Order = append(data.Order, v.Name())
 			}
 		}
+
 	}
 	data.Name = pkg.Name
 	data.Path = pkg.PkgPath

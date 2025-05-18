@@ -81,17 +81,21 @@ var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
 
 var testBool = false
 var systemGo = false
+var noCache = false
 
 func compile(conn net.Conn, params []string, debug bool) {
 	args := []string{}
 	testBool = false
 	systemGo = false
+	noCache = false
 	for _, param := range params {
 		switch param {
 		case "-systemgo", "--systemgo", "-systemGo", "--systemGo":
 			systemGo = true
 		case "-test", "--test":
 			testBool = true
+		case "-nocache", "--nocache":
+			noCache = true
 		default:
 			args = append(args, param)
 		}
@@ -143,65 +147,67 @@ func processPkgs(outputPath string, checksumMap map[string]string, excludes map[
 	panicIfError(err)
 	deletePkgs := map[string]bool{}
 	// checksums
-	for _, pkg := range response.Packages {
-		const hashSize = 32
-		checksumChan := make(chan [hashSize]byte, len(pkg.GoFiles))
-		for _, f := range pkg.GoFiles {
-			f := f
-			go func() {
-				b, err := os.ReadFile(f)
-				panicIfError(err)
-				checksumChan <- sha256.Sum256(b)
-			}()
-		}
-		checksSums := make([][hashSize]byte, len(pkg.GoFiles))
-		for i := range pkg.GoFiles {
-			checksSums[i] = <-checksumChan
-		}
-		slices.SortStableFunc(checksSums, func(a, b [hashSize]byte) int {
-			if len(a) > len(b) {
-				return 1
-			} else if len(a) < len(b) {
-				return -1
+	if !noCache {
+		for _, pkg := range response.Packages {
+			const hashSize = 32
+			checksumChan := make(chan [hashSize]byte, len(pkg.GoFiles))
+			for _, f := range pkg.GoFiles {
+				f := f
+				go func() {
+					b, err := os.ReadFile(f)
+					panicIfError(err)
+					checksumChan <- sha256.Sum256(b)
+				}()
 			}
-			for i := range a {
-				if a[i] == b[i] {
-					continue
-				}
-				if a[i] > b[i] {
+			checksSums := make([][hashSize]byte, len(pkg.GoFiles))
+			for i := range pkg.GoFiles {
+				checksSums[i] = <-checksumChan
+			}
+			slices.SortStableFunc(checksSums, func(a, b [hashSize]byte) int {
+				if len(a) > len(b) {
 					return 1
-				} else {
+				} else if len(a) < len(b) {
 					return -1
 				}
+				for i := range a {
+					if a[i] == b[i] {
+						continue
+					}
+					if a[i] > b[i] {
+						return 1
+					} else {
+						return -1
+					}
+				}
+				return 0
+			})
+			pkgPath := normalizePath(pkg.PkgPath)
+			addedPkg := "_internal"
+			if stdgoList[pkg.PkgPath] { // add stdgo prefix
+				addedPkg = "stdgo/_internal"
 			}
-			return 0
-		})
-		pkgPath := normalizePath(pkg.PkgPath)
-		addedPkg := "_internal"
-		if stdgoList[pkg.PkgPath] { // add stdgo prefix
-			addedPkg = "stdgo/_internal"
-		}
-		dir := path.Join(outputPath, addedPkg, pkgPath)
-		b, err := os.ReadFile(path.Join(dir, ".go2hx_cache"))
-		checksum := combineCheckSums(checksSums, versionBytes)
-		if err == nil {
-			// checksum is the same
-			sameSum := string(b) == checksum
-			if sameSum {
-				// remove from root
-				response.Roots = slices.DeleteFunc(response.Roots, func(root string) bool {
-					rootPath := strings.Split(root, " ")[0]
-					return pkg.PkgPath == rootPath
-				})
-				// mark as delete
-				deletePkgs[pkg.PkgPath] = true
-				continue
+			dir := path.Join(outputPath, addedPkg, pkgPath)
+			b, err := os.ReadFile(path.Join(dir, ".go2hx_cache"))
+			checksum := combineCheckSums(checksSums, versionBytes)
+			if err == nil {
+				// checksum is the same
+				sameSum := string(b) == checksum
+				if sameSum {
+					// remove from root
+					response.Roots = slices.DeleteFunc(response.Roots, func(root string) bool {
+						rootPath := strings.Split(root, " ")[0]
+						return pkg.PkgPath == rootPath
+					})
+					// mark as delete
+					deletePkgs[pkg.PkgPath] = true
+					continue
+				}
+			} else if !os.IsNotExist(err) {
+				panic(err)
 			}
-		} else if !os.IsNotExist(err) {
-			panic(err)
+			// write checksum
+			checksumMap[pkg.PkgPath] = checksum
 		}
-		// write checksum
-		checksumMap[pkg.PkgPath] = checksum
 	}
 	// add imports for type information
 	for _, pkg := range response.Packages {
@@ -387,6 +393,7 @@ func getPkgs(list []*packages.Package, excludes map[string]bool, skipPkgs map[st
 	newList := []*packages.Package{}
 	for i, pkg := range list {
 		continueLoop := false
+		// remove normal one and replace with test version
 		for _, pkg2 := range list[i+1:] {
 			if pkg.PkgPath != pkg2.PkgPath {
 				continue

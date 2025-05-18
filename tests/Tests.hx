@@ -198,24 +198,6 @@ function update() {
 		trace("COMPLETE");
 		close();
 	}
-	if (timeout++ > (10 * 60) * 20) {
-		trace("TIMEOUT");
-		trace("tests.length:", tests.length);
-		trace("timeout tasks remaining, tasks.length:", tasks.length);
-		for (task in tasks) {
-			if (task.runtime) {
-				suite.runtimeError(task);
-			} else {
-				suite.buildError(task);
-			}
-		}
-		trace("runningCount:", runningCount);
-		trace("completeBool:", completeBool);
-		// instance.args is null
-		trace("last task logs:", lastTaskLogs);
-		trace("tests left:", tests.length);
-		close();
-	}
 	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount)) {
 		final task = tasks.pop();
 		if (!noLogs) {
@@ -448,6 +430,8 @@ function runNewTest() {
 	}
 	if (haxe.macro.Compiler.getDefine("rebuild") != null)
 		args.push("--rebuild");
+	if (haxe.macro.Compiler.getDefine("nogo4hx") != null)
+		args.push("--nogo4hx");
 	// trace(args.join(" "));
 	runningCount++;
 	final command = "haxe --run Run " + args.join(" ");

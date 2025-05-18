@@ -3,7 +3,6 @@
 -cp std
 -cp git/haxeparser/src
 -cp git/hxparse/src
-extraParams.hxml
 -D nolinkstd
 --macro exclude("stdgo")
 --interp

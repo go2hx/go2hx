@@ -119,15 +119,17 @@ func compile(conn net.Conn, params []string, debug bool) {
 	panicIfError(os.Chdir(localPath))
 	args = args[1 : len(args)-1] //remove outputPath & remove localPath (chdir)
 	cfg.Tests = testBool
-	dep := &depth{Path: "init", Excluded: false, Deps: []depth{}}
+	dep := &depth{Path: "init", Skipped: false, Deps: []depth{}}
 	excludes := map[string]bool{}
 	checksumMap := map[string]string{}
-	pkgs := processPkgs(outputPath, checksumMap, excludes, versionBytes, args, dep)
+	var pkgs []*packages.Package
+	pkgs, dep = processPkgs(outputPath, checksumMap, excludes, versionBytes, args, dep)
 	// always required pkgs
-	pkgs = append(pkgs, processPkgs(outputPath, checksumMap, excludes, versionBytes, []string{
+	var requiredPkgs []*packages.Package
+	requiredPkgs, dep = processPkgs(outputPath, checksumMap, excludes, versionBytes, []string{
 		"unicode/utf8", "reflect",
-	}, dep)...)
-	println("list pkgs:")
+	}, dep)
+	pkgs = append(pkgs, requiredPkgs...)
 	for _, pkg := range pkgs {
 		println("  " + pkg.PkgPath)
 	}
@@ -140,7 +142,7 @@ func compile(conn net.Conn, params []string, debug bool) {
 	parsePkgList(conn, pkgs, excludes, checksumMap)
 }
 
-func processPkgs(outputPath string, checksumMap map[string]string, excludes map[string]bool, versionBytes []byte, args []string, dep *depth) []*packages.Package {
+func processPkgs(outputPath string, checksumMap map[string]string, excludes map[string]bool, versionBytes []byte, args []string, dep *depth) (newPkgs []*packages.Package, newDep *depth) {
 	sizes := &types.StdSizes{WordSize: 4, MaxAlign: 8}
 	l, response, err := packages.Init(cfg, sizes, args...)
 	panicIfError(err)
@@ -225,7 +227,6 @@ func processPkgs(outputPath string, checksumMap map[string]string, excludes map[
 		if deletePkgs[pkg.PkgPath] {
 			continue
 		}
-		println(pkg.PkgPath)
 		newResponsePackages = append(newResponsePackages, pkg)
 	}
 	// refine
@@ -250,9 +251,9 @@ func combineCheckSums(checksums [][32]byte, versionBytes []byte) string {
 }
 
 type depth struct {
-	Path     string  `json:"path"`
-	Excluded bool    `json:"excluded"`
-	Deps     []depth `json:"deps"`
+	Path    string  `json:"path"`
+	Skipped bool    `json:"skipped"`
+	Deps    []depth `json:"deps"`
 }
 
 func normalizePath(path string) string {
@@ -388,12 +389,9 @@ func createLenMessage(b []byte) []byte {
 	return append(bytesBuff, b...)
 }
 
-func getPkgs(list []*packages.Package, excludes map[string]bool, dep *depth, skipPkgs map[string]bool) []*packages.Package {
+func getPkgs(list []*packages.Package, excludes map[string]bool, dep *depth, skipPkgs map[string]bool) (newPkgs []*packages.Package, newDep *depth) {
 	newList := []*packages.Package{}
 	for i, pkg := range list {
-		if skipPkgs[pkg.PkgPath] {
-			continue
-		}
 		continueLoop := false
 		for _, pkg2 := range list[i+1:] {
 			if pkg.PkgPath != pkg2.PkgPath {
@@ -407,26 +405,31 @@ func getPkgs(list []*packages.Package, excludes map[string]bool, dep *depth, ski
 		}
 		if excludes[pkg.PkgPath] {
 			dep.Deps = append(dep.Deps, depth{
-				Path:     pkg.PkgPath,
-				Excluded: true,
+				Path:    pkg.PkgPath,
+				Skipped: true,
+				Deps:    []depth{},
 			})
 			continue
 		}
 		excludes[pkg.PkgPath] = true
 		dep2 := &depth{
-			Path:     pkg.PkgPath,
-			Excluded: false,
-			Deps:     []depth{},
+			Path:    pkg.PkgPath,
+			Skipped: skipPkgs[pkg.PkgPath],
+			Deps:    []depth{},
 		}
-		if !stdExterns[pkg.PkgPath] {
-			for _, pkg := range pkg.Imports {
-				newList = append(newList, getPkgs([]*packages.Package{pkg}, excludes, dep2, skipPkgs)...)
-			}
+		//if !stdExterns[pkg.PkgPath] {
+		for _, pkg := range pkg.Imports {
+			var newPkgs []*packages.Package
+			newPkgs, dep = getPkgs([]*packages.Package{pkg}, excludes, dep2, skipPkgs)
+			newList = append(newList, newPkgs...)
 		}
-		newList = append(newList, pkg)
+		if !skipPkgs[pkg.PkgPath] {
+			newList = append(newList, pkg)
+			continue
+		}
 		dep.Deps = append(dep.Deps, *dep2)
 	}
-	return newList
+	return newList, dep
 }
 
 var cfg = &packages.Config{

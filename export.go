@@ -21,7 +21,6 @@ import (
 	"runtime"
 	"slices"
 	"sync"
-	"time"
 
 	_ "embed"
 	"os"
@@ -152,7 +151,7 @@ func processPkgs(alwaysCompileRoots bool, outputPath string, checksumMap map[str
 	// checksums
 	for _, pkg := range response.Packages {
 		if alwaysCompileRoots {
-			if slices.Contains(response.Roots, pkg.ID) {
+			if isRoot(response.Roots, pkg.PkgPath) {
 				continue
 			}
 		}
@@ -200,14 +199,16 @@ func processPkgs(alwaysCompileRoots bool, outputPath string, checksumMap map[str
 			// checksum is the same
 			sameSum := string(b) == checksum
 			if sameSum {
-				// remove from root
-				response.Roots = slices.DeleteFunc(response.Roots, func(root string) bool {
-					rootPath := strings.Split(root, " ")[0]
-					return pkg.PkgPath == rootPath
-				})
-				// mark as delete
-				deletePkgs[pkg.PkgPath] = true
-				continue
+				if !alwaysCompileRoots || !isRoot(response.Roots, pkg.PkgPath) {
+					// remove from root
+					response.Roots = slices.DeleteFunc(response.Roots, func(root string) bool {
+						rootPath := getRootPath(root)
+						return pkg.PkgPath == rootPath
+					})
+					// mark as delete
+					deletePkgs[pkg.PkgPath] = true
+					continue
+				}
 			}
 		} else if !os.IsNotExist(err) {
 			panic(err)
@@ -244,6 +245,16 @@ func processPkgs(alwaysCompileRoots bool, outputPath string, checksumMap map[str
 	//init
 	methodCache = typeutil.MethodSetCache{}
 	return initial
+}
+
+func isRoot(roots []string, pkgPath string) bool {
+	return slices.ContainsFunc(roots, func(root string) bool {
+		return getRootPath(root) == pkgPath
+	})
+}
+
+func getRootPath(rootPath string) string {
+	return strings.Split(rootPath, " ")[0]
 }
 
 func combineCheckSums(checksums [][32]byte, versionBytes []byte) string {
@@ -633,18 +644,20 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 			}
 		}
 	}
-	//memoryStats()
+	countInterface = 0
+	countStruct = 0
+	localExcludes := map[string]bool{}
+	for _, pkg := range list {
+		checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
+		pkgData := PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
+		parseLocalPackage(pkg, &pkgData, localExcludes)
+	}
 	// 2nd pass
 	var wg sync.WaitGroup
 	for _, pkg := range list {
 		wg.Add(1)
 		pkg := pkg
 		go func() {
-			// local
-			localExcludes := map[string]bool{}
-			checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
-			pkgData := &PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
-			parseLocalPackage(pkg, pkgData, localExcludes)
 			// parse
 			syntax := parsePkg(pkg)
 			// set checksum
@@ -654,17 +667,12 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 			// send data
 			sendData(conn, *syntax)
 			syntax = nil
-			pkgData = nil
-			checker = nil
 			localExcludes = nil
 			// leave
 			//runtime.GC()
 			//memoryStats()
 			wg.Done()
 		}()
-		for runtime.NumGoroutine() > 30 {
-			time.Sleep(time.Millisecond * 50)
-		}
 	}
 	wg.Wait()
 }

@@ -136,7 +136,9 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 		@doc("don't run go4hx, set it up manually")
 		["-nogo4hx", "--nogo4hx"] => () -> instance.noRunGo4hx = true, 
 		@doc("go test")
-		["-nocomments", "--nocomments"] => () -> instance.noComments = true, 
+		["-nocomments", "--nocomments"] => () -> instance.noComments = true,
+		@doc("Disable caching")
+		["-nocache", "--nocache"] => () -> instance.noCache = true,
 		@doc("no comments")
 		["-test", "--test"] => () -> instance.test = true,
 		["-bench", "--bench"] => () -> instance.bench = true,
@@ -281,7 +283,7 @@ function accept(server:Socket, ready:Void->Void) {
 			if (!depsSent) {
 				depsSent = true;
 				instance.deps = decodeData(buff).deps;
-				printDeps(instance.deps);
+				//printDeps(instance.deps);
 			}else{
 				#if target.threaded
 				while (threadPool.threadsCount >= threadPool.maxThreadsCount) {
@@ -311,8 +313,7 @@ function accept(server:Socket, ready:Void->Void) {
 		}
 		#if target.threaded
 		while (threadPool.threadsCount > 0) {
-			trace(threadPool.threadsCount);
-			Sys.sleep(0.5);
+			Sys.sleep(0.0001);
 		}
 		#end
 		end(instance);
@@ -430,6 +431,7 @@ function write(instance:CompilerInstanceData):Bool {
 }
 
 class CompilerInstanceData {
+	public var noCache:Bool = false;
 	public var times:Bool = false;
 	public var printMain:Bool = false;
 	public var deps:Array<Dep> = [];
@@ -473,6 +475,7 @@ class CompilerInstanceData {
 	}
 	public function copy():CompilerInstanceData {
 		final instance = new CompilerInstanceData();
+		instance.noCache = noCache;
 		instance.deps = deps.copy();
 		instance.printMain = printMain;
 		instance.countPkgs = countPkgs;
@@ -507,7 +510,7 @@ class CompilerInstanceData {
 }
 
 // global vars
-final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodeps", "-debug", "--debug"];
+final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodeps", "-debug", "--debug", "-nocache", "--nocache"];
 final cwd = Sys.getCwd();
 final server = new Socket();
 var client:Socket = null;

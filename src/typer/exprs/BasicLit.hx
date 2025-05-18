@@ -101,7 +101,7 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):MacroExpr {
 	}
 }
 
-private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Int}> {
+private function decodeEscapeSequences(value:UnicodeString):Array<{?s:String, ?code:Int}> {
 	var backslash = false;
 	var i = 0;
 	final values:Array<{?s:String, ?code:Int}> = [];
@@ -163,8 +163,6 @@ private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Int
 		switch code {
 			case "\\".code:
 				backslash = true;
-			// case "$".code:
-			//	buff.add("$$");
 			default:
 				try {
 					buff.addChar(code);

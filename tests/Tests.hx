@@ -377,7 +377,8 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 private function complete(main:String, excludes:Array<String>) {
 	timeout = 0;
 	completeBool = true;
-	spawnTargets(main, excludes);
+	if (type != "std")
+		spawnTargets(main, excludes);
 	runNewTest();
 }
 
@@ -490,7 +491,7 @@ private function testStd() { // standard library package tests
 				continue;
 		}
 		tests.push(name);
-		//createRunnableStd(name, "stdgo/");
+		createRunnableStd(name, "stdgo/");
 	}
 	Sys.println("______________________");
 	// haxe stdgo/unicode.hxml --interp

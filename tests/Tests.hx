@@ -197,7 +197,7 @@ function update() {
 		trace("COMPLETE");
 		close();
 	}
-	if (tasks.length > 0) {
+	if (tasks.length > 0 && lastTaskLogs.length <= Std.parseInt(runnerCount)) {
 		final task = tasks.pop();
 		if (!noLogs) {
 			Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + lastTaskLogs.length);

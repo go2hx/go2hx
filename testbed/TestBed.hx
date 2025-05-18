@@ -2,8 +2,11 @@ package;
 
 function main() {
 	final args = ["./testbed"];
-	args.push("-compiler_cpp");
+	//args.push("-compiler_cpp");
+	args.push("-compiler_hl");
 	args.push("--rebuild");
+	if (haxe.macro.Compiler.getDefine("nogo4hx") != null)
+		args.push("-nogo4hx");
 	args.push(Sys.getCwd());
 	var code = Sys.command("haxe --run Run " + args.join(" "));
 	if (code != 0)

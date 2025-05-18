@@ -267,7 +267,6 @@ function accept(server:Socket, ready:Void->Void) {
 	while (true) {
 		Sys.setCwd(cwd);
 		instance.totalPkgs = getLength(client.input.read(8));
-		trace("TOTAL PACKAGES: " + instance.totalPkgs);
 		if (instance.totalPkgs == 0) {
 			Sys.println("0 packages to compile");
 			end(instance);

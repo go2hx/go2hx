@@ -31,8 +31,6 @@ import (
 	"github.com/go2hx/go4hx/analysis"
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/types/typeutil"
-	//"net/http"
-	//_ "net/http/pprof"
 )
 
 type packageType struct {
@@ -83,7 +81,6 @@ var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
 
 var testBool = false
 var systemGo = false
-var ranRequiredPkgs = false
 
 func compile(conn net.Conn, params []string, debug bool) {
 	args := []string{}
@@ -120,15 +117,12 @@ func compile(conn net.Conn, params []string, debug bool) {
 	excludes := map[string]bool{}
 	checksumMap := map[string]string{}
 	skipPkgs := map[string]bool{}
-	pkgs := processPkgs(true, outputPath, checksumMap, excludes, versionBytes, args, skipPkgs)
+	pkgs := processPkgs(outputPath, checksumMap, excludes, versionBytes, args, skipPkgs)
 	// always required pkgs
 	var skipPkgs2 map[string]bool
-	if !ranRequiredPkgs {
-		pkgs = append(pkgs, processPkgs(false, outputPath, checksumMap, excludes, versionBytes, []string{
-			"unicode/utf8", "reflect",
-		}, skipPkgs)...)
-		ranRequiredPkgs = true
-	}
+	pkgs = append(pkgs, processPkgs(outputPath, checksumMap, excludes, versionBytes, []string{
+		"unicode/utf8", "reflect",
+	}, skipPkgs)...)
 	//copy over
 	for key, value := range skipPkgs2 {
 		skipPkgs[key] = value
@@ -143,18 +137,13 @@ func compile(conn net.Conn, params []string, debug bool) {
 	parsePkgList(conn, pkgs, excludes, checksumMap)
 }
 
-func processPkgs(alwaysCompileRoots bool, outputPath string, checksumMap map[string]string, excludes map[string]bool, versionBytes []byte, args []string, skipPkgs map[string]bool) (newPkgs []*packages.Package) {
+func processPkgs(outputPath string, checksumMap map[string]string, excludes map[string]bool, versionBytes []byte, args []string, skipPkgs map[string]bool) (newPkgs []*packages.Package) {
 	sizes := &types.StdSizes{WordSize: 4, MaxAlign: 8}
 	l, response, err := packages.Init(cfg, sizes, args...)
 	panicIfError(err)
 	deletePkgs := map[string]bool{}
 	// checksums
 	for _, pkg := range response.Packages {
-		if alwaysCompileRoots {
-			if isRoot(response.Roots, pkg.PkgPath) {
-				continue
-			}
-		}
 		const hashSize = 32
 		checksumChan := make(chan [hashSize]byte, len(pkg.GoFiles))
 		for _, f := range pkg.GoFiles {
@@ -199,16 +188,14 @@ func processPkgs(alwaysCompileRoots bool, outputPath string, checksumMap map[str
 			// checksum is the same
 			sameSum := string(b) == checksum
 			if sameSum {
-				if !alwaysCompileRoots || !isRoot(response.Roots, pkg.PkgPath) {
-					// remove from root
-					response.Roots = slices.DeleteFunc(response.Roots, func(root string) bool {
-						rootPath := getRootPath(root)
-						return pkg.PkgPath == rootPath
-					})
-					// mark as delete
-					deletePkgs[pkg.PkgPath] = true
-					continue
-				}
+				// remove from root
+				response.Roots = slices.DeleteFunc(response.Roots, func(root string) bool {
+					rootPath := strings.Split(root, " ")[0]
+					return pkg.PkgPath == rootPath
+				})
+				// mark as delete
+				deletePkgs[pkg.PkgPath] = true
+				continue
 			}
 		} else if !os.IsNotExist(err) {
 			panic(err)
@@ -245,16 +232,6 @@ func processPkgs(alwaysCompileRoots bool, outputPath string, checksumMap map[str
 	//init
 	methodCache = typeutil.MethodSetCache{}
 	return initial
-}
-
-func isRoot(roots []string, pkgPath string) bool {
-	return slices.ContainsFunc(roots, func(root string) bool {
-		return getRootPath(root) == pkgPath
-	})
-}
-
-func getRootPath(rootPath string) string {
-	return strings.Split(rootPath, " ")[0]
 }
 
 func combineCheckSums(checksums [][32]byte, versionBytes []byte) string {
@@ -374,7 +351,6 @@ func sendData(conn net.Conn, data any) {
 	panicIfError(err)
 	w.Close()
 	_, err = conn.Write(createLenMessage(buff.Bytes()))
-	buff.Reset()
 	panicIfError(err)
 }
 
@@ -461,11 +437,6 @@ const releaseMode packages.LoadMode = packages.NeedName |
 
 func main() {
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
-
-	// Start the pprof server in a separate goroutine
-	/*go func() {
-		log.Println(http.ListenAndServe("localhost:6060", nil))
-	}()*/
 
 	// set log output to log.out
 	cfg.Env = append(os.Environ(), "CGO_ENABLED=0")

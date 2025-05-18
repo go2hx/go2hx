@@ -776,7 +776,7 @@ func (fs *funcScope) typeToExpr(t types.Type) ast.Expr {
 		return ast.NewIdent("any")
 	}
 	for expr, data := range fs.checker.Types {
-		if data.Type.String() == t.String() { // type equality
+		if data.Type != nil && data.Type.String() == t.String() { // type equality
 			buf := bytes.NewBufferString("")
 			printer.Fprint(buf, token.NewFileSet(), expr)
 			switch t.(type) {

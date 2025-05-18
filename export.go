@@ -119,35 +119,37 @@ func compile(conn net.Conn, params []string, debug bool) {
 	panicIfError(os.Chdir(localPath))
 	args = args[1 : len(args)-1] //remove outputPath & remove localPath (chdir)
 	cfg.Tests = testBool
-	dep := &depth{Path: "init", Skipped: false, Deps: []depth{}}
 	excludes := map[string]bool{}
 	checksumMap := map[string]string{}
-	var pkgs []*packages.Package
-	pkgs, dep = processPkgs(outputPath, checksumMap, excludes, versionBytes, args, dep)
+	skipPkgs := map[string]bool{}
+	pkgs := processPkgs(outputPath, checksumMap, excludes, versionBytes, args, skipPkgs)
 	// always required pkgs
-	var requiredPkgs []*packages.Package
-	requiredPkgs, dep = processPkgs(outputPath, checksumMap, excludes, versionBytes, []string{
+	var skipPkgs2 map[string]bool
+	pkgs = append(pkgs, processPkgs(outputPath, checksumMap, excludes, versionBytes, []string{
 		"unicode/utf8", "reflect",
-	}, dep)
-	pkgs = append(pkgs, requiredPkgs...)
-	for _, pkg := range pkgs {
-		println("  " + pkg.PkgPath)
+	}, skipPkgs)...)
+	//copy over
+	for key, value := range skipPkgs2 {
+		skipPkgs[key] = value
 	}
 
+	pkgs, dep := getPkgs(pkgs, excludes, skipPkgs)
+	fmt.Println(len(pkgs))
+	fmt.Println(dep)
 	// send amount of pkgs
 	//println("len(pkgs)", len(pkgs))
 	sendLen(conn, len(pkgs))
-	sendData(conn, dep)
+	depValue := *dep
+	sendData(conn, depValue)
 	// send pkg data
 	parsePkgList(conn, pkgs, excludes, checksumMap)
 }
 
-func processPkgs(outputPath string, checksumMap map[string]string, excludes map[string]bool, versionBytes []byte, args []string, dep *depth) (newPkgs []*packages.Package, newDep *depth) {
+func processPkgs(outputPath string, checksumMap map[string]string, excludes map[string]bool, versionBytes []byte, args []string, skipPkgs map[string]bool) (newPkgs []*packages.Package) {
 	sizes := &types.StdSizes{WordSize: 4, MaxAlign: 8}
 	l, response, err := packages.Init(cfg, sizes, args...)
 	panicIfError(err)
 	deletePkgs := map[string]bool{}
-	skipPkgs := map[string]bool{}
 	// checksums
 	for _, pkg := range response.Packages {
 		const hashSize = 32
@@ -237,7 +239,7 @@ func processPkgs(outputPath string, checksumMap map[string]string, excludes map[
 	panicIfError(err)
 	//init
 	methodCache = typeutil.MethodSetCache{}
-	return getPkgs(initial, excludes, dep, skipPkgs)
+	return initial
 }
 
 func combineCheckSums(checksums [][32]byte, versionBytes []byte) string {
@@ -389,7 +391,8 @@ func createLenMessage(b []byte) []byte {
 	return append(bytesBuff, b...)
 }
 
-func getPkgs(list []*packages.Package, excludes map[string]bool, dep *depth, skipPkgs map[string]bool) (newPkgs []*packages.Package, newDep *depth) {
+func getPkgs(list []*packages.Package, excludes map[string]bool, skipPkgs map[string]bool) (newPkgs []*packages.Package, dep *depth) {
+	dep = &depth{Path: "init", Skipped: false, Deps: []depth{}}
 	newList := []*packages.Package{}
 	for i, pkg := range list {
 		continueLoop := false
@@ -420,7 +423,7 @@ func getPkgs(list []*packages.Package, excludes map[string]bool, dep *depth, ski
 		//if !stdExterns[pkg.PkgPath] {
 		for _, pkg := range pkg.Imports {
 			var newPkgs []*packages.Package
-			newPkgs, dep = getPkgs([]*packages.Package{pkg}, excludes, dep2, skipPkgs)
+			newPkgs, dep = getPkgs([]*packages.Package{pkg}, excludes, skipPkgs)
 			newList = append(newList, newPkgs...)
 		}
 		if !skipPkgs[pkg.PkgPath] {

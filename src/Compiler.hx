@@ -272,14 +272,15 @@ function accept(server:Socket, ready:Void->Void) {
 		}
 		var startedPkgs = 0;
 		var stamp = haxe.Timer.stamp();
+		var depsSent = false;
 		while (true) {
 			final buff = client.input.read(getLength(client.input.read(8)));
 			final b = Bytes.alloc(buff.length);
 			b.blit(0, buff, 0, buff.length);
-			if (instance.deps.length == 0) {
+			if (!depsSent) {
+				depsSent = true;
 				instance.deps = decodeData(b).deps;
 				printDeps(instance.deps);
-				Sys.println("total pkgs : " + instance.totalPkgs);
 			}else{
 				#if target.threaded
 				threadData.push(buff);

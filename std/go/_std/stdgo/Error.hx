@@ -19,15 +19,15 @@ typedef Error = StructType & {
 class T_errorString_asInterface {
     @:keep
     @:tdfield
-    public dynamic function error():stdgo.GoString return "runtime: " + errorString;
+    public dynamic function error():stdgo.GoString return "runtime error: " + errorString;
     @:keep
     @:tdfield
     public dynamic function runtimeError():Void  {}
     public function new(errorString:stdgo.GoString) {
 		this.errorString = errorString;
     }
-	var errorString:stdgo.GoString = "";
-    public function __underlying__() 
-		return new stdgo.AnyInterface(errorString, null);
-    
+    var errorString:stdgo.GoString = "";
+    public function __underlying__()  {
+      return stdgo.Go.toInterface(this);
+    }
 }

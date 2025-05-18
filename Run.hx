@@ -312,7 +312,11 @@ function build(rebuild:Bool) {
 		Sys.println("build Go part of the compiler");
 		final command = goCommand + ' build .';
 		Sys.println(command);
-		Sys.command(command);
+		final code = Sys.command(command);
+		if (code != 0) {
+			Sys.println("Failed to build Go compiler");
+			Sys.exit(code);
+		}
 	}
 }
 

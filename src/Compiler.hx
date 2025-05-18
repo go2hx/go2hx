@@ -276,7 +276,7 @@ function accept(server:Socket, ready:Void->Void) {
 		var startedPkgs = 0;
 		var stamp = haxe.Timer.stamp();
 		var depsSent = false;
-		for (startedPkgs in 0...instance.totalPkgs + 1) {
+		while (true) {
 			final buffLength = getLength(client.input.read(8));
 			final buff = client.input.read(buffLength);
 			if (!depsSent) {
@@ -294,6 +294,11 @@ function accept(server:Socket, ready:Void->Void) {
 				#else
 				receivedData(buff);
 				#end
+				startedPkgs++;
+				if (startedPkgs >= instance.totalPkgs) {
+					Sys.println("threadData load: " + (haxe.Timer.stamp() - stamp));
+					break;
+				}
 			}
 		}
 		while (true) {

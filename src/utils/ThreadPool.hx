@@ -1,10 +1,19 @@
 package utils;
 
+#if macro
+class ThreadPool {
+    public var maxThreadsCount = 0;
+    public var threadsCount(get, never):Int;
+    function get_threadsCount() {
+        return 0;
+    }
+    public function new(maxThreadsCount:Int=4) {}
+    public function run(task:()->Void):Void {}
+}
+#else
 import sys.thread.Thread;
 import sys.thread.Deque;
 import sys.thread.Mutex;
-
-//typedef ThreadPool = sys.thread.ElasticThreadPool;
 
 class ThreadPool {
     public var maxThreadsCount = 0;
@@ -21,30 +30,43 @@ class ThreadPool {
         return count;
     }
     public var pool:Array<Worker> = [];
-    public var loop:Void->Void;
-    public function new(maxThreadsCount:Int=4, timeout:Float=0.0) {
+    final queue = new Deque<()->Void>();
+    public function new(maxThreadsCount:Int=4) {
         this.maxThreadsCount = maxThreadsCount;
+        pool = [for(i in 0...maxThreadsCount) new Worker(queue)];
     }
-    public function start() {
-        pool = [for(i in 0...maxThreadsCount) new Worker(loop)];
-    }
+
+    public function run(task:()->Void):Void {
+		queue.add(task);
+	}
 }
 
 private class Worker {
 	var thread:Thread;
+	final queue:Deque<Null<()->Void>>;
     public var mutex = new Mutex();
-    public var running = true;
+    public var running = false;
 
-	public function new(f:Void->Void) {
-		thread = Thread.create(() -> {
-            try {
-                f();
-            }catch(e) {
-                throw e.details();
+	public function new(queue:Deque<Null<()->Void>>) {
+		this.queue = queue;
+		thread = Thread.create(loop);
+	}
+
+	function loop() {
+        try {
+            while(true) {
+                mutex.acquire();
+                running = false;
+                mutex.release();
+                var task = queue.pop(true);
+                mutex.acquire();
+                running = true;
+                mutex.release();
+                task();
             }
-            mutex.acquire();
-            running = false;
-            mutex.release();
-        });
+        }catch(e) {
+            throw e;
+        }
 	}
 }
+#end

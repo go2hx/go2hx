@@ -21,6 +21,7 @@ import (
 	"runtime"
 	"slices"
 	"sync"
+	"time"
 
 	_ "embed"
 	"os"
@@ -31,6 +32,8 @@ import (
 	"github.com/go2hx/go4hx/analysis"
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/types/typeutil"
+	//"net/http"
+	//_ "net/http/pprof"
 )
 
 type packageType struct {
@@ -77,13 +80,11 @@ var stdgoExternsBytes []byte
 var stdExterns map[string]bool
 var stdExports map[string]bool
 
-var excludes map[string]bool
-var visited map[string]bool
 var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
 
 var testBool = false
-var noDepsBool = false
 var systemGo = false
+var ranRequiredPkgs = false
 
 func compile(conn net.Conn, params []string, debug bool) {
 	args := []string{}
@@ -95,8 +96,6 @@ func compile(conn net.Conn, params []string, debug bool) {
 			systemGo = true
 		case "-test", "--test":
 			testBool = true
-		case "-nodeps", "--nodeps", "-nodep", "--nodep":
-			noDepsBool = true
 		default:
 			args = append(args, param)
 		}
@@ -122,36 +121,41 @@ func compile(conn net.Conn, params []string, debug bool) {
 	excludes := map[string]bool{}
 	checksumMap := map[string]string{}
 	skipPkgs := map[string]bool{}
-	pkgs := processPkgs(outputPath, checksumMap, excludes, versionBytes, args, skipPkgs)
+	pkgs := processPkgs(true, outputPath, checksumMap, excludes, versionBytes, args, skipPkgs)
 	// always required pkgs
 	var skipPkgs2 map[string]bool
-	pkgs = append(pkgs, processPkgs(outputPath, checksumMap, excludes, versionBytes, []string{
-		"unicode/utf8", "reflect",
-	}, skipPkgs)...)
+	if !ranRequiredPkgs {
+		pkgs = append(pkgs, processPkgs(false, outputPath, checksumMap, excludes, versionBytes, []string{
+			"unicode/utf8", "reflect",
+		}, skipPkgs)...)
+		ranRequiredPkgs = true
+	}
 	//copy over
 	for key, value := range skipPkgs2 {
 		skipPkgs[key] = value
 	}
-
-	pkgs, dep := getPkgs(pkgs, excludes, skipPkgs)
-	fmt.Println(len(pkgs))
-	fmt.Println(dep)
+	dep := &depth{Path: "init", Skipped: false, Deps: []depth{}}
+	pkgs = getPkgs(pkgs, excludes, skipPkgs, dep)
 	// send amount of pkgs
 	//println("len(pkgs)", len(pkgs))
 	sendLen(conn, len(pkgs))
-	depValue := *dep
-	sendData(conn, depValue)
+	sendData(conn, *dep)
 	// send pkg data
 	parsePkgList(conn, pkgs, excludes, checksumMap)
 }
 
-func processPkgs(outputPath string, checksumMap map[string]string, excludes map[string]bool, versionBytes []byte, args []string, skipPkgs map[string]bool) (newPkgs []*packages.Package) {
+func processPkgs(alwaysCompileRoots bool, outputPath string, checksumMap map[string]string, excludes map[string]bool, versionBytes []byte, args []string, skipPkgs map[string]bool) (newPkgs []*packages.Package) {
 	sizes := &types.StdSizes{WordSize: 4, MaxAlign: 8}
 	l, response, err := packages.Init(cfg, sizes, args...)
 	panicIfError(err)
 	deletePkgs := map[string]bool{}
 	// checksums
 	for _, pkg := range response.Packages {
+		if alwaysCompileRoots {
+			if slices.Contains(response.Roots, pkg.ID) {
+				continue
+			}
+		}
 		const hashSize = 32
 		checksumChan := make(chan [hashSize]byte, len(pkg.GoFiles))
 		for _, f := range pkg.GoFiles {
@@ -359,6 +363,7 @@ func sendData(conn net.Conn, data any) {
 	panicIfError(err)
 	w.Close()
 	_, err = conn.Write(createLenMessage(buff.Bytes()))
+	buff.Reset()
 	panicIfError(err)
 }
 
@@ -391,8 +396,7 @@ func createLenMessage(b []byte) []byte {
 	return append(bytesBuff, b...)
 }
 
-func getPkgs(list []*packages.Package, excludes map[string]bool, skipPkgs map[string]bool) (newPkgs []*packages.Package, dep *depth) {
-	dep = &depth{Path: "init", Skipped: false, Deps: []depth{}}
+func getPkgs(list []*packages.Package, excludes map[string]bool, skipPkgs map[string]bool, dep *depth) []*packages.Package {
 	newList := []*packages.Package{}
 	for i, pkg := range list {
 		continueLoop := false
@@ -420,19 +424,16 @@ func getPkgs(list []*packages.Package, excludes map[string]bool, skipPkgs map[st
 			Skipped: skipPkgs[pkg.PkgPath],
 			Deps:    []depth{},
 		}
-		//if !stdExterns[pkg.PkgPath] {
 		for _, pkg := range pkg.Imports {
-			var newPkgs []*packages.Package
-			newPkgs, dep = getPkgs([]*packages.Package{pkg}, excludes, skipPkgs)
+			newPkgs := getPkgs([]*packages.Package{pkg}, excludes, skipPkgs, dep2)
 			newList = append(newList, newPkgs...)
 		}
+		dep.Deps = append(dep.Deps, *dep2)
 		if !skipPkgs[pkg.PkgPath] {
 			newList = append(newList, pkg)
-			continue
 		}
-		dep.Deps = append(dep.Deps, *dep2)
 	}
-	return newList, dep
+	return newList
 }
 
 var cfg = &packages.Config{
@@ -449,6 +450,12 @@ const releaseMode packages.LoadMode = packages.NeedName |
 
 func main() {
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
+
+	// Start the pprof server in a separate goroutine
+	/*go func() {
+		log.Println(http.ListenAndServe("localhost:6060", nil))
+	}()*/
+
 	// set log output to log.out
 	cfg.Env = append(os.Environ(), "CGO_ENABLED=0")
 	var err error
@@ -626,34 +633,45 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 			}
 		}
 	}
-	countInterface = 0
-	countStruct = 0
-	localExcludes := map[string]bool{}
-	for _, pkg := range list {
-		checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
-		pkgData := PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
-		parseLocalPackage(pkg, &pkgData, localExcludes)
-	}
+	//memoryStats()
 	// 2nd pass
 	var wg sync.WaitGroup
 	for _, pkg := range list {
 		wg.Add(1)
 		pkg := pkg
 		go func() {
+			// local
+			localExcludes := map[string]bool{}
+			checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
+			pkgData := &PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
+			parseLocalPackage(pkg, pkgData, localExcludes)
+			// parse
 			syntax := parsePkg(pkg)
+			// set checksum
 			if checksum, exists := checksumMap[pkg.PkgPath]; exists {
 				syntax.Checksum = checksum
 			}
-			sendData(conn, syntax)
+			// send data
+			sendData(conn, *syntax)
+			syntax = nil
+			pkgData = nil
+			checker = nil
+			localExcludes = nil
+			// leave
+			//runtime.GC()
+			//memoryStats()
 			wg.Done()
 		}()
+		for runtime.NumGoroutine() > 30 {
+			time.Sleep(time.Millisecond * 50)
+		}
 	}
 	wg.Wait()
 }
 
-func parsePkg(pkg *packages.Package) packageType {
+func parsePkg(pkg *packages.Package) *packageType {
 	fset := pkg.Fset
-	data := packageType{}
+	data := &packageType{}
 	for _, obj := range pkg.TypesInfo.InitOrder {
 		for _, v := range obj.Lhs {
 			if !stdExports[pkg.PkgPath] || v.Exported() {
@@ -684,8 +702,8 @@ func parsePkg(pkg *packages.Package) packageType {
 	//pkg.EmbedFiles
 	// parsFeFile
 	if len(pkg.Syntax) > 0 {
-		pkgData := PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
-		data.Files = []fileType{parseFile(pkg.Syntax[0], name, &pkgData)}
+		pkgData := &PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
+		data.Files = []fileType{parseFile(pkg.Syntax[0], name, pkgData)}
 		data.TypeList = make([]map[string]interface{}, len(pkgData.hashMap))
 		i := 0
 		for _, value := range pkgData.hashMap {

@@ -167,10 +167,12 @@ function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
 		}
 	}
 	// cache
-	try {
-		final cachePath = outputPath + actualPath + '/.go2hx_cache';
-		File.saveContent(cachePath, module.checksum);
-	}catch(_) {}
+	if (module.checksum != "") {
+		try {
+			final cachePath = outputPath + actualPath + '/.go2hx_cache';
+			File.saveContent(cachePath, module.checksum);
+		}catch(_) {}
+	}
 }
 
 private function runCmd(cmd:String) {

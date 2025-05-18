@@ -17,7 +17,7 @@ var onUnknownExit:Void->Void = null;
 var modules:Array<typer.HaxeAst.Module> = [];
 var instance:CompilerInstanceData = null;
 #if target.threaded
-final threadPool = new utils.ThreadPool(4,0.001);
+final threadPool = new utils.ThreadPool(4);
 final threadData = new sys.thread.Deque<haxe.io.Bytes>();
 #end
 
@@ -54,7 +54,7 @@ function receivedData(buff:Bytes) {
 	// generate the code
 	codegen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
 	final codeGenTime = measureTime();
-	Sys.println(module.path + " " + countPkgs + "/" + instance.totalPkgs + " " + (decodeDataTime + typePackageTime + codeGenTime));
+	Sys.println(module.path + " " + countPkgs + "/" + instance.totalPkgs);
 	if (instance.times) {
 		Sys.println("- decodeData : " + decodeDataTime);
 		Sys.println("- typePackage: " + typePackageTime);
@@ -243,7 +243,8 @@ function setupCompiler(ready:Void->Void) {
 	port = server.host().port;
 	if (instance != null)
 		instance.port = port;
-	Sys.println('listening on local port: $port');
+	if (instance.noRunGo4hx)
+		Sys.println('listening on local port: $port');
 	startGo4hx(port);
 	accept(server, ready);
 }
@@ -259,12 +260,14 @@ function accept(server:Socket, ready:Void->Void) {
 	if (instance == null)
 		instance = new CompilerInstanceData();
 	client = server.accept();
-	Sys.println("accepted connection");
+	if (instance.noRunGo4hx)
+		Sys.println("accepted connection");
 	if (ready != null)
 		ready();
 	while (true) {
 		Sys.setCwd(cwd);
 		instance.totalPkgs = getLength(client.input.read(8));
+		trace("TOTAL PACKAGES: " + instance.totalPkgs);
 		if (instance.totalPkgs == 0) {
 			Sys.println("0 packages to compile");
 			end(instance);
@@ -273,36 +276,34 @@ function accept(server:Socket, ready:Void->Void) {
 		var startedPkgs = 0;
 		var stamp = haxe.Timer.stamp();
 		var depsSent = false;
-		while (true) {
-			final buff = client.input.read(getLength(client.input.read(8)));
-			final b = Bytes.alloc(buff.length);
-			b.blit(0, buff, 0, buff.length);
+		for (startedPkgs in 0...instance.totalPkgs + 1) {
+			final buffLength = getLength(client.input.read(8));
+			final buff = client.input.read(buffLength);
 			if (!depsSent) {
 				depsSent = true;
-				instance.deps = decodeData(b).deps;
+				instance.deps = decodeData(buff).deps;
 				printDeps(instance.deps);
 			}else{
 				#if target.threaded
-				threadData.push(buff);
+				while (threadPool.threadsCount >= threadPool.maxThreadsCount) {
+					Sys.sleep(0.001);
+				}
+				threadPool.run(() -> {
+					receivedData(buff);
+				});
 				#else
 				receivedData(buff);
 				#end
-				startedPkgs++;
-				if (startedPkgs >= instance.totalPkgs) {
-					Sys.println("threadData load: " + (haxe.Timer.stamp() - stamp));
-					break;
-				}
 			}
+		}
+		while (true) {
+			mutex.acquire();
+			if (modules.length != 0)
+				break;
+			mutex.release();
+			Sys.sleep(0.001);
 		}
 		#if target.threaded
-		threadPool.loop = () -> {
-			var buff = threadData.pop(false);
-			while (buff != null) {
-				receivedData(buff);
-				buff = threadData.pop(false);
-			}
-		}
-		threadPool.start();
 		while (threadPool.threadsCount > 0) {
 			Sys.sleep(0.01);
 		}

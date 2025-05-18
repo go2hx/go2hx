@@ -48,7 +48,9 @@ function receivedData(buff:Bytes) {
 	// IMPORTANT: typing phase Go AST -> Haxe AST
 	final module = typer.Package.typePackage(data, instance);
 	final typePackageTime = measureTime();
+	mutex.acquire();
 	final countPkgs = modules.push(module);
+	mutex.release();
 	// generate the code
 	codegen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
 	final codeGenTime = measureTime();
@@ -131,9 +133,11 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 		@doc("Set what command should be used for gocmd get & gocmd mod init")
 		["-gocmd", "--gocmd"] => s -> instance.goCommand = s,
 		["-help", "--help", "-h", "--h"] => () -> help = true,
-		@doc("don't run the build commands")
-		["-norun", "--norun"] => () -> instance.noRun = true, @doc("go test")
-		["-nocomments", "--nocomments"] => () -> instance.noComments = true, @doc("no comments")
+		@doc("don't run go4hx, set it up manually")
+		["-nogo4hx", "--nogo4hx"] => () -> instance.noRunGo4hx = true, 
+		@doc("go test")
+		["-nocomments", "--nocomments"] => () -> instance.noComments = true, 
+		@doc("no comments")
 		["-test", "--test"] => () -> instance.test = true,
 		["-bench", "--bench"] => () -> instance.bench = true,
 		["-vartrace", "--vartrace", "-varTrace", "--varTrace"] => () -> instance.varTraceBool = true,
@@ -248,7 +252,8 @@ function startGo4hx(port:Int) {
 	//return;
 	resetCount = 0;
 	//sys.thread.Thread.create(() -> Sys.command("./go4hx", ['' + port]));
-	process = new sys.io.Process("./go4hx", ['' + port]);
+	if (instance == null || !instance.noRunGo4hx)
+		process = new sys.io.Process("./go4hx", ['' + port]);
 }
 function accept(server:Socket, ready:Void->Void) {
 	if (instance == null)
@@ -316,8 +321,8 @@ private inline function getInstanceData():CompilerInstanceData {
 private function printDeps(deps:Array<Dep>, tab:String="") {
 	for (dep in deps) {
 		var extra = "";
-		if (dep.excluded)
-			continue;
+		if (dep.skipped)
+			extra = "*";
 		Sys.println(tab + dep.path + extra);
 		if (dep.deps != null && dep.deps.length > 0)
 			printDeps(dep.deps, tab + "  ");
@@ -438,7 +443,7 @@ class CompilerInstanceData {
 	public var buildPath:String = "";
 	public var externBool:Bool = false;
 	public var hxmlPath:String = "";
-	public var noRun:Bool = false;
+	public var noRunGo4hx:Bool = false;
 	public var noComments:Bool = false;
 	public var useCache:Bool = true;
 	public var cleanCache:Bool = false;
@@ -480,7 +485,7 @@ class CompilerInstanceData {
 		instance.buildPath = buildPath;
 		instance.externBool = externBool;
 		instance.hxmlPath = hxmlPath;
-		instance.noRun = noRun;
+		instance.noRunGo4hx = noRunGo4hx;
 		instance.noComments = noComments;
 		instance.useCache = useCache;
 		instance.cleanCache = cleanCache;
@@ -503,6 +508,6 @@ var programArgs = [];
 
 typedef Dep = {
 	path:String,
-	excluded:Bool,
+	skipped:Bool,
 	deps:Array<Dep>,
 }

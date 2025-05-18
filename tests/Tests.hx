@@ -446,6 +446,8 @@ function runNewTest() {
 	} else {
 		args.push(globalPath);
 	}
+	if (haxe.macro.Compiler.getDefine("rebuild") != null)
+		args.push("--rebuild");
 	// trace(args.join(" "));
 	runningCount++;
 	final command = "haxe --run Run " + args.join(" ");
@@ -500,6 +502,7 @@ private function testGo() { // go tests
 
 private function testStd() { // standard library package tests
 	type = "std";
+	testBool = true;
 	final list:Array<String> = Json.parse(File.getContent("data/tests.json"));
 	Sys.println("STD TESTS: " + list.length);
 	for (name in list) {
@@ -507,7 +510,8 @@ private function testStd() { // standard library package tests
 			case "regexp":
 				continue;
 		}
-		createRunnableStd(name, "stdgo/");
+		tests.push(name);
+		//createRunnableStd(name, "stdgo/");
 	}
 	Sys.println("______________________");
 	// haxe stdgo/unicode.hxml --interp

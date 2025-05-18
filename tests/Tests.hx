@@ -312,6 +312,7 @@ function update() {
 				#end
 				if (task.runtime || task.target == "interp") {
 					trace("runtime error: " + task.command + " " + task.args.join(" "));
+					trace("runtime output:\n" + task.output);
 					// runtime error
 					trace("CLOSE: " + code);
 					// logs output

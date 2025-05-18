@@ -187,21 +187,20 @@ private function runTests() {
 	}
 }
 
-var runningCount = 0;
 var timeout = 0;
 var retryFailedCount = 2;
 var failedRegressionTasks:Array<TaskData> = [];
 
 function update() {
-	// Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);
-	if (completeBool && tests.length == 0 && tasks.length == 0 && runningCount == 0) {
+	//Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + lastTaskLogs.length);
+	if (completeBool && tests.length == 0 && tasks.length == 0 && lastTaskLogs.length == 0) {
 		trace("COMPLETE");
 		close();
 	}
-	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount)) {
+	if (tasks.length > 0) {
 		final task = tasks.pop();
 		if (!noLogs) {
-			Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);
+			Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + lastTaskLogs);
 		}
 		if (hxbBool) {
 			task.args.push("--hxb-lib");
@@ -209,14 +208,12 @@ function update() {
 		}
 		final taskString = task.command + " " + task.args.join(" ");
 		lastTaskLogs.push(taskString);
-		runningCount++;
 		trace("task command: " + task.command + " " + task.args.join(" "));
 		final ls:js.node.child_process.ChildProcess = js.node.ChildProcess.spawn(task.command, task.args, {shell: true});
 		ls.stdout.setEncoding('utf8');
 		ls.stderr.setEncoding('utf8');
 		var timeoutTimer = new haxe.Timer((1000 * 60) * 5);
 		timeoutTimer.run = () -> {
-			runningCount--;
 			trace("TEST TIMEOUT: " + task.command + " " + task.args.join(" "));
 			if (task.runtime) {
 				suite.runtimeError(task);
@@ -342,7 +339,6 @@ function update() {
 					}
 				}
 			}
-			runningCount--;
 			timeout = 0;
 			timeoutTimer.stop();
 			lastTaskLogs.remove(taskString);
@@ -381,8 +377,6 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 private function complete(main:String, excludes:Array<String>) {
 	timeout = 0;
 	completeBool = true;
-	if (main != "")
-		runningCount--;
 	spawnTargets(main, excludes);
 	runNewTest();
 }
@@ -433,14 +427,15 @@ function runNewTest() {
 	if (haxe.macro.Compiler.getDefine("nogo4hx") != null)
 		args.push("--nogo4hx");
 	// trace(args.join(" "));
-	runningCount++;
 	final command = "haxe --run Run " + args.join(" ");
+	lastTaskLogs.push(command);
 	//trace(command);
 	final code = Sys.command(command);
 	if (code != 0) {
 		Sys.println("Compiler failed: " + test);
 		Sys.exit(1);
 	}
+	lastTaskLogs.remove(command);
 	// get main.txt for main line
 	final path = haxe.io.Path.normalize(File.getContent("main.txt"));
 	complete(path, excludes);
@@ -725,7 +720,7 @@ private function excludeTest(name:String) {
 		case "issue47928": // go-easy fails for golang too
 		case "zerosize": // go-easy uses obsecure &runtime.zerobase
 		case "export0": // yaegi-easy no main func
-		case "issue29624", "issue29312": // yaegi-medium 100d array breaks Haxe's printer
+		case "issue29624", "issue29312": // yaegi-medium 100d array breaks Haxe's printer, breaks thread stack frame
 		case "type9", "method16", "struct28": // yaegi-medium not the same as go compiler output
 		case "issue26094": // go-medium relies on exact same error messages for null access
 		default:

@@ -22,7 +22,6 @@ import (
 	"runtime/debug"
 	"slices"
 	"sync"
-	"time"
 
 	_ "embed"
 	"os"
@@ -627,26 +626,17 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 	}
 	// 2nd pass
 	var wg sync.WaitGroup
-	var mutex sync.Mutex
-	var runningCount int = 0
+	sem := make(chan struct{}, 20) // Semaphore to limit concurrency
 	for _, pkg := range list {
 		wg.Add(1)
-		mutex.Lock()
-		runningCount++
-		mutex.Unlock()
-		for {
-			mutex.Lock()
-			if runningCount < 20 {
-				mutex.Unlock()
-				break
-			}
-			mutex.Unlock()
-			time.Sleep(time.Millisecond * 3)
-		}
-		memoryStats()
+		//memoryStats()
 		pkg := pkg
 		// TODO make this not eat up so much memory
 		go func() {
+			defer wg.Done()          // Done for wait group
+			sem <- struct{}{}        // Acquire a token
+			defer func() { <-sem }() // Release the token
+
 			localExcludes := map[string]bool{}
 			checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 			pkgData := PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
@@ -657,17 +647,15 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 			if checksum, exists := checksumMap[pkg.PkgPath]; exists {
 				syntax.Checksum = checksum
 			}
+			pkg = nil
+			checker = nil
 			// send data
 			sendData(conn, *syntax)
 			syntax = nil
 			localExcludes = nil
 			// leave
-			//runtime.GC()
-			//memoryStats()
-			wg.Done()
-			mutex.Lock()
-			runningCount--
-			mutex.Unlock()
+			//debug.FreeOSMemory()
+			memoryStats()
 		}()
 	}
 	wg.Wait()

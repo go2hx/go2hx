@@ -17,7 +17,7 @@ var onUnknownExit:Void->Void = null;
 var modules:Array<typer.HaxeAst.Module> = [];
 var instance:CompilerInstanceData = null;
 #if target.threaded
-final threadPool = new utils.ThreadPool(4);
+final threadPool = new sys.thread.ElasticThreadPool(4, 0.1);
 final threadData = new sys.thread.Deque<haxe.io.Bytes>();
 #end
 
@@ -283,10 +283,9 @@ function accept(server:Socket, ready:Void->Void) {
 			if (!depsSent) {
 				depsSent = true;
 				instance.deps = decodeData(buff).deps;
-				//printDeps(instance.deps);
 			}else{
 				#if target.threaded
-				while (threadPool.threadsCount >= threadPool.maxThreadsCount) {
+				while (threadPool.threadsCount > threadPool.maxThreadsCount) {
 					Sys.sleep(0.001);
 				}
 				threadPool.run(() -> {
@@ -302,18 +301,9 @@ function accept(server:Socket, ready:Void->Void) {
 				}
 			}
 		}
-		while (true) {
-			mutex.acquire();
-			if (modules.length != 0) {
-				mutex.release();
-				break;
-			}
-			mutex.release();
-			Sys.sleep(0.001);
-		}
 		#if target.threaded
 		while (threadPool.threadsCount > 0) {
-			Sys.sleep(0.001);
+			Sys.sleep(0.001 * 100);
 		}
 		#end
 		end(instance);

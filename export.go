@@ -419,9 +419,11 @@ func getPkgs(list []*packages.Package, excludes map[string]bool, skipPkgs map[st
 			Skipped: skipPkgs[pkg.PkgPath],
 			Deps:    []depth{},
 		}
-		for _, pkg := range pkg.Imports {
-			newPkgs := getPkgs([]*packages.Package{pkg}, excludes, skipPkgs, dep2)
-			newList = append(newList, newPkgs...)
+		if !skipPkgs[pkg.PkgPath] {
+			for _, pkg := range pkg.Imports {
+				newPkgs := getPkgs([]*packages.Package{pkg}, excludes, skipPkgs, dep2)
+				newList = append(newList, newPkgs...)
+			}
 		}
 		dep.Deps = append(dep.Deps, *dep2)
 		if !skipPkgs[pkg.PkgPath] {

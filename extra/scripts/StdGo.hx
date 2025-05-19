@@ -38,26 +38,22 @@ function main() {
 		libs.remove(path);
 	trace(libs);
 	
-	final args = libs.concat(['--nocomments', '--norun']);
-	if (varTraceBool)
-		args.push("--vartrace");
-	if (stackBool)
-		args.push("--stack");
+	final args = libs;
 	if (MacroCompiler.getDefine("_hl") != null) {
 		args.push("-compiler_hl");
 	}else{
 		args.push("-compiler_cpp");
 	}
+	if (haxe.macro.Compiler.getDefine("rebuild") != null)
+		args.push("--rebuild");
+	if (haxe.macro.Compiler.getDefine("nogo4hx") != null)
+		args.push("-nogo4hx");
 	args.push(cwd);
 	Sys.command("haxe --run Run " + args.join(" "));
 }
 
 var compiled:Bool = false;
 var args:Array<String> = [];
-var hxml = "";
-var varTraceBool = MacroCompiler.getDefine("vartrace") != null;
-var stackBool = MacroCompiler.getDefine("stack") != null;
-var releaseBool = MacroCompiler.getDefine("release") != null;
 
 private function sanatize(s:String):String {
 	s = StringTools.replace(s, "/", "_");

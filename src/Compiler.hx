@@ -313,7 +313,7 @@ function accept(server:Socket, ready:Void->Void) {
 		}
 		#if target.threaded
 		while (threadPool.threadsCount > 0) {
-			Sys.sleep(0.0001);
+			Sys.sleep(0.001);
 		}
 		#end
 		end(instance);

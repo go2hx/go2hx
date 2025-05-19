@@ -43,10 +43,11 @@ function main() {
 		args.push("--vartrace");
 	if (stackBool)
 		args.push("--stack");
-	if (!releaseBool) {
-		args.push('--test');
+	if (MacroCompiler.getDefine("_hl") != null) {
+		args.push("-compiler_hl");
+	}else{
+		args.push("-compiler_cpp");
 	}
-	args.push("-compiler_cpp");
 	args.push(cwd);
 	Sys.command("haxe --run Run " + args.join(" "));
 }

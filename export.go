@@ -19,7 +19,6 @@ import (
 	"path"
 	"path/filepath"
 	"runtime"
-	"runtime/debug"
 	"slices"
 	"sync"
 
@@ -446,7 +445,6 @@ const releaseMode packages.LoadMode = packages.NeedName |
 	packages.NeedModule | packages.NeedTypesSizes
 
 func main() {
-	debug.SetMemoryLimit(2000000000)
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
 
 	// set log output to log.out

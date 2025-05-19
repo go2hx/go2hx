@@ -9,15 +9,15 @@ using Lambda;
 class Go2hxMacro {
 	// this stays in macro only context
 	// @:persistent
-	static final nameTypes:Map<String, Expr> = [];
+	public static final nameTypes:Map<String, Expr> = [];
 
-	static function getTypeInfoData(path:String):Expr {
+	public static function getTypeInfoData(path:String):Expr {
 		if (!nameTypes.exists(path))
 			throw "path not found in nameTypes: " + path;
 		return macro stdgo.TypeInfo.n[$v{path}];
 	}
 
-	static function setTypeInfoData(path:String, e:Expr):Expr {
+	public static function setTypeInfoData(path:String, e:Expr):Expr {
 		nameTypes[path] = e;
 		return getTypeInfoData(path);
 	}

@@ -1028,8 +1028,8 @@ class Go {
 							case TAnonymous(a):
 								final path = createPath(ref.module, ref.name);
 								// path cache
-								if (nameTypes.exists(path))
-									return getTypeInfoData(path);
+								if (Go2hxMacro.nameTypes.exists(path))
+									return Go2hxMacro.getTypeInfoData(path);
 								if (marked.exists(path)) {
 									ret = macro stdgo._internal.internal.reflect.GoType.named($v{path}, [],
 										stdgo._internal.internal.reflect.GoType.invalidType, false, {
@@ -1088,7 +1088,7 @@ class Go {
 											stdgo._internal.internal.reflect.GoType.interfaceType($v{empty}, $a{methods}), false, {
 												get: () -> null
 											});
-										return setTypeInfoData(path, e);
+										return Go2hxMacro.setTypeInfoData(path, e);
 									}
 								}
 							default:
@@ -1175,7 +1175,7 @@ class Go {
 										if (isInvalidNamed) {
 											return e;
 										} else {
-											return setTypeInfoData(path, e);
+											return Go2hxMacro.setTypeInfoData(path, e);
 										}
 									}
 								} else {
@@ -1469,8 +1469,8 @@ class Go {
 		var underlyingType:haxe.macro.Type = null;
 		var module = parseModule(ref.module);
 		final path = createPath(ref.module, ref.name);
-		if (nameTypes.exists(path)) {
-			return getTypeInfoData(path);
+		if (Go2hxMacro.nameTypes.exists(path)) {
+			return Go2hxMacro.getTypeInfoData(path);
 		}
 		if (marked.exists(path)) {
 			return macro stdgo._internal.internal.reflect.GoType.named($v{path}, [], stdgo._internal.internal.reflect.GoType.invalidType,
@@ -1507,7 +1507,7 @@ class Go {
 			t = gtDecode(underlyingType, expr, marked);
 		}
 		final e = macro stdgo._internal.internal.reflect.GoType.named($v{path}, $a{methods}, $t, false, {get: () -> null});
-		return setTypeInfoData(path, e);
+		return Go2hxMacro.setTypeInfoData(path, e);
 	}
 
 	public static macro function min(exprs:Array<Expr>) {

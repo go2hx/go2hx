@@ -21,6 +21,5 @@
 	"internal/platform",
 	"internal/race",
 	"net",
-	"net/http",
-	"crypto/tls"
+	"time/tzdata"
 ]

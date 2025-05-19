@@ -991,21 +991,6 @@ class Go {
 		return pTypes;
 	}
 
-	// this stays in macro only context
-	// @:persistent
-	static final nameTypes:Map<String, Expr> = [];
-
-	static function getTypeInfoData(path:String):Expr {
-		if (!nameTypes.exists(path))
-			throw "path not found in nameTypes: " + path;
-		return macro stdgo.TypeInfo.n[$v{path}];
-	}
-
-	static function setTypeInfoData(path:String, e:Expr):Expr {
-		nameTypes[path] = e;
-		return getTypeInfoData(path);
-	}
-
 	public static function gtDecode(t:haxe.macro.Type, expr:Expr, marked:Map<String, Bool>, recv:Expr = null):Expr {
 		final marked = marked.copy();
 		var ret = macro stdgo._internal.internal.reflect.GoType.invalidType;
@@ -1117,8 +1102,8 @@ class Go {
 												get: () -> null
 											});
 									} else {
-										if (Go.nameTypes.exists(path))
-											return getTypeInfoData(path);
+										if (Go2hxMacro.nameTypes.exists(path))
+											return Go2hxMacro.getTypeInfoData(path);
 										if (marked.exists(path)) {
 											return macro stdgo._internal.internal.reflect.GoType.named($v{path}, [],
 												stdgo._internal.internal.reflect.GoType.invalidType, false, {
@@ -1323,8 +1308,8 @@ class Go {
 						final methods:Array<Expr> = [];
 						final path = createPath(ref.module, ref.name);
 						// patch cache
-						if (Go.nameTypes.exists(path))
-							return getTypeInfoData(path);
+						if (Go2hxMacro.nameTypes.exists(path))
+							return Go2hxMacro.getTypeInfoData(path);
 						if (ref.meta.has(":using")) {
 							final s = new haxe.macro.Printer().printExpr(ref.meta.extract(":using")[0].params[0]);
 							switch Context.getType(s) {

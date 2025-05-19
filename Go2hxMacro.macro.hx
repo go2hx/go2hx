@@ -1,5 +1,4 @@
-package stdgo._internal.internal;
-
+import haxe.macro.Compiler;
 import haxe.macro.PositionTools;
 import haxe.macro.Expr;
 import haxe.macro.ExprTools;
@@ -7,7 +6,21 @@ import haxe.macro.Context;
 
 using Lambda;
 
-class Macro {
+class Go2hxMacro {
+	// this stays in macro only context
+	// @:persistent
+	static final nameTypes:Map<String, Expr> = [];
+
+	static function getTypeInfoData(path:String):Expr {
+		if (!nameTypes.exists(path))
+			throw "path not found in nameTypes: " + path;
+		return macro stdgo.TypeInfo.n[$v{path}];
+	}
+
+	static function setTypeInfoData(path:String, e:Expr):Expr {
+		nameTypes[path] = e;
+		return getTypeInfoData(path);
+	}
 	public static function init() {
 		var run = false;
 		Context.onAfterTyping(_ -> {
@@ -15,7 +28,7 @@ class Macro {
 				return;
 			run = true;
 			final exprs:Array<Expr> = [];
-			for (name => e in @:privateAccess Go.nameTypes) {
+			for (name => e in @:privateAccess Go2hxMacro.nameTypes) {
 				exprs.push(macro $v{name} => $e);
 			}
 			//trace("non hxb types:", exprs.length);

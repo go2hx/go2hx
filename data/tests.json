@@ -5,7 +5,6 @@
     "math",
     "math/bits",
     "math/big",
-    "math/rand",
     "sort",
     "strings",
     "flag",

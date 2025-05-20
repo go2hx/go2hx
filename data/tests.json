@@ -58,7 +58,6 @@
     "hash/crc64",
     "hash/adler32",
     "hash/fnv",
-    "hash/html",
     "crypto/sha1",
     "crypto/sha256",
     "crypto/sha512",

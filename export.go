@@ -63,9 +63,6 @@ type interfaceData struct {
 //go:embed data/stdgo.list
 var stdgoListBytes []byte
 
-//go:embed data/excludes.json
-var excludesBytes []byte
-
 var stdgoList map[string]bool
 
 //go:embed data/stdgoExports.json
@@ -127,6 +124,9 @@ func compile(conn net.Conn, params []string, debug bool) {
 		"unicode/utf8", "reflect",
 	}, skipPkgs)...)
 	dep := &depth{Path: "init", Skipped: false, Deps: []depth{}}
+	for _, arg := range args {
+		delete(skipPkgs, arg)
+	}
 	pkgs = getPkgs(pkgs, excludes, skipPkgs, dep)
 	// send amount of pkgs
 	//println("len(pkgs)", len(pkgs))
@@ -151,9 +151,6 @@ func processPkgs(outputPath string, checksumMap map[string]string, excludes map[
 				}
 				anotherExists = true
 				break
-			}
-			if anotherExists {
-				continue
 			}
 			const hashSize = 32
 			checksumChan := make(chan [hashSize]byte, len(pkg.GoFiles))
@@ -198,7 +195,7 @@ func processPkgs(outputPath string, checksumMap map[string]string, excludes map[
 			if err == nil {
 				// checksum is the same
 				sameSum := string(b) == checksum
-				if sameSum {
+				if sameSum && !anotherExists {
 					// remove from root
 					response.Roots = slices.DeleteFunc(response.Roots, func(root string) bool {
 						rootPath := strings.Split(root, " ")[0]

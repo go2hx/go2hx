@@ -120,7 +120,7 @@ func compile(conn net.Conn, params []string, debug bool) {
 	cfg.Tests = testBool
 	excludes := map[string]bool{}
 	checksumMap := map[string]string{}
-	skipPkgs := map[string]bool{}
+	skipPkgs := map[string]bool{"time/tzdata": true}
 	pkgs := processPkgs(outputPath, checksumMap, excludes, versionBytes, args, skipPkgs)
 	// always required pkgs
 	pkgs = append(pkgs, processPkgs(outputPath, checksumMap, excludes, versionBytes, []string{
@@ -153,7 +153,6 @@ func processPkgs(outputPath string, checksumMap map[string]string, excludes map[
 				break
 			}
 			if anotherExists {
-				skipPkgs[pkg.PkgPath] = true
 				continue
 			}
 			const hashSize = 32
@@ -398,7 +397,19 @@ func createLenMessage(b []byte) []byte {
 
 func getPkgs(list []*packages.Package, excludes map[string]bool, skipPkgs map[string]bool, dep *depth) []*packages.Package {
 	newList := []*packages.Package{}
-	for _, pkg := range list {
+	for i, pkg := range list {
+		continueLoop := false
+		// remove normal one and replace with test version
+		for _, pkg2 := range list[i+1:] {
+			if pkg.PkgPath != pkg2.PkgPath {
+				continue
+			}
+			continueLoop = true
+			break
+		}
+		if continueLoop {
+			continue
+		}
 		if excludes[pkg.PkgPath] {
 			dep.Deps = append(dep.Deps, depth{
 				Path:    pkg.PkgPath,

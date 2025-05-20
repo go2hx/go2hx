@@ -99,7 +99,6 @@
     "internal/platform",
     "context",
     "encoding/gob",
-    "encoding/json",
     "container/list",
     "container/heap",
     "container/ring"

@@ -333,7 +333,7 @@ function update() {
 							final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
 							for (pass in previousData.passes) {
 								if (data.passes.indexOf(pass) == -1) {
-									trace("REGRESSION");
+									trace("REGRESSION: " + pass);
 									suite.regressionTestError(task, pass);
 								}
 							}
@@ -487,12 +487,14 @@ private function testStd() { // standard library package tests
 	testBool = true;
 	final list:Array<String> = Json.parse(File.getContent("data/tests.json"));
 	Sys.println("STD TESTS: " + list.length);
-	for (name in list) {
+	final count = testCount == 0 ? list.length : testCount;
+	for (name in list.slice(0, count)) {
 		switch name {
 			case "regexp":
 				continue;
 		}
-		tests.push(name);
+		tests = [name];
+		runNewTest();
 		createRunnableStd(name, "stdgo/");
 	}
 	Sys.println("______________________");

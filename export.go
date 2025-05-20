@@ -123,14 +123,9 @@ func compile(conn net.Conn, params []string, debug bool) {
 	skipPkgs := map[string]bool{}
 	pkgs := processPkgs(outputPath, checksumMap, excludes, versionBytes, args, skipPkgs)
 	// always required pkgs
-	var skipPkgs2 map[string]bool
 	pkgs = append(pkgs, processPkgs(outputPath, checksumMap, excludes, versionBytes, []string{
 		"unicode/utf8", "reflect",
 	}, skipPkgs)...)
-	//copy over
-	for key, value := range skipPkgs2 {
-		skipPkgs[key] = value
-	}
 	dep := &depth{Path: "init", Skipped: false, Deps: []depth{}}
 	pkgs = getPkgs(pkgs, excludes, skipPkgs, dep)
 	// send amount of pkgs
@@ -148,7 +143,19 @@ func processPkgs(outputPath string, checksumMap map[string]string, excludes map[
 	deletePkgs := map[string]bool{}
 	// checksums
 	if !noCache {
-		for _, pkg := range response.Packages {
+		for i, pkg := range response.Packages {
+			anotherExists := false
+			for _, pkg2 := range response.Packages[i+1:] {
+				if pkg.PkgPath != pkg2.PkgPath {
+					continue
+				}
+				anotherExists = true
+				break
+			}
+			if anotherExists {
+				skipPkgs[pkg.PkgPath] = true
+				continue
+			}
 			const hashSize = 32
 			checksumChan := make(chan [hashSize]byte, len(pkg.GoFiles))
 			for _, f := range pkg.GoFiles {
@@ -391,19 +398,7 @@ func createLenMessage(b []byte) []byte {
 
 func getPkgs(list []*packages.Package, excludes map[string]bool, skipPkgs map[string]bool, dep *depth) []*packages.Package {
 	newList := []*packages.Package{}
-	for i, pkg := range list {
-		continueLoop := false
-		// remove normal one and replace with test version
-		for _, pkg2 := range list[i+1:] {
-			if pkg.PkgPath != pkg2.PkgPath {
-				continue
-			}
-			continueLoop = true
-			break
-		}
-		if continueLoop {
-			continue
-		}
+	for _, pkg := range list {
 		if excludes[pkg.PkgPath] {
 			dep.Deps = append(dep.Deps, depth{
 				Path:    pkg.PkgPath,
@@ -471,8 +466,8 @@ func main() {
 	for _, s := range list2 {
 		stdgoList[s] = true
 	}
-	externList := make([]string, 0, 150)
-	exportList := make([]string, 0, 150)
+	externList := []string{}
+	exportList := []string{}
 
 	err = json.Unmarshal(stdgoExportsBytes, &exportList)
 	panicIfError(err)
@@ -655,7 +650,7 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 			localExcludes = nil
 			// leave
 			//debug.FreeOSMemory()
-			memoryStats()
+			//memoryStats()
 		}()
 	}
 	wg.Wait()

@@ -674,8 +674,8 @@ private function testLibs() {
 	testBool = true;
 	final libs:Array<{module:String, excludes:Array<String>, main:String}> = Json.parse(File.getContent("data/testLibs.json"));
 	for (lib in libs) {
+		tests = [lib.module];
 		final name = io.Path.normalizePath(lib.module);
-		tests = [name];
 		final excludes = [];
 		for (exclude in lib.excludes) {
 			excludes.push("-exclude");

@@ -191,6 +191,149 @@ var timeout = 0;
 var retryFailedCount = 2;
 var failedRegressionTasks:Array<TaskData> = [];
 
+function runTask(task:TaskData) {
+	final taskString = task.command + " " + task.args.join(" ");
+	lastTaskLogs.push(taskString);
+	trace("task command: " + task.command + " " + task.args.join(" "));
+	final ls:js.node.child_process.ChildProcess = js.node.ChildProcess.spawn(task.command, task.args, {shell: true});
+	ls.stdout.setEncoding('utf8');
+	ls.stderr.setEncoding('utf8');
+	var timeoutTimer = new haxe.Timer((1000 * 60) * 5);
+	timeoutTimer.run = () -> {
+		trace("TEST TIMEOUT: " + task.command + " " + task.args.join(" "));
+		if (task.runtime) {
+			suite.runtimeError(task);
+		} else {
+			suite.buildError(task);
+		}
+		ls.removeAllListeners();
+		ls.kill();
+		trace("COMPLETE");
+		close();
+	};
+	ls.stdout.on('data', function(data) {
+		if (!noLogs) {
+			log(task.target + "|" + task.path + "|" + task.runtime + "|" + task.stamp());
+			Sys.print(data);
+			log(data);
+		}
+		task.output += data;
+		timeout = 0;
+	});
+	ls.stderr.on('data', function(data) {
+		log(task.target + "|" + task.path + "|" + task.runtime + "|" + task.stamp());
+		Sys.print(data);
+		task.output += data;
+		log(data);
+		timeout = 0;
+	});
+	ls.on('close', function(code) {
+		final output = task.output;
+		// if good close
+		if (code == 0) {
+			if (task.runtime || task.target == "interp") {
+				final wanted = outputMap[type + "_" + task.path];
+				if (wanted != null && wanted != "") {
+					function sanatize(s:String):String {
+						if (s.charAt(s.length - 1) == "\n")
+							s = s.substr(0, s.length - 1);
+						return StringTools.trim(s);
+					}
+					final output = sanatize(output);
+					final wanted = sanatize(wanted);
+					final correct = output == wanted;
+					if (correct) {
+						suite.correct(task);
+					} else {
+						Sys.println("command: " + task.command + " " + task.args.join(" "));
+						Sys.println("output:");
+						Sys.println(output);
+						Sys.println("wanted:");
+						Sys.println(wanted);
+						Sys.println("bytes:");
+						Sys.println([for (i in 0...output.length) output.charCodeAt(i)]);
+						Sys.println([for (i in 0...wanted.length) wanted.charCodeAt(i)]);
+						suite.incorrect(task);
+					}
+				} else {
+					suite.success(task);
+				}
+			} else {
+				// trace(task.excludeArgs);
+				final cmd = BuildTools.runTarget(task.target, "golibs/" + task.out, task.excludeArgs, task.main).split(" ");
+				tasks.push({
+					command: cmd[0],
+					args: cmd.slice(1),
+					target: task.target,
+					path: task.path,
+					runtime: true,
+					out: "",
+					main: "",
+					excludeArgs: task.excludeArgs
+				});
+			}
+		} else {
+			#if js
+			if (code == null)
+				code = 2;
+			#end
+			if (task.runtime || task.target == "interp") {
+				trace("runtime error: " + task.command + " " + task.args.join(" "));
+				trace("runtime output:\n" + task.output);
+				// runtime error
+				trace("CLOSE: " + code);
+				// logs output
+				if (!FileSystem.exists("tests/logs")) {
+					FileSystem.createDirectory("tests/logs");
+				}
+				if (type == "std") {
+					final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
+					final analyzeDataFileName = "tests/logs/" + name + ".json";
+					final data = analyzeStdLog(output);
+					File.saveContent("tests/logs/" + name + ".log", output);
+					var failed = false;
+					if (FileSystem.exists(analyzeDataFileName)) {
+						final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
+						for (pass in previousData.passes) {
+							if (data.passes.indexOf(pass) == -1) {
+								trace("REGRESSION");
+								suite.regressionTestError(task, pass);
+								failed = true;
+							}
+						}
+					}
+					if (!failed)
+						File.saveContent(analyzeDataFileName, Json.stringify(data, null, "    "));
+				}
+				suite.runtimeError(task);
+			} else {
+				trace("build error: " + task.command + " " + task.args.join(" "));
+				suite.buildError(task);
+				if (type == "std") {
+					final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
+					final analyzeDataFileName = "tests/logs/" + name + ".json";
+					final data = analyzeStdLog(output);
+					File.saveContent("tests/logs/" + name + ".log", output);
+
+					if (FileSystem.exists(analyzeDataFileName)) {
+						final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
+						for (pass in previousData.passes) {
+							if (data.passes.indexOf(pass) == -1) {
+								trace("REGRESSION: " + task.path + " " + pass);
+								suite.regressionTestError(task, pass);
+							}
+						}
+					}
+				}
+			}
+		}
+		timeout = 0;
+		timeoutTimer.stop();
+		lastTaskLogs.remove(taskString);
+		completeBool = true;
+	});
+}
+
 function update() {
 	//Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + lastTaskLogs.length);
 	if (completeBool && tests.length == 0 && tasks.length == 0 && lastTaskLogs.length == 0) {
@@ -206,146 +349,7 @@ function update() {
 			task.args.push("--hxb-lib");
 			task.args.push("go2hx.zip");
 		}
-		final taskString = task.command + " " + task.args.join(" ");
-		lastTaskLogs.push(taskString);
-		trace("task command: " + task.command + " " + task.args.join(" "));
-		final ls:js.node.child_process.ChildProcess = js.node.ChildProcess.spawn(task.command, task.args, {shell: true});
-		ls.stdout.setEncoding('utf8');
-		ls.stderr.setEncoding('utf8');
-		var timeoutTimer = new haxe.Timer((1000 * 60) * 5);
-		timeoutTimer.run = () -> {
-			trace("TEST TIMEOUT: " + task.command + " " + task.args.join(" "));
-			if (task.runtime) {
-				suite.runtimeError(task);
-			} else {
-				suite.buildError(task);
-			}
-			ls.removeAllListeners();
-			ls.kill();
-			trace("COMPLETE");
-			close();
-		};
-		ls.stdout.on('data', function(data) {
-			if (!noLogs) {
-				log(task.target + "|" + task.path + "|" + task.runtime + "|" + task.stamp());
-				Sys.print(data);
-				log(data);
-			}
-			task.output += data;
-			timeout = 0;
-		});
-		ls.stderr.on('data', function(data) {
-			log(task.target + "|" + task.path + "|" + task.runtime + "|" + task.stamp());
-			Sys.print(data);
-			task.output += data;
-			log(data);
-			timeout = 0;
-		});
-		ls.on('close', function(code) {
-			final output = task.output;
-			// if good close
-			if (code == 0) {
-				if (task.runtime || task.target == "interp") {
-					final wanted = outputMap[type + "_" + task.path];
-					if (wanted != null && wanted != "") {
-						function sanatize(s:String):String {
-							if (s.charAt(s.length - 1) == "\n")
-								s = s.substr(0, s.length - 1);
-							return StringTools.trim(s);
-						}
-						final output = sanatize(output);
-						final wanted = sanatize(wanted);
-						final correct = output == wanted;
-						if (correct) {
-							suite.correct(task);
-						} else {
-							Sys.println("command: " + task.command + " " + task.args.join(" "));
-							Sys.println("output:");
-							Sys.println(output);
-							Sys.println("wanted:");
-							Sys.println(wanted);
-							Sys.println("bytes:");
-							Sys.println([for (i in 0...output.length) output.charCodeAt(i)]);
-							Sys.println([for (i in 0...wanted.length) wanted.charCodeAt(i)]);
-							suite.incorrect(task);
-						}
-					} else {
-						suite.success(task);
-					}
-				} else {
-					// trace(task.excludeArgs);
-					final cmd = BuildTools.runTarget(task.target, "golibs/" + task.out, task.excludeArgs, task.main).split(" ");
-					tasks.push({
-						command: cmd[0],
-						args: cmd.slice(1),
-						target: task.target,
-						path: task.path,
-						runtime: true,
-						out: "",
-						main: "",
-						excludeArgs: task.excludeArgs
-					});
-				}
-			} else {
-				#if js
-				if (code == null)
-					code = 2;
-				#end
-				if (task.runtime || task.target == "interp") {
-					trace("runtime error: " + task.command + " " + task.args.join(" "));
-					trace("runtime output:\n" + task.output);
-					// runtime error
-					trace("CLOSE: " + code);
-					// logs output
-					if (!FileSystem.exists("tests/logs")) {
-						FileSystem.createDirectory("tests/logs");
-					}
-					if (type == "std") {
-						final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
-						final analyzeDataFileName = "tests/logs/" + name + ".json";
-						final data = analyzeStdLog(output);
-						File.saveContent("tests/logs/" + name + ".log", output);
-						var failed = false;
-						if (FileSystem.exists(analyzeDataFileName)) {
-							final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
-							for (pass in previousData.passes) {
-								if (data.passes.indexOf(pass) == -1) {
-									trace("REGRESSION");
-									suite.regressionTestError(task, pass);
-									failed = true;
-								}
-							}
-						}
-						if (!failed)
-							File.saveContent(analyzeDataFileName, Json.stringify(data, null, "    "));
-					}
-					suite.runtimeError(task);
-				} else {
-					trace("build error: " + task.command + " " + task.args.join(" "));
-					suite.buildError(task);
-					if (type == "std") {
-						final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
-						final analyzeDataFileName = "tests/logs/" + name + ".json";
-						final data = analyzeStdLog(output);
-						File.saveContent("tests/logs/" + name + ".log", output);
-
-						if (FileSystem.exists(analyzeDataFileName)) {
-							final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
-							for (pass in previousData.passes) {
-								if (data.passes.indexOf(pass) == -1) {
-									trace("REGRESSION: " + task.path + " " + pass);
-									suite.regressionTestError(task, pass);
-								}
-							}
-						}
-					}
-				}
-			}
-			timeout = 0;
-			timeoutTimer.stop();
-			lastTaskLogs.remove(taskString);
-			completeBool = true;
-		});
+		runTask(task);
 	}
 }
 
@@ -498,6 +502,7 @@ private function testStd() { // standard library package tests
 		tests = [name];
 		runNewTest();
 		createRunnableStd(name, "stdgo/");
+		runTask(tasks.pop());
 	}
 	Sys.println("______________________");
 	// haxe stdgo/unicode.hxml --interp

@@ -28,5 +28,6 @@
  "hl|crypto",
  "hl|bufio",
  "hl|io",
- "hl|hash"
+ "hl|hash",
+ "hl|bytesdottest.Bytesdottest"
 ]

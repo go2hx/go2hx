@@ -379,7 +379,7 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 private function complete(main:String, excludes:Array<String>) {
 	timeout = 0;
 	completeBool = true;
-	if (type != "std")
+	if (type != "std" && type != "libs")
 		spawnTargets(main, excludes);
 	runNewTest();
 }
@@ -503,7 +503,7 @@ private function testStd() { // standard library package tests
 	// haxe stdgo/unicode.hxml --interp
 }
 
-function createRunnableStd(name:String, prefix:String) {
+function createRunnableStd(name:String, prefix:String, excludeFuncArgs:Array<String>=null) {
 
 	final main = name;
 	final out = createTargetOutput(target, type, name);
@@ -529,7 +529,7 @@ function createRunnableStd(name:String, prefix:String) {
 		target: target,
 		out: out,
 		main: main,
-		excludeArgs: []
+		excludeArgs: excludeFuncArgs ?? [],
 	});
 	Sys.println(args.join(" "));
 }
@@ -543,8 +543,9 @@ private function log(v) {
 final input:Array<String> = [];
 
 private function runInterop() {
-	if (type != "libs")
+	if (type != "libs") {
 		return;
+	}
 	Sys.println("RUN INTEROP");
 	final libs:Array<{module:String, excludes:Array<String>, main:String}> = Json.parse(File.getContent("data/testLibs.json"));
 	for (lib in libs) {
@@ -668,14 +669,15 @@ private function testLibs() {
 	testBool = true;
 	final libs:Array<{module:String, excludes:Array<String>, main:String}> = Json.parse(File.getContent("data/testLibs.json"));
 	for (lib in libs) {
-		tests.push(lib.module);
-		trace(lib.module);
+		final name = io.Path.normalizePath(lib.module);
+		tests = [name];
 		final excludes = [];
 		for (exclude in lib.excludes) {
 			excludes.push("-exclude");
 			excludes.push(exclude);
 		}
-		excludeFuncArgs.push(excludes);
+		runNewTest();
+		createRunnableStd(name, "", excludes);
 	}
 }
 

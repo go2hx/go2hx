@@ -90,7 +90,6 @@
     "image",
     "image/color",
     "image/draw",
-    "index/suffixarray",
     "text/template",
     "internal/bisect",
     "internal/testenv",

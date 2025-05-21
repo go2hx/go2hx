@@ -202,7 +202,8 @@ func processPkgs(outputPath string, checksumMap map[string]string, excludes map[
 						return pkg.PkgPath == rootPath
 					})
 					// mark as delete
-					deletePkgs[pkg.PkgPath] = true
+					skipPkgs[pkg.PkgPath] = true
+					//deletePkgs[pkg.PkgPath] = true
 					continue
 				}
 			} else if !os.IsNotExist(err) {

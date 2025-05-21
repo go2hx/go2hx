@@ -82,7 +82,6 @@
     "crypto/internal/randutil",
     "internal/types/errors",
     "internal/abi",
-    "internal/poll",
     "path/filepath",
     "compress/bzip2",
     "encoding/hex",

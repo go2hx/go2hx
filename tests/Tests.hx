@@ -333,7 +333,7 @@ function update() {
 							final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
 							for (pass in previousData.passes) {
 								if (data.passes.indexOf(pass) == -1) {
-									trace("REGRESSION: " + pass);
+									trace("REGRESSION: " + task.path + " " + pass);
 									suite.regressionTestError(task, pass);
 								}
 							}
@@ -493,6 +493,8 @@ private function testStd() { // standard library package tests
 			case "regexp":
 				continue;
 		}
+		if (run != "" && name != run)
+			continue;
 		tests = [name];
 		runNewTest();
 		createRunnableStd(name, "stdgo/");

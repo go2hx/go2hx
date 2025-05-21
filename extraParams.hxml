@@ -1,7 +1,6 @@
 -D go2hx
 --macro Go2hxMacro.init()
 -D simulate_num
--D hl_no_opt
 -D numberlinkerror
 -D numberlinkmath
 -D splitdeps

@@ -428,7 +428,9 @@ func getPkgs(list []*packages.Package, excludes map[string]bool, skipPkgs map[st
 			}
 		}
 		dep.Deps = append(dep.Deps, *dep2)
-		newList = append(newList, pkg)
+		if !skipPkgs[pkg.PkgPath] {
+			newList = append(newList, pkg)
+		}
 	}
 	return newList
 }

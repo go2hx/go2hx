@@ -222,7 +222,7 @@ jobs:
       - name: Set source
         run: haxelib dev go2hx .
       - name: run compiler
-        run: haxelib run go2hx unicode --test
+        run: haxelib run go2hx unicode --test -compiler_cpp
   libs-hl:
     timeout-minutes: 75
     needs: setup

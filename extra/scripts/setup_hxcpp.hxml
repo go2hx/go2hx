@@ -1,0 +1,3 @@
+-cp extra/scripts
+-m SetupHxcpp
+--interp

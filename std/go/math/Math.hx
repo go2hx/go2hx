@@ -36,6 +36,9 @@ function max(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
 	if (_x > 0 && !std.Math.isFinite(_x.toBasic()) || _y > 0 && !std.Math.isFinite(_y.toBasic()))
 		return GoMath.inf(1);
     final case1 = _x == 0.0 && _y == 0.0 && !GoMath.signbit(_x);
+	if (_x == 0.0 && _y == 0.0 && (!GoMath.signbit(_x) || !GoMath.signbit(_y))) {
+		return 0.0;
+	}
     final case2 = !GoMath.isNaN(_y) || _x == 0.0;
     final case3 = _y == 0.0 && !GoMath.signbit(_y) && !GoMath.isNaN(_x);
 	if (case1 && case2 && case3) {

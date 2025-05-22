@@ -116,20 +116,7 @@ function main() {
 		setupJava(rebuild, args);
 		return;
 	}
-	/*var code = 1;
-		try {
-			process = new Process("node -v");
-			code = process.exitCode();
-			process.close();
-		}catch(_) {
-			code = 1;
-		}
-
-		if (code == 0) {
-			setupNodeJS(rebuild,args);
-			return;
-	}*/
-	setupInterp(rebuild, args);
+	setupCPP(rebuild, args);
 }
 
 function clean() {
@@ -346,10 +333,11 @@ function setupCPP(rebuild:Bool, args:Array<String>) {
 			Sys.exit(1);
 		}
 	}
-	Sys.println(fileName + " " + args.join(" "));
-	final code = Sys.command(fileName, args);
+	final command = fileName + " " + args.join(" ");
+	Sys.println(command);
+	final code = Sys.command(command);
 	if (code != 0) {
-		Sys.println("COMPILER RUN FAILED");
+		Sys.println("COMPILER RUN FAILED: " + command);
 		Sys.exit(code);
 	}
 }
@@ -388,10 +376,11 @@ function setupHashlink(rebuild:Bool, args:Array<String>) {
 		Sys.command(cmd);
 	}
 	args.unshift("export/build.hl");
-	Sys.println("hl" + " " + args.join(" "));
-	final code = Sys.command("hl", args);
+	final command = "hl" + " " + args.join(" ");
+	Sys.println(command);
+	final code = Sys.command(command);
 	if (code != 0) {
-		Sys.println("COMPILER RUN FAILED");
+		Sys.println("COMPILER RUN FAILED: " + command);
 		Sys.exit(code);
 	}
 }

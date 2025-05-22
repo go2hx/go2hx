@@ -778,7 +778,7 @@ jobs:
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
-        run: go run ./extra/scripts/sortTests ci
+        run: haxelib run go2hx go run ./extra/scripts/sortTests ci
       # run go medium tests
       - name: Run go medium tests
         run: haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D target=hl #-D hxb
@@ -844,7 +844,7 @@ jobs:
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
-        run: go run ./extra/scripts/sortTests ci
+        run: haxelib run go2hx go run ./extra/scripts/sortTests ci
       # run go medium tests
       - name: Run go medium tests
         run: haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D target=js #-D hxb

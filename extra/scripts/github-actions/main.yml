@@ -217,7 +217,7 @@ jobs:
       - run: haxe -version
       # go2hx setup
       - name: Install hxcpp
-        run: haxelib git hxcpp https://github.com/haxefoundation/hxcpp
+        run: haxelib install hxcpp
       - name: Build go2hx compiler
         run: haxe --run Run build
       - name: Set source

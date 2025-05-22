@@ -217,6 +217,8 @@ jobs:
           haxe-version: latest  # Install 'haxe_latest.tar.gz' from https://build.haxe.org/builds/haxe/linux64/
       - run: haxe -version
       # go2hx setup
+      - name: Install hxcpp
+        run: haxelib git hxcpp https://github.com/haxefoundation/hxcpp
       - name: Build go2hx compiler
         run: haxe --run Run build
       - name: Set source

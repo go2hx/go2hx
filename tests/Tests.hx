@@ -196,6 +196,7 @@ function runTask(task:TaskData) {
 	lastTaskLogs.push(taskString);
 	trace("task command: " + task.command + " " + task.args.join(" "));
 	final ls:js.node.child_process.ChildProcess = js.node.ChildProcess.spawn(task.command, task.args, {shell: true});
+	completeBool = false;
 	ls.stdout.setEncoding('utf8');
 	ls.stderr.setEncoding('utf8');
 	var timeoutTimer = new haxe.Timer((1000 * 60) * 5);
@@ -487,25 +488,42 @@ private function testGo() { // go tests
 }
 
 private function testStd() { // standard library package tests
+	dryRun = true;
 	type = "std";
 	testBool = true;
-	final list:Array<String> = Json.parse(File.getContent("data/tests.json"));
+	var list:Array<String> = Json.parse(File.getContent("data/tests.json"));
 	Sys.println("STD TESTS: " + list.length);
 	final count = testCount == 0 ? list.length : testCount;
-	for (name in list.slice(0, count)) {
+	completeBool = true;
+	list = list.slice(0, count);
+
+	Sys.println("______________________");
+	// haxe stdgo/unicode.hxml --interp
+	final timer = new haxe.Timer(100);
+	timer.run = () -> updateStd(list);
+}
+
+function updateStd(list:Array<String>) {
+	if (list.length == 0) {
+		update();
+		return;
+	}
+	if (!completeBool) {
+		return;
+	}
+	final name = list.pop();
+	if (name != null) {
 		switch name {
 			case "regexp":
-				continue;
+				return;
 		}
 		if (run != "" && name != run)
-			continue;
+			return;
 		tests = [name];
 		runNewTest();
 		createRunnableStd(name, "stdgo/");
 		runTask(tasks.pop());
 	}
-	Sys.println("______________________");
-	// haxe stdgo/unicode.hxml --interp
 }
 
 function createRunnableStd(name:String, prefix:String, excludeFuncArgs:Array<String>=null) {

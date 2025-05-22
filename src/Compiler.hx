@@ -285,7 +285,7 @@ function accept(server:Socket, ready:Void->Void) {
 				instance.deps = decodeData(buff).deps;
 			}else{
 				#if target.threaded
-				while (threadPool.threadsCount > threadPool.maxThreadsCount) {
+				while (threadPool.threadsCount >= threadPool.maxThreadsCount) {
 					Sys.sleep(0.001);
 				}
 				threadPool.run(() -> {
@@ -302,7 +302,12 @@ function accept(server:Socket, ready:Void->Void) {
 			}
 		}
 		#if target.threaded
+		var waitCount = 0;
 		while (threadPool.threadsCount > 0) {
+			waitCount++;
+			if (waitCount > 2000 && waitCount % 2000 == 0) {
+				trace("threadPool.threadsCounts:", threadPool.threadsCount);
+			}
 			Sys.sleep(0.001);
 		}
 		#end

@@ -13,10 +13,6 @@ steps:
       sudo rm -rf /opt/ghc
       sudo rm -rf "/usr/local/share/boost"
       sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-  - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-  - uses: actions/setup-go@v3
-    with:
-      go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
 ::support::
   # Get the cores 
   - name: Get number of cores (Ubuntu)

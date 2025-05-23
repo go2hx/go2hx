@@ -1,2 +1,0 @@
-package stdgo._internal.internal.profile;
-var _cpuProfilerRxStr : stdgo.GoString = stdgo._internal.strings.Strings_join.join((new stdgo.Slice<stdgo.GoString>(5, 5, ...[("ProfileData::Add" : stdgo.GoString), ("ProfileData::prof_handler" : stdgo.GoString), ("CpuProfiler::prof_handler" : stdgo.GoString), ("__pthread_sighandler" : stdgo.GoString), ("__restore" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), ("|" : stdgo.GoString));

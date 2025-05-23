@@ -1,5 +1,0 @@
-package stdgo._internal.crypto.internal.nistec;
-function newP521Point():stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p521point.P521Point> {
-        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/p521.go#L29"
-        return (stdgo.Go.setRef(({ _x : (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>), _y : (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>).one(), _z : (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>) } : stdgo._internal.crypto.internal.nistec.Nistec_p521point.P521Point)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p521point.P521Point>);
-    }

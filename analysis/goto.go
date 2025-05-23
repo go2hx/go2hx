@@ -776,7 +776,7 @@ func (fs *funcScope) typeToExpr(t types.Type) ast.Expr {
 		return ast.NewIdent("any")
 	}
 	for expr, data := range fs.checker.Types {
-		if data.Type.String() == t.String() { // type equality
+		if data.Type != nil && data.Type.String() == t.String() { // type equality
 			buf := bytes.NewBufferString("")
 			printer.Fprint(buf, token.NewFileSet(), expr)
 			switch t.(type) {
@@ -796,7 +796,6 @@ var testBool = false
 
 func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet, setTestBool bool) {
 	testBool = setTestBool
-	counter = 0
 	// select functions that have gotos in them
 	decls := []*ast.FuncDecl{}
 	for _, decl := range file.Decls {

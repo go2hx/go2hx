@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"runtime"
 	"sync/atomic"
-	"testing"
 
 	"math/rand"
 )
@@ -18,7 +17,8 @@ func main() {
 	}
 	p := 4 * runtime.GOMAXPROCS(0)
 	N := int(1e5)
-	if testing.Short() {
+	const short = true
+	if short {
 		p /= 2
 		N = 1e3
 	}

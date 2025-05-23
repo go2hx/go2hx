@@ -1,7 +1,0 @@
-package stdgo._internal.syscall;
-@:keep var __init_go2hx__ = {
-        try {
-            var __tmp__0 = stdgo._internal.syscall.Syscall__envs._envs, __tmp__1 = stdgo._internal.syscall.Syscall__jsprocess._jsProcess, __tmp__2 = stdgo._internal.syscall.Syscall__jsfs._jsFS, __tmp__3 = stdgo._internal.syscall.Syscall__constants._constants, __tmp__4 = stdgo._internal.syscall.Syscall__uint8array._uint8Array, __tmp__5 = stdgo._internal.syscall.Syscall__nodewronly._nodeWRONLY, __tmp__6 = stdgo._internal.syscall.Syscall__noderdwr._nodeRDWR, __tmp__7 = stdgo._internal.syscall.Syscall__nodecreate._nodeCREATE, __tmp__8 = stdgo._internal.syscall.Syscall__nodetrunc._nodeTRUNC, __tmp__9 = stdgo._internal.syscall.Syscall__nodeappend._nodeAPPEND, __tmp__10 = stdgo._internal.syscall.Syscall__nodeexcl._nodeEXCL, __tmp__11 = stdgo._internal.syscall.Syscall__files._files, __tmp__12 = stdgo._internal.syscall.Syscall__signals._signals, __tmp__13 = stdgo._internal.syscall.Syscall__errorstr._errorstr, __tmp__14 = stdgo._internal.syscall.Syscall__erreagain._errEAGAIN, __tmp__15 = stdgo._internal.syscall.Syscall__erreinval._errEINVAL, __tmp__16 = stdgo._internal.syscall.Syscall__errenoent._errENOENT, __tmp__17 = stdgo._internal.syscall.Syscall__errnobycode._errnoByCode, __tmp__18 = stdgo._internal.syscall.Syscall___12.__12, __tmp__19 = stdgo._internal.syscall.Syscall___13.__13, __tmp__20 = stdgo._internal.syscall.Syscall___14.__14;
-        } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
-        true;
-    };

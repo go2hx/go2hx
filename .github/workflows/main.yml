@@ -23,11 +23,8 @@ jobs:
       - name: Get number of cores (macOS)
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        continue-on-error: true
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
+      - name: setup c++
+        run: sudo apt install g++-multilib
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
@@ -59,8 +56,9 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
             ./go2hx.*.zip
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
   goto:
     timeout-minutes: 15
@@ -72,10 +70,6 @@ jobs:
         with:
           submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        continue-on-error: true
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - run: git clone https://github.com/go2hx/tools --depth=1
       - name: Create vendor
         run: go mod vendor
@@ -90,10 +84,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: cedx/setup-hashlink@v6.2.0
       - name: Install lix
         run: npm i lix -g
@@ -112,8 +102,9 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
-            ./go2hx.*.zip 
+            ./go2hx.*.zip
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Build interop test
         run: haxelib run go2hx ./tests/interop --nolibwrap
@@ -166,8 +157,9 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
-            ./go2hx.*.zip 
+            ./go2hx.*.zip
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - uses: EndBug/add-and-commit@v9
         continue-on-error: true
@@ -225,23 +217,16 @@ jobs:
           haxe-version: latest  # Install 'haxe_latest.tar.gz' from https://build.haxe.org/builds/haxe/linux64/
       - run: haxe -version
       # go2hx setup
+      - name: Install hxcpp
+        run: haxelib git hxcpp https://github.com/haxefoundation/hxcpp
+      - name: Setup hxcpp
+        run: haxe extra/scripts/setup_hxcpp.hxml
       - name: Build go2hx compiler
         run: haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
-      - name: Clean stdgo
-        run: haxe --run Run clean
-      - uses: actions/cache/restore@v4
-        id: setup-cache
-        with:
-          path: |
-            TypeInfoData_go2hx_hxb.hx
-            ./_internal/*
-            ./stdgo/*
-            ./go2hx.*.zip 
-          key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: run compiler
-        run: haxelib run go2hx unicode --test --interp
+        run: haxelib run go2hx unicode --test -compiler_cpp
   libs-hl:
     timeout-minutes: 75
     needs: setup
@@ -250,11 +235,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
-      - uses: cedx/setup-hashlink@v6.0.0
+      - uses: cedx/setup-hashlink@v6.2.0
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -279,15 +260,12 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
             ./go2hx.*.zip 
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Run lib tests
-        run: npx haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: libs tests update hl
@@ -303,10 +281,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
     
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -332,15 +306,12 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
             ./go2hx.*.zip 
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Run lib tests
-        run: npx haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: libs tests update interp
@@ -356,10 +327,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: actions/setup-node@v4
         with:
           node-version: 23
@@ -388,15 +355,12 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
             ./go2hx.*.zip 
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Run lib tests
-        run: npx haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: libs tests update js
@@ -424,7 +388,7 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
-      - uses: cedx/setup-hashlink@v6.0.0
+      - uses: cedx/setup-hashlink@v6.2.0
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -451,8 +415,9 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
-            ./go2hx.*.zip 
+            ./go2hx.*.zip
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
@@ -461,11 +426,7 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       # run go easy tests
       - name: Run go easy tests
-        run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D targets=hl #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=hl #-D hxb
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -521,8 +482,9 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
-            ./go2hx.*.zip 
+            ./go2hx.*.zip
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
@@ -531,11 +493,7 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       # run go easy tests
       - name: Run go easy tests
-        run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D targets=interp #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=interp #-D hxb
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -594,8 +552,9 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
-            ./go2hx.*.zip 
+            ./go2hx.*.zip
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
@@ -604,11 +563,7 @@ jobs:
         run: go run ./extra/scripts/sortTests ci
       # run go easy tests
       - name: Run go easy tests
-        run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D targets=js #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=js #-D hxb
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -625,11 +580,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
-      - uses: cedx/setup-hashlink@v6.0.0
+      - uses: cedx/setup-hashlink@v6.2.0
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -654,8 +605,9 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
             ./go2hx.*.zip 
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       # run yaegi easy tests
       - name: clone yaegi
@@ -663,11 +615,7 @@ jobs:
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi easy tests
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
       # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -684,10 +632,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
     
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -713,8 +657,9 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
             ./go2hx.*.zip 
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       # run yaegi easy tests
       - name: clone yaegi
@@ -722,11 +667,7 @@ jobs:
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi easy tests
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
       # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -743,10 +684,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: actions/setup-node@v4
         with:
           node-version: 23
@@ -775,8 +712,9 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
             ./go2hx.*.zip 
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       # run yaegi easy tests
       - name: clone yaegi
@@ -784,11 +722,7 @@ jobs:
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi easy tests
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
       # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -813,11 +747,7 @@ jobs:
           sudo rm -rf /opt/ghc
           sudo rm -rf "/usr/local/share/boost"
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
-      - uses: cedx/setup-hashlink@v6.0.0
+      - uses: cedx/setup-hashlink@v6.2.0
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -844,21 +774,18 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
             ./go2hx.*.zip 
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
-        run: go run ./extra/scripts/sortTests ci
+        run: haxelib run go2hx go run ./extra/scripts/sortTests ci
       # run go medium tests
       - name: Run go medium tests
-        run: npx haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D targets=hl #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D target=hl #-D hxb
       # add go_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -883,10 +810,6 @@ jobs:
           sudo rm -rf /opt/ghc
           sudo rm -rf "/usr/local/share/boost"
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: actions/setup-node@v4
         with:
           node-version: 23
@@ -917,21 +840,18 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
             ./go2hx.*.zip 
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
-        run: go run ./extra/scripts/sortTests ci
+        run: haxelib run go2hx go run ./extra/scripts/sortTests ci
       # run go medium tests
       - name: Run go medium tests
-        run: npx haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D targets=js #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D target=js #-D hxb
       # add go_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -948,11 +868,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
-      - uses: cedx/setup-hashlink@v6.0.0
+      - uses: cedx/setup-hashlink@v6.2.0
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -977,8 +893,9 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
             ./go2hx.*.zip 
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       # run yaegi medium tests
       - name: clone yaegi
@@ -986,11 +903,7 @@ jobs:
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi medium tests
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
       # add yaegi_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -1007,10 +920,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
     
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -1036,8 +945,9 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
             ./go2hx.*.zip 
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       # run yaegi medium tests
       - name: clone yaegi
@@ -1045,11 +955,7 @@ jobs:
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi medium tests
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
       # add yaegi_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -1066,10 +972,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: actions/setup-node@v4
         with:
           node-version: 23
@@ -1098,8 +1000,9 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
             ./go2hx.*.zip 
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       # run yaegi medium tests
       - name: clone yaegi
@@ -1107,11 +1010,7 @@ jobs:
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       - name: Run yaegi medium tests
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
-      - name: Remove stdgo folder
-        run: rm -r -d stdgo
-      - name: Remove _internal folder
-        run: rm -r -d _internal
+        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
       # add yaegi_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -1140,11 +1039,7 @@ jobs:
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
       # non self-host setup
         continue-on-error: true
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
-      - uses: cedx/setup-hashlink@v6.0.0
+      - uses: cedx/setup-hashlink@v6.2.0
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
@@ -1162,15 +1057,13 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
-            ./go2hx.*.zip 
+            ./go2hx.*.zip
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - run: ls
-      # compile stdgo
-      #- name: Run stdgo automatic compile
-      #  run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
+        run: haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update hl
@@ -1179,7 +1072,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl  #-D hxb
+        run: haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl  #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update hl
@@ -1207,10 +1100,6 @@ jobs:
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
       # non self-host setup
         continue-on-error: true
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
     
       - name: Install lix
         run: npm i lix -g
@@ -1229,15 +1118,13 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
-            ./go2hx.*.zip 
+            ./go2hx.*.zip
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - run: ls
-      # compile stdgo
-      #- name: Run stdgo automatic compile
-      #  run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
+        run: haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update interp
@@ -1246,7 +1133,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp  #-D hxb
+        run: haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp  #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update interp
@@ -1274,10 +1161,6 @@ jobs:
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
       # non self-host setup
         continue-on-error: true
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - uses: actions/setup-node@v4
         with:
           node-version: 23
@@ -1299,15 +1182,13 @@ jobs:
           path: |
             TypeInfoData_go2hx_hxb.hx
             ./_internal/*
-            ./stdgo/*
-            ./go2hx.*.zip 
+            ./go2hx.*.zip
+            export
+            golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - run: ls
-      # compile stdgo
-      #- name: Run stdgo automatic compile
-      #  run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
+        run: haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update js
@@ -1316,7 +1197,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js  #-D hxb
+        run: haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js  #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update js

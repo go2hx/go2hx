@@ -11,10 +11,10 @@ function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):MacroExpr {
 		}
 		return macro {};
 	}
-	return toExpr(typeStmtList(stmt.list, info, isFunc));
+	return typeStmtList(stmt.list, info, isFunc);
 }
 
-function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):ExprDef {
+function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr {
 	if (isFunc) {
 		info.localIdents = info.localIdents.copy();
 		info.renameIdents = info.renameIdents.copy();
@@ -47,9 +47,6 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 			stmts[i] = macro @:comment(${HaxeAst.makeString(commentString)}) ${stmts[i]};
 		}
 		exprs = exprs.concat(stmts);
-	}
-	if (list != null && info.global.gotoSystem && isFunc) {
-		exprs = [macro stdgo._internal.internal.Macro.controlFlow($b{exprs})];
 	}
 	// trace(list != null, info.global.deferBool, isFunc);
 	if (list != null && info.global.deferBool && isFunc) { // defer system
@@ -123,5 +120,5 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 			exprs.push(trydef);
 		}
 	}
-	return EBlock(exprs);
+	return toExpr(EBlock(exprs));
 }

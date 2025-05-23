@@ -1,5 +1,0 @@
-package stdgo._internal.net.internal.socktest;
-function _cookie(_family:stdgo.GoInt, _sotype:stdgo.GoInt, _proto:stdgo.GoInt):stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie {
-        //"file:///home/runner/.go/go1.21.3/src/net/internal/socktest/switch.go#L69"
-        return ((((_family : stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie) << (48i64 : stdgo.GoUInt64) : stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie) | (((_sotype : stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie) & (4294967295i64 : stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie) : stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie) << (16i64 : stdgo.GoUInt64) : stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie) : stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie) | ((_proto : stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie) & (255i64 : stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie) : stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie) : stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie);
-    }

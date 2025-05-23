@@ -1,5 +1,0 @@
-package stdgo._internal.crypto.internal.nistec;
-function newP384Point():stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p384point.P384Point> {
-        //"file:///home/runner/.go/go1.21.3/src/crypto/internal/nistec/p384.go#L29"
-        return (stdgo.Go.setRef(({ _x : (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>), _y : (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>).one(), _z : (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>) } : stdgo._internal.crypto.internal.nistec.Nistec_p384point.P384Point)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p384point.P384Point>);
-    }

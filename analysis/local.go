@@ -13,7 +13,7 @@ import (
 	"golang.org/x/tools/go/packages"
 )
 
-func GetConstant(basic *types.Basic, value constant.Value, node ast.Node) (e ast.Expr) {
+func GetConstant(basic *types.Basic, value constant.Value, node ast.Node, allowUnknown bool) (e ast.Expr) {
 	kind := basic.Kind()
 	info := basic.Info()
 	switch {
@@ -64,8 +64,14 @@ func GetConstant(basic *types.Basic, value constant.Value, node ast.Node) (e ast
 			}
 		}
 		e = &ast.BasicLit{Kind: token.STRING, Value: s}
+	case info&types.IsNumeric != 0:
+		e = &ast.BasicLit{Kind: token.INT, Value: "0"}
 	default:
-		log.Fatal("unknown constant type: " + value.ExactString())
+		if allowUnknown {
+			return nil
+		} else {
+			panic("unknown constant type: " + value.ExactString())
+		}
 	}
 	return e
 }
@@ -81,7 +87,7 @@ func ParseLocalConstants(file *ast.File, pkg *packages.Package, checker *types.C
 				if !ok {
 					return false
 				}
-				e := GetConstant(basic, value, node)
+				e := GetConstant(basic, value, node, false)
 				if e == nil {
 					return false
 				}

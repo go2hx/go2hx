@@ -6,7 +6,7 @@ import sys.FileSystem;
 import sys.io.File;
 
 var libs:Array<String> = [];
-final path = Sys.getCwd();
+final cwd = Sys.getCwd();
 
 function main() {
 	var list:Array<String> = File.getContent("data/stdgo.list").split("\n");
@@ -35,62 +35,25 @@ function main() {
 		libs[i] = StringTools.replace(libs[i], ".", "/");
 	}
 	for (path in excludes)
-		list.remove(path);
+		libs.remove(path);
 	trace(libs);
-	Compiler.setupCompiler(new Compiler.CompilerInstanceData(), () -> {
-		// kickstart
-		complete(null, null);
-	}); // amount of processes to spawn
-	Compiler.onComplete = complete;
-	if (libs.length == 0)
-		return;
-	#if !js
-	while (true)
-		update();
-	#else
-	final timer = new haxe.Timer(500);
-	timer.run = update;
-	#end
+	
+	final args = libs;
+	if (MacroCompiler.getDefine("_hl") != null) {
+		args.push("-compiler_hl");
+	}else{
+		args.push("-compiler_cpp");
+	}
+	if (haxe.macro.Compiler.getDefine("rebuild") != null)
+		args.push("--rebuild");
+	if (haxe.macro.Compiler.getDefine("nogo4hx") != null)
+		args.push("-nogo4hx");
+	args.push(cwd);
+	Sys.command("haxe --run Run " + args.join(" "));
 }
 
-private function complete(modules:Array<typer.HaxeAst.Module>, _) {
-	final lib = libs.pop();
-	if (lib == null) {
-		Compiler.closeCompiler();
-		return;
-	}
-	hxml = "stdgo/" + sanatize(lib);
-	args = [lib, '--nocomments', '--out', '.', '--norun'];
-	if (varTraceBool)
-		args.push("--vartrace");
-	if (stackBool)
-		args.push("--stack");
-	if (noMain.indexOf(lib) == -1 && !releaseBool) {
-		args.push('--hxml');
-		args.push(hxml);
-		args.push('--test');
-	}
-	if (debugBool)
-		args.push("-debug");
-	args.push(path);
-	instance = Compiler.createCompilerInstanceFromArgs(args);
-	Compiler.compileFromInstance(instance);
-}
-
-var instance:Compiler.CompilerInstanceData = null;
 var compiled:Bool = false;
 var args:Array<String> = [];
-var hxml = "";
-var varTraceBool = MacroCompiler.getDefine("vartrace") != null;
-var stackBool = MacroCompiler.getDefine("stack") != null;
-var releaseBool = MacroCompiler.getDefine("release") != null;
-var debugBool = MacroCompiler.getDefine("cdebug") != null;
-
-function update() {
-	#if !js
-	Compiler.updateLoop();
-	#end
-}
 
 private function sanatize(s:String):String {
 	s = StringTools.replace(s, "/", "_");

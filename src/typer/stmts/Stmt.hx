@@ -6,8 +6,8 @@ function typeStmt(stmt:GoAst.Stmt, info:Info):MacroExpr {
 	var def = switch stmt.id {
 		case "ReturnStmt": Return.typeReturnStmt(stmt, info);
 		case "IfStmt": If.typeIfStmt(stmt, info);
-		case "ExprStmt": ExprStmt.typeExprStmt(stmt, info);
-		case "AssignStmt": Assign.typeAssignStmt(stmt, info);
+		case "ExprStmt": ExprStmt.typeExprStmt(stmt, info); // *
+		case "AssignStmt": Assign.typeAssignStmt(stmt, info); // *
 		case "ForStmt": For.typeForStmt(stmt, info);
 		case "SwitchStmt": Switch.typeSwitchStmt(stmt, info); // TODO: cleanup
 		case "TypeSwitchStmt": TypeSwitch.typeTypeSwitchStmt(stmt, info);

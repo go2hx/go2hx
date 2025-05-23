@@ -23,11 +23,12 @@ typedef IntermediateFunctionType = {
 	declName:String,
 	patchRecvName:String,
 	patchPack:String,
+	pkg:typer.Package.IntermediatePackageType,
 }
 
-function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = "",
+function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = "", pkg:typer.Package.IntermediatePackageType,
 		defName:String = ""):TypeDefinition {
-	final func = typeFunctionAnalyze(decl, data, restricted, isNamed, sel, defName);
+	final func = typeFunctionAnalyze(decl, data, restricted, isNamed, sel, defName, pkg);
 	return typeFunctionEmit(func);
 }
 
@@ -62,7 +63,6 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 	}
 
 	var ret = typeFieldListReturn(func.results, info, true);
-
 	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
 		macro throw ${HaxeAst.makeString(func.recvName + ":" + info.global.path + "." + func.name + " is not yet implemented")};
@@ -105,7 +105,7 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 	}
 	var patch:MacroExpr = null;
 	#if !macro
-	patch = codegen.Patch2.getFunction(func.patchPack, func.name, func.patchRecvName);
+	patch = codegen.Patch2.getFunction(func.patchPack, func.name, func.patchRecvName, func.pkg);
 	#end
 
 	if (patch != null) {
@@ -174,7 +174,7 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 	return def;
 }
 
-function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<String>, isNamed:Bool, sel:String, recvName:String):IntermediateFunctionType {
+function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<String>, isNamed:Bool, sel:String, recvName:String, pkg:typer.Package.IntermediatePackageType):IntermediateFunctionType {
 	final info = new Info();
 	info.blankCounter = data.blankCounter;
 	info.data = data.data;
@@ -185,7 +185,6 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 	// global set
 	info.global = data.global;
 	// global vars reset
-	info.global.gotoSystem = false;
 	info.global.deferBool = false;
 	info.locals = data.locals;
 	info.localUnderlyingNames = data.localUnderlyingNames.copy();
@@ -210,6 +209,7 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 		recvName: "",
 		info: info,
 		declName: decl.name.name,
+		pkg: pkg,
 	};
 
 	if (decl.recv != null) {
@@ -380,7 +380,6 @@ function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.Fie
 
 function funcReset(info:Info) {
 	info.global.deferBool = false;
-	info.global.gotoSystem = false;
 }
 
 function getRecvName(recv:GoAst.Expr, info:Info):String {

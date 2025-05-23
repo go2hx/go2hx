@@ -1,2 +1,0 @@
-package stdgo._internal.crypto.internal.nistec.fiat;
-@:keep @:follow @:using(stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384montgomerydomainfieldelement_static_extension.T_p384MontgomeryDomainFieldElement_static_extension) typedef T_p384MontgomeryDomainFieldElementPointer = stdgo.Pointer<stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384montgomerydomainfieldelement.T_p384MontgomeryDomainFieldElement>;

@@ -44,8 +44,9 @@ steps:
       path: |
         TypeInfoData_go2hx_hxb.hx
         ./_internal/*
-        ./stdgo/*
-        ./go2hx.*.zip 
+        ./go2hx.*.zip
+        export
+        golibs
       key: ${{ github.sha }}-build-${{ env.cache-name }}
   - name: clone go
     run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
@@ -54,11 +55,7 @@ steps:
     run: go run ./extra/scripts/sortTests ci
   # run go easy tests
   - name: Run go easy tests
-    run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D targets=::target:: #-D hxb
-  - name: Remove stdgo folder
-    run: rm -r -d stdgo
-  - name: Remove _internal folder
-    run: rm -r -d _internal
+    run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=::target:: #-D hxb
   # add go_easy.json regression 
   - uses: EndBug/add-and-commit@v9
     with:

@@ -1,20 +1,8 @@
 -D go2hx
---macro stdgo._internal.internal.Macro.init()
--D message-reporting=pretty
--D source-map
--D source-map-content
--D debug
--D shallow-expose
--D keep-inline-positions
--D std-encoding-utf8
+--macro Go2hxMacro.init()
 -D simulate_num
--D no-deprecation-warnings
--D hl_no_opt
 -D numberlinkerror
 -D numberlinkmath
--D HXCPP_DEBUG=0
--D HXCPP_COMPILE_THREADS=1
--D HXCPP_PCH=1
 -D splitdeps
 -D eval-call-stack-depth=40000
 #--macro include("stdgo", true)

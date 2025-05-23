@@ -17,10 +17,6 @@ steps:
     run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
   # non self-host setup
     continue-on-error: true
-  - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-  - uses: actions/setup-go@v3
-    with:
-      go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
 ::support::
   - name: Install lix
     run: npm i lix -g
@@ -39,15 +35,13 @@ steps:
       path: |
         TypeInfoData_go2hx_hxb.hx
         ./_internal/*
-        ./stdgo/*
-        ./go2hx.*.zip 
+        ./go2hx.*.zip
+        export
+        golibs
       key: ${{ github.sha }}-build-${{ env.cache-name }}
   - run: ls
-  # compile stdgo
-  #- name: Run stdgo automatic compile
-  #  run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
   - name: Run unit
-    run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=::target:: #-D hxb
+    run: haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D target=::target:: #-D hxb
   - uses: EndBug/add-and-commit@v9
     with:
         message: go easy tests update ::target::
@@ -56,7 +50,7 @@ steps:
     if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
     continue-on-error: true
   - name: Run std
-    run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=::target::  #-D hxb
+    run: haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=::target::  #-D hxb
   - uses: EndBug/add-and-commit@v9
     with:
         message: build std tests update ::target::

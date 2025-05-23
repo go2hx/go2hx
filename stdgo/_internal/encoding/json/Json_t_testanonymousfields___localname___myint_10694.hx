@@ -1,2 +1,0 @@
-package stdgo._internal.encoding.json;
-@:named @:using(stdgo._internal.encoding.json.Json_t_testanonymousfields___localname___myint_10694_static_extension.T_testAnonymousFields___localname___myInt_10694_static_extension) typedef T_testAnonymousFields___localname___myInt_10694 = stdgo.GoInt;

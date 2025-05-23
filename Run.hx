@@ -32,7 +32,6 @@ function main() {
 		Sys.command(command);
 		return;
 	}
-
 	if (args.length > 0 && args.indexOf("clean") != -1) {
 		clean();
 		return;
@@ -87,6 +86,11 @@ function main() {
 		args.push(goCommand);
 		args.push(last);
 	}
+	var debug = false;
+	if ((index = args.indexOf("-compiler_debug")) != -1 || (index = args.indexOf("--compiler_debug")) != -1) {
+		args.remove(args[index]);
+		debug = true;
+	}
 	if ((index = args.indexOf("-compiler_cpp")) != -1 || (index = args.indexOf("--compiler_cpp")) != -1) {
 		args.remove(args[index]);
 		setupCPP(rebuild, args);
@@ -107,23 +111,16 @@ function main() {
 		setupNodeJS(rebuild, args);
 		return;
 	}
-	/*var code = 1;
-		try {
-			process = new Process("node -v");
-			code = process.exitCode();
-			process.close();
-		}catch(_) {
-			code = 1;
-		}
-
-		if (code == 0) {
-			setupNodeJS(rebuild,args);
-			return;
-	}*/
-	setupInterp(rebuild, args);
+	if ((index = args.indexOf("-compiler_java")) != -1 || (index = args.indexOf("--compiler_java")) != -1) {
+		args.remove(args[index]);
+		setupJava(rebuild, args);
+		return;
+	}
+	setupCPP(rebuild, args);
 }
 
 function clean() {
+	return;
 	if (FileSystem.exists("golibs"))
 		deleteDirectoryRecursively("golibs");
 	for (path in FileSystem.readDirectory("stdgo")) {
@@ -302,7 +299,11 @@ function build(rebuild:Bool) {
 		Sys.println("build Go part of the compiler");
 		final command = goCommand + ' build .';
 		Sys.println(command);
-		Sys.command(command);
+		final code = Sys.command(command);
+		if (code != 0) {
+			Sys.println("Failed to build Go compiler");
+			Sys.exit(code);
+		}
 	}
 }
 
@@ -321,13 +322,35 @@ function setupNodeJS(rebuild:Bool, args:Array<String>) {
 
 function setupCPP(rebuild:Bool, args:Array<String>) {
 	Sys.println("C++ compiler version");
-	final fileName = executable("export/cpp/Main-debug");
+	Sys.putEnv("HXCPP_COMPILE_THREADS", "4");
+	Sys.putEnv("HXCPP_COMPILE_CACHE", "~/hxcache");
+	final fileName = executable("export/cpp/Main");
 	if (!FileSystem.exists("export/cpp") || !FileSystem.exists(fileName) || rebuild) {
 		var cmd = "haxe extra/scripts/build-cpp.hxml";
-		Sys.command(cmd);
+		final code = Sys.command(cmd);
+		if (code != 0) {
+			Sys.println("BUILD FAILED");
+			Sys.exit(1);
+		}
 	}
-	// trace(fileName, args);
-	Sys.command(fileName, args);
+	final command = fileName + " " + args.join(" ");
+	final code = Sys.command(fileName, args);
+	if (code != 0) {
+		Sys.println("COMPILER RUN FAILED: " + command);
+		Sys.exit(code);
+	}
+}
+
+function setupJava(rebuild:Bool, args:Array<String>) {
+	Sys.println("Jvm compiler version");
+	// run build jvm
+	if (!FileSystem.exists("export/build.jvm") || rebuild) {
+		Sys.command("haxe extra/scripts/build-jvm.hxml");
+	}
+	args.unshift("export/build.jar");
+	args.unshift("-jar");
+	trace(args.join(" "));
+	Sys.command("java", args);
 }
 
 function setupHashlink(rebuild:Bool, args:Array<String>) {
@@ -352,7 +375,13 @@ function setupHashlink(rebuild:Bool, args:Array<String>) {
 		Sys.command(cmd);
 	}
 	args.unshift("export/build.hl");
-	Sys.command("hl", args);
+	final command = "hl" + " " + args.join(" ");
+	Sys.println(command);
+	final code = Sys.command(command);
+	if (code != 0) {
+		Sys.println("COMPILER RUN FAILED: " + command);
+		Sys.exit(code);
+	}
 }
 
 function setupInterp(rebuild:Bool, args:Array<String>) {

@@ -2,20 +2,6 @@ package typer;
 
 import haxe.macro.Expr as MacroExpr;
 
-function typeAST(data:GoAst.DataType, instance:Compiler.CompilerInstanceData):Array<HaxeAst.Module> {
-	var list:Array<HaxeAst.Module> = [];
-	final hashMapTypes:Map<UInt, Dynamic> = [];
-	for (obj in data.typeList)
-		hashMapTypes[obj.hash] = obj;
-	// module system
-	for (pkg in data.pkgs) {
-		if (pkg.files == null)
-			continue;
-		list.push(Package.typePackage(pkg, instance, hashMapTypes));
-	}
-	return list;
-}
-
 @:structInit
 class FieldType {
 	public var name:String;
@@ -43,9 +29,7 @@ private typedef Ref<T> = {
 
 class Global {
 	public var localSpecs:Map<String, Array<GoAst.Spec>> = [];
-	public var gotoSystem:Bool = false;
 	public var deferBool:Bool = false;
-	public var debugBool:Bool = false;
 	public var varTraceBool:Bool = false;
 	public var funcTraceBool:Bool = false;
 	public var stackBool:Bool = false;
@@ -71,7 +55,6 @@ class Global {
 		g.module = module;
 		g.filePath = filePath;
 		g.varTraceBool = varTraceBool;
-		g.debugBool = debugBool;
 		g.funcTraceBool = funcTraceBool;
 		g.stackBool = stackBool;
 		g.root = root;
@@ -144,8 +127,6 @@ class Info {
 
 // filepath of export.json also stored here
 // @:formatter off
-
-var printer = new codegen.Printer();
 
 @:forward
 @:forwardStatics

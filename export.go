@@ -3,7 +3,9 @@ package main
 import (
 	"bytes"
 	"compress/zlib"
+	"crypto/sha256"
 	"encoding/binary"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"go/ast"
@@ -13,12 +15,12 @@ import (
 	"go/token"
 	"go/types"
 	"log"
-	"math/rand"
 	"net"
 	"path"
 	"path/filepath"
 	"runtime"
-	"runtime/debug"
+	"slices"
+	"sync"
 
 	_ "embed"
 	"os"
@@ -31,17 +33,13 @@ import (
 	"golang.org/x/tools/go/types/typeutil"
 )
 
-type dataType struct {
-	Args     []string                 `json:"args"`
-	Pkgs     []packageType            `json:"pkgs"`
-	Index    string                   `json:"index"`
-	TypeList []map[string]interface{} `json:"typeList"`
-}
 type packageType struct {
-	Path  string     `json:"path"`
-	Name  string     `json:"name"`
-	Order []string   `json:"order"`
-	Files []fileType `json:"files"`
+	Path     string                   `json:"path"`
+	Name     string                   `json:"name"`
+	Order    []string                 `json:"order"`
+	Files    []fileType               `json:"files"`
+	TypeList []map[string]interface{} `json:"typeList"`
+	Checksum string                   `json:"checksum"`
 }
 type fileType struct {
 	Path     string                   `json:"path"`
@@ -65,10 +63,6 @@ type interfaceData struct {
 //go:embed data/stdgo.list
 var stdgoListBytes []byte
 
-//go:embed data/excludes.json
-var excludesBytes []byte
-
-var fset *token.FileSet
 var stdgoList map[string]bool
 
 //go:embed data/stdgoExports.json
@@ -77,144 +71,386 @@ var stdgoExportsBytes []byte
 //go:embed data/stdgoExterns.json
 var stdgoExternsBytes []byte
 
-var stdgoExterns map[string]bool
-var stdgoExports map[string]bool
+var stdExterns map[string]bool
+var stdExports map[string]bool
 
-var excludes map[string]bool
-var visited map[string]bool
 var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
-var checker *types.Checker
 
-var typeMap *typeutil.Map = nil
-var typeMapIndex uint32 = 0
-var hashMap map[uint32]map[string]interface{}
 var testBool = false
-var debugBool = false
-var noDepsBool = false
 var systemGo = false
+var noCache = false
 
-func compile(params []string, excludesData []string, index string, debug bool) []byte {
+func compile(conn net.Conn, params []string, debug bool) {
 	args := []string{}
 	testBool = false
 	systemGo = false
+	noCache = false
 	for _, param := range params {
 		switch param {
 		case "-systemgo", "--systemgo", "-systemGo", "--systemGo":
 			systemGo = true
 		case "-test", "--test":
 			testBool = true
-		case "-nodeps", "--nodeps", "-nodep", "--nodep":
-			noDepsBool = true
-		case "-debug", "--debug":
-			debugBool = true
+		case "-nocache", "--nocache":
+			noCache = true
 		default:
 			args = append(args, param)
 		}
 	}
 	if !systemGo {
 		b, err := os.ReadFile(".gorc")
-
-		if err != nil {
-			println("require .gorc file")
-			panic(err)
-		}
+		panicIfError(err)
 		home, err := os.UserHomeDir()
-		if err != nil {
-			println("finding home directory caused an error")
-			panic(err)
-		}
+		panicIfError(err)
 		goroot := home + "/.go/go" + string(b)
 		goCommand := goroot + "/bin/go"
 		cfg.Env = append(cfg.Env, "GOROOT="+goroot)
 		os.Setenv("GOROOT", goroot)
 		os.Setenv("GOCMD", goCommand)
 	}
-	b := []byte("null")
 	localPath := args[len(args)-1]
-	var err error
-	err = os.Chdir(localPath)
-	args = args[0 : len(args)-1] //remove chdir
-	if err != nil {
-		log.Fatal(err.Error() + " = " + localPath + " args: " + strings.Join(args, ","))
-		return b
-	}
+	outputPath := args[0]
+	// before localPath is chdir
+	versionBytes, _ := os.ReadFile("version.txt")
+	panicIfError(os.Chdir(localPath))
+	args = args[1 : len(args)-1] //remove outputPath & remove localPath (chdir)
 	cfg.Tests = testBool
-	initial, err := packages.Load(cfg, &types.StdSizes{WordSize: 4, MaxAlign: 8}, args...)
-	if err != nil {
-		log.Fatal("load error: " + err.Error())
-		return []byte{}
+	excludes := map[string]bool{}
+	checksumMap := map[string]string{}
+	skipPkgs := map[string]bool{"time/tzdata": true}
+	pkgs := processPkgs(outputPath, checksumMap, excludes, versionBytes, args, skipPkgs)
+	// always required pkgs
+	pkgs = append(pkgs, processPkgs(outputPath, checksumMap, excludes, versionBytes, []string{
+		"unicode/utf8", "reflect",
+	}, skipPkgs)...)
+	dep := &depth{Path: "init", Skipped: false, Deps: []depth{}}
+	for _, arg := range args {
+		delete(skipPkgs, arg)
 	}
-	//init
-	typeMapIndex = 0
-	methodCache = typeutil.MethodSetCache{}
-	excludes = make(map[string]bool, len(excludesData))
-	hashMap = make(map[uint32]map[string]interface{})
-	visited = make(map[string]bool)
-	for _, exclude := range excludesData {
-		excludes[exclude] = true
-	}
-	if len(initial) > 0 {
-		for exclude := range stdgoList {
-			excludes[exclude] = true
-		}
+	pkgs = getPkgs(pkgs, excludes, skipPkgs, dep)
+	// send amount of pkgs
+	//println("len(pkgs)", len(pkgs))
+	sendLen(conn, len(pkgs))
+	sendData(conn, *dep)
+	// send pkg data
+	parsePkgList(conn, pkgs, excludes, checksumMap)
+}
 
-		for _, pkg := range initial { //remove initial packages from exclude list
-			delete(excludes, pkg.PkgPath)
+func processPkgs(outputPath string, checksumMap map[string]string, excludes map[string]bool, versionBytes []byte, args []string, skipPkgs map[string]bool) (newPkgs []*packages.Package) {
+	sizes := &types.StdSizes{WordSize: 4, MaxAlign: 8}
+	l, response, err := packages.Init(cfg, sizes, args...)
+	panicIfError(err)
+	deletePkgs := map[string]bool{}
+	// checksums
+	if !noCache {
+		for i, pkg := range response.Packages {
+			anotherExists := false
+			for _, pkg2 := range response.Packages[i+1:] {
+				if pkg.PkgPath != pkg2.PkgPath {
+					continue
+				}
+				anotherExists = true
+				break
+			}
+			const hashSize = 32
+			checksumChan := make(chan [hashSize]byte, len(pkg.GoFiles))
+			for _, f := range pkg.GoFiles {
+				f := f
+				go func() {
+					b, err := os.ReadFile(f)
+					panicIfError(err)
+					checksumChan <- sha256.Sum256(b)
+				}()
+			}
+			checksSums := make([][hashSize]byte, len(pkg.GoFiles))
+			for i := range pkg.GoFiles {
+				checksSums[i] = <-checksumChan
+			}
+			slices.SortStableFunc(checksSums, func(a, b [hashSize]byte) int {
+				if len(a) > len(b) {
+					return 1
+				} else if len(a) < len(b) {
+					return -1
+				}
+				for i := range a {
+					if a[i] == b[i] {
+						continue
+					}
+					if a[i] > b[i] {
+						return 1
+					} else {
+						return -1
+					}
+				}
+				return 0
+			})
+			pkgPath := normalizePath(pkg.PkgPath)
+			addedPkg := "_internal"
+			if stdgoList[pkg.PkgPath] { // add stdgo prefix
+				addedPkg = "stdgo/_internal"
+			}
+			dir := path.Join(outputPath, addedPkg, pkgPath)
+			b, err := os.ReadFile(path.Join(dir, ".go2hx_cache"))
+			checksum := combineCheckSums(checksSums, versionBytes)
+			if err == nil {
+				// checksum is the same
+				sameSum := string(b) == checksum
+				if sameSum && !anotherExists {
+					// remove from root
+					response.Roots = slices.DeleteFunc(response.Roots, func(root string) bool {
+						rootPath := strings.Split(root, " ")[0]
+						return pkg.PkgPath == rootPath
+					})
+					// mark as delete
+					skipPkgs[pkg.PkgPath] = true
+					//deletePkgs[pkg.PkgPath] = true
+					continue
+				}
+			} else if !os.IsNotExist(err) {
+				panic(err)
+			}
+			// write checksum
+			checksumMap[pkg.PkgPath] = checksum
 		}
 	}
-	//fmt.Println(excludes)
-	typeMap = &typeutil.Map{}
-	data := parsePkgList(initial, excludes)
-	// add back initial packages to exclude list
-	for _, pkg := range initial {
-		excludes[pkg.PkgPath] = true
+	// add imports for type information
+	for _, pkg := range response.Packages {
+		if deletePkgs[pkg.PkgPath] {
+			continue
+		}
+		for impPath := range pkg.Imports {
+			// if import move from delete -> skip
+			if deletePkgs[impPath] {
+				delete(deletePkgs, impPath)
+				skipPkgs[impPath] = true
+			}
+		}
 	}
-	data.Index = index
-	data.TypeList = make([]map[string]interface{}, len(hashMap))
-	i := 0
-	for _, value := range hashMap {
-		data.TypeList[i] = value
-		i++
+	newResponsePackages := []*packages.Package{}
+	for _, pkg := range response.Packages {
+		if deletePkgs[pkg.PkgPath] {
+			continue
+		}
+		newResponsePackages = append(newResponsePackages, pkg)
 	}
-	//reset
-	hashMap = nil
-	excludes = nil
-	data.Args = args
-	if debug {
-		b, _ = json.MarshalIndent(data, "", "  ")
-		os.WriteFile("check.json", b, 0766)
-		fmt.Println("create check.json")
+	// refine
+	l.Mode = releaseMode
+	l.Config.Mode = releaseMode
+	response.Packages = newResponsePackages
+	initial, err := packages.Refine(l, response)
+	panicIfError(err)
+	//init
+	methodCache = typeutil.MethodSetCache{}
+	return initial
+}
+
+func combineCheckSums(checksums [][32]byte, versionBytes []byte) string {
+	singleCheckSum := make([]byte, 32*len(checksums))
+	for i := range checksums {
+		singleCheckSum = slices.Insert(singleCheckSum, i*32, checksums[i][:]...)
 	}
-	b, err = json.Marshal(data)
+	singleCheckSum = append(singleCheckSum, versionBytes...)
+	sum := sha256.Sum256(singleCheckSum)
+	return hex.EncodeToString(sum[:])
+}
+
+type depth struct {
+	Path    string  `json:"path"`
+	Skipped bool    `json:"skipped"`
+	Deps    []depth `json:"deps"`
+}
+
+func normalizePath(path string) string {
+	path = strings.ReplaceAll(path, ".", "dot")
+	path = strings.ReplaceAll(path, ":", "colon")
+	path = strings.ReplaceAll(path, "go-", "godash")
+	path = strings.ReplaceAll(path, "-", "dash")
+	paths := strings.Split(path, "/")
+	for i := range paths {
+		if slices.Contains(reserved, paths[i]) {
+			paths[i] += "_"
+		}
+	}
+	return strings.Join(paths, "/")
+}
+
+var reserved = []string{
+	"iterator",
+	"keyValueIterator",
+	"switch",
+	"case",
+	"break",
+	"continue",
+	"default",
+	"is",
+	"abstract",
+	"cast",
+	"catch",
+	"class",
+	"do",
+	"function",
+	"dynamic",
+	"else",
+	"enum",
+	"extends",
+	"extern",
+	"final",
+	"for",
+	"function",
+	"if",
+	"interface",
+	"implements",
+	"import",
+	"in",
+	"inline",
+	"macro",
+	"new",
+	"operator",
+	"overload",
+	"override",
+	"package",
+	"private",
+	"public",
+	"return",
+	"static",
+	"this",
+	"throw",
+	"try",
+	"typedef",
+	"untyped",
+	"using",
+	"var",
+	"while",
+	"construct",
+	"null",
+	"in",
+	"wait",
+	"length",
+	"capacity",
+	"bool",
+	"float",
+	"int",
+	"struct",
+	"offsetof",
+	"alignof",
+	"atomic",
+	"map",
+	"comparable",
+	"environ",
+	"trace",
+	"haxe",
+	"std",
+	"_new",
+}
+
+func panicIfError(err error) {
 	if err != nil {
-		log.Fatal("encoding err: " + err.Error())
-		return b
+		panic(err)
 	}
+}
+
+var mutex sync.Mutex
+
+func sendData(conn net.Conn, data any) {
+	b, err := json.Marshal(data)
+	panicIfError(err)
 	var buff bytes.Buffer
-	w := zlib.NewWriter(&buff)
+	w, err := zlib.NewWriterLevel(&buff, zlib.BestCompression)
+	panicIfError(err)
 	_, err = w.Write(b)
-	if err != nil {
-		log.Fatal(err)
-	}
+	panicIfError(err)
 	w.Close()
-	if debug {
-		memoryStats()
+	_, err = conn.Write(createLenMessage(buff.Bytes()))
+	panicIfError(err)
+}
+
+func getLen(conn net.Conn) uint32 {
+	bytesBuff := make([]byte, 4)
+	n, err := conn.Read(bytesBuff)
+	if n != 4 {
+		if n == 0 {
+			println("CLOSED COMPILER")
+			os.Exit(0)
+		}
+		println(n)
+		println(err.Error())
+		panic("wrong n")
 	}
-	return buff.Bytes()
+	panicIfError(err)
+	return binary.LittleEndian.Uint32(bytesBuff)
+}
+
+func sendLen(conn net.Conn, length int) {
+	bytesBuff := make([]byte, 8)
+	binary.LittleEndian.PutUint64(bytesBuff, uint64(length))
+	_, err := conn.Write(bytesBuff)
+	panicIfError(err)
+}
+
+func createLenMessage(b []byte) []byte {
+	bytesBuff := make([]byte, 8)
+	binary.LittleEndian.PutUint64(bytesBuff, uint64(len(b)))
+	return append(bytesBuff, b...)
+}
+
+func getPkgs(list []*packages.Package, excludes map[string]bool, skipPkgs map[string]bool, dep *depth) []*packages.Package {
+	newList := []*packages.Package{}
+	for i, pkg := range list {
+		continueLoop := false
+		// remove normal one and replace with test version
+		for _, pkg2 := range list[i+1:] {
+			if pkg.PkgPath != pkg2.PkgPath {
+				continue
+			}
+			continueLoop = true
+			break
+		}
+		if continueLoop {
+			continue
+		}
+		if excludes[pkg.PkgPath] {
+			dep.Deps = append(dep.Deps, depth{
+				Path:    pkg.PkgPath,
+				Skipped: true,
+				Deps:    []depth{},
+			})
+			continue
+		}
+		excludes[pkg.PkgPath] = true
+		dep2 := &depth{
+			Path:    pkg.PkgPath,
+			Skipped: skipPkgs[pkg.PkgPath],
+			Deps:    []depth{},
+		}
+		if !skipPkgs[pkg.PkgPath] {
+			for _, pkg := range pkg.Imports {
+				newPkgs := getPkgs([]*packages.Package{pkg}, excludes, skipPkgs, dep2)
+				newList = append(newList, newPkgs...)
+			}
+		}
+		dep.Deps = append(dep.Deps, *dep2)
+		if !skipPkgs[pkg.PkgPath] {
+			newList = append(newList, pkg)
+		}
+	}
+	return newList
 }
 
 var cfg = &packages.Config{
-	Mode: packages.NeedName |
-		packages.NeedSyntax |
-		packages.NeedImports | packages.NeedDeps | packages.NeedEmbedFiles | packages.NeedEmbedPatterns |
-		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo | packages.NeedModule | packages.NeedTypesSizes,
+	Mode:       releaseMode,
 	BuildFlags: []string{"-tags", "netgo,purego,math_big_pure_go,compiler_bootstrap"}, // build tags
 }
 
-var r = rand.New(rand.NewSource(99))
+const releaseMode packages.LoadMode = packages.NeedName |
+	packages.NeedSyntax |
+	packages.NeedImports | packages.NeedDeps | packages.NeedEmbedFiles | packages.NeedEmbedPatterns |
+	packages.NeedFiles |
+	packages.NeedTypes | packages.NeedTypesInfo |
+	packages.NeedModule | packages.NeedTypesSizes
 
 func main() {
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
+
 	// set log output to log.out
 	cfg.Env = append(os.Environ(), "CGO_ENABLED=0")
 	var err error
@@ -232,21 +468,6 @@ func main() {
 		return
 	}
 	port := args[len(args)-1]
-	var excludesData []string
-	var logFile *os.File
-	log.SetFlags(log.LstdFlags | log.Lshortfile)
-	logFile, err = os.OpenFile("log.out", os.O_RDWR|os.O_CREATE, 0666)
-	if err != nil {
-		fmt.Println(err.Error())
-	} else {
-		_ = logFile
-		//log.SetOutput(logFile)
-	}
-
-	err = json.Unmarshal(excludesBytes, &excludesData)
-	if err != nil {
-		log.Fatal(err.Error())
-	}
 	CRLF := strings.ReplaceAll(string(stdgoListBytes), "\r\n", "\n")
 	CR := strings.ReplaceAll(CRLF, "\r", "\n")
 	list2 := strings.Split(CR, "\n")
@@ -254,108 +475,70 @@ func main() {
 	for _, s := range list2 {
 		stdgoList[s] = true
 	}
-	externList := make([]string, 0, 150)
-	exportList := make([]string, 0, 150)
+	externList := []string{}
+	exportList := []string{}
 
 	err = json.Unmarshal(stdgoExportsBytes, &exportList)
-	if err != nil {
-		log.Fatal(err.Error())
-	}
+	panicIfError(err)
 	err = json.Unmarshal(stdgoExternsBytes, &externList)
-	if err != nil {
-		log.Fatal(err.Error())
-	}
+	panicIfError(err)
 
-	stdgoExports = make(map[string]bool, len(exportList))
-	stdgoExterns = make(map[string]bool, len(externList))
+	stdExports = make(map[string]bool, len(exportList))
+	stdExterns = make(map[string]bool, len(externList))
 
 	for _, s := range exportList {
-		stdgoExports[s] = true
+		stdExports[s] = true
 	}
 	for _, s := range externList {
-		stdgoExterns[s] = true
+		stdExterns[s] = true
 	}
 	_, err = strconv.Atoi(port)
 	if err != nil { // not set to a port, test compile
-		compile(args[1:], excludesData, "0", true)
+		compile(nil, args[1:], true)
 		return
 	}
 	conn, err := net.Dial("tcp", "127.0.0.1:"+port)
-	if err != nil {
-		log.Fatal("dial: " + err.Error())
-		return
-	}
+	panicIfError(err)
 	defer conn.Close()
 	for {
-		input := make([]byte, 2056)
+		input := make([]byte, getLen(conn))
 		c, err := conn.Read(input)
-		if err != nil {
-			log.Fatal("read error: " + err.Error())
-			return
-		}
+		panicIfError(err)
 		input = input[:c]
 		//fmt.Println("input: " + string(input))
 		args := strings.Split(string(input), " ")
-		index := args[0]
-		data := compile(args[1:], excludesData, index, false)
-		length := len(data)
-		buff := make([]byte, 8)
-		binary.LittleEndian.PutUint64(buff, uint64(length))
-		_, err = conn.Write(buff)
-		if err != nil {
-			log.Fatal("write length error: " + err.Error())
-			return
-		}
-		//fmt.Println("write data:", len(data))
-		_, err = conn.Write(data)
-		data = nil
-		input = nil
-		if err != nil {
-			log.Fatal("write error: " + err.Error())
-			return
-		}
-		debug.FreeOSMemory()
-		runtime.GC()
+		compile(conn, args, false)
+		//debug.FreeOSMemory()
 	}
 }
 
 func memoryStats() {
 	var m runtime.MemStats
 	runtime.ReadMemStats(&m)
-	fmt.Println("memory:", m.Alloc/1024/1024)
+	println("memory:", m.Alloc/1024/1024)
 }
 
-func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
+func parseLocalPackage(pkg *packages.Package, pkgData *PackageData, excludes map[string]bool) {
 	if excludes[pkg.PkgPath] {
 		return
 	}
-	for _, val := range pkg.Imports {
-		/*if excludes[val.PkgPath] || strings.HasPrefix(val.PkgPath, "internal") {
-			continue
-		}*/
-		parseLocalPackage(val, excludes)
-	}
-	checker = types.NewChecker(&conf, fset, pkg.Types, pkg.TypesInfo)
+	excludes[pkg.PkgPath] = true
 	for _, file := range pkg.Syntax {
-		parseLocalFile(file, pkg)
+		_ = file
+		parseLocalFile(file, pkg, pkgData)
 	}
-	checker = nil
 }
 
-func parseLocalFile(file *ast.File, pkg *packages.Package) {
-	analysis.ParseLocalTypes(file, pkg, checker, hashType, &countStruct, &countInterface)
+func parseLocalFile(file *ast.File, pkg *packages.Package, pkgData *PackageData) {
+	checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
+	hashType2 := func(t types.Type) (value uint32) {
+		return hashType(t, pkgData)
+	}
+	analysis.ParseLocalTypes(file, pkg, checker, hashType2, &countStruct, &countInterface)
 	analysis.ParseLocalConstants(file, pkg, checker)
 	analysis.ParseLocalPointers(file, checker, pkg.Fset, false)
+	// println("parseLocalFile", pkg.PkgPath, file.Name.Name)
 	analysis.ParseLocalGotos(file, checker, pkg.Fset, false)
-}
-
-func randomIdentifier() *ast.Ident {
-	b := make([]byte, 8)
-	_, err := r.Read(b)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return ast.NewIdent(fmt.Sprintf("_%x", b))
 }
 
 func encodeString(s string) string {
@@ -414,102 +597,89 @@ func mergePackageToFile(pkg *packages.Package) *ast.File {
 var countStruct = 0
 var countInterface = 0
 
-func hashType(t types.Type) (value uint32) {
-	e := typeMap.At(t)
+func hashType(t types.Type, pkg *PackageData) (value uint32) {
+	e := pkg.typeMap.At(t)
 	if e == nil {
-		typeMap.Set(t, typeMapIndex)
-		value = typeMapIndex
-		typeMapIndex++
+		pkg.typeMap.Set(t, pkg.typeMapIndex)
+		value = pkg.typeMapIndex
+		pkg.typeMapIndex++
 	} else {
 		value = e.(uint32)
 	}
 	return
 }
 
-func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
+func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]bool, checksumMap map[string]string) {
 	// merge packages
 	for i := 0; i < len(list); i++ {
-		// fmt.Println(list[i].PkgPath, list[i].GoFiles)
-		if i+1 < len(list) {
-			if list[i].PkgPath == list[i+1].PkgPath {
-				list = append(list[:i], list[i+1:]...)
-				// fall through in order to use test version one
-			}
-		}
 		mergePackage(list[i])
-		if stdgoExports[list[i].PkgPath] {
-			//ast.FileExports(list[i].Syntax[0])
+		if stdExports[list[i].PkgPath] {
 			filterFile(list[i].Syntax[0], ast.IsExported, true)
 		}
-		// fmt.Println(list[i].PkgPath, stdgoExterns[list[i].PkgPath])
-		if (stdgoExterns[list[i].PkgPath]) && !strings.HasSuffix(list[i].PkgPath, "_test") && !strings.HasSuffix(list[i].PkgPath, ".test") { // remove function bodies
+		if (stdExterns[list[i].PkgPath]) && !strings.HasSuffix(list[i].PkgPath, "_test") && !strings.HasSuffix(list[i].PkgPath, ".test") { // remove function bodies
 			for _, file := range list[i].Syntax {
 				for _, d := range file.Decls {
 					switch f := d.(type) {
 					case *ast.FuncDecl:
 						f.Body = nil
-					/*case *ast.GenDecl:
-					for _, s := range f.Specs {
-						switch s := s.(type) {
-						case *ast.ValueSpec:
-							_ = s
-							//s.Values = nil
-						default:
-						}
-					}*/
 					default:
 					}
 				}
 			}
 		}
 	}
-	countInterface = 0
-	countStruct = 0
-	for _, pkg := range list {
-		typeMap = &typeutil.Map{}
-		parseLocalPackage(pkg, excludes)
-	}
 	// 2nd pass
-	data := dataType{}
-	data.Pkgs = []packageType{}
+	var wg sync.WaitGroup
+	sem := make(chan struct{}, 20) // Semaphore to limit concurrency
 	for _, pkg := range list {
-		if excludes[pkg.PkgPath] {
-			continue
-		}
-		excludes[pkg.PkgPath] = true
-		syntax := parsePkg(pkg)
-		if len(syntax.Files) > 0 {
-			data.Pkgs = append(data.Pkgs, syntax)
-		}
-		for _, val := range pkg.Imports { // imports
-			if excludes[val.PkgPath] {
-				continue
+		wg.Add(1)
+		//memoryStats()
+		pkg := pkg
+		// TODO make this not eat up so much memory
+		go func() {
+			defer wg.Done()          // Done for wait group
+			sem <- struct{}{}        // Acquire a token
+			defer func() { <-sem }() // Release the token
+
+			localExcludes := map[string]bool{}
+			checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
+			pkgData := PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
+			parseLocalPackage(pkg, &pkgData, localExcludes)
+			// parse
+			syntax := parsePkg(pkg)
+			// set checksum
+			if checksum, exists := checksumMap[pkg.PkgPath]; exists {
+				syntax.Checksum = checksum
 			}
-			// excludes[val.PkgPath] = true
-			dataImport := parsePkgList([]*packages.Package{val}, excludes)
-			if len(dataImport.Pkgs) > 0 {
-				data.Pkgs = append(data.Pkgs, dataImport.Pkgs...)
-			}
-		}
+			pkg = nil
+			checker = nil
+			// send data
+			sendData(conn, *syntax)
+			syntax = nil
+			localExcludes = nil
+			// leave
+			//debug.FreeOSMemory()
+			//memoryStats()
+		}()
 	}
-	return data
+	wg.Wait()
 }
 
-func parsePkg(pkg *packages.Package) packageType {
-	fset = pkg.Fset
-	data := packageType{}
+func parsePkg(pkg *packages.Package) *packageType {
+	fset := pkg.Fset
+	data := &packageType{}
 	for _, obj := range pkg.TypesInfo.InitOrder {
 		for _, v := range obj.Lhs {
-			if !stdgoExports[pkg.PkgPath] || v.Exported() {
+			if !stdExports[pkg.PkgPath] || v.Exported() {
 				//println(v.Name(), stdgoExports[pkg.PkgPath], v.Exported())
 				data.Order = append(data.Order, v.Name())
 			}
 		}
+
 	}
 	data.Name = pkg.Name
 	data.Path = pkg.PkgPath
-	typeMap = &typeutil.Map{}
-	checker = types.NewChecker(&conf, fset, pkg.Types, pkg.TypesInfo)
+	checker := types.NewChecker(&conf, fset, pkg.Types, pkg.TypesInfo)
 	name := pkg.Name
 	if name == "main" {
 		if pkg.PkgPath == "command-line-arguments" {
@@ -529,7 +699,14 @@ func parsePkg(pkg *packages.Package) packageType {
 	//pkg.EmbedFiles
 	// parsFeFile
 	if len(pkg.Syntax) > 0 {
-		data.Files = []fileType{parseFile(pkg.Syntax[0], name)}
+		pkgData := &PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
+		data.Files = []fileType{parseFile(pkg.Syntax[0], name, pkgData)}
+		data.TypeList = make([]map[string]interface{}, len(pkgData.hashMap))
+		i := 0
+		for _, value := range pkgData.hashMap {
+			data.TypeList[i] = value
+			i++
+		}
 	}
 	checker = nil
 	fset = nil
@@ -739,7 +916,7 @@ func fieldName(x ast.Expr) *ast.Ident {
 	return nil
 }
 
-func parseFile(file *ast.File, path string) fileType {
+func parseFile(file *ast.File, path string, pkg *PackageData) fileType {
 	data := fileType{}
 	data.Location = path
 	data.Doc = parseCommentGroup(file.Doc)
@@ -761,84 +938,86 @@ func parseFile(file *ast.File, path string) fileType {
 			}
 			switch d.Tok {
 			case token.CONST:
-				obj := parseData(decl)
+				obj := parseData(decl, pkg)
 				data.Decls = append(data.Decls, obj)
 			default:
-				obj := parseData(decl)
+				obj := parseData(decl, pkg)
 				data.Decls = append(data.Decls, obj)
 			}
 		default:
-			obj := parseData(decl)
+			obj := parseData(decl, pkg)
 			data.Decls = append(data.Decls, obj)
 		}
 	}
 	return data
 }
-func parseBody(list []ast.Stmt) []map[string]interface{} {
+func parseBody(list []ast.Stmt, pkg *PackageData) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
-		data[i] = parseData(obj)
+		data[i] = parseData(obj, pkg)
 	}
 	return data
 }
-func parseExprList(list []ast.Expr) []map[string]interface{} {
+func parseExprList(list []ast.Expr, pkg *PackageData) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
-		data[i] = parseData(obj)
+		data[i] = parseData(obj, pkg)
 	}
 	return data
 }
 
 var methodCache typeutil.MethodSetCache
 
-func parseSpecList(list []ast.Spec) []map[string]interface{} {
+func parseSpecList(list []ast.Spec, pkg *PackageData) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
 		switch obj := obj.(type) {
 		case *ast.ValueSpec:
 			values := make([]map[string]interface{}, len(obj.Values))
 			for j := range obj.Values {
-				values[j] = parseData(obj.Values[j])
+				values[j] = parseData(obj.Values[j], pkg)
 			}
 			for j := range obj.Names {
-				if c, ok := checker.ObjectOf(obj.Names[j]).(*types.Const); ok {
-					basic, ok := checker.TypeOf(obj.Names[j]).Underlying().(*types.Basic)
+				if c, ok := pkg.checker.ObjectOf(obj.Names[j]).(*types.Const); ok {
+					basic, ok := pkg.checker.TypeOf(obj.Names[j]).Underlying().(*types.Basic)
 					if ok {
-						e := analysis.GetConstant(basic, c.Val(), nil)
-						if len(values) == 0 && j == 0 || j >= len(values) {
-							values = append(values, parseData(e))
-						} else {
-							values[j] = parseData(e)
+						e := analysis.GetConstant(basic, c.Val(), nil, true)
+						if e != nil {
+							if len(values) == 0 && j == 0 || j >= len(values) {
+								values = append(values, parseData(e, pkg))
+							} else {
+								values[j] = parseData(e, pkg)
+							}
 						}
 					}
 				}
 			}
 			data[i] = map[string]interface{}{
 				"id":      "ValueSpec",
-				"names":   parseIdents(obj.Names),
-				"type":    parseData(obj.Type),
+				"names":   parseIdents(obj.Names, pkg),
+				"type":    parseData(obj.Type, pkg),
 				"values":  values,
 				"doc":     parseCommentGroup(obj.Doc),
 				"comment": parseCommentGroup(obj.Comment),
 			}
 		case *ast.TypeSpec:
-			named := checker.ObjectOf(obj.Name)
+			named := pkg.checker.ObjectOf(obj.Name)
 			if named == nil {
 				continue
 			}
-			object := checker.ObjectOf(obj.Name)
+			object := pkg.checker.ObjectOf(obj.Name)
 
-			methods := parseMethods(object.Type(), &methodCache, 1, map[string]bool{}, true)
+			methods := parseMethods(object.Type(), &methodCache, 1, map[string]bool{}, true, pkg)
 			var params map[string]interface{} = nil
 
 			if obj.TypeParams != nil {
-				params = parseFieldList(obj.TypeParams.List)
+				params = parseFieldList(obj.TypeParams.List, pkg)
 			}
 			data[i] = map[string]interface{}{
 				"id":      "TypeSpec",
-				"assign":  parsePos(obj.Assign),
-				"name":    parseData(obj.Name),
-				"type":    parseData(obj.Type),
+				"assign":  parsePos(obj.Assign, pkg.fset),
+				"name":    parseData(obj.Name, pkg),
+				"type":    parseData(obj.Type, pkg),
 				"params":  params,
 				"doc":     parseCommentGroup(obj.Doc),
 				"comment": parseCommentGroup(obj.Comment),
@@ -854,9 +1033,9 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			}
 			var typeObj types.Object
 			if obj.Name != nil {
-				typeObj = checker.Info.Defs[obj.Name]
+				typeObj = pkg.checker.Info.Defs[obj.Name]
 			} else {
-				typeObj = checker.Info.Implicits[obj]
+				typeObj = pkg.checker.Info.Implicits[obj]
 			}
 			pkgname, ok := typeObj.(*types.PkgName)
 			if ok {
@@ -870,15 +1049,15 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				"name":    name,
 			}
 		default:
-			data[i] = parseData(obj)
+			data[i] = parseData(obj, pkg)
 		}
-		data[i]["pos"] = parsePos(obj.Pos())
-		data[i]["end"] = parsePos(obj.End())
+		data[i]["pos"] = parsePos(obj.Pos(), pkg.fset)
+		data[i]["end"] = parsePos(obj.End(), pkg.fset)
 	}
 	return data
 }
 
-func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index int, marked map[string]bool, intuitionBool bool) []map[string]interface{} {
+func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index int, marked map[string]bool, intuitionBool bool, pkg *PackageData) []map[string]interface{} {
 	setObj := methodCache.MethodSet(object)
 	var set []*types.Selection
 	if intuitionBool {
@@ -895,11 +1074,11 @@ func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index
 			recv := sel.Obj().Type().(*types.Signature).Recv()
 			var recvParseType map[string]interface{} = nil
 			if recv != nil {
-				recvParseType = parseType(recv.Type(), marked)
+				recvParseType = parseType(recv.Type(), marked, pkg)
 			}
 			methods = append(methods, map[string]interface{}{
 				"name":  sel.Obj().Name(),
-				"type":  parseType(sel.Type(), marked),
+				"type":  parseType(sel.Type(), marked, pkg),
 				"recv":  recvParseType,
 				"index": sel.Index(),
 			})
@@ -908,11 +1087,16 @@ func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index
 	return methods
 }
 
-func parseType(node interface{}, marked2 map[string]bool) map[string]interface{} {
-	marked := make(map[string]bool)
-	for key, value := range marked2 {
-		marked[key] = value
-	}
+type PackageData struct {
+	fset         *token.FileSet
+	checker      *types.Checker
+	hashMap      map[uint32]map[string]interface{}
+	typeMap      *typeutil.Map
+	typeMapIndex uint32
+}
+
+func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[string]interface{} {
+	marked := copyMap(marked2)
 	data := make(map[string]interface{})
 	e := reflect.Indirect(reflect.ValueOf(node))
 	if node == nil {
@@ -942,10 +1126,10 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 	var hash uint32 = 0
 	if !isVar {
 		t = node.(types.Type)
-		hash = hashType(t)
-		_, exists := hashMap[hash]
+		hash = hashType(t, pkg)
+		_, exists := pkg.hashMap[hash]
 		if !exists {
-			hashMap[hash] = data
+			pkg.hashMap[hash] = data
 		} else {
 			return map[string]interface{}{
 				"id":   "HashType",
@@ -959,16 +1143,16 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 		isAlias := named.Obj().IsAlias()
 		path := named.String()
 		if isAlias { // alias is type X = Y, equivlant to a typedef
-			data["underlying"] = parseType(named.Underlying(), marked)
+			data["underlying"] = parseType(named.Underlying(), marked, pkg)
 			data["alias"] = true
 		} else {
 			if !marked[path] {
-				data["methods"] = parseMethods(named, &methodCache, 0, marked, true)
+				data["methods"] = parseMethods(named, &methodCache, 0, marked, true, pkg)
 				marked[path] = true
-				data["underlying"] = parseType(named.Underlying(), marked)
+				data["underlying"] = parseType(named.Underlying(), marked, pkg)
 				params := make([]map[string]interface{}, named.TypeArgs().Len())
 				for i := 0; i < len(params); i++ {
-					params[i] = parseType(named.TypeArgs().At(i), marked)
+					params[i] = parseType(named.TypeArgs().At(i), marked, pkg)
 				}
 				data["params"] = params
 			}
@@ -976,7 +1160,7 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 		data["path"] = path
 	case "Slice":
 		s := node.(*types.Slice)
-		data["elem"] = parseType(s.Elem(), marked)
+		data["elem"] = parseType(s.Elem(), marked, pkg)
 	case "Struct":
 		s := node.(*types.Struct)
 		fields := make([]map[string]interface{}, s.NumFields())
@@ -984,7 +1168,7 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 			v := s.Field(i)
 			fields[i] = map[string]interface{}{
 				"name":     v.Name(),
-				"type":     parseType(v.Type(), marked),
+				"type":     parseType(v.Type(), marked, pkg),
 				"embedded": v.Embedded(),
 			}
 		}
@@ -992,37 +1176,37 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 	case "Interface":
 		s := node.(*types.Interface)
 		data["empty"] = s.Empty()
-		methods := parseMethods(s, &methodCache, 0, marked, true)
+		methods := parseMethods(s, &methodCache, 0, marked, true, pkg)
 		data["methods"] = methods
 		embeds := make([]map[string]interface{}, s.NumEmbeddeds())
 		for i := 0; i < s.NumEmbeddeds(); i++ {
 			v := s.EmbeddedType(i)
-			embeds[i] = parseType(v, marked)
+			embeds[i] = parseType(v, marked, pkg)
 		}
 		data["embeds"] = embeds
 	case "Pointer":
 		s := node.(*types.Pointer)
-		data["elem"] = parseType(s.Elem(), marked)
+		data["elem"] = parseType(s.Elem(), marked, pkg)
 	case "Basic":
 		s := node.(*types.Basic)
 		data["kind"] = s.Kind() // is int
 	case "Array":
 		s := node.(*types.Array)
-		data["elem"] = parseType(s.Elem(), marked)
+		data["elem"] = parseType(s.Elem(), marked, pkg)
 		data["len"] = int32(s.Len())
 	case "Map":
 		s := node.(*types.Map)
-		data["elem"] = parseType(s.Elem(), marked)
-		data["key"] = parseType(s.Key(), marked)
+		data["elem"] = parseType(s.Elem(), marked, pkg)
+		data["key"] = parseType(s.Key(), marked, pkg)
 	case "Signature":
 		s := node.(*types.Signature)
 		data["variadic"] = s.Variadic()
-		data["params"] = parseType(s.Params(), marked)
-		data["results"] = parseType(s.Results(), marked)
-		data["recv"] = parseType(s.Recv(), marked)
+		data["params"] = parseType(s.Params(), marked, pkg)
+		data["results"] = parseType(s.Results(), marked, pkg)
+		data["recv"] = parseType(s.Recv(), marked, pkg)
 		params := make([]map[string]interface{}, s.TypeParams().Len())
 		for i := 0; i < len(params); i++ {
-			params[i] = parseType(s.TypeParams().At(i), marked)
+			params[i] = parseType(s.TypeParams().At(i), marked, pkg)
 		}
 		data["typeParams"] = params
 	case "Tuple":
@@ -1031,21 +1215,21 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 		vars := make([]map[string]interface{}, s.Len())
 		for i := 0; i < s.Len(); i++ {
 			a := s.At(i)
-			vars[i] = parseType(a, marked)
+			vars[i] = parseType(a, marked, pkg)
 		}
 		data["vars"] = vars
 	case "Var":
 		s := node.(*types.Var)
 		data["name"] = s.Name()
-		data["type"] = parseType(s.Type(), marked)
+		data["type"] = parseType(s.Type(), marked, pkg)
 	case "Chan":
 		s := node.(*types.Chan)
-		data["elem"] = parseType(s.Elem(), marked)
+		data["elem"] = parseType(s.Elem(), marked, pkg)
 		data["dir"] = s.Dir()
 	case "TypeParam":
 		s := node.(*types.TypeParam)
 		data["name"] = s.Obj().Name()
-		data["constraint"] = parseType(s.Constraint(), marked)
+		data["constraint"] = parseType(s.Constraint(), marked, pkg)
 	case "Union":
 		s := node.(*types.Union)
 		terms := make([]map[string]interface{}, s.Len())
@@ -1053,7 +1237,7 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 			t := s.Term(i)
 			terms[i] = map[string]interface{}{
 				"tidle": t.Tilde(),
-				"type":  parseType(t.Type(), marked),
+				"type":  parseType(t.Type(), marked, pkg),
 			}
 		}
 		//data["underlying"] = parseType(s.Underlying())
@@ -1063,7 +1247,7 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 	}
 	if !isVar {
 		data["hash"] = hash
-		hashMap[hash] = data
+		pkg.hashMap[hash] = data
 		return map[string]interface{}{
 			"id":   "HashType",
 			"hash": hash,
@@ -1080,13 +1264,13 @@ func copyMap(m map[string]bool) map[string]bool {
 	return m2
 }
 
-func parseData(node interface{}) map[string]interface{} {
+func parseData(node interface{}, pkg *PackageData) map[string]interface{} {
 	data := make(map[string]interface{})
 	switch node := node.(type) {
 	case *ast.BasicLit:
-		return parseBasicLit(node)
+		return parseBasicLit(node, pkg)
 	case *ast.Ident:
-		return parseIdent(node)
+		return parseIdent(node, pkg)
 	default:
 	}
 	e := reflect.Indirect(reflect.ValueOf(node))
@@ -1106,64 +1290,64 @@ func parseData(node interface{}) map[string]interface{} {
 		switch value := value.(type) {
 		case nil:
 		case token.Pos:
-			data[field.Name] = parsePos(value)
+			data[field.Name] = parsePos(value, pkg.fset)
 		case token.Token:
 			data[field.Name] = value.String()
 		case *ast.InterfaceType:
-			data[field.Name] = parseData(value)
+			data[field.Name] = parseData(value, pkg)
 		case *ast.StructType, *ast.ArrayType, *ast.MapType, *ast.ChanType:
-			data[field.Name] = parseData(value)
+			data[field.Name] = parseData(value, pkg)
 		case *ast.BasicLit:
-			data[field.Name] = parseBasicLit(value)
+			data[field.Name] = parseBasicLit(value, pkg)
 		case *ast.BadExpr, *ast.Ellipsis, *ast.FuncLit, *ast.CompositeLit, *ast.ParenExpr:
-			data[field.Name] = parseData(value)
+			data[field.Name] = parseData(value, pkg)
 		case *ast.SelectorExpr, *ast.IndexExpr, *ast.IndexListExpr, *ast.SliceExpr, *ast.TypeAssertExpr, *ast.CallExpr, *ast.StarExpr, *ast.UnaryExpr, *ast.KeyValueExpr:
-			data[field.Name] = parseData(value)
+			data[field.Name] = parseData(value, pkg)
 		case *ast.ExprStmt:
 			data[field.Name] = map[string]interface{}{
 				"id":  "ExprStmt",
-				"x":   parseData(value.X),
-				"pos": parsePos(value.X.Pos()),
-				"end": parsePos(value.X.End()),
+				"x":   parseData(value.X, pkg),
+				"pos": parsePos(value.X.Pos(), pkg.fset),
+				"end": parsePos(value.X.End(), pkg.fset),
 			}
 		case *ast.BadStmt, *ast.DeclStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.GoStmt, ast.DeferStmt:
-			data[field.Name] = parseData(value)
+			data[field.Name] = parseData(value, pkg)
 		case *ast.ReturnStmt, *ast.BranchStmt, *ast.SelectStmt:
-			data[field.Name] = parseData(value)
+			data[field.Name] = parseData(value, pkg)
 		case *ast.BinaryExpr:
-			obj := parseData(value)
+			obj := parseData(value, pkg)
 			data[field.Name] = obj
 		case *ast.BlockStmt, *ast.IfStmt, *ast.CaseClause, *ast.SwitchStmt, *ast.ForStmt, *ast.RangeStmt, *ast.TypeSwitchStmt, *ast.CommClause, *ast.FuncType: // in scopes
-			data[field.Name] = parseData(value)
+			data[field.Name] = parseData(value, pkg)
 		case *ast.AssignStmt:
-			data[field.Name] = parseData(value)
+			data[field.Name] = parseData(value, pkg)
 		case *ast.GenDecl:
 			file := ast.File{}
 			file.Decls = append(file.Decls, value)
-			data[field.Name] = parseFile(&file, "")
+			data[field.Name] = parseFile(&file, "", pkg)
 		case *ast.Ident:
-			data[field.Name] = parseIdent(value)
+			data[field.Name] = parseIdent(value, pkg)
 		case ast.ChanDir, bool, string, int: // is an int
 			data[field.Name] = value
 		case ast.FieldList:
-			data[field.Name] = parseFieldList(value.List)
+			data[field.Name] = parseFieldList(value.List, pkg)
 		case *ast.FieldList:
 			if value == nil {
 				continue
 			}
-			data[field.Name] = parseFieldList(value.List)
+			data[field.Name] = parseFieldList(value.List, pkg)
 		case []ast.Stmt:
 			if value == nil {
 				continue
 			}
-			data[field.Name] = parseBody(value)
+			data[field.Name] = parseBody(value, pkg)
 		case []ast.Expr:
-			data[field.Name] = parseExprList(value)
+			data[field.Name] = parseExprList(value, pkg)
 		case []ast.Spec:
-			data[field.Name] = parseSpecList(value)
+			data[field.Name] = parseSpecList(value, pkg)
 		case *ast.Object: // skip
 		case []*ast.Ident:
-			data[field.Name] = parseIdents(value)
+			data[field.Name] = parseIdents(value, pkg)
 		case []ast.Ident:
 			list := make([]string, len(value))
 			for i := range value {
@@ -1184,14 +1368,14 @@ func parseData(node interface{}) map[string]interface{} {
 	}
 	switch node := node.(type) {
 	case *ast.CompositeLit:
-		data["exprType"] = parseData(node.Type)
-		data["type"] = parseType(checker.TypeOf(node), map[string]bool{})
+		data["exprType"] = parseData(node.Type, pkg)
+		data["type"] = parseType(pkg.checker.TypeOf(node), map[string]bool{}, pkg)
 	case *ast.ExprStmt, *ast.BlockStmt, *ast.IfStmt, *ast.BadStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.GoStmt, ast.DeferStmt, *ast.ReturnStmt, *ast.BranchStmt, *ast.SelectStmt, *ast.CaseClause, *ast.SwitchStmt, *ast.ForStmt, *ast.RangeStmt, *ast.TypeSwitchStmt:
-		data["location"] = parseLocation(node.(ast.Stmt).Pos())
+		data["location"] = parseLocation(node.(ast.Stmt).Pos(), pkg.fset)
 	case *ast.DeclStmt:
-		data["pos"] = parsePos(node.Pos())
+		data["pos"] = parsePos(node.Pos(), pkg.fset)
 	case *ast.SelectorExpr:
-		typeAndValue := checker.Types[node.X.(ast.Expr)]
+		typeAndValue := pkg.checker.Types[node.X.(ast.Expr)]
 		typ := typeAndValue.Type
 		switch typ2 := typ.(type) {
 		case *types.Pointer:
@@ -1205,17 +1389,17 @@ func parseData(node interface{}) map[string]interface{} {
 				meth := typ.Method(i)
 				if meth.Name() == node.Sel.Name {
 					originSig := meth.Origin().Type().(*types.Signature)
-					data["recv"] = parseType(originSig.Recv(), map[string]bool{})
+					data["recv"] = parseType(originSig.Recv(), map[string]bool{}, pkg)
 					break
 				}
 			}
 		default:
 		}
-		data["type"] = parseType(checker.TypeOf(node), map[string]bool{})
+		data["type"] = parseType(pkg.checker.TypeOf(node), map[string]bool{}, pkg)
 	case *ast.IndexExpr, *ast.IndexListExpr, *ast.Ellipsis:
-		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)), map[string]bool{})
+		data["type"] = parseType(pkg.checker.TypeOf(node.(ast.Expr)), map[string]bool{}, pkg)
 	case *ast.InterfaceType, *ast.MapType, *ast.ArrayType, *ast.ChanType, *ast.FuncType, *ast.StructType:
-		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)), map[string]bool{})
+		data["type"] = parseType(pkg.checker.TypeOf(node.(ast.Expr)), map[string]bool{}, pkg)
 	case *ast.TypeAssertExpr:
 	case *ast.UnaryExpr:
 	case *ast.CallExpr:
@@ -1227,12 +1411,12 @@ func parseData(node interface{}) map[string]interface{} {
 			case *ast.Ident:
 				ident = fun
 			case *ast.SelectorExpr:
-				t := checker.TypeOf(fun.X)
+				t := pkg.checker.TypeOf(fun.X)
 				switch t := t.(type) {
 				case *types.Named:
 					if t.TypeArgs() != nil {
 						for i := 0; i < t.TypeArgs().Len(); i++ {
-							typeArgs = append(typeArgs, parseType(t.TypeArgs().At(i), map[string]bool{}))
+							typeArgs = append(typeArgs, parseType(t.TypeArgs().At(i), map[string]bool{}, pkg))
 						}
 					}
 				default:
@@ -1252,28 +1436,28 @@ func parseData(node interface{}) map[string]interface{} {
 			case *ast.TypeAssertExpr:
 			case *ast.MapType:
 			default:
-				fmt.Println("issue generic:", reflect.TypeOf(fun))
+				println("issue generic:", reflect.TypeOf(fun).String())
 			}
 		}
 		resolveGeneric(node.Fun)
 		if ident != nil {
-			inst := checker.Instances[ident]
+			inst := pkg.checker.Instances[ident]
 			if inst.TypeArgs != nil {
 				for i := 0; i < inst.TypeArgs.Len(); i++ {
-					typeArgs = append(typeArgs, parseType(inst.TypeArgs.At(i), map[string]bool{}))
+					typeArgs = append(typeArgs, parseType(inst.TypeArgs.At(i), map[string]bool{}, pkg))
 				}
 			}
 		}
 		if len(typeArgs) > 0 {
 			data["typeArgs"] = typeArgs
 		}
-		data["type"] = parseType(checker.TypeOf(node), map[string]bool{})
+		data["type"] = parseType(pkg.checker.TypeOf(node), map[string]bool{}, pkg)
 	case *ast.StarExpr, *ast.BinaryExpr, *ast.SliceExpr, *ast.ParenExpr:
-		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)), map[string]bool{})
+		data["type"] = parseType(pkg.checker.TypeOf(node.(ast.Expr)), map[string]bool{}, pkg)
 	case *ast.KeyValueExpr:
 	case *ast.FuncDecl:
-		data["pos"] = parsePos(node.Pos())
-		data["end"] = parsePos(node.End())
+		data["pos"] = parsePos(node.Pos(), pkg.fset)
+		data["end"] = parsePos(node.End(), pkg.fset)
 	default:
 	}
 	return data
@@ -1293,14 +1477,14 @@ func parseCommentGroup(value *ast.CommentGroup) map[string]interface{} {
 		"list": list,
 	}
 }
-func parseIdents(value []*ast.Ident) []map[string]interface{} {
+func parseIdents(value []*ast.Ident, pkg *PackageData) []map[string]interface{} {
 	list := make([]map[string]interface{}, len(value))
 	for i := range value {
-		list[i] = parseIdent(value[i])
+		list[i] = parseIdent(value[i], pkg)
 	}
 	return list
 }
-func parseIdent(value *ast.Ident) map[string]interface{} {
+func parseIdent(value *ast.Ident, pkg *PackageData) map[string]interface{} {
 	if value == nil {
 		return nil
 	}
@@ -1311,8 +1495,8 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 	if value.Obj != nil {
 		data["kind"] = int(value.Obj.Kind)
 	}
-	instance := checker.Instances[value]
-	obj := checker.ObjectOf(value)
+	instance := pkg.checker.Instances[value]
+	obj := pkg.checker.ObjectOf(value)
 	if obj != nil {
 		if obj.Pkg() != nil && obj.Pkg().Scope().Lookup(obj.Name()) == obj {
 			if obj.Pkg().Path() != "command-line-arguments" {
@@ -1321,10 +1505,10 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 		}
 	}
 	if instance.Type != nil {
-		data["type"] = parseType(instance.Type, map[string]bool{})
+		data["type"] = parseType(instance.Type, map[string]bool{}, pkg)
 		if obj != nil {
 			// find what the generic types will be
-			data["objType"] = parseType(obj.Type(), map[string]bool{})
+			data["objType"] = parseType(obj.Type(), map[string]bool{}, pkg)
 		}
 	} else {
 		if obj != nil {
@@ -1335,14 +1519,14 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 				data["kind"] = int(ast.Var)
 			default:
 			}
-			data["type"] = parseType(obj.Type(), map[string]bool{})
+			data["type"] = parseType(obj.Type(), map[string]bool{}, pkg)
 		} else {
-			data["type"] = parseType(checker.TypeOf(value), map[string]bool{})
+			data["type"] = parseType(pkg.checker.TypeOf(value), map[string]bool{}, pkg)
 		}
 	}
 	return data
 }
-func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
+func parseBasicLit(expr *ast.BasicLit, pkg *PackageData) map[string]interface{} {
 	output := ""
 	if expr.Kind == token.STRING || expr.Kind == token.CHAR {
 		raw := false
@@ -1362,13 +1546,13 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 			"basic": true,
 			"token": expr.Kind.String(),
 			"kind":  nil,
-			"type":  parseType(checker.TypeOf(expr), map[string]bool{}),
+			"type":  parseType(pkg.checker.TypeOf(expr), map[string]bool{}, pkg),
 		}
 	}
-	if value := checker.Types[expr].Value; value != nil {
-		basic, ok := checker.TypeOf(expr).Underlying().(*types.Basic)
+	if value := pkg.checker.Types[expr].Value; value != nil {
+		basic, ok := pkg.checker.TypeOf(expr).Underlying().(*types.Basic)
 		if !ok {
-			return basicLitFallback(expr)
+			return basicLitFallback(expr, pkg)
 		}
 		kind := basic.Kind()
 		info := basic.Info()
@@ -1419,24 +1603,24 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 			"info":  int32(info),
 			"value": output,
 			"basic": false,
-			"type":  parseType(checker.TypeOf(expr), map[string]bool{}),
+			"type":  parseType(pkg.checker.TypeOf(expr), map[string]bool{}, pkg),
 		}
 	} else {
-		return basicLitFallback(expr)
+		return basicLitFallback(expr, pkg)
 	}
 }
 
-func parsePos(pos token.Pos) int {
+func parsePos(pos token.Pos, fset *token.FileSet) int {
 	fpos := fset.PositionFor(pos, true)
 	return fpos.Offset
 }
 
-func parseLocation(pos token.Pos) string {
+func parseLocation(pos token.Pos, fset *token.FileSet) string {
 	fpos := fset.PositionFor(pos, true)
 	return fpos.Filename + "#L" + strconv.Itoa(fpos.Line)
 }
 
-func basicLitFallback(expr *ast.BasicLit) map[string]interface{} {
+func basicLitFallback(expr *ast.BasicLit, pkg *PackageData) map[string]interface{} {
 	output := ""
 	switch expr.Kind {
 	case token.INT:
@@ -1458,18 +1642,14 @@ func basicLitFallback(expr *ast.BasicLit) map[string]interface{} {
 		}
 	case token.FLOAT:
 		i, err := strconv.ParseFloat(expr.Value, 64)
-		if err != nil {
-			log.Fatal("parse float 64 error: " + err.Error())
-		}
+		panicIfError(err)
 		output = fmt.Sprint(i)
 		if output == "+Inf" || output == "-Inf" {
 			output = "0.0"
 		}
 	case token.IMAG:
 		i, err := strconv.ParseComplex(expr.Value, 128)
-		if err != nil {
-			log.Fatal(err)
-		}
+		panicIfError(err)
 		output = fmt.Sprint(real(i)) + "i" + fmt.Sprint(imag(i))
 	}
 	return map[string]interface{}{
@@ -1478,7 +1658,7 @@ func basicLitFallback(expr *ast.BasicLit) map[string]interface{} {
 		"token": expr.Kind.String(),
 		"value": output,
 		"basic": true,
-		"type":  parseType(checker.TypeOf(expr), map[string]bool{}),
+		"type":  parseType(pkg.checker.TypeOf(expr), map[string]bool{}, pkg),
 	}
 }
 
@@ -1488,17 +1668,17 @@ func getId(obj interface{}) string {
 	}
 	return reflect.TypeOf(obj).Elem().Name()
 }
-func parseFieldList(list []*ast.Field) map[string]interface{} {
+func parseFieldList(list []*ast.Field, pkg *PackageData) map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, field := range list {
-		data[i] = parseField(field)
+		data[i] = parseField(field, pkg)
 	}
 	return map[string]interface{}{
 		"id":   "FieldList",
 		"list": data,
 	}
 }
-func parseField(field *ast.Field) map[string]interface{} {
+func parseField(field *ast.Field, pkg *PackageData) map[string]interface{} {
 	names := make([]map[string]interface{}, len(field.Names))
 	for i, name := range field.Names {
 		names[i] = map[string]interface{}{
@@ -1514,13 +1694,13 @@ func parseField(field *ast.Field) map[string]interface{} {
 		"doc":     parseCommentGroup(field.Doc),
 		"comment": parseCommentGroup(field.Comment),
 		"names":   names,
-		"type":    parseData(field.Type),
+		"type":    parseData(field.Type, pkg),
 		"tag":     tag,
 	}
 }
 
-func printExpr(node any) {
+func printExpr(node any, fset *token.FileSet) {
 	var buf bytes.Buffer
 	printer.Fprint(&buf, fset, node)
-	fmt.Println(buf.String())
+	println(buf.String())
 }

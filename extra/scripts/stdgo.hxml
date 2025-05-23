@@ -1,13 +1,3 @@
 -main StdGo
 -cp extra/scripts
--cp src
--cp git/haxeparser/src
--cp git/hxparse/src
--D no-deprecation-warnings
--D simulate_num
--dce full
--D nolinkstd
-# --interp
--lib hxnodejs
---js export/stdgo.js
---cmd node export/stdgo.js --input-type commonjs
+--interp

@@ -1,2 +1,0 @@
-package stdgo._internal.regexp.syntax;
-var _onlyPerl : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(9, 9, ...[("[a-b-c]" : stdgo.GoString), ("\\Qabc\\E" : stdgo.GoString), ("\\Q*+?{[\\E" : stdgo.GoString), ("\\Q\\\\E" : stdgo.GoString), ("\\Q\\\\\\E" : stdgo.GoString), ("\\Q\\\\\\\\E" : stdgo.GoString), ("\\Q\\\\\\\\\\E" : stdgo.GoString), ("(?:a)" : stdgo.GoString), ("(?P<name>a)" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);

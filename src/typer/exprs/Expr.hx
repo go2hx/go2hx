@@ -639,7 +639,7 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {
 			// null;
 			if (strict) {
 				final t = TPath({name: className(name, info), pack: []});
-				macro stdgo.Go.typer.exprs.Expr.defaultValue((cast(null) : $t));
+				macro stdgo.Go.defaultValue((cast(null) : $t));
 			} else {
 				null;
 			}

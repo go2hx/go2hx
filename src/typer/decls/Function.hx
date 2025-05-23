@@ -107,8 +107,8 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 				// trace(genericTypeName);
 			}
 			args = getArgs(func, info);
-			block = getBlock(info, func, args, recvArg);
 			ret = getRet(func, info);
+			block = getBlock(info, func, args, recvArg);
 			defs.push({
 				name: func.name,
 				pos: null,

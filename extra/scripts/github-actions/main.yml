@@ -129,44 +129,6 @@ jobs:
       - name: Create vendor
         run: go mod vendor
       - run: go run . -pointer -systemgo
-  stdgo:
-    timeout-minutes: 15
-    needs: [build-hl,build-interp,build-js]
-    strategy:
-      fail-fast: false
-    runs-on: [ubuntu-latest]
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-      - name: Install lix
-        run: npm i lix -g
-      - name: Run lix
-        run: npx lix download
-      # go2hx setup
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
-      - name: Set source
-        run: haxelib dev go2hx .
-      - name: Clean stdgo
-        run: npx haxe --run Run clean
-      - uses: actions/cache/restore@v4
-        id: setup-cache
-        with:
-          path: |
-            TypeInfoData_go2hx_hxb.hx
-            ./_internal/*
-            ./go2hx.*.zip
-            export
-            golibs
-          key: ${{ github.sha }}-build-${{ env.cache-name }}
-      - uses: EndBug/add-and-commit@v9
-        continue-on-error: true
-        with:
-            message: stdgo automatic compile
-            pull: --rebase --autostash
-            add: --no-ignore-removal .
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   create-test-lists:
     timeout-minutes: 15
     needs: []

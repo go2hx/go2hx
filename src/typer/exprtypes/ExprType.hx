@@ -62,6 +62,8 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 			if (constraint != null && constraint.embeds == null) {
 				constraint = hashTypeToExprType(constraint.underlying, info);
 			}
+			if (info.typeParamMap.exists(e.name))
+				return info.typeParamMap[e.name];
 			if (constraint == null || constraint.embeds == null || constraint.embeds.length == 0) {
 				typeParam(e.name, [interfaceType(true, [])]);
 			} else {
@@ -329,6 +331,8 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		// typeof(e.type, info, false, paths.copy());
 		case "Ellipsis":
 			typeof(e.type, info, false, paths.copy());
+		case "Union":
+			typeParam("", e.terms.map(term -> typeof(term.type, info, false, paths.copy())));
 		default:
 			throw info.panic() + "unknown typeof expr: " + e.id;
 	}

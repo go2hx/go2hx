@@ -26,15 +26,15 @@ typedef IntermediateFunctionType = {
 	pkg:typer.Package.IntermediatePackageType,
 }
 
-function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = "", pkg:typer.Package.IntermediatePackageType,
-		defName:String = ""):TypeDefinition {
+function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = "",
+		pkg:typer.Package.IntermediatePackageType, defName:String = ""):TypeDefinition {
 	final func = typeFunctionAnalyze(decl, data, restricted, isNamed, sel, defName, pkg);
 	return typeFunctionEmit(func);
 }
 
 function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 	final info = func.info;
-	final args = typeFieldListArgs(func.params, info);
+	final args = getArgs(func, info);
 	var meta:Metadata = [];
 	var params:Array<TypeParamDecl> = null;
 	var recvArg = null;
@@ -62,57 +62,8 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 		info.global.renameClasses[name] = name;
 	}
 
-	var ret = typeFieldListReturn(func.results, info, true);
-	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
-		info.returnNamed = false;
-		macro throw ${HaxeAst.makeString(func.recvName + ":" + info.global.path + "." + func.name + " is not yet implemented")};
-	} else {
-		var block = typer.stmts.Block.typeBlockStmt(func.body, info, true);
-		if (func.name == "_init" && func.varType == null) {
-			switch block.expr {
-				case EBlock(exprs):
-					info.global.initBlock = info.global.initBlock.concat(exprs);
-				default:
-			}
-			return null;
-		}
-		final cond = codegen.Patch.skipTests[func.patchName];
-		if (cond != null) {
-			switch block.expr {
-				case EBlock(exprs):
-					final deferBool = info.global.deferBool;
-					info.global.deferBool = false;
-					final e = typer.stmts.Return.typeReturnStmt({results: [], returnPos: 0}, info);
-					info.global.deferBool = deferBool;
-					if (cond.length == 0) {
-						block = macro {
-							stdgo.Go.println('-- SKIP: ' + $e{makeExpr(func.name)});
-							$e;
-						};
-					} else {
-						final targets = HaxeAst.makeString("(" + cond.join(" || ") + ")");
-						block = macro @:define($targets) {
-							stdgo.Go.println('-- SKIP: ' + $e{makeExpr(func.name)});
-							stdgo.Go.println(" skip targets: " + $e{HaxeAst.makeString(cond.join(", "))});
-							$e;
-						};
-					}
-				default:
-					throw "not a block expr";
-			}
-		}
-		macro $block;
-	}
-	var patch:MacroExpr = null;
-	#if !macro
-	patch = codegen.Patch2.getFunction(func.patchPack, func.name, func.patchRecvName, func.pkg);
-	#end
-
-	if (patch != null) {
-		block = patch;
-	}
-
-	block = argsTranslate(args, block, func.params, info, recvArg);
+	var ret = getRet(func, info);
+	var block:Expr = getBlock(info, func, args, recvArg);
 
 	info.global.renameClasses = previousRenameClasses;
 	info.restricted = [];
@@ -135,9 +86,44 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 	}
 
 	if (func.typeParams != null) {
-		if (patch == null) {
-			block = macro throw "generic function is not supported";
+		// block = macro throw "generic function is not supported";
+		final genericTypes = getGenericTypes(func, info);
+		final combos = getGenericCombos(func, info, genericTypes);
+		final defs:Array<TypeDefinition> = [];
+		// access
+		access.push(AOverload);
+		if (access.indexOf(AInline) == -1)
+			access.push(AInline);
+		access.push(AExtern);
+		// go over combination
+		for (combo in combos) {
+			info.typeParamMap = [];
+			for (i in 0...combo.length) {
+				final t = combo[i];
+				final genericTypeName = genericTypes[i].name;
+				info.typeParamMap[genericTypeName] = t;
+				// trace(genericTypeName);
+			}
+			final block = getBlock(info, func, args, recvArg);
+			final args = getArgs(func, info);
+			final ret = getRet(func, info);
+			defs.push({
+				name: func.name,
+				pos: null,
+				pack: [],
+				fields: [],
+				doc: info.global.noCommentsBool ? "" : finalDoc,
+				meta: meta,
+				kind: TDField(FFun({
+					ret: ret,
+					expr: block,
+					params: params,
+					args: args,
+				}), access)
+			});
 		}
+		info.data.defs = info.data.defs.concat(defs.slice(1));
+		return defs.shift();
 	}
 
 	final def:TypeDefinition = {
@@ -174,7 +160,45 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 	return def;
 }
 
-function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<String>, isNamed:Bool, sel:String, recvName:String, pkg:typer.Package.IntermediatePackageType):IntermediateFunctionType {
+function getGenericTypes(func:IntermediateFunctionType, info):Array<GenericType> {
+	final genericTypes:Array<GenericType> = [];
+	for (param in func.typeParams.list) {
+		final name = param.names[0].name;
+		final t = typeof(param.type, info, false);
+		switch t {
+			case typeParam(_, types):
+				genericTypes.push({
+					name: name,
+					types: types,
+				});
+			default:
+		}
+	}
+	return genericTypes;
+}
+
+function getGenericCombos(func:IntermediateFunctionType, info, genericTypes:Array<GenericType>) {
+	final combos:Array<Array<GoType>> = [];
+	function recurse(index:Int, add:Array<GoType>) {
+		for (type in genericTypes[index].types) {
+			if (index == 0)
+				add = [];
+			final add = add.copy();
+			add.push(type);
+			if (index + 1 < genericTypes.length) {
+				recurse(index + 1, add);
+			} else {
+				// trace(add.map(t -> printer.printComplexType(t)));
+				combos.push(add);
+			}
+		}
+	}
+	recurse(0, []);
+	return combos;
+}
+
+function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<String>, isNamed:Bool, sel:String, recvName:String,
+		pkg:typer.Package.IntermediatePackageType):IntermediateFunctionType {
 	final info = new Info();
 	info.blankCounter = data.blankCounter;
 	info.data = data.data;
@@ -398,5 +422,81 @@ function getRecvName(recv:GoAst.Expr, info:Info):String {
 			return className(path, info);
 		default:
 			throw info.panic() + "invalid recv type: " + t;
+	}
+}
+
+private inline function getArgs(func, info) {
+	return typeFieldListArgs(func.params, info);
+}
+
+private inline function getRet(func, info) {
+	return typeFieldListReturn(func.results, info, true);
+}
+
+private function getBlock(info, func, args, recvArg) {
+	var block = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
+		info.returnNamed = false;
+		macro throw ${HaxeAst.makeString(func.recvName + ":" + info.global.path + "." + func.name + " is not yet implemented")};
+	} else {
+		var block = typer.stmts.Block.typeBlockStmt(func.body, info, true);
+		if (func.name == "_init" && func.varType == null) {
+			switch block.expr {
+				case EBlock(exprs):
+					info.global.initBlock = info.global.initBlock.concat(exprs);
+				default:
+			}
+			return null;
+		}
+		final cond = codegen.Patch.skipTests[func.patchName];
+		if (cond != null) {
+			block = getSkipTestBlock(cond, block, func, info);
+		}
+		macro $block;
+	}
+	var patch:MacroExpr = null;
+	#if !macro
+	patch = codegen.Patch2.getFunction(func.patchPack, func.name, func.patchRecvName, func.pkg);
+	#end
+
+	if (patch != null) {
+		block = patch;
+	}
+
+	return argsTranslate(args, block, func.params, info, recvArg);
+}
+
+function getSkipTestBlock(cond, block, func:IntermediateFunctionType, info) {
+	switch block.expr {
+		case EBlock(exprs):
+			final deferBool = info.global.deferBool;
+			info.global.deferBool = false;
+			final e = typer.stmts.Return.typeReturnStmt({results: [], returnPos: 0}, info);
+			info.global.deferBool = deferBool;
+			if (cond.length == 0) {
+				return macro {
+					stdgo.Go.println('-- SKIP: ' + $e{makeExpr(func.name)});
+					$e;
+				};
+			} else {
+				final targets = HaxeAst.makeString("(" + cond.join(" || ") + ")");
+				return macro @:define($targets) {
+					stdgo.Go.println('-- SKIP: ' + $e{makeExpr(func.name)});
+					stdgo.Go.println(" skip targets: " + $e{HaxeAst.makeString(cond.join(", "))});
+					$e;
+				};
+			}
+		default:
+			throw "not a block expr";
+	}
+}
+
+@:structInit
+private class GenericType {
+	public var name:String = "";
+	public var types:Array<GoType> = [];
+
+	public function new(name, types) {
+		this.name = name;
+		this.types = types;
 	}
 }

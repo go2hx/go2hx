@@ -1,4 +1,4 @@
-[ERROR] ./stdgo/_internal/image/draw/Draw_testdraw.hx:158: characters 21-70
+[ERROR] golibs/stdgo/_internal/image/draw/Draw_testdraw.hx:158: characters 21-70
 
  158 |                     stdgo._internal.image.draw.Draw__iterator_5109377._iterator_5109377++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -8,8 +8,8 @@
 
 === RUN  TestSprintf
 Sprintf("%#v", {1 2 a [1 2]}) = "_internal.fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" want "fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}"
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 Sprintf("%#v", 0x1) = "(func(*.testing.))(0xPTR)" want "(func(*testing.T))(0xPTR)"
 Sprintf("%#v", map[a:{<1> 2}]) = "map[string]_internal.fmt_test.B{\"a\":_internal.fmt_test.B{I:1, j:2}}" want "map[string]fmt_test.B{\"a\":fmt_test.B{I:1, j:2}}"
 Sprintf("%#v", {<nil>}) = "_internal.fmt_test.SI{I:interface {}(nil)}" want "fmt_test.SI{I:interface {}(nil)}"
@@ -19,32 +19,32 @@ Sprintf("%d", true) = "%!d(_internal.fmt_test.renamedBool=true)" want "%!d(fmt_t
 Sprintf("%#v", {<v=F(7)> 8}) = "_internal.fmt_test.S{F:<v=F(7)>, G:GoString(8)}" want "fmt_test.S{F:<v=F(7)>, G:GoString(8)}"
 Sprintf("%T", <invalid reflect.Value>) = ".reflect.Value" want "reflect.Value"
 Sprintf("%T", (4-3i)) = "_internal.fmt_test.renamedComplex128" want "fmt_test.renamedComplex128"
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 Sprintf("%#v", [X X X X X]) = "[]_internal.fmt_test.byteStringer{0x68, 0x65, 0x6c, 0x6c, 0x6f}" want "[]fmt_test.byteStringer{0x68, 0x65, 0x6c, 0x6c, 0x6f}"
 Sprintf("%#v", [X X X X X]) = "[]_internal.fmt_test.byteFormatter{X, X, X, X, X}" want "[]fmt_test.byteFormatter{X, X, X, X, X}"
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 Sprintf("%☠", 0) = "%!☠(_internal.fmt_test.renamedInt=0)" want "%!☠(fmt_test.renamedInt=0)"
 Sprintf("%☠", {0}) = "{%!☠(_internal.fmt_test.renamedInt=0)}" want "{%!☠(fmt_test.renamedInt=0)}"
 Sprintf("%☠", &[<1> 2]) = "&[%!☠(_internal.fmt_test.I=1) %!☠(_internal.fmt_test.G=2)]" want "&[%!☠(fmt_test.I=1) %!☠(fmt_test.G=2)]"
@@ -117,7 +117,7 @@ Sprintf("%#v", &s) = `&_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, wan
 -- PASS: TestPanics
 
 === RUN  TestBadVerbRecursion
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 
 -- PASS: TestBadVerbRecursion
 
@@ -320,4 +320,69 @@ Sscanln: expected error; got none
 -- PASS: TestScanStateCount
 
 === RUN  TestScanInts
-Segmentation fault (core dumped)
+bad scan: expected 801 got 0Exception: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
+Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
+Called from _internal.fmt_test._Fmt_test__testscanints.$Fmt_test__testscanints_Fields_._testScanInts (_internal/fmt_test/Fmt_test__testscanints.hx line 21)
+Called from _internal.fmt_test._Fmt_test_testscanints.$Fmt_test_testscanints_Fields_.testScanInts (_internal/fmt_test/Fmt_test_testscanints.hx line 6)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
+
+-- FAIL: TestScanInts
+
+=== RUN  TestHexBytes
+simple: bad length 0
+simple pair a: bad length 0
+simple pair b: bad length 0
+colon: bad length 0
+colon pair a: bad length 0
+colon pair b: bad length 0
+odd count: got count, err = 0, <nil>; expected 0, error
+
+-- FAIL: TestHexBytes
+
+=== RUN  TestScanNewlinesAreSpaces
+
+-- PASS: TestScanNewlinesAreSpaces
+
+=== RUN  TestScanlnNewlinesTerminate
+one line one item: expected error; got none
+two lines two items: expected error; got none
+
+-- FAIL: TestScanlnNewlinesTerminate
+
+=== RUN  TestScanfNewlineMatchFormat
+newline in input: expected error; got none
+space-newline in input: expected error; got none
+newline in format: expected error; got none
+space-newline in format: expected error; got none
+space vs newline no-percent 0100: expected error; got none
+space vs newline no-percent 0101: expected error; got none
+space vs newline no-percent 0110: expected error; got none
+space vs newline no-percent 1100: expected error; got none
+space vs newline no-percent 1110: expected error; got none
+
+-- FAIL: TestScanfNewlineMatchFormat
+
+=== RUN  TestHexByte
+expected 0123 got 0000Exception: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
+Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
+Called from _internal.fmt_test._Fmt_test_testhexbyte.$Fmt_test_testhexbyte_Fields_.testHexByte (_internal/fmt_test/Fmt_test_testhexbyte.hx line 18)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
+
+-- FAIL: TestHexByte
+
+=== RUN  TestFormatString
+
+-- PASS: TestFormatString
+
+=== RUN  TestStringer
+
+-- PASS: TestStringer
+
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+-- FAIL: TestHexByte

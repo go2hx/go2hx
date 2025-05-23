@@ -1,4 +1,4 @@
-[ERROR] ./stdgo/_internal/go/printer/Printer__idents.hx:8: characters 75-77
+[ERROR] golibs/stdgo/_internal/go/printer/Printer__idents.hx:8: characters 75-77
 
  8 |                 stdgo._internal.go.ast.Ast_walk.walk(stdgo.Go.asInterface(_v), stdgo.Go.asInterface(_f));
    |                                                                           ^^

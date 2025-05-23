@@ -1,199 +1,199 @@
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32.hx:9: characters 30-145
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32.hx:9: characters 30-145
 
   9 |                 var _new_ = (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
     |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32.hx:9: characters 149-264
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32.hx:9: characters 149-264
 
   9 |                 var _new_ = (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
     |                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32.hx:9: characters 148-311
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32.hx:9: characters 148-311
 
   9 |                 var _new_ = (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
     |                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32.hx:12: characters 21-73
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32.hx:12: characters 21-73
 
  12 |                 if ((_old >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32.hx:12: characters 79-131
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32.hx:12: characters 79-131
 
  12 |                 if ((_old >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
     |                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32.hx:12: characters 78-178
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32.hx:12: characters 78-178
 
  12 |                 if ((_old >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
     |                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32method.hx:9: characters 30-145
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32method.hx:9: characters 30-145
 
   9 |                 var _new_ = (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
     |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32method.hx:9: characters 149-264
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32method.hx:9: characters 149-264
 
   9 |                 var _new_ = (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
     |                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32method.hx:9: characters 148-311
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32method.hx:9: characters 148-311
 
   9 |                 var _new_ = (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
     |                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32method.hx:12: characters 21-73
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32method.hx:12: characters 21-73
 
  12 |                 if ((_old >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32method.hx:12: characters 79-131
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32method.hx:12: characters 79-131
 
  12 |                 if ((_old >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
     |                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32method.hx:12: characters 78-178
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr32method.hx:12: characters 78-178
 
  12 |                 if ((_old >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
     |                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64.hx:11: characters 34-149
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64.hx:11: characters 34-149
 
  11 |                     var _new_ = (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
     |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64.hx:11: characters 153-268
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64.hx:11: characters 153-268
 
  11 |                     var _new_ = (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
     |                                                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64.hx:11: characters 152-315
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64.hx:11: characters 152-315
 
  11 |                     var _new_ = (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
     |                                                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64.hx:14: characters 25-77
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64.hx:14: characters 25-77
 
  14 |                     if ((_old >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
     |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64.hx:14: characters 83-135
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64.hx:14: characters 83-135
 
  14 |                     if ((_old >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
     |                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64.hx:14: characters 82-182
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64.hx:14: characters 82-182
 
  14 |                     if ((_old >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
     |                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64method.hx:11: characters 34-149
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64method.hx:11: characters 34-149
 
  11 |                     var _new_ = (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
     |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64method.hx:11: characters 153-268
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64method.hx:11: characters 153-268
 
  11 |                     var _new_ = (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
     |                                                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64method.hx:11: characters 152-315
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64method.hx:11: characters 152-315
 
  11 |                     var _new_ = (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | (((new stdgo.GoUIntptr((_seed + _i : stdgo.GoInt)) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
     |                                                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64method.hx:14: characters 25-77
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64method.hx:14: characters 25-77
 
  14 |                     if ((_old >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
     |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64method.hx:14: characters 83-135
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64method.hx:14: characters 83-135
 
  14 |                     if ((_old >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
     |                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64method.hx:14: characters 82-182
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerswapuintptr64method.hx:14: characters 82-182
 
  14 |                     if ((_old >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
     |                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerstoreloaduintptr.hx:9: characters 24-74
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerstoreloaduintptr.hx:9: characters 24-74
 
   9 |             var _vhi = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerstoreloaduintptr.hx:22: characters 24-74
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerstoreloaduintptr.hx:22: characters 24-74
 
  22 |             var _vhi = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerstoreloadpointer.hx:9: characters 24-74
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerstoreloadpointer.hx:9: characters 24-74
 
   9 |             var _vhi = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerstoreloadpointer.hx:22: characters 24-74
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerstoreloadpointer.hx:22: characters 24-74
 
  22 |             var _vhi = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerstoreloaduintptrmethod.hx:9: characters 24-74
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerstoreloaduintptrmethod.hx:9: characters 24-74
 
   9 |             var _vhi = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerstoreloaduintptrmethod.hx:22: characters 24-74
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerstoreloaduintptrmethod.hx:22: characters 24-74
 
  22 |             var _vhi = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerstoreloadpointermethod.hx:9: characters 24-74
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerstoreloadpointermethod.hx:9: characters 24-74
 
   9 |             var _vhi = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test__hammerstoreloadpointermethod.hx:22: characters 24-74
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test__hammerstoreloadpointermethod.hx:22: characters 24-74
 
  22 |             var _vhi = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test_testvalueconcurrent.hx:68: characters 58-98
+[ERROR] golibs/_internal/sync/atomic_test/Atomic_test_testvalueconcurrent.hx:76: characters 54-94
 
- 68 |                                             while ((_j < _internal.sync.atomic_test.Atomic_test_n.n : Bool)) {
-    |                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 76 |                                         while ((_j < _internal.sync.atomic_test.Atomic_test_n.n : Bool)) {
+    |                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Type not found : _internal.sync.atomic_test.Atomic_test_n
 
         | For function argument 'func'

@@ -11,7 +11,7 @@ Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.mai
 -- FAIL: TestNode
 
 === RUN  TestNodeNoModify
-Exception: Int32:sync.atomic_.add is not yet implemented
+Exception: RWMutex:sync.lock is not yet implemented
 Called from stdgo._internal.go.parser._Parser_parsefile.$Parser_parsefile_Fields_.parseFile (stdgo/_internal/go/parser/Parser_parsefile.hx line 126)
 Called from stdgo._internal.go.format._Format_testnodenomodify.$Format_testnodenomodify_Fields_.testNodeNoModify (stdgo/_internal/go/format/Format_testnodenomodify.hx line 5)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
@@ -32,7 +32,7 @@ Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.mai
 -- FAIL: TestSource
 
 === RUN  TestPartial
-Exception: Int32:sync.atomic_.add is not yet implemented
+Exception: RWMutex:sync.lock is not yet implemented
 Called from stdgo._internal.go.parser._Parser_parsefile.$Parser_parsefile_Fields_.parseFile (stdgo/_internal/go/parser/Parser_parsefile.hx line 126)
 Called from stdgo._internal.go.format._Format__parse.$Format__parse_Fields_._parse (stdgo/_internal/go/format/Format__parse.hx line 5)
 Called from stdgo._internal.go.format._Format_source.$Format_source_Fields_.source (stdgo/_internal/go/format/Format_source.hx line 4)
@@ -43,5 +43,5 @@ Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.mai
 
 -- FAIL: TestPartial
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
 -- FAIL: TestPartial

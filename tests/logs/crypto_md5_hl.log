@@ -33,9 +33,9 @@ Called from _internal.crypto.md5dottest._Md5dottest.$Md5dottest_Fields_.main (_i
 -- PASS: TestLargeHashes
 
 === RUN  TestAllocations
-./stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
 
 -- PASS: TestAllocations
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
 -- FAIL: TestBlockGeneric

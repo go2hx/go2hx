@@ -52,8 +52,8 @@
 -- PASS: TestIs
 
 === RUN  TestAs
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 - SUBRUN  0:As(Errorf(..., <nil>), 0x1)
 - SUBRUN  1:As(Errorf(..., pitied the fool), errorT())
 got _internal.errors_test.errorT{s:""}, want _internal.errors_test.errorT{s:"T"}Exception: __fail__
@@ -72,10 +72,10 @@ Called from _internal.errorsdottest._Errorsdottest.$Errorsdottest_Fields_.main (
 - SUBRUN  <nil>(<nil>)
 - SUBRUN  *int(<nil>)
 - SUBRUN  string(error)
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 - SUBRUN  *string(0x1)
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 
 -- PASS: TestAsValidation
 
@@ -83,5 +83,5 @@ Called from _internal.errorsdottest._Errorsdottest.$Errorsdottest_Fields_.main (
 
 -- PASS: TestUnwrap
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
 -- FAIL: TestAs

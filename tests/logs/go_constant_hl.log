@@ -1,4 +1,4 @@
-[ERROR] stdgo/Go.macro.hx:446: characters 18-19
+[ERROR] std/go/_std/stdgo/Go.macro.hx:446: characters 18-19
 
  446 |    return switch t {
      |                  ^
@@ -12,7 +12,7 @@
           |          ^^^^^
           | Called from here
 
-      ->  ./stdgo/_internal/go/constant/Constant_unaryop.hx:231: characters 28-56
+      ->  golibs/stdgo/_internal/go/constant/Constant_unaryop.hx:231: characters 28-56
 
       231 |                     return stdgo.Go.asInterface(!_y_15);
           |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

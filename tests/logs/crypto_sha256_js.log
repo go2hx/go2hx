@@ -1,13 +1,13 @@
 === RUN  TestGolden
 sha256[<invalid reflect.Value>](%!s(MISSING)) = %!s(MISSING) want %!s(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 43587 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 43516 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha256.js:43070:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha256_Sha256_$testgolden_testGolden [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js:11088:22)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 42832 column 9)
-Called from ._$internal_crypto_sha256dottest_Sha256dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 35104 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha256.js:57360:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js:57361:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 41596 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 41525 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha256.js:41079:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha256_Sha256_$testgolden_testGolden [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js:10975:22)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 40841 column 9)
+Called from ._$internal_crypto_sha256dottest_Sha256dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 34734 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha256.js:55362:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js:55363:3)
 
 -- FAIL: TestGolden
 
@@ -32,14 +32,14 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 === RUN  TestBlockGeneric
 Exception: Cannot read properties of null (reading 'read')
 Called from module TypeError: Cannot read properties of null (reading 'read')
-Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 32787 column 21)
-Called from .stdgo__$internal_io_Io_$readfull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 32773 column 9)
-Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 32768 column 9)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha256_Sha256_$testblockgeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js:32758:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 42832 column 9)
-Called from ._$internal_crypto_sha256dottest_Sha256dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 35104 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha256.js:57360:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js:57361:3)
+Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 32432 column 21)
+Called from .stdgo__$internal_io_Io_$readfull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 32418 column 9)
+Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 32413 column 9)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha256_Sha256_$testblockgeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js:32403:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 40841 column 9)
+Called from ._$internal_crypto_sha256dottest_Sha256dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 34734 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha256.js:55362:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js:55363:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -50,7 +50,7 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 -- PASS: TestLargeHashes
 
 === RUN  TestAllocations
-./stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
 
 -- PASS: TestAllocations
 
@@ -58,5 +58,5 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 -- PASS: TestCgo
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
 -- FAIL: TestBlockGeneric

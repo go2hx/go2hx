@@ -1,13 +1,14 @@
+golibs/stdgo/_internal/syscall/js/Js_value_static_extension.hx:80: funclit
 
-/home/runner/work/go2hx/go2hx/golibs/std_js.js:10934
-	throw haxe_Exception.thrown("Value:syscall.js.call is not yet implemented");
+/home/runner/work/go2hx/go2hx/golibs/std_js.js:10846
+	throw haxe_Exception.thrown("not implemented: call");
 	^
-<ref *1> Error: Value:syscall.js.call is not yet implemented
-    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_js.js:16581:17)
-    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_js.js:16511:11)
-    at stdgo__$internal_syscall_js_Value_$static_$extension.call (/home/runner/work/go2hx/go2hx/golibs/std_js.js:10934:23)
-    at /home/runner/work/go2hx/go2hx/golibs/std_js.js:48487:115
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_js.js:50192:3)
+<ref *1> Error: not implemented: call
+    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_js.js:16518:17)
+    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_js.js:16448:11)
+    at stdgo__$internal_syscall_js_Value_$static_$extension.call (/home/runner/work/go2hx/go2hx/golibs/std_js.js:10846:23)
+    at /home/runner/work/go2hx/go2hx/golibs/std_js.js:46566:115
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_js.js:48250:3)
     at Module._compile (node:internal/modules/cjs/loader:1734:14)
     at Object..js (node:internal/modules/cjs/loader:1899:10)
     at Module.load (node:internal/modules/cjs/loader:1469:32)
@@ -16,7 +17,7 @@
   __previousException: undefined,
   __nativeException: [Circular *1],
   __skipStack: 2,
-  value: 'Value:syscall.js.call is not yet implemented'
+  value: 'not implemented: call'
 }
 
-Node.js v23.11.0
+Node.js v23.11.1

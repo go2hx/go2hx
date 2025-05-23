@@ -1,22 +1,22 @@
 
-/home/runner/work/go2hx/go2hx/golibs/std_template.js:44364
-	throw haxe_Exception.thrown("Int32:sync.atomic_.add is not yet implemented");
+/home/runner/work/go2hx/go2hx/golibs/std_template.js:43719
+	throw haxe_Exception.thrown("RWMutex:sync.rLock is not yet implemented");
 	^
-<ref *1> Error: Int32:sync.atomic_.add is not yet implemented
-    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_template.js:36129:17)
-    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_template.js:36059:11)
-    at stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_template.js:44364:23)
-    at stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_template.js:44327:78)
-    at stdgo__$internal_text_template_Template_$static_$extension.parse (/home/runner/work/go2hx/go2hx/golibs/std_template.js:42391:51)
-    at /home/runner/work/go2hx/go2hx/golibs/std_template.js:103857:75
-    at /home/runner/work/go2hx/go2hx/golibs/std_template.js:103864:2
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:110180:3)
+<ref *1> Error: RWMutex:sync.rLock is not yet implemented
+    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_template.js:35775:17)
+    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_template.js:35705:11)
+    at stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_template.js:43719:23)
+    at stdgo__$internal_text_template_Template_$static_$extension.parse (/home/runner/work/go2hx/go2hx/golibs/std_template.js:42036:51)
+    at /home/runner/work/go2hx/go2hx/golibs/std_template.js:101858:75
+    at /home/runner/work/go2hx/go2hx/golibs/std_template.js:101865:2
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:108181:3)
     at Module._compile (node:internal/modules/cjs/loader:1734:14)
-    at Object..js (node:internal/modules/cjs/loader:1899:10) {
+    at Object..js (node:internal/modules/cjs/loader:1899:10)
+    at Module.load (node:internal/modules/cjs/loader:1469:32) {
   __previousException: undefined,
   __nativeException: [Circular *1],
   __skipStack: 2,
-  value: 'Int32:sync.atomic_.add is not yet implemented'
+  value: 'RWMutex:sync.rLock is not yet implemented'
 }
 
-Node.js v23.11.0
+Node.js v23.11.1

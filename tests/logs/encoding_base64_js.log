@@ -48,12 +48,12 @@
 
 === RUN  TestDecoderIssue3577
 Exception: Channel not supported on non threaded targets
-Called from stdgo_ChanData.__send__ (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 21242 column 24)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_base64_Base64_$testdecoderissue3577_testDecoderIssue3577 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_base64.js:21039:8)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 47633 column 9)
-Called from ._$internal_encoding_base64dottest_Base64dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 36203 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_base64.js:56343:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_base64.js:56344:3)
+Called from stdgo_ChanData.__send__ (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 21122 column 24)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_base64_Base64_$testdecoderissue3577_testDecoderIssue3577 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_base64.js:20919:8)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 45643 column 9)
+Called from ._$internal_encoding_base64dottest_Base64dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 35834 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_base64.js:54346:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_base64.js:54347:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -75,5 +75,5 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 -- PASS: TestDecoderRaw
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
 -- FAIL: TestDecoderIssue3577

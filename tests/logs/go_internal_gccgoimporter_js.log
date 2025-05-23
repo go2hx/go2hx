@@ -1,32 +1,110 @@
-[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:75: characters 49-92
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/Process.hx:41: characters 1-7
 
-  75 |                     _magic_1 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
-     |                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  41 | @:enum abstract ProcessEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/child_process/ChildProcess.hx:38: characters 1-7
+
+  38 | @:enum abstract ChildProcessEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/events/EventEmitter.hx:35: characters 1-7
+
+  35 | @:enum abstract EventEmitterEvent<T:Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/stream/Readable.hx:40: characters 1-7
+
+  40 | @:enum abstract ReadableEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/stream/Writable.hx:43: characters 1-7
+
+  43 | @:enum abstract WritableEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/ChildProcess.hx:139: characters 1-7
+
+ 139 | @:enum abstract ChildProcessSpawnOptionsStdioSimple(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/ChildProcess.hx:159: characters 1-7
+
+ 159 | @:enum abstract ChildProcessSpawnOptionsStdioBehaviour(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/Fs.hx:171: characters 1-7
+
+ 171 | @:enum abstract SymlinkType(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/Fs.hx:187: characters 1-7
+
+ 187 | @:enum abstract FsOpenFlag(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/fs/FSWatcher.hx:36: characters 1-7
+
+  36 | @:enum abstract FSWatcherChangeType(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/fs/FSWatcher.hx:44: characters 1-7
+
+  44 | @:enum abstract FSWatcherEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/fs/ReadStream.hx:28: characters 1-7
+
+  28 | @:enum abstract ReadStreamEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/fs/WriteStream.hx:28: characters 1-7
+
+  28 | @:enum abstract WriteStreamEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:75: characters 50-93
+
+  75 |                     _magic_20 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+     |                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : stdgo._internal.internal.xcoff.Xcoff__magic
 
           | For optional function argument 'get'
 
-[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:75: characters 21-100
+[ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:75: characters 21-101
 
-  75 |                     _magic_1 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  75 |                     _magic_20 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Void should be stdgo.GoUInt16
 
-[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:207: characters 46-85
+[ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:207: characters 46-85
 
- 207 |                     _l_16 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+ 207 |                     _l_92 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
      |                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : stdgo._internal.internal.xcoff.Xcoff__l
 
           | For optional function argument 'get'
 
-[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:207: characters 21-89
+[ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:207: characters 21-89
 
- 207 |                     _l_16 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+ 207 |                     _l_92 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Void should be stdgo.GoUInt32
 
-[ERROR] (macro) ./stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 108-109
+[ERROR] (macro) golibs/stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 108-109
 
    4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
      |                                                                                                            ^
@@ -40,13 +118,13 @@
           |          ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  stdgo/Go.macro.hx:676: characters 11-31
+      ->  std/go/_std/stdgo/Go.macro.hx:676: characters 11-31
 
       676 |   var t = Context.typeof(expr);
           |           ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  ./stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 42-111
+      ->  golibs/stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 42-111
 
         4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
           |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

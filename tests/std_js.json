@@ -21,5 +21,6 @@
  "js|encoding/csv",
  "js|hash/fnv",
  "js|crypto",
- "js|hash"
+ "js|hash",
+ "js|go/scanner"
 ]

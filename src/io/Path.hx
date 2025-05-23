@@ -17,6 +17,8 @@ function normalizePath(path:String):String {
 	path = StringTools.replace(path, "go-", "godash");
 	path = StringTools.replace(path, "-", "dash");
 	var path = path.split("/");
+	if (path.length > 0 && path[0] == "vendor")
+		path.shift();
 	for (i in 0...path.length) {
 		if (io.Data.reserved.indexOf(path[i]) != -1) {
 			path[i] += "_";
@@ -91,7 +93,6 @@ function getGlobalPath(info:Info):String {
 }
 
 function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
-
 	path = StringTools.replace(path, "go-", "");
 	// path = StringTools.replace(path, "_test.", ".");
 	final startCommandLineArg = "command-line-arguments.";

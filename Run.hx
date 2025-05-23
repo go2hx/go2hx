@@ -333,9 +333,8 @@ function setupCPP(rebuild:Bool, args:Array<String>) {
 			Sys.exit(1);
 		}
 	}
-	final command = fileName + " " + args.join(" ");
-	Sys.println(command);
-	final code = Sys.command(command);
+	Sys.println(fileName + " " + args.join(" "));
+	final code = Sys.command(fileName, args);
 	if (code != 0) {
 		Sys.println("COMPILER RUN FAILED: " + command);
 		Sys.exit(code);

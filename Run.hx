@@ -291,7 +291,7 @@ function build(rebuild:Bool) {
 
 	// run go compiler
 	if (!FileSystem.exists("go4hx") || rebuild) {
-		if (!FileSystem.exists("git/tools")) {
+		if (!FileSystem.exists("git/tools") || !FileSystem.exists("git/hxparser") || !FileSystem.exists("git/hxparse")) {
 			// update tools submodule
 			Sys.println("updating git submodules");
 			Sys.command("git submodule update --init --recursive");

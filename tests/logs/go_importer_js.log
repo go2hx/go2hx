@@ -76,10 +76,10 @@
      | ^^^^^^
      | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
 
-[ERROR] golibs/stdgo/_internal/go/build/Build__parsegoembed.hx:103: characters 21-45
+[ERROR] golibs/stdgo/_internal/go/build/Build__parsegoembed.hx:103: characters 21-46
 
- 103 |                     _iterator_6077880 = 0i64;
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^
+ 103 |                     _iterator_10954373 = 0i64;
+     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
      | haxe.Int64 should be Null<Int>
 
 [ERROR] (macro) golibs/stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 108-109

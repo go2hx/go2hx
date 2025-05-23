@@ -1,10 +1,10 @@
-[ERROR] ./stdgo/AnyInterface.hx:50: characters 76-104
+[ERROR] std/go/_std/stdgo/AnyInterface.hx:50: characters 68-96
 
- 50 |   var gt:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
-    |                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 50 |   var gt:stdgo._internal.internal.reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
+    |                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Uncaught exception Cannot call null
 
-     ->  ./stdgo/GoMap.hx:700: characters 7-15
+     ->  std/go/_std/stdgo/GoMap.hx:700: characters 7-15
 
      700 |   if (k1 == k2) {
          |       ^^^^^^^^
@@ -16,13 +16,13 @@
          |            ^^^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-     ->  ./stdgo/_internal/encoding/gob/Gob__bootstraptype.hx:17: characters 272-288
+     ->  golibs/stdgo/_internal/encoding/gob/Gob__bootstraptype.hx:4: characters 82-144
 
-      17 | 
-         |                                                                                                                                                                                                                                                                                ^^^^^^^^^^^^^^^^
+       4 |         var __tmp__ = (stdgo._internal.encoding.gob.Gob__types._types != null && stdgo._internal.encoding.gob.Gob__types._types.__exists__(_rt) ? { _0 : stdgo._internal.encoding.gob.Gob__types._types[_rt], _1 : true } : { _0 : (null : stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType), _1 : false }), __8:stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType = __tmp__._0, _present:Bool = __tmp__._1;
+         |                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-     ->  ./stdgo/_internal/encoding/gob/Gob__tint.hx:2: characters 66-213
+     ->  golibs/stdgo/_internal/encoding/gob/Gob__tint.hx:2: characters 66-213
 
        2 | var _tInt : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId = stdgo._internal.encoding.gob.Gob__bootstraptype._bootstrapType(("int" : stdgo.GoString), stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.GoInt>)));
          |                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

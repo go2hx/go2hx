@@ -1,30 +1,30 @@
 === RUN  TestGet
 Exception: T_:testing.setenv is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.internal.godebug_test._Godebug_test_testget.Godebug_test_testget_Fields_.testGet (./_internal/internal/godebug_test/Godebug_test_testget.hx line 20 column 13)
-Called from stdgo._internal.testing.T__static_extension.setenv (./stdgo/_internal/testing/Testing_t__static_extension.hx line 19 column 138)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.internal.godebug_test._Godebug_test_testget.Godebug_test_testget_Fields_.testGet (golibs/_internal/internal/godebug_test/Godebug_test_testget.hx line 20 column 13)
+Called from stdgo._internal.testing.T__static_extension.setenv (golibs/stdgo/_internal/testing/Testing_t__static_extension.hx line 19 column 138)
 
 -- FAIL: TestGet
 
 === RUN  TestMetrics
 NonDefault kind = 0, want uint64Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.internal.godebug_test._Godebug_test_testmetrics.Godebug_test_testmetrics_Fields_.testMetrics (./_internal/internal/godebug_test/Godebug_test_testmetrics.hx line 13 column 83)
-Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.internal.godebug_test._Godebug_test_testmetrics.Godebug_test_testmetrics_Fields_.testMetrics (golibs/_internal/internal/godebug_test/Godebug_test_testmetrics.hx line 13 column 83)
+Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
+Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
 
 -- FAIL: TestMetrics
 
 === RUN  TestCmdBisect
 skipping test: 'go build' unavailable: <nil>Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.internal.godebug_test._Godebug_test_testcmdbisect.Godebug_test_testcmdbisect_Fields_.testCmdBisect (./_internal/internal/godebug_test/Godebug_test_testcmdbisect.hx line 4 column 9)
-Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.Testenv_musthavegobuild_Fields_.mustHaveGoBuild (./stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 15 column 13)
-Called from stdgo._internal.testing.T__asInterface.skipf (./stdgo/_internal/testing/Testing_t__asinterface.hx line 53 column 98)
-Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 75 column 106)
-Called from stdgo._internal.testing.T_common_static_extension.skipf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45 column 9)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.internal.godebug_test._Godebug_test_testcmdbisect.Godebug_test_testcmdbisect_Fields_.testCmdBisect (golibs/_internal/internal/godebug_test/Godebug_test_testcmdbisect.hx line 4 column 9)
+Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.Testenv_musthavegobuild_Fields_.mustHaveGoBuild (golibs/stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 15 column 13)
+Called from stdgo._internal.testing.T__asInterface.skipf (golibs/stdgo/_internal/testing/Testing_t__asinterface.hx line 53 column 98)
+Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 75 column 106)
+Called from stdgo._internal.testing.T_common_static_extension.skipf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45 column 9)
 
 -- SKIP: TestCmdBisect
 
@@ -34,5 +34,5 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_
 
 -- PASS: TestBisectTestCase
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
 -- FAIL: TestMetrics

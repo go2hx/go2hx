@@ -1,10 +1,10 @@
-[ERROR] ./stdgo/_internal/go/build/Build__parsegoembed.hx:103: characters 21-45
+[ERROR] golibs/stdgo/_internal/go/build/Build__parsegoembed.hx:103: characters 21-45
 
- 103 |                     _iterator_4376084 = 0i64;
+ 103 |                     _iterator_6597639 = 0i64;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^
      | haxe.Int64 should be Null<Int>
 
-[ERROR] (macro) ./stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 108-109
+[ERROR] (macro) golibs/stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 108-109
 
    4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
      |                                                                                                            ^
@@ -18,13 +18,13 @@
           |          ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  stdgo/Go.macro.hx:676: characters 11-31
+      ->  std/go/_std/stdgo/Go.macro.hx:676: characters 11-31
 
       676 |   var t = Context.typeof(expr);
           |           ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  ./stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 42-111
+      ->  golibs/stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 42-111
 
         4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
           |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

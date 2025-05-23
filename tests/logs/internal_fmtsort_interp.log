@@ -1,34 +1,34 @@
-[ERROR] ./stdgo/_internal/reflect/Reflect_value_static_extension.hx:23: characters 135-140
+[ERROR] golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:23: characters 135-140
 
  23 |     static public function unsafePointer( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo._internal.unsafe.Unsafe.UnsafePointer throw "Value:reflect.unsafePointer is not yet implemented";
     |                                                                                                                                       ^^^^^
     | Uncaught exception Value:reflect.unsafePointer is not yet implemented
 
-     ->  ./_internal/internal/fmtsort_test/Fmtsort_test__makechans.hx:7: characters 42-152
+     ->  golibs/_internal/internal/fmtsort_test/Fmtsort_test__makechans.hx:7: characters 42-152
 
       7 |             return ((new stdgo.GoUIntptr(stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_cs[(_i : stdgo.GoInt)])).unsafePointer()) : stdgo.GoUIntptr) < (new stdgo.GoUIntptr(stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_cs[(_j : stdgo.GoInt)])).unsafePointer()) : stdgo.GoUIntptr) : Bool);
         |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-     ->  ./stdgo/_internal/sort/Sort__insertionsort_func.hx:10: characters 64-102
+     ->  golibs/stdgo/_internal/sort/Sort__insertionsort_func.hx:10: characters 64-102
 
      10 |                     while (((_j > _a : Bool) && _data.less(_j, (_j - (1 : stdgo.GoInt) : stdgo.GoInt)) : Bool)) {
         |                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-     ->  ./stdgo/_internal/sort/Sort__pdqsort_func.hx:11: characters 17-109
+     ->  golibs/stdgo/_internal/sort/Sort__pdqsort_func.hx:11: characters 17-109
 
      11 |                 stdgo._internal.sort.Sort__insertionsort_func._insertionSort_func(_data?.__copy__(), _a, _b);
         |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-     ->  ./stdgo/_internal/sort/Sort_slice.hx:8: characters 9-217
+     ->  golibs/stdgo/_internal/sort/Sort_slice.hx:8: characters 9-217
 
       8 |         stdgo._internal.sort.Sort__pdqsort_func._pdqsort_func((new stdgo._internal.sort.Sort_t_lessswap.T_lessSwap(_less, _swap) : stdgo._internal.sort.Sort_t_lessswap.T_lessSwap), (0 : stdgo.GoInt), _length, _limit);
         |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-     ->  ./_internal/internal/fmtsort_test/Fmtsort_test__makechans.hx:5: lines 5-8
+     ->  golibs/_internal/internal/fmtsort_test/Fmtsort_test__makechans.hx:5: lines 5-8
 
       5 |         stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_cs), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
       6 |             //"file:///home/runner/.go/go1.21.3/src/internal/fmtsort/sort_test.go#L200"
@@ -37,7 +37,7 @@
         |
         | Called from here
 
-     ->  ./_internal/internal/fmtsort_test/Fmtsort_test__chans.hx:2: characters 53-121
+     ->  golibs/_internal/internal/fmtsort_test/Fmtsort_test__chans.hx:2: characters 53-121
 
       2 | var _chans : stdgo.Slice<stdgo.Chan<stdgo.GoInt>> = _internal.internal.fmtsort_test.Fmtsort_test__makechans._makeChans();
         |                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

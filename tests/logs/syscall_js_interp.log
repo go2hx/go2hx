@@ -1,10 +1,11 @@
-[ERROR] ./stdgo/_internal/syscall/js/Js_value_static_extension.hx:35: characters 178-183
+golibs/stdgo/_internal/syscall/js/Js_value_static_extension.hx:80: funclit
+[ERROR] golibs/stdgo/_internal/syscall/js/Js_value_static_extension.hx:81: characters 9-14
 
- 35 |     static public function call( _v:stdgo._internal.syscall.js.Js_value.Value, _m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js_value.Value throw "Value:syscall.js.call is not yet implemented";
-    |                                                                                                                                                                                  ^^^^^
-    | Uncaught exception Value:syscall.js.call is not yet implemented
+ 81 |         throw "not implemented: call";
+    |         ^^^^^
+    | Uncaught exception not implemented: call
 
-     ->  ./_internal/syscall/js_test/Js_test__dummys.hx:2: characters 59-581
+     ->  golibs/_internal/syscall/js_test/Js_test__dummys.hx:2: characters 59-581
 
      2 | var _dummys : stdgo._internal.syscall.js.Js_value.Value = stdgo._internal.syscall.js.Js_global.global().call(("eval" : stdgo.GoString), stdgo.Go.toInterface(("({\n\tsomeBool: true,\n\tsomeString: \"abc\\u1234\",\n\tsomeInt: 42,\n\tsomeFloat: 42.123,\n\tsomeArray: [41, 42, 43],\n\tsomeDate: new Date(),\n\tadd: function(a, b) {\n\t\treturn a + b;\n\t},\n\tzero: 0,\n\tstringZero: \"0\",\n\tNaN: NaN,\n\temptyObj: {},\n\temptyArray: [],\n\tInfinity: Infinity,\n\tNegInfinity: -Infinity,\n\tobjNumber0: new Number(0),\n\tobjBooleanFalse: new Boolean(false),\n})" : stdgo.GoString)));
        |                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -1,16 +1,16 @@
-[ERROR] stdgo/Go.macro.hx:585: characters 8-13
+[ERROR] std/go/_std/stdgo/Go.macro.hx:585: characters 8-13
 
  585 |        throw "invalid underlying type: " + t.type;
      |        ^^^^^
      | Uncaught exception invalid underlying type: TAbstract(stdgo.AnyInterface,[])
 
-      ->  ./_internal/reflect_test/Reflect_test__deepequaltests.hx:162: characters 70-223
+      ->  golibs/_internal/reflect_test/Reflect_test__deepequaltests.hx:162: characters 70-223
 
       162 | (new _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest(stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), true) : _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest),
           |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  stdgo/Go.macro.hx:676: characters 11-31
+      ->  std/go/_std/stdgo/Go.macro.hx:676: characters 11-31
 
       676 |   var t = Context.typeof(expr);
           |           ^^^^^^^^^^^^^^^^^^^^
@@ -22,13 +22,13 @@
           |          ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  ./_internal/reflect_test/Reflect_test__deepequaltests.hx:162: characters 92-160
+      ->  golibs/_internal/reflect_test/Reflect_test__deepequaltests.hx:162: characters 92-160
 
       162 | (new _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest(stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), true) : _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest),
           |                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  stdgo/Go.macro.hx:607: characters 21-31
+      ->  std/go/_std/stdgo/Go.macro.hx:607: characters 21-31
 
       607 |   final valueNull = gen(false);
           |                     ^^^^^^^^^^

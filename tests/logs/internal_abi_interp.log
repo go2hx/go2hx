@@ -1,26 +1,26 @@
 === RUN  TestFuncPC
-./stdgo/_internal/internal/abi/Abi_funcpcabi0.hx:3: funclit
+golibs/stdgo/_internal/internal/abi/Abi_funcpcabi0.hx:3: funclit
 Exception: not implemented: funcPCABI0
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.internal.abi_test._Abi_test_testfuncpc.Abi_test_testfuncpc_Fields_.testFuncPC (./_internal/internal/abi_test/Abi_test_testfuncpc.hx line 4 column 25)
-Called from stdgo._internal.internal.abi._Abi_funcpctest.Abi_funcpctest_Fields_.funcPCTest (./stdgo/_internal/internal/abi/Abi_funcpctest.hx line 4 column 16)
-Called from stdgo._internal.internal.abi._Abi_funcpcabi0.Abi_funcpcabi0_Fields_.funcPCABI0 (./stdgo/_internal/internal/abi/Abi_funcpcabi0.hx line 4 column 9)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.internal.abi_test._Abi_test_testfuncpc.Abi_test_testfuncpc_Fields_.testFuncPC (golibs/_internal/internal/abi_test/Abi_test_testfuncpc.hx line 4 column 21)
+Called from stdgo._internal.internal.abi._Abi_funcpctest.Abi_funcpctest_Fields_.funcPCTest (golibs/stdgo/_internal/internal/abi/Abi_funcpctest.hx line 4 column 16)
+Called from stdgo._internal.internal.abi._Abi_funcpcabi0.Abi_funcpcabi0_Fields_.funcPCABI0 (golibs/stdgo/_internal/internal/abi/Abi_funcpcabi0.hx line 4 column 9)
 
 -- FAIL: TestFuncPC
 
 === RUN  TestFuncPCCompileError
 skipping test: 'go build' unavailable: <nil>Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.internal.abi_test._Abi_test_testfuncpccompileerror.Abi_test_testfuncpccompileerror_Fields_.testFuncPCCompileError (./_internal/internal/abi_test/Abi_test_testfuncpccompileerror.hx line 4 column 9)
-Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.Testenv_musthavegobuild_Fields_.mustHaveGoBuild (./stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 15 column 13)
-Called from stdgo._internal.testing.T__asInterface.skipf (./stdgo/_internal/testing/Testing_t__asinterface.hx line 53 column 98)
-Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 75 column 106)
-Called from stdgo._internal.testing.T_common_static_extension.skipf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45 column 9)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.internal.abi_test._Abi_test_testfuncpccompileerror.Abi_test_testfuncpccompileerror_Fields_.testFuncPCCompileError (golibs/_internal/internal/abi_test/Abi_test_testfuncpccompileerror.hx line 4 column 5)
+Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.Testenv_musthavegobuild_Fields_.mustHaveGoBuild (golibs/stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 15 column 13)
+Called from stdgo._internal.testing.T__asInterface.skipf (golibs/stdgo/_internal/testing/Testing_t__asinterface.hx line 53 column 98)
+Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 75 column 106)
+Called from stdgo._internal.testing.T_common_static_extension.skipf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45 column 9)
 
 -- SKIP: TestFuncPCCompileError
 
 -- PASS: TestFuncPCCompileError
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
 -- FAIL: TestFuncPC

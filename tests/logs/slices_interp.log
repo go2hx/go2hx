@@ -1,96 +1,96 @@
 === RUN  TestEqual
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testequal.Slices_testequal_Fields_.testEqual (./stdgo/_internal/slices/Slices_testequal.hx line 7 column 28)
-Called from stdgo._internal.slices._Slices_equal.Slices_equal_Fields_.equal (./stdgo/_internal/slices/Slices_equal.hx line 2 column 47)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testequal.Slices_testequal_Fields_.testEqual (golibs/stdgo/_internal/slices/Slices_testequal.hx line 7 column 28)
+Called from stdgo._internal.slices._Slices_equal.Slices_equal_Fields_.equal (golibs/stdgo/_internal/slices/Slices_equal.hx line 2 column 47)
 
 -- FAIL: TestEqual
 
 === RUN  TestEqualFunc
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testequalfunc.Slices_testequalfunc_Fields_.testEqualFunc (./stdgo/_internal/slices/Slices_testequalfunc.hx line 7 column 28)
-Called from stdgo._internal.slices._Slices_equalfunc.Slices_equalfunc_Fields_.equalFunc (./stdgo/_internal/slices/Slices_equalfunc.hx line 2 column 83)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testequalfunc.Slices_testequalfunc_Fields_.testEqualFunc (golibs/stdgo/_internal/slices/Slices_testequalfunc.hx line 7 column 28)
+Called from stdgo._internal.slices._Slices_equalfunc.Slices_equalfunc_Fields_.equalFunc (golibs/stdgo/_internal/slices/Slices_equalfunc.hx line 2 column 83)
 
 -- FAIL: TestEqualFunc
 
 === RUN  TestCompare
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testcompare.Slices_testcompare_Fields_.testCompare (./stdgo/_internal/slices/Slices_testcompare.hx line 16 column 28)
-Called from stdgo._internal.slices._Slices_compare.Slices_compare_Fields_.compare (./stdgo/_internal/slices/Slices_compare.hx line 2 column 56)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testcompare.Slices_testcompare_Fields_.testCompare (golibs/stdgo/_internal/slices/Slices_testcompare.hx line 16 column 28)
+Called from stdgo._internal.slices._Slices_compare.Slices_compare_Fields_.compare (golibs/stdgo/_internal/slices/Slices_compare.hx line 2 column 56)
 
 -- FAIL: TestCompare
 
 === RUN  TestCompareFunc
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testcomparefunc.Slices_testcomparefunc_Fields_.testCompareFunc (./stdgo/_internal/slices/Slices_testcomparefunc.hx line 16 column 105)
-Called from stdgo._internal.slices._Slices__equaltocmp.Slices__equaltocmp_Fields_._equalToCmp (./stdgo/_internal/slices/Slices__equaltocmp.hx line 2 column 88)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testcomparefunc.Slices_testcomparefunc_Fields_.testCompareFunc (golibs/stdgo/_internal/slices/Slices_testcomparefunc.hx line 16 column 105)
+Called from stdgo._internal.slices._Slices__equaltocmp.Slices__equaltocmp_Fields_._equalToCmp (golibs/stdgo/_internal/slices/Slices__equaltocmp.hx line 2 column 88)
 
 -- FAIL: TestCompareFunc
 
 === RUN  TestIndex
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testindex.Slices_testindex_Fields_.testIndex (./stdgo/_internal/slices/Slices_testindex.hx line 7 column 28)
-Called from stdgo._internal.slices._Slices_index.Slices_index_Fields_.index (./stdgo/_internal/slices/Slices_index.hx line 2 column 52)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testindex.Slices_testindex_Fields_.testIndex (golibs/stdgo/_internal/slices/Slices_testindex.hx line 7 column 28)
+Called from stdgo._internal.slices._Slices_index.Slices_index_Fields_.index (golibs/stdgo/_internal/slices/Slices_index.hx line 2 column 52)
 
 -- FAIL: TestIndex
 
 === RUN  TestIndexFunc
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testindexfunc.Slices_testindexfunc_Fields_.testIndexFunc (./stdgo/_internal/slices/Slices_testindexfunc.hx line 7 column 89)
-Called from stdgo._internal.slices._Slices__equaltoindex.Slices__equaltoindex_Fields_._equalToIndex (./stdgo/_internal/slices/Slices__equaltoindex.hx line 2 column 84)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testindexfunc.Slices_testindexfunc_Fields_.testIndexFunc (golibs/stdgo/_internal/slices/Slices_testindexfunc.hx line 7 column 89)
+Called from stdgo._internal.slices._Slices__equaltoindex.Slices__equaltoindex_Fields_._equalToIndex (golibs/stdgo/_internal/slices/Slices__equaltoindex.hx line 2 column 84)
 
 -- FAIL: TestIndexFunc
 
 === RUN  TestContains
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testcontains.Slices_testcontains_Fields_.testContains (./stdgo/_internal/slices/Slices_testcontains.hx line 7 column 28)
-Called from stdgo._internal.slices._Slices_contains.Slices_contains_Fields_.contains (./stdgo/_internal/slices/Slices_contains.hx line 2 column 48)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testcontains.Slices_testcontains_Fields_.testContains (golibs/stdgo/_internal/slices/Slices_testcontains.hx line 7 column 28)
+Called from stdgo._internal.slices._Slices_contains.Slices_contains_Fields_.contains (golibs/stdgo/_internal/slices/Slices_contains.hx line 2 column 48)
 
 -- FAIL: TestContains
 
 === RUN  TestContainsFunc
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testcontainsfunc.Slices_testcontainsfunc_Fields_.testContainsFunc (./stdgo/_internal/slices/Slices_testcontainsfunc.hx line 7 column 95)
-Called from stdgo._internal.slices._Slices__equaltoindex.Slices__equaltoindex_Fields_._equalToIndex (./stdgo/_internal/slices/Slices__equaltoindex.hx line 2 column 84)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testcontainsfunc.Slices_testcontainsfunc_Fields_.testContainsFunc (golibs/stdgo/_internal/slices/Slices_testcontainsfunc.hx line 7 column 95)
+Called from stdgo._internal.slices._Slices__equaltoindex.Slices__equaltoindex_Fields_._equalToIndex (golibs/stdgo/_internal/slices/Slices__equaltoindex.hx line 2 column 84)
 
 -- FAIL: TestContainsFunc
 
 === RUN  TestInsert
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testinsert.Slices_testinsert_Fields_.testInsert (./stdgo/_internal/slices/Slices_testinsert.hx line 6 column 24)
-Called from stdgo._internal.slices._Slices_insert.Slices_insert_Fields_.insert (./stdgo/_internal/slices/Slices_insert.hx line 2 column 76)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testinsert.Slices_testinsert_Fields_.testInsert (golibs/stdgo/_internal/slices/Slices_testinsert.hx line 6 column 24)
+Called from stdgo._internal.slices._Slices_insert.Slices_insert_Fields_.insert (golibs/stdgo/_internal/slices/Slices_insert.hx line 2 column 76)
 
 -- FAIL: TestInsert
 
 === RUN  TestInsertOverlap
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testinsertoverlap.Slices_testinsertoverlap_Fields_.testInsertOverlap (./stdgo/_internal/slices/Slices_testinsertoverlap.hx line 34 column 12)
-Called from stdgo._internal.slices._Slices_insert.Slices_insert_Fields_.insert (./stdgo/_internal/slices/Slices_insert.hx line 2 column 76)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testinsertoverlap.Slices_testinsertoverlap_Fields_.testInsertOverlap (golibs/stdgo/_internal/slices/Slices_testinsertoverlap.hx line 34 column 12)
+Called from stdgo._internal.slices._Slices_insert.Slices_insert_Fields_.insert (golibs/stdgo/_internal/slices/Slices_insert.hx line 2 column 76)
 
 -- FAIL: TestInsertOverlap
 
 === RUN  TestDelete
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testdelete.Slices_testdelete_Fields_.testDelete (./stdgo/_internal/slices/Slices_testdelete.hx line 5 column 25)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testdelete.Slices_testdelete_Fields_.testDelete (golibs/stdgo/_internal/slices/Slices_testdelete.hx line 5 column 25)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestDelete
 
 === RUN  TestDeleteFunc
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testdeletefunc.Slices_testdeletefunc_Fields_.testDeleteFunc (./stdgo/_internal/slices/Slices_testdeletefunc.hx line 5 column 25)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testdeletefunc.Slices_testdeletefunc_Fields_.testDeleteFunc (golibs/stdgo/_internal/slices/Slices_testdeletefunc.hx line 5 column 25)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestDeleteFunc
 
@@ -100,213 +100,213 @@ Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./s
 
 === RUN  TestClone
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testclone.Slices_testclone_Fields_.testClone (./stdgo/_internal/slices/Slices_testclone.hx line 4 column 19)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testclone.Slices_testclone_Fields_.testClone (golibs/stdgo/_internal/slices/Slices_testclone.hx line 4 column 19)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestClone
 
 === RUN  TestCompact
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testcompact.Slices_testcompact_Fields_.testCompact (./stdgo/_internal/slices/Slices_testcompact.hx line 5 column 25)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testcompact.Slices_testcompact_Fields_.testCompact (golibs/stdgo/_internal/slices/Slices_testcompact.hx line 5 column 25)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestCompact
 
 === RUN  TestCompactFunc
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testcompactfunc.Slices_testcompactfunc_Fields_.testCompactFunc (./stdgo/_internal/slices/Slices_testcompactfunc.hx line 5 column 25)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testcompactfunc.Slices_testcompactfunc_Fields_.testCompactFunc (golibs/stdgo/_internal/slices/Slices_testcompactfunc.hx line 5 column 25)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestCompactFunc
 
 === RUN  TestGrow
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testgrow.Slices_testgrow_Fields_.testGrow (./stdgo/_internal/slices/Slices_testgrow.hx line 4 column 21)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testgrow.Slices_testgrow_Fields_.testGrow (golibs/stdgo/_internal/slices/Slices_testgrow.hx line 4 column 21)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestGrow
 
 === RUN  TestClip
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testclip.Slices_testclip_Fields_.testClip (./stdgo/_internal/slices/Slices_testclip.hx line 4 column 21)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testclip.Slices_testclip_Fields_.testClip (golibs/stdgo/_internal/slices/Slices_testclip.hx line 4 column 21)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestClip
 
 === RUN  TestReverse
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testreverse.Slices_testreverse_Fields_.testReverse (./stdgo/_internal/slices/Slices_testreverse.hx line 5 column 9)
-Called from stdgo._internal.slices._Slices_reverse.Slices_reverse_Fields_.reverse (./stdgo/_internal/slices/Slices_reverse.hx line 2 column 35)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testreverse.Slices_testreverse_Fields_.testReverse (golibs/stdgo/_internal/slices/Slices_testreverse.hx line 5 column 9)
+Called from stdgo._internal.slices._Slices_reverse.Slices_reverse_Fields_.reverse (golibs/stdgo/_internal/slices/Slices_reverse.hx line 2 column 35)
 
 -- FAIL: TestReverse
 
 === RUN  TestReplace
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testreplace.Slices_testreplace_Fields_.testReplace (./stdgo/_internal/slices/Slices_testreplace.hx line 15 column 23)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testreplace.Slices_testreplace_Fields_.testReplace (golibs/stdgo/_internal/slices/Slices_testreplace.hx line 15 column 23)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestReplace
 
 === RUN  TestReplacePanics
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testreplacepanics.Slices_testreplacepanics_Fields_.testReplacePanics (./stdgo/_internal/slices/Slices_testreplacepanics.hx line 5 column 23)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testreplacepanics.Slices_testreplacepanics_Fields_.testReplacePanics (golibs/stdgo/_internal/slices/Slices_testreplacepanics.hx line 5 column 23)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestReplacePanics
 
 === RUN  TestReplaceOverlap
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testreplaceoverlap.Slices_testreplaceoverlap_Fields_.testReplaceOverlap (./stdgo/_internal/slices/Slices_testreplaceoverlap.hx line 38 column 12)
-Called from stdgo._internal.slices._Slices_replace.Slices_replace_Fields_.replace (./stdgo/_internal/slices/Slices_replace.hx line 2 column 93)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testreplaceoverlap.Slices_testreplaceoverlap_Fields_.testReplaceOverlap (golibs/stdgo/_internal/slices/Slices_testreplaceoverlap.hx line 38 column 12)
+Called from stdgo._internal.slices._Slices_replace.Slices_replace_Fields_.replace (golibs/stdgo/_internal/slices/Slices_replace.hx line 2 column 93)
 
 -- FAIL: TestReplaceOverlap
 
 === RUN  TestRotate
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testrotate.Slices_testrotate_Fields_.testRotate (./stdgo/_internal/slices/Slices_testrotate.hx line 23 column 25)
-Called from stdgo._internal.slices._Slices__rotateleft.Slices__rotateleft_Fields_._rotateLeft (./stdgo/_internal/slices/Slices__rotateleft.hx line 2 column 68)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testrotate.Slices_testrotate_Fields_.testRotate (golibs/stdgo/_internal/slices/Slices_testrotate.hx line 23 column 25)
+Called from stdgo._internal.slices._Slices__rotateleft.Slices__rotateleft_Fields_._rotateLeft (golibs/stdgo/_internal/slices/Slices__rotateleft.hx line 2 column 68)
 
 -- FAIL: TestRotate
 
 === RUN  TestInsertGrowthRate
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testinsertgrowthrate.Slices_testinsertgrowthrate_Fields_.testInsertGrowthRate (./stdgo/_internal/slices/Slices_testinsertgrowthrate.hx line 11 column 22)
-Called from stdgo._internal.slices._Slices_insert.Slices_insert_Fields_.insert (./stdgo/_internal/slices/Slices_insert.hx line 2 column 76)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testinsertgrowthrate.Slices_testinsertgrowthrate_Fields_.testInsertGrowthRate (golibs/stdgo/_internal/slices/Slices_testinsertgrowthrate.hx line 11 column 22)
+Called from stdgo._internal.slices._Slices_insert.Slices_insert_Fields_.insert (golibs/stdgo/_internal/slices/Slices_insert.hx line 2 column 76)
 
 -- FAIL: TestInsertGrowthRate
 
 === RUN  TestReplaceGrowthRate
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testreplacegrowthrate.Slices_testreplacegrowthrate_Fields_.testReplaceGrowthRate (./stdgo/_internal/slices/Slices_testreplacegrowthrate.hx line 11 column 22)
-Called from stdgo._internal.slices._Slices_replace.Slices_replace_Fields_.replace (./stdgo/_internal/slices/Slices_replace.hx line 2 column 93)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testreplacegrowthrate.Slices_testreplacegrowthrate_Fields_.testReplaceGrowthRate (golibs/stdgo/_internal/slices/Slices_testreplacegrowthrate.hx line 11 column 22)
+Called from stdgo._internal.slices._Slices_replace.Slices_replace_Fields_.replace (golibs/stdgo/_internal/slices/Slices_replace.hx line 2 column 93)
 
 -- FAIL: TestReplaceGrowthRate
 
 === RUN  TestInference
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testinference.Slices_testinference_Fields_.testInference (./stdgo/_internal/slices/Slices_testinference.hx line 5 column 9)
-Called from stdgo._internal.slices._Slices__apply.Slices__apply_Fields_._apply (./stdgo/_internal/slices/Slices__apply.hx line 2 column 54)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testinference.Slices_testinference_Fields_.testInference (golibs/stdgo/_internal/slices/Slices_testinference.hx line 5 column 9)
+Called from stdgo._internal.slices._Slices__apply.Slices__apply_Fields_._apply (golibs/stdgo/_internal/slices/Slices__apply.hx line 2 column 54)
 
 -- FAIL: TestInference
 
 === RUN  TestIntSorts
 Exception: field access on null
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testintsorts.Slices_testintsorts_Fields_.testIntSorts (./stdgo/_internal/slices/Slices_testintsorts.hx line 3 column 21)
-Called from stdgo._internal.slices._Slices__makerandomints.Slices__makerandomints_Fields_._makeRandomInts (./stdgo/_internal/slices/Slices__makerandomints.hx line 4 column 9)
-Called from stdgo._internal.math.rand._Rand_seed.Rand_seed_Fields_.seed (./stdgo/_internal/math/rand/Rand_seed.hx line 3 column 21)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36 column 39)
-Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testintsorts.Slices_testintsorts_Fields_.testIntSorts (golibs/stdgo/_internal/slices/Slices_testintsorts.hx line 3 column 21)
+Called from stdgo._internal.slices._Slices__makerandomints.Slices__makerandomints_Fields_._makeRandomInts (golibs/stdgo/_internal/slices/Slices__makerandomints.hx line 4 column 9)
+Called from stdgo._internal.math.rand._Rand_seed.Rand_seed_Fields_.seed (golibs/stdgo/_internal/math/rand/Rand_seed.hx line 3 column 21)
+Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (golibs/stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36 column 39)
+Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (std/go/_std/stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestIntSorts
 
 === RUN  TestStringSorts
 Exception: field access on null
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_teststringsorts.Slices_teststringsorts_Fields_.testStringSorts (./stdgo/_internal/slices/Slices_teststringsorts.hx line 3 column 19)
-Called from stdgo._internal.slices._Slices__makerandomstrings.Slices__makerandomstrings_Fields_._makeRandomStrings (./stdgo/_internal/slices/Slices__makerandomstrings.hx line 4 column 9)
-Called from stdgo._internal.math.rand._Rand_seed.Rand_seed_Fields_.seed (./stdgo/_internal/math/rand/Rand_seed.hx line 3 column 21)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36 column 39)
-Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_teststringsorts.Slices_teststringsorts_Fields_.testStringSorts (golibs/stdgo/_internal/slices/Slices_teststringsorts.hx line 3 column 19)
+Called from stdgo._internal.slices._Slices__makerandomstrings.Slices__makerandomstrings_Fields_._makeRandomStrings (golibs/stdgo/_internal/slices/Slices__makerandomstrings.hx line 4 column 9)
+Called from stdgo._internal.math.rand._Rand_seed.Rand_seed_Fields_.seed (golibs/stdgo/_internal/math/rand/Rand_seed.hx line 3 column 21)
+Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (golibs/stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36 column 39)
+Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (std/go/_std/stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestStringSorts
 
 === RUN  TestStructSorts
 Exception: field access on null
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_teststructsorts.Slices_teststructsorts_Fields_.testStructSorts (./stdgo/_internal/slices/Slices_teststructsorts.hx line 3 column 19)
-Called from stdgo._internal.slices._Slices__makerandomstructs.Slices__makerandomstructs_Fields_._makeRandomStructs (./stdgo/_internal/slices/Slices__makerandomstructs.hx line 4 column 9)
-Called from stdgo._internal.math.rand._Rand_seed.Rand_seed_Fields_.seed (./stdgo/_internal/math/rand/Rand_seed.hx line 3 column 21)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36 column 39)
-Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_teststructsorts.Slices_teststructsorts_Fields_.testStructSorts (golibs/stdgo/_internal/slices/Slices_teststructsorts.hx line 3 column 19)
+Called from stdgo._internal.slices._Slices__makerandomstructs.Slices__makerandomstructs_Fields_._makeRandomStructs (golibs/stdgo/_internal/slices/Slices__makerandomstructs.hx line 4 column 9)
+Called from stdgo._internal.math.rand._Rand_seed.Rand_seed_Fields_.seed (golibs/stdgo/_internal/math/rand/Rand_seed.hx line 3 column 21)
+Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (golibs/stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36 column 39)
+Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (std/go/_std/stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestStructSorts
 
 === RUN  TestSortIntSlice
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testsortintslice.Slices_testsortintslice_Fields_.testSortIntSlice (./stdgo/_internal/slices/Slices_testsortintslice.hx line 3 column 21)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testsortintslice.Slices_testsortintslice_Fields_.testSortIntSlice (golibs/stdgo/_internal/slices/Slices_testsortintslice.hx line 3 column 21)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestSortIntSlice
 
 === RUN  TestSortFuncIntSlice
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testsortfuncintslice.Slices_testsortfuncintslice_Fields_.testSortFuncIntSlice (./stdgo/_internal/slices/Slices_testsortfuncintslice.hx line 3 column 21)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testsortfuncintslice.Slices_testsortfuncintslice_Fields_.testSortFuncIntSlice (golibs/stdgo/_internal/slices/Slices_testsortfuncintslice.hx line 3 column 21)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestSortFuncIntSlice
 
 === RUN  TestSortFloat64Slice
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testsortfloat64slice.Slices_testsortfloat64slice_Fields_.testSortFloat64Slice (./stdgo/_internal/slices/Slices_testsortfloat64slice.hx line 3 column 21)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testsortfloat64slice.Slices_testsortfloat64slice_Fields_.testSortFloat64Slice (golibs/stdgo/_internal/slices/Slices_testsortfloat64slice.hx line 3 column 21)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestSortFloat64Slice
 
 === RUN  TestSortFloat64SliceWithNaNs
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testsortfloat64slicewithnans.Slices_testsortfloat64slicewithnans_Fields_.testSortFloat64SliceWithNaNs (./stdgo/_internal/slices/Slices_testsortfloat64slicewithnans.hx line 4 column 22)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testsortfloat64slicewithnans.Slices_testsortfloat64slicewithnans_Fields_.testSortFloat64SliceWithNaNs (golibs/stdgo/_internal/slices/Slices_testsortfloat64slicewithnans.hx line 4 column 22)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestSortFloat64SliceWithNaNs
 
 === RUN  TestSortStringSlice
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testsortstringslice.Slices_testsortstringslice_Fields_.testSortStringSlice (./stdgo/_internal/slices/Slices_testsortstringslice.hx line 3 column 21)
-Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (./stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testsortstringslice.Slices_testsortstringslice_Fields_.testSortStringSlice (golibs/stdgo/_internal/slices/Slices_testsortstringslice.hx line 3 column 21)
+Called from stdgo._internal.slices._Slices_clone.Slices_clone_Fields_.clone (golibs/stdgo/_internal/slices/Slices_clone.hx line 2 column 36)
 
 -- FAIL: TestSortStringSlice
 
 === RUN  TestSortLarge_Random
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testsortlarge_random.Slices_testsortlarge_random_Fields_.testSortLarge_Random (./stdgo/_internal/slices/Slices_testsortlarge_random.hx line 18 column 13)
-Called from stdgo._internal.slices._Slices_issorted.Slices_issorted_Fields_.isSorted (./stdgo/_internal/slices/Slices_issorted.hx line 2 column 36)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testsortlarge_random.Slices_testsortlarge_random_Fields_.testSortLarge_Random (golibs/stdgo/_internal/slices/Slices_testsortlarge_random.hx line 18 column 13)
+Called from stdgo._internal.slices._Slices_issorted.Slices_issorted_Fields_.isSorted (golibs/stdgo/_internal/slices/Slices_issorted.hx line 2 column 36)
 
 -- FAIL: TestSortLarge_Random
 
 === RUN  TestStability
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_teststability.Slices_teststability_Fields_.testStability (./stdgo/_internal/slices/Slices_teststability.hx line 24 column 13)
-Called from stdgo._internal.slices._Slices_issortedfunc.Slices_issortedfunc_Fields_.isSortedFunc (./stdgo/_internal/slices/Slices_issortedfunc.hx line 2 column 80)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_teststability.Slices_teststability_Fields_.testStability (golibs/stdgo/_internal/slices/Slices_teststability.hx line 24 column 13)
+Called from stdgo._internal.slices._Slices_issortedfunc.Slices_issortedfunc_Fields_.isSortedFunc (golibs/stdgo/_internal/slices/Slices_issortedfunc.hx line 2 column 80)
 
 -- FAIL: TestStability
 
 === RUN  TestMinMax
 - SUBRUN  [7]
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testminmax.Slices_testminmax_Fields_.testMinMax (./stdgo/_internal/slices/Slices_testminmax.hx line 11 column 13)
-Called from stdgo._internal.testing.T__static_extension.run (./stdgo/_internal/testing/Testing_t__static_extension.hx line 14 column 9)
-Called from local function #3 (./stdgo/_internal/slices/Slices_testminmax.hx line 12 column 32)
-Called from stdgo._internal.slices._Slices_min.Slices_min_Fields_.min (./stdgo/_internal/slices/Slices_min.hx line 2 column 34)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testminmax.Slices_testminmax_Fields_.testMinMax (golibs/stdgo/_internal/slices/Slices_testminmax.hx line 11 column 13)
+Called from stdgo._internal.testing.T__static_extension.run (golibs/stdgo/_internal/testing/Testing_t__static_extension.hx line 14 column 9)
+Called from local function #3 (golibs/stdgo/_internal/slices/Slices_testminmax.hx line 12 column 32)
+Called from stdgo._internal.slices._Slices_min.Slices_min_Fields_.min (golibs/stdgo/_internal/slices/Slices_min.hx line 2 column 34)
 
 -- FAIL: TestMinMax
 
 === RUN  TestMinMaxNaNs
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testminmaxnans.Slices_testminmaxnans_Fields_.testMinMaxNaNs (./stdgo/_internal/slices/Slices_testminmaxnans.hx line 5 column 13)
-Called from stdgo._internal.slices._Slices_min.Slices_min_Fields_.min (./stdgo/_internal/slices/Slices_min.hx line 2 column 34)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testminmaxnans.Slices_testminmaxnans_Fields_.testMinMaxNaNs (golibs/stdgo/_internal/slices/Slices_testminmaxnans.hx line 5 column 13)
+Called from stdgo._internal.slices._Slices_min.Slices_min_Fields_.min (golibs/stdgo/_internal/slices/Slices_min.hx line 2 column 34)
 
 -- FAIL: TestMinMaxNaNs
 
@@ -317,43 +317,43 @@ Called from stdgo._internal.slices._Slices_min.Slices_min_Fields_.min (./stdgo/_
 === RUN  TestBinarySearch
 - SUBRUN  foo
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testbinarysearch.Slices_testbinarysearch_Fields_.testBinarySearch (./stdgo/_internal/slices/Slices_testbinarysearch.hx line 47 column 13)
-Called from stdgo._internal.testing.T__static_extension.run (./stdgo/_internal/testing/Testing_t__static_extension.hx line 14 column 9)
-Called from local function #1 (./stdgo/_internal/slices/Slices_testbinarysearch.hx line 50 column 35)
-Called from stdgo._internal.slices._Slices_binarysearch.Slices_binarysearch_Fields_.binarySearch (./stdgo/_internal/slices/Slices_binarysearch.hx line 2 column 93)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testbinarysearch.Slices_testbinarysearch_Fields_.testBinarySearch (golibs/stdgo/_internal/slices/Slices_testbinarysearch.hx line 47 column 13)
+Called from stdgo._internal.testing.T__static_extension.run (golibs/stdgo/_internal/testing/Testing_t__static_extension.hx line 14 column 9)
+Called from local function #1 (golibs/stdgo/_internal/slices/Slices_testbinarysearch.hx line 50 column 35)
+Called from stdgo._internal.slices._Slices_binarysearch.Slices_binarysearch_Fields_.binarySearch (golibs/stdgo/_internal/slices/Slices_binarysearch.hx line 2 column 93)
 
 -- FAIL: TestBinarySearch
 
 === RUN  TestBinarySearchInts
 - SUBRUN  20
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testbinarysearchints.Slices_testbinarysearchints_Fields_.testBinarySearchInts (./stdgo/_internal/slices/Slices_testbinarysearchints.hx line 8 column 13)
-Called from stdgo._internal.testing.T__static_extension.run (./stdgo/_internal/testing/Testing_t__static_extension.hx line 14 column 9)
-Called from local function #1 (./stdgo/_internal/slices/Slices_testbinarysearchints.hx line 11 column 35)
-Called from stdgo._internal.slices._Slices_binarysearch.Slices_binarysearch_Fields_.binarySearch (./stdgo/_internal/slices/Slices_binarysearch.hx line 2 column 93)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testbinarysearchints.Slices_testbinarysearchints_Fields_.testBinarySearchInts (golibs/stdgo/_internal/slices/Slices_testbinarysearchints.hx line 8 column 13)
+Called from stdgo._internal.testing.T__static_extension.run (golibs/stdgo/_internal/testing/Testing_t__static_extension.hx line 14 column 9)
+Called from local function #1 (golibs/stdgo/_internal/slices/Slices_testbinarysearchints.hx line 11 column 35)
+Called from stdgo._internal.slices._Slices_binarysearch.Slices_binarysearch_Fields_.binarySearch (golibs/stdgo/_internal/slices/Slices_binarysearch.hx line 2 column 93)
 
 -- FAIL: TestBinarySearchInts
 
 === RUN  TestBinarySearchFloats
 - SUBRUN  NaN
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testbinarysearchfloats.Slices_testbinarysearchfloats_Fields_.testBinarySearchFloats (./stdgo/_internal/slices/Slices_testbinarysearchfloats.hx line 8 column 13)
-Called from stdgo._internal.testing.T__static_extension.run (./stdgo/_internal/testing/Testing_t__static_extension.hx line 14 column 9)
-Called from local function #1 (./stdgo/_internal/slices/Slices_testbinarysearchfloats.hx line 11 column 35)
-Called from stdgo._internal.slices._Slices_binarysearch.Slices_binarysearch_Fields_.binarySearch (./stdgo/_internal/slices/Slices_binarysearch.hx line 2 column 93)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testbinarysearchfloats.Slices_testbinarysearchfloats_Fields_.testBinarySearchFloats (golibs/stdgo/_internal/slices/Slices_testbinarysearchfloats.hx line 8 column 13)
+Called from stdgo._internal.testing.T__static_extension.run (golibs/stdgo/_internal/testing/Testing_t__static_extension.hx line 14 column 9)
+Called from local function #1 (golibs/stdgo/_internal/slices/Slices_testbinarysearchfloats.hx line 11 column 35)
+Called from stdgo._internal.slices._Slices_binarysearch.Slices_binarysearch_Fields_.binarySearch (golibs/stdgo/_internal/slices/Slices_binarysearch.hx line 2 column 93)
 
 -- FAIL: TestBinarySearchFloats
 
 === RUN  TestBinarySearchFunc
 Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from stdgo._internal.slices._Slices_testbinarysearchfunc.Slices_testbinarysearchfunc_Fields_.testBinarySearchFunc (./stdgo/_internal/slices/Slices_testbinarysearchfunc.hx line 8 column 23)
-Called from stdgo._internal.slices._Slices_binarysearchfunc.Slices_binarysearchfunc_Fields_.binarySearchFunc (./stdgo/_internal/slices/Slices_binarysearchfunc.hx line 2 column 137)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.slices._Slices_testbinarysearchfunc.Slices_testbinarysearchfunc_Fields_.testBinarySearchFunc (golibs/stdgo/_internal/slices/Slices_testbinarysearchfunc.hx line 8 column 23)
+Called from stdgo._internal.slices._Slices_binarysearchfunc.Slices_binarysearchfunc_Fields_.binarySearchFunc (golibs/stdgo/_internal/slices/Slices_binarysearchfunc.hx line 2 column 137)
 
 -- FAIL: TestBinarySearchFunc
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
 -- FAIL: TestBinarySearchFunc

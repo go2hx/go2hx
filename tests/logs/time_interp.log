@@ -1,28 +1,28 @@
-[ERROR] ./stdgo/_internal/time/Time__modtimer.hx:3: characters 9-19
+[ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:3: characters 9-19
 
   3 |         _stopTimer(_t);
     |         ^^^^^^^^^^
     | Unknown identifier : _stopTimer
 
-[ERROR] ./stdgo/_internal/time/Time__modtimer.hx:9: characters 9-20
+[ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:9: characters 9-20
 
   9 |         _startTimer(_t);
     |         ^^^^^^^^^^^
     | Unknown identifier : _startTimer
 
-[ERROR] ./_internal/time_test/Time_test_testdurationstring.hx:17: characters 35-50
+[ERROR] golibs/_internal/time_test/Time_test_testdurationstring.hx:17: characters 35-50
 
  17 |                     var _str = ((-_tt._d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
     |                                   ^^^^^^^^^^^^^^^
     | stdgo.GoString should be Int
 
-[ERROR] ./_internal/time_test/Time_test_testdurationstring.hx:17: characters 33-68
+[ERROR] golibs/_internal/time_test/Time_test_testdurationstring.hx:17: characters 33-68
 
  17 |                     var _str = ((-_tt._d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
     |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Int should be stdgo.GoString
 
-[ERROR] ./stdgo/_internal/math/rand/Rand_int31.hx:2: characters 39-55
+[ERROR] golibs/stdgo/_internal/math/rand/Rand_int31.hx:2: characters 39-55
 
   2 | function int31():stdgo.GoInt32 return std.Std.random();
     |                                       ^^^^^^^^^^^^^^^^

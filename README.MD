@@ -17,9 +17,11 @@ Import Go libraries into your Haxe projects.
 
 
 * [Download Haxe 4.3.2+](https://build.haxe.org/builds/haxe/)
+* Hxcpp haxe library is required, on macos barisyild's hxcpp fork is required because of too low memory for thread stacks.
 
 
 ```sh
+haxelib git hxcpp https://github.com/barisyild/hxcpp
 haxelib git go2hx https://github.com/go2hx/go2hx
 ```
 

@@ -187,4 +187,7 @@ jobs:
       - name: Set source
         run: haxelib dev go2hx .
       - name: run compiler
-        run: haxelib run go2hx unicode --test -compiler_cpp
+        run: |
+          cd tests/external
+          haxelib run go2hx unicode --test -compiler_cpp
+          haxe -m _internal.unicodedottest.Unicodedottest -lib go2hx -cp golibs --interp

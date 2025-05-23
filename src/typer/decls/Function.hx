@@ -109,6 +109,13 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 			args = getArgs(func, info);
 			ret = getRet(func, info);
 			block = getBlock(info, func, args, recvArg);
+			if (!HaxeAst.isVoid(ret)) {
+				block = macro {
+					function __a__()
+						$block;
+					return __a__();
+				};
+			}
 			defs.push({
 				name: func.name,
 				pos: null,

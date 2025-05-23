@@ -34,7 +34,7 @@ function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> =
 
 function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 	final info = func.info;
-	final args = getArgs(func, info);
+	var args = getArgs(func, info);
 	var meta:Metadata = [];
 	var params:Array<TypeParamDecl> = null;
 	var recvArg = null;
@@ -63,7 +63,9 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 	}
 
 	var ret = getRet(func, info);
-	var block:Expr = getBlock(info, func, args, recvArg);
+	var block:MacroExpr = getBlock(info, func, args, recvArg);
+	if (block == null)
+		return null;
 
 	info.global.renameClasses = previousRenameClasses;
 	info.restricted = [];
@@ -104,9 +106,9 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 				info.typeParamMap[genericTypeName] = t;
 				// trace(genericTypeName);
 			}
-			final block = getBlock(info, func, args, recvArg);
-			final args = getArgs(func, info);
-			final ret = getRet(func, info);
+			args = getArgs(func, info);
+			block = getBlock(info, func, args, recvArg);
+			ret = getRet(func, info);
 			defs.push({
 				name: func.name,
 				pos: null,
@@ -193,7 +195,8 @@ function getGenericCombos(func:IntermediateFunctionType, info, genericTypes:Arra
 			}
 		}
 	}
-	recurse(0, []);
+	if (genericTypes.length > 0)
+		recurse(0, []);
 	return combos;
 }
 
@@ -425,7 +428,7 @@ function getRecvName(recv:GoAst.Expr, info:Info):String {
 	}
 }
 
-private inline function getArgs(func, info) {
+private inline function getArgs(func, info):Array<FunctionArg> {
 	return typeFieldListArgs(func.params, info);
 }
 
@@ -434,7 +437,7 @@ private inline function getRet(func, info) {
 }
 
 private function getBlock(info, func, args, recvArg) {
-	var block = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
+	var block:MacroExpr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
 		macro throw ${HaxeAst.makeString(func.recvName + ":" + info.global.path + "." + func.name + " is not yet implemented")};
 	} else {

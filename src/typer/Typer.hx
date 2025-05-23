@@ -64,6 +64,7 @@ class Global {
 }
 
 class Info {
+	public var typeParamMap:Map<String, GoType> = [];
 	public var blankCounter:Int = 0;
 	public var restricted:Array<String> = [];
 	public var thisName:String = "";
@@ -100,6 +101,7 @@ class Info {
 
 	public inline function copy() {
 		var info = new Info();
+		info.typeParamMap = typeParamMap;
 		info.blankCounter = blankCounter;
 		info.returnTypes = returnTypes.copy();
 		info.returnComplexTypes = returnComplexTypes.copy();

@@ -1,6 +1,6 @@
 [ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:75: characters 51-94
 
-  75 |                     _magic_313 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+  75 |                     _magic_170 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
      |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : stdgo._internal.internal.xcoff.Xcoff__magic
 
@@ -8,13 +8,13 @@
 
 [ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:75: characters 21-102
 
-  75 |                     _magic_313 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+  75 |                     _magic_170 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Void should be stdgo.GoUInt16
 
 [ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:207: characters 47-86
 
- 207 |                     _l_381 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+ 207 |                     _l_197 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
      |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : stdgo._internal.internal.xcoff.Xcoff__l
 
@@ -22,7 +22,7 @@
 
 [ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:207: characters 21-90
 
- 207 |                     _l_381 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+ 207 |                     _l_197 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Void should be stdgo.GoUInt32
 

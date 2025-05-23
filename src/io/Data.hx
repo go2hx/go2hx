@@ -6,7 +6,6 @@ package io;
 import sys.io.File;
 
 final stdgoList:Array<String> = parseData('stdgo.list');
-final excludesList:Array<String> = parseData('excludes.json');
 final exports:Array<String> = parseData('stdgoExports.json');
 final externs:Array<String> = parseData('stdgoExterns.json');
 

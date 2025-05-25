@@ -1,0 +1,8 @@
+-D go2hx
+--macro Go2hxMacro.init()
+-D simulate_num
+-D numberlinkerror
+-D numberlinkmath
+-D splitdeps
+-D eval-call-stack-depth=40000
+#--macro include("stdgo", true)

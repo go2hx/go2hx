@@ -709,6 +709,7 @@ jobs:
           sudo rm -rf /opt/ghc
           sudo rm -rf "/usr/local/share/boost"
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: cedx/setup-hashlink@v6.2.0
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -772,6 +773,7 @@ jobs:
           sudo rm -rf /opt/ghc
           sudo rm -rf "/usr/local/share/boost"
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-node@v4
         with:
           node-version: 23

@@ -1,7 +1,7 @@
-[ERROR] golibs/stdgo/_internal/go/build/Build__parsegoembed.hx:103: characters 21-46
+[ERROR] golibs/stdgo/_internal/go/build/Build__parsegoembed.hx:103: characters 21-45
 
- 103 |                     _iterator_11303880 = 0i64;
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+ 103 |                     _iterator_9294675 = 0i64;
+     |                     ^^^^^^^^^^^^^^^^^^^^^^^^
      | haxe.Int64 should be Null<Int>
 
 [ERROR] (macro) golibs/stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 108-109

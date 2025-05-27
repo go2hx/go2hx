@@ -251,8 +251,12 @@ function installGoUp():Bool {
 		Sys.command('chmod u+x $goupCommand');
 	var proc = new Process(goupCommand + " init --skip-prompt");
 	if (proc.exitCode(true) != 0) {
-		trace(proc.stdout.readAll());
-		trace(proc.stderr.readAll());
+		final outMessage = proc.stdout.readAll().toString();
+		final errMessage = proc.stderr.readAll().toString();
+		if (errMessage.indexOf('msg="symlink') != -1 || outMessage.indexOf('msg="symlink') != -1)
+			return true;
+		trace(outMessage);
+		trace(errMessage);
 		Sys.println("failed to run goup");
 		return false;
 	}

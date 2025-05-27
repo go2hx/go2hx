@@ -78,7 +78,7 @@
 
 [ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:75: characters 51-94
 
-  75 |                     _magic_299 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+  75 |                     _magic_309 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
      |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : stdgo._internal.internal.xcoff.Xcoff__magic
 
@@ -86,13 +86,13 @@
 
 [ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:75: characters 21-102
 
-  75 |                     _magic_299 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+  75 |                     _magic_309 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Void should be stdgo.GoUInt16
 
 [ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:207: characters 47-86
 
- 207 |                     _l_319 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+ 207 |                     _l_348 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
      |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : stdgo._internal.internal.xcoff.Xcoff__l
 
@@ -100,7 +100,7 @@
 
 [ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:207: characters 21-90
 
- 207 |                     _l_319 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+ 207 |                     _l_348 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Void should be stdgo.GoUInt32
 
@@ -118,7 +118,7 @@
           |          ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  std/go/_std/stdgo/Go.macro.hx:676: characters 11-31
+      ->  _std/stdgo/Go.macro.hx:676: characters 11-31
 
       676 |   var t = Context.typeof(expr);
           |           ^^^^^^^^^^^^^^^^^^^^

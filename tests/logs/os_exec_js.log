@@ -184,7 +184,7 @@
           |          ^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  std/go/_std/stdgo/Go.macro.hx:369: characters 9-50
+      ->  _std/stdgo/Go.macro.hx:369: characters 9-50
 
       369 |     t = Context.getType(printer.printTypePath(p));
           |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

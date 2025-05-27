@@ -1,10 +1,10 @@
-[ERROR] std/go/_std/stdgo/AnyInterface.hx:50: characters 68-96
+[ERROR] _std/stdgo/AnyInterface.hx:50: characters 68-96
 
  50 |   var gt:stdgo._internal.internal.reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
     |                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Uncaught exception Cannot call null
 
-     ->  std/go/_std/stdgo/GoMap.hx:700: characters 7-15
+     ->  _std/stdgo/GoMap.hx:700: characters 7-15
 
      700 |   if (k1 == k2) {
          |       ^^^^^^^^

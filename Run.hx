@@ -174,7 +174,7 @@ function installRequiredGoVersion() {
 	if (proc.exitCode(true) != 0) {
 		final outMessage = proc.stdout.readAll().toString();
 		final errMessage = proc.stderr.readAll().toString();
-		if (errMessage.indexOf('msg="symlink') != -1)
+		if (errMessage.indexOf('msg="symlink') != -1 || outMessage.indexOf('msg="symlink') != -1)
 			return;
 		Sys.println("goup install command failed");
 		trace(outMessage);

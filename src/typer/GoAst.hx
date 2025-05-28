@@ -679,6 +679,8 @@ enum abstract Token(String) {
 	public final keyword_end = "";
 	public final TIDLE = "|";
 
+	public final TILDE = "~";
+
 	@:from private static function fromInt(index:Int):Token {
 		return switch index {
 			case 0: Token.ILLEGAL;

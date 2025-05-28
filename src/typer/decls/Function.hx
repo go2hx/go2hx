@@ -174,8 +174,24 @@ function getGenericTypes(func:IntermediateFunctionType, info):Array<GenericType>
 	for (param in func.typeParams.list) {
 		final name = param.names[0].name;
 		final t = typeof(param.type, info, false);
+		final t = getUnderlying(t);
 		switch t {
 			case typeParam(_, types):
+				// TODO
+				final duplicateTypes:Array<GoType> = [];
+				types = [for (type in types) replaceNumber(type)];
+				for (i in 0...types.length) {
+					for (j in 0...types.length) {
+						if (duplicateTypes.contains(types[i]) || duplicateTypes.contains(types[j]))
+							continue;
+						if (i == j)
+							continue;
+						if (goTypesEqual(types[i], types[j], 10))
+							duplicateTypes.push(types[i]);
+					}
+				}
+				for (type in duplicateTypes)
+					types.remove(type);
 				genericTypes.push({
 					name: name,
 					types: types,

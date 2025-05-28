@@ -5,7 +5,6 @@ import haxe.ds.Vector;
 import stdgo.AnyInterface;
 import stdgo.GoInt;
 
-
 @:dox(hide)
 class GoArrayData<T> {
 	public var vector:haxe.ds.Vector<T> = null;
@@ -34,7 +33,7 @@ class GoArrayData<T> {
 			vector = new haxe.ds.Vector<T>(vectorLength);
 			for (i in 0...args.length)
 				vector.set(i, args[i]);
-		}else if (args.length != 0) {
+		} else if (args.length != 0) {
 			this.length = args.length;
 			this.capacity = args.length;
 			vector = new haxe.ds.Vector<T>(args.length);
@@ -78,7 +77,7 @@ class GoArrayData<T> {
 
 	public inline function __setString__():Slice<T> {
 		if (noArgs)
-			this.vector.fill(cast ("" : stdgo.GoString));
+			this.vector.fill(cast("" : stdgo.GoString));
 		@:privateAccess this.isString = true;
 		return this;
 	}
@@ -112,12 +111,12 @@ class GoArrayData<T> {
 		var offset = low;
 		final high = if (args.length < 2) {
 			length;
-		}else{
+		} else {
 			args[1];
 		}
 		final max = if (args.length < 3) {
 			capacity;
-		}else{
+		} else {
 			args[2];
 		}
 		var length = high - low;
@@ -153,16 +152,16 @@ class GoArrayData<T> {
 		final doublecap = newcap + newcap;
 		if (cap > doublecap) {
 			newcap = cap;
-		}else{
+		} else {
 			final threshold = 256;
 			if (slice.capacity < 256) {
 				newcap = doublecap;
-			}else{
+			} else {
 				while (0 < newcap && newcap < cap) {
-					newcap += Std.int((newcap + 3 * threshold)/4);
+					newcap += Std.int((newcap + 3 * threshold) / 4);
 				}
 				if (newcap <= 0) {
-					newcap = cap;	
+					newcap = cap;
 				}
 				// Set newcap to the requested cap when
 				// the newcap calculation overflowed.
@@ -172,12 +171,12 @@ class GoArrayData<T> {
 			}
 		}
 		slice.capacity += newcap;
-		
+
 		// grow capacity
-		//slice.capacity += cap;
+		// slice.capacity += cap;
 		// grow by 50%
-		//slice.capacity += slice.capacity >> 2;
-		//trace(slice.capacity);
+		// slice.capacity += slice.capacity >> 2;
+		// trace(slice.capacity);
 
 		slice.grow(); // allocation
 		slice.length += args.length;
@@ -193,32 +192,32 @@ class GoArrayData<T> {
 		}
 		return slice;
 	}
-	/*
-	newcap := old.cap
-	doublecap := newcap + newcap
-	if cap > doublecap {
-		newcap = cap
-	} else {
-		const threshold = 256
-		if old.cap < threshold {
-			newcap = doublecap
-		} else {
-			// Check 0 < newcap to detect overflow
-			// and prevent an infinite loop.
-			for 0 < newcap && newcap < cap {
-				// Transition from growing 2x for small slices
-				// to growing 1.25x for large slices. This formula
-				// gives a smooth-ish transition between the two.
-				newcap += (newcap + 3*threshold) / 4
-			}
-			// Set newcap to the requested cap when
-			// the newcap calculation overflowed.
-			if newcap <= 0 {
-				newcap = cap
-			}
-		}
-	}*/
 
+	/*
+		newcap := old.cap
+		doublecap := newcap + newcap
+		if cap > doublecap {
+			newcap = cap
+		} else {
+			const threshold = 256
+			if old.cap < threshold {
+				newcap = doublecap
+			} else {
+				// Check 0 < newcap to detect overflow
+				// and prevent an infinite loop.
+				for 0 < newcap && newcap < cap {
+					// Transition from growing 2x for small slices
+					// to growing 1.25x for large slices. This formula
+					// gives a smooth-ish transition between the two.
+					newcap += (newcap + 3*threshold) / 4
+				}
+				// Set newcap to the requested cap when
+				// the newcap calculation overflowed.
+				if newcap <= 0 {
+					newcap = cap
+				}
+			}
+	}*/
 	public inline function get(index:Int):T {
 		if (bytes != null) {
 			#if target.static
@@ -226,8 +225,8 @@ class GoArrayData<T> {
 			#else
 			return untyped cast bytes.get(index + offset) ?? untyped 0;
 			#end
-		}else{
-			//return untyped cast haxe.io.Bytes.fastGet(bytes.getData(), index + offset);
+		} else {
+			// return untyped cast haxe.io.Bytes.fastGet(bytes.getData(), index + offset);
 			#if !target.static
 			if (isNumber64) {
 				return vector.get(index + offset) ?? untyped haxe.Int64.make(0, 0);
@@ -285,7 +284,7 @@ class GoArrayData<T> {
 			dest.blit(0, bytes, offset, length);
 			this.bytes = dest;
 			this.offset = 0;
-		}else{
+		} else {
 			var dest = new haxe.ds.Vector<T>(capacity);
 			haxe.ds.Vector.blit(vector, offset, dest, 0, length);
 			this.vector = dest;
@@ -311,6 +310,7 @@ class GoArrayData<T> {
 		return slice;
 	}
 }
+
 @:dox(hide)
 class GoArrayDataKeyValueIterator<T> {
 	var pos:Int = 0;
@@ -320,15 +320,16 @@ class GoArrayDataKeyValueIterator<T> {
 		this.slice = slice;
 	}
 
-
 	public inline function hasNext() {
 		return pos < slice.length;
 	}
+
 	// if inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32 on stdgo/Math TestFloat32Sqrt
 	public function next():{key:GoInt, value:T} {
 		return {key: (pos : GoInt), value: slice.get(pos++)};
 	}
 }
+
 @:dox(hide)
 class GoArrayDataIterator<T> {
 	var pos:Int = 0;
@@ -341,6 +342,7 @@ class GoArrayDataIterator<T> {
 	public inline function hasNext() {
 		return pos < slice.length;
 	}
+
 	// if inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32
 	public function next():T {
 		return slice.get(pos++);
@@ -348,14 +350,18 @@ class GoArrayDataIterator<T> {
 }
 
 // @:generic
+
 @:forward.new
-@:forward(__setData__,__slice__)
+@:forward(__setData__, __slice__)
 /**
  * Fixed size array similar to haxe.ds.Vector
  */
 abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;
+
+	inline public static function isArray(val:Dynamic):Bool
+		return Std.isOfType(val, GoArrayData);
 
 	public inline function __toBasic__()
 		return this;
@@ -401,10 +407,12 @@ abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 		}
 		#end
 	}
+
 	@:from
 	public static function fromArray<T>(array:Array<T>):GoArray<T> {
 		return new GoArray(array.length, array.length, ...array);
 	}
+
 	// maybe bound checks are not required, because the length is already known for GoArrays
 	@:op([]) public function __set__(index:GoInt, value:T):T {
 		__boundsCheck__(index.toBasic());

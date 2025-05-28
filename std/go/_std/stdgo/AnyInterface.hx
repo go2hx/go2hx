@@ -14,6 +14,7 @@ class AnyInterfaceData {
 	public function toString():String
 		return '$value';
 }
+
 /**
  * Simulated any/interface{} type in Haxe.
  * Made up of an `Any` value and a `Reflect._Type` 
@@ -33,6 +34,9 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		return this;
 	}
 
+	inline public static function isAnyInterface(val:Dynamic):Bool
+		return Std.isOfType(val, AnyInterfaceData);
+
 	public inline function __setData__(data:AnyInterface) {
 		this.type = data.type;
 		this.value = data.value;
@@ -44,7 +48,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	}
 
 	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
-		if (a == null || b == null) {// null check
+		if (a == null || b == null) { // null check
 			return a == null && b == null;
 		}
 		var gt:stdgo._internal.internal.reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
@@ -147,17 +151,19 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 								throw "struct issue with field name1: " + name;
 							}*/
 
-							final type = @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.unroll(gt, type));
-							final type2 = @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.unroll(gt, type2));
+							final type = @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.unroll(gt,
+								type));
+							final type2 = @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.unroll(gt,
+								type2));
 							final a = new AnyInterface(fieldValue, type);
 							final b = new AnyInterface(fieldValue2, type2);
 							try {
 								if (AnyInterface.notEquals(a, b)) {
 									return false;
 								}
-							}catch(_) {
-								//trace(type._common());
-								//trace(type2._common());
+							} catch (_) {
+								// trace(type._common());
+								// trace(type2._common());
 								throw errorString("comparing uncomparable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
 							}
 						}
@@ -170,10 +176,10 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					default: false;
 				}
 			case interfaceType(empty, _):
-				//return aValue == bValue;
+				// return aValue == bValue;
 				if (empty) {
 					equals(aValue, bValue);
-				}else{
+				} else {
 					aValue == bValue;
 				}
 			case arrayType(_.get() => elem, _):
@@ -194,7 +200,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				}
 				throw errorString("comparing uncomparable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
 			case mapType(_, _), signature(_, _, _, _, _):
-				// Slice, map, and function types are not comparable. However, as a special case, a slice, map, or function value may be compared to the predeclared identifier 
+				// Slice, map, and function types are not comparable. However, as a special case, a slice, map, or function value may be compared to the predeclared identifier
 				// nil. Comparison of pointer, channel, and interface values to nil is also allowed and follows from the general rules above.
 				if (aValue == null || bValue == null) {
 					return aValue == null && bValue == null;

@@ -47,10 +47,10 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 					});
 			}
 		}
-		/*if (forceType) {
+		if (forceType) {
 			final ct = toComplexType(typeof(expr, info, false), info);
-			e = macro ($e : $ct);
-		}*/
+			e = macro($e : $ct);
+		}
 		return e;
 	}
 	function genArgs(translateType:Bool, pos:Int = 0, ?elem:GoType) {
@@ -101,6 +101,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 			// final t = typeof(expr.calle,info,false);
 			var skip = 0;
 			if (expr.typeArgs != null) {
+				forceType = true;
 				// TODO: generic funcs
 				/*skip = expr.typeArgs.length;
 					expr.typeArgs.reverse();

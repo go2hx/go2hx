@@ -655,7 +655,7 @@ class Go {
 			switch expectedType {
 				case TAbstract(t, params):
 					switch t.toString() {
-						case "stdgo.AnyInterface", "stdgo._internal.unsafe.UnsafePointer":
+						case "stdgo.AnyInterface", "stdgo._internal.unsafe.UnsafePointer", "stdgo.Comparable":
 
 						case "Null":
 							error = params.length == 0;
@@ -1334,8 +1334,8 @@ class Go {
 													case TFun(args, ret2):
 														args.shift();
 														final t = gtDecode(TFun(args, ret2), expr, marked, ret);
-														methods.push(macro new stdgo._internal.internal.reflect.MethodType($v{field.name},
-															{get: () -> $t}, {get: () -> null}));
+														methods.push(macro new stdgo._internal.internal.reflect.MethodType($v{field.name}, {get: () -> $t},
+															{get: () -> null}));
 													default:
 												}
 											default:
@@ -1473,10 +1473,9 @@ class Go {
 			return Go2hxMacro.getTypeInfoData(path);
 		}
 		if (marked.exists(path)) {
-			return macro stdgo._internal.internal.reflect.GoType.named($v{path}, [], stdgo._internal.internal.reflect.GoType.invalidType,
-				false, {
-					get: () -> null
-				});
+			return macro stdgo._internal.internal.reflect.GoType.named($v{path}, [], stdgo._internal.internal.reflect.GoType.invalidType, false, {
+				get: () -> null
+			});
 		} else {
 			marked[path] = true;
 		}

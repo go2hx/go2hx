@@ -230,7 +230,12 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 			typeof(e.type, info, false, paths.copy());
 		case "Ident":
 			final e:GoAst.Ident = e;
-			typeof(e.type, info, false, paths.copy());
+			if (e.name == "comparable" && !info.renameIdents.exists(e.name) && info.localIdents.indexOf(untitle(e.name)) == -1) {
+				typeParam("", [named("comparable", [], invalidType, true, {get: () -> []})]);
+				// typeParam("comparable", [interfaceType(true, [])]);
+			} else {
+				typeof(e.type, info, false, paths.copy());
+			}
 		case "CompositeLit":
 			final e:GoAst.CompositeLit = e;
 			final t = typeof(e.type, info, false, paths.copy());
@@ -268,6 +273,9 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 					getElem(typeof(e.x, info, false, paths.copy()));
 				case AND:
 					pointerType({get: () -> typeof(e.x, info, false, paths.copy())});
+				case TILDE:
+					// trace(typer.exprtypes.ExprType.hashTypeToExprType(e.x, info).id);
+					typeof(e.x, info, false, paths.copy());
 				default:
 					typeof(e.x, info, false, paths.copy());
 			}
@@ -291,6 +299,7 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		case "ArrayType":
 			final e:GoAst.ArrayType = e;
 			final elem = typeof(e.elt, info, false, paths.copy());
+			// trace(elem);
 			final v = hashTypeToExprType(e.type, info);
 			final id = v.id;
 			switch id {
@@ -716,6 +725,51 @@ function cleanType(type:GoType):GoType {
 	}
 }
 
+function iterGoType(t:GoType, f:GoType->Void) {
+	return switch t {
+		case _var(name, _.get() => type):
+			f(type);
+		case pointerType(_.get() => elem):
+			f(elem);
+		case refType(_.get() => elem):
+			f(elem);
+		case named(path, methods, type, alias, _.get() => params):
+			f(type);
+			for (param in params)
+				f(param);
+		case invalidType:
+		default:
+	}
+}
+
+function replaceNumber(t:GoType):GoType {
+	return switch t {
+		case _var(name, _.get() => type):
+			final type = replaceNumber(type);
+			_var(name, {get: () -> type});
+		case pointerType(_.get() => elem):
+			final elem = replaceNumber(elem);
+			pointerType({get: () -> elem});
+		case refType(_.get() => elem):
+			final elem = replaceNumber(elem);
+			refType({get: () -> elem});
+		case named(path, methods, type, alias, params):
+			type = replaceNumber(type);
+			named(path, methods, type, alias, params);
+		case basic(kind):
+			switch kind {
+				case int_kind:
+					basic(int32_kind);
+				case uint_kind:
+					basic(uint32_kind);
+				default:
+					t;
+			}
+		default:
+			t;
+	}
+}
+
 function replaceInvalidType(t:GoType, replace:GoType):GoType {
 	return switch t {
 		case _var(name, _.get() => type):
@@ -852,7 +906,7 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 			// trace(path);
 			// trace(info.renameClasses);
 			if (path == "comparable")
-				return null;
+				return TPath({name: "Comparable", pack: ["stdgo"]});
 			if (path == null) {
 				trace("underlying null path: " + new codegen.Printer().printComplexType(toComplexType(underlying, info)));
 				throw info.panic() + path;
@@ -864,8 +918,9 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 		case sliceType(_.get() => elem):
 			final ct = toComplexType(elem, info);
 			var params = [TPType(ct)];
-			if (HaxeAst.isInvalidComplexType(ct))
+			if (HaxeAst.isInvalidComplexType(ct)) {
 				params = [TPType(TPath({name: "Dynamic", pack: []}))];
+			}
 			TPath({pack: ["stdgo"], name: "Slice", params: params});
 		case arrayType(_.get() => elem, len):
 			final ct = toComplexType(elem, info);
@@ -913,8 +968,14 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 			TFunction(args, ret);
 		case _var(_, _.get() => type):
 			toComplexType(type, info);
-		case typeParam(name, _):
-			return TPath({pack: [], name: "Dynamic"});
+		case typeParam(name, params):
+			// TODO
+			if (params == null || params.length != 1) {
+				return TPath({pack: [], name: "Dynamic"});
+			} else {
+				return toComplexType(params[0], info);
+				// return TPath({pack: [], name: "Dynamic"});
+			}
 		case tuple(len, _.get() => vars):
 			var fields:Array<Field> = [];
 			for (i in 0...vars.length) {

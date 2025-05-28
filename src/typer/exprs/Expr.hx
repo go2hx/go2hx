@@ -75,14 +75,15 @@ function typeOp(token:GoAst.Token):Binop {
 // implicit conversion: checkType
 // explicit conversion: assignTranslation
 function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):MacroExpr {
+	fromType = cleanType(fromType);
+	toType = cleanType(toType);
 	if (goTypesEqual(fromType, toType, 0)) {
 		if (passCopy) {
 			return HaxeAst.passByCopy(toType, expr, info);
 		}
 		return expr;
 	}
-	fromType = cleanType(fromType);
-	toType = cleanType(toType);
+	// trace(fromType, toType);
 	var y = expr;
 
 	if (fromType == null)

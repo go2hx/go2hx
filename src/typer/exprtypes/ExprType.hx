@@ -865,7 +865,6 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 	if (e == null)
 		return null;
 	// return invalidComplexType();
-	// trace(e);
 	return switch e {
 		case refType(_.get() => elem):
 			final ct = toComplexType(elem, info);
@@ -976,14 +975,7 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 		case _var(_, _.get() => type):
 			toComplexType(type, info);
 		case typeParam(name, params):
-			// TODO
-			if (params == null || params.length != 1) {
-				return TPath({pack: [], name: "Dynamic"});
-			} else {
-				return toComplexType(params[0], info);
-				// return TPath({pack: [], name: "Dynamic"});
-			}
-		// return TPath({pack: [], name: className(name, info)});
+			return TPath({pack: [], name: className(name, info)});
 		case tuple(len, _.get() => vars):
 			var fields:Array<Field> = [];
 			for (i in 0...vars.length) {

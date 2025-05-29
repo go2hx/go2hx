@@ -275,7 +275,8 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 					pointerType({get: () -> typeof(e.x, info, false, paths.copy())});
 				case TILDE:
 					// trace(typer.exprtypes.ExprType.hashTypeToExprType(e.x, info).id);
-					typeof(e.x, info, false, paths.copy());
+					final t = typeof(e.x, info, false, paths.copy());
+					t;
 				default:
 					typeof(e.x, info, false, paths.copy());
 			}
@@ -341,7 +342,8 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		case "Ellipsis":
 			typeof(e.type, info, false, paths.copy());
 		case "Union":
-			typeParam("", e.terms.map(term -> typeof(term.type, info, false, paths.copy())));
+			final terms = e.terms.map(term -> typeof(term.type, info, false, paths.copy()));
+			typeParam("", terms);
 		default:
 			throw info.panic() + "unknown typeof expr: " + e.id;
 	}
@@ -593,7 +595,11 @@ function isRefValue(type:GoType):Bool {
 			false;
 		case basic(_):
 			false;
+		case interfaceType(empty, _):
+			!empty;
 		case signature(_, _, _, _, _):
+			false;
+		case typeParam(_, _):
 			false;
 		default:
 			true;
@@ -859,6 +865,7 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 	if (e == null)
 		return null;
 	// return invalidComplexType();
+	// trace(e);
 	return switch e {
 		case refType(_.get() => elem):
 			final ct = toComplexType(elem, info);
@@ -976,6 +983,7 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 				return toComplexType(params[0], info);
 				// return TPath({pack: [], name: "Dynamic"});
 			}
+		// return TPath({pack: [], name: className(name, info)});
 		case tuple(len, _.get() => vars):
 			var fields:Array<Field> = [];
 			for (i in 0...vars.length) {

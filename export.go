@@ -29,6 +29,7 @@ import (
 	"strings"
 
 	"github.com/go2hx/go4hx/analysis"
+	"golang.org/x/exp/typeparams"
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/types/typeutil"
 )
@@ -360,8 +361,10 @@ func sendData(conn net.Conn, data any) {
 	_, err = w.Write(b)
 	panicIfError(err)
 	w.Close()
-	_, err = conn.Write(createLenMessage(buff.Bytes()))
-	panicIfError(err)
+	if conn != nil {
+		_, err = conn.Write(createLenMessage(buff.Bytes()))
+		panicIfError(err)
+	}
 }
 
 func getLen(conn net.Conn) uint32 {
@@ -383,8 +386,10 @@ func getLen(conn net.Conn) uint32 {
 func sendLen(conn net.Conn, length int) {
 	bytesBuff := make([]byte, 8)
 	binary.LittleEndian.PutUint64(bytesBuff, uint64(length))
-	_, err := conn.Write(bytesBuff)
-	panicIfError(err)
+	if conn != nil {
+		_, err := conn.Write(bytesBuff)
+		panicIfError(err)
+	}
 }
 
 func createLenMessage(b []byte) []byte {
@@ -1184,6 +1189,19 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 			embeds[i] = parseType(v, marked, pkg)
 		}
 		data["embeds"] = embeds
+		normalTerms, err := typeparams.NormalTerms(s)
+		if normalTerms != nil {
+			panicIfError(err)
+			terms := make([]map[string]interface{}, len(normalTerms))
+			for i, t := range normalTerms {
+				terms[i] = map[string]interface{}{
+					"tidle": t.Tilde(),
+					"type":  parseType(t.Type(), marked, pkg),
+				}
+			}
+			data["id"] = "Union"
+			data["terms"] = terms
+		}
 	case "Pointer":
 		s := node.(*types.Pointer)
 		data["elem"] = parseType(s.Elem(), marked, pkg)
@@ -1233,6 +1251,9 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 	case "Union":
 		s := node.(*types.Union)
 		terms := make([]map[string]interface{}, s.Len())
+		if s.Len() == 1 && s.Term(0).Tilde() {
+			return parseType(s.Term(0).Type(), marked, pkg)
+		}
 		for i := 0; i < s.Len(); i++ {
 			t := s.Term(i)
 			terms[i] = map[string]interface{}{

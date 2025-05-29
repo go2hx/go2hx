@@ -90,49 +90,51 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 	if (func.typeParams != null) {
 		// block = macro throw "generic function is not supported";
 		final genericTypes = getGenericTypes(func, info);
-		final combos = getGenericCombos(func, info, genericTypes);
-		final defs:Array<TypeDefinition> = [];
-		// access
-		access.push(AOverload);
-		if (access.indexOf(AInline) == -1)
-			access.push(AInline);
-		access.push(AExtern);
-		// go over combination
-		for (combo in combos) {
-			info.typeParamMap = [];
-			for (i in 0...combo.length) {
-				final t = combo[i];
-				final genericTypeName = genericTypes[i].name;
-				info.typeParamMap[genericTypeName] = t;
-				// trace(genericTypeName);
+		if (genericTypes.length > 0) {
+			final combos = getGenericCombos(func, info, genericTypes);
+			final defs:Array<TypeDefinition> = [];
+			// access
+			access.push(AOverload);
+			if (access.indexOf(AInline) == -1)
+				access.push(AInline);
+			access.push(AExtern);
+			// go over combination
+			for (combo in combos) {
+				info.typeParamMap = [];
+				for (i in 0...combo.length) {
+					final t = combo[i];
+					final genericTypeName = genericTypes[i].name;
+					info.typeParamMap[genericTypeName] = t;
+					// trace(genericTypeName);
+				}
+				args = getArgs(func, info);
+				ret = getRet(func, info);
+				block = getBlock(info, func, args, recvArg);
+				if (!HaxeAst.isVoid(ret)) {
+					block = macro {
+						function __a__()
+							$block;
+						return __a__();
+					};
+				}
+				defs.push({
+					name: func.name,
+					pos: null,
+					pack: [],
+					fields: [],
+					doc: info.global.noCommentsBool ? "" : finalDoc,
+					meta: meta,
+					kind: TDField(FFun({
+						ret: ret,
+						expr: block,
+						params: params,
+						args: args,
+					}), access)
+				});
 			}
-			args = getArgs(func, info);
-			ret = getRet(func, info);
-			block = getBlock(info, func, args, recvArg);
-			if (!HaxeAst.isVoid(ret)) {
-				block = macro {
-					function __a__()
-						$block;
-					return __a__();
-				};
-			}
-			defs.push({
-				name: func.name,
-				pos: null,
-				pack: [],
-				fields: [],
-				doc: info.global.noCommentsBool ? "" : finalDoc,
-				meta: meta,
-				kind: TDField(FFun({
-					ret: ret,
-					expr: block,
-					params: params,
-					args: args,
-				}), access)
-			});
+			info.data.defs = info.data.defs.concat(defs.slice(1));
+			return defs.shift();
 		}
-		info.data.defs = info.data.defs.concat(defs.slice(1));
-		return defs.shift();
 	}
 
 	final def:TypeDefinition = {

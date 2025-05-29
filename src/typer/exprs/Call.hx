@@ -48,7 +48,10 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 			}
 		}
 		if (forceType) {
-			final ct = toComplexType(typeof(expr, info, false), info);
+			final t = typeof(expr, info, false);
+			if (t == invalidType)
+				return e;
+			final ct = toComplexType(t, info);
 			e = macro($e : $ct);
 		}
 		return e;

@@ -105,7 +105,6 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 					final t = combo[i];
 					final genericTypeName = genericTypes[i].name;
 					info.typeParamMap[genericTypeName] = t;
-					// trace(genericTypeName);
 				}
 				args = getArgs(func, info);
 				ret = getRet(func, info);
@@ -132,6 +131,7 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 					}), access)
 				});
 			}
+			info.typeParamMap = [];
 			info.data.defs = info.data.defs.concat(defs.slice(1));
 			return defs.shift();
 		}
@@ -199,6 +199,10 @@ function getGenericTypes(func:IntermediateFunctionType, info):Array<GenericType>
 					types: types,
 				});
 			default:
+				genericTypes.push({
+					name: name,
+					types: [t],
+				});
 		}
 	}
 	return genericTypes;

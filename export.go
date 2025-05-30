@@ -1240,6 +1240,7 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 		s := node.(*types.Var)
 		data["name"] = s.Name()
 		data["type"] = parseType(s.Type(), marked, pkg)
+		data["origin"] = parseType(s.Origin().Type(), marked, pkg)
 	case "Chan":
 		s := node.(*types.Chan)
 		data["elem"] = parseType(s.Elem(), marked, pkg)

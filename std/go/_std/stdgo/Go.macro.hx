@@ -642,7 +642,7 @@ class Go {
 	}
 
 	public static macro function toInterface(expr) {
-		final expectedType = Context.getExpectedType();
+		// final expectedType = Context.getExpectedType();
 		switch expr.expr {
 			case EConst(CIdent(s)):
 				if (s == "null")
@@ -650,7 +650,7 @@ class Go {
 						new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.invalidType));
 			default:
 		}
-		if (expectedType != null) {
+		/*if (expectedType != null) {
 			var error = false;
 			switch expectedType {
 				case TAbstract(t, params):
@@ -672,7 +672,7 @@ class Go {
 				default:
 					Context.error("Go Invalid expected type: " + expectedType, Context.currentPos());
 			}
-		}
+		}*/
 		var t = Context.typeof(expr);
 		var follow = true;
 		switch t {

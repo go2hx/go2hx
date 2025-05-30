@@ -125,7 +125,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						// args:Array<Expr>
 						for (i in skip...args.length + (expr.ellipsis > 0 ? -1 : 0)) {
 							final fromType = getVar(typeof(exprArgs[i - skip], info, false));
-							var toType = getVar(params[i - skip]);
+							var toType = getOriginVar(fromType, params[i - skip]);
 							if (variadic && params.length <= i + 1 - skip) {
 								toType = getElem(params[params.length - 1]);
 							}
@@ -427,4 +427,26 @@ private function exprToString(fromType:GoType, toType:GoType, expr:Expr, info:In
 		default:
 	}
 	return expr;
+}
+
+private function getOriginVar(fromType:GoType, t:GoType):GoType {
+	if (t == null)
+		return t;
+	switch t {
+		case _var(_, _, _.get() => typeParam(_, params)):
+			if (params.length == 1) {
+				return params[0];
+			}
+			var anyInterfaceIndex = -1;
+			for (i in 0...params.length) {
+				if (anyInterfaceIndex == -1 && isAnyInterface(params[i]))
+					anyInterfaceIndex = i;
+				if (goTypesEqual(fromType, params[i], 4))
+					return params[i];
+			}
+			if (anyInterfaceIndex != -1)
+				return params[anyInterfaceIndex];
+		default:
+	}
+	return getVar(t);
 }

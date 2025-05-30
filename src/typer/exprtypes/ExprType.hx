@@ -170,7 +170,7 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		case "Var":
 			if (e.name == "_" || e.name == "")
 				return typeof(e.type, info, false, paths.copy());
-			_var(e.name, {get: () -> typeof(e.type, info, false, paths.copy())});
+			_var(e.name, {get: () -> typeof(e.type, info, false, paths.copy())}, {get: () -> typeof(e.origin, info, false, paths.copy())});
 		case "Interface":
 			if (e.embeds.length == 1 && e.embeds[0].id == "Union") {
 				typeof(e.embeds[0], info, false, paths.copy());
@@ -362,7 +362,7 @@ enum GoType {
 	invalidType;
 	signature(variadic:Bool, params:Ref<Array<GoType>>, results:Ref<Array<GoType>>, recv:Ref<GoType>, ?typeParams:Ref<Array<GoType>>);
 	basic(kind:GoAst.BasicKind);
-	_var(name:String, type:Ref<GoType>);
+	_var(name:String, type:Ref<GoType>, ?origin:Ref<GoType>);
 	tuple(len:Int, vars:Ref<Array<GoType>>);
 	interfaceType(empty:Bool, methods:Array<MethodType>);
 	sliceType(elem:Ref<GoType>);
@@ -828,23 +828,24 @@ function getTuple(vars:Array<Dynamic>, info:Info):Array<GoType> {
 	var index = 0;
 	for (v in vars) {
 		final t = typeof(v.type, info, false);
+		final origin = typeof(v.origin, info, false);
 		if (v.names != null) {
 			if (v.names.length == 0) {
 				tuples.push(t);
 				continue;
 			}
 			for (name in (v.names : Array<String>)) {
-				tuples.push(_var(name, {get: () -> t}));
+				tuples.push(_var(name, {get: () -> t}, {get: () -> origin}));
 			}
 		} else {
 			if (t == invalidType)
 				trace("v:", v.type.id, "\n", t);
 			if (v.name == "_" || v.name == "") {
-				tuples.push(_var("_" + index, {get: () -> t}));
+				tuples.push(_var("_" + index, {get: () -> t}, {get: () -> origin}));
 				index++;
 				continue;
 			}
-			tuples.push(_var(v.name, {get: () -> t}));
+			tuples.push(_var(v.name, {get: () -> t}, {get: () -> origin}));
 		}
 	}
 	return tuples;
@@ -975,6 +976,8 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 		case _var(_, _.get() => type):
 			toComplexType(type, info);
 		case typeParam(name, params):
+			if (info.typeParamMap.exists(name))
+				return toComplexType(info.typeParamMap[name], info);
 			return TPath({pack: [], name: className(name, info)});
 		case tuple(len, _.get() => vars):
 			var fields:Array<Field> = [];

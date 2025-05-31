@@ -6,11 +6,10 @@ import sys.FileSystem;
 import sys.io.File;
 
 var libs:Array<String> = [];
-final cwd = Sys.getCwd();
+final path = Sys.getCwd();
 
 function main() {
 	var list:Array<String> = File.getContent("data/stdgo.list").split("\n");
-	final excludes:Array<String> = Json.parse(File.getContent("data/excludes.json"));
 	final testList:Array<String> = Json.parse(File.getContent("data/tests.json"));
 	for (pkg in list) {
 		if (!noMain.contains(pkg))
@@ -34,14 +33,12 @@ function main() {
 	for (i in 0...libs.length) {
 		libs[i] = StringTools.replace(libs[i], ".", "/");
 	}
-	for (path in excludes)
-		libs.remove(path);
 	trace(libs);
-	
+
 	final args = libs;
 	if (MacroCompiler.getDefine("_hl") != null) {
 		args.push("-compiler_hl");
-	}else{
+	} else {
 		args.push("-compiler_cpp");
 	}
 	if (haxe.macro.Compiler.getDefine("rebuild") != null)
@@ -49,7 +46,7 @@ function main() {
 	if (haxe.macro.Compiler.getDefine("nogo4hx") != null)
 		args.push("-nogo4hx");
 	args.push(cwd);
-	Sys.command("haxe --run Run " + args.join(" "));
+	Sys.exit(Sys.command("haxe --run Run -nocache " + args.join(" ")));
 }
 
 var compiled:Bool = false;

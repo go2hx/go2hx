@@ -497,18 +497,21 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 			// asInterface
 			final tempRecv = decl.func.recv;
 			decl.func.recv = null;
-			final asInterfaceFunc = typer.decls.Function.typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel, pkg, decl.recvName)[0];
+			final f = typer.decls.Function.typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel, pkg, decl.recvName);
 			decl.func.recv = tempRecv;
-			switch asInterfaceFunc.kind {
-				case TDField(kind, access):
-					switch kind {
-						case FFun(fun):
-							// recv func named
-							HaxeAst.addLocalMethod(asInterfaceFunc.name, asInterfaceFunc.pos, asInterfaceFunc.meta, asInterfaceFunc.doc, access, fun, null,
-								wrapper, true, def.params != null && def.params.length > 0);
-						default:
-					}
-				default:
+			if (f != null) {
+				final asInterfaceFunc = f[0];
+				switch asInterfaceFunc.kind {
+					case TDField(kind, access):
+						switch kind {
+							case FFun(fun):
+								// recv func named
+								HaxeAst.addLocalMethod(asInterfaceFunc.name, asInterfaceFunc.pos, asInterfaceFunc.meta, asInterfaceFunc.doc, access, fun,
+									null, wrapper, true, def.params != null && def.params.length > 0);
+							default:
+						}
+					default:
+				}
 			}
 			// static extension
 			for (func in funcs) {
@@ -521,7 +524,7 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 								if (codegen.Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 									access.push(AInline);
 								// recv func named
-								HaxeAst.addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, null,
+								HaxeAst.addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, f == null ? wrapper : null,
 									true, def.params != null && def.params.length > 0);
 							default:
 						}

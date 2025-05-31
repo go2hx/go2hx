@@ -12,8 +12,9 @@ typedef IntermediateFunctionType = {
 	// recv
 	varName:String,
 	varType:GoType,
-	varCT:ComplexType,
+	varCT:GoType->ComplexType,
 	typeParams:GoAst.FieldList,
+	recvTypeParams:Array<GoType>,
 	results:GoAst.FieldList,
 	body:GoAst.BlockStmt,
 	doc:String,
@@ -27,34 +28,21 @@ typedef IntermediateFunctionType = {
 }
 
 function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = "",
-		pkg:typer.Package.IntermediatePackageType, defName:String = ""):TypeDefinition {
+		pkg:typer.Package.IntermediatePackageType, defName:String = "", disableGenericCasting:Bool = false):Array<TypeDefinition> {
 	final func = typeFunctionAnalyze(decl, data, restricted, isNamed, sel, defName, pkg);
-	return typeFunctionEmit(func);
+	return typeFunctionEmit(func, disableGenericCasting);
 }
 
-function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
+function typeFunctionEmit(func:IntermediateFunctionType, disableGenericCasting:Bool):Array<TypeDefinition> {
 	final info = func.info;
 	var args = getArgs(func, info);
 	var meta:Metadata = [];
 	var params:Array<TypeParamDecl> = null;
-	var recvArg = null;
 	final access = [];
 	// recv != null
-	if (func.varType != null) {
-		meta.push({name: ":keep", pos: null});
-		if (isPointer(func.varType)) {
-			meta.push({name: ":pointer", pos: null});
-		}
-		recvArg = {
-			name: func.varName,
-			type: func.varCT,
-			vt: func.varType,
-			meta: isPointer(func.varType) ? [{name: ":pointer", pos: null}] : []
-		};
-		args.unshift(recvArg);
-		if (codegen.Patch.funcInline.indexOf(func.patchName) != -1 && access.indexOf(AInline) == -1)
-			access.push(AInline);
-	}
+	var recvArg = getRecv(func, info, args, meta);
+	if (codegen.Patch.funcInline.indexOf(func.patchName) != -1 && access.indexOf(AInline) == -1)
+		access.push(AInline);
 	final genericNames = params == null ? [] : [for (i in 0...params.length) params[i].name];
 	final identifierNames = genericNames;
 	final previousRenameClasses = info.global.renameClasses.copy();
@@ -86,8 +74,7 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 		var e = macro $i{path}($a{params});
 		block = macro return $e;
 	}
-
-	if (func.typeParams != null) {
+	if (!disableGenericCasting && (func.typeParams != null || func.recvTypeParams.length > 0)) {
 		// block = macro throw "generic function is not supported";
 		final genericTypes = getGenericTypes(func, info);
 		if (genericTypes.length > 0) {
@@ -107,6 +94,8 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 					info.typeParamMap[genericTypeName] = t;
 				}
 				args = getArgs(func, info);
+				meta = [];
+				recvArg = getRecv(func, info, args, meta);
 				ret = getRet(func, info);
 				block = getBlock(info, func, args, recvArg);
 				if (!HaxeAst.isVoid(ret)) {
@@ -132,8 +121,7 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 				});
 			}
 			info.typeParamMap = [];
-			info.data.defs = info.data.defs.concat(defs.slice(1));
-			return defs.shift();
+			return defs;
 		}
 	}
 
@@ -168,44 +156,59 @@ function typeFunctionEmit(func:IntermediateFunctionType):TypeDefinition {
 		info.global.localSpecs.remove(func.declName);
 	}
 
-	return def;
+	return [def];
 }
 
 function getGenericTypes(func:IntermediateFunctionType, info):Array<GenericType> {
 	final genericTypes:Array<GenericType> = [];
-	for (param in func.typeParams.list) {
-		final name = param.names[0].name;
-		final t = typeof(param.type, info, false);
-		final t = getUnderlying(t);
-		switch t {
-			case typeParam(_, types):
-				// TODO
-				final duplicateTypes:Array<GoType> = [];
-				types = [for (type in types) replaceNumber(type)];
-				for (i in 0...types.length) {
-					for (j in 0...types.length) {
-						if (duplicateTypes.contains(types[i]) || duplicateTypes.contains(types[j]))
-							continue;
-						if (i == j)
-							continue;
-						if (goTypesEqual(types[i], types[j], 10))
-							duplicateTypes.push(types[i]);
-					}
-				}
-				for (type in duplicateTypes)
-					types.remove(type);
-				genericTypes.push({
-					name: name,
-					types: types,
-				});
-			default:
-				genericTypes.push({
-					name: name,
-					types: [t],
-				});
+	if (func.recvTypeParams.length > 0) {
+		for (param in func.recvTypeParams) {
+			switch param {
+				case typeParam(name, params):
+					makeGenericTypes(name, params, genericTypes);
+				default:
+					throw "unknown param: " + param;
+			}
+		}
+	}
+	if (func.typeParams != null && func.typeParams.list.length > 0) {
+		for (param in func.typeParams.list) {
+			final name = param.names[0].name;
+			final t = typeof(param.type, info, false);
+			final t = getUnderlying(t);
+			switch t {
+				case typeParam(_, types):
+					makeGenericTypes(name, types, genericTypes);
+				default:
+					genericTypes.push({
+						name: name,
+						types: [t],
+					});
+			}
 		}
 	}
 	return genericTypes;
+}
+
+function makeGenericTypes(name:String, types:Array<GoType>, genericTypes:Array<GenericType>) {
+	final duplicateTypes:Array<GoType> = [];
+	types = [for (type in types) replaceNumber(type)];
+	for (i in 0...types.length) {
+		for (j in 0...types.length) {
+			if (duplicateTypes.contains(types[i]) || duplicateTypes.contains(types[j]))
+				continue;
+			if (i == j)
+				continue;
+			if (goTypesEqual(types[i], types[j], 10))
+				duplicateTypes.push(types[i]);
+		}
+	}
+	for (type in duplicateTypes)
+		types.remove(type);
+	genericTypes.push({
+		name: name,
+		types: types,
+	});
 }
 
 function getGenericCombos(func:IntermediateFunctionType, info, genericTypes:Array<GenericType>) {
@@ -260,6 +263,7 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 		returnNamed: false,
 		returnTypes: null,
 		typeParams: decl.type.typeParams,
+		recvTypeParams: [],
 		results: decl.type.results,
 		body: decl.body,
 		recvName: "",
@@ -271,21 +275,11 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 	if (decl.recv != null) {
 		var varName = decl.recv.list[0].names.length > 0 ? decl.recv.list[0].names[0].name : "";
 		var varType = typeof(decl.recv.list[0].type, info, false);
-		final ct = toComplexType(varType, info);
-		switch ct {
-			case TPath(p):
-				var f = null;
-				f = (p:TypePath) -> {
-					if (p.pack.length == 1 && p.pack[0] == "stdgo" && (p.name == "Pointer" || p.name == "Ref")) {
-						switch p.params[0] {
-							case TPType(TPath(p)):
-								return f(p);
-							default:
-						}
-					}
-					return p;
-				}
-				p = f(p);
+		if (isPointer(varType) || isRef(varType))
+			varType = getElem(varType);
+		switch varType {
+			case named(_, _, _, _, _.get() => params):
+				irFunc.recvTypeParams = params;
 			default:
 		}
 		if (varName != "") {
@@ -296,7 +290,26 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 		irFunc.recvName = getRecvName(decl.recv.list[0].type, info);
 		irFunc.varName = varName;
 		irFunc.varType = varType;
-		irFunc.varCT = ct;
+		irFunc.varCT = varType -> {
+			final ct = toComplexType(varType, info);
+			switch ct {
+				case TPath(p):
+					var f = null;
+					f = (p:TypePath) -> {
+						if (p.pack.length == 1 && p.pack[0] == "stdgo" && (p.name == "Pointer" || p.name == "Ref")) {
+							switch p.params[0] {
+								case TPType(TPath(p)):
+									return f(p);
+								default:
+							}
+						}
+						return p;
+					}
+					p = f(p);
+				default:
+			}
+			return ct;
+		};
 	}
 	info.funcName = irFunc.name;
 	info.restricted = restricted;
@@ -402,7 +415,7 @@ function typeFieldListArgs(list:GoAst.FieldList, info:Info):Array<FunctionArg> {
 	return args;
 }
 
-function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.FieldList, info:Info, recvArg):MacroExpr {
+function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.FieldList, info:Info, recvArg:RecvArg):MacroExpr {
 	switch block.expr {
 		case EBlock(exprs):
 			if (recvArg != null && !isPointer(recvArg.vt)) {
@@ -461,11 +474,36 @@ private inline function getArgs(func, info):Array<FunctionArg> {
 	return typeFieldListArgs(func.params, info);
 }
 
-private inline function getRet(func, info) {
+private inline function getRecv(func:IntermediateFunctionType, info, args:Array<FunctionArg>, meta:Metadata):RecvArg {
+	if (func.varType != null) {
+		meta.push({name: ":keep", pos: null});
+		if (isPointer(func.varType)) {
+			meta.push({name: ":pointer", pos: null});
+		}
+		final recvArg:RecvArg = {
+			name: func.varName,
+			type: func.varCT(func.varType),
+			vt: func.varType,
+			meta: isPointer(func.varType) ? [{name: ":pointer", pos: null}] : []
+		};
+		args.unshift(cast recvArg);
+		return recvArg;
+	}
+	return null;
+}
+
+typedef RecvArg = {
+	name:String,
+	type:ComplexType,
+	vt:GoType,
+	meta:Metadata,
+}
+
+private inline function getRet(func:IntermediateFunctionType, info) {
 	return typeFieldListReturn(func.results, info, true);
 }
 
-private function getBlock(info, func, args, recvArg) {
+private function getBlock(info, func:IntermediateFunctionType, args, recvArg:RecvArg) {
 	var block:MacroExpr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
 		macro throw ${HaxeAst.makeString(func.recvName + ":" + info.global.path + "." + func.name + " is not yet implemented")};

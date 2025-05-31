@@ -163,9 +163,9 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 			recvFunctions.push({decl: decl, path: file.path});
 			continue;
 		}
-		var func = typer.decls.Function.typeFunction(decl, info, pkg);
-		if (func != null)
-			data.defs.push(func);
+		var funcs = typer.decls.Function.typeFunction(decl, info, pkg);
+		if (funcs != null)
+			data.defs = data.defs.concat(funcs);
 	}
 
 	// patch system to add functions
@@ -190,7 +190,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 				pack: [],
 				kind: TDField(FFun({args: [], expr: expr}), []),
 			});
-			//codegen.Patch.addFuncs.remove(key);
+			// codegen.Patch.addFuncs.remove(key);
 		}
 	}
 	for (key => def in codegen.Patch.addTypeDefs) {
@@ -491,27 +491,42 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 				}
 			}
 		}
-		final funcs = [
-			for (decl in local) {
-				var func = typer.decls.Function.typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel, pkg, decl.recvName);
-				func;
-			}
-		];
-		for (func in funcs) {
-			switch func.kind {
+		for (i in 0...local.length) {
+			final decl = local[i];
+			final funcs = typer.decls.Function.typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel, pkg, decl.recvName);
+			// asInterface
+			final tempRecv = decl.func.recv;
+			decl.func.recv = null;
+			final asInterfaceFunc = typer.decls.Function.typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel, pkg, decl.recvName)[0];
+			decl.func.recv = tempRecv;
+			switch asInterfaceFunc.kind {
 				case TDField(kind, access):
 					switch kind {
 						case FFun(fun):
-							final patchName = info.global.module.path + "." + def.name + ":" + func.name;
-							func.meta.push({name: ":tdfield", pos: null});
-							if (codegen.Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
-								access.push(AInline);
 							// recv func named
-							HaxeAst.addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, wrapper,
-								true, def.params != null && def.params.length > 0);
+							HaxeAst.addLocalMethod(asInterfaceFunc.name, asInterfaceFunc.pos, asInterfaceFunc.meta, asInterfaceFunc.doc, access, fun, null,
+								wrapper, true, def.params != null && def.params.length > 0);
 						default:
 					}
 				default:
+			}
+			// static extension
+			for (func in funcs) {
+				switch func.kind {
+					case TDField(kind, access):
+						switch kind {
+							case FFun(fun):
+								final patchName = info.global.module.path + "." + def.name + ":" + func.name;
+								func.meta.push({name: ":tdfield", pos: null});
+								if (codegen.Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
+									access.push(AInline);
+								// recv func named
+								HaxeAst.addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, null,
+									true, def.params != null && def.params.length > 0);
+							default:
+						}
+					default:
+				}
 			}
 		}
 	}

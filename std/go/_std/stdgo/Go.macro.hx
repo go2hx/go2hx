@@ -376,6 +376,8 @@ class Go {
 				case TInst(_.get() => t, params):
 					final asInterfacePointer = t.meta.has(":pointer");
 					if (params != null && params.length > 0) { // has params
+						if (!selfPointer)
+							expr = macro stdgo.Go.pointer($expr);
 						final p = createTypePath(isLocal);
 						final exprs = [macro final __self__ = new $p($expr, $rt)];
 						final fields = t.fields.get();
@@ -394,30 +396,19 @@ class Go {
 										}
 									}
 									final callArgs = args.map(arg -> macro $i{arg.name});
-									if (isPointer) {
-										if (!selfPointer) {
-											callArgs.unshift(macro Go.pointer($expr));
-										} else {
-											callArgs.unshift(macro $expr);
-										}
-									}
-									switch selfType {
-										case TInst(_, params), TType(_, params):
-											for (param in params) {
-												final ct = Context.toComplexType(param);
-												callArgs.push(macro(cast(null) : $ct));
-											}
-										default:
-									}
 									// callArgs.unshift(self);
-									var e = macro $self.value.$methodName($a{callArgs});
+									var e = if (isPointer) {
+										macro @:privateAccess __self__.__self__.$methodName($a{callArgs});
+									} else {
+										macro @:privateAccess __self__.__self__.value.$methodName($a{callArgs});
+									}
 									if (!isVoid(ret))
 										e = macro return $e;
 									final f = {
 										expr: EFunction(FAnonymous, {
 											expr: e,
-											args: args.map(arg -> ({name: arg.name, type: Context.toComplexType(arg.t)} : FunctionArg)),
-											ret: Context.toComplexType(ret),
+											args: args.map(arg -> ({name: arg.name, type: null} : FunctionArg)),
+											ret: null,
 										}),
 										pos: Context.currentPos(),
 									}
@@ -428,6 +419,7 @@ class Go {
 							}
 						}
 						exprs.push(macro __self__);
+						// trace(new haxe.macro.Printer().printExpr(macro $b{exprs}));
 						return macro $b{exprs};
 					} else {
 						final p = createTypePath(isLocal);

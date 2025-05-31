@@ -6,7 +6,7 @@ import sys.FileSystem;
 import sys.io.File;
 
 var libs:Array<String> = [];
-final path = Sys.getCwd();
+final cwd = Sys.getCwd();
 
 function main() {
 	var list:Array<String> = File.getContent("data/stdgo.list").split("\n");

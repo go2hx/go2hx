@@ -257,7 +257,7 @@ function startGo4hx(port:Int) {
 		process = new sys.io.Process("./go4hx", ['' + port]);
 }
 
-var useThreadPool = true;
+var useThreadPool = !true;
 
 function accept(server:Socket, ready:Void->Void) {
 	if (instance == null)
@@ -291,12 +291,7 @@ function accept(server:Socket, ready:Void->Void) {
 						Sys.sleep(0.001);
 					}
 					threadPool.run(() -> {
-						try {
-							receivedData(buff);
-						} catch (e) {
-							trace(e.details());
-							throw e;
-						}
+						receivedData(buff);
 					});
 				} else {
 					receivedData(buff);

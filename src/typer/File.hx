@@ -497,10 +497,10 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 			// asInterface
 			final tempRecv = decl.func.recv;
 			decl.func.recv = null;
-			final f = typer.decls.Function.typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel, pkg, decl.recvName);
+			final asInterfaceFuncs = typer.decls.Function.typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel, pkg, decl.recvName);
 			decl.func.recv = tempRecv;
-			if (f != null) {
-				final asInterfaceFunc = f[0];
+			if (asInterfaceFuncs != null && asInterfaceFuncs.length > 0) {
+				final asInterfaceFunc = asInterfaceFuncs[0];
 				switch asInterfaceFunc.kind {
 					case TDField(kind, access):
 						switch kind {
@@ -524,7 +524,7 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 								if (codegen.Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 									access.push(AInline);
 								// recv func named
-								HaxeAst.addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, f == null ? wrapper : null,
+								HaxeAst.addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, null,
 									true, def.params != null && def.params.length > 0);
 							default:
 						}

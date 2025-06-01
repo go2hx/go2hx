@@ -18,8 +18,7 @@ var onUnknownExit:Void->Void = null;
 var modules:Array<typer.HaxeAst.Module> = [];
 var instance:CompilerInstanceData = null;
 #if target.threaded
-final threadPool = new sys.thread.ElasticThreadPool(4, 0.1);
-final threadData = new sys.thread.Deque<haxe.io.Bytes>();
+var threadPool = new sys.thread.ElasticThreadPool(4, 0.1);
 #end
 
 /**
@@ -150,6 +149,12 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> instance.outputPath = Path.addTrailingSlash(out),
 		@doc("set the root package for all generated files")
 		["-root", "--root", "-r", "--r"] => out -> instance.root = out,
+		["-threads", "--threads"] => threadCount -> {
+			#if target.threaded
+			useThreadPool = true;
+			threadPool = new sys.thread.ElasticThreadPool(threadCount, 0.1);
+			#end
+		},
 		@doc("generate Haxe build file from compiler command")
 		["-build", "--build"] => out -> instance.buildPath = out,
 		@doc("generate build hxml from compiler commands")
@@ -257,7 +262,7 @@ function startGo4hx(port:Int) {
 		process = new sys.io.Process("./go4hx", ['' + port]);
 }
 
-var useThreadPool = !true;
+var useThreadPool = false;
 
 function accept(server:Socket, ready:Void->Void) {
 	if (instance == null)

@@ -1222,9 +1222,17 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 		data["params"] = parseType(s.Params(), marked, pkg)
 		data["results"] = parseType(s.Results(), marked, pkg)
 		data["recv"] = parseType(s.Recv(), marked, pkg)
-		params := make([]map[string]interface{}, s.TypeParams().Len())
-		for i := 0; i < len(params); i++ {
-			params[i] = parseType(s.TypeParams().At(i), marked, pkg)
+		var params []map[string]interface{}
+		if s.TypeParams().Len() > s.RecvTypeParams().Len() {
+			params = make([]map[string]interface{}, s.TypeParams().Len())
+			for i := 0; i < len(params); i++ {
+				params[i] = parseType(s.TypeParams().At(i), marked, pkg)
+			}
+		} else {
+			params = make([]map[string]interface{}, s.RecvTypeParams().Len())
+			for i := 0; i < len(params); i++ {
+				params[i] = parseType(s.RecvTypeParams().At(i), marked, pkg)
+			}
 		}
 		data["typeParams"] = params
 	case "Tuple":

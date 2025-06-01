@@ -52,7 +52,6 @@ function main() {
 		return;
 	}
 	var rebuild = false;
-	var debug = false;
 	var process = new Process('git', ['rev-parse', 'HEAD']);
 	if (process.exitCode() != 0) {
 		var message = process.stderr.readAll().toString();
@@ -74,11 +73,6 @@ function main() {
 		args.remove(args[index]);
 		Sys.println("rebuilding...");
 		rebuild = true;
-	}
-	if ((index = args.indexOf("-debug")) != -1 || (index = args.indexOf("--debug")) != -1) {
-		args.remove(args[index]);
-		Sys.println("debug mode");
-		debug = true;
 	}
 	build(rebuild);
 

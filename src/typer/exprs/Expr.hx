@@ -347,7 +347,8 @@ function implicitConversion(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTy
 			switch fromType {
 				case basic(unsafepointer_kind):
 					if (fromType != toType) {
-						final rt = toReflectType(toType, info, [], false);
+						//final rt = toReflectType(toType, info, [], false);
+						final rt = toReflectType(invalidType, info, [], false);
 						e = macro $e.__convert__($rt);
 					}
 				default:

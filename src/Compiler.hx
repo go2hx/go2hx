@@ -44,6 +44,7 @@ function receivedData(buff:Bytes) {
 	}
 	final instance = getInstanceData();
 	final data:typer.GoAst.PackageType = decodeData(buff);
+	Sys.println("Loading: " + data.path);
 	final decodeDataTime = measureTime();
 	// IMPORTANT: typing phase Go AST -> Haxe AST
 	final module = typer.Package.typePackage(data, instance);

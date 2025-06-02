@@ -342,8 +342,13 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		case "Ellipsis":
 			typeof(e.type, info, false, paths.copy());
 		case "Union":
-			final terms = e.terms.map(term -> typeof(term.type, info, false, paths.copy()));
-			typeParam("", terms);
+			if (e.terms == null) {
+				trace("e.terms is NULL: " + info.global.path);
+				typeParam("", []);
+			}else{
+				final terms = e.terms.map(term -> typeof(term.type, info, false, paths.copy()));
+				typeParam("", terms);
+			}
 		default:
 			throw info.panic() + "unknown typeof expr: " + e.id;
 	}

@@ -99,14 +99,13 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):MacroExpr {
 							default:
 						}
 					}
-					if (stmt.lhs[i].id == "StarExpr" && !isPointer(toType)) {
+					if (stmt.lhs[i].id == "StarExpr" && !isPointer(toType) && isRefValue(toType)) {
 						// set underlying not the ref
-						// trace(toType);
 						final underlyingType = getUnderlying(toType);
 						switch underlyingType {
 							case interfaceType(empty, methods):
 								if (empty) {
-									return macro $x.__setData__($y);
+									return macro @:_0 $x.__setData__($y);
 								} else {
 									final exprs:Array<Expr> = [
 										for (field in methods) {
@@ -119,7 +118,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):MacroExpr {
 									return macro $b{exprs};
 								}
 							case sliceType(_), mapType(_, _), arrayType(_, _):
-								exprs.push(macro $x.__setData__($y));
+								exprs.push(macro @:_1 $x.__setData__($y));
 								continue;
 							case structType(fields):
 								final exprs:Array<Expr> = [
@@ -226,7 +225,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):MacroExpr {
 						switch underlyingType {
 							case interfaceType(empty, methods):
 								if (empty) {
-									return macro $x.__setData__($y);
+									return macro @:_2 $x.__setData__($y);
 								} else {
 									final exprs:Array<Expr> = [
 										for (field in methods) {
@@ -238,7 +237,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):MacroExpr {
 									assigns = assigns.concat(exprs);
 								}
 							case sliceType(_), mapType(_, _):
-								return macro $x.__setData__($y);
+								return macro @:_3 $x.__setData__($y);
 							case structType(fields):
 								final exprs:Array<Expr> = [
 									for (field in fields) {

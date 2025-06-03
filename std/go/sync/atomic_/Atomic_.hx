@@ -11,7 +11,7 @@ function swap(_x) {
 	final old = @:privateAccess _x._v;
 	_x._v = stdgo.Go.toInterface(_new_);
 	stdgo.Go.globalMutex.release();
-	return stdgo.Go.toInterface(old);
+	return stdgo.Go.pointer(stdgo.Go.toInterface(old));
 }
 
 @:recv(Pointer_)

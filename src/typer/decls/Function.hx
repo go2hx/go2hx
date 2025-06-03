@@ -504,7 +504,13 @@ private inline function getRet(func:IntermediateFunctionType, info) {
 }
 
 private function getBlock(info, func:IntermediateFunctionType, args, recvArg:RecvArg) {
-	var block:MacroExpr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
+	var patch:MacroExpr = null;
+	#if !macro
+	patch = codegen.Patch2.getFunction(func.patchPack, func.name, func.patchRecvName, func.pkg);
+	#end
+	var block:MacroExpr = if (patch != null) {
+		patch;
+	} else if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
 		macro throw ${HaxeAst.makeString(func.recvName + ":" + info.global.path + "." + func.name + " is not yet implemented")};
 	} else {
@@ -523,16 +529,16 @@ private function getBlock(info, func:IntermediateFunctionType, args, recvArg:Rec
 		}
 		macro $block;
 	}
-	var patch:MacroExpr = null;
-	#if !macro
-	patch = codegen.Patch2.getFunction(func.patchPack, func.name, func.patchRecvName, func.pkg);
-	#end
-
-	if (patch != null) {
-		block = patch;
-	}
 
 	return argsTranslate(args, block, func.params, info, recvArg);
+}
+
+function hasPatchFunction(func):Bool {
+	#if !macro
+	return codegen.Patch2.hasFunction(func.patchPack, func.name, func.patchRecvName, func.pkg);
+	#else
+	return false;
+	#end
 }
 
 function getSkipTestBlock(cond, block, func:IntermediateFunctionType, info) {

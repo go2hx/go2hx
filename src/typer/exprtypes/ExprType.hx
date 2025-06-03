@@ -343,8 +343,7 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 			typeof(e.type, info, false, paths.copy());
 		case "Union":
 			if (e.terms == null) {
-				trace("e.terms is NULL: " + info.global.path);
-				typeParam("", []);
+				throw "e.terms is NULL: " + info.global.path;
 			}else{
 				final terms = e.terms.map(term -> typeof(term.type, info, false, paths.copy()));
 				typeParam("", terms);

@@ -497,7 +497,7 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 			// asInterface
 			final tempRecv = decl.func.recv;
 			final tempBody = decl.func.body;
-			decl.func.recv = null;
+			//decl.func.recv = null;
 			decl.func.body = {
 				lbrace: 0,
 				rbrace: 0,
@@ -505,7 +505,7 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 			};
 			final asInterfaceFuncs = typer.decls.Function.typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel, pkg, decl.recvName);
 			decl.func.body = tempBody;
-			decl.func.recv = tempRecv;
+			//decl.func.recv = tempRecv;
 			if (asInterfaceFuncs != null && asInterfaceFuncs.length > 0) {
 				final asInterfaceFunc = asInterfaceFuncs[0];
 				switch asInterfaceFunc.kind {

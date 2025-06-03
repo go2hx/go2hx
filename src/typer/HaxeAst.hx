@@ -222,7 +222,7 @@ function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Acces
 	};
 	// trace(printer.printField(staticField));
 	final fieldRet = exprOfType(fun.ret);
-	var fieldArgs = staticArgs.slice(staticExtension != null ? 1 : 0);
+	var fieldArgs = staticArgs.slice(1);
 	// if (isPointerArg)
 	//	fieldArgs.shift();
 	for (i in 0...fieldArgs.length)

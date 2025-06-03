@@ -275,12 +275,18 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 	if (decl.recv != null) {
 		var varName = decl.recv.list[0].names.length > 0 ? decl.recv.list[0].names[0].name : "";
 		var varType = typeof(decl.recv.list[0].type, info, false);
-		if (isPointer(varType) || isRef(varType))
-			varType = getElem(varType);
-		switch varType {
-			case named(_, _, _, _, _.get() => params):
-				irFunc.recvTypeParams = params;
-			default:
+		if (isPointer(varType) || isRef(varType)) {
+			switch getElem(varType) {
+				case named(_, _, _, _, _.get() => params):
+					irFunc.recvTypeParams = params;
+				default:
+			}
+		}else{
+			switch varType {
+				case named(_, _, _, _, _.get() => params):
+					irFunc.recvTypeParams = params;
+				default:
+			}
 		}
 		if (varName != "") {
 			varName = typer.exprs.Ident.nameIdent(varName, false, true, info);
@@ -477,6 +483,7 @@ private inline function getArgs(func, info):Array<FunctionArg> {
 private inline function getRecv(func:IntermediateFunctionType, info, args:Array<FunctionArg>, meta:Metadata):RecvArg {
 	if (func.varType != null) {
 		meta.push({name: ":keep", pos: null});
+		// trace(func.name, isPointer(func.varType), func.varType);
 		if (isPointer(func.varType)) {
 			meta.push({name: ":pointer", pos: null});
 		}

@@ -421,10 +421,10 @@ function typeFieldListArgs(list:GoAst.FieldList, info:Info):Array<FunctionArg> {
 	return args;
 }
 
-function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.FieldList, info:Info, recvArg:RecvArg):MacroExpr {
+function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.FieldList, info:Info, recvArg:RecvArg, hasPatch:Bool):MacroExpr {
 	switch block.expr {
 		case EBlock(exprs):
-			if (recvArg != null && !isPointer(recvArg.vt)) {
+			if (recvArg != null && !isPointer(recvArg.vt) && !hasPatch) {
 				final name = recvArg.name;
 				info.localIdents.push(name);
 				final expr = HaxeAst.passByCopy(recvArg.vt, macro $i{name}, info);
@@ -537,7 +537,7 @@ private function getBlock(info, func:IntermediateFunctionType, args, recvArg:Rec
 		macro $block;
 	}
 
-	return argsTranslate(args, block, func.params, info, recvArg);
+	return argsTranslate(args, block, func.params, info, recvArg, patch != null);
 }
 
 function hasPatchFunction(func):Bool {

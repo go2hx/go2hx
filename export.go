@@ -499,7 +499,7 @@ func main() {
 	}
 	_, err = strconv.Atoi(port)
 	if err != nil { // not set to a port, test compile
-		compile(nil, args[1:], true)
+		compile(nil, append([]string{"golibs"}, args[1:]...), true)
 		return
 	}
 	conn, err := net.Dial("tcp", "127.0.0.1:"+port)
@@ -660,6 +660,12 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 			checker = nil
 			// send data
 			sendData(conn, *syntax)
+			if conn == nil {
+				b, err := json.MarshalIndent(*syntax, "", "    ")
+				panicIfError(err)
+				println("write check.json")
+				panicIfError(os.WriteFile("check.json", b, 0666))
+			}
 			syntax = nil
 			localExcludes = nil
 			// leave
@@ -1116,7 +1122,7 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 	}
 	isVar := false
 	switch data["id"] {
-	case "Var", "Pointer": //, "Slice", "Array":
+	case "Var", "Pointer", "Union", "TypeParams": //, "Slice", "Array":
 		isVar = true
 	case "Named":
 		named := node.(*types.Named)
@@ -1261,17 +1267,19 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 		s := node.(*types.Union)
 		terms := make([]map[string]interface{}, s.Len())
 		if s.Len() == 1 && s.Term(0).Tilde() {
-			return parseType(s.Term(0).Type(), marked, pkg)
-		}
-		for i := 0; i < s.Len(); i++ {
-			t := s.Term(i)
-			terms[i] = map[string]interface{}{
-				"tidle": t.Tilde(),
-				"type":  parseType(t.Type(), marked, pkg),
+			data = parseType(s.Term(0).Type(), marked, pkg)
+			//fmt.Println(data)
+		} else {
+			for i := 0; i < s.Len(); i++ {
+				t := s.Term(i)
+				terms[i] = map[string]interface{}{
+					"tidle": t.Tilde(),
+					"type":  parseType(t.Type(), marked, pkg),
+				}
 			}
+			//data["underlying"] = parseType(s.Underlying())
+			data["terms"] = terms
 		}
-		//data["underlying"] = parseType(s.Underlying())
-		data["terms"] = terms
 	default:
 		log.Fatal("unknown parse type id: " + data["id"].(string))
 	}

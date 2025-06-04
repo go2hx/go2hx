@@ -431,20 +431,22 @@ function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.Fie
 				final ct = recvArg.type;
 				exprs.unshift(macro @:recv var $name:$ct = $expr);
 			}
-			for (arg in args) {
-				switch arg.type {
-					case TPath(p):
-						if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe" && p.params != null && p.params.length == 1) {
-							final name = arg.name;
-							switch p.params[0] {
-								case TPType(ct):
-									// new stdgo.Slice<$ct>($i{name}.length, 0, ...$i{name}));
-									exprs.unshift(macro var $name = new stdgo.Slice<$ct>($i{name}.length, 0, ...$i{name}));
-								// exprs.unshift(macro var $name:stdgo.Slice<$ct> = $i{name}.toArray());
-								default:
+			if (!hasPatch) {
+				for (arg in args) {
+					switch arg.type {
+						case TPath(p):
+							if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe" && p.params != null && p.params.length == 1) {
+								final name = arg.name;
+								switch p.params[0] {
+									case TPType(ct):
+										// new stdgo.Slice<$ct>($i{name}.length, 0, ...$i{name}));
+										exprs.unshift(macro var $name = new stdgo.Slice<$ct>($i{name}.length, 0, ...$i{name}));
+									// exprs.unshift(macro var $name:stdgo.Slice<$ct> = $i{name}.toArray());
+									default:
+								}
 							}
-						}
-					default:
+						default:
+					}
 				}
 			}
 			block.expr = EBlock(exprs);

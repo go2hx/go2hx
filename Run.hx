@@ -199,7 +199,7 @@ function installGoUp():Bool {
 		return switch line {
 			case "x86_64", "amd64":
 				"amd64";
-			case "arm64":
+			case "arm64", "aarch64"::
 				"arm64";
 			default:
 				throw "unknown arch: " + line;

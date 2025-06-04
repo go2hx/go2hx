@@ -172,23 +172,25 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 				return typeof(e.type, info, false, paths.copy());
 			_var(e.name, {get: () -> typeof(e.type, info, false, paths.copy())}, {get: () -> typeof(e.origin, info, false, paths.copy())});
 		case "Interface":
-			if (e.embeds.length == 1 && e.embeds[0].id == "Union") {
-				typeof(e.embeds[0], info, false, paths.copy());
-			} else {
-				final methods:Array<MethodType> = [];
-				if (e.methods != null) {
-					for (method in (e.methods : Array<Dynamic>)) {
-						methods.push({
-							name: formatHaxeFieldName(method.name, info),
-							type: {get: () -> typeof(method.type, info, false, paths.copy())},
-							recv: {get: () -> typeof(method.recv, info, false, paths.copy())},
-						});
-					}
-				}
-				final underlying = interfaceType(e.empty, methods);
-				final t = getLocalType(e.hash, underlying, info);
+			/*if (e.embeds.length == 1 && e.embeds[0].id == "Union") {
+				final t = typeof(e.embeds[0], info, false, paths.copy());
+				trace(t);
 				t;
+			} else {*/
+			final methods:Array<MethodType> = [];
+			if (e.methods != null) {
+				for (method in (e.methods : Array<Dynamic>)) {
+					methods.push({
+						name: formatHaxeFieldName(method.name, info),
+						type: {get: () -> typeof(method.type, info, false, paths.copy())},
+						recv: {get: () -> typeof(method.recv, info, false, paths.copy())},
+					});
+				}
 			}
+			final underlying = interfaceType(e.empty, methods);
+			final t = getLocalType(e.hash, underlying, info);
+			t;
+		// }
 		case "Slice":
 			sliceType({get: () -> typeof(e.elem, info, false, paths.copy())});
 		case "Array":
@@ -344,7 +346,9 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		case "Union":
 			if (e.terms == null) {
 				throw "e.terms is NULL: " + info.global.path;
-			}else{
+			} else {
+				// trace(e.terms);
+				// trace(e.terms.map(term -> hashTypeToExprType(term.type, info)));
 				final terms = e.terms.map(term -> typeof(term.type, info, false, paths.copy()));
 				typeParam("", terms);
 			}

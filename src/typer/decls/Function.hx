@@ -82,7 +82,6 @@ function typeFunctionEmit(func:IntermediateFunctionType, disableGenericCasting:B
 				final f = typeGenericFunction(func, finalDoc, comboList, genericTypes, access, info);
 				defs.push(f);
 			}
-			info.typeParamMap = [];
 			return defs;
 		}
 	}
@@ -155,6 +154,7 @@ function typeGenericFunction(func:IntermediateFunctionType, finalDoc, comboList:
 			return __a__();
 		};
 	}
+	info.typeParamMap = [];
 	return {
 		name: func.name,
 		pos: null,

@@ -73,8 +73,11 @@ function typeFunctionLiteral(args:Array<Expr>, params:Array<GoType>, results:Arr
 	var expr = macro $x($a{args.concat(exprArgs)});
 	if (!HaxeAst.isVoid(ret))
 		expr = macro return $expr;
+	for (arg in funcArgs) {
+		arg.type = null;
+	}
 	return toExpr(EFunction(FAnonymous, {
-		ret: ret,
+		ret: typer.HaxeAst.isVoid(ret) ? ret : null,
 		args: funcArgs,
 		expr: expr,
 	}));

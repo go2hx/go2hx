@@ -208,7 +208,7 @@ function getGenericTypes(func:IntermediateFunctionType, info):Array<GenericType>
 			}
 		}
 		if (hasAnyInterface) {
-			genericType.types.push(named("T__", [], invalidType, true, {get: () -> [previouslyNamed(genericType.name)]}));
+			genericType.types.push(named("T__", [], refType({get: () -> invalidType}), true, {get: () -> [previouslyNamed(genericType.name)]}));
 		}
 	}
 	return genericTypes;

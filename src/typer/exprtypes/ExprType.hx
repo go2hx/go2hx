@@ -233,7 +233,9 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		case "Ident":
 			final e:GoAst.Ident = e;
 			if (e.name == "comparable" && !info.renameIdents.exists(e.name) && info.localIdents.indexOf(untitle(e.name)) == -1) {
-				typeParam("", [named("comparable", [], invalidType, true, {get: () -> []})]);
+				typeParam("", [
+					named("comparable", [], refType({get: () -> invalidType}), true, {get: () -> []})
+				]);
 				// typeParam("comparable", [interfaceType(true, [])]);
 			} else {
 				typeof(e.type, info, false, paths.copy());
@@ -608,8 +610,6 @@ function isRefValue(type:GoType):Bool {
 		case signature(_, _, _, _, _):
 			false;
 		case typeParam(_, _):
-			false;
-		case invalidType:
 			false;
 		default:
 			true;

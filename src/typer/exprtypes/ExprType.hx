@@ -609,6 +609,8 @@ function isRefValue(type:GoType):Bool {
 			false;
 		case typeParam(_, _):
 			false;
+		case invalidType:
+			false;
 		default:
 			true;
 	}

@@ -77,6 +77,8 @@ function typeOp(token:GoAst.Token):Binop {
 function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):MacroExpr {
 	fromType = cleanType(fromType);
 	toType = cleanType(toType);
+	//trace(fromType, toType);
+	//trace(getElem(fromType), getElem(toType));
 	if (goTypesEqual(fromType, toType, 0)) {
 		if (passCopy) {
 			return HaxeAst.passByCopy(toType, expr, info);
@@ -109,7 +111,12 @@ function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info
 	if (isAnyInterface(toType) && !HaxeAst.isRestExpr(expr)) {
 		y = typer.exprs.Expr.toAnyInterface(y, fromType, info);
 	}
+
 	// trace(fromType, toType);
+	// trace(isRef(fromType), isPointer(toType));
+	if (isRef(fromType) && isPointer(toType)) {
+		return macro stdgo.Go.pointer($y);
+	}
 	if (isAnyInterface(fromType) && !isInvalid(toType) && !isInterface(toType)) {
 		switch expr.expr {
 			case EBinop(_, _, _):
@@ -347,7 +354,7 @@ function implicitConversion(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTy
 			switch fromType {
 				case basic(unsafepointer_kind):
 					if (fromType != toType) {
-						//final rt = toReflectType(toType, info, [], false);
+						// final rt = toReflectType(toType, info, [], false);
 						final rt = toReflectType(invalidType, info, [], false);
 						e = macro $e.__convert__($rt);
 					}
@@ -571,6 +578,8 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {
 					final elem = typer.exprs.Expr.defaultValue(elem, info);
 					final len = makeExpr(len);
 					macro new $t($len, $len, ...[for (i in 0...$len) $elem]);
+				case invalidType:
+					macro null;
 				default:
 					var t = namedTypePath(path, info);
 					macro new $t();

@@ -532,8 +532,13 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {
 			var value = typer.exprs.Expr.defaultValue(elem, info);
 			macro(null : stdgo.Chan<$t>);
 		case pointerType(_.get() => elem):
-			final t = toComplexType(elem, info);
-			macro(null : stdgo.Pointer<$t>);
+			switch elem {
+				case typeParam(_, _):
+					macro null;
+				default:
+					final t = toComplexType(elem, info);
+					macro(null : stdgo.Pointer<$t>);
+			}
 		case signature(_, _, _, _):
 			macro null;
 		case refType(_.get() => elem):

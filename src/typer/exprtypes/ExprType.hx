@@ -920,6 +920,13 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 		case named(path, _, underlying, _, _.get() => params):
 			// trace(path);
 			// trace(info.renameClasses);
+			if (path == "T__") {
+				switch params[0] {
+					case previouslyNamed(path):
+						return TPath({name: className(path, info), pack: []});
+					default:
+				}
+			}
 			if (path == "comparable")
 				return TPath({name: "Comparable", pack: ["stdgo"]});
 			if (path == null) {

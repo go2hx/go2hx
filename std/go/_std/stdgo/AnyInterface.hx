@@ -213,6 +213,26 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				throw "unknown type equals: " + gt;
 		}
 	}
+
+	@:from
+	static function fromDynamic(x:Dynamic):AnyInterface {
+		final t = std.Type.typeof(x);
+		final gt:stdgo._internal.internal.reflect.GoType = switch t {
+			case TInt:
+				basic(int_kind);
+			case TFloat:
+				basic(float64_kind);
+			default:
+				trace("fromDynamic type not found: " + t);
+				invalidType;
+		}
+		final type = @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type(gt);
+		return new AnyInterface(x, type);
+	}
+
+	@:to
+	function toDynamic():Dynamic
+		return this.value;
 }
 
 inline function errorString(s:stdgo.GoString) {

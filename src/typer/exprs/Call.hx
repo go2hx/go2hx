@@ -446,6 +446,8 @@ private function getOriginVar(fromType:GoType, t:GoType):GoType {
 			}
 			if (anyInterfaceIndex != -1)
 				return params[anyInterfaceIndex];
+		case _var(_, _, _.get() => param):
+			return param;
 		default:
 	}
 	return getVar(t);

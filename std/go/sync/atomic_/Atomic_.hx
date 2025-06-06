@@ -8,10 +8,10 @@ function load() {
 @:recv(Pointer_)
 function swap(_x) {
 	stdgo.Go.globalMutex.acquire();
-	final old = @:privateAccess _x._v;
+	var old:Dynamic = @:privateAccess _x._v;
 	_x._v = stdgo.Go.toInterface(_new_);
 	stdgo.Go.globalMutex.release();
-	return stdgo.Go.pointer(stdgo.Go.toInterface(old));
+	return stdgo.Go.pointer(old);
 }
 
 @:recv(Pointer_)

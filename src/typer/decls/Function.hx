@@ -185,17 +185,19 @@ function getGenericTypes(func:IntermediateFunctionType, info):Array<GenericType>
 	}
 	if (func.typeParams != null && func.typeParams.list.length > 0) {
 		for (param in func.typeParams.list) {
-			final name = param.names[0].name;
-			final t = typeof(param.type, info, false);
-			final t = getUnderlying(t);
-			switch t {
-				case typeParam(_, types):
-					makeGenericTypes(name, types, genericTypes);
-				default:
-					genericTypes.push({
-						name: name,
-						types: [t],
-					});
+			for (name in param.names) {
+				final name = name.name;
+				final t = typeof(param.type, info, false);
+				final t = getUnderlying(t);
+				switch t {
+					case typeParam(_, types):
+						makeGenericTypes(name, types, genericTypes);
+					default:
+						genericTypes.push({
+							name: name,
+							types: [t],
+						});
+				}
 			}
 		}
 	}

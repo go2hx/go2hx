@@ -147,13 +147,11 @@ function typeGenericFunction(func:IntermediateFunctionType, finalDoc, comboList:
 		info.global.renameClasses = previousRenameClasses; */
 	final ret = getRet(func, info);
 	var block = getBlock(info, func, args, recvArg);
-	if (!HaxeAst.isVoid(ret)) {
-		block = macro {
-			function __a__()
-				$block;
-			return __a__();
-		};
-	}
+	block = macro {
+		function __a__()
+			$block;
+		return __a__();
+	};
 	info.typeParamMap = [];
 	return {
 		name: func.name,

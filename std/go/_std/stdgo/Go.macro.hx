@@ -305,7 +305,6 @@ class Go {
 		On the fly interface creation
 	 */
 	public static macro function asInterface(expr) {
-		// trace(new haxe.macro.Printer().printExpr(expr));
 		final selfType = Context.typeof(switch expr.expr {
 			case ECall({expr: EField({expr: EField({expr: EConst(CIdent("stdgo"))}, "Go")}, "pointer"), pos: _}, _[0] => param):
 				param;
@@ -448,6 +447,11 @@ class Go {
 					}
 					f(ct, params);
 				case TInst(_.get() => ct, params):
+					switch ct.kind {
+						case KTypeParameter(_):
+							return expr;
+						default:
+					}
 					f(ct, params);
 				case TAbstract(_.get() => ct, params):
 					if (ct.name == "Null" && ct.pack == null || ct.pack.length == 0) {
@@ -474,7 +478,8 @@ class Go {
 					null;
 			}
 		}
-		return run();
+		final result = run();
+		return result;
 	}
 
 	// deprecated

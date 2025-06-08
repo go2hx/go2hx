@@ -171,6 +171,7 @@ typedef Ident = {
 	type:ExprType,
 	?kind:ObjKind,
 	objPath:String,
+	typeArgs:Array<ExprType>,
 }
 
 typedef Ellipsis = {

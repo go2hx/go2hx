@@ -125,7 +125,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						// args:Array<Expr>
 						for (i in skip...args.length + (expr.ellipsis > 0 ? -1 : 0)) {
 							final fromType = getVar(typeof(exprArgs[i - skip], info, false));
-							var toType = getOriginVar(fromType, params[i - skip]);
+							var toType = getVar(params[i - skip ]);
 							//if (expr.typeArgs != null && expr.typeArgs.length > 0)
 							//	trace(typeof(expr.typeArgs[0], info, false));
 							if (variadic && params.length <= i + 1 - skip) {
@@ -140,7 +140,21 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 									toType = pointerType({get: () -> elem});
 								}
 							}
+							// trace(new codegen.Printer().printExpr(args[i]));
+							// trace(fromType, toType);
 							args[i] = typer.exprs.Expr.explicitConversion(fromType, toType, args[i], info);
+							switch exprArgs[i - skip]?.id {
+								case "Ident":
+									final typeArgs = exprArgs[i - skip]?.typeArgs;
+									if (typeArgs != null && typeArgs.length > 0) {
+										switch fromType {
+											case signature(_, _.get() => params, _.get() => results, _, _.get() => typeParams):
+												args[i] = Index.typeFunctionLiteral([], params, results, args[i], info);
+											default:
+										}
+									}
+								default:
+							}
 						}
 					default:
 				}

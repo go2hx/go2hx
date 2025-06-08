@@ -222,20 +222,14 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		case "CallExpr":
 			final e:GoAst.CallExpr = e;
 			var type = typeof(e.type, info, false, paths.copy());
-			switch type {
-				case signature(_, _, _.get() => results, _):
-					return results[0];
-				default:
-					return type;
-			}
+			return type;
 		case "BasicLit":
 			typeof(e.type, info, false, paths.copy());
 		case "Ident":
 			final e:GoAst.Ident = e;
 			if (e.name == "comparable" && !info.renameIdents.exists(e.name) && info.localIdents.indexOf(untitle(e.name)) == -1) {
 				typeParam("", [
-					named("comparable", [], refType({get: () -> invalidType}), true, {get: () -> []})
-				]);
+					named("comparable", [], refType({get: () -> invalidType}), true, {get: () -> []})]);
 				// typeParam("comparable", [interfaceType(true, [])]);
 			} else {
 				typeof(e.type, info, false, paths.copy());
@@ -590,8 +584,13 @@ function isRefValue(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case named(_, _, t, _):
-			isRefValue(t);
+		case named(path, _, t, _):
+			// T__Pointer is Pointer version
+			if (path == "comparable" || path == "T__") {
+				false;
+			}else{
+				isRefValue(t);
+			}
 		case refType(_):
 			false;
 		case refType(_.get() => t):
@@ -813,6 +812,16 @@ function replaceInvalidType(t:GoType, replace:GoType):GoType {
 			replace;
 		default:
 			t;
+	}
+}
+
+function isSignatureTypeParam(t:GoType):Bool {
+	return switch t {
+	case signature(_, _, _, _, _.get() => typeParams):
+		trace(typeParams);
+		false;
+	default:
+		false;
 	}
 }
 

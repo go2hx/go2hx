@@ -126,6 +126,9 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						for (i in skip...args.length + (expr.ellipsis > 0 ? -1 : 0)) {
 							final fromType = getVar(typeof(exprArgs[i - skip], info, false));
 							var toType = getOriginVar(fromType, params[i - skip ]);
+							final oldToType = getVar(params[i - skip]);
+							if (!isAnyInterface(oldToType) && isAnyInterface(toType))
+								toType = oldToType;
 							//if (expr.typeArgs != null && expr.typeArgs.length > 0)
 							//	trace(typeof(expr.typeArgs[0], info, false));
 							if (variadic && params.length <= i + 1 - skip) {

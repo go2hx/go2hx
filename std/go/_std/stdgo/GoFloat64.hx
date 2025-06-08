@@ -7,6 +7,9 @@ abstract GoFloat64(Float) from Float to Float {
 	public inline function new(x = 0.0)
 		this = x;
 
+	@:from static inline function fromInt64(x:haxe.Int64):GoFloat64
+		return @:privateAccess GoNumber.toFloatInt64(x);
+
 	@:to inline function toFloat32():GoFloat32 {
 		#if interp
 		// lose precision

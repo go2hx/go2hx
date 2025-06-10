@@ -71,17 +71,20 @@ function typeFunctionEmit(func:IntermediateFunctionType, disableGenericCasting:B
 		final genericTypes = getGenericTypes(func, info);
 		if (genericTypes.length > 0) {
 			final combos = getGenericCombos(func, info, genericTypes);
-			final defs:Array<TypeDefinition> = [];
+			var defs:Array<TypeDefinition> = [];
 			// access
 			access.push(AOverload);
 			if (access.indexOf(AInline) == -1)
 				access.push(AInline);
 			access.push(AExtern);
 			// go over combination
+			var count = 0;
 			for (comboList in combos) {
-				final f = typeGenericFunction(func, finalDoc, comboList, genericTypes, access, info);
-				defs.push(f);
+				final funcs = typeGenericFunction(func, finalDoc, comboList, genericTypes, access, info, count++);
+				for (f in funcs)
+					defs.push(f);
 			}
+			
 			return defs;
 		}
 	}
@@ -121,7 +124,7 @@ function typeFunctionEmit(func:IntermediateFunctionType, disableGenericCasting:B
 }
 
 function typeGenericFunction(func:IntermediateFunctionType, finalDoc, comboList:Array<GoType>, genericTypes:Array<GenericType>,
-		access:Null<Array<haxe.macro.Expr.Access>>, info:Info):TypeDefinition {
+		access:Null<Array<haxe.macro.Expr.Access>>, info:Info, count:Int):Array<TypeDefinition> {
 	info.typeParamMap = [];
 	var hasGenericType = false;
 	var params:Array<TypeParamDecl> = [];
@@ -147,13 +150,30 @@ function typeGenericFunction(func:IntermediateFunctionType, finalDoc, comboList:
 		info.global.renameClasses = previousRenameClasses; */
 	final ret = getRet(func, info);
 	var block = getBlock(info, func, args, recvArg);
-	block = macro {
-		function __a__()
-			$block;
-		return __a__();
-	};
+	//final printer = new codegen.Printer();
+	// Can not add type information to end of function because the function names will be too long
+	//final typeStr = args.map(arg -> io.Path.normalizePath(printer.printComplexType(arg.type))).join("_");
+	final genericName = func.name + "_" + count;
 	info.typeParamMap = [];
-	return {
+	final defs:Array<TypeDefinition> = [];
+	defs.push({
+		name: genericName,
+		pos: null,
+		pack: [],
+		fields: [],
+		meta: [],
+		kind: TDField(FFun({
+			ret: ret,
+			params: params,
+			args: args,
+			expr: block,
+		}), noOverloadAccess(access)) 
+	});
+	final funcArgs = args.map(arg -> macro $i{arg.name});
+	block = macro $i{genericName}($a{funcArgs});
+	if (!typer.HaxeAst.isVoid(ret))
+		block = macro return $block;
+	defs.push({
 		name: func.name,
 		pos: null,
 		pack: [],
@@ -166,7 +186,18 @@ function typeGenericFunction(func:IntermediateFunctionType, finalDoc, comboList:
 			params: params,
 			args: args,
 		}), access)
-	};
+	});
+	return defs;
+}
+
+private function noOverloadAccess(access:Array<Access>):Array<Access> {
+	final access = access.copy();
+	access.remove(AInline);
+	access.remove(AOverload);
+	access.remove(AExtern);
+	if (!access.contains(APrivate))
+		access.push(APrivate);
+	return access;
 }
 
 function getGenericTypes(func:IntermediateFunctionType, info):Array<GenericType> {
@@ -200,15 +231,12 @@ function getGenericTypes(func:IntermediateFunctionType, info):Array<GenericType>
 		}
 	}
 	for (genericType in genericTypes) {
-		var hasAnyInterface = false;
-		for (t in genericType.types) {
-			if (isAnyInterface(t)) {
-				hasAnyInterface = true;
-				break;
+		for (i in 0...genericType.types.length) {
+			if (isAnyInterface(genericType.types[i])) {
+				//genericType.types.push(named("T__", [], refType({get: () -> invalidType}), true, {get: () -> [previouslyNamed(genericType.name)]}));
+				//genericTypes.remove(genericType);
+				genericType.types[i] = named("T__", [], refType({get: () -> invalidType}), true, {get: () -> [previouslyNamed(genericType.name)]});
 			}
-		}
-		if (hasAnyInterface) {
-			genericType.types.push(named("T__", [], refType({get: () -> invalidType}), true, {get: () -> [previouslyNamed(genericType.name)]}));
 		}
 	}
 	return genericTypes;

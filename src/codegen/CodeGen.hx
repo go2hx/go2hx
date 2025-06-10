@@ -225,17 +225,25 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 			default:
 		}
 		// raw save file
-		final fullPath = dir + "," + name + "_" + td.name.toLowerCase();
+		final defName = removeTypeParamSuffix(td.name.toLowerCase());
+		final fullPath = dir + "," + name + "_" + defName;
 		var contentString = printer.printTypeDefinition(td, false);
 		if (splitFiles.indexOf(fullPath) != -1) {
-			appendRaw(dir, name + "_" + td.name.toLowerCase(), contentString, prefix, extension);
+			appendRaw(dir, name + "_" + defName, contentString, prefix, extension);
 		} else {
 			contentString = prefix + contentString;
-			saveRaw(dir, name + "_" + td.name.toLowerCase(), contentString, prefix, extension, true);
+			saveRaw(dir, name + "_" + defName, contentString, prefix, extension, true);
 			splitFiles.push(fullPath);
 		}
 	}
 	return newContent;
+}
+
+private function removeTypeParamSuffix(name:String):String {
+	final index = name.indexOf("__tp__");
+	if (index == -1)
+		return name;
+	return name.substr(0, index);
 }
 
 private function saveRaw(dir:String, name:String, contentString, prefix:String, extension:String, splitFileBool:Bool) {

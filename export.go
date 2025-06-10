@@ -649,7 +649,9 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 			localExcludes := map[string]bool{}
 			checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 			pkgData := PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
+			//println("parseLocal:", pkg.PkgPath)
 			parseLocalPackage(pkg, &pkgData, localExcludes)
+			//println("parsePkg:", pkg.PkgPath)
 			// parse
 			syntax := parsePkg(pkg)
 			// set checksum
@@ -663,6 +665,7 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 			if conn == nil {
 				b, err := json.MarshalIndent(*syntax, "", "    ")
 				panicIfError(err)
+				println(syntax.Path)
 				println("write check.json")
 				panicIfError(os.WriteFile("check.json", b, 0666))
 			}
@@ -1129,6 +1132,11 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 		path := named.String()
 		if marked[path] {
 			data["path"] = path
+			params := make([]map[string]interface{}, named.TypeArgs().Len())
+			for i := 0; i < len(params); i++ {
+				params[i] = parseType(named.TypeArgs().At(i), marked, pkg)
+			}
+			data["params"] = params
 			return data
 		}
 	default:
@@ -1161,13 +1169,13 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 				data["methods"] = parseMethods(named, &methodCache, 0, marked, true, pkg)
 				marked[path] = true
 				data["underlying"] = parseType(named.Underlying(), marked, pkg)
-				params := make([]map[string]interface{}, named.TypeArgs().Len())
-				for i := 0; i < len(params); i++ {
-					params[i] = parseType(named.TypeArgs().At(i), marked, pkg)
-				}
-				data["params"] = params
 			}
 		}
+		params := make([]map[string]interface{}, named.TypeArgs().Len())
+		for i := 0; i < len(params); i++ {
+			params[i] = parseType(named.TypeArgs().At(i), marked, pkg)
+		}
+		data["params"] = params
 		data["path"] = path
 	case "Slice":
 		s := node.(*types.Slice)
@@ -1441,6 +1449,7 @@ func parseData(node interface{}, pkg *PackageData) map[string]interface{} {
 	case *ast.TypeAssertExpr:
 	case *ast.UnaryExpr:
 	case *ast.CallExpr:
+		// typeutil.StaticCallee
 		var ident *ast.Ident
 		var resolveGeneric func(node ast.Expr)
 		typeArgs := make([]map[string]interface{}, 0)
@@ -1515,6 +1524,7 @@ func parseCommentGroup(value *ast.CommentGroup) map[string]interface{} {
 		"list": list,
 	}
 }
+
 func parseIdents(value []*ast.Ident, pkg *PackageData) []map[string]interface{} {
 	list := make([]map[string]interface{}, len(value))
 	for i := range value {
@@ -1543,6 +1553,11 @@ func parseIdent(value *ast.Ident, pkg *PackageData) map[string]interface{} {
 		}
 	}
 	if instance.Type != nil {
+		params := make([]map[string]interface{}, instance.TypeArgs.Len())
+		for i := 0; i < len(params); i++ {
+			params[i] = parseType(instance.TypeArgs.At(i), make(map[string]bool), pkg)
+		}
+		data["typeArgs"] = params
 		data["type"] = parseType(instance.Type, map[string]bool{}, pkg)
 		if obj != nil {
 			// find what the generic types will be

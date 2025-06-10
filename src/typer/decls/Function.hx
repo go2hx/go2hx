@@ -153,7 +153,7 @@ function typeGenericFunction(func:IntermediateFunctionType, finalDoc, comboList:
 	//final printer = new codegen.Printer();
 	// Can not add type information to end of function because the function names will be too long
 	//final typeStr = args.map(arg -> io.Path.normalizePath(printer.printComplexType(arg.type))).join("_");
-	final genericName = func.name + "_" + count;
+	final genericName = func.name + "__tp__" + count;
 	info.typeParamMap = [];
 	final defs:Array<TypeDefinition> = [];
 	defs.push({

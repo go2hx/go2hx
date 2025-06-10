@@ -935,8 +935,6 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 				switch params[0] {
 					case previouslyNamed(path):
 						final p:TypePath = {name: className(path, info), pack: [], params: []};
-						if (params != null)
-							p.params = params.map(param -> TPType(toComplexType(param, info)));
 						return TPath(p);
 					default:
 				}

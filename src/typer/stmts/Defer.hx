@@ -4,16 +4,28 @@ function typeDeferStmt(stmt:GoAst.DeferStmt, info:Info):MacroExpr {
 	info.global.deferBool = true;
 	var exprs:Array<Expr> = [];
 	final localIdents = [];
+	// copy over
+	final call:GoAst.CallExpr = {
+		fun: stmt.call.fun,
+		lparen: stmt.call.lparen,
+		args: stmt.call.args.copy(),
+		ellipsis: stmt.call.ellipsis,
+		rparen: stmt.call.rparen,
+		type: stmt.call.type,
+		objType: stmt.call.objType,
+		typeArgs: stmt.call.typeArgs,
+	};
 	for (i in 0...stmt.call.args.length) {
-		var arg = typer.exprs.Expr.typeExpr(stmt.call.args[i], info);
+		var arg = typer.exprs.Expr.typeExpr(call.args[i], info);
 		var name = "_a" + i;
 		localIdents.push(name);
-		exprs.push(macro var $name = $arg);
-		stmt.call.args[i] = {id: "Ident", name: 'a$i', type: stmt.call.args[i].type}; // switch out call arguments
+		final e = macro var $name = $arg;
+		exprs.push(e);
+		call.args[i] = {id: "Ident", name: 'a$i', type: call.args[i].type}; // switch out call arguments
 	}
 	info.localIdents = info.localIdents.concat(localIdents);
 	// otherwise its Ident, Selector etc
-	var call = typer.exprs.Call.typeCallExpr(stmt.call, info);
+	var call = typer.exprs.Call.typeCallExpr(call, info);
 	switch call.expr {
 		case ECall(e, params):
 			exprs.push(macro final __f__ = $e);

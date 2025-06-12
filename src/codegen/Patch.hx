@@ -11,6 +11,8 @@ final newValueError:TypePath = splitDepsBool ? {pack: "stdgo._internal.reflect.R
 };
 
 final skipTests = [
+	"slices_test:testReplaceGrowthRate" => [], // too slow and checks capacity increase count
+	"slices_test:testInsertGrowthRate" => [], // too slow and checks capacity increase count
 	"testing.iotest:testWriteLogger" => [],
 	// testing/fstest
 	"testing.fstest:testMapFS" => [],

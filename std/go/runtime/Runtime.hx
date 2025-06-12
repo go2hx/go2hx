@@ -9,6 +9,9 @@ function caller() {
 	};
 }
 
+function version()
+	return "go1.21.3";
+
 function numCPU()
 	return 1;
 

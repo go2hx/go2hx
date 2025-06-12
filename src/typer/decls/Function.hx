@@ -170,6 +170,9 @@ function typeGenericFunction(func:IntermediateFunctionType, finalDoc, comboList:
 		}), noOverloadAccess(access)) 
 	});
 	final funcArgs = args.map(arg -> macro $i{arg.name});
+	if (funcArgs.length > 0 && typer.HaxeAst.isRestType(args[args.length - 1].type)) {
+		funcArgs[funcArgs.length - 1] = macro...$e{funcArgs[funcArgs.length - 1]};
+	}
 	block = macro $i{genericName}($a{funcArgs});
 	if (!typer.HaxeAst.isVoid(ret))
 		block = macro return $block;

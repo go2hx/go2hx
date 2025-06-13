@@ -29,5 +29,6 @@
  "hl|bufio",
  "hl|io",
  "hl|hash",
- "hl|go/scanner"
+ "hl|go/scanner",
+ "hl|slices"
 ]

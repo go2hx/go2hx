@@ -1,13 +1,13 @@
 === RUN  TestCheckEqual
 Exception: Null access .__name__
 Called from $Type.getClassName (/home/runner/haxe/versions/b0b2997/std/hl/_std/Type.hx line 111)
-Called from stdgo._internal.reflect.$Value_static_extension.set (stdgo/_internal/reflect/Reflect_value_static_extension.hx line 294)
+Called from stdgo._internal.reflect.$Value_static_extension.set (stdgo/_internal/reflect/Reflect_value_static_extension.hx line 282)
 Called from stdgo._internal.testing.quick._Quick__sizedvalue.$Quick__sizedvalue_Fields_._sizedValue (stdgo/_internal/testing/quick/Quick__sizedvalue.hx line 164)
 Called from stdgo._internal.testing.quick._Quick_value.$Quick_value_Fields_.value (stdgo/_internal/testing/quick/Quick_value.hx line 5)
 Called from stdgo._internal.testing.quick._Quick__arbitraryvalues.$Quick__arbitraryvalues_Fields_._arbitraryValues (stdgo/_internal/testing/quick/Quick__arbitraryvalues.hx line 17)
 Called from stdgo._internal.testing.quick._Quick_checkequal.$Quick_checkequal_Fields_.checkEqual (stdgo/_internal/testing/quick/Quick_checkequal.hx line 34)
 Called from stdgo._internal.testing.quick._Quick_testcheckequal.$Quick_testcheckequal_Fields_.testCheckEqual (stdgo/_internal/testing/quick/Quick_testcheckequal.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.main (_internal/testing/quickdottest/Quickdottest.hx line 12)
 
 -- FAIL: TestCheckEqual
@@ -18,7 +18,7 @@ Called from stdgo._internal.internal.reflect.$_Type_static_extension.numOut (std
 Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (stdgo/_internal/internal/reflect/Reflect.hx line 1367)
 Called from stdgo._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (stdgo/_internal/testing/quick/Quick_check.hx line 17)
 Called from stdgo._internal.testing.quick._Quick_testcheckproperty.$Quick_testcheckproperty_Fields_.testCheckProperty (stdgo/_internal/testing/quick/Quick_testcheckproperty.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.main (_internal/testing/quickdottest/Quickdottest.hx line 12)
 
 -- FAIL: TestCheckProperty
@@ -29,7 +29,7 @@ Called from stdgo._internal.internal.reflect.$_Type_static_extension.numOut (std
 Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (stdgo/_internal/internal/reflect/Reflect.hx line 1367)
 Called from stdgo._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (stdgo/_internal/testing/quick/Quick_check.hx line 17)
 Called from stdgo._internal.testing.quick._Quick_testfailure.$Quick_testfailure_Fields_.testFailure (stdgo/_internal/testing/quick/Quick_testfailure.hx line 7)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.main (_internal/testing/quickdottest/Quickdottest.hx line 12)
 
 -- FAIL: TestFailure
@@ -40,7 +40,7 @@ Called from stdgo._internal.internal.reflect.$_Type_static_extension.numOut (std
 Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (stdgo/_internal/internal/reflect/Reflect.hx line 1367)
 Called from stdgo._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (stdgo/_internal/testing/quick/Quick_check.hx line 17)
 Called from stdgo._internal.testing.quick._Quick_testrecursive.$Quick_testrecursive_Fields_.testRecursive (stdgo/_internal/testing/quick/Quick_testrecursive.hx line 9)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.main (_internal/testing/quickdottest/Quickdottest.hx line 12)
 
 -- FAIL: TestRecursive
@@ -51,7 +51,7 @@ Called from stdgo._internal.internal.reflect.$_Type_static_extension.numOut (std
 Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (stdgo/_internal/internal/reflect/Reflect.hx line 1367)
 Called from stdgo._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (stdgo/_internal/testing/quick/Quick_check.hx line 17)
 Called from stdgo._internal.testing.quick._Quick_testemptystruct.$Quick_testemptystruct_Fields_.testEmptyStruct (stdgo/_internal/testing/quick/Quick_testemptystruct.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.main (_internal/testing/quickdottest/Quickdottest.hx line 12)
 
 -- FAIL: TestEmptyStruct
@@ -62,7 +62,7 @@ Called from stdgo._internal.internal.reflect.$_Type_static_extension.numOut (std
 Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (stdgo/_internal/internal/reflect/Reflect.hx line 1367)
 Called from stdgo._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (stdgo/_internal/testing/quick/Quick_check.hx line 17)
 Called from stdgo._internal.testing.quick._Quick_testmutuallyrecursive.$Quick_testmutuallyrecursive_Fields_.testMutuallyRecursive (stdgo/_internal/testing/quick/Quick_testmutuallyrecursive.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.main (_internal/testing/quickdottest/Quickdottest.hx line 12)
 
 -- FAIL: TestMutuallyRecursive
@@ -73,7 +73,7 @@ Called from stdgo._internal.internal.reflect.$_Type_static_extension.numOut (std
 Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (stdgo/_internal/internal/reflect/Reflect.hx line 1367)
 Called from stdgo._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (stdgo/_internal/testing/quick/Quick_check.hx line 17)
 Called from stdgo._internal.testing.quick._Quick_testnonzerosliceandmap.$Quick_testnonzerosliceandmap_Fields_.testNonZeroSliceAndMap (stdgo/_internal/testing/quick/Quick_testnonzerosliceandmap.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.main (_internal/testing/quickdottest/Quickdottest.hx line 12)
 
 -- FAIL: TestNonZeroSliceAndMap
@@ -84,10 +84,10 @@ Called from stdgo._internal.internal.reflect.$_Type_static_extension.numOut (std
 Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (stdgo/_internal/internal/reflect/Reflect.hx line 1367)
 Called from stdgo._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (stdgo/_internal/testing/quick/Quick_check.hx line 17)
 Called from stdgo._internal.testing.quick._Quick_testint64.$Quick_testint64_Fields_.testInt64 (stdgo/_internal/testing/quick/Quick_testint64.hx line 18)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.main (_internal/testing/quickdottest/Quickdottest.hx line 12)
 
 -- FAIL: TestInt64
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
 -- FAIL: TestInt64

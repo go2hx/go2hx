@@ -1,7 +1,7 @@
-[ERROR] golibs/stdgo/_internal/go/build/Build__parsegoembed.hx:103: characters 21-46
+[ERROR] golibs/stdgo/_internal/go/build/Build__parsegoembed.hx:103: characters 21-45
 
- 103 |                     _iterator_11242651 = 0i64;
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+ 103 |                     _iterator_6203164 = 0i64;
+     |                     ^^^^^^^^^^^^^^^^^^^^^^^^
      | haxe.Int64 should be Null<Int>
 
 [ERROR] (macro) golibs/stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 108-109
@@ -18,9 +18,9 @@
           |          ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  _std/stdgo/Go.macro.hx:676: characters 11-31
+      ->  _std/stdgo/Go.macro.hx:673: characters 11-31
 
-      676 |   var t = Context.typeof(expr);
+      673 |   var t = Context.typeof(expr);
           |           ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 

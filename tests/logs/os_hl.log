@@ -2,7 +2,7 @@
 Exception: :os.expand is not yet implemented
 Called from stdgo._internal.os._Os_expand.$Os_expand_Fields_.expand (stdgo/_internal/os/Os_expand.hx line 2)
 Called from _internal.os_test._Os_test_testexpand.$Os_test_testexpand_Fields_.testExpand (_internal/os_test/Os_test_testexpand.hx line 5)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -16,7 +16,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: :os.setenv is not yet implemented
 Called from stdgo._internal.os._Os_setenv.$Os_setenv_Fields_.setenv (stdgo/_internal/os/Os_setenv.hx line 2)
 Called from _internal.os_test._Os_test_testunsetenv.$Os_test_testunsetenv_Fields_.testUnsetenv (_internal/os_test/Os_test_testunsetenv.hx line 19)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -25,7 +25,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestClearenv
 Exception: :os.setenv is not yet implemented
 Called from _internal.os_test._Os_test_testclearenv.$Os_test_testclearenv_Fields_.testClearenv (_internal/os_test/Os_test_testclearenv.hx line 101)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -34,7 +34,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestLookupEnv
 Exception: :os.lookupEnv is not yet implemented
 Called from _internal.os_test._Os_test_testlookupenv.$Os_test_testlookupenv_Fields_.testLookupEnv (_internal/os_test/Os_test_testlookupenv.hx line 80)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -48,7 +48,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Open should have failed
 Exception: __fail__
 Called from _internal.os_test._Os_test_testerrisexist.$Os_test_testerrisexist_Fields_.testErrIsExist (_internal/os_test/Os_test_testerrisexist.hx line 88)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -57,11 +57,11 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestErrIsNotExist
 Open should have failed
 Exception: __fail__
-Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
-Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
 Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 43)
 Called from _internal.os_test._Os_test_testerrisnotexist.$Os_test_testerrisnotexist_Fields_.testErrIsNotExist (_internal/os_test/Os_test_testerrisnotexist.hx line 10)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -71,7 +71,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: :os.isExist is not yet implemented
 Called from stdgo._internal.os._Os_isexist.$Os_isexist_Fields_.isExist (stdgo/_internal/os/Os_isexist.hx line 2)
 Called from _internal.os_test._Os_test_testisexist.$Os_test_testisexist_Fields_.testIsExist (_internal/os_test/Os_test_testisexist.hx line 7)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -81,7 +81,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: :os.isPermission is not yet implemented
 Called from stdgo._internal.os._Os_ispermission.$Os_ispermission_Fields_.isPermission (stdgo/_internal/os/Os_ispermission.hx line 2)
 Called from _internal.os_test._Os_test_testispermission.$Os_test_testispermission_Fields_.testIsPermission (_internal/os_test/Os_test_testispermission.hx line 7)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -91,7 +91,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 TempFile should have failed
 Exception: __fail__
 Called from _internal.os_test._Os_test_testerrpathnul.$Os_test_testerrpathnul_Fields_.testErrPathNUL (_internal/os_test/Os_test_testerrpathnul.hx line 102)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -105,7 +105,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: :os.isPermission is not yet implemented
 Called from stdgo._internal.os._Os_ispermission.$Os_ispermission_Fields_.isPermission (stdgo/_internal/os/Os_ispermission.hx line 2)
 Called from _internal.os_test._Os_test_testerrorismethods.$Os_test_testerrorismethods_Fields_.testErrorIsMethods (_internal/os_test/Os_test_testerrorismethods.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -116,10 +116,10 @@ Exception: :os.executable is not yet implemented
 Called from stdgo._internal.os._Os_executable.$Os_executable_Fields_.executable (stdgo/_internal/os/Os_executable.hx line 2)
 Called from stdgo._internal.internal.testenv._Testenv__tryexec.$Testenv__tryexec_Fields_._tryExec (stdgo/_internal/internal/testenv/Testenv__tryexec.hx line 16)
 Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.$Testenv_musthaveexec_Fields_.~mustHaveExec.0 (stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 5)
-Called from stdgo._internal.sync.$Once_static_extension.do_ (stdgo/_internal/sync/Sync_once_static_extension.hx line 12)
+Called from stdgo._internal.sync.$Once_static_extension.do_ (stdgo/_internal/sync/Sync_once_static_extension.hx line 11)
 Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.$Testenv_musthaveexec_Fields_.mustHaveExec (stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 4)
 Called from _internal.os_test._Os_test_testexecutable.$Os_test_testexecutable_Fields_.testExecutable (_internal/os_test/Os_test_testexecutable.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -127,13 +127,13 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 
 === RUN  TestExecutableDeleted
 skipping test: 'go build' unavailable: <nil>Exception: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
-Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53)
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 46)
 Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_t_.hx line 75)
-Called from stdgo._internal.testing.T__asInterface.skipf (stdgo/_internal/testing/Testing_t__asinterface.hx line 53)
+Called from stdgo._internal.testing.T__asInterface.skipf (stdgo/_internal/testing/Testing_t__asinterface.hx line 48)
 Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.$Testenv_musthavegobuild_Fields_.mustHaveGoBuild (stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 15)
 Called from _internal.os_test._Os_test_testexecutabledeleted.$Os_test_testexecutabledeleted_Fields_.testExecutableDeleted (_internal/os_test/Os_test_testexecutabledeleted.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -149,13 +149,13 @@ Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test__size.$Os_test__size_Fields_._size (_internal/os_test/Os_test__size.hx line 5)
 Called from _internal.os_test._Os_test_teststat.$Os_test_teststat_Fields_.testStat (_internal/os_test/Os_test_teststat.hx line 17)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 Exception: __fail__
 Called from _internal.os_test._Os_test__size.$Os_test__size_Fields_._size (_internal/os_test/Os_test__size.hx line 89)
 Called from _internal.os_test._Os_test_teststat.$Os_test_teststat_Fields_.testStat (_internal/os_test/Os_test_teststat.hx line 17)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -165,7 +165,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 got *.errors.errorString, want *.io.fs.PathError
 Exception: :os.symlink is not yet implemented
 Called from _internal.os_test._Os_test_teststaterror.$Os_test_teststaterror_Fields_.testStatError (_internal/os_test/Os_test_teststaterror.hx line 117)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -174,7 +174,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestStatSymlinkLoop
 Exception: :os.symlink is not yet implemented
 Called from _internal.os_test._Os_test_teststatsymlinkloop.$Os_test_teststatsymlinkloop_Fields_.testStatSymlinkLoop (_internal/os_test/Os_test_teststatsymlinkloop.hx line 97)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -186,12 +186,12 @@ Called from sys.io.$File.update (/home/runner/haxe/versions/b0b2997/std/hl/_std/
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 8)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test_testfstat.$Os_test_testfstat_Fields_.testFstat (_internal/os_test/Os_test_testfstat.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 Exception: __fail__
 Called from _internal.os_test._Os_test_testfstat.$Os_test_testfstat_Fields_.testFstat (_internal/os_test/Os_test_testfstat.hx line 83)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -205,13 +205,13 @@ Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test__size.$Os_test__size_Fields_._size (_internal/os_test/Os_test__size.hx line 5)
 Called from _internal.os_test._Os_test_testlstat.$Os_test_testlstat_Fields_.testLstat (_internal/os_test/Os_test_testlstat.hx line 19)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 Exception: __fail__
 Called from _internal.os_test._Os_test__size.$Os_test__size_Fields_._size (_internal/os_test/Os_test__size.hx line 89)
 Called from _internal.os_test._Os_test_testlstat.$Os_test_testlstat_Fields_.testLstat (_internal/os_test/Os_test_testlstat.hx line 19)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -223,12 +223,12 @@ Called from sys.io.$File.update (/home/runner/haxe/versions/b0b2997/std/hl/_std/
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 8)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test_testread0.$Os_test_testread0_Fields_.testRead0 (_internal/os_test/Os_test_testread0.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 Exception: __fail__
 Called from _internal.os_test._Os_test_testread0.$Os_test_testread0_Fields_.testRead0 (_internal/os_test/Os_test_testread0.hx line 84)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -240,15 +240,15 @@ Called from sys.io.$File.update (/home/runner/haxe/versions/b0b2997/std/hl/_std/
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 8)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test_testreadclosed.$Os_test_testreadclosed_Fields_.testReadClosed (_internal/os_test/Os_test_testreadclosed.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 Exception: __fail__
-Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
-Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
 Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 43)
 Called from _internal.os_test._Os_test_testreadclosed.$Os_test_testreadclosed_Fields_.testReadClosed (_internal/os_test/Os_test_testreadclosed.hx line 10)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -261,15 +261,15 @@ Called from sys.io.$File.update (/home/runner/haxe/versions/b0b2997/std/hl/_std/
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 8)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test__testreaddirnames.$Os_test__testreaddirnames_Fields_.~_testReaddirnames.0 (_internal/os_test/Os_test__testreaddirnames.hx line 9)
-Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
+Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
 Called from _internal.os_test._Os_test_testfilereaddirnames.$Os_test_testfilereaddirnames_Fields_.testFileReaddirnames (_internal/os_test/Os_test_testfilereaddirnames.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)Exception: __fail__
 Called from _internal.os_test._Os_test__testreaddirnames.$Os_test__testreaddirnames_Fields_.~_testReaddirnames.0 (_internal/os_test/Os_test__testreaddirnames.hx line 106)
-Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
+Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
 Called from _internal.os_test._Os_test_testfilereaddirnames.$Os_test_testfilereaddirnames_Fields_.testFileReaddirnames (_internal/os_test/Os_test_testfilereaddirnames.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -282,15 +282,15 @@ Called from sys.io.$File.update (/home/runner/haxe/versions/b0b2997/std/hl/_std/
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 8)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test__testreaddir.$Os_test__testreaddir_Fields_.~_testReaddir.0 (_internal/os_test/Os_test__testreaddir.hx line 9)
-Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
+Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
 Called from _internal.os_test._Os_test_testfilereaddir.$Os_test_testfilereaddir_Fields_.testFileReaddir (_internal/os_test/Os_test_testfilereaddir.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)Exception: __fail__
 Called from _internal.os_test._Os_test__testreaddir.$Os_test__testreaddir_Fields_.~_testReaddir.0 (_internal/os_test/Os_test__testreaddir.hx line 106)
-Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
+Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
 Called from _internal.os_test._Os_test_testfilereaddir.$Os_test_testfilereaddir_Fields_.testFileReaddir (_internal/os_test/Os_test_testfilereaddir.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -303,15 +303,15 @@ Called from sys.io.$File.update (/home/runner/haxe/versions/b0b2997/std/hl/_std/
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 8)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test__testreaddir.$Os_test__testreaddir_Fields_.~_testReadDir.0 (_internal/os_test/Os_test__testreaddir.hx line 120)
-Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
+Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
 Called from _internal.os_test._Os_test_testfilereaddir.$Os_test_testfilereaddir_Fields_.testFileReadDir (_internal/os_test/Os_test_testfilereaddir.hx line 16)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)Exception: __fail__
 Called from _internal.os_test._Os_test__testreaddir.$Os_test__testreaddir_Fields_.~_testReadDir.0 (_internal/os_test/Os_test__testreaddir.hx line 246)
-Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
+Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
 Called from _internal.os_test._Os_test_testfilereaddir.$Os_test_testfilereaddir_Fields_.testFileReadDir (_internal/os_test/Os_test_testfilereaddir.hx line 16)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -323,11 +323,11 @@ Called from sys.io.$File.update (/home/runner/haxe/versions/b0b2997/std/hl/_std/
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 8)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test_testreaddirnamesoneatatime.$Os_test_testreaddirnamesoneatatime_Fields_.testReaddirnamesOneAtATime (_internal/os_test/Os_test_testreaddirnamesoneatatime.hx line 27)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)Exception: __fail__
 Called from _internal.os_test._Os_test_testreaddirnamesoneatatime.$Os_test_testreaddirnamesoneatatime_Fields_.testReaddirnamesOneAtATime (_internal/os_test/Os_test_testreaddirnamesoneatatime.hx line 115)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -336,11 +336,11 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestReaddirNValues
 test.short; skipping
 Exception: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
-Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61)
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52)
 Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 67)
 Called from _internal.os_test._Os_test_testreaddirnvalues.$Os_test_testreaddirnvalues_Fields_.testReaddirNValues (_internal/os_test/Os_test_testreaddirnvalues.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -351,7 +351,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestReaddirStatFailures
 Exception: Null access .previous
 Called from _internal.os_test._Os_test_testreaddirstatfailures.$Os_test_testreaddirstatfailures_Fields_.testReaddirStatFailures (_internal/os_test/Os_test_testreaddirstatfailures.hx line 212)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -360,7 +360,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestReaddirOfFile
 Exception: File:os.readdirnames is not yet implemented
 Called from _internal.os_test._Os_test_testreaddiroffile.$Os_test_testreaddiroffile_Fields_.testReaddirOfFile (_internal/os_test/Os_test_testreaddiroffile.hx line 92)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -369,7 +369,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestHardLink
 skipping test: hardlinks are not supported on js/wasmException: __skip__
 Called from _internal.os_test._Os_test_testhardlink.$Os_test_testhardlink_Fields_.testHardLink (_internal/os_test/Os_test_testhardlink.hx line 148)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -380,7 +380,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestSymlink
 Exception: :os.symlink is not yet implemented
 Called from _internal.os_test._Os_test_testsymlink.$Os_test_testsymlink_Fields_.testSymlink (_internal/os_test/Os_test_testsymlink.hx line 161)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -389,7 +389,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestLongSymlink
 Exception: :os.symlink is not yet implemented
 Called from _internal.os_test._Os_test_testlongsymlink.$Os_test_testlongsymlink_Fields_.testLongSymlink (_internal/os_test/Os_test_testlongsymlink.hx line 79)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -398,7 +398,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestRename
 Exception: :os.rename is not yet implemented
 Called from _internal.os_test._Os_test_testrename.$Os_test_testrename_Fields_.testRename (_internal/os_test/Os_test_testrename.hx line 88)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -407,7 +407,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestRenameOverwriteDest
 write file "renameto" failed: writeFile renameto: no such file or directoryException: __fail__
 Called from _internal.os_test._Os_test_testrenameoverwritedest.$Os_test_testrenameoverwritedest_Fields_.testRenameOverwriteDest (_internal/os_test/Os_test_testrenameoverwritedest.hx line 104)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -416,7 +416,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestRenameFailed
 Exception: :os.rename is not yet implemented
 Called from _internal.os_test._Os_test_testrenamefailed.$Os_test_testrenamefailed_Fields_.testRenameFailed (_internal/os_test/Os_test_testrenamefailed.hx line 90)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -425,7 +425,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestRenameNotExisting
 Exception: :os.rename is not yet implemented
 Called from _internal.os_test._Os_test_testrenamenotexisting.$Os_test_testrenamenotexisting_Fields_.testRenameNotExisting (_internal/os_test/Os_test_testrenamenotexisting.hx line 69)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -434,7 +434,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestRenameToDirFailed
 Exception: :os.rename is not yet implemented
 Called from _internal.os_test._Os_test_testrenametodirfailed.$Os_test_testrenametodirfailed_Fields_.testRenameToDirFailed (_internal/os_test/Os_test_testrenametodirfailed.hx line 94)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -444,9 +444,9 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 - SUBRUN  dir
 Exception: :os.isNotExist is not yet implemented
 Called from _internal.os_test._Os_test_testrenamecasedifference.$Os_test_testrenamecasedifference_Fields_.~testRenameCaseDifference.4 (_internal/os_test/Os_test_testrenamecasedifference.hx line 130)
-Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
+Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
 Called from _internal.os_test._Os_test_testrenamecasedifference.$Os_test_testrenamecasedifference_Fields_.testRenameCaseDifference (_internal/os_test/Os_test_testrenamecasedifference.hx line 21)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -457,17 +457,17 @@ golibs/stdgo/_internal/os/exec/Exec_lookpath.hx:3: funclit
 Exception: not implemented: lookPath
 Called from stdgo._internal.os.exec._Exec_lookpath.$Exec_lookpath_Fields_.lookPath (stdgo/_internal/os/exec/Exec_lookpath.hx line 4)
 Called from _internal.os_test._Os_test_teststartprocess.$Os_test_teststartprocess_Fields_.testStartProcess (_internal/os_test/Os_test_teststartprocess.hx line 22)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
 -- FAIL: TestStartProcess
 
 === RUN  TestChmod
-Stat "/tmp/tmp_qmdxi2r0n8": mode 0 want 0456
+Stat "/tmp/tmp_hqlfogwm6p": mode 0 want 0456
 Exception: File:os.chmod is not yet implemented
 Called from _internal.os_test._Os_test_testchmod.$Os_test_testchmod_Fields_.testChmod (_internal/os_test/Os_test_testchmod.hx line 100)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -476,7 +476,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestFTruncate
 Exception: File:os.stat is not yet implemented
 Called from _internal.os_test._Os_test_testftruncate.$Os_test_testftruncate_Fields_.testFTruncate (_internal/os_test/Os_test_testftruncate.hx line 89)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -485,7 +485,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestTruncate
 Exception: File:os.stat is not yet implemented
 Called from _internal.os_test._Os_test_testtruncate.$Os_test_testtruncate_Fields_.testTruncate (_internal/os_test/Os_test_testtruncate.hx line 89)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -494,16 +494,16 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestTruncateNonexistentFile
 golibs/stdgo/_internal/os/Os_truncate.hx:3: os.truncate not implemented
 got error: <nil>
-want an ErrNotExist PathError with path "tmp_0ukvaec8d6/nonexistent"
-got error: readFile tmp_0ukvaec8d6/nonexistent: no such file or directory
-want an ErrNotExist PathError with path "tmp_0ukvaec8d6/nonexistent"
+want an ErrNotExist PathError with path "tmp_h8j7xh0duo/nonexistent"
+got error: readFile tmp_h8j7xh0duo/nonexistent: no such file or directory
+want an ErrNotExist PathError with path "tmp_h8j7xh0duo/nonexistent"
 
 -- FAIL: TestTruncateNonexistentFile
 
 === RUN  TestChtimes
 Exception: Null access
 Called from _internal.os_test._Os_test_testchtimes.$Os_test_testchtimes_Fields_.testChtimes (_internal/os_test/Os_test_testchtimes.hx line 67)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -512,7 +512,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestChtimesWithZeroTimes
 Exception: Null access
 Called from _internal.os_test._Os_test_testchtimeswithzerotimes.$Os_test_testchtimeswithzerotimes_Fields_.testChtimesWithZeroTimes (_internal/os_test/Os_test_testchtimeswithzerotimes.hx line 193)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -521,7 +521,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestChtimesDir
 Exception: Null access
 Called from _internal.os_test._Os_test_testchtimesdir.$Os_test_testchtimesdir_Fields_.testChtimesDir (_internal/os_test/Os_test_testchtimesdir.hx line 63)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -530,7 +530,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestChtimesToUnixZero
 Exception: :os.chtimes is not yet implemented
 Called from _internal.os_test._Os_test_testchtimestounixzero.$Os_test_testchtimestounixzero_Fields_.testChtimesToUnixZero (_internal/os_test/Os_test_testchtimestounixzero.hx line 99)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -542,11 +542,11 @@ Called from sys.io.$File.update (/home/runner/haxe/versions/b0b2997/std/hl/_std/
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 8)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test_testfilechdir.$Os_test_testfilechdir_Fields_.testFileChdir (_internal/os_test/Os_test_testfilechdir.hx line 16)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)Exception: __fail__
 Called from _internal.os_test._Os_test_testfilechdir.$Os_test_testfilechdir_Fields_.testFileChdir (_internal/os_test/Os_test_testfilechdir.hx line 101)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -558,14 +558,14 @@ Called from sys.io.$File.update (/home/runner/haxe/versions/b0b2997/std/hl/_std/
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 8)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test_testchdirandgetwd.$Os_test_testchdirandgetwd_Fields_.testChdirAndGetwd (_internal/os_test/Os_test_testchdirandgetwd.hx line 3)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)Exception: __fail__
-Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
-Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
 Called from _internal.os_test._Os_test_testchdirandgetwd.$Os_test_testchdirandgetwd_Fields_.testChdirAndGetwd (_internal/os_test/Os_test_testchdirandgetwd.hx line 7)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -573,52 +573,52 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 
 === RUN  TestProgWideChdir
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11929(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11962(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11929(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11962(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11929(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11962(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11929(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11962(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11929(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11962(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11929(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11962(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11929(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11962(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11929(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11962(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11929(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11962(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11929(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11962(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
@@ -630,7 +630,7 @@ Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/
 #3: Seek(0, 2) = 0, <nil> want 13, nil
 Exception: Custom(seek() failure)
 Called from _internal.os_test._Os_test_testseek.$Os_test_testseek_Fields_.testSeek (_internal/os_test/Os_test_testseek.hx line 107)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -638,11 +638,11 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 
 === RUN  TestSeekError
 skipping test on jsException: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
-Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53)
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 46)
 Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_t_.hx line 75)
 Called from _internal.os_test._Os_test_testseekerror.$Os_test_testseekerror_Fields_.testSeekError (_internal/os_test/Os_test_testseekerror.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -656,7 +656,7 @@ Called from sys.io.$File.write (/home/runner/haxe/versions/b0b2997/std/hl/_std/s
 Called from sys.io.$File.saveBytes (/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/io/File.hx line 55)
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 5)
 Called from _internal.os_test._Os_test_testopenerror.$Os_test_testopenerror_Fields_.testOpenError (_internal/os_test/Os_test_testopenerror.hx line 7)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -669,7 +669,7 @@ Called from sys.io.$File.saveBytes (/home/runner/haxe/versions/b0b2997/std/hl/_s
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 5)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test_testopennoname.$Os_test_testopennoname_Fields_.testOpenNoName (_internal/os_test/Os_test_testopennoname.hx line 3)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -679,7 +679,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: :os.hostname is not yet implemented
 Called from stdgo._internal.os._Os_hostname.$Os_hostname_Fields_.hostname (stdgo/_internal/os/Os_hostname.hx line 2)
 Called from _internal.os_test._Os_test_testhostname.$Os_test_testhostname_Fields_.testHostname (_internal/os_test/Os_test_testhostname.hx line 5)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -688,7 +688,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestReadAt
 ReadAt 7: 0, File.readAt failed: EofException: __fail__
 Called from _internal.os_test._Os_test_testreadat.$Os_test_testreadat_Fields_.testReadAt (_internal/os_test/Os_test_testreadat.hx line 80)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -697,7 +697,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestReadAtOffset
 ReadAt 7: 0, File.readAt failed: EofException: __fail__
 Called from _internal.os_test._Os_test_testreadatoffset.$Os_test_testreadatoffset_Fields_.testReadAtOffset (_internal/os_test/Os_test_testreadatoffset.hx line 97)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -724,7 +724,7 @@ WriteAt(-10) = 0, File.writeAt failed: Custom(seek() failure); want 0, ..."negat
 === RUN  TestAppend
 writeFile: have "|append" want "new|append"Exception: __fail__
 Called from _internal.os_test._Os_test_testappend.$Os_test_testappend_Fields_.testAppend (_internal/os_test/Os_test_testappend.hx line 100)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -738,7 +738,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: ProcessState:os.string is not yet implemented
 Called from stdgo._internal.os.$ProcessState_static_extension.string (stdgo/_internal/os/Os_processstate_static_extension.hx line 14)
 Called from _internal.os_test._Os_test_testnilprocessstatestring.$Os_test_testnilprocessstatestring_Fields_.testNilProcessStateString (_internal/os_test/Os_test_testnilprocessstatestring.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -747,7 +747,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestSameFile
 Exception: :os.sameFile is not yet implemented
 Called from _internal.os_test._Os_test_testsamefile.$Os_test_testsamefile_Fields_.testSameFile (_internal/os_test/Os_test_testsamefile.hx line 101)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -757,7 +757,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: File:os.stat is not yet implemented
 Called from _internal.os_test._Os_test__testdevnullfile.$Os_test__testdevnullfile_Fields_._testDevNullFile (_internal/os_test/Os_test__testdevnullfile.hx line 83)
 Called from _internal.os_test._Os_test_testdevnullfile.$Os_test_testdevnullfile_Fields_.testDevNullFile (_internal/os_test/Os_test_testdevnullfile.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -766,11 +766,11 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestLargeWriteToConsole
 skipping console-flooding test; enable with -large_write
 Exception: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
-Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61)
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52)
 Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 67)
 Called from _internal.os_test._Os_test_testlargewritetoconsole.$Os_test_testlargewritetoconsole_Fields_.testLargeWriteToConsole (_internal/os_test/Os_test_testlargewritetoconsole.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -779,7 +779,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- PASS: TestLargeWriteToConsole
 
 === RUN  TestStatDirModeExec
-Stat "tmp_83os4w8snj": mode 0 want 0111
+Stat "tmp_tabae1jwkp": mode 0 want 0111
 
 -- FAIL: TestStatDirModeExec
 
@@ -787,7 +787,7 @@ Stat "tmp_83os4w8snj": mode 0 want 0111
 Exception: File:os.stat is not yet implemented
 Called from stdgo._internal.os.$File_static_extension.stat (stdgo/_internal/os/Os_file_static_extension.hx line 5)
 Called from _internal.os_test._Os_test_teststatstdin.$Os_test_teststatstdin_Fields_.testStatStdin (_internal/os_test/Os_test_teststatstdin.hx line 28)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -796,7 +796,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestStatRelativeSymlink
 Exception: File:os.stat is not yet implemented
 Called from _internal.os_test._Os_test_teststatrelativesymlink.$Os_test_teststatrelativesymlink_Fields_.testStatRelativeSymlink (_internal/os_test/Os_test_teststatrelativesymlink.hx line 115)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -805,7 +805,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestReadAtEOF
 ReadAt failed: File.readAt failed: EofException: __fail__
 Called from _internal.os_test._Os_test_testreadateof.$Os_test_testreadateof_Fields_.testReadAtEOF (_internal/os_test/Os_test_testreadateof.hx line 77)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -815,7 +815,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 - SUBRUN  length=247
 Exception: :os.mkdirAll is not yet implemented
 Called from _internal.os_test._Os_test_testlongpath.$Os_test_testlongpath_Fields_.testLongPath (_internal/os_test/Os_test_testlongpath.hx line 179)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -825,7 +825,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: :context.background is not yet implemented
 Called from _internal.os_test._Os_test__testkillprocess.$Os_test__testkillprocess_Fields_._testKillProcess (_internal/os_test/Os_test__testkillprocess.hx line 98)
 Called from _internal.os_test._Os_test_testkillstartprocess.$Os_test_testkillstartprocess_Fields_.testKillStartProcess (_internal/os_test/Os_test_testkillstartprocess.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -836,7 +836,7 @@ Exception: :context.background is not yet implemented
 Called from stdgo._internal.context._Context_background.$Context_background_Fields_.background (stdgo/_internal/context/Context_background.hx line 2)
 Called from stdgo._internal.internal.testenv._Testenv_command.$Testenv_command_Fields_.command (stdgo/_internal/internal/testenv/Testenv_command.hx line 7)
 Called from _internal.os_test._Os_test_testgetppid.$Os_test_testgetppid_Fields_.testGetppid (_internal/os_test/Os_test_testgetppid.hx line 19)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -846,7 +846,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: :context.background is not yet implemented
 Called from _internal.os_test._Os_test__testkillprocess.$Os_test__testkillprocess_Fields_._testKillProcess (_internal/os_test/Os_test__testkillprocess.hx line 98)
 Called from _internal.os_test._Os_test_testkillfindprocess.$Os_test_testkillfindprocess_Fields_.testKillFindProcess (_internal/os_test/Os_test_testkillfindprocess.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -855,27 +855,27 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestNilFileMethods
 Exception: File:os.chdir is not yet implemented
 Called from stdgo._internal.os.$File_static_extension.chdir (stdgo/_internal/os/Os_file_static_extension.hx line 29)
-Called from local function #14784 (_internal/os_test/Os_test__nilfilemethodtests.hx line 5)
+Called from local function #14824 (_internal/os_test/Os_test__nilfilemethodtests.hx line 5)
 Called from _internal.os_test._Os_test_testnilfilemethods.$Os_test_testnilfilemethods_Fields_.testNilFileMethods (_internal/os_test/Os_test_testnilfilemethods.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
 -- FAIL: TestNilFileMethods
 
 === RUN  TestRemoveAllRace
-Uncaught exception: SysError(Can't delete directory issuetmp_jqkh8lhdz7)
-Called from fun$12086(_internal/os_test/Os_test_testremoveallrace.hx:102)
+Uncaught exception: SysError(Can't delete directory issuetmp_9dqg7nenik/b/b/a/b/b)
+Called from fun$12119(_internal/os_test/Os_test_testremoveallrace.hx:102)
 Called from _internal.os_test._Os_test_testremoveallrace.$Os_test_testremoveallrace_Fields_.~testRemoveAllRace.4(_internal/os_test/Os_test_testremoveallrace.hx:108)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: SysError(Can't delete directory issuetmp_jqkh8lhdz7)
-Called from fun$12086(_internal/os_test/Os_test_testremoveallrace.hx:102)
+Uncaught exception: SysError(Can't delete directory issuetmp_9dqg7nenik/b/b/a/b/b)
+Called from fun$12119(_internal/os_test/Os_test_testremoveallrace.hx:102)
 Called from _internal.os_test._Os_test_testremoveallrace.$Os_test_testremoveallrace_Fields_.~testRemoveAllRace.4(_internal/os_test/Os_test_testremoveallrace.hx:108)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: SysError(Failed to read directory issuetmp_jqkh8lhdz7/a/a/b/a)
-Called from fun$12086(_internal/os_test/Os_test_testremoveallrace.hx:102)
+Uncaught exception: SysError(Can't delete directory issuetmp_9dqg7nenik/b/a/b/b/a)
+Called from fun$12119(_internal/os_test/Os_test_testremoveallrace.hx:102)
 Called from _internal.os_test._Os_test_testremoveallrace.$Os_test_testremoveallrace_Fields_.~testRemoveAllRace.4(_internal/os_test/Os_test_testremoveallrace.hx:108)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
@@ -886,7 +886,7 @@ Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/
 skipping on js; no support for os.Pipe
 Exception: __skip__
 Called from _internal.os_test._Os_test_testpipethreads.$Os_test_testpipethreads_Fields_.testPipeThreads (_internal/os_test/Os_test_testpipethreads.hx line 181)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -901,19 +901,19 @@ Called from sys.io.$File.update (/home/runner/haxe/versions/b0b2997/std/hl/_std/
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 8)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test__testdoublecloseerror.$Os_test__testdoublecloseerror_Fields_.~_testDoubleCloseError.0 (_internal/os_test/Os_test__testdoublecloseerror.hx line 7)
-Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
+Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
 Called from _internal.os_test._Os_test_testdoublecloseerror.$Os_test_testdoublecloseerror_Fields_.testDoubleCloseError (_internal/os_test/Os_test_testdoublecloseerror.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 Exception: __fail__
-Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
-Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
 Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 43)
 Called from _internal.os_test._Os_test__testdoublecloseerror.$Os_test__testdoublecloseerror_Fields_.~_testDoubleCloseError.0 (_internal/os_test/Os_test__testdoublecloseerror.hx line 11)
-Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
+Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
 Called from _internal.os_test._Os_test_testdoublecloseerror.$Os_test_testdoublecloseerror_Fields_.testDoubleCloseError (_internal/os_test/Os_test_testdoublecloseerror.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -923,7 +923,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: :os.userHomeDir is not yet implemented
 Called from stdgo._internal.os._Os_userhomedir.$Os_userhomedir_Fields_.userHomeDir (stdgo/_internal/os/Os_userhomedir.hx line 2)
 Called from _internal.os_test._Os_test_testuserhomedir.$Os_test_testuserhomedir_Fields_.testUserHomeDir (_internal/os_test/Os_test_testuserhomedir.hx line 5)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -935,15 +935,15 @@ Called from sys.io.$File.update (/home/runner/haxe/versions/b0b2997/std/hl/_std/
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 8)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test_testdirseek.$Os_test_testdirseek_Fields_.testDirSeek (_internal/os_test/Os_test_testdirseek.hx line 11)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 Exception: __fail__
-Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
-Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
 Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 43)
 Called from _internal.os_test._Os_test_testdirseek.$Os_test_testdirseek_Fields_.testDirSeek (_internal/os_test/Os_test_testdirseek.hx line 15)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -956,7 +956,7 @@ Called from sys.io.$File.saveBytes (/home/runner/haxe/versions/b0b2997/std/hl/_s
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 5)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from _internal.os_test._Os_test_testreaddirsmallseek.$Os_test_testreaddirsmallseek_Fields_.testReaddirSmallSeek (_internal/os_test/Os_test_testreaddirsmallseek.hx line 11)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -966,7 +966,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: File:os.stat is not yet implemented
 Called from stdgo._internal.os.$File_static_extension.stat (stdgo/_internal/os/Os_file_static_extension.hx line 5)
 Called from _internal.os_test._Os_test_testopenfilekeepspermissions.$Os_test_testopenfilekeepspermissions_Fields_.testOpenFileKeepsPermissions (_internal/os_test/Os_test_testopenfilekeepspermissions.hx line 33)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -978,7 +978,7 @@ Called from stdgo._internal.testing.fstest.$T_fsTester_static_extension._checkDi
 Called from stdgo._internal.testing.fstest._Fstest__testfs.$Fstest__testfs_Fields_._testFS (stdgo/_internal/testing/fstest/Fstest__testfs.hx line 6)
 Called from stdgo._internal.testing.fstest._Fstest_testfs.$Fstest_testfs_Fields_.testFS (stdgo/_internal/testing/fstest/Fstest_testfs.hx line 6)
 Called from _internal.os_test._Os_test_testdirfs.$Os_test_testdirfs_Fields_.testDirFS (_internal/os_test/Os_test_testdirfs.hx line 52)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -990,10 +990,10 @@ Called from sys.io.$File.write (/home/runner/haxe/versions/b0b2997/std/hl/_std/s
 Called from sys.io.$File.saveBytes (/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/io/File.hx line 55)
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 5)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
-Called from stdgo._internal.os.$T_dirFS_static_extension.open (stdgo/_internal/os/Os_t_dirfs_static_extension.hx line 30)
-Called from stdgo._internal.os.T_dirFS_asInterface.open (stdgo/_internal/os/Os_t_dirfs_asinterface.hx line 17)
+Called from stdgo._internal.os.$T_dirFS_static_extension.open (stdgo/_internal/os/Os_t_dirfs_static_extension.hx line 27)
+Called from stdgo._internal.os.T_dirFS_asInterface.open (stdgo/_internal/os/Os_t_dirfs_asinterface.hx line 12)
 Called from _internal.os_test._Os_test_testdirfsrootdir.$Os_test_testdirfsrootdir_Fields_.testDirFSRootDir (_internal/os_test/Os_test_testdirfsrootdir.hx line 15)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1005,23 +1005,23 @@ Called from sys.io.$File.write (/home/runner/haxe/versions/b0b2997/std/hl/_std/s
 Called from sys.io.$File.saveBytes (/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/io/File.hx line 55)
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 5)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
-Called from stdgo._internal.os.$T_dirFS_static_extension.open (stdgo/_internal/os/Os_t_dirfs_static_extension.hx line 30)
-Called from stdgo._internal.os.T_dirFS_asInterface.open (stdgo/_internal/os/Os_t_dirfs_asinterface.hx line 17)
+Called from stdgo._internal.os.$T_dirFS_static_extension.open (stdgo/_internal/os/Os_t_dirfs_static_extension.hx line 27)
+Called from stdgo._internal.os.T_dirFS_asInterface.open (stdgo/_internal/os/Os_t_dirfs_asinterface.hx line 12)
 Called from _internal.os_test._Os_test_testdirfsemptydir.$Os_test_testdirfsemptydir_Fields_.testDirFSEmptyDir (_internal/os_test/Os_test_testdirfsemptydir.hx line 9)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
 -- FAIL: TestDirFSEmptyDir
 
 === RUN  TestDirFSPathsValid
-writeFile tmp_98u5shgxg9/control.txt: no such file or directory
+writeFile tmp_mona7ldd21/control.txt: no such file or directory
 Exception: __fail__
-Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
-Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
 Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 43)
 Called from _internal.os_test._Os_test_testdirfspathsvalid.$Os_test_testdirfspathsvalid_Fields_.testDirFSPathsValid (_internal/os_test/Os_test_testdirfspathsvalid.hx line 16)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1029,11 +1029,11 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 
 === RUN  TestReadFileProc
 read /proc/sys/fs/pipe-max-size: not newline-terminated: ""Exception: __fail__
-Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
-Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
 Called from _internal.os_test._Os_test_testreadfileproc.$Os_test_testreadfileproc_Fields_.testReadFileProc (_internal/os_test/Os_test_testreadfileproc.hx line 23)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1043,7 +1043,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: T_dirFS:os.readFile is not yet implemented
 Called from stdgo._internal.io.fs._Fs_readfile.$Fs_readfile_Fields_.readFile (stdgo/_internal/io/fs/Fs_readfile.hx line 115)
 Called from _internal.os_test._Os_test_testdirfsreadfileproc.$Os_test_testdirfsreadfileproc_Fields_.testDirFSReadFileProc (_internal/os_test/Os_test_testdirfsreadfileproc.hx line 15)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1053,7 +1053,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 js allocates a lot during File.WriteString
 Exception: __skip__
 Called from _internal.os_test._Os_test_testwritestringalloc.$Os_test_testwritestringalloc_Fields_.testWriteStringAlloc (_internal/os_test/Os_test_testwritestringalloc.hx line 78)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1063,11 +1063,11 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 
 === RUN  TestPipeIOCloseRace
 skipping on js: no pipesException: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
-Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53)
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 46)
 Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_t_.hx line 75)
 Called from _internal.os_test._Os_test_testpipeiocloserace.$Os_test_testpipeiocloserace_Fields_.testPipeIOCloseRace (_internal/os_test/Os_test_testpipeiocloserace.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1077,11 +1077,11 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 
 === RUN  TestPipeCloseRace
 skipping on js: no pipesException: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
-Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53)
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 46)
 Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_t_.hx line 75)
 Called from _internal.os_test._Os_test_testpipecloserace.$Os_test_testpipecloserace_Fields_.testPipeCloseRace (_internal/os_test/Os_test_testpipecloserace.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1092,7 +1092,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestChown
 Exception: File:os.stat is not yet implemented
 Called from _internal.os_test._Os_test_testchown.$Os_test_testchown_Fields_.testChown (_internal/os_test/Os_test_testchown.hx line 121)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1101,7 +1101,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestFileChown
 Exception: File:os.stat is not yet implemented
 Called from _internal.os_test._Os_test_testfilechown.$Os_test_testfilechown_Fields_.testFileChown (_internal/os_test/Os_test_testfilechown.hx line 121)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1110,7 +1110,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestLchown
 Exception: File:os.stat is not yet implemented
 Called from _internal.os_test._Os_test_testlchown.$Os_test_testlchown_Fields_.testLchown (_internal/os_test/Os_test_testlchown.hx line 141)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1119,7 +1119,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestReaddirRemoveRace
 Exception: invalid memory address or nil pointer dereference
 Called from _internal.os_test._Os_test_testreaddirremoverace.$Os_test_testreaddirremoverace_Fields_.testReaddirRemoveRace (_internal/os_test/Os_test_testreaddirremoverace.hx line 113)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1128,7 +1128,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestMkdirStickyUmask
 Exception: :syscall.umask is not yet implemented
 Called from _internal.os_test._Os_test_testmkdirstickyumask.$Os_test_testmkdirstickyumask_Fields_.testMkdirStickyUmask (_internal/os_test/Os_test_testmkdirstickyumask.hx line 96)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1138,7 +1138,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 syscall.Pipe is not available on js.Exception: __skip__
 Called from _internal.os_test._Os_test__newfiletest.$Os_test__newfiletest_Fields_._newFileTest (_internal/os_test/Os_test__newfiletest.hx line 132)
 Called from _internal.os_test._Os_test_testnewfileblock.$Os_test_testnewfileblock_Fields_.testNewFileBlock (_internal/os_test/Os_test_testnewfileblock.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1150,7 +1150,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 syscall.Pipe is not available on js.Exception: __skip__
 Called from _internal.os_test._Os_test__newfiletest.$Os_test__newfiletest_Fields_._newFileTest (_internal/os_test/Os_test__newfiletest.hx line 132)
 Called from _internal.os_test._Os_test_testnewfilenonblock.$Os_test_testnewfilenonblock_Fields_.testNewFileNonBlock (_internal/os_test/Os_test_testnewfilenonblock.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1162,7 +1162,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: :os.newFile is not yet implemented
 Called from stdgo._internal.os._Os_newfile.$Os_newfile_Fields_.newFile (stdgo/_internal/os/Os_newfile.hx line 2)
 Called from _internal.os_test._Os_test_testnewfileinvalid.$Os_test_testnewfileinvalid_Fields_.testNewFileInvalid (_internal/os_test/Os_test_testnewfileinvalid.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1171,7 +1171,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestSplitPath
 Exception: Null access
 Called from _internal.os_test._Os_test_testsplitpath.$Os_test_testsplitpath_Fields_.testSplitPath (_internal/os_test/Os_test_testsplitpath.hx line 24)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1180,7 +1180,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestMkdirAll
 Exception: :os.mkdirAll is not yet implemented
 Called from _internal.os_test._Os_test_testmkdirall.$Os_test_testmkdirall_Fields_.testMkdirAll (_internal/os_test/Os_test_testmkdirall.hx line 142)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1190,7 +1190,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: :os.symlink is not yet implemented
 Called from stdgo._internal.os._Os_symlink.$Os_symlink_Fields_.symlink (stdgo/_internal/os/Os_symlink.hx line 2)
 Called from _internal.os_test._Os_test_testmkdirallwithsymlink.$Os_test_testmkdirallwithsymlink_Fields_.testMkdirAllWithSymlink (_internal/os_test/Os_test_testmkdirallwithsymlink.hx line 20)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1198,11 +1198,11 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 
 === RUN  TestMkdirAllAtSlash
 skipping non-hermetic test outside of Go buildersException: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
-Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53)
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 46)
 Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_t_.hx line 75)
 Called from _internal.os_test._Os_test_testmkdirallatslash.$Os_test_testmkdirallatslash_Fields_.testMkdirAllAtSlash (_internal/os_test/Os_test_testmkdirallatslash.hx line 14)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1212,11 +1212,11 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 
 === RUN  TestReadFile
 ReadFile read_test.go: readFile read_test.go: no such file or directoryException: __fail__
-Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
-Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
 Called from _internal.os_test._Os_test_testreadfile.$Os_test_testreadfile_Fields_.testReadFile (_internal/os_test/Os_test_testreadfile.hx line 21)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1229,7 +1229,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestReadOnlyWriteFile
 Exception: :os.getuid is not yet implemented
 Called from _internal.os_test._Os_test_testreadonlywritefile.$Os_test_testreadonlywritefile_Fields_.testReadOnlyWriteFile (_internal/os_test/Os_test_testreadonlywritefile.hx line 102)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1240,7 +1240,7 @@ Exception: SysError(Failed to read directory rumpelstilzchen)
 Called from sys.$FileSystem.readDirectory (/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/FileSystem.hx line 98)
 Called from stdgo._internal.os._Os_readdir.$Os_readdir_Fields_.readDir (stdgo/_internal/os/Os_readdir.hx line 8)
 Called from _internal.os_test._Os_test_testreaddir.$Os_test_testreaddir_Fields_.testReadDir (_internal/os_test/Os_test_testreaddir.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1251,7 +1251,7 @@ Exception: SysError(Can't delete directory )
 Called from sys.$FileSystem.deleteDirectory (/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/FileSystem.hx line 92)
 Called from stdgo._internal.os._Os_removeall.$Os_removeall_Fields_.removeAll (stdgo/_internal/os/Os_removeall.hx line 25)
 Called from _internal.os_test._Os_test_testremoveall.$Os_test_testremoveall_Fields_.testRemoveAll (_internal/os_test/Os_test_testremoveall.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1260,11 +1260,11 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestRemoveAllLarge
 skipping in short mode
 Exception: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
-Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61)
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52)
 Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 67)
 Called from _internal.os_test._Os_test_testremovealllarge.$Os_test_testremovealllarge_Fields_.testRemoveAllLarge (_internal/os_test/Os_test_testremovealllarge.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1276,7 +1276,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 skipping for not implemented platforms
 Exception: __skip__
 Called from _internal.os_test._Os_test_testremovealllongpath.$Os_test_testremovealllongpath_Fields_.testRemoveAllLongPath (_internal/os_test/Os_test_testremovealllongpath.hx line 128)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1287,7 +1287,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestRemoveAllDot
 Exception: SysError(Can't delete directory .)
 Called from _internal.os_test._Os_test_testremovealldot.$Os_test_testremovealldot_Fields_.testRemoveAllDot (_internal/os_test/Os_test_testremovealldot.hx line 88)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1297,21 +1297,21 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: :os.mkdirAll is not yet implemented
 Called from stdgo._internal.os._Os_mkdirall.$Os_mkdirall_Fields_.mkdirAll (stdgo/_internal/os/Os_mkdirall.hx line 2)
 Called from _internal.os_test._Os_test_testremovealldotdot.$Os_test_testremovealldotdot_Fields_.testRemoveAllDotDot (_internal/os_test/Os_test_testremovealldotdot.hx line 10)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
 -- FAIL: TestRemoveAllDotDot
 
 === RUN  TestRemoveReadOnlyDir
-chmod: cannot access 'tmp_ip0p3zh9rp/x': No such file or directory
+chmod: cannot access 'tmp_uunntjcl2l/x': No such file or directory
 
 -- PASS: TestRemoveReadOnlyDir
 
 === RUN  TestRemoveAllButReadOnlyAndPathError
 skipping test on jsException: __skip__
 Called from _internal.os_test._Os_test_testremoveallbutreadonlyandpatherror.$Os_test_testremoveallbutreadonlyandpatherror_Fields_.testRemoveAllButReadOnlyAndPathError (_internal/os_test/Os_test_testremoveallbutreadonlyandpatherror.hx line 161)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1321,11 +1321,11 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 
 === RUN  TestRemoveUnreadableDir
 skipping test on jsException: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
-Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53)
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 46)
 Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_t_.hx line 75)
 Called from _internal.os_test._Os_test_testremoveunreadabledir.$Os_test_testremoveunreadabledir_Fields_.testRemoveUnreadableDir (_internal/os_test/Os_test_testremoveunreadabledir.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1337,7 +1337,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 skipping in short mode
 Exception: __skip__
 Called from _internal.os_test._Os_test_testremoveallwithmoreerrorthanreqsize.$Os_test_testremoveallwithmoreerrorthanreqsize_Fields_.testRemoveAllWithMoreErrorThanReqSize (_internal/os_test/Os_test_testremoveallwithmoreerrorthanreqsize.hx line 146)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1348,11 +1348,11 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestRemoveAllNoFcntl
 skipping in short mode
 Exception: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
-Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61)
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52)
 Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 67)
 Called from _internal.os_test._Os_test_testremoveallnofcntl.$Os_test_testremoveallnofcntl_Fields_.testRemoveAllNoFcntl (_internal/os_test/Os_test_testremoveallnofcntl.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1365,20 +1365,20 @@ Exception: :os.sameFile is not yet implemented
 Called from _internal.os_test._Os_test__teststatandlstat.$Os_test__teststatandlstat_Fields_._testStatAndLstat (_internal/os_test/Os_test__teststatandlstat.hx line 214)
 Called from _internal.os_test._Os_test__testdirstats.$Os_test__testdirstats_Fields_._testDirStats (_internal/os_test/Os_test__testdirstats.hx line 4)
 Called from _internal.os_test._Os_test_testdirandsymlinkstats.$Os_test_testdirandsymlinkstats_Fields_.testDirAndSymlinkStats (_internal/os_test/Os_test_testdirandsymlinkstats.hx line 18)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
 -- FAIL: TestDirAndSymlinkStats
 
 === RUN  TestFileAndSymlinkStats
-writeFile tmp_tw0vrw0w8y/file: no such file or directory
+writeFile tmp_b0wt6ro7ai/file: no such file or directory
 Exception: __fail__
-Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
-Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
 Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 43)
 Called from _internal.os_test._Os_test_testfileandsymlinkstats.$Os_test_testfileandsymlinkstats_Fields_.testFileAndSymlinkStats (_internal/os_test/Os_test_testfileandsymlinkstats.hx line 14)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
@@ -1388,77 +1388,77 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 Exception: :os.symlink is not yet implemented
 Called from stdgo._internal.os._Os_symlink.$Os_symlink_Fields_.symlink (stdgo/_internal/os/Os_symlink.hx line 2)
 Called from _internal.os_test._Os_test_testsymlinkwithtrailingslash.$Os_test_testsymlinkwithtrailingslash_Fields_.testSymlinkWithTrailingSlash (_internal/os_test/Os_test_testsymlinkwithtrailingslash.hx line 20)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
 -- FAIL: TestSymlinkWithTrailingSlash
 
 === RUN  TestCreateTemp
-Exception: SysError(Can't open TestCreateTempBadDirtmp_v1w0vbpf0h/_not_exists_/tmp_ridoiszi22 for writing)
+Exception: SysError(Can't open TestCreateTempBadDirtmp_h9285jh6c0/_not_exists_/tmp_w52jn3iykl for writing)
 Called from _internal.os_test._Os_test_testcreatetemp.$Os_test_testcreatetemp_Fields_.testCreateTemp (_internal/os_test/Os_test_testcreatetemp.hx line 76)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
 -- FAIL: TestCreateTemp
 
 === RUN  TestCreateTempPattern
-CreateTemp pattern "tempfile_test" created bad name "tmp_8e3lofpt8w"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*" created bad name "tmp_mwpw2dyzm2"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*xyz" created bad name "tmp_qq3s8yj92h"; want prefix "tempfile_test" & suffix "xyz"
+CreateTemp pattern "tempfile_test" created bad name "tmp_ebegxu7p5a"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*" created bad name "tmp_rm9ia3n2pt"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*xyz" created bad name "tmp_fvhs8nzzjf"; want prefix "tempfile_test" & suffix "xyz"
 
 -- FAIL: TestCreateTempPattern
 
 === RUN  TestCreateTempBadPattern
 Exception: T_common:testing.name is not yet implemented
 Called from _internal.os_test._Os_test_testcreatetempbadpattern.$Os_test_testcreatetempbadpattern_Fields_.testCreateTempBadPattern (_internal/os_test/Os_test_testcreatetempbadpattern.hx line 156)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
 -- FAIL: TestCreateTempBadPattern
 
 === RUN  TestMkdirTemp
-MkdirTemp(`/_not_exists_`, `foo`) = footmp_30fd8zx5t5, <nil>
+MkdirTemp(`/_not_exists_`, `foo`) = footmp_1ofxfkbsoz, <nil>
 - SUBRUN  tempfile_test
 MkdirTemp("temp", "tempfile_test") created bad name
-	"tempfile_testtmp_l5jsrvdnb9"
+	"tempfile_testtmp_a6i46vninn"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*
 MkdirTemp("temp", "tempfile_test*") created bad name
-	"tempfile_testtmp_avjzpsyxlh"
+	"tempfile_testtmp_vw61l8h4vs"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*xyz
 MkdirTemp("temp", "tempfile_test*xyz") created bad name
-	"tempfile_testtmp_fuxl0nkah3xyz"
+	"tempfile_testtmp_tet2iknmu5xyz"
 did not match pattern
 	"^temp/tempfile_test[0-9]+xyz$"
 - SUBRUN  *xyz
 MkdirTemp("temp", "*xyz") created bad name
-	"tmp_x127ledwejxyz"
+	"tmp_ecpgoguto4xyz"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestMkdirTemp
 
 === RUN  TestMkdirTempBadDir
-TempDir error = (nil)(nil); want PathError for path "MkdirTempBadDirtmp_85mcgg3txn/not-exist" satisfying IsNotExist
+TempDir error = (nil)(nil); want PathError for path "MkdirTempBadDirtmp_svjxwll3o2/not-exist" satisfying IsNotExist
 
 -- FAIL: TestMkdirTempBadDir
 
 === RUN  TestMkdirTempBadPattern
 Exception: T_common:testing.name is not yet implemented
 Called from _internal.os_test._Os_test_testmkdirtempbadpattern.$Os_test_testmkdirtempbadpattern_Fields_.testMkdirTempBadPattern (_internal/os_test/Os_test_testmkdirtempbadpattern.hx line 91)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
 -- FAIL: TestMkdirTempBadPattern
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
 -- FAIL: TestMkdirTempBadPattern
 Uncaught exception: :os.exit is not yet implemented
 Called from stdgo._internal.os._Os_exit.$Os_exit_Fields_.exit(stdgo/_internal/os/Os_exit.hx:2)

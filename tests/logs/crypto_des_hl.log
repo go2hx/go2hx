@@ -2,7 +2,7 @@
 Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_I64
 Called from stdgo._internal.crypto.des._Des_testweakkeys.$Des_testweakkeys_Fields_.~testWeakKeys.0 (stdgo/_internal/crypto/des/Des_testweakkeys.hx line 10)
 Called from stdgo._internal.crypto.des._Des_testweakkeys.$Des_testweakkeys_Fields_.testWeakKeys (stdgo/_internal/crypto/des/Des_testweakkeys.hx line 14)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestWeakKeys
@@ -11,7 +11,7 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_I64
 Called from stdgo._internal.crypto.des._Des_testsemiweakkeypairs.$Des_testsemiweakkeypairs_Fields_.~testSemiWeakKeyPairs.0 (stdgo/_internal/crypto/des/Des_testsemiweakkeypairs.hx line 10)
 Called from stdgo._internal.crypto.des._Des_testsemiweakkeypairs.$Des_testsemiweakkeypairs_Fields_.testSemiWeakKeyPairs (stdgo/_internal/crypto/des/Des_testsemiweakkeypairs.hx line 14)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestSemiWeakKeyPairs
@@ -19,7 +19,7 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestDESEncryptBlock
 Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_I64
 Called from stdgo._internal.crypto.des._Des_testdesencryptblock.$Des_testdesencryptblock_Fields_.testDESEncryptBlock (stdgo/_internal/crypto/des/Des_testdesencryptblock.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestDESEncryptBlock
@@ -27,7 +27,7 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestDESDecryptBlock
 Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_I64
 Called from stdgo._internal.crypto.des._Des_testdesdecryptblock.$Des_testdesdecryptblock_Fields_.testDESDecryptBlock (stdgo/_internal/crypto/des/Des_testdesdecryptblock.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestDESDecryptBlock
@@ -35,9 +35,9 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestEncryptTripleDES
 Exception: crypto/des: invalid buffer overlap
 Called from stdgo._internal.crypto.des.$T_tripleDESCipher_static_extension.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_static_extension.hx line 87)
-Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 8)
+Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 6)
 Called from stdgo._internal.crypto.des._Des_testencrypttripledes.$Des_testencrypttripledes_Fields_.testEncryptTripleDES (stdgo/_internal/crypto/des/Des_testencrypttripledes.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestEncryptTripleDES
@@ -45,9 +45,9 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestDecryptTripleDES
 Exception: crypto/des: invalid buffer overlap
 Called from stdgo._internal.crypto.des.$T_tripleDESCipher_static_extension.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_static_extension.hx line 20)
-Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 5)
+Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 4)
 Called from stdgo._internal.crypto.des._Des_testdecrypttripledes.$Des_testdecrypttripledes_Fields_.testDecryptTripleDES (stdgo/_internal/crypto/des/Des_testdecrypttripledes.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestDecryptTripleDES
@@ -55,9 +55,9 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestVariablePlaintextKnownAnswer
 Exception: crypto/des: invalid buffer overlap
 Called from stdgo._internal.crypto.des.$T_tripleDESCipher_static_extension.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_static_extension.hx line 87)
-Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 8)
+Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 6)
 Called from stdgo._internal.crypto.des._Des_testvariableplaintextknownanswer.$Des_testvariableplaintextknownanswer_Fields_.testVariablePlaintextKnownAnswer (stdgo/_internal/crypto/des/Des_testvariableplaintextknownanswer.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestVariablePlaintextKnownAnswer
@@ -65,9 +65,9 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestVariableCiphertextKnownAnswer
 Exception: crypto/des: invalid buffer overlap
 Called from stdgo._internal.crypto.des.$T_tripleDESCipher_static_extension.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_static_extension.hx line 20)
-Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 5)
+Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 4)
 Called from stdgo._internal.crypto.des._Des_testvariableciphertextknownanswer.$Des_testvariableciphertextknownanswer_Fields_.testVariableCiphertextKnownAnswer (stdgo/_internal/crypto/des/Des_testvariableciphertextknownanswer.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestVariableCiphertextKnownAnswer
@@ -75,9 +75,9 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestInversePermutationKnownAnswer
 Exception: crypto/des: invalid buffer overlap
 Called from stdgo._internal.crypto.des.$T_tripleDESCipher_static_extension.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_static_extension.hx line 87)
-Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 8)
+Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 6)
 Called from stdgo._internal.crypto.des._Des_testinversepermutationknownanswer.$Des_testinversepermutationknownanswer_Fields_.testInversePermutationKnownAnswer (stdgo/_internal/crypto/des/Des_testinversepermutationknownanswer.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestInversePermutationKnownAnswer
@@ -85,9 +85,9 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestInitialPermutationKnownAnswer
 Exception: crypto/des: invalid buffer overlap
 Called from stdgo._internal.crypto.des.$T_tripleDESCipher_static_extension.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_static_extension.hx line 20)
-Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 5)
+Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 4)
 Called from stdgo._internal.crypto.des._Des_testinitialpermutationknownanswer.$Des_testinitialpermutationknownanswer_Fields_.testInitialPermutationKnownAnswer (stdgo/_internal/crypto/des/Des_testinitialpermutationknownanswer.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestInitialPermutationKnownAnswer
@@ -95,9 +95,9 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestVariableKeyKnownAnswerEncrypt
 Exception: crypto/des: invalid buffer overlap
 Called from stdgo._internal.crypto.des.$T_tripleDESCipher_static_extension.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_static_extension.hx line 87)
-Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 8)
+Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 6)
 Called from stdgo._internal.crypto.des._Des_testvariablekeyknownanswerencrypt.$Des_testvariablekeyknownanswerencrypt_Fields_.testVariableKeyKnownAnswerEncrypt (stdgo/_internal/crypto/des/Des_testvariablekeyknownanswerencrypt.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestVariableKeyKnownAnswerEncrypt
@@ -105,9 +105,9 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestVariableKeyKnownAnswerDecrypt
 Exception: crypto/des: invalid buffer overlap
 Called from stdgo._internal.crypto.des.$T_tripleDESCipher_static_extension.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_static_extension.hx line 20)
-Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 5)
+Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 4)
 Called from stdgo._internal.crypto.des._Des_testvariablekeyknownanswerdecrypt.$Des_testvariablekeyknownanswerdecrypt_Fields_.testVariableKeyKnownAnswerDecrypt (stdgo/_internal/crypto/des/Des_testvariablekeyknownanswerdecrypt.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestVariableKeyKnownAnswerDecrypt
@@ -115,9 +115,9 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestPermutationOperationKnownAnswerEncrypt
 Exception: crypto/des: invalid buffer overlap
 Called from stdgo._internal.crypto.des.$T_tripleDESCipher_static_extension.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_static_extension.hx line 87)
-Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 8)
+Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 6)
 Called from stdgo._internal.crypto.des._Des_testpermutationoperationknownanswerencrypt.$Des_testpermutationoperationknownanswerencrypt_Fields_.testPermutationOperationKnownAnswerEncrypt (stdgo/_internal/crypto/des/Des_testpermutationoperationknownanswerencrypt.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestPermutationOperationKnownAnswerEncrypt
@@ -125,9 +125,9 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestPermutationOperationKnownAnswerDecrypt
 Exception: crypto/des: invalid buffer overlap
 Called from stdgo._internal.crypto.des.$T_tripleDESCipher_static_extension.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_static_extension.hx line 20)
-Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 5)
+Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 4)
 Called from stdgo._internal.crypto.des._Des_testpermutationoperationknownanswerdecrypt.$Des_testpermutationoperationknownanswerdecrypt_Fields_.testPermutationOperationKnownAnswerDecrypt (stdgo/_internal/crypto/des/Des_testpermutationoperationknownanswerdecrypt.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestPermutationOperationKnownAnswerDecrypt
@@ -135,9 +135,9 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestSubstitutionTableKnownAnswerEncrypt
 Exception: crypto/des: invalid buffer overlap
 Called from stdgo._internal.crypto.des.$T_tripleDESCipher_static_extension.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_static_extension.hx line 87)
-Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 8)
+Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.encrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 6)
 Called from stdgo._internal.crypto.des._Des_testsubstitutiontableknownanswerencrypt.$Des_testsubstitutiontableknownanswerencrypt_Fields_.testSubstitutionTableKnownAnswerEncrypt (stdgo/_internal/crypto/des/Des_testsubstitutiontableknownanswerencrypt.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestSubstitutionTableKnownAnswerEncrypt
@@ -145,9 +145,9 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 === RUN  TestSubstitutionTableKnownAnswerDecrypt
 Exception: crypto/des: invalid buffer overlap
 Called from stdgo._internal.crypto.des.$T_tripleDESCipher_static_extension.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_static_extension.hx line 20)
-Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 5)
+Called from stdgo._internal.crypto.des.T_tripleDESCipher_asInterface.decrypt (stdgo/_internal/crypto/des/Des_t_tripledescipher_asinterface.hx line 4)
 Called from stdgo._internal.crypto.des._Des_testsubstitutiontableknownanswerdecrypt.$Des_testsubstitutiontableknownanswerdecrypt_Fields_.testSubstitutionTableKnownAnswerDecrypt (stdgo/_internal/crypto/des/Des_testsubstitutiontableknownanswerdecrypt.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_internal/crypto/desdottest/Desdottest.hx line 30)
 
 -- FAIL: TestSubstitutionTableKnownAnswerDecrypt
@@ -160,5 +160,5 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 
 -- PASS: TestFinalPermute
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
 -- FAIL: TestSubstitutionTableKnownAnswerDecrypt

@@ -52,18 +52,18 @@
 -- PASS: TestIs
 
 === RUN  TestAs
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 - SUBRUN  0:As(Errorf(..., <nil>), 0x1)
 - SUBRUN  1:As(Errorf(..., pitied the fool), errorT())
 got _internal.errors_test.errorT{s:""}, want _internal.errors_test.errorT{s:"T"}Exception: __fail__
-Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
-Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
 Called from _internal.errors_test._Errors_test_testas.$Errors_test_testas_Fields_.~testAs.286 (_internal/errors_test/Errors_test_testas.hx line 52)
-Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
+Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
 Called from _internal.errors_test._Errors_test_testas.$Errors_test_testas_Fields_.testAs (_internal/errors_test/Errors_test_testas.hx line 35)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.errorsdottest._Errorsdottest.$Errorsdottest_Fields_.main (_internal/errorsdottest/Errorsdottest.hx line 12)
 
 -- FAIL: TestAs
@@ -72,10 +72,10 @@ Called from _internal.errorsdottest._Errorsdottest.$Errorsdottest_Fields_.main (
 - SUBRUN  <nil>(<nil>)
 - SUBRUN  *int(<nil>)
 - SUBRUN  string(error)
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 - SUBRUN  *string(0x1)
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 
 -- PASS: TestAsValidation
 
@@ -83,5 +83,5 @@ golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: fa
 
 -- PASS: TestUnwrap
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
 -- FAIL: TestAs

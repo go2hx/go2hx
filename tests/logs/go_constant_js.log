@@ -76,18 +76,18 @@
      | ^^^^^^
      | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
 
-[ERROR] _std/stdgo/Go.macro.hx:446: characters 18-19
+[ERROR] _std/stdgo/Go.macro.hx:437: characters 18-19
 
- 446 |    return switch t {
+ 437 |    return switch t {
      |                  ^
      | Uncaught exception Null Access
 
-      463 |       return run();
+      459 |       return run();
           |              ^^^^^
           | Called from here
 
-      485 |   return run();
-          |          ^^^^^
+      481 |   final result = run();
+          |                  ^^^^^
           | Called from here
 
       ->  golibs/stdgo/_internal/go/constant/Constant_unaryop.hx:231: characters 28-56

@@ -1,15 +1,15 @@
 === RUN  TestAuto
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 36869 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 41052 column 52)
-Called from .stdgo__$internal_math_rand_Rand_$_$globalrand__globalRand (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 40969 column 71)
-Called from .stdgo__$internal_math_rand_Rand_$int63_int63 (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 40312 column 66)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testauto_testAuto [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:39341:15)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 56934 column 9)
-Called from ._$internal_math_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 48624 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:64219:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:64220:3)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 36899 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load__tp__0 (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 41119 column 52)
+Called from .stdgo__$internal_math_rand_Rand_$_$globalrand__globalRand (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 40999 column 70)
+Called from .stdgo__$internal_math_rand_Rand_$int63_int63 (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 40342 column 66)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testauto_testAuto [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:39371:15)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 56864 column 9)
+Called from ._$internal_math_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 48567 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:64332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:64333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestAuto
@@ -17,14 +17,14 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 === RUN  TestDefaultRace
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57567 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57597 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:57205:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testdefaultrace_testDefaultRace [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:39364:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 56934 column 9)
-Called from ._$internal_math_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 48624 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:64219:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:64220:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57493 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57521 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:57135:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testdefaultrace_testDefaultRace [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:39394:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 56864 column 9)
+Called from ._$internal_math_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 48567 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:64332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:64333:3)
 
 -- SKIP: TestDefaultRace
 
@@ -39,16 +39,16 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 mean 0.8687611347487445 != 0 (allowed error 0.1, 0.08)
 Exception: Cannot read properties of undefined (reading '_common')
 Called from module TypeError: Cannot read properties of undefined (reading '_common')
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17697 column 13)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 18115 column 70)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 22763 column 141)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 35472 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 46650 column 51)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57642 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:57130:58
-Called from ._$internal_math_rand_$test_Rand_$test_$_$checksampledistribution__checkSampleDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 37945 column 3)
-Called from ._$internal_math_rand_$test_Rand_$test_$_$testnormaldistribution__testNormalDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 38663 column 2)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$teststandardnormalvalues_testStandardNormalValues [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:40174:3)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17759 column 13)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 18177 column 70)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 22825 column 141)
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 35503 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 46597 column 51)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57563 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:57060:58
+Called from ._$internal_math_rand_$test_Rand_$test_$_$checksampledistribution__checkSampleDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 37975 column 3)
+Called from ._$internal_math_rand_$test_Rand_$test_$_$testnormaldistribution__testNormalDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 38693 column 2)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$teststandardnormalvalues_testStandardNormalValues [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:40204:3)
 
 -- FAIL: TestStandardNormalValues
 
@@ -56,16 +56,16 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand
 mean 0.9343805673743698 != 0.5 (allowed error 0.1, 0.08)
 Exception: Cannot read properties of undefined (reading '_common')
 Called from module TypeError: Cannot read properties of undefined (reading '_common')
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17697 column 13)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 18115 column 70)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 22763 column 141)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 35472 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 46650 column 51)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57642 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:57130:58
-Called from ._$internal_math_rand_$test_Rand_$test_$_$checksampledistribution__checkSampleDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 37945 column 3)
-Called from ._$internal_math_rand_$test_Rand_$test_$_$testnormaldistribution__testNormalDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 38663 column 2)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testnonstandardnormalvalues_testNonStandardNormalValues [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:39615:5)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17759 column 13)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 18177 column 70)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 22825 column 141)
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 35503 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 46597 column 51)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57563 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:57060:58
+Called from ._$internal_math_rand_$test_Rand_$test_$_$checksampledistribution__checkSampleDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 37975 column 3)
+Called from ._$internal_math_rand_$test_Rand_$test_$_$testnormaldistribution__testNormalDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 38693 column 2)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testnonstandardnormalvalues_testNonStandardNormalValues [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:39645:5)
 
 -- FAIL: TestNonStandardNormalValues
 
@@ -73,16 +73,16 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand
 mean NaN != 1 (allowed error 0.1, 0.2)
 Exception: Cannot read properties of undefined (reading '_common')
 Called from module TypeError: Cannot read properties of undefined (reading '_common')
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17697 column 13)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 18115 column 70)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 22763 column 141)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 35472 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 46650 column 51)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57642 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:57130:58
-Called from ._$internal_math_rand_$test_Rand_$test_$_$checksampledistribution__checkSampleDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 37945 column 3)
-Called from ._$internal_math_rand_$test_Rand_$test_$_$testexponentialdistribution__testExponentialDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 38655 column 2)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$teststandardexponentialvalues_testStandardExponentialValues [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:40165:3)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17759 column 13)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 18177 column 70)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 22825 column 141)
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 35503 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 46597 column 51)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57563 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:57060:58
+Called from ._$internal_math_rand_$test_Rand_$test_$_$checksampledistribution__checkSampleDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 37975 column 3)
+Called from ._$internal_math_rand_$test_Rand_$test_$_$testexponentialdistribution__testExponentialDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 38685 column 2)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$teststandardexponentialvalues_testStandardExponentialValues [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:40195:3)
 
 -- FAIL: TestStandardExponentialValues
 
@@ -90,16 +90,16 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand
 mean NaN != 20 (allowed error 2, 4)
 Exception: Cannot read properties of undefined (reading '_common')
 Called from module TypeError: Cannot read properties of undefined (reading '_common')
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17697 column 13)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 18115 column 70)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 22763 column 141)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 35472 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 46650 column 51)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57642 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:57130:58
-Called from ._$internal_math_rand_$test_Rand_$test_$_$checksampledistribution__checkSampleDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 37945 column 3)
-Called from ._$internal_math_rand_$test_Rand_$test_$_$testexponentialdistribution__testExponentialDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 38655 column 2)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testnonstandardexponentialvalues_testNonStandardExponentialValues [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:39591:4)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 17759 column 13)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 18177 column 70)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 22825 column 141)
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 35503 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 46597 column 51)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 57563 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:57060:58
+Called from ._$internal_math_rand_$test_Rand_$test_$_$checksampledistribution__checkSampleDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 37975 column 3)
+Called from ._$internal_math_rand_$test_Rand_$test_$_$testexponentialdistribution__testExponentialDistribution (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 38685 column 2)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testnonstandardexponentialvalues_testNonStandardExponentialValues [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:39621:4)
 
 -- FAIL: TestNonStandardExponentialValues
 
@@ -141,29 +141,29 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand
 - SUBRUN  Int31n
 - SUBRUN  int31n
 Exception: array out of bounds, index: -1 length: 6
-Called from stdgo_Slice.__boundsCheck__ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 14592 column 24)
-Called from stdgo_Slice.__get__ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 14596 column 14)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:40260:54
-Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 43595 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:40244:54
-Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 43595 column 2)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testuniformfactorial_testUniformFactorial [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:40185:51)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 56934 column 9)
+Called from stdgo_Slice.__boundsCheck__ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 14653 column 24)
+Called from stdgo_Slice.__get__ (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 14657 column 14)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:40290:54
+Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 43544 column 2)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:40274:54
+Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 43544 column 2)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testuniformfactorial_testUniformFactorial [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:40215:51)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 56864 column 9)
 
 -- FAIL: TestUniformFactorial
 
 === RUN  TestRegress
 Exception: Value:reflect.method is not yet implemented
-Called from stdgo__$internal_reflect_Value_$static_$extension.method (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 26966 column 23)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testregress_testRegress [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:39859:63)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 56934 column 9)
-Called from ._$internal_math_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 48624 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:64219:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:64220:3)
+Called from stdgo__$internal_reflect_Value_$static_$extension.method (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 27015 column 23)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testregress_testRegress [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:39889:63)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 56864 column 9)
+Called from ._$internal_math_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 48567 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:64332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:64333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 -- FAIL: TestRegress
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
 -- FAIL: TestRegress

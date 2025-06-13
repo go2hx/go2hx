@@ -1,40 +1,16 @@
-[ERROR] golibs/_internal/runtime/debug_test/Debug_test__dummy.hx:2: characters 81-204
+[ERROR] golibs/_internal/runtime/debug_test/Debug_test__dummy.hx:2: characters 1-206
 
    2 | var _dummy : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>));
-     |                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | _internal.runtime.debug_test.G<stdgo.GoInt> should be _internal.runtime.debug_test.GPointer<stdgo.GoInt>
-     | For function argument '__self__'
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | _internal.runtime.debug_test.G_asInterface<stdgo.GoInt> should be _internal.runtime.debug_test.I
+     | _internal.runtime.debug_test.G_asInterface<stdgo.GoInt> has no field m
 
-[ERROR] _std/stdgo/Go.macro.hx:413: characters 30-35
-
- 413 |          var e = macro $self.value.$methodName($a{callArgs});
-     |                              ^^^^^
-     | _internal.runtime.debug_test.G<stdgo.GoInt> has no field value
-
-      ->  golibs/_internal/runtime/debug_test/Debug_test__dummy.hx:2: characters 60-205
-
-      2 | var _dummy : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>));
-        |                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        | Called from macro here
-
-[ERROR] golibs/_internal/runtime/debug_test/Debug_test__dummy2.hx:2: characters 82-295
+[ERROR] golibs/_internal/runtime/debug_test/Debug_test__dummy2.hx:2: characters 1-297
 
    2 | var _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>));
-     |                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | _internal.runtime.debug_test.G<_internal.runtime.debug_test.G<stdgo.GoInt>> should be _internal.runtime.debug_test.GPointer<_internal.runtime.debug_test.G<stdgo.GoInt>>
-     | For function argument '__self__'
-
-[ERROR] _std/stdgo/Go.macro.hx:413: characters 30-35
-
- 413 |          var e = macro $self.value.$methodName($a{callArgs});
-     |                              ^^^^^
-     | _internal.runtime.debug_test.G<_internal.runtime.debug_test.G<stdgo.GoInt>> has no field value
-
-      ->  golibs/_internal/runtime/debug_test/Debug_test__dummy2.hx:2: characters 61-296
-
-      2 | var _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>));
-        |                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        | Called from macro here
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | _internal.runtime.debug_test.G_asInterface<_internal.runtime.debug_test.G<stdgo.GoInt>> should be _internal.runtime.debug_test.I
+     | _internal.runtime.debug_test.G_asInterface<_internal.runtime.debug_test.G<stdgo.GoInt>> has no field m
 
 [WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/Process.hx:41: characters 1-7
 

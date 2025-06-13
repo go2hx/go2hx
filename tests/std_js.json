@@ -22,5 +22,6 @@
  "js|hash/fnv",
  "js|crypto",
  "js|hash",
- "js|go/scanner"
+ "js|go/scanner",
+ "js|slices"
 ]

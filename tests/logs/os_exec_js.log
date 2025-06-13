@@ -184,18 +184,18 @@
           |          ^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  _std/stdgo/Go.macro.hx:369: characters 9-50
+      ->  _std/stdgo/Go.macro.hx:368: characters 9-50
 
-      369 |     t = Context.getType(printer.printTypePath(p));
+      368 |     t = Context.getType(printer.printTypePath(p));
           |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      459 |      f(ct, params);
+      455 |      f(ct, params);
           |      ^^^^^^^^^^^^^
           | Called from here
 
-      485 |   return run();
-          |          ^^^^^
+      481 |   final result = run();
+          |                  ^^^^^
           | Called from here
 
           | Called from here

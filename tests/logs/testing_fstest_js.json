@@ -2,11 +2,11 @@
     "passes": [
         "TestMapFS",
         "TestMapFSChmodDot",
-        "TestDash"
+        "TestDash",
+        "TestShuffledFS"
     ],
     "fails": [
-        "TestSymlink",
-        "TestShuffledFS"
+        "TestSymlink"
     ],
     "runs": [
         "TestMapFS",

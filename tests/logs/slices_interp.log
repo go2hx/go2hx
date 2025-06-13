@@ -209,7 +209,7 @@ Called from stdgo._internal.slices._Slices_testintsorts.Slices_testintsorts_Fiel
 Called from stdgo._internal.slices._Slices__makerandomints.Slices__makerandomints_Fields_._makeRandomInts (golibs/stdgo/_internal/slices/Slices__makerandomints.hx line 4 column 9)
 Called from stdgo._internal.math.rand._Rand_seed.Rand_seed_Fields_.seed (golibs/stdgo/_internal/math/rand/Rand_seed.hx line 3 column 21)
 Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (golibs/stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36 column 39)
-Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (std/go/_std/stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
+Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (_std/stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestIntSorts
 
@@ -220,7 +220,7 @@ Called from stdgo._internal.slices._Slices_teststringsorts.Slices_teststringsort
 Called from stdgo._internal.slices._Slices__makerandomstrings.Slices__makerandomstrings_Fields_._makeRandomStrings (golibs/stdgo/_internal/slices/Slices__makerandomstrings.hx line 4 column 9)
 Called from stdgo._internal.math.rand._Rand_seed.Rand_seed_Fields_.seed (golibs/stdgo/_internal/math/rand/Rand_seed.hx line 3 column 21)
 Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (golibs/stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36 column 39)
-Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (std/go/_std/stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
+Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (_std/stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestStringSorts
 
@@ -231,7 +231,7 @@ Called from stdgo._internal.slices._Slices_teststructsorts.Slices_teststructsort
 Called from stdgo._internal.slices._Slices__makerandomstructs.Slices__makerandomstructs_Fields_._makeRandomStructs (golibs/stdgo/_internal/slices/Slices__makerandomstructs.hx line 4 column 9)
 Called from stdgo._internal.math.rand._Rand_seed.Rand_seed_Fields_.seed (golibs/stdgo/_internal/math/rand/Rand_seed.hx line 3 column 21)
 Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (golibs/stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36 column 39)
-Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (std/go/_std/stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
+Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (_std/stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestStructSorts
 

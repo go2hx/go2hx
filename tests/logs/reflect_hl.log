@@ -1,4 +1,4 @@
-[ERROR] std/go/_std/stdgo/Go.macro.hx:585: characters 8-13
+[ERROR] _std/stdgo/Go.macro.hx:585: characters 8-13
 
  585 |        throw "invalid underlying type: " + t.type;
      |        ^^^^^
@@ -10,7 +10,7 @@
           |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  std/go/_std/stdgo/Go.macro.hx:676: characters 11-31
+      ->  _std/stdgo/Go.macro.hx:676: characters 11-31
 
       676 |   var t = Context.typeof(expr);
           |           ^^^^^^^^^^^^^^^^^^^^
@@ -28,7 +28,7 @@
           |                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  std/go/_std/stdgo/Go.macro.hx:607: characters 21-31
+      ->  _std/stdgo/Go.macro.hx:607: characters 21-31
 
       607 |   final valueNull = gen(false);
           |                     ^^^^^^^^^^

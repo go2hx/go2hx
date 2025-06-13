@@ -1,4 +1,4 @@
-[ERROR] std/go/_std/stdgo/Go.macro.hx:446: characters 18-19
+[ERROR] _std/stdgo/Go.macro.hx:446: characters 18-19
 
  446 |    return switch t {
      |                  ^

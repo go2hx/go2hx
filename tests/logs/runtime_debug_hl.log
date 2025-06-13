@@ -5,7 +5,7 @@
      | _internal.runtime.debug_test.G<stdgo.GoInt> should be _internal.runtime.debug_test.GPointer<stdgo.GoInt>
      | For function argument '__self__'
 
-[ERROR] std/go/_std/stdgo/Go.macro.hx:413: characters 30-35
+[ERROR] _std/stdgo/Go.macro.hx:413: characters 30-35
 
  413 |          var e = macro $self.value.$methodName($a{callArgs});
      |                              ^^^^^
@@ -24,7 +24,7 @@
      | _internal.runtime.debug_test.G<_internal.runtime.debug_test.G<stdgo.GoInt>> should be _internal.runtime.debug_test.GPointer<_internal.runtime.debug_test.G<stdgo.GoInt>>
      | For function argument '__self__'
 
-[ERROR] std/go/_std/stdgo/Go.macro.hx:413: characters 30-35
+[ERROR] _std/stdgo/Go.macro.hx:413: characters 30-35
 
  413 |          var e = macro $self.value.$methodName($a{callArgs});
      |                              ^^^^^

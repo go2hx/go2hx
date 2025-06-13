@@ -7,6 +7,10 @@ abstract GoFloat32(Float32) from Float32 to Float32 {
 	public inline function new(x = 0)
 		this = x;
 
+
+	@:from static inline function fromInt64(x:haxe.Int64):GoFloat32
+		return @:privateAccess GoNumber.toFloatInt64(x);
+
 	@:to inline function toFloat64():GoFloat64
 		return this;
 

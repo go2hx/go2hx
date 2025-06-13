@@ -73,11 +73,15 @@ function typeFunctionLiteral(args:Array<Expr>, params:Array<GoType>, results:Arr
 	var expr = macro $x($a{args.concat(exprArgs)});
 	if (!HaxeAst.isVoid(ret))
 		expr = macro return $expr;
-	return toExpr(EFunction(FAnonymous, {
-		ret: ret,
+	for (arg in funcArgs) {
+		arg.type = null;
+	}
+	final e = toExpr(EFunction(FAnonymous, {
+		ret: typer.HaxeAst.isVoid(ret) ? ret : null,
 		args: funcArgs,
 		expr: expr,
 	}));
+	return macro ($e);
 }
 
 function genericIndices(indices:Array<GoAst.Expr>, params:Array<GoType>, typeParams:Array<GoType>, info:Info):Array<Expr> {

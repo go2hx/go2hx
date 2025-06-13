@@ -29,6 +29,7 @@ import (
 	"strings"
 
 	"github.com/go2hx/go4hx/analysis"
+	"golang.org/x/exp/typeparams"
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/types/typeutil"
 )
@@ -360,8 +361,10 @@ func sendData(conn net.Conn, data any) {
 	_, err = w.Write(b)
 	panicIfError(err)
 	w.Close()
-	_, err = conn.Write(createLenMessage(buff.Bytes()))
-	panicIfError(err)
+	if conn != nil {
+		_, err = conn.Write(createLenMessage(buff.Bytes()))
+		panicIfError(err)
+	}
 }
 
 func getLen(conn net.Conn) uint32 {
@@ -383,8 +386,10 @@ func getLen(conn net.Conn) uint32 {
 func sendLen(conn net.Conn, length int) {
 	bytesBuff := make([]byte, 8)
 	binary.LittleEndian.PutUint64(bytesBuff, uint64(length))
-	_, err := conn.Write(bytesBuff)
-	panicIfError(err)
+	if conn != nil {
+		_, err := conn.Write(bytesBuff)
+		panicIfError(err)
+	}
 }
 
 func createLenMessage(b []byte) []byte {
@@ -494,7 +499,7 @@ func main() {
 	}
 	_, err = strconv.Atoi(port)
 	if err != nil { // not set to a port, test compile
-		compile(nil, args[1:], true)
+		compile(nil, append([]string{"golibs"}, args[1:]...), true)
 		return
 	}
 	conn, err := net.Dial("tcp", "127.0.0.1:"+port)
@@ -644,7 +649,9 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 			localExcludes := map[string]bool{}
 			checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 			pkgData := PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
+			//println("parseLocal:", pkg.PkgPath)
 			parseLocalPackage(pkg, &pkgData, localExcludes)
+			//println("parsePkg:", pkg.PkgPath)
 			// parse
 			syntax := parsePkg(pkg)
 			// set checksum
@@ -655,6 +662,13 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 			checker = nil
 			// send data
 			sendData(conn, *syntax)
+			if conn == nil {
+				b, err := json.MarshalIndent(*syntax, "", "    ")
+				panicIfError(err)
+				println(syntax.Path)
+				println("write check.json")
+				panicIfError(os.WriteFile("check.json", b, 0666))
+			}
 			syntax = nil
 			localExcludes = nil
 			// leave
@@ -1111,13 +1125,18 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 	}
 	isVar := false
 	switch data["id"] {
-	case "Var", "Pointer": //, "Slice", "Array":
+	case "Var", "Pointer", "Union", "TypeParams": //, "Slice", "Array":
 		isVar = true
 	case "Named":
 		named := node.(*types.Named)
 		path := named.String()
 		if marked[path] {
 			data["path"] = path
+			params := make([]map[string]interface{}, named.TypeArgs().Len())
+			for i := 0; i < len(params); i++ {
+				params[i] = parseType(named.TypeArgs().At(i), marked, pkg)
+			}
+			data["params"] = params
 			return data
 		}
 	default:
@@ -1150,13 +1169,13 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 				data["methods"] = parseMethods(named, &methodCache, 0, marked, true, pkg)
 				marked[path] = true
 				data["underlying"] = parseType(named.Underlying(), marked, pkg)
-				params := make([]map[string]interface{}, named.TypeArgs().Len())
-				for i := 0; i < len(params); i++ {
-					params[i] = parseType(named.TypeArgs().At(i), marked, pkg)
-				}
-				data["params"] = params
 			}
 		}
+		params := make([]map[string]interface{}, named.TypeArgs().Len())
+		for i := 0; i < len(params); i++ {
+			params[i] = parseType(named.TypeArgs().At(i), marked, pkg)
+		}
+		data["params"] = params
 		data["path"] = path
 	case "Slice":
 		s := node.(*types.Slice)
@@ -1184,6 +1203,19 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 			embeds[i] = parseType(v, marked, pkg)
 		}
 		data["embeds"] = embeds
+		normalTerms, err := typeparams.NormalTerms(s)
+		if normalTerms != nil {
+			panicIfError(err)
+			terms := make([]map[string]interface{}, len(normalTerms))
+			for i, t := range normalTerms {
+				terms[i] = map[string]interface{}{
+					"tidle": t.Tilde(),
+					"type":  parseType(t.Type(), marked, pkg),
+				}
+			}
+			data["id"] = "Union"
+			data["terms"] = terms
+		}
 	case "Pointer":
 		s := node.(*types.Pointer)
 		data["elem"] = parseType(s.Elem(), marked, pkg)
@@ -1204,9 +1236,17 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 		data["params"] = parseType(s.Params(), marked, pkg)
 		data["results"] = parseType(s.Results(), marked, pkg)
 		data["recv"] = parseType(s.Recv(), marked, pkg)
-		params := make([]map[string]interface{}, s.TypeParams().Len())
-		for i := 0; i < len(params); i++ {
-			params[i] = parseType(s.TypeParams().At(i), marked, pkg)
+		var params []map[string]interface{}
+		if s.TypeParams().Len() > s.RecvTypeParams().Len() {
+			params = make([]map[string]interface{}, s.TypeParams().Len())
+			for i := 0; i < len(params); i++ {
+				params[i] = parseType(s.TypeParams().At(i), marked, pkg)
+			}
+		} else {
+			params = make([]map[string]interface{}, s.RecvTypeParams().Len())
+			for i := 0; i < len(params); i++ {
+				params[i] = parseType(s.RecvTypeParams().At(i), marked, pkg)
+			}
 		}
 		data["typeParams"] = params
 	case "Tuple":
@@ -1222,6 +1262,7 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 		s := node.(*types.Var)
 		data["name"] = s.Name()
 		data["type"] = parseType(s.Type(), marked, pkg)
+		data["origin"] = parseType(s.Origin().Type(), marked, pkg)
 	case "Chan":
 		s := node.(*types.Chan)
 		data["elem"] = parseType(s.Elem(), marked, pkg)
@@ -1233,15 +1274,20 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 	case "Union":
 		s := node.(*types.Union)
 		terms := make([]map[string]interface{}, s.Len())
-		for i := 0; i < s.Len(); i++ {
-			t := s.Term(i)
-			terms[i] = map[string]interface{}{
-				"tidle": t.Tilde(),
-				"type":  parseType(t.Type(), marked, pkg),
+		if s.Len() == 1 && s.Term(0).Tilde() {
+			data = parseType(s.Term(0).Type(), marked, pkg)
+			//fmt.Println(data)
+		} else {
+			for i := 0; i < s.Len(); i++ {
+				t := s.Term(i)
+				terms[i] = map[string]interface{}{
+					"tidle": t.Tilde(),
+					"type":  parseType(t.Type(), marked, pkg),
+				}
 			}
+			//data["underlying"] = parseType(s.Underlying())
+			data["terms"] = terms
 		}
-		//data["underlying"] = parseType(s.Underlying())
-		data["terms"] = terms
 	default:
 		log.Fatal("unknown parse type id: " + data["id"].(string))
 	}
@@ -1403,6 +1449,7 @@ func parseData(node interface{}, pkg *PackageData) map[string]interface{} {
 	case *ast.TypeAssertExpr:
 	case *ast.UnaryExpr:
 	case *ast.CallExpr:
+		// typeutil.StaticCallee
 		var ident *ast.Ident
 		var resolveGeneric func(node ast.Expr)
 		typeArgs := make([]map[string]interface{}, 0)
@@ -1477,6 +1524,7 @@ func parseCommentGroup(value *ast.CommentGroup) map[string]interface{} {
 		"list": list,
 	}
 }
+
 func parseIdents(value []*ast.Ident, pkg *PackageData) []map[string]interface{} {
 	list := make([]map[string]interface{}, len(value))
 	for i := range value {
@@ -1505,6 +1553,11 @@ func parseIdent(value *ast.Ident, pkg *PackageData) map[string]interface{} {
 		}
 	}
 	if instance.Type != nil {
+		params := make([]map[string]interface{}, instance.TypeArgs.Len())
+		for i := 0; i < len(params); i++ {
+			params[i] = parseType(instance.TypeArgs.At(i), make(map[string]bool), pkg)
+		}
+		data["typeArgs"] = params
 		data["type"] = parseType(instance.Type, map[string]bool{}, pkg)
 		if obj != nil {
 			// find what the generic types will be

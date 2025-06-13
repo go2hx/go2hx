@@ -47,7 +47,6 @@ steps:
       key: ${{ github.sha }}-build-${{ env.cache-name }}
   - name: clone go
     run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
-    continue-on-error: true
   - name: Sort tests
     run: haxelib run go2hx go run ./extra/scripts/sortTests ci
   # run go medium tests

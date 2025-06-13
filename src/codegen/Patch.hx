@@ -11,6 +11,11 @@ final newValueError:TypePath = splitDepsBool ? {pack: "stdgo._internal.reflect.R
 };
 
 final skipTests = [
+	"slices:testGrow" => [], // checks runtime allocations num
+	"slices:testReplacePanics" => [], // low priority to check for runtime panics of slices replaces 
+	"slices:testReplaceGrowthRate" => [], // too slow and checks capacity increase count
+	"slices:testInsertGrowthRate" => [], // too slow and checks capacity increase count
+	"slices:testDeletePanics" => [], // low priority to check for runtime panics of slices delete
 	"testing.iotest:testWriteLogger" => [],
 	// testing/fstest
 	"testing.fstest:testMapFS" => [],

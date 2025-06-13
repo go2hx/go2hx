@@ -258,8 +258,19 @@ function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Acces
 			expr: e,
 		})
 	};
-	wrapper.fields.unshift(field);
-	staticExtension.fields.unshift(staticField);
+	var wrapperFieldExists = false;
+	if (wrapper != null) {
+		for (wrapperField in wrapper.fields) {
+			if (field.name == wrapperField.name) {
+				wrapperFieldExists = true;
+				break;
+			}
+		}
+		if (!wrapperFieldExists)
+			wrapper.fields.unshift(field);
+	}
+	if (staticExtension != null)
+		staticExtension.fields.unshift(staticField);
 }
 
 function mapReturnToThrow(expr:Expr):MacroExpr {

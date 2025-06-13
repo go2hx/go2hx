@@ -58,52 +58,9 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 	} else {
 		// normal
 		for (i in 0...value.names.length) {
-			var expr:Expr = null;
-			if (value.values[i] == null) {
-				if (type != null) {
-					expr = typer.exprs.Expr.defaultValue(typeof(value.type, info, false), info);
-				} else {
-					if (!info.global.externBool
-						|| StringTools.endsWith(info.global.module.path, "_test")
-						|| StringTools.endsWith(info.global.module.path, "_test")) {
-						expr = typer.exprs.Expr.typeExpr(info.lastValue, info);
-						expr = typer.exprs.Expr.explicitConversion(typeof(info.lastValue, info, false), info.lastType, expr, info);
-					} else {
-						expr = typer.exprs.Expr.defaultValue(info.lastType, info);
-					}
-				}
-			} else {
-				info.lastValue = value.values[i];
-				info.lastType = typeof(value.type, info, false);
-				final t = typeof(value.values[i], info, false);
-				final nameType = typeof(value.names[i], info, false);
-				if (!info.global.externBool || StringTools.endsWith(info.global.module.path, "_test")) {
-					expr = typer.exprs.Expr.typeExpr(value.values[i], info);
-					expr = typer.exprs.Expr.explicitConversion(t, info.lastType, expr, info);
-				} else {
-					if (info.lastType != null && info.lastType != invalidType) {
-						expr = typer.exprs.Expr.defaultValue(info.lastType, info);
-					} else {
-						if (t == invalidType) {
-							expr = typer.exprs.Expr.defaultValue(nameType, info);
-						} else {
-							expr = typer.exprs.Expr.defaultValue(t, info);
-						}
-					}
-				}
-				type = toComplexType(nameType, info);
-			}
-			if (expr == null)
-				continue;
 			var name = typer.exprs.Ident.nameIdent(value.names[i].name, false, true, info);
 			info.localIdents.remove(name);
-			// empty name
-			if (value.names[i].name == "_")
-				pkg.varOrder.push(name);
-			var doc:String = codegen.Doc.getDocComment(value, value); // + getSource(value, info);
-			var access = [];
-			if (constant)
-				access.push(AFinal);
+			var expr:Expr = null;
 			final patchName = info.global.module.path + ":" + name;
 			var patch = null;
 			#if !macro
@@ -111,6 +68,56 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 			#end
 			if (patch != null)
 				expr = patch;
+			if (expr == null) {
+				if (value.values[i] == null) {
+					if (type != null) {
+						expr = typer.exprs.Expr.defaultValue(typeof(value.type, info, false), info);
+					} else {
+						if (!info.global.externBool
+							|| StringTools.endsWith(info.global.module.path, "_test")
+							|| StringTools.endsWith(info.global.module.path, "_test")) {
+							expr = typer.exprs.Expr.typeExpr(info.lastValue, info);
+							expr = typer.exprs.Expr.explicitConversion(typeof(info.lastValue, info, false), info.lastType, expr, info);
+						} else {
+							expr = typer.exprs.Expr.defaultValue(info.lastType, info);
+						}
+					}
+				} else {
+					info.lastValue = value.values[i];
+					info.lastType = typeof(value.type, info, false);
+					final t = typeof(value.values[i], info, false);
+					final nameType = typeof(value.names[i], info, false);
+					if (!info.global.externBool || StringTools.endsWith(info.global.module.path, "_test")) {
+						expr = typer.exprs.Expr.typeExpr(value.values[i], info);
+						expr = typer.exprs.Expr.explicitConversion(t, info.lastType, expr, info);
+					} else {
+						if (info.lastType != null && info.lastType != invalidType) {
+							expr = typer.exprs.Expr.defaultValue(info.lastType, info);
+						} else {
+							if (t == invalidType) {
+								expr = typer.exprs.Expr.defaultValue(nameType, info);
+							} else {
+								expr = typer.exprs.Expr.defaultValue(t, info);
+							}
+						}
+					}
+					type = toComplexType(nameType, info);
+				}
+			}else{
+				if(value.values[i] != null) {
+					final nameType = typeof(value.names[i], info, false);
+					type = toComplexType(nameType, info);
+				}
+			}
+			if (expr == null)
+				continue;
+			// empty name
+			if (value.names[i].name == "_")
+				pkg.varOrder.push(name);
+			var doc:String = codegen.Doc.getDocComment(value, value); // + getSource(value, info);
+			var access = [];
+			if (constant)
+				access.push(AFinal);
 
 			if (info.global.varTraceBool)
 				if (expr != null) {

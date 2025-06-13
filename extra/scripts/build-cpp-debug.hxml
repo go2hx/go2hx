@@ -1,0 +1,3 @@
+--debug
+extra/scripts/tracy.hxml
+extra/scripts/build-cpp.hxml

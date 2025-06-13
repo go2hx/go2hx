@@ -20,7 +20,7 @@ abstract GoInt64(Int64) from Int64 to Int64 {
 	@:from static function fromInt(x:Int):GoInt64
 		return ofIntInt64(x);
 
-	public function toFloat():Float {
+	@:to public function toFloat():Float {
 		return toFloatInt64(this);
 	}
 

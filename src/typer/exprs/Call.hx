@@ -47,10 +47,13 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 					});
 			}
 		}
-		/*if (forceType) {
-			final ct = toComplexType(typeof(expr, info, false), info);
-			e = macro ($e : $ct);
-		}*/
+		if (forceType) {
+			final t = typeof(expr, info, false);
+			if (t == invalidType)
+				return e;
+			final ct = toComplexType(t, info);
+			e = macro($e : $ct);
+		}
 		return e;
 	}
 	function genArgs(translateType:Bool, pos:Int = 0, ?elem:GoType) {
@@ -101,6 +104,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 			// final t = typeof(expr.calle,info,false);
 			var skip = 0;
 			if (expr.typeArgs != null) {
+				forceType = true;
 				// TODO: generic funcs
 				/*skip = expr.typeArgs.length;
 					expr.typeArgs.reverse();
@@ -121,11 +125,44 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						// args:Array<Expr>
 						for (i in skip...args.length + (expr.ellipsis > 0 ? -1 : 0)) {
 							final fromType = getVar(typeof(exprArgs[i - skip], info, false));
-							var toType = getVar(params[i - skip]);
+							var toType = switch args[i].expr {
+								case EConst(CIdent("null")):
+									getVar(params[i - skip]);
+								default:
+									getOriginVar(fromType, params[i - skip ]);
+							}
+							final oldToType = getVar(params[i - skip]);
+							if (!isAnyInterface(oldToType) && isAnyInterface(toType))
+								toType = oldToType;
+							//if (expr.typeArgs != null && expr.typeArgs.length > 0)
+							//	trace(typeof(expr.typeArgs[0], info, false));
 							if (variadic && params.length <= i + 1 - skip) {
 								toType = getElem(params[params.length - 1]);
 							}
+							//trace(isRef(fromType), isRef(toType), expr.typeArgs != null);
+							if (isRef(fromType) && isRef(toType) && expr.typeArgs != null && expr.typeArgs.length > i - skip) {
+								//trace("here");
+								final t = typeof(expr.typeArgs[0], info, false);
+								if (goTypesEqual(getElem(fromType), t, 5)) {
+									final elem = getElem(toType);
+									toType = pointerType({get: () -> elem});
+								}
+							}
+							// trace(new codegen.Printer().printExpr(args[i]));
+							// trace(fromType, toType);
 							args[i] = typer.exprs.Expr.explicitConversion(fromType, toType, args[i], info);
+							switch exprArgs[i - skip]?.id {
+								case "Ident":
+									final typeArgs = exprArgs[i - skip]?.typeArgs;
+									if (typeArgs != null && typeArgs.length > 0) {
+										switch fromType {
+											case signature(_, _.get() => params, _.get() => results, _, _.get() => typeParams):
+												args[i] = Index.typeFunctionLiteral([], params, results, args[i], info);
+											default:
+										}
+									}
+								default:
+							}
 						}
 					default:
 				}
@@ -423,4 +460,28 @@ private function exprToString(fromType:GoType, toType:GoType, expr:Expr, info:In
 		default:
 	}
 	return expr;
+}
+
+private function getOriginVar(fromType:GoType, t:GoType):GoType {
+	if (t == null)
+		return t;
+	switch t {
+		case _var(_, _, _.get() => typeParam(_, params)):
+			if (params.length == 1) {
+				return params[0];
+			}
+			var anyInterfaceIndex = -1;
+			for (i in 0...params.length) {
+				if (anyInterfaceIndex == -1 && isAnyInterface(params[i]))
+					anyInterfaceIndex = i;
+				if (goTypesEqual(fromType, params[i], 4))
+					return params[i];
+			}
+			if (anyInterfaceIndex != -1)
+				return params[anyInterfaceIndex];
+		case _var(_, _, _.get() => param):
+			return param;
+		default:
+	}
+	return getVar(t);
 }

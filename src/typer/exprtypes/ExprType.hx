@@ -62,6 +62,8 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 			if (constraint != null && constraint.embeds == null) {
 				constraint = hashTypeToExprType(constraint.underlying, info);
 			}
+			if (info.typeParamMap.exists(e.name))
+				return info.typeParamMap[e.name];
 			if (constraint == null || constraint.embeds == null || constraint.embeds.length == 0) {
 				typeParam(e.name, [interfaceType(true, [])]);
 			} else {
@@ -168,25 +170,27 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		case "Var":
 			if (e.name == "_" || e.name == "")
 				return typeof(e.type, info, false, paths.copy());
-			_var(e.name, {get: () -> typeof(e.type, info, false, paths.copy())});
+			_var(e.name, {get: () -> typeof(e.type, info, false, paths.copy())}, {get: () -> typeof(e.origin, info, false, paths.copy())});
 		case "Interface":
-			if (e.embeds.length == 1 && e.embeds[0].id == "Union") {
-				typeof(e.embeds[0], info, false, paths.copy());
-			} else {
-				final methods:Array<MethodType> = [];
-				if (e.methods != null) {
-					for (method in (e.methods : Array<Dynamic>)) {
-						methods.push({
-							name: formatHaxeFieldName(method.name, info),
-							type: {get: () -> typeof(method.type, info, false, paths.copy())},
-							recv: {get: () -> typeof(method.recv, info, false, paths.copy())},
-						});
-					}
-				}
-				final underlying = interfaceType(e.empty, methods);
-				final t = getLocalType(e.hash, underlying, info);
+			/*if (e.embeds.length == 1 && e.embeds[0].id == "Union") {
+				final t = typeof(e.embeds[0], info, false, paths.copy());
+				trace(t);
 				t;
+			} else {*/
+			final methods:Array<MethodType> = [];
+			if (e.methods != null) {
+				for (method in (e.methods : Array<Dynamic>)) {
+					methods.push({
+						name: formatHaxeFieldName(method.name, info),
+						type: {get: () -> typeof(method.type, info, false, paths.copy())},
+						recv: {get: () -> typeof(method.recv, info, false, paths.copy())},
+					});
+				}
 			}
+			final underlying = interfaceType(e.empty, methods);
+			final t = getLocalType(e.hash, underlying, info);
+			t;
+		// }
 		case "Slice":
 			sliceType({get: () -> typeof(e.elem, info, false, paths.copy())});
 		case "Array":
@@ -218,17 +222,18 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		case "CallExpr":
 			final e:GoAst.CallExpr = e;
 			var type = typeof(e.type, info, false, paths.copy());
-			switch type {
-				case signature(_, _, _.get() => results, _):
-					return results[0];
-				default:
-					return type;
-			}
+			return type;
 		case "BasicLit":
 			typeof(e.type, info, false, paths.copy());
 		case "Ident":
 			final e:GoAst.Ident = e;
-			typeof(e.type, info, false, paths.copy());
+			if (e.name == "comparable" && !info.renameIdents.exists(e.name) && info.localIdents.indexOf(untitle(e.name)) == -1) {
+				typeParam("", [
+					named("comparable", [], refType({get: () -> invalidType}), true, {get: () -> []})]);
+				// typeParam("comparable", [interfaceType(true, [])]);
+			} else {
+				typeof(e.type, info, false, paths.copy());
+			}
 		case "CompositeLit":
 			final e:GoAst.CompositeLit = e;
 			final t = typeof(e.type, info, false, paths.copy());
@@ -266,6 +271,10 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 					getElem(typeof(e.x, info, false, paths.copy()));
 				case AND:
 					pointerType({get: () -> typeof(e.x, info, false, paths.copy())});
+				case TILDE:
+					// trace(typer.exprtypes.ExprType.hashTypeToExprType(e.x, info).id);
+					final t = typeof(e.x, info, false, paths.copy());
+					t;
 				default:
 					typeof(e.x, info, false, paths.copy());
 			}
@@ -289,6 +298,7 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		case "ArrayType":
 			final e:GoAst.ArrayType = e;
 			final elem = typeof(e.elt, info, false, paths.copy());
+			// trace(elem);
 			final v = hashTypeToExprType(e.type, info);
 			final id = v.id;
 			switch id {
@@ -329,6 +339,15 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		// typeof(e.type, info, false, paths.copy());
 		case "Ellipsis":
 			typeof(e.type, info, false, paths.copy());
+		case "Union":
+			if (e.terms == null) {
+				throw "e.terms is NULL: " + info.global.path;
+			} else {
+				// trace(e.terms);
+				// trace(e.terms.map(term -> hashTypeToExprType(term.type, info)));
+				final terms = e.terms.map(term -> typeof(term.type, info, false, paths.copy()));
+				typeParam("", terms);
+			}
 		default:
 			throw info.panic() + "unknown typeof expr: " + e.id;
 	}
@@ -347,7 +366,7 @@ enum GoType {
 	invalidType;
 	signature(variadic:Bool, params:Ref<Array<GoType>>, results:Ref<Array<GoType>>, recv:Ref<GoType>, ?typeParams:Ref<Array<GoType>>);
 	basic(kind:GoAst.BasicKind);
-	_var(name:String, type:Ref<GoType>);
+	_var(name:String, type:Ref<GoType>, ?origin:Ref<GoType>);
 	tuple(len:Int, vars:Ref<Array<GoType>>);
 	interfaceType(empty:Bool, methods:Array<MethodType>);
 	sliceType(elem:Ref<GoType>);
@@ -565,8 +584,13 @@ function isRefValue(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case named(_, _, t, _):
-			isRefValue(t);
+		case named(path, _, t, _):
+			// T__Pointer is Pointer version
+			if (path == "comparable" || path == "T__") {
+				false;
+			}else{
+				isRefValue(t);
+			}
 		case refType(_):
 			false;
 		case refType(_.get() => t):
@@ -580,7 +604,11 @@ function isRefValue(type:GoType):Bool {
 			false;
 		case basic(_):
 			false;
+		case interfaceType(empty, _):
+			!empty;
 		case signature(_, _, _, _, _):
+			false;
+		case typeParam(_, _):
 			false;
 		default:
 			true;
@@ -712,6 +740,51 @@ function cleanType(type:GoType):GoType {
 	}
 }
 
+function iterGoType(t:GoType, f:GoType->Void) {
+	return switch t {
+		case _var(name, _.get() => type):
+			f(type);
+		case pointerType(_.get() => elem):
+			f(elem);
+		case refType(_.get() => elem):
+			f(elem);
+		case named(path, methods, type, alias, _.get() => params):
+			f(type);
+			for (param in params)
+				f(param);
+		case invalidType:
+		default:
+	}
+}
+
+function replaceNumber(t:GoType):GoType {
+	return switch t {
+		case _var(name, _.get() => type):
+			final type = replaceNumber(type);
+			_var(name, {get: () -> type});
+		case pointerType(_.get() => elem):
+			final elem = replaceNumber(elem);
+			pointerType({get: () -> elem});
+		case refType(_.get() => elem):
+			final elem = replaceNumber(elem);
+			refType({get: () -> elem});
+		case named(path, methods, type, alias, params):
+			type = replaceNumber(type);
+			named(path, methods, type, alias, params);
+		case basic(kind):
+			switch kind {
+				case int_kind:
+					basic(int32_kind);
+				case uint_kind:
+					basic(uint32_kind);
+				default:
+					t;
+			}
+		default:
+			t;
+	}
+}
+
 function replaceInvalidType(t:GoType, replace:GoType):GoType {
 	return switch t {
 		case _var(name, _.get() => type):
@@ -742,6 +815,16 @@ function replaceInvalidType(t:GoType, replace:GoType):GoType {
 	}
 }
 
+function isSignatureTypeParam(t:GoType):Bool {
+	return switch t {
+	case signature(_, _, _, _, _.get() => typeParams):
+		trace(typeParams);
+		false;
+	default:
+		false;
+	}
+}
+
 function isTypeParam(t:GoType):Bool {
 	return switch t {
 		case _var(_, _.get() => t):
@@ -764,23 +847,24 @@ function getTuple(vars:Array<Dynamic>, info:Info):Array<GoType> {
 	var index = 0;
 	for (v in vars) {
 		final t = typeof(v.type, info, false);
+		final origin = typeof(v.origin, info, false);
 		if (v.names != null) {
 			if (v.names.length == 0) {
 				tuples.push(t);
 				continue;
 			}
 			for (name in (v.names : Array<String>)) {
-				tuples.push(_var(name, {get: () -> t}));
+				tuples.push(_var(name, {get: () -> t}, {get: () -> origin}));
 			}
 		} else {
 			if (t == invalidType)
 				trace("v:", v.type.id, "\n", t);
 			if (v.name == "_" || v.name == "") {
-				tuples.push(_var("_" + index, {get: () -> t}));
+				tuples.push(_var("_" + index, {get: () -> t}, {get: () -> origin}));
 				index++;
 				continue;
 			}
-			tuples.push(_var(v.name, {get: () -> t}));
+			tuples.push(_var(v.name, {get: () -> t}, {get: () -> origin}));
 		}
 	}
 	return tuples;
@@ -847,8 +931,16 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 		case named(path, _, underlying, _, _.get() => params):
 			// trace(path);
 			// trace(info.renameClasses);
+			if (path == "T__") {
+				switch params[0] {
+					case previouslyNamed(path):
+						final p:TypePath = {name: className(path, info), pack: [], params: []};
+						return TPath(p);
+					default:
+				}
+			}
 			if (path == "comparable")
-				return null;
+				return TPath({name: "Comparable", pack: ["stdgo"]});
 			if (path == null) {
 				trace("underlying null path: " + new codegen.Printer().printComplexType(toComplexType(underlying, info)));
 				throw info.panic() + path;
@@ -860,8 +952,9 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 		case sliceType(_.get() => elem):
 			final ct = toComplexType(elem, info);
 			var params = [TPType(ct)];
-			if (HaxeAst.isInvalidComplexType(ct))
+			if (HaxeAst.isInvalidComplexType(ct)) {
 				params = [TPType(TPath({name: "Dynamic", pack: []}))];
+			}
 			TPath({pack: ["stdgo"], name: "Slice", params: params});
 		case arrayType(_.get() => elem, len):
 			final ct = toComplexType(elem, info);
@@ -909,8 +1002,10 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 			TFunction(args, ret);
 		case _var(_, _.get() => type):
 			toComplexType(type, info);
-		case typeParam(name, _):
-			return TPath({pack: [], name: "Dynamic"});
+		case typeParam(name, params):
+			if (info.typeParamMap.exists(name))
+				return toComplexType(info.typeParamMap[name], info);
+			return TPath({pack: [], name: className(name, info)});
 		case tuple(len, _.get() => vars):
 			var fields:Array<Field> = [];
 			for (i in 0...vars.length) {

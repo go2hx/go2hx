@@ -2,7 +2,6 @@ package stdgo;
 
 import haxe.io.Bytes;
 
-
 using GoString.GoStringTools;
 
 private class GoStringData {
@@ -24,6 +23,7 @@ private class GoStringData {
 		return bytes.sub(this.low, this.high - this.low).toString();
 	}
 }
+
 /**
  * Representation of a GoString in Haxe, implicitly converts to String.
  * `GoStringData` holds `haxe.io.Bytes` because GoStrings can hold invalid charachter sequences
@@ -36,6 +36,9 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 		return this == null ? 0 : this.high - this.low;
 
 	public var code(get, never):GoRune;
+
+	inline public static function isString(val:Dynamic):Bool
+		return Std.isOfType(val, GoStringData);
 
 	function get_code():GoRune {
 		final slice = __toSliceRune__();
@@ -84,7 +87,7 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 	@:from static function ofUInt64(x:GoUInt64):GoString {
 		return try {
 			String.fromCharCode(x.toBasic().toInt());
-		}catch(_) {
+		} catch (_) {
 			"�";
 		}
 	}
@@ -109,7 +112,7 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 			#if !target.static
 			if (n != null)
 			#end
-				bytes.set(i, n);
+			bytes.set(i, n);
 		}
 		return bytes;
 	}
@@ -128,7 +131,7 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 		return this.bytes.get(this.low + index.toBasic());
 
 	@:to public function __toSliceByte__():Slice<GoByte> {
-		final slice = new stdgo.GoArray.GoArrayData<GoByte>(0,-1);
+		final slice = new stdgo.GoArray.GoArrayData<GoByte>(0, -1);
 		if (this == null) {
 			slice.bytes = haxe.io.Bytes.alloc(0);
 			slice.offset = 0;
@@ -148,7 +151,6 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 		#end
 		return slice;
 	}
-
 
 	@:to public function __toSliceRune__():Slice<GoRune> {
 		var bytes = __toSliceByte__();
@@ -172,7 +174,6 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 	public function __toArray__():Array<GoByte>
 		return [for (code in __toSliceByte__()) code];
 
-	
 	public function iterator()
 		return new GoStringIterator(this);
 
@@ -181,31 +182,31 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 
 	public function __slice__(low:GoInt, high:GoInt = -1):GoString {
 		if (this == null) {
-            return null;
-        }
-        if (high == -1) {
-            high = this.high - this.low;
-        }
-        if (high > this.bytes.length) {
+			return null;
+		}
+		if (high == -1) {
+			high = this.high - this.low;
+		}
+		if (high > this.bytes.length) {
 			throw "slice bounds out of range [:" + high + "] with length " + this.bytes.length;
 		}
 		if (low > high) {
 			throw "slice bounds out of range [" + low + ":] with length " + (high - low);
 		}
-        return new GoStringData(this.bytes, this.low + low, this.low + high);
+		return new GoStringData(this.bytes, this.low + low, this.low + high);
 	}
 
 	@:op(A < B) static function lt(a:GoString, b:GoString):Bool
-		return compare(a,b) < 0;
+		return compare(a, b) < 0;
 
 	@:op(A <= B) static function lte(a:GoString, b:GoString):Bool
-		return compare(a,b) <= 0;
+		return compare(a, b) <= 0;
 
 	@:op(A > B) static function gt(a:GoString, b:GoString):Bool
-		return compare(a,b) > 0;
+		return compare(a, b) > 0;
 
 	@:op(A >= B) static function gte(a:GoString, b:GoString):Bool
-		return compare(a,b) >= 0;
+		return compare(a, b) >= 0;
 
 	static function compare(a:GoString, b:GoString):GoInt {
 		final a:GoStringData = a;
@@ -249,7 +250,7 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 		final b:GoStringData = b;
 		var bytes = Bytes.alloc((a.high - a.low) + (b.high - b.low));
 		final len = a.high - a.low;
-		//trace("go string add");
+		// trace("go string add");
 		bytes.blit(0, a.bytes, a.low, len);
 		bytes.blit(len, b.bytes, b.low, b.high - b.low);
 		return bytes;
@@ -272,7 +273,8 @@ private class GoStringIterator {
 		bytes = s;
 	}
 
-	public function hasNext() return bytes.length > 0;
+	public function hasNext()
+		return bytes.length > 0;
 
 	public function next():GoInt {
 		#if nolinkstd
@@ -297,7 +299,8 @@ private class GoStringKeyValueIterator {
 		bytes = s;
 	}
 
-	public function hasNext() return bytes.length > 0;
+	public function hasNext()
+		return bytes.length > 0;
 
 	public function next():{key:GoInt, value:GoRune} {
 		#if nolinkstd

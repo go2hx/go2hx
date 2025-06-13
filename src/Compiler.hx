@@ -1,4 +1,5 @@
 package;
+
 /**
  * Compiler holds the API to call the compiler and use various callbacks
  */
@@ -17,8 +18,7 @@ var onUnknownExit:Void->Void = null;
 var modules:Array<typer.HaxeAst.Module> = [];
 var instance:CompilerInstanceData = null;
 #if target.threaded
-final threadPool = new sys.thread.ElasticThreadPool(4, 0.1);
-final threadData = new sys.thread.Deque<haxe.io.Bytes>();
+var threadPool = new sys.thread.ElasticThreadPool(4, 0.1);
 #end
 
 /**
@@ -44,6 +44,7 @@ function receivedData(buff:Bytes) {
 	}
 	final instance = getInstanceData();
 	final data:typer.GoAst.PackageType = decodeData(buff);
+	Sys.println("Loading: " + data.path);
 	final decodeDataTime = measureTime();
 	// IMPORTANT: typing phase Go AST -> Haxe AST
 	final module = typer.Package.typePackage(data, instance);
@@ -134,12 +135,9 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 		["-gocmd", "--gocmd"] => s -> instance.goCommand = s,
 		["-help", "--help", "-h", "--h"] => () -> help = true,
 		@doc("don't run go4hx, set it up manually")
-		["-nogo4hx", "--nogo4hx"] => () -> instance.noRunGo4hx = true, 
-		@doc("go test")
-		["-nocomments", "--nocomments"] => () -> instance.noComments = true,
-		@doc("Disable caching")
-		["-nocache", "--nocache"] => () -> instance.noCache = true,
-		@doc("no comments")
+		["-nogo4hx", "--nogo4hx"] => () -> instance.noRunGo4hx = true, @doc("go test")
+		["-nocomments", "--nocomments"] => () -> instance.noComments = true, @doc("Disable caching")
+		["-nocache", "--nocache"] => () -> instance.noCache = true, @doc("no comments")
 		["-test", "--test"] => () -> instance.test = true,
 		["-bench", "--bench"] => () -> instance.bench = true,
 		["-vartrace", "--vartrace", "-varTrace", "--varTrace"] => () -> instance.varTraceBool = true,
@@ -152,6 +150,12 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> instance.outputPath = Path.addTrailingSlash(out),
 		@doc("set the root package for all generated files")
 		["-root", "--root", "-r", "--r"] => out -> instance.root = out,
+		["-threads", "--threads"] => threadCount -> {
+			#if target.threaded
+			useThreadPool = true;
+			threadPool = new sys.thread.ElasticThreadPool(threadCount, 0.1);
+			#end
+		},
 		@doc("generate Haxe build file from compiler command")
 		["-build", "--build"] => out -> instance.buildPath = out,
 		@doc("generate build hxml from compiler commands")
@@ -252,12 +256,15 @@ function setupCompiler(ready:Void->Void) {
 }
 
 function startGo4hx(port:Int) {
-	//return;
+	// return;
 	resetCount = 0;
-	//sys.thread.Thread.create(() -> Sys.command("./go4hx", ['' + port]));
+	// sys.thread.Thread.create(() -> Sys.command("./go4hx", ['' + port]));
 	if (instance == null || !instance.noRunGo4hx)
 		process = new sys.io.Process("./go4hx", ['' + port]);
 }
+
+var useThreadPool = false;
+
 function accept(server:Socket, ready:Void->Void) {
 	if (instance == null)
 		instance = new CompilerInstanceData();
@@ -283,14 +290,18 @@ function accept(server:Socket, ready:Void->Void) {
 			if (!depsSent) {
 				depsSent = true;
 				instance.deps = decodeData(buff).deps;
-			}else{
+			} else {
 				#if target.threaded
-				while (threadPool.threadsCount >= threadPool.maxThreadsCount) {
-					Sys.sleep(0.001);
-				}
-				threadPool.run(() -> {
+				if (useThreadPool) {
+					while (threadPool.threadsCount >= threadPool.maxThreadsCount) {
+						Sys.sleep(0.001);
+					}
+					threadPool.run(() -> {
+						receivedData(buff);
+					});
+				} else {
 					receivedData(buff);
-				});
+				}
 				#else
 				receivedData(buff);
 				#end
@@ -302,13 +313,15 @@ function accept(server:Socket, ready:Void->Void) {
 			}
 		}
 		#if target.threaded
-		var waitCount = 0;
-		while (threadPool.threadsCount > 0) {
-			waitCount++;
-			if (waitCount > 2000 && waitCount % 2000 == 0) {
-				trace("threadPool.threadsCounts:", threadPool.threadsCount);
+		if (useThreadPool) {
+			var waitCount = 0;
+			while (threadPool.threadsCount > 0) {
+				waitCount++;
+				if (waitCount > 2000 && waitCount % 2000 == 0) {
+					trace("threadPool.threadsCounts:", threadPool.threadsCount);
+				}
+				Sys.sleep(0.001);
 			}
-			Sys.sleep(0.001);
 		}
 		#end
 		end(instance);
@@ -322,8 +335,7 @@ private inline function getInstanceData():CompilerInstanceData {
 	return instanceCopy;
 }
 
-
-private function printDeps(deps:Array<Dep>, tab:String="") {
+private function printDeps(deps:Array<Dep>, tab:String = "") {
 	for (dep in deps) {
 		var extra = "";
 		if (dep.skipped)
@@ -349,9 +361,6 @@ function createBuffer(client, bytes, instance):Bytes {
 	client.stream.size = len;
 	return Bytes.alloc(len);
 }
-
-
-
 
 function mainPaths(modules:Array<typer.HaxeAst.Module>):Array<String> {
 	final paths:Array<String> = [];
@@ -468,6 +477,7 @@ class CompilerInstanceData {
 			return;
 		Sys.println(s);
 	}
+
 	public function copy():CompilerInstanceData {
 		final instance = new CompilerInstanceData();
 		instance.noCache = noCache;
@@ -505,7 +515,19 @@ class CompilerInstanceData {
 }
 
 // global vars
-final passthroughArgs = ["-log", "--log", "-test", "--test", "-nodeps", "--nodeps", "-debug", "--debug", "-nocache", "--nocache"];
+final passthroughArgs = [
+	"-log",
+	"--log",
+	"-test",
+	"--test",
+	"-nodeps",
+	"--nodeps",
+	"-debug",
+	"--debug",
+	"-nocache",
+	"--nocache"
+];
+
 final cwd = Sys.getCwd();
 final server = new Socket();
 var client:Socket = null;

@@ -75,14 +75,17 @@ function typeOp(token:GoAst.Token):Binop {
 // implicit conversion: checkType
 // explicit conversion: assignTranslation
 function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):MacroExpr {
+	fromType = cleanType(fromType);
+	toType = cleanType(toType);
+	//trace(fromType, toType);
+	//trace(getElem(fromType), getElem(toType));
 	if (goTypesEqual(fromType, toType, 0)) {
 		if (passCopy) {
 			return HaxeAst.passByCopy(toType, expr, info);
 		}
 		return expr;
 	}
-	fromType = cleanType(fromType);
-	toType = cleanType(toType);
+	// trace(fromType, toType);
 	var y = expr;
 
 	if (fromType == null)
@@ -108,7 +111,12 @@ function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info
 	if (isAnyInterface(toType) && !HaxeAst.isRestExpr(expr)) {
 		y = typer.exprs.Expr.toAnyInterface(y, fromType, info);
 	}
+
 	// trace(fromType, toType);
+	// trace(isRef(fromType), isPointer(toType));
+	if (isRef(fromType) && isPointer(toType)) {
+		return macro stdgo.Go.pointer($y);
+	}
 	if (isAnyInterface(fromType) && !isInvalid(toType) && !isInterface(toType)) {
 		switch expr.expr {
 			case EBinop(_, _, _):
@@ -346,7 +354,8 @@ function implicitConversion(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTy
 			switch fromType {
 				case basic(unsafepointer_kind):
 					if (fromType != toType) {
-						final rt = toReflectType(toType, info, [], false);
+						// final rt = toReflectType(toType, info, [], false);
+						final rt = toReflectType(invalidType, info, [], false);
 						e = macro $e.__convert__($rt);
 					}
 				default:
@@ -523,8 +532,13 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {
 			var value = typer.exprs.Expr.defaultValue(elem, info);
 			macro(null : stdgo.Chan<$t>);
 		case pointerType(_.get() => elem):
-			final t = toComplexType(elem, info);
-			macro(null : stdgo.Pointer<$t>);
+			switch elem {
+				case typeParam(_, _):
+					macro null;
+				default:
+					final t = toComplexType(elem, info);
+					macro(null : stdgo.Pointer<$t>);
+			}
 		case signature(_, _, _, _):
 			macro null;
 		case refType(_.get() => elem):
@@ -569,6 +583,8 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {
 					final elem = typer.exprs.Expr.defaultValue(elem, info);
 					final len = makeExpr(len);
 					macro new $t($len, $len, ...[for (i in 0...$len) $elem]);
+				case invalidType:
+					macro null;
 				default:
 					var t = namedTypePath(path, info);
 					macro new $t();
@@ -639,7 +655,7 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {
 			// null;
 			if (strict) {
 				final t = TPath({name: className(name, info), pack: []});
-				macro stdgo.Go.typer.exprs.Expr.defaultValue((cast(null) : $t));
+				macro stdgo.Go.defaultValue((cast(null) : $t));
 			} else {
 				null;
 			}

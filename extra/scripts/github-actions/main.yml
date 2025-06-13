@@ -122,7 +122,6 @@ jobs:
           submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
-        continue-on-error: true
         with:
           go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - run: git clone https://github.com/go2hx/tools --depth=1

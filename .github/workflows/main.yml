@@ -123,7 +123,6 @@ jobs:
           submodules: recursive
       - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
-        continue-on-error: true
         with:
           go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
       - run: git clone https://github.com/go2hx/tools --depth=1
@@ -383,7 +382,6 @@ jobs:
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
-        continue-on-error: true
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       # run go easy tests
@@ -450,7 +448,6 @@ jobs:
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
-        continue-on-error: true
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       # run go easy tests
@@ -520,7 +517,6 @@ jobs:
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
-        continue-on-error: true
       - name: Sort tests
         run: go run ./extra/scripts/sortTests ci
       # run go easy tests
@@ -743,7 +739,6 @@ jobs:
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
-        continue-on-error: true
       - name: Sort tests
         run: haxelib run go2hx go run ./extra/scripts/sortTests ci
       # run go medium tests
@@ -810,7 +805,6 @@ jobs:
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
-        continue-on-error: true
       - name: Sort tests
         run: haxelib run go2hx go run ./extra/scripts/sortTests ci
       # run go medium tests

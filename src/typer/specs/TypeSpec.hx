@@ -104,7 +104,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 				});
 			}
 			final params = typer.fields.FieldList.getParams(spec.params, info, true);
-			var p:TypePath = {name: name, pack: []};
+			var p:TypePath = {name: name, pack: [], params: params.map(p -> TPType(TPath({name: p.name, pack: []})))};
 			/*if (params != null && params.length > 0)
 				p.params = typeParamDeclsToTypeParams(params); */
 			var args:Array<Expr> = [];

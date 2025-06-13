@@ -93,7 +93,7 @@ function main() {
 	}
 	if ((index = args.indexOf("-compiler_cpp")) != -1 || (index = args.indexOf("--compiler_cpp")) != -1) {
 		args.remove(args[index]);
-		setupCPP(rebuild, args);
+		setupCPP(rebuild, args, debug);
 		return;
 	}
 	if ((index = args.indexOf("-compiler_hl")) != -1 || (index = args.indexOf("--compiler_hl")) != -1) {
@@ -116,7 +116,7 @@ function main() {
 		setupJava(rebuild, args);
 		return;
 	}
-	setupCPP(rebuild, args);
+	setupCPP(rebuild, args, debug);
 }
 
 function clean() {
@@ -326,13 +326,15 @@ function setupNodeJS(rebuild:Bool, args:Array<String>) {
 	Sys.command("node", args);
 }
 
-function setupCPP(rebuild:Bool, args:Array<String>) {
+function setupCPP(rebuild:Bool, args:Array<String>, debug:Bool) {
 	Sys.println("C++ compiler version");
 	Sys.putEnv("HXCPP_COMPILE_THREADS", "4");
 	Sys.putEnv("HXCPP_COMPILE_CACHE", "~/hxcache");
-	final fileName = executable("export/cpp/Main");
+	final debugSuffix = debug ? "-debug" : "";
+
+	final fileName = executable('export/cpp/Main$debugSuffix');
 	if (!FileSystem.exists("export/cpp") || !FileSystem.exists(fileName) || rebuild) {
-		var cmd = "haxe extra/scripts/build-cpp.hxml";
+		var cmd = 'haxe extra/scripts/build-cpp$debugSuffix.hxml';
 		final code = Sys.command(cmd);
 		if (code != 0) {
 			Sys.println("BUILD FAILED");
@@ -340,6 +342,7 @@ function setupCPP(rebuild:Bool, args:Array<String>) {
 		}
 	}
 	final command = fileName + " " + args.join(" ");
+	Sys.println(command);
 	final code = Sys.command(fileName, args);
 	if (code != 0) {
 		Sys.println("COMPILER RUN FAILED: " + command);

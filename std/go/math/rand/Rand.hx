@@ -16,3 +16,6 @@ function int()
 
 function int31()
 	return std.Std.random();
+
+// invalid generic code
+function seed() {}

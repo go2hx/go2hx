@@ -305,7 +305,6 @@ class Go {
 		On the fly interface creation
 	 */
 	public static macro function asInterface(expr) {
-		// trace(new haxe.macro.Printer().printExpr(expr));
 		final selfType = Context.typeof(switch expr.expr {
 			case ECall({expr: EField({expr: EField({expr: EConst(CIdent("stdgo"))}, "Go")}, "pointer"), pos: _}, _[0] => param):
 				param;
@@ -376,6 +375,8 @@ class Go {
 				case TInst(_.get() => t, params):
 					final asInterfacePointer = t.meta.has(":pointer");
 					if (params != null && params.length > 0) { // has params
+						if (!selfPointer)
+							expr = macro stdgo.Go.pointer($expr);
 						final p = createTypePath(isLocal);
 						final exprs = [macro final __self__ = new $p($expr, $rt)];
 						final fields = t.fields.get();
@@ -394,30 +395,19 @@ class Go {
 										}
 									}
 									final callArgs = args.map(arg -> macro $i{arg.name});
-									if (isPointer) {
-										if (!selfPointer) {
-											callArgs.unshift(macro Go.pointer($expr));
-										} else {
-											callArgs.unshift(macro $expr);
-										}
-									}
-									switch selfType {
-										case TInst(_, params), TType(_, params):
-											for (param in params) {
-												final ct = Context.toComplexType(param);
-												callArgs.push(macro(cast(null) : $ct));
-											}
-										default:
-									}
 									// callArgs.unshift(self);
-									var e = macro $self.value.$methodName($a{callArgs});
+									var e = if (isPointer) {
+										macro @:privateAccess __self__.__self__.$methodName($a{callArgs});
+									} else {
+										macro @:privateAccess __self__.__self__.value.$methodName($a{callArgs});
+									}
 									if (!isVoid(ret))
 										e = macro return $e;
 									final f = {
 										expr: EFunction(FAnonymous, {
 											expr: e,
-											args: args.map(arg -> ({name: arg.name, type: Context.toComplexType(arg.t)} : FunctionArg)),
-											ret: Context.toComplexType(ret),
+											args: args.map(arg -> ({name: arg.name, type: null} : FunctionArg)),
+											ret: null,
 										}),
 										pos: Context.currentPos(),
 									}
@@ -428,6 +418,7 @@ class Go {
 							}
 						}
 						exprs.push(macro __self__);
+						// trace(new haxe.macro.Printer().printExpr(macro $b{exprs}));
 						return macro $b{exprs};
 					} else {
 						final p = createTypePath(isLocal);
@@ -456,6 +447,11 @@ class Go {
 					}
 					f(ct, params);
 				case TInst(_.get() => ct, params):
+					switch ct.kind {
+						case KTypeParameter(_):
+							return expr;
+						default:
+					}
 					f(ct, params);
 				case TAbstract(_.get() => ct, params):
 					if (ct.name == "Null" && ct.pack == null || ct.pack.length == 0) {
@@ -482,7 +478,8 @@ class Go {
 					null;
 			}
 		}
-		return run();
+		final result = run();
+		return result;
 	}
 
 	// deprecated
@@ -642,7 +639,7 @@ class Go {
 	}
 
 	public static macro function toInterface(expr) {
-		final expectedType = Context.getExpectedType();
+		// final expectedType = Context.getExpectedType();
 		switch expr.expr {
 			case EConst(CIdent(s)):
 				if (s == "null")
@@ -650,12 +647,12 @@ class Go {
 						new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.invalidType));
 			default:
 		}
-		if (expectedType != null) {
+		/*if (expectedType != null) {
 			var error = false;
 			switch expectedType {
 				case TAbstract(t, params):
 					switch t.toString() {
-						case "stdgo.AnyInterface", "stdgo._internal.unsafe.UnsafePointer":
+						case "stdgo.AnyInterface", "stdgo._internal.unsafe.UnsafePointer", "stdgo.Comparable":
 
 						case "Null":
 							error = params.length == 0;
@@ -672,7 +669,7 @@ class Go {
 				default:
 					Context.error("Go Invalid expected type: " + expectedType, Context.currentPos());
 			}
-		}
+		}*/
 		var t = Context.typeof(expr);
 		var follow = true;
 		switch t {
@@ -1334,8 +1331,8 @@ class Go {
 													case TFun(args, ret2):
 														args.shift();
 														final t = gtDecode(TFun(args, ret2), expr, marked, ret);
-														methods.push(macro new stdgo._internal.internal.reflect.MethodType($v{field.name},
-															{get: () -> $t}, {get: () -> null}));
+														methods.push(macro new stdgo._internal.internal.reflect.MethodType($v{field.name}, {get: () -> $t},
+															{get: () -> null}));
 													default:
 												}
 											default:
@@ -1473,10 +1470,9 @@ class Go {
 			return Go2hxMacro.getTypeInfoData(path);
 		}
 		if (marked.exists(path)) {
-			return macro stdgo._internal.internal.reflect.GoType.named($v{path}, [], stdgo._internal.internal.reflect.GoType.invalidType,
-				false, {
-					get: () -> null
-				});
+			return macro stdgo._internal.internal.reflect.GoType.named($v{path}, [], stdgo._internal.internal.reflect.GoType.invalidType, false, {
+				get: () -> null
+			});
 		} else {
 			marked[path] = true;
 		}
@@ -1511,18 +1507,38 @@ class Go {
 	}
 
 	public static macro function min(exprs:Array<Expr>) {
+		final t = Context.follow(Context.typeof(exprs[0]));
+		var isFloat = false;
+		switch t {
+			case TAbstract(_.get() => t, _):
+				if (t.pack.length == 1 && t.pack[0] == "stdgo" && (t.name == "GoFloat64" || t.name == "GoFloat32"))
+					isFloat = true;
+			default:
+		}
 		final block:Array<Expr> = [macro var num = ${exprs[0]}];
 		for (i in 1...exprs.length) {
 			block.push(macro if (num > ${exprs[i]}) num = ${exprs[i]});
+			if (isFloat)
+				block.push(macro if (Math.isNaN(${exprs[i]})) num = ${exprs[i]});
 		}
 		block.push(macro num);
 		return macro $b{block};
 	}
 
 	public static macro function max(exprs:Array<Expr>) {
+		final t = Context.follow(Context.typeof(exprs[0]));
+		var isFloat = false;
+		switch t {
+			case TAbstract(_.get() => t, _):
+				if (t.pack.length == 1 && t.pack[0] == "stdgo" && (t.name == "GoFloat64" || t.name == "GoFloat32"))
+					isFloat = true;
+			default:
+		}
 		final block:Array<Expr> = [macro var num = ${exprs[0]}];
 		for (i in 1...exprs.length) {
 			block.push(macro if (num < ${exprs[i]}) num = ${exprs[i]});
+			if (isFloat)
+				block.push(macro if (Math.isNaN(${exprs[i]})) num = ${exprs[i]});
 		}
 		block.push(macro num);
 		return macro $b{block};

@@ -10,6 +10,12 @@ function getValue(pack:String, valueName:String, pkg:typer.Package.IntermediateP
 	return expr;
 }
 
+function hasFunction(pack:String, funcName:String, recvName:String, pkg:typer.Package.IntermediatePackageType):Bool {
+	final paths = getPaths(pack);
+	var decls:Array<haxeparser.Data.TypeDecl> = getCachedDecls(paths, pkg);
+	return getBody(funcName, recvName, decls) != null;
+}
+
 function getFunction(pack:String, funcName:String, recvName:String, pkg:typer.Package.IntermediatePackageType):MacroExpr {
 	final paths = getPaths(pack);
 	var decls:Array<haxeparser.Data.TypeDecl> = getCachedDecls(paths, pkg);

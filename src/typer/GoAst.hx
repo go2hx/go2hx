@@ -171,6 +171,7 @@ typedef Ident = {
 	type:ExprType,
 	?kind:ObjKind,
 	objPath:String,
+	typeArgs:Array<ExprType>,
 }
 
 typedef Ellipsis = {
@@ -678,6 +679,8 @@ enum abstract Token(String) {
 	public final VAR = "var";
 	public final keyword_end = "";
 	public final TIDLE = "|";
+
+	public final TILDE = "~";
 
 	@:from private static function fromInt(index:Int):Token {
 		return switch index {

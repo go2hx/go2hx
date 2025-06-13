@@ -1,22 +1,22 @@
 === RUN  TestLittleEndianRead
 Exception: Map_:sync.load is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testlittleendianread.Binary_testlittleendianread_Fields_.testLittleEndianRead (golibs/stdgo/_internal/encoding/binary/Binary_testlittleendianread.hx line 4 column 9)
 Called from stdgo._internal.encoding.binary._Binary__testread.Binary__testread_Fields_._testRead (golibs/stdgo/_internal/encoding/binary/Binary__testread.hx line 4 column 20)
 Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (golibs/stdgo/_internal/encoding/binary/Binary_read.hx line 135 column 25)
 Called from stdgo._internal.encoding.binary._Binary__datasize.Binary__datasize_Fields_._dataSize (golibs/stdgo/_internal/encoding/binary/Binary__datasize.hx line 19 column 35)
-Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 37 column 158)
+Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 35 column 158)
 
 -- FAIL: TestLittleEndianRead
 
 === RUN  TestLittleEndianWrite
 Exception: Map_:sync.load is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testlittleendianwrite.Binary_testlittleendianwrite_Fields_.testLittleEndianWrite (golibs/stdgo/_internal/encoding/binary/Binary_testlittleendianwrite.hx line 4 column 9)
 Called from stdgo._internal.encoding.binary._Binary__testwrite.Binary__testwrite_Fields_._testWrite (golibs/stdgo/_internal/encoding/binary/Binary__testwrite.hx line 4 column 20)
 Called from stdgo._internal.encoding.binary._Binary_write.Binary_write_Fields_.write (golibs/stdgo/_internal/encoding/binary/Binary_write.hx line 187 column 21)
 Called from stdgo._internal.encoding.binary._Binary__datasize.Binary__datasize_Fields_._dataSize (golibs/stdgo/_internal/encoding/binary/Binary__datasize.hx line 19 column 35)
-Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 37 column 158)
+Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 35 column 158)
 
 -- FAIL: TestLittleEndianWrite
 
@@ -27,23 +27,23 @@ Write LittleEndian: binary.Write: some values are not fixed-sized in type *.enco
 
 === RUN  TestBigEndianRead
 Exception: Map_:sync.load is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testbigendianread.Binary_testbigendianread_Fields_.testBigEndianRead (golibs/stdgo/_internal/encoding/binary/Binary_testbigendianread.hx line 4 column 9)
 Called from stdgo._internal.encoding.binary._Binary__testread.Binary__testread_Fields_._testRead (golibs/stdgo/_internal/encoding/binary/Binary__testread.hx line 4 column 20)
 Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (golibs/stdgo/_internal/encoding/binary/Binary_read.hx line 135 column 25)
 Called from stdgo._internal.encoding.binary._Binary__datasize.Binary__datasize_Fields_._dataSize (golibs/stdgo/_internal/encoding/binary/Binary__datasize.hx line 19 column 35)
-Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 37 column 158)
+Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 35 column 158)
 
 -- FAIL: TestBigEndianRead
 
 === RUN  TestBigEndianWrite
 Exception: Map_:sync.load is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testbigendianwrite.Binary_testbigendianwrite_Fields_.testBigEndianWrite (golibs/stdgo/_internal/encoding/binary/Binary_testbigendianwrite.hx line 4 column 9)
 Called from stdgo._internal.encoding.binary._Binary__testwrite.Binary__testwrite_Fields_._testWrite (golibs/stdgo/_internal/encoding/binary/Binary__testwrite.hx line 4 column 20)
 Called from stdgo._internal.encoding.binary._Binary_write.Binary_write_Fields_.write (golibs/stdgo/_internal/encoding/binary/Binary_write.hx line 187 column 21)
 Called from stdgo._internal.encoding.binary._Binary__datasize.Binary__datasize_Fields_._dataSize (golibs/stdgo/_internal/encoding/binary/Binary__datasize.hx line 19 column 35)
-Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 37 column 158)
+Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 35 column 158)
 
 -- FAIL: TestBigEndianWrite
 
@@ -74,32 +74,32 @@ Write BigEndian: binary.Write: some values are not fixed-sized in type *.encodin
 
 === RUN  TestWriteT
 Exception: Map_:sync.load is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testwritet.Binary_testwritet_Fields_.testWriteT (golibs/stdgo/_internal/encoding/binary/Binary_testwritet.hx line 7 column 24)
 Called from stdgo._internal.encoding.binary._Binary_write.Binary_write_Fields_.write (golibs/stdgo/_internal/encoding/binary/Binary_write.hx line 187 column 21)
 Called from stdgo._internal.encoding.binary._Binary__datasize.Binary__datasize_Fields_._dataSize (golibs/stdgo/_internal/encoding/binary/Binary__datasize.hx line 19 column 35)
-Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 37 column 158)
+Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 35 column 158)
 
 -- FAIL: TestWriteT
 
 === RUN  TestBlankFields
 binary.Write: some values are not fixed-sized in type *.encoding.binary.BlankFields
 Exception: Map_:sync.load is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testblankfields.Binary_testblankfields_Fields_.testBlankFields (golibs/stdgo/_internal/encoding/binary/Binary_testblankfields.hx line 16 column 24)
 Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (golibs/stdgo/_internal/encoding/binary/Binary_read.hx line 135 column 25)
 Called from stdgo._internal.encoding.binary._Binary__datasize.Binary__datasize_Fields_._dataSize (golibs/stdgo/_internal/encoding/binary/Binary__datasize.hx line 19 column 35)
-Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 37 column 158)
+Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 35 column 158)
 
 -- FAIL: TestBlankFields
 
 === RUN  TestSizeStructCache
 Can't get the size of *.encoding.binary.foo_7241Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testsizestructcache.Binary_testsizestructcache_Fields_.testSizeStructCache (golibs/stdgo/_internal/encoding/binary/Binary_testsizestructcache.hx line 31 column 27)
 Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestSizeStructCache
 
@@ -110,7 +110,7 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/st
 === RUN  TestUnexportedRead
 binary.Write: some values are not fixed-sized in type *.encoding.binary.Unexported
 Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testunexportedread.Binary_testunexportedread_Fields_.testUnexportedRead (golibs/stdgo/_internal/encoding/binary/Binary_testunexportedread.hx line 82 column 21)
 
 -- FAIL: TestUnexportedRead
@@ -122,11 +122,11 @@ int: got "EOF"; want "binary.Read: invalid type int"
 
 === RUN  TestReadTruncated
 Exception: Map_:sync.load is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testreadtruncated.Binary_testreadtruncated_Fields_.testReadTruncated (golibs/stdgo/_internal/encoding/binary/Binary_testreadtruncated.hx line 32 column 32)
 Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (golibs/stdgo/_internal/encoding/binary/Binary_read.hx line 135 column 25)
 Called from stdgo._internal.encoding.binary._Binary__datasize.Binary__datasize_Fields_._dataSize (golibs/stdgo/_internal/encoding/binary/Binary__datasize.hx line 19 column 35)
-Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 37 column 158)
+Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 35 column 158)
 
 -- FAIL: TestReadTruncated
 
@@ -140,7 +140,7 @@ Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_inter
 
 === RUN  TestReadInvalidDestination
 Exception: Unexpected value 0, expected instance
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testreadinvaliddestination.Binary_testreadinvaliddestination_Fields_.testReadInvalidDestination (golibs/stdgo/_internal/encoding/binary/Binary_testreadinvaliddestination.hx line 4 column 9)
 Called from stdgo._internal.encoding.binary._Binary__testreadinvaliddestination.Binary__testreadinvaliddestination_Fields_._testReadInvalidDestination (golibs/stdgo/_internal/encoding/binary/Binary__testreadinvaliddestination.hx line 6 column 24)
 Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (golibs/stdgo/_internal/encoding/binary/Binary_read.hx line 24 column 25)
@@ -149,18 +149,18 @@ Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.rea
 
 === RUN  TestNoFixedSize
 got "binary.Write: some values are not fixed-sized in type *.encoding.binary.Person_12888", want "binary.Write: some values are not fixed-sized in type *binary.Person"Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testnofixedsize.Binary_testnofixedsize_Fields_.testNoFixedSize (golibs/stdgo/_internal/encoding/binary/Binary_testnofixedsize.hx line 16 column 89)
 Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestNoFixedSize
 
 === RUN  TestNativeEndian
-_std/stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get: #fun}) -> pointerType({get: #fun})
+_std/stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get: #fun}) -> invalidType
 Exception: Unexpected value [], expected instance
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testnativeendian.Binary_testnativeendian_Fields_.testNativeEndian (golibs/stdgo/_internal/encoding/binary/Binary_testnativeendian.hx line 9 column 22)
 Called from local function #1 (golibs/stdgo/_internal/encoding/binary/Binary_t_nativeendian.hx line 40 column 96)
 Called from stdgo._internal.encoding.binary.T_littleEndian_static_extension.uint32 (golibs/stdgo/_internal/encoding/binary/Binary_t_littleendian_static_extension.hx line 67 column 9)
@@ -201,5 +201,5 @@ Called from stdgo._Slice.Slice_Impl_.__boundsCheck__ (_std/stdgo/Slice.hx line 1
 
 -- PASS: TestNonCanonicalZero
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
 -- FAIL: TestNativeEndian

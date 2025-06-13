@@ -1,6 +1,6 @@
 === RUN  TestEverything
 Exception: Null Access
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.flag_test._Flag_test_testeverything.Flag_test_testeverything_Fields_.testEverything (golibs/_internal/flag_test/Flag_test_testeverything.hx line 81 column 9)
 Called from stdgo._internal.flag._Flag_visit.Flag_visit_Fields_.visit (golibs/stdgo/_internal/flag/Flag_visit.hx line 4 column 9)
 Called from stdgo._internal.flag.FlagSet_static_extension.visit (golibs/stdgo/_internal/flag/Flag_flagset_static_extension.hx line 607 column 30)
@@ -17,32 +17,12 @@ Called from stdgo._internal.flag._Flag__sortflags.Flag__sortflags_Fields_._sortF
 -- PASS: TestUsage
 
 === RUN  TestParse
-Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.flag_test._Flag_test_testparse.Flag_test_testparse_Fields_.testParse (golibs/_internal/flag_test/Flag_test_testparse.hx line 9 column 9)
-Called from _internal.flag_test._Flag_test__testparse.Flag_test__testparse_Fields_._testParse (golibs/_internal/flag_test/Flag_test__testparse.hx line 38 column 24)
-Called from stdgo._internal.flag.FlagSet_static_extension.parse (golibs/stdgo/_internal/flag/Flag_flagset_static_extension.hx line 25 column 27)
-Called from stdgo._internal.flag.FlagSet_static_extension._parseOne (golibs/stdgo/_internal/flag/Flag_flagset_static_extension.hx line 169 column 32)
-Called from stdgo._internal.flag.T_durationValue_asInterface.set (golibs/stdgo/_internal/flag/Flag_t_durationvalue_asinterface.hx line 14 column 76)
-Called from stdgo._internal.flag.T_durationValue_static_extension.set (golibs/stdgo/_internal/flag/Flag_t_durationvalue_static_extension.hx line 21 column 23)
-Called from stdgo._internal.time._Time_parseduration.Time_parseduration_Fields_.parseDuration (golibs/stdgo/_internal/time/Time_parseduration.hx line 36 column 31)
-Called from stdgo._internal.time._Time__leadingint.Time__leadingint_Fields_._leadingInt (golibs/stdgo/_internal/time/Time__leadingint.hx line 2 column 103)
 
--- FAIL: TestParse
+-- PASS: TestParse
 
 === RUN  TestFlagSetParse
-Exception: generic function is not supported
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.flag_test._Flag_test_testflagsetparse.Flag_test_testflagsetparse_Fields_.testFlagSetParse (golibs/_internal/flag_test/Flag_test_testflagsetparse.hx line 4 column 9)
-Called from _internal.flag_test._Flag_test__testparse.Flag_test__testparse_Fields_._testParse (golibs/_internal/flag_test/Flag_test__testparse.hx line 38 column 24)
-Called from stdgo._internal.flag.FlagSet_static_extension.parse (golibs/stdgo/_internal/flag/Flag_flagset_static_extension.hx line 25 column 27)
-Called from stdgo._internal.flag.FlagSet_static_extension._parseOne (golibs/stdgo/_internal/flag/Flag_flagset_static_extension.hx line 169 column 32)
-Called from stdgo._internal.flag.T_durationValue_asInterface.set (golibs/stdgo/_internal/flag/Flag_t_durationvalue_asinterface.hx line 14 column 76)
-Called from stdgo._internal.flag.T_durationValue_static_extension.set (golibs/stdgo/_internal/flag/Flag_t_durationvalue_static_extension.hx line 21 column 23)
-Called from stdgo._internal.time._Time_parseduration.Time_parseduration_Fields_.parseDuration (golibs/stdgo/_internal/time/Time_parseduration.hx line 36 column 31)
-Called from stdgo._internal.time._Time__leadingint.Time__leadingint_Fields_._leadingInt (golibs/stdgo/_internal/time/Time__leadingint.hx line 2 column 103)
 
--- FAIL: TestFlagSetParse
+-- PASS: TestFlagSetParse
 
 === RUN  TestUserDefined
 
@@ -66,7 +46,7 @@ Called from stdgo._internal.time._Time__leadingint.Time__leadingint_Fields_._lea
 
 === RUN  TestSetOutput
 Exception: Null Access
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.flag_test._Flag_test_testsetoutput.Flag_test_testsetoutput_Fields_.testSetOutput (golibs/_internal/flag_test/Flag_test_testsetoutput.hx line 10 column 9)
 Called from stdgo._internal.flag.FlagSet_static_extension.parse (golibs/stdgo/_internal/flag/Flag_flagset_static_extension.hx line 25 column 27)
 Called from stdgo._internal.flag.FlagSet_static_extension._parseOne (golibs/stdgo/_internal/flag/Flag_flagset_static_extension.hx line 121 column 39)
@@ -101,7 +81,7 @@ want:
 
 === RUN  TestUsageOutput
 Exception: Null Access
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.flag_test._Flag_test_testusageoutput.Flag_test_testusageoutput_Fields_.testUsageOutput (golibs/_internal/flag_test/Flag_test_testusageoutput.hx line 79 column 21)
 
 -- FAIL: TestUsageOutput
@@ -120,10 +100,10 @@ Called from _internal.flag_test._Flag_test_testusageoutput.Flag_test_testusageou
 
 === RUN  TestExitCode
 Exception: :os.executable is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.flag_test._Flag_test_testexitcode.Flag_test_testexitcode_Fields_.testExitCode (golibs/_internal/flag_test/Flag_test_testexitcode.hx line 4 column 9)
 Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.Testenv_musthaveexec_Fields_.mustHaveExec (golibs/stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 4 column 9)
-Called from stdgo._internal.sync.Once_static_extension.do_ (golibs/stdgo/_internal/sync/Sync_once_static_extension.hx line 12 column 9)
+Called from stdgo._internal.sync.Once_static_extension.do_ (golibs/stdgo/_internal/sync/Sync_once_static_extension.hx line 11 column 9)
 Called from local function #1 (golibs/stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 5 column 80)
 Called from stdgo._internal.internal.testenv._Testenv__tryexec.Testenv__tryexec_Fields_._tryExec (golibs/stdgo/_internal/internal/testenv/Testenv__tryexec.hx line 16 column 23)
 Called from stdgo._internal.os._Os_executable.Os_executable_Fields_.executable (golibs/stdgo/_internal/os/Os_executable.hx line 2 column 74)
@@ -148,5 +128,5 @@ DefineAfterSet
 
 -- FAIL: TestDefineAfterSet
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
 -- FAIL: TestDefineAfterSet

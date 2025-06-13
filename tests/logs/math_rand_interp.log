@@ -1,10 +1,10 @@
 === RUN  TestAuto
 Exception: field access on null
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.math.rand_test._Rand_test_testauto.Rand_test_testauto_Fields_.testAuto (golibs/_internal/math/rand_test/Rand_test_testauto.hx line 8 column 41)
 Called from stdgo._internal.math.rand._Rand_int63.Rand_int63_Fields_.int63 (golibs/stdgo/_internal/math/rand/Rand_int63.hx line 4 column 16)
-Called from stdgo._internal.math.rand._Rand__globalrand.Rand__globalrand_Fields_._globalRand (golibs/stdgo/_internal/math/rand/Rand__globalrand.hx line 5 column 22)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (golibs/stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36 column 39)
+Called from stdgo._internal.math.rand._Rand__globalrand.Rand__globalrand_Fields_._globalRand (golibs/stdgo/_internal/math/rand/Rand__globalrand.hx line 5 column 23)
+Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load__tp__0 (golibs/stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 40 column 39)
 Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (_std/stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestAuto
@@ -12,11 +12,11 @@ Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (_std/s
 === RUN  TestDefaultRace
 skipping starting another executable in short mode
 Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.math.rand_test._Rand_test_testdefaultrace.Rand_test_testdefaultrace_Fields_.testDefaultRace (golibs/_internal/math/rand_test/Rand_test_testdefaultrace.hx line 6 column 21)
 Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 67 column 87)
-Called from stdgo._internal.testing.T_common_static_extension.skip (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skip (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
 
 -- SKIP: TestDefaultRace
 
@@ -297,11 +297,11 @@ stddev NaN != 73.90083445627211 (allowed error 0.0072168783648703235, 0.00577350
 
 === RUN  TestRegress
 Exception: Value:reflect.method is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.math.rand_test._Rand_test_testregress.Rand_test_testregress_Fields_.testRegress (golibs/_internal/math/rand_test/Rand_test_testregress.hx line 34 column 12)
-Called from stdgo._internal.reflect.Value_static_extension.method (golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx line 388 column 144)
+Called from stdgo._internal.reflect.Value_static_extension.method (golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx line 375 column 144)
 
 -- FAIL: TestRegress
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
 -- FAIL: TestRegress

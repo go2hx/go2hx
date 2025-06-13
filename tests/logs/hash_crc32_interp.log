@@ -18,12 +18,12 @@
 
 === RUN  TestSlicing
 Exception: field access on null
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.hash.crc32._Crc32_testslicing.Crc32_testslicing_Fields_.testSlicing (golibs/stdgo/_internal/hash/crc32/Crc32_testslicing.hx line 28 column 13)
 Called from stdgo._internal.hash.crc32._Crc32__testcrosscheck.Crc32__testcrosscheck_Fields_._testCrossCheck (golibs/stdgo/_internal/hash/crc32/Crc32__testcrosscheck.hx line 53 column 13)
 Called from stdgo._internal.math.rand._Rand_read.Rand_read_Fields_.read (golibs/stdgo/_internal/math/rand/Rand_read.hx line 5 column 16)
-Called from stdgo._internal.math.rand._Rand__globalrand.Rand__globalrand_Fields_._globalRand (golibs/stdgo/_internal/math/rand/Rand__globalrand.hx line 5 column 22)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (golibs/stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36 column 39)
+Called from stdgo._internal.math.rand._Rand__globalrand.Rand__globalrand_Fields_._globalRand (golibs/stdgo/_internal/math/rand/Rand__globalrand.hx line 5 column 23)
+Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load__tp__0 (golibs/stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 40 column 39)
 Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (_std/stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestSlicing
@@ -31,11 +31,11 @@ Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (_std/s
 === RUN  TestArchIEEE
 Arch-specific IEEE not available.
 Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.hash.crc32._Crc32_testarchieee.Crc32_testarchieee_Fields_.testArchIEEE (golibs/stdgo/_internal/hash/crc32/Crc32_testarchieee.hx line 6 column 21)
 Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 67 column 87)
-Called from stdgo._internal.testing.T_common_static_extension.skip (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skip (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
 
 -- SKIP: TestArchIEEE
 
@@ -44,11 +44,11 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/st
 === RUN  TestArchCastagnoli
 Arch-specific Castagnoli not available.
 Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.hash.crc32._Crc32_testarchcastagnoli.Crc32_testarchcastagnoli_Fields_.testArchCastagnoli (golibs/stdgo/_internal/hash/crc32/Crc32_testarchcastagnoli.hx line 6 column 21)
 Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 67 column 87)
-Called from stdgo._internal.testing.T_common_static_extension.skip (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skip (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
 
 -- SKIP: TestArchCastagnoli
 
@@ -58,5 +58,5 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/st
 
 -- PASS: TestGolden
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
 -- FAIL: TestSlicing

@@ -2,6 +2,8 @@
     "passes": [
         "TestGet",
         "TestUsage",
+        "TestParse",
+        "TestFlagSetParse",
         "TestUserDefined",
         "TestUserDefinedFunc",
         "TestUserDefinedForCommandLine",
@@ -19,8 +21,6 @@
     ],
     "fails": [
         "TestEverything",
-        "TestParse",
-        "TestFlagSetParse",
         "TestSetOutput",
         "TestPrintDefaults",
         "TestUsageOutput",

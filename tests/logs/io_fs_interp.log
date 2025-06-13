@@ -12,7 +12,7 @@
 
 === RUN  TestGlob
 Exception: : No such file or directory
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.io.fs_test._Fs_test_testglob.Fs_test_testglob_Fields_.testGlob (golibs/_internal/io/fs_test/Fs_test_testglob.hx line 5 column 27)
 Called from stdgo._internal.io.fs._Fs_glob.Fs_glob_Fields_.glob (golibs/stdgo/_internal/io/fs/Fs_glob.hx line 6 column 50)
 Called from stdgo._internal.io.fs._Fs__globwithlimit.Fs__globwithlimit_Fields_._globWithLimit (golibs/stdgo/_internal/io/fs/Fs__globwithlimit.hx line 75 column 54)
@@ -67,7 +67,7 @@ Try 'chmod --help' for more information.
 
  8 |                         var entries = sys.FileSystem.readDirectory(path);
    |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   | Uncaught exception tmp_3i59m47qj4/a/bad: Permission denied
+   | Uncaught exception tmp_6q1pq36x5c/a/bad: Permission denied
 
     11 |                                 deleteRecursively(path + '/' + entry);
        |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -77,15 +77,15 @@ Try 'chmod --help' for more information.
        |                           ^^^^^
        | Called from here
 
-    ->  golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx:21: characters 17-71
+    ->  golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx:20: characters 17-71
 
-    21 |                 stdgo._internal.os.Os_removeall.removeAll(_c._tempDir);
+    20 |                 stdgo._internal.os.Os_removeall.removeAll(_c._tempDir);
        |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Called from here
 
-    ->  golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:42: characters 17-20
+    ->  golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:41: characters 17-20
 
-    42 |                 f();
+    41 |                 f();
        |                 ^^^
        | Called from here
 

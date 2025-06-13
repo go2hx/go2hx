@@ -1,36 +1,36 @@
 [ERROR] golibs/_internal/image_test/Image_test_testdecode.hx:72: characters 21-70
 
-  72 |                     _internal.image_test.Image_test__iterator_5378918._iterator_5378918++;
+  72 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5378918
+     | Type not found : _internal.image_test.Image_test__iterator_5373877
 
 [ERROR] golibs/_internal/image_test/Image_test_testdecode.hx:94: characters 21-70
 
-  94 |                     _internal.image_test.Image_test__iterator_5378918._iterator_5378918++;
+  94 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5378918
+     | Type not found : _internal.image_test.Image_test__iterator_5373877
 
 [ERROR] golibs/_internal/image_test/Image_test_testdecode.hx:108: characters 21-70
 
- 108 |                     _internal.image_test.Image_test__iterator_5378918._iterator_5378918++;
+ 108 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5378918
+     | Type not found : _internal.image_test.Image_test__iterator_5373877
 
 [ERROR] golibs/_internal/image_test/Image_test_testdecode.hx:148: characters 21-70
 
- 148 |                     _internal.image_test.Image_test__iterator_5378918._iterator_5378918++;
+ 148 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5378918
+     | Type not found : _internal.image_test.Image_test__iterator_5373877
 
 [ERROR] golibs/_internal/image_test/Image_test_testdecode.hx:177: characters 21-70
 
- 177 |                     _internal.image_test.Image_test__iterator_5378918._iterator_5378918++;
+ 177 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5378918
+     | Type not found : _internal.image_test.Image_test__iterator_5373877
 
 [ERROR] golibs/_internal/image_test/Image_test_testdecode.hx:190: characters 21-70
 
- 190 |                     _internal.image_test.Image_test__iterator_5378918._iterator_5378918++;
+ 190 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5378918
+     | Type not found : _internal.image_test.Image_test__iterator_5373877
 

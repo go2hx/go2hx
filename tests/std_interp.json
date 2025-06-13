@@ -28,5 +28,6 @@
  "interp|bufio",
  "interp|encoding/base32",
  "interp|io",
- "interp|hash"
+ "interp|hash",
+ "interp|slices"
 ]

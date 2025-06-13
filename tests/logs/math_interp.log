@@ -311,5 +311,5 @@ Pow(NaN, 0) = NaN, want 1
 
 -- PASS: TestHugeTan
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:92: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
 -- FAIL: TestPow

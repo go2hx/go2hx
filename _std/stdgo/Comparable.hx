@@ -3,7 +3,9 @@ package stdgo;
 import stdgo.AnyInterface;
 import stdgo.GoInt;
 
-abstract Comparable(Dynamic) from Dynamic to Dynamic to stdgo.GoInt {
+abstract Comparable(Dynamic) from Dynamic to Dynamic to stdgo.GoInt to stdgo.GoInt8 to stdgo.GoInt16 to stdgo.GoInt32 to stdgo.GoInt64 to stdgo.GoUInt8
+	to stdgo.GoUInt16 to stdgo.GoUInt32 to stdgo.GoUInt64 to stdgo.GoFloat32 to stdgo.GoFloat64 to stdgo.GoString to stdgo.GoComplex64 to stdgo.GoComplex128
+	to stdgo.Chan<Dynamic> to stdgo.GoMap<Dynamic, Dynamic> to stdgo.GoArray<Dynamic> {
 	@:op(A == B)
 	// public static inline function equals(lhs:Comparable, rhs:Dynamic):Bool
 	//	return (lhs : AnyInterface) == new AnyInterface(rhs, (lhs : AnyInterface).value);

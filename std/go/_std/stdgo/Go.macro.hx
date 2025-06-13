@@ -1507,18 +1507,38 @@ class Go {
 	}
 
 	public static macro function min(exprs:Array<Expr>) {
+		final t = Context.follow(Context.typeof(exprs[0]));
+		var isFloat = false;
+		switch t {
+			case TAbstract(_.get() => t, _):
+				if (t.pack.length == 1 && t.pack[0] == "stdgo" && (t.name == "GoFloat64" || t.name == "GoFloat32"))
+					isFloat = true;
+			default:
+		}
 		final block:Array<Expr> = [macro var num = ${exprs[0]}];
 		for (i in 1...exprs.length) {
 			block.push(macro if (num > ${exprs[i]}) num = ${exprs[i]});
+			if (isFloat)
+				block.push(macro if (Math.isNaN(${exprs[i]})) num = ${exprs[i]});
 		}
 		block.push(macro num);
 		return macro $b{block};
 	}
 
 	public static macro function max(exprs:Array<Expr>) {
+		final t = Context.follow(Context.typeof(exprs[0]));
+		var isFloat = false;
+		switch t {
+			case TAbstract(_.get() => t, _):
+				if (t.pack.length == 1 && t.pack[0] == "stdgo" && (t.name == "GoFloat64" || t.name == "GoFloat32"))
+					isFloat = true;
+			default:
+		}
 		final block:Array<Expr> = [macro var num = ${exprs[0]}];
 		for (i in 1...exprs.length) {
 			block.push(macro if (num < ${exprs[i]}) num = ${exprs[i]});
+			if (isFloat)
+				block.push(macro if (Math.isNaN(${exprs[i]})) num = ${exprs[i]});
 		}
 		block.push(macro num);
 		return macro $b{block};

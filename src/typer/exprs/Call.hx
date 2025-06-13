@@ -125,17 +125,20 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						// args:Array<Expr>
 						for (i in skip...args.length + (expr.ellipsis > 0 ? -1 : 0)) {
 							final fromType = getVar(typeof(exprArgs[i - skip], info, false));
-							var toType = getVar(params[i - skip ]);
+							var toType = switch args[i].expr {
+								case EConst(CIdent("null")):
+									getVar(params[i - skip]);
+								default:
+									getOriginVar(fromType, params[i - skip ]);
+							}
 							final oldToType = getVar(params[i - skip]);
 							if (!isAnyInterface(oldToType) && isAnyInterface(toType))
 								toType = oldToType;
 							//if (expr.typeArgs != null && expr.typeArgs.length > 0)
+							//	trace(typeof(expr.typeArgs[0], info, false));
 							if (variadic && params.length <= i + 1 - skip) {
 								toType = getElem(params[params.length - 1]);
 							}
-							// final printer = new codegen.Printer();
-							// trace(printer.printComplexType(toComplexType(fromType, info)));
-							// trace(printer.printComplexType(toComplexType(toType, info)));
 							//trace(isRef(fromType), isRef(toType), expr.typeArgs != null);
 							if (isRef(fromType) && isRef(toType) && expr.typeArgs != null && expr.typeArgs.length > i - skip) {
 								//trace("here");

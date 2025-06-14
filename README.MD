@@ -17,12 +17,11 @@ Import Go libraries into your Haxe projects.
 
 
 * [Download Haxe 4.3.2+](https://build.haxe.org/builds/haxe/)
-* Hxcpp haxe library is required, on macos barisyild's hxcpp fork is required because of too low memory for thread stacks.
+* Hxcpp haxe library is required for the compiler
 
 
 ```sh
 haxelib git hxcpp https://github.com/barisyild/hxcpp
-haxelib git go2hx https://github.com/go2hx/go2hx
 ```
 
 ## Getting started
@@ -35,7 +34,7 @@ haxelib run go2hx unicode
 Now include the outputted code into your project hxml or equivalent:
 ```hxml
 -cp golibs
--lib go2hx
+--macro Go2hxMacro.init()
 ```
 
 You can now import the Go library and use it in your Haxe project (example: unicode):
@@ -82,4 +81,4 @@ Read the [contributing guide](./CONTRIBUTING.MD) for insights and information on
 # Credits
 
 A spiritual successor to Tardisgo written by [Elliott Stoneham](https://github.com/elliott5),
-A maintainer, mentor, and code contributor of this project. Elliott's wise counsel, solid engineering design, and effective programming is the core of this project and go2hx would not exist without him.
+A maintainer, mentor, and code contributor of this project, go2hx would not exist without him.

@@ -2,7 +2,6 @@
 -cp tests
 -D no-deprecation-warnings
 -D nolinkstd
--D simulate_num
 -cp git/haxeparser/src
 -cp git/hxparse/src
 -dce full

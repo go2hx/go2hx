@@ -234,5 +234,8 @@
  "interp|generic29",
  "interp|generic3",
  "interp|generic9",
- "interp|genericAnyCast"
+ "interp|genericAnyCast",
+ "interp|generic31",
+ "interp|min0",
+ "interp|min1"
 ]

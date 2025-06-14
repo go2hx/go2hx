@@ -584,7 +584,6 @@ private function runInterop() {
 		}
 		final code = runCommand(ciBool ? "npx" : "haxe", args);
 		if (code != 0) {
-			trace(command);
 			throw "failed to run interop";
 		}
 	}

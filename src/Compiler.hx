@@ -64,6 +64,7 @@ function receivedData(buff:Bytes) {
 }
 
 function end(instance:CompilerInstanceData) {
+	codegen.Std.moveStd(instance.localPath + instance.outputPath);
 	Sys.setCwd(cwd);
 	final mains = mainPaths(modules);
 	if (instance.printMain) {
@@ -290,6 +291,7 @@ function accept(server:Socket, ready:Void->Void) {
 			if (!depsSent) {
 				depsSent = true;
 				instance.deps = decodeData(buff).deps;
+				//printDeps(instance.deps);
 			} else {
 				#if target.threaded
 				if (useThreadPool) {

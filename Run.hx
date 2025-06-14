@@ -37,11 +37,6 @@ function main() {
 		return;
 	}
 
-	if (args.length > 0 && args.indexOf("extraParams") != -1) {
-		createExtraParams();
-		return;
-	}
-
 	if (args.length > 0 && args.indexOf("build") != -1) {
 		build(true);
 		return;
@@ -407,11 +402,4 @@ function setupHxb() {
 		Sys.println("Failed to setup Hxb");
 		Sys.exit(1);
 	}
-}
-
-function createExtraParams() {
-	final args = Sys.args();
-	final localPath = args[args.length - 1];
-	final cwd = Sys.getCwd();
-	File.copy(cwd + "/extraParams.hxml", localPath + "/extraParams.hxml");
 }

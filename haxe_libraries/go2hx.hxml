@@ -1,3 +1,2 @@
-extraParams.hxml
 -cp _std
 -D go2hx=0.0.1

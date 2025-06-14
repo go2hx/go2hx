@@ -6,5 +6,4 @@ extra/scripts/build-each.hxml
 -D nolinkstd
 --dce full
 -D analyzer-optimize
--D simulate_num
 --run Main

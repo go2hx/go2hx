@@ -398,7 +398,7 @@ function spawnTargets(path:String, excludes:Array<String>) {
 	trace(path);
 	final out = createTargetOutput(target, type, path);
 	final outCmd = BuildTools.buildTarget(target, "golibs/" + out).split(" ");
-	var args:Array<String> = ["-m", "_internal." + main, "-cp golibs", "-lib", "go2hx"];
+	var args:Array<String> = ["-m", "_internal." + main, "-cp golibs", "--macro", "Go2hxMacro.init()"];
 	args = args.concat(outCmd);
 	if (ciBool)
 		args.unshift("haxe");
@@ -537,7 +537,7 @@ function createRunnableStd(name:String, prefix:String, excludeFuncArgs:Array<Str
 	mainPathStd.push(last);
 	mainPathStd.push(last.charAt(0).toUpperCase() + last.substr(1));
 	var mainStd = "_internal." + mainPathStd.join(".");
-	final args = ["-m", mainStd, "-cp", "golibs", "-lib", "go2hx"].concat(outCmd);
+	final args = ["-m", mainStd, "-cp", "golibs", "--macro", "Go2hxMacro.init()"].concat(outCmd);
 	// remove ANSI escape codes for colours
 	args.push("-D");
 	args.push("message.no-color");
@@ -572,13 +572,28 @@ private function runInterop() {
 	Sys.println("RUN INTEROP");
 	final libs:Array<{module:String, excludes:Array<String>, main:String}> = Json.parse(File.getContent("data/testLibs.json"));
 	for (lib in libs) {
-		final command = (ciBool ? "npx haxe" : "haxe") + " -cp golibs --macro Go2hxMacro.init() " + lib.main;
+		final args = [
+			"-cp",
+			"golibs",
+			"--macro",
+			"Go2hxMacro.init()",
+			lib.main
+		];
+		if (ciBool) {
+			args.unshift("haxe");
+		}
+		command(ciBool ? "npx" : "haxe", args);
 		final code = Sys.command(command);
 		if (code != 0) {
 			trace(command);
 			throw "failed to run interop";
 		}
 	}
+}
+
+function command(cmd:String, args:Array<String>) {
+	Sys.println(cmd + " " + args.join(" "));
+	return Sys.command(cmd, args);
 }
 
 private function close() {

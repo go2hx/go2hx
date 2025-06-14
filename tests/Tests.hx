@@ -582,8 +582,7 @@ private function runInterop() {
 		if (ciBool) {
 			args.unshift("haxe");
 		}
-		command(ciBool ? "npx" : "haxe", args);
-		final code = Sys.command(command);
+		final code = runCommand(ciBool ? "npx" : "haxe", args);
 		if (code != 0) {
 			trace(command);
 			throw "failed to run interop";
@@ -591,7 +590,7 @@ private function runInterop() {
 	}
 }
 
-function command(cmd:String, args:Array<String>) {
+function runCommand(cmd:String, args:Array<String>):Int {
 	Sys.println(cmd + " " + args.join(" "));
 	return Sys.command(cmd, args);
 }

@@ -398,10 +398,11 @@ function spawnTargets(path:String, excludes:Array<String>) {
 	trace(path);
 	final out = createTargetOutput(target, type, path);
 	final outCmd = BuildTools.buildTarget(target, "golibs/" + out).split(" ");
-	var args:Array<String> = ["-m", "_internal." + main, "-cp golibs", "--macro", "Go2hxMacro.init()"];
+	var args:Array<String> = ["-m", "_internal." + main, "-cp", "golibs", "--macro", "Go2hxMacro.init()"];
 	args = args.concat(outCmd);
 	if (ciBool)
 		args.unshift("haxe");
+	args = commandArgs(args);
 	tasks.push({
 		command: ciBool ? "npx" : "haxe",
 		args: args,
@@ -592,6 +593,15 @@ private function runInterop() {
 function runCommand(cmd:String, args:Array<String>):Int {
 	Sys.println(cmd + " " + args.join(" "));
 	return Sys.command(cmd, args);
+}
+
+function commandArgs(args:Array<String>):Array<String> {
+	switch (Sys.systemName()) {
+		case "Windows":
+			return args.map(arg -> haxe.SysTools.quoteWinArg(arg, true));
+		case _:
+			return args.map(haxe.SysTools.quoteUnixArg);
+	}
 }
 
 private function close() {

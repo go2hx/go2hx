@@ -398,7 +398,7 @@ function spawnTargets(path:String, excludes:Array<String>) {
 	trace(path);
 	final out = createTargetOutput(target, type, path);
 	final outCmd = BuildTools.buildTarget(target, "golibs/" + out).split(" ");
-	var args:Array<String> = ["-m", "_internal." + main, "-cp", "golibs", "--macro", "Go2hxMacro.init()"];
+	var args:Array<String> = ["-m", "_internal." + main, "-cp", "golibs", "--macro", "Go2hxMacro.init()", "-D", "eval-call-stack-depth=40000"];
 	args = args.concat(outCmd);
 	if (ciBool)
 		args.unshift("haxe");
@@ -538,7 +538,7 @@ function createRunnableStd(name:String, prefix:String, excludeFuncArgs:Array<Str
 	mainPathStd.push(last);
 	mainPathStd.push(last.charAt(0).toUpperCase() + last.substr(1));
 	var mainStd = "_internal." + mainPathStd.join(".");
-	var args = ["-m", mainStd, "-cp", "golibs", "--macro", "Go2hxMacro.init()"].concat(outCmd);
+	var args = ["-m", mainStd, "-cp", "golibs", "--macro", "Go2hxMacro.init()", "-D", "eval-call-stack-depth=40000"].concat(outCmd);
 	// remove ANSI escape codes for colours
 	args.push("-D");
 	args.push("message.no-color");
@@ -579,6 +579,8 @@ private function runInterop() {
 			"golibs",
 			"--macro",
 			"Go2hxMacro.init()",
+			"-D",
+			"eval-call-stack-depth=40000",
 			lib.main
 		];
 		if (ciBool) {

@@ -21,7 +21,7 @@ Import Go libraries into your Haxe projects.
 
 
 ```sh
-haxelib git hxcpp https://github.com/barisyild/hxcpp
+haxelib git hxcpp https://github.com/haxefoundation/hxcpp
 ```
 
 ## Getting started

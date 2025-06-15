@@ -20,12 +20,19 @@ function main() {
 	if (code != 0)
 		throw "failed to compile";
 	final main = "_internal.githubdotcom.go2hx.go4hx.testbed.Testbed";
-	var command = 'haxe -cp golibs -main $main --macro \"Go2hxMacro.init()\" -hl testbed.hl';
-	Sys.println(command);
-	code = Sys.command(command);
+	code = runCommand("haxe", [
+		"-cp",
+		"golibs",
+		"-main",
+		main,
+		"--macro",
+		"Go2hxMacro.init()",
+		"--hl",
+		"testbed.hl",
+	]);
 	if (code != 0)
 		throw "failed to build";
-	command = "hl testbed.hl";
+	final command = "hl testbed.hl";
 	Sys.println(command);
 	code = Sys.command(command);
 	if (code != 0)
@@ -34,4 +41,10 @@ function main() {
 	code = Sys.command("haxelib run go2hx go run ./testbed");
 	if (code != 0)
 		throw "failed to run";
+}
+
+
+function runCommand(cmd:String, args:Array<String>):Int {
+	Sys.println(cmd + " " + args.join(" "));
+	return Sys.command(cmd, args);
 }

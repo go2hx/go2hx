@@ -398,10 +398,11 @@ function spawnTargets(path:String, excludes:Array<String>) {
 	trace(path);
 	final out = createTargetOutput(target, type, path);
 	final outCmd = BuildTools.buildTarget(target, "golibs/" + out).split(" ");
-	var args:Array<String> = ["-m", "_internal." + main, "-cp golibs", "-lib", "go2hx"];
+	var args:Array<String> = ["-m", "_internal." + main, "-cp", "golibs", "--macro", "Go2hxMacro.init()", "-D", "eval-call-stack-depth=40000"];
 	args = args.concat(outCmd);
 	if (ciBool)
 		args.unshift("haxe");
+	args = commandArgs(args);
 	tasks.push({
 		command: ciBool ? "npx" : "haxe",
 		args: args,
@@ -537,12 +538,13 @@ function createRunnableStd(name:String, prefix:String, excludeFuncArgs:Array<Str
 	mainPathStd.push(last);
 	mainPathStd.push(last.charAt(0).toUpperCase() + last.substr(1));
 	var mainStd = "_internal." + mainPathStd.join(".");
-	final args = ["-m", mainStd, "-cp", "golibs", "-lib", "go2hx"].concat(outCmd);
+	var args = ["-m", mainStd, "-cp", "golibs", "--macro", "Go2hxMacro.init()", "-D", "eval-call-stack-depth=40000"].concat(outCmd);
 	// remove ANSI escape codes for colours
 	args.push("-D");
 	args.push("message.no-color");
 	if (ciBool)
 		args.unshift("haxe");
+	args = commandArgs(args);
 	trace(args.join(" "));
 	tasks.push({
 		command: ciBool ? "npx" : "haxe",
@@ -572,12 +574,36 @@ private function runInterop() {
 	Sys.println("RUN INTEROP");
 	final libs:Array<{module:String, excludes:Array<String>, main:String}> = Json.parse(File.getContent("data/testLibs.json"));
 	for (lib in libs) {
-		final command = (ciBool ? "npx haxe" : "haxe") + " -cp golibs -lib go2hx " + lib.main;
-		final code = Sys.command(command);
+		final args = [
+			"-cp",
+			"golibs",
+			"--macro",
+			"Go2hxMacro.init()",
+			"-D",
+			"eval-call-stack-depth=40000",
+			lib.main
+		];
+		if (ciBool) {
+			args.unshift("haxe");
+		}
+		final code = runCommand(ciBool ? "npx" : "haxe", args);
 		if (code != 0) {
-			trace(command);
 			throw "failed to run interop";
 		}
+	}
+}
+
+function runCommand(cmd:String, args:Array<String>):Int {
+	Sys.println(cmd + " " + args.join(" "));
+	return Sys.command(cmd, args);
+}
+
+function commandArgs(args:Array<String>):Array<String> {
+	switch (Sys.systemName()) {
+		case "Windows":
+			return args.map(arg -> haxe.SysTools.quoteWinArg(arg, true));
+		case _:
+			return args.map(haxe.SysTools.quoteUnixArg);
 	}
 }
 

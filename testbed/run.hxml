@@ -1,5 +1,4 @@
 -cp golibs 
-extraParams.hxml
 -main github_com.go2hx.go4hx.testbed.Testbed
 --times
 --hl export/testbed.hl

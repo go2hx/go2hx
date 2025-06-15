@@ -64,13 +64,34 @@ function testbuild(args:Array<String>) {
 }
 
 function testrun(args:Array<String>) {
-	final main = args[1];
+	final main = normalizePath(args[1]);
 	final mainPathStd = main.split("/");
 	final last = mainPathStd.pop() + "dottest";
 	mainPathStd.push(last);
 	mainPathStd.push(last.charAt(0).toUpperCase() + last.substr(1));
 	var mainStd = "_internal." + mainPathStd.join(".");
-	final command = "haxe -cp golibs -lib go2hx -m " + mainStd + " " + args.slice(2).join(" ");
-	trace(command);
-	Sys.command(command);
+	runCommand("haxe", [
+		"-cp",
+		"golibs",
+		"--macro",
+		"Go2hxMacro.init()",
+		"-m",
+		mainStd,
+	].concat(args.slice(2)));
+}
+
+function runCommand(cmd:String, args:Array<String>) {
+	Sys.println(cmd + " " + args.join(" "));
+	return Sys.command(cmd, args);
+}
+
+function normalizePath(path:String):String {
+	path = StringTools.replace(path, ".", "dot");
+	path = StringTools.replace(path, ":", "colon");
+	path = StringTools.replace(path, "go-", "godash");
+	path = StringTools.replace(path, "-", "dash");
+	var path = path.split("/");
+	if (path.length > 0 && path[0] == "vendor")
+		path.shift();
+	return path.join("/");
 }

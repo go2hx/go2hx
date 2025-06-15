@@ -158,14 +158,14 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/st
 -- FAIL: TestNoFixedSize
 
 === RUN  TestNativeEndian
-_std/stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get: #fun}) -> invalidType
+golibs/stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get: #fun}) -> invalidType
 Exception: Unexpected value [], expected instance
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testnativeendian.Binary_testnativeendian_Fields_.testNativeEndian (golibs/stdgo/_internal/encoding/binary/Binary_testnativeendian.hx line 9 column 22)
 Called from local function #1 (golibs/stdgo/_internal/encoding/binary/Binary_t_nativeendian.hx line 40 column 96)
 Called from stdgo._internal.encoding.binary.T_littleEndian_static_extension.uint32 (golibs/stdgo/_internal/encoding/binary/Binary_t_littleendian_static_extension.hx line 67 column 9)
-Called from stdgo._Slice.Slice_Impl_.__get__ (_std/stdgo/Slice.hx line 164 column 3)
-Called from stdgo._Slice.Slice_Impl_.__boundsCheck__ (_std/stdgo/Slice.hx line 156 column 21)
+Called from stdgo._Slice.Slice_Impl_.__get__ (golibs/stdgo/Slice.hx line 164 column 3)
+Called from stdgo._Slice.Slice_Impl_.__boundsCheck__ (golibs/stdgo/Slice.hx line 156 column 21)
 
 -- FAIL: TestNativeEndian
 

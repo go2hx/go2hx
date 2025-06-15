@@ -12,7 +12,7 @@
         |          ^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-    ->  _std/stdgo/Go.macro.hx:673: characters 11-31
+    ->  golibs/stdgo/Go.macro.hx:673: characters 11-31
 
     673 |   var t = Context.typeof(expr);
         |           ^^^^^^^^^^^^^^^^^^^^

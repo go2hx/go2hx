@@ -4,23 +4,23 @@ Exception: not implemented: funcPCABI0
 Called from .stdgo__$internal_internal_abi_Abi_$funcpcabi0_funcPCABI0 (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 12570 column 23)
 Called from .stdgo__$internal_internal_abi_Abi_$funcpctest_funcPCTest (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 12560 column 9)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_abi_$test_Abi_$test_$testfuncpc_testFuncPC [as f] (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:12049:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 46013 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 46073 column 9)
 Called from ._$internal_internal_abidottest_Abidottest_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 39271 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:53315:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:53316:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:53402:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:53403:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestFuncPC
 
 === RUN  TestFuncPCCompileError
 skipping test: 'go build' unavailable: <invalid reflect.Value>Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 46844 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 46858 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:46305:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 46904 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 46918 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:46365:58
 Called from stdgo__$internal_testing_T_$_$asInterface.skipf (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 12817 column 54)
 Called from .stdgo__$internal_internal_testenv_Testenv_$musthavegobuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 12649 column 6)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_abi_$test_Abi_$test_$testfuncpccompileerror_testFuncPCCompileError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:12065:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 46013 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 46073 column 9)
 Called from ._$internal_internal_abidottest_Abidottest_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 39271 column 59)
 
 -- SKIP: TestFuncPCCompileError

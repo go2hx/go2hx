@@ -112,9 +112,9 @@
      |         ^^^^^^^^^^^
      | Unknown identifier : _startTimer
 
-[ERROR] golibs/stdgo/_internal/net/Net_tcpconn.hx:56: characters 70-73
+[ERROR] golibs/stdgo/_internal/net/Net_tcpconn.hx:68: characters 70-73
 
-  56 |     public function get__ok():() -> Bool return @:check32 this._conn._ok;
+  68 |     public function get__ok():() -> Bool return @:check32 this._conn._ok;
      |                                                                      ^^^
      | stdgo._internal.net.T_conn has no field _ok
 
@@ -171,36 +171,6 @@
  104 |         var __tmp__ = _r._multipartReader(false), _mr:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
      |                          ^^^^^^^^^^^^^^^^
      | stdgo.Ref<stdgo._internal.net.http.Request> has no field _multipartReader
-
-[ERROR] golibs/stdgo/_internal/mime/multipart/Multipart_reader_static_extension.hx:465: characters 79-387
-
- 465 |                     var __tmp__ = stdgo._internal.io.Io_copybuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240(stdgo.Go.asInterface(_file)) : stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240)), stdgo.Go.asInterface(_p), _copyBuf), _remainingSize:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-     |                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Module stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240 does not define type T__readForm___localname___writerOnly_5240_asInterface
-
-      ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:329: characters 10-35
-
-      329 |   return load("get_type", 1)(name);
-          |          ^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      ->  golibs/stdgo/Go.macro.hx:368: characters 9-50
-
-      368 |     t = Context.getType(printer.printTypePath(p));
-          |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      455 |      f(ct, params);
-          |      ^^^^^^^^^^^^^
-          | Called from here
-
-      481 |   final result = run();
-          |                  ^^^^^
-          | Called from here
-
-          | Called from here
-
-          | For function argument '_dst'
 
 [ERROR] golibs/stdgo/_internal/net/http/Http_errmissingfile.hx:2: characters 36-73
 

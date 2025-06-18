@@ -13,7 +13,7 @@ Called from _internal.internal.abidottest._Abidottest.$Abidottest_Fields_.main (
 skipping test: 'go build' unavailable: <nil>Exception: __skip__
 Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
 Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 46)
-Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_t_.hx line 75)
+Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_t_.hx line 90)
 Called from stdgo._internal.testing.T__asInterface.skipf (stdgo/_internal/testing/Testing_t__asinterface.hx line 48)
 Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.$Testenv_musthavegobuild_Fields_.mustHaveGoBuild (stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 15)
 Called from _internal.internal.abi_test._Abi_test_testfuncpccompileerror.$Abi_test_testfuncpccompileerror_Fields_.testFuncPCCompileError (_internal/internal/abi_test/Abi_test_testfuncpccompileerror.hx line 4)

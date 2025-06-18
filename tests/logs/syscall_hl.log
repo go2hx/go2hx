@@ -30,7 +30,7 @@ not implemented on js
 Exception: __skip__
 Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
 Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52)
-Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 67)
+Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 80)
 Called from _internal.syscall_test._Syscall_test_testgettimeofday.$Syscall_test_testgettimeofday_Fields_.testGettimeofday (_internal/syscall_test/Syscall_test_testgettimeofday.hx line 6)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.syscalldottest._Syscalldottest.$Syscalldottest_Fields_.main (_internal/syscalldottest/Syscalldottest.hx line 12)

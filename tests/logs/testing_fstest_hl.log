@@ -8,11 +8,11 @@
 -- PASS: TestMapFSChmodDot
 
 === RUN  TestSymlink
-writeFile tmp_e4h4eaoove/hello: no such file or directory
+writeFile tmp_kzm0kpcc7o/hello: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
-Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 43)
+Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 50)
 Called from stdgo._internal.testing.fstest._Fstest_testsymlink.$Fstest_testsymlink_Fields_.testSymlink (stdgo/_internal/testing/fstest/Fstest_testsymlink.hx line 12)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.testing.fstestdottest._Fstestdottest.$Fstestdottest_Fields_.main (_internal/testing/fstestdottest/Fstestdottest.hx line 12)

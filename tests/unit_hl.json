@@ -243,5 +243,8 @@
  "hl|genericAnyCast",
  "hl|generic31",
  "hl|min0",
- "hl|min1"
+ "hl|min1",
+ "hl|blank0",
+ "hl|chan14",
+ "hl|multiassign"
 ]

@@ -14,7 +14,7 @@ Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_intern
 Called from _internal.internal.abi_test._Abi_test_testfuncpccompileerror.Abi_test_testfuncpccompileerror_Fields_.testFuncPCCompileError (golibs/_internal/internal/abi_test/Abi_test_testfuncpccompileerror.hx line 4 column 5)
 Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.Testenv_musthavegobuild_Fields_.mustHaveGoBuild (golibs/stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 15 column 13)
 Called from stdgo._internal.testing.T__asInterface.skipf (golibs/stdgo/_internal/testing/Testing_t__asinterface.hx line 48 column 98)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 75 column 106)
+Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 90 column 106)
 Called from stdgo._internal.testing.T_common_static_extension.skipf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
 

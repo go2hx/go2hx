@@ -97,7 +97,7 @@ Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_inter
 Can't get the size of *.encoding.binary.foo_7241Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testsizestructcache.Binary_testsizestructcache_Fields_.testSizeStructCache (golibs/stdgo/_internal/encoding/binary/Binary_testsizestructcache.hx line 31 column 27)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
+Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
 Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
@@ -151,7 +151,7 @@ Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.rea
 got "binary.Write: some values are not fixed-sized in type *.encoding.binary.Person_12888", want "binary.Write: some values are not fixed-sized in type *binary.Person"Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testnofixedsize.Binary_testnofixedsize_Fields_.testNoFixedSize (golibs/stdgo/_internal/encoding/binary/Binary_testnofixedsize.hx line 16 column 89)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
+Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
 Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
@@ -162,7 +162,7 @@ golibs/stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: poi
 Exception: Unexpected value [], expected instance
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.encoding.binary._Binary_testnativeendian.Binary_testnativeendian_Fields_.testNativeEndian (golibs/stdgo/_internal/encoding/binary/Binary_testnativeendian.hx line 9 column 22)
-Called from local function #1 (golibs/stdgo/_internal/encoding/binary/Binary_t_nativeendian.hx line 40 column 96)
+Called from local function #1 (golibs/stdgo/_internal/encoding/binary/Binary_t_nativeendian.hx line 48 column 96)
 Called from stdgo._internal.encoding.binary.T_littleEndian_static_extension.uint32 (golibs/stdgo/_internal/encoding/binary/Binary_t_littleendian_static_extension.hx line 67 column 9)
 Called from stdgo._Slice.Slice_Impl_.__get__ (golibs/stdgo/Slice.hx line 164 column 3)
 Called from stdgo._Slice.Slice_Impl_.__boundsCheck__ (golibs/stdgo/Slice.hx line 156 column 21)

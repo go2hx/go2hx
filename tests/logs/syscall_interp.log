@@ -28,7 +28,7 @@ not implemented on js
 Exception: __skip__
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.syscall_test._Syscall_test_testgettimeofday.Syscall_test_testgettimeofday_Fields_.testGettimeofday (golibs/_internal/syscall_test/Syscall_test_testgettimeofday.hx line 6 column 17)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 67 column 87)
+Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 80 column 87)
 Called from stdgo._internal.testing.T_common_static_extension.skip (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
 

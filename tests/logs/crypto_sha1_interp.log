@@ -3,7 +3,7 @@ sha1[2](aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ) = 1f19f664d84d901a6cf9bd64507563c0ba369c1a want 76245dbf96f661bd221046197ab8b9f063f11badException: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.crypto.sha1._Sha1_testgolden.Sha1_testgolden_Fields_.testGolden (golibs/stdgo/_internal/crypto/sha1/Sha1_testgolden.hx line 57 column 169)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
+Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
 Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 

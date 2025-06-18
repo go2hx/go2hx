@@ -250,6 +250,10 @@ class GoArrayData<T> {
 		}
 		return vector.set(index + offset, untyped value);
 	}
+	
+	public inline function toString():String {
+		return Std.string(toArray());
+	}
 
 	public inline function toArray():Array<T> { // unrolling
 		if (bytes != null) {

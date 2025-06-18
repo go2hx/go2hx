@@ -8,3 +8,11 @@ function global() {
 function get() {
 	return null;
 }
+
+@:recv(Value)
+function isUndefined()
+	return true;
+
+@:recv(Value)
+function type()
+	return 0;

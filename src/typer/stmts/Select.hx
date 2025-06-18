@@ -66,12 +66,17 @@ function typeSelectStmt(stmt:GoAst.SelectStmt, info:Info):MacroExpr {
 				block = macro $b{[e, block]};
 			} else { // send
 				var stmt:GoAst.SendStmt = comm;
-				final value = typer.exprs.Expr.typeExpr(stmt.value, info);
+				var value = typer.exprs.Expr.typeExpr(stmt.value, info);
 				var e = typer.exprs.Expr.typeExpr(stmt.chan, info);
 				final chanName = "__c__" + defineCount++;
 				defines.push(macro var $chanName = $e);
 				cond = macro $e != null && $i{chanName}.__isSend__(true);
 				resets.push(macro $i{chanName}.__reset__());
+
+				var t = typeof(stmt.chan, info, false);
+				final valueType = typeof(stmt.value, info, false);
+				value = typer.exprs.Expr.explicitConversion(valueType, getElem(t), value, info);
+
 				e = macro $i{chanName}.__send__($value);
 				block = macro $b{[e, block]};
 			}

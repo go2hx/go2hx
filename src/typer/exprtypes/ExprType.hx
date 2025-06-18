@@ -200,8 +200,10 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 		case "Map":
 			mapType({get: () -> typeof(e.key, info, false, paths.copy())}, {get: () -> typeof(e.elem, info, false, paths.copy())});
 		case "Struct":
+			var oldCount = info.blankCounter;
+			info.blankCounter = 0;
 			var t:GoType = structType([
-				for (field in (e.fields : Array<Dynamic>))
+				for (field in (e.fields : Array<Dynamic>)) {
 					{
 						name: formatHaxeFieldName(field.name, info),
 						type: {get: () -> typeof(field.type, info, false, paths.copy())},
@@ -209,8 +211,9 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 						tag: field.tag == null ? "" : field.tag,
 						optional: field.name == "_",
 					}
-
+				}
 			]);
+			info.blankCounter = oldCount;
 			if (!isNamed) {
 				t = getLocalType(e.hash, t, info);
 			}
@@ -881,13 +884,13 @@ function hashTypeToExprType(e:GoAst.Expr, info:Info):GoAst.Expr {
 	}
 }
 
-function toComplexType(e:GoType, info:Info):ComplexType {
+function toComplexType(e:GoType, info:Info, isElem:Bool=false):ComplexType {
 	if (e == null)
 		return null;
 	// return invalidComplexType();
 	return switch e {
 		case refType(_.get() => elem):
-			final ct = toComplexType(elem, info);
+			final ct = toComplexType(elem, info, isElem);
 			TPath({pack: ["stdgo"], name: "Ref", params: [TPType(ct)]});
 		case basic(kind):
 			switch kind {
@@ -942,34 +945,34 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 			if (path == "comparable")
 				return TPath({name: "Comparable", pack: ["stdgo"]});
 			if (path == null) {
-				trace("underlying null path: " + new codegen.Printer().printComplexType(toComplexType(underlying, info)));
+				trace("underlying null path: " + new codegen.Printer().printComplexType(toComplexType(underlying, info, isElem)));
 				throw info.panic() + path;
 			}
 			final p = namedTypePath(path, info);
 			if (params != null)
-				p.params = params.map(param -> TPType(toComplexType(param, info)));
+				p.params = params.map(param -> TPType(toComplexType(param, info, isElem)));
 			TPath(p);
 		case sliceType(_.get() => elem):
-			final ct = toComplexType(elem, info);
+			final ct = toComplexType(elem, info, isElem);
 			var params = [TPType(ct)];
 			if (HaxeAst.isInvalidComplexType(ct)) {
 				params = [TPType(TPath({name: "Dynamic", pack: []}))];
 			}
 			TPath({pack: ["stdgo"], name: "Slice", params: params});
 		case arrayType(_.get() => elem, len):
-			final ct = toComplexType(elem, info);
+			final ct = toComplexType(elem, info, isElem);
 			TPath({pack: ["stdgo"], name: "GoArray", params: [TPType(ct)]});
 		case mapType(_.get() => key, _.get() => value):
-			final ctKey = toComplexType(key, info);
-			final ctValue = toComplexType(value, info);
+			final ctKey = toComplexType(key, info, isElem);
+			final ctValue = toComplexType(value, info, isElem);
 			TPath({pack: ["stdgo"], name: "GoMap", params: [TPType(ctKey), TPType(ctValue)]});
 		case invalidType:
 			HaxeAst.invalidComplexType();
 		case pointerType(_.get() => elem):
-			final ct = toComplexType(elem, info);
+			final ct = toComplexType(elem, info, isElem);
 			TPath({pack: ["stdgo"], name: "Pointer", params: [TPType(ct)]});
 		case chanType(dir, _.get() => elem):
-			final ct = toComplexType(elem, info);
+			final ct = toComplexType(elem, info, isElem);
 			TPath({pack: ["stdgo"], name: "Chan", params: [TPType(ct)]});
 		case structType(fields):
 			var fields = typeFields(fields, info, null, false);
@@ -984,7 +987,7 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 		case signature(variadic, _.get() => params, _.get() => results, _.get() => recv):
 			var args:Array<ComplexType> = [];
 			for (param in params) {
-				args.push(toComplexType(param, info));
+				args.push(toComplexType(param, info, isElem));
 			}
 			var ret:ComplexType = getReturn(results, info);
 			if (variadic) {
@@ -1001,15 +1004,17 @@ function toComplexType(e:GoType, info:Info):ComplexType {
 			}
 			TFunction(args, ret);
 		case _var(_, _.get() => type):
-			toComplexType(type, info);
+			toComplexType(type, info, isElem);
 		case typeParam(name, params):
 			if (info.typeParamMap.exists(name))
-				return toComplexType(info.typeParamMap[name], info);
+				return toComplexType(info.typeParamMap[name], info, isElem);
+			//if (isElem)
+			//	return TPath({name: "Dynamic", pack: []});
 			return TPath({pack: [], name: className(name, info)});
 		case tuple(len, _.get() => vars):
 			var fields:Array<Field> = [];
 			for (i in 0...vars.length) {
-				final t = toComplexType(vars[i], info);
+				final t = toComplexType(vars[i], info, isElem);
 				fields.push({name: '_$i', pos: null, kind: FVar(t)});
 			}
 			TAnonymous(fields);
@@ -1216,6 +1221,7 @@ function typeFields(list:Array<typer.exprtypes.ExprType.FieldType>, info:Info, a
 			meta: meta,
 			doc: doc,
 			access: access == null ? HaxeAst.typeAccess(name, true) : access,
+			// default value for fields
 			kind: FVar(toComplexType(field.type.get(), info), defaultBool ? typer.exprs.Expr.defaultValue(field.type.get(), info, false) : null)
 		});
 	}

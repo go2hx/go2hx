@@ -237,7 +237,7 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):MacroExpr {
 									assigns = assigns.concat(exprs);
 								}
 							case sliceType(_), mapType(_, _):
-								return macro @:_3 $x.__setData__($y);
+								assigns.push(macro @:_3 $x.__setData__($y));
 							case structType(fields):
 								final exprs:Array<Expr> = [
 									for (field in fields) {

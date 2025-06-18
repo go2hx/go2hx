@@ -244,6 +244,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 			kind: TDField(FVar(TPath({name: "Bool", pack: []})), [APrivate]),
 		});
 	pass2(data, info, recvFunctions, pkg);
+	pass2(data, info, recvFunctions, pkg);
 	return data;
 }
 

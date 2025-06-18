@@ -4,6 +4,8 @@
     "internal/reflectlite",
     "reflect",
     "net",
-    "net/http",
-    "crypto/tls"
+    "crypto/tls",
+    "crypto/elliptic",
+    "crypto/ecdh",
+    "crypto/ecdsa"
 ]

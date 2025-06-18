@@ -490,7 +490,7 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 	return toExpr(EBinop(op, x, toExpr(EParenthesis(y))));
 }
 
-function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {
+function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=false):MacroExpr {
 	function ct():ComplexType {
 		return toComplexType(type, info);
 	}
@@ -498,8 +498,8 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {
 		return macro @:unknown_default_value null;
 	return switch type {
 		case mapType(_.get() => key, _.get() => value):
-			final keyComplexType = toComplexType(key, info);
-			final valueComplexType = toComplexType(value, info);
+			final keyComplexType = toComplexType(key, info, true && strict);
+			final valueComplexType = toComplexType(value, info, true && strict);
 			final keyUnderlying = getUnderlying(key);
 			switch keyUnderlying {
 				case structType(_):
@@ -515,10 +515,10 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {
 			}
 			macro(null : stdgo.GoMap<$keyComplexType, $valueComplexType>);
 		case sliceType(_.get() => elem):
-			final t = toComplexType(elem, info);
+			final t = toComplexType(elem, info, true);
 			macro(null : stdgo.Slice<$t>);
 		case arrayType(_.get() => elem, len):
-			final param = toComplexType(elem, info);
+			final param = toComplexType(elem, info, true);
 			final size = makeExpr(len);
 			final cap = size;
 			final p:TypePath = {name: "GoArray", params: [TPType(param)], pack: ["stdgo"]};
@@ -528,7 +528,7 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {
 			final ct = ct();
 			macro(null : $ct);
 		case chanType(_, _.get() => elem):
-			final t = toComplexType(elem, info);
+			final t = toComplexType(elem, info, true && strict);
 			var value = typer.exprs.Expr.defaultValue(elem, info);
 			macro(null : stdgo.Chan<$t>);
 		case pointerType(_.get() => elem):
@@ -542,7 +542,7 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {
 		case signature(_, _, _, _):
 			macro null;
 		case refType(_.get() => elem):
-			final ct = toComplexType(elem, info);
+			final ct = toComplexType(elem, info, true);
 			switch elem {
 				case arrayType(_):
 					final s = typer.exprs.Expr.defaultValue(elem, info, strict);
@@ -636,7 +636,7 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true):MacroExpr {
 					continue;
 				fs.push({
 					field: field.name,
-					expr: typer.exprs.Expr.defaultValue(field.type.get(), info, true),
+					expr: typer.exprs.Expr.defaultValue(field.type.get(), info, true && strict),
 				});
 			}
 			toExpr(EObjectDecl(fs));

@@ -37,6 +37,8 @@ function typeFieldListFieldTypes(list:GoAst.FieldList, info:Info, access:Array<A
 		}
 	}
 	final comments = [];
+	final oldCount = info.blankCounter;
+	info.blankCounter = 0;
 	for (field in list.list) {
 		var type = typeof(field.type, info, false);
 		var tag = "";
@@ -72,6 +74,7 @@ function typeFieldListFieldTypes(list:GoAst.FieldList, info:Info, access:Array<A
 			}
 		}
 	}
+	info.blankCounter = oldCount;
 	return fieldList;
 }
 

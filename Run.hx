@@ -7,6 +7,7 @@ import sys.io.Process;
 final goRequiredVersion = File.getContent(".gorc");
 final home = Sys.getEnv(if (Sys.systemName() == "Windows") "UserProfile" else "HOME");
 final goCommand = executable(home + "/.go/go" + goRequiredVersion + "/bin/go");
+final goRoot = home +  "/.go/go" + goRequiredVersion;
 final goupCommand = executable(home + "/.go/bin/goup");
 
 function main() {
@@ -79,6 +80,8 @@ function main() {
 		final last = args.pop();
 		args.push("-gocmd");
 		args.push(goCommand);
+		args.push("-goroot");
+		args.push(goRoot);
 		args.push(last);
 	}
 	var debug = false;

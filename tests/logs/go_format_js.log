@@ -1,25 +1,25 @@
 === RUN  TestNode
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131749 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131700 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:131042:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnode_testNode [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:46120:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130813 column 9)
-Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 117011 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137825:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137826:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131772 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131723 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:131065:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnode_testNode [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:46143:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130836 column 9)
+Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 117034 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137848:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137849:3)
 
 -- FAIL: TestNode
 
 === RUN  TestNodeNoModify
 Exception: RWMutex:sync.lock is not yet implemented
-Called from .stdgo__$internal_go_parser_Parser_$parsefile_parseFile (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 46442 column 25)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnodenomodify_testNodeNoModify [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:109784:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130813 column 9)
-Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 117011 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137825:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137826:3)
+Called from .stdgo__$internal_go_parser_Parser_$parsefile_parseFile (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 46465 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnodenomodify_testNodeNoModify [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:109807:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130836 column 9)
+Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 117034 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137848:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137849:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -28,27 +28,27 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 === RUN  TestSource
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131749 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131700 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:131042:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testsource_testSource [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:112010:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130813 column 9)
-Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 117011 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137825:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137826:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131772 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131723 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:131065:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testsource_testSource [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:112033:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130836 column 9)
+Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 117034 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137848:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:137849:3)
 
 -- FAIL: TestSource
 
 === RUN  TestPartial
 Exception: RWMutex:sync.lock is not yet implemented
-Called from .stdgo__$internal_go_parser_Parser_$parsefile_parseFile (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 46442 column 25)
-Called from .stdgo__$internal_go_format_Format_$_$parse__parse (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 112043 column 16)
-Called from .stdgo__$internal_go_format_Format_$source_source (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 112024 column 16)
-Called from .stdgo__$internal_go_format_Format_$string_string (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 112373 column 16)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testpartial_testPartial [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:112361:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130813 column 9)
-Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 117011 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137825:1
+Called from .stdgo__$internal_go_parser_Parser_$parsefile_parseFile (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 46465 column 25)
+Called from .stdgo__$internal_go_format_Format_$_$parse__parse (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 112066 column 16)
+Called from .stdgo__$internal_go_format_Format_$source_source (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 112047 column 16)
+Called from .stdgo__$internal_go_format_Format_$string_string (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 112396 column 16)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testpartial_testPartial [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:112384:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 130836 column 9)
+Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 117034 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:137848:1
 
 -- FAIL: TestPartial
 

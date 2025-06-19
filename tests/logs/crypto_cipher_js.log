@@ -1,38 +1,38 @@
 === RUN  TestCBCEncrypterAES
 Exception: crypto/cipher: invalid buffer overlap
-Called from stdgo__$internal_crypto_cipher_T_$cbcEncrypter_$static_$extension.cryptBlocks (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42512 column 24)
-Called from stdgo__$internal_crypto_cipher_T_$cbcEncrypter_$asInterface.cryptBlocks (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 18545 column 69)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testcbcencrypteraes_testCBCEncrypterAES [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14259:14)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48260 column 9)
-Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38703 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57576:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57577:3)
+Called from stdgo__$internal_crypto_cipher_T_$cbcEncrypter_$static_$extension.cryptBlocks (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42535 column 24)
+Called from stdgo__$internal_crypto_cipher_T_$cbcEncrypter_$asInterface.cryptBlocks (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 18568 column 69)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testcbcencrypteraes_testCBCEncrypterAES [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14282:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48283 column 9)
+Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38726 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57599:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57600:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestCBCEncrypterAES
 
 === RUN  TestCBCDecrypterAES
 Exception: crypto/cipher: invalid buffer overlap
-Called from stdgo__$internal_crypto_cipher_T_$cbcDecrypter_$static_$extension.cryptBlocks (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42348 column 24)
-Called from stdgo__$internal_crypto_cipher_T_$cbcDecrypter_$asInterface.cryptBlocks (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 18710 column 69)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testcbcdecrypteraes_testCBCDecrypterAES [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14233:14)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48260 column 9)
-Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38703 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57576:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57577:3)
+Called from stdgo__$internal_crypto_cipher_T_$cbcDecrypter_$static_$extension.cryptBlocks (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42371 column 24)
+Called from stdgo__$internal_crypto_cipher_T_$cbcDecrypter_$asInterface.cryptBlocks (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 18733 column 69)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testcbcdecrypteraes_testCBCDecrypterAES [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14256:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48283 column 9)
+Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38726 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57599:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57600:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestCBCDecrypterAES
 
 === RUN  TestCFBVectors
 Exception: crypto/cipher: invalid buffer overlap
-Called from stdgo__$internal_crypto_cipher_T_$cfb_$static_$extension.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42621 column 24)
-Called from stdgo__$internal_crypto_cipher_T_$cfb_$asInterface.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 19773 column 60)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testcfbvectors_testCFBVectors [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14338:8)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48260 column 9)
-Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38703 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57576:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57577:3)
+Called from stdgo__$internal_crypto_cipher_T_$cfb_$static_$extension.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42644 column 24)
+Called from stdgo__$internal_crypto_cipher_T_$cfb_$asInterface.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 19796 column 60)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testcfbvectors_testCFBVectors [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14361:8)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48283 column 9)
+Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38726 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57599:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57600:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestCFBVectors
@@ -40,11 +40,11 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 === RUN  TestCFBInverse
 Exception: Cannot read properties of null (reading 'read')
 Called from module TypeError: Cannot read properties of null (reading 'read')
-Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testcfbinverse_testCFBInverse [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14279:51)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48260 column 9)
-Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38703 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57576:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57577:3)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testcfbinverse_testCFBInverse [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14302:51)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48283 column 9)
+Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38726 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57599:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57600:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
@@ -63,40 +63,40 @@ Called from TracingChannel.traceSync (node:diagnostics_channel line 322 column 1
 
 === RUN  TestCTR_AES
 Exception: crypto/cipher: invalid buffer overlap
-Called from stdgo__$internal_crypto_cipher_T_$ctr_$static_$extension.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42770 column 24)
-Called from stdgo__$internal_crypto_cipher_T_$ctr_$asInterface.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22259 column 60)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testctr_$aes_testCTR_AES [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14462:9)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48260 column 9)
-Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38703 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57576:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57577:3)
+Called from stdgo__$internal_crypto_cipher_T_$ctr_$static_$extension.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42793 column 24)
+Called from stdgo__$internal_crypto_cipher_T_$ctr_$asInterface.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22282 column 60)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testctr_$aes_testCTR_AES [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14485:9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48283 column 9)
+Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38726 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57599:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57600:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestCTR_AES
 
 === RUN  TestCTR
 Exception: crypto/cipher: invalid buffer overlap
-Called from stdgo__$internal_crypto_cipher_T_$ctr_$static_$extension.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42770 column 24)
-Called from stdgo__$internal_crypto_cipher_T_$ctr_$asInterface.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22259 column 60)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testctr_testCTR [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14427:8)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48260 column 9)
-Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38703 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57576:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57577:3)
+Called from stdgo__$internal_crypto_cipher_T_$ctr_$static_$extension.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42793 column 24)
+Called from stdgo__$internal_crypto_cipher_T_$ctr_$asInterface.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22282 column 60)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testctr_testCTR [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14450:8)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48283 column 9)
+Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38726 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57599:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57600:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestCTR
 
 === RUN  TestAESGCM
 Exception: crypto/aes: invalid buffer overlap
-Called from stdgo__$internal_crypto_aes_T_$aesCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42126 column 24)
-Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 15934 column 63)
-Called from .stdgo__$internal_crypto_cipher_Cipher_$_$newgcmwithnonceandtagsize__newGCMWithNonceAndTagSize (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22490 column 10)
-Called from .stdgo__$internal_crypto_cipher_Cipher_$newgcm_newGCM (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22806 column 9)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testaesgcm_testAESGCM [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14160:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48260 column 9)
-Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38703 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57576:1
+Called from stdgo__$internal_crypto_aes_T_$aesCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42149 column 24)
+Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 15957 column 63)
+Called from .stdgo__$internal_crypto_cipher_Cipher_$_$newgcmwithnonceandtagsize__newGCMWithNonceAndTagSize (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22513 column 10)
+Called from .stdgo__$internal_crypto_cipher_Cipher_$newgcm_newGCM (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22829 column 9)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testaesgcm_testAESGCM [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14183:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48283 column 9)
+Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38726 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57599:1
 
 -- FAIL: TestAESGCM
 
@@ -106,52 +106,52 @@ Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57576:1
 
 === RUN  TestTagFailureOverwrite
 Exception: crypto/aes: invalid buffer overlap
-Called from stdgo__$internal_crypto_aes_T_$aesCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42126 column 24)
-Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 15934 column 63)
-Called from .stdgo__$internal_crypto_cipher_Cipher_$_$newgcmwithnonceandtagsize__newGCMWithNonceAndTagSize (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22490 column 10)
-Called from .stdgo__$internal_crypto_cipher_Cipher_$newgcm_newGCM (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22806 column 9)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testtagfailureoverwrite_testTagFailureOverwrite [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14971:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48260 column 9)
-Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38703 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57576:1
+Called from stdgo__$internal_crypto_aes_T_$aesCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42149 column 24)
+Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 15957 column 63)
+Called from .stdgo__$internal_crypto_cipher_Cipher_$_$newgcmwithnonceandtagsize__newGCMWithNonceAndTagSize (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22513 column 10)
+Called from .stdgo__$internal_crypto_cipher_Cipher_$newgcm_newGCM (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22829 column 9)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testtagfailureoverwrite_testTagFailureOverwrite [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14994:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48283 column 9)
+Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38726 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57599:1
 
 -- FAIL: TestTagFailureOverwrite
 
 === RUN  TestGCMCounterWrap
 Exception: crypto/aes: invalid buffer overlap
-Called from stdgo__$internal_crypto_aes_T_$aesCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42126 column 24)
-Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 15934 column 63)
-Called from .stdgo__$internal_crypto_cipher_Cipher_$_$newgcmwithnonceandtagsize__newGCMWithNonceAndTagSize (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22490 column 10)
-Called from .stdgo__$internal_crypto_cipher_Cipher_$newgcmwithnoncesize_newGCMWithNonceSize (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22803 column 9)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testgcmcounterwrap_testGCMCounterWrap [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14865:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48260 column 9)
-Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38703 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57576:1
+Called from stdgo__$internal_crypto_aes_T_$aesCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42149 column 24)
+Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 15957 column 63)
+Called from .stdgo__$internal_crypto_cipher_Cipher_$_$newgcmwithnonceandtagsize__newGCMWithNonceAndTagSize (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22513 column 10)
+Called from .stdgo__$internal_crypto_cipher_Cipher_$newgcmwithnoncesize_newGCMWithNonceSize (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22826 column 9)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testgcmcounterwrap_testGCMCounterWrap [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14888:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48283 column 9)
+Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38726 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57599:1
 
 -- FAIL: TestGCMCounterWrap
 
 === RUN  TestGCMAsm
 Exception: crypto/aes: invalid buffer overlap
-Called from stdgo__$internal_crypto_aes_T_$aesCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42126 column 24)
-Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 15934 column 63)
-Called from .stdgo__$internal_crypto_cipher_Cipher_$_$newgcmwithnonceandtagsize__newGCMWithNonceAndTagSize (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22490 column 10)
-Called from .stdgo__$internal_crypto_cipher_Cipher_$newgcm_newGCM (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22806 column 9)
-Called from ._newAESGCM (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 14649 column 17)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testgcmasm_testGCMAsm [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14711:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48260 column 9)
-Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38703 column 59)
+Called from stdgo__$internal_crypto_aes_T_$aesCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 42149 column 24)
+Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 15957 column 63)
+Called from .stdgo__$internal_crypto_cipher_Cipher_$_$newgcmwithnonceandtagsize__newGCMWithNonceAndTagSize (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22513 column 10)
+Called from .stdgo__$internal_crypto_cipher_Cipher_$newgcm_newGCM (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22829 column 9)
+Called from ._newAESGCM (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 14672 column 17)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testgcmasm_testGCMAsm [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14734:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48283 column 9)
+Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38726 column 59)
 
 -- FAIL: TestGCMAsm
 
 === RUN  TestOFB
 Exception: crypto/cipher: invalid buffer overlap
-Called from stdgo__$internal_crypto_cipher_T_$ofb_$static_$extension.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 44074 column 24)
-Called from stdgo__$internal_crypto_cipher_T_$ofb_$asInterface.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22333 column 60)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testofb_testOFB [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14926:9)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48260 column 9)
-Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38703 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57576:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57577:3)
+Called from stdgo__$internal_crypto_cipher_T_$ofb_$static_$extension.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 44097 column 24)
+Called from stdgo__$internal_crypto_cipher_T_$ofb_$asInterface.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 22356 column 60)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_crypto_cipher_$test_Cipher_$test_$testofb_testOFB [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:14949:9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 48283 column 9)
+Called from ._$internal_crypto_cipherdottest_Cipherdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js line 38726 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57599:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_cipher.js:57600:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestOFB

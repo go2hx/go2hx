@@ -134,7 +134,7 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 	final argHandler = cli.Args.generate([
 		@doc("Set what command should be used for gocmd get & gocmd mod init")
 		["-gocmd", "--gocmd"] => s -> instance.goCommand = s,
-		["-gocmd", "--gocmd"] => s -> instance.goRoot = s,
+		["-goroot", "--goroot"] => s -> instance.goRoot = s,
 		["-help", "--help", "-h", "--h"] => () -> help = true,
 		@doc("don't run go4hx, set it up manually")
 		["-nogo4hx", "--nogo4hx"] => () -> instance.noRunGo4hx = true, @doc("go test")

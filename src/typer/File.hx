@@ -82,7 +82,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 		}
 	}
 	var typeSpecNames:Array<String> = [];
-	final longNamePrefix = "thenameofthistypeisexactly255byteslongsowhenthecompilerprependsthereflect";
+	final longNamePrefix = "TheNameOfThisTypeIsExactly255BytesLong";
 	for (gen in declGens) {
 		for (spec in gen.specs) { // 2nd pass
 			if (spec == null)

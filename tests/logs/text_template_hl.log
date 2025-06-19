@@ -1,5 +1,5 @@
 Uncaught exception: RWMutex:sync.rLock is not yet implemented
 Called from stdgo._internal.sync.$RWMutex_static_extension.rLock(stdgo/_internal/sync/Sync_rwmutex_static_extension.hx:26)
 Called from stdgo._internal.text.template.$Template_static_extension.parse(stdgo/_internal/text/template/Template_template_static_extension.hx:37)
-Called from fun$17236(stdgo/_internal/text/template/Template__tval.hx:93)
+Called from fun$17238(stdgo/_internal/text/template/Template__tval.hx:93)
 Called from .init(stdgo/_internal/text/template/Template__tval.hx:2)

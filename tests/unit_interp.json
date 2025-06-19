@@ -237,5 +237,8 @@
  "interp|genericAnyCast",
  "interp|generic31",
  "interp|min0",
- "interp|min1"
+ "interp|min1",
+ "interp|blank0",
+ "interp|chan14",
+ "interp|multiassign"
 ]

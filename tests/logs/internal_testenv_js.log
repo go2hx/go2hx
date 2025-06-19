@@ -1,13 +1,13 @@
 === RUN  TestGoToolLocation
 skipping test: 'go build' unavailable: <invalid reflect.Value>Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 45250 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 45264 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_testenv.js:44907:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 45327 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 45341 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_testenv.js:44984:58
 Called from stdgo__$internal_testing_T_$_$asInterface.skipf (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 12943 column 54)
 Called from .stdgo__$internal_internal_testenv_Testenv_$musthavegobuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 12732 column 6)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_testenv_$test_Testenv_$test_$testgotoollocation_testGoToolLocation [as f] (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js:12157:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 44615 column 9)
-Called from ._$internal_internal_testenvdottest_Testenvdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 37724 column 59)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 44692 column 9)
+Called from ._$internal_internal_testenvdottest_Testenvdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 37747 column 59)
 
 -- SKIP: TestGoToolLocation
 
@@ -20,13 +20,13 @@ Called from ._$internal_internal_testenvdottest_Testenvdottest_main (/home/runne
 === RUN  TestMustHaveExec
 - SUBRUN  MustHaveExec
 Exception: :os.executable is not yet implemented
-Called from .stdgo__$internal_os_Os_$executable_executable (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 16560 column 23)
-Called from .stdgo__$internal_internal_testenv_Testenv_$_$tryexec__tryExec (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 16539 column 16)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_testenv.js:16521:73
-Called from stdgo__$internal_sync_Once_$static_$extension.do_ (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 16209 column 2)
-Called from .stdgo__$internal_internal_testenv_Testenv_$musthaveexec_mustHaveExec (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 16520 column 48)
+Called from .stdgo__$internal_os_Os_$executable_executable (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 16583 column 23)
+Called from .stdgo__$internal_internal_testenv_Testenv_$_$tryexec__tryExec (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 16562 column 16)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_testenv.js:16544:73
+Called from stdgo__$internal_sync_Once_$static_$extension.do_ (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 16232 column 2)
+Called from .stdgo__$internal_internal_testenv_Testenv_$musthaveexec_mustHaveExec (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 16543 column 48)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_testenv.js:12302:3
-Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 16285 column 2)
+Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 16308 column 2)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_testenv_$test_Testenv_$test_$testmusthaveexec_testMustHaveExec [as f] (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js:12301:50)
 
 -- FAIL: TestMustHaveExec

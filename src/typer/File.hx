@@ -82,12 +82,13 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 		}
 	}
 	var typeSpecNames:Array<String> = [];
+	final longNamePrefix = "TheNameOfThisTypeIsExactly255BytesLong";
 	for (gen in declGens) {
 		for (spec in gen.specs) { // 2nd pass
 			if (spec == null)
 				continue;
 			if (spec.id == "TypeSpec" && spec.type.id != "InterfaceType" && spec.type.id != "StructType") { // all other specs
-				if (spec.name.name != "_" && typeSpecNames.indexOf(spec.name.name) == -1) {
+				if (spec.name.name != "_" && typeSpecNames.indexOf(spec.name.name) == -1 && (spec.name.name.length < longNamePrefix.length || spec.name.name.substr(0, longNamePrefix.length) != longNamePrefix)) {
 					typeSpecNames.push(spec.name.name);
 					info.data.defs.push(typer.specs.Spec.typeSpec(spec, info, gen.tok == FUNC));
 				}

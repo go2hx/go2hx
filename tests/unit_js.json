@@ -212,5 +212,7 @@
  "js|generic31",
  "js|generic32",
  "js|min0",
- "js|min1"
+ "js|min1",
+ "js|blank0",
+ "js|multiassign"
 ]

@@ -3,7 +3,7 @@ sha1[2](aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ) = 1f19f664d84d901a6cf9bd64507563c0ba369c1a want 76245dbf96f661bd221046197ab8b9f063f11badException: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
-Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
+Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
 Called from stdgo._internal.crypto.sha1._Sha1_testgolden.$Sha1_testgolden_Fields_.testGolden (stdgo/_internal/crypto/sha1/Sha1_testgolden.hx line 57)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.sha1dottest._Sha1dottest.$Sha1dottest_Fields_.main (_internal/crypto/sha1dottest/Sha1dottest.hx line 13)

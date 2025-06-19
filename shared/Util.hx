@@ -78,7 +78,7 @@ function copyDirectoryRecursively(from:String, to:String):Int {
 	#if (sys || hxnodejs)
 	return switch (systemName) {
 		case "Windows":
-			final cmd = "xcopy /E /I " + from + " " + to;
+			final cmd = "xcopy /E /I /Y \"" + (from + "\" \"" + to + "\"").replace("/", "\\").replace("\\", "\\\\");
 			Sys.println(cmd);
 			Sys.command(cmd);
 		default:

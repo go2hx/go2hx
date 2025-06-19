@@ -46,7 +46,7 @@ Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fie
 Glob(`\match.go`) = [] want [match.go]Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
-Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
+Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
 Called from _internal.path.filepath_test._Filepath_test_testnonwindowsglobescape.$Filepath_test_testnonwindowsglobescape_Fields_.testNonWindowsGlobEscape (_internal/path/filepath_test/Filepath_test_testnonwindowsglobescape.hx line 19)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main (_internal/path/filepathdottest/Filepathdottest.hx line 51)
@@ -58,7 +58,7 @@ skipping malloc count in short mode
 Exception: __skip__
 Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
 Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52)
-Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 67)
+Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 80)
 Called from _internal.path.filepath_test._Filepath_test_testclean.$Filepath_test_testclean_Fields_.testClean (_internal/path/filepath_test/Filepath_test_testclean.hx line 36)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main (_internal/path/filepathdottest/Filepathdottest.hx line 51)
@@ -209,7 +209,7 @@ Called from stdgo._internal.os._Os_symlink.$Os_symlink_Fields_.symlink (stdgo/_i
 Called from _internal.path.filepath_test._Filepath_test_testrelativesymlinktoabsolute.$Filepath_test_testrelativesymlinktoabsolute_Fields_.testRelativeSymlinkToAbsolute (_internal/path/filepath_test/Filepath_test_testrelativesymlinktoabsolute.hx line 10)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main (_internal/path/filepathdottest/Filepathdottest.hx line 51)
-Uncaught exception: SysError(Can't delete directory tmp_surtmgpvp0)
+Uncaught exception: SysError(Can't delete directory tmp_ca7y5nimg9)
 Called from sys.$FileSystem.deleteDirectory(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/FileSystem.hx:92)
 Called from stdgo._internal.os._Os_removeall.$Os_removeall_Fields_.removeAll(stdgo/_internal/os/Os_removeall.hx:25)
 Called from stdgo._internal.testing.$T_common_static_extension.~tempDir.1(stdgo/_internal/testing/Testing_t_common_static_extension.hx:20)

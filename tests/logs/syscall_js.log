@@ -4,41 +4,41 @@
 
 === RUN  TestEnv
 Exception: :syscall.setenv is not yet implemented
-Called from .stdgo__$internal_syscall_Syscall_$setenv_setenv (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 13002 column 23)
+Called from .stdgo__$internal_syscall_Syscall_$setenv_setenv (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 13025 column 23)
 Called from ._$internal_syscall_$test_Syscall_$test_$_$testsetgetenv__testSetGetenv (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 11075 column 13)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_syscall_$test_Syscall_$test_$testenv_testEnv [as f] (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:11090:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 39057 column 9)
-Called from ._$internal_syscalldottest_Syscalldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 32064 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:47837:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:47838:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 39125 column 9)
+Called from ._$internal_syscalldottest_Syscalldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 32087 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:47932:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:47933:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestEnv
 
 === RUN  TestExecErrPermutedFds
 Exception: :os.executable is not yet implemented
-Called from .stdgo__$internal_os_Os_$executable_executable (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 13444 column 23)
-Called from .stdgo__$internal_internal_testenv_Testenv_$_$tryexec__tryExec (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 13423 column 16)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:13060:73
-Called from stdgo__$internal_sync_Once_$static_$extension.do_ (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 13081 column 2)
-Called from .stdgo__$internal_internal_testenv_Testenv_$musthaveexec_mustHaveExec (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 13059 column 48)
+Called from .stdgo__$internal_os_Os_$executable_executable (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 13467 column 23)
+Called from .stdgo__$internal_internal_testenv_Testenv_$_$tryexec__tryExec (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 13446 column 16)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:13083:73
+Called from stdgo__$internal_sync_Once_$static_$extension.do_ (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 13104 column 2)
+Called from .stdgo__$internal_internal_testenv_Testenv_$musthaveexec_mustHaveExec (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 13082 column 48)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_syscall_$test_Syscall_$test_$testexecerrpermutedfds_testExecErrPermutedFds [as f] (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:11097:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 39057 column 9)
-Called from ._$internal_syscalldottest_Syscalldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 32064 column 59)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 39125 column 9)
+Called from ._$internal_syscalldottest_Syscalldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 32087 column 59)
 
 -- FAIL: TestExecErrPermutedFds
 
 === RUN  TestGettimeofday
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 39888 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 39916 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:39334:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 39956 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 39984 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:39402:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_syscall_$test_Syscall_$test_$testgettimeofday_testGettimeofday [as f] (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:11114:17)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 39057 column 9)
-Called from ._$internal_syscalldottest_Syscalldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 32064 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:47837:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:47838:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 39125 column 9)
+Called from ._$internal_syscalldottest_Syscalldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 32087 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:47932:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:47933:3)
 
 -- SKIP: TestGettimeofday
 

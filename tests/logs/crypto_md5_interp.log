@@ -2,7 +2,7 @@
 md5[2]() = cdd149ceb5d2f7682b24480ff26d4ca0 want d41d8cd98f00b204e9800998ecf8427eException: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.crypto.md5._Md5_testgolden.Md5_testgolden_Fields_.testGolden (golibs/stdgo/_internal/crypto/md5/Md5_testgolden.hx line 42 column 168)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
+Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
 Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 

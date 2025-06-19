@@ -10,14 +10,14 @@
 === RUN  TestSymlink
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 49018 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 48969 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:48311:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_fstest_Fstest_$testsymlink_testSymlink [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:34237:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 48082 column 9)
-Called from ._$internal_testing_fstestdottest_Fstestdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 40502 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:58581:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:58582:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 49107 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 49058 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:48400:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_fstest_Fstest_$testsymlink_testSymlink [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:34260:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 48171 column 9)
+Called from ._$internal_testing_fstestdottest_Fstestdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 40525 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:58727:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:58728:3)
 
 -- FAIL: TestSymlink
 

@@ -4,11 +4,11 @@ golibs/stdgo/_internal/syscall/js/Js_value_static_extension.hx:80: funclit
 	throw haxe_Exception.thrown("not implemented: call");
 	^
 <ref *1> Error: not implemented: call
-    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_js.js:16523:17)
-    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_js.js:16453:11)
+    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_js.js:16542:17)
+    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_js.js:16472:11)
     at stdgo__$internal_syscall_js_Value_$static_$extension.call (/home/runner/work/go2hx/go2hx/golibs/std_js.js:10846:23)
-    at /home/runner/work/go2hx/go2hx/golibs/std_js.js:46702:115
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_js.js:48388:3)
+    at /home/runner/work/go2hx/go2hx/golibs/std_js.js:46790:115
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_js.js:48476:3)
     at Module._compile (node:internal/modules/cjs/loader:1734:14)
     at Object..js (node:internal/modules/cjs/loader:1899:10)
     at Module.load (node:internal/modules/cjs/loader:1469:32)

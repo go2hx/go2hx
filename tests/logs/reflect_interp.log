@@ -1,252 +1,26 @@
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:5: characters 225-234
+[ERROR] golibs/_internal/reflect_test/Reflect_test__nametests.hx:2: characters 2619-3006
 
-   5 |     public static function _typeSlow( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):stdgo._internal.reflect.Reflect_type_.Type_ return @:check31 (__self__.value ?? throw "null pointer dereference")._typeSlow();
-     |                                                                                                                                                                                                                                 ^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _typeSlow
+ 2 | var _nameTests : stdgo.Slice<_internal.reflect_test.Reflect_test_t_nametest.T_nameTest> = (new stdgo.Slice<_internal.reflect_test.Reflect_test_t_nametest.T_nameTest>(10, 10, ...[(new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.GoInt32>)), ("int32" : stdgo.GoString)) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface(stdgo.Go.asInterface((null : stdgo.Ref<_internal.reflect_test.Reflect_test_d1.D1>))), ("D1" : stdgo.GoString)) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Slice<_internal.reflect_test.Reflect_test_d1.D1>>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Chan<_internal.reflect_test.Reflect_test_d1.D1>>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Pointer<() -> _internal.reflect_test.Reflect_test_d1.D1>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Chan<_internal.reflect_test.Reflect_test_d1.D1>>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Chan<_internal.reflect_test.Reflect_test_d1.D1>>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.AnyInterface>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Ref<_internal.reflect_test.Reflect_test_t__interface_4.T__interface_4>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Pointer<_internal.reflect_test.Reflect_test_thenameofthistypeisexactly255byteslongsowhenthecompilerprependsthereflecttestpackagenameandextrastarthelinkerruntimeandreflectpackageswillhavetocorrectlydecodethesecondlengthb.TheNameOfThisTypeIsExactly255BytesLongSoWhenTheCompilerPrependsTheReflectTestPackageNameAndExtraStarTheLinkerRuntimeAndReflectPackagesWillHaveToCorrectlyDecodeTheSecondLengthB>)), ("TheNameOfThisTypeIsExactly255BytesLongSoWhenTheCompilerPrependsTheReflectTestPackageNameAndExtraStarTheLinkerRuntimeAndReflectPackagesWillHaveToCorrectlyDecodeTheSecondLengthByte0123456789_0123456789_0123456789_0123456789_0123456789_012345678" : stdgo.GoString)) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest)].concat([for (i in 10 ... (10 > 10 ? 10 : 10 : stdgo.GoInt).toBasic()) ({} : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest)])) : stdgo.Slice<_internal.reflect_test.Reflect_test_t_nametest.T_nameTest>);
+   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   | Type not found : _internal.reflect_test.Reflect_test_thenameofthistypeisexactly255byteslongsowhenthecompilerprependsthereflecttestpackagenameandextrastarthelinkerruntimeandreflectpackageswillhavetocorrectlydecodethesecondlengthb
 
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:8: characters 232-236
+    ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
 
-   8 |     public static function _typ( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_> return @:check31 (__self__.value ?? throw "null pointer dereference")._typ();
-     |                                                                                                                                                                                                                                        ^^^^
-     | stdgo._internal.reflect.Value has no field _typ
+    513 |   return load("typeof", 1)(e);
+        |          ^^^^^^^^^^^^^^^^^^^^
+        | Called from here
 
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:11: characters 203-219
+    ->  golibs/stdgo/Go.macro.hx:673: characters 11-31
 
-  11 |     public static function _stringNonString( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):stdgo.GoString return @:check31 (__self__.value ?? throw "null pointer dereference")._stringNonString();
-     |                                                                                                                                                                                                           ^^^^^^^^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _stringNonString
+    673 |   var t = Context.typeof(expr);
+        |           ^^^^^^^^^^^^^^^^^^^^
+        | Called from here
 
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:14: characters 217-226
+    ->  golibs/_internal/reflect_test/Reflect_test__nametests.hx:2: characters 2576-3009
 
-  14 |     public static function _setRunes( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74, _0:stdgo.Slice<stdgo.GoInt32>):Void return @:check31 (__self__.value ?? throw "null pointer dereference")._setRunes(_0);
-     |                                                                                                                                                                                                                         ^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _setRunes
+      2 | var _nameTests : stdgo.Slice<_internal.reflect_test.Reflect_test_t_nametest.T_nameTest> = (new stdgo.Slice<_internal.reflect_test.Reflect_test_t_nametest.T_nameTest>(10, 10, ...[(new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.GoInt32>)), ("int32" : stdgo.GoString)) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface(stdgo.Go.asInterface((null : stdgo.Ref<_internal.reflect_test.Reflect_test_d1.D1>))), ("D1" : stdgo.GoString)) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Slice<_internal.reflect_test.Reflect_test_d1.D1>>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Chan<_internal.reflect_test.Reflect_test_d1.D1>>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Pointer<() -> _internal.reflect_test.Reflect_test_d1.D1>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Chan<_internal.reflect_test.Reflect_test_d1.D1>>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Chan<_internal.reflect_test.Reflect_test_d1.D1>>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.AnyInterface>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Ref<_internal.reflect_test.Reflect_test_t__interface_4.T__interface_4>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest), (new _internal.reflect_test.Reflect_test_t_nametest.T_nameTest(stdgo.Go.toInterface((null : stdgo.Pointer<_internal.reflect_test.Reflect_test_thenameofthistypeisexactly255byteslongsowhenthecompilerprependsthereflecttestpackagenameandextrastarthelinkerruntimeandreflectpackageswillhavetocorrectlydecodethesecondlengthb.TheNameOfThisTypeIsExactly255BytesLongSoWhenTheCompilerPrependsTheReflectTestPackageNameAndExtraStarTheLinkerRuntimeAndReflectPackagesWillHaveToCorrectlyDecodeTheSecondLengthB>)), ("TheNameOfThisTypeIsExactly255BytesLongSoWhenTheCompilerPrependsTheReflectTestPackageNameAndExtraStarTheLinkerRuntimeAndReflectPackagesWillHaveToCorrectlyDecodeTheSecondLengthByte0123456789_0123456789_0123456789_0123456789_0123456789_012345678" : stdgo.GoString)) : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest)].concat([for (i in 10 ... (10 > 10 ? 10 : 10 : stdgo.GoInt).toBasic()) ({} : _internal.reflect_test.Reflect_test_t_nametest.T_nameTest)])) : stdgo.Slice<_internal.reflect_test.Reflect_test_t_nametest.T_nameTest>);
+        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        | Called from here
 
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:17: characters 239-244
-
-  17 |     public static function _send( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74, _0:stdgo._internal.reflect.Reflect_value.Value, _1:Bool):Bool return @:check31 (__self__.value ?? throw "null pointer dereference")._send(_0, _1);
-     |                                                                                                                                                                                                                                               ^^^^^
-     | stdgo._internal.reflect.Value has no field _send
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:20: characters 205-211
-
-  20 |     public static function _runes( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):stdgo.Slice<stdgo.GoInt32> return @:check31 (__self__.value ?? throw "null pointer dereference")._runes();
-     |                                                                                                                                                                                                             ^^^^^^
-     | stdgo._internal.reflect.Value has no field _runes
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:23: characters 221-224
-
-  23 |     public static function _ro( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):stdgo._internal.reflect.Reflect_t_flag.T_flag return @:check31 (__self__.value ?? throw "null pointer dereference")._ro();
-     |                                                                                                                                                                                                                             ^^^
-     | stdgo._internal.reflect.Value has no field _ro
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:26: characters 259-264
-
-  26 |     public static function _recv( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74, _0:Bool):{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } return @:check31 (__self__.value ?? throw "null pointer dereference")._recv(_0);
-     |                                                                                                                                                                                                                                                                   ^^^^^
-     | stdgo._internal.reflect.Value has no field _recv
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:29: characters 224-232
-
-  29 |     public static function _pointer( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):stdgo._internal.unsafe.Unsafe.UnsafePointer return @:check31 (__self__.value ?? throw "null pointer dereference")._pointer();
-     |                                                                                                                                                                                                                                ^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _pointer
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:32: characters 189-201
-
-  32 |     public static function _panicNotMap( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):Void return @:check31 (__self__.value ?? throw "null pointer dereference")._panicNotMap();
-     |                                                                                                                                                                                             ^^^^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _panicNotMap
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:35: characters 190-203
-
-  35 |     public static function _panicNotBool( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):Void return @:check31 (__self__.value ?? throw "null pointer dereference")._panicNotBool();
-     |                                                                                                                                                                                              ^^^^^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _panicNotBool
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:38: characters 196-215
-
-  38 |     public static function _mustBeExportedSlow( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):Void return @:check31 (__self__.value ?? throw "null pointer dereference")._mustBeExportedSlow();
-     |                                                                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _mustBeExportedSlow
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:41: characters 192-207
-
-  41 |     public static function _mustBeExported( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):Void return @:check31 (__self__.value ?? throw "null pointer dereference")._mustBeExported();
-     |                                                                                                                                                                                                ^^^^^^^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _mustBeExported
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:44: characters 198-219
-
-  44 |     public static function _mustBeAssignableSlow( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):Void return @:check31 (__self__.value ?? throw "null pointer dereference")._mustBeAssignableSlow();
-     |                                                                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _mustBeAssignableSlow
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:47: characters 194-211
-
-  47 |     public static function _mustBeAssignable( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):Void return @:check31 (__self__.value ?? throw "null pointer dereference")._mustBeAssignable();
-     |                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _mustBeAssignable
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:50: characters 230-237
-
-  50 |     public static function _mustBe( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74, _0:stdgo._internal.reflect.Reflect_kind.Kind):Void return @:check31 (__self__.value ?? throw "null pointer dereference")._mustBe(_0);
-     |                                                                                                                                                                                                                                      ^^^^^^^
-     | stdgo._internal.reflect.Value has no field _mustBe
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:53: characters 196-208
-
-  53 |     public static function _lenNonSlice( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):stdgo.GoInt return @:check31 (__self__.value ?? throw "null pointer dereference")._lenNonSlice();
-     |                                                                                                                                                                                                    ^^^^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _lenNonSlice
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:56: characters 219-224
-
-  56 |     public static function _kind( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):stdgo._internal.reflect.Reflect_kind.Kind return @:check31 (__self__.value ?? throw "null pointer dereference")._kind();
-     |                                                                                                                                                                                                                           ^^^^^
-     | stdgo._internal.reflect.Value has no field _kind
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:59: characters 198-203
-
-  59 |     public static function _grow( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74, _0:stdgo.GoInt):Void return @:check31 (__self__.value ?? throw "null pointer dereference")._grow(_0);
-     |                                                                                                                                                                                                      ^^^^^
-     | stdgo._internal.reflect.Value has no field _grow
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:62: characters 244-256
-
-  62 |     public static function _extendSlice( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74, _0:stdgo.GoInt):stdgo._internal.reflect.Reflect_value.Value return @:check31 (__self__.value ?? throw "null pointer dereference")._extendSlice(_0);
-     |                                                                                                                                                                                                                                                    ^^^^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _extendSlice
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:65: characters 196-208
-
-  65 |     public static function _capNonSlice( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):stdgo.GoInt return @:check31 (__self__.value ?? throw "null pointer dereference")._capNonSlice();
-     |                                                                                                                                                                                                    ^^^^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _capNonSlice
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:68: characters 314-319
-
-  68 |     public static function _call( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74, _0:stdgo.GoString, _1:stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>):stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value> return @:check31 (__self__.value ?? throw "null pointer dereference")._call(_0, _1);
-     |                                                                                                                                                                                                                                                                                                                          ^^^^^
-     | stdgo._internal.reflect.Value has no field _call
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:71: characters 209-219
-
-  71 |     public static function _bytesSlow( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74):stdgo.Slice<stdgo.GoUInt8> return @:check31 (__self__.value ?? throw "null pointer dereference")._bytesSlow();
-     |                                                                                                                                                                                                                 ^^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _bytesSlow
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_t__struct_74_static_extension.hx:74: characters 352-361
-
-  74 |     public static function _assignTo( __self__:_internal.reflect_test.Reflect_test_t__struct_74.T__struct_74, _0:stdgo.GoString, _1:stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>, _2:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo._internal.reflect.Reflect_value.Value return @:check31 (__self__.value ?? throw "null pointer dereference")._assignTo(_0, _1, _2);
-     |                                                                                                                                                                                                                                                                                                                                                                ^^^^^^^^^
-     | stdgo._internal.reflect.Value has no field _assignTo
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_teststructofexportrules.hx:113: characters 232-289
-
- 113 | ({ _field : ({ name : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), type : stdgo._internal.reflect.Reflect_typeof.typeOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new _internal.reflect_test.Reflect_test_t__934type.T__934Type() : _internal.reflect_test.Reflect_test_t__934type.T__934Type)))) } : stdgo._internal.reflect.Reflect_structfield.StructField), _mustPanic : true, _exported : false } : _internal.reflect_test.Reflect_test_t__struct_98.T__struct_98),
-     |                                                                                                                                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.reflect_test.Reflect_test_t__934type
-
-      113 | ({ _field : ({ name : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), type : stdgo._internal.reflect.Reflect_typeof.typeOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new _internal.reflect_test.Reflect_test_t__934type.T__934Type() : _internal.reflect_test.Reflect_test_t__934type.T__934Type)))) } : stdgo._internal.reflect.Reflect_structfield.StructField), _mustPanic : true, _exported : false } : _internal.reflect_test.Reflect_test_t__struct_98.T__struct_98),
-          |                                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      ->  golibs/stdgo/Go.macro.hx:673: characters 11-31
-
-      673 |   var t = Context.typeof(expr);
-          |           ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
-
-      513 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      ->  golibs/_internal/reflect_test/Reflect_test_teststructofexportrules.hx:113: characters 144-291
-
-      113 | ({ _field : ({ name : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), type : stdgo._internal.reflect.Reflect_typeof.typeOf(stdgo.Go.toInterface(stdgo.Go.asInterface((new _internal.reflect_test.Reflect_test_t__934type.T__934Type() : _internal.reflect_test.Reflect_test_t__934type.T__934Type)))) } : stdgo._internal.reflect.Reflect_structfield.StructField), _mustPanic : true, _exported : false } : _internal.reflect_test.Reflect_test_t__struct_98.T__struct_98),
-          |                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      ->  golibs/stdgo/Go.macro.hx:308: lines 308-313
-
-      308 |   final selfType = Context.typeof(switch expr.expr {
-        - |     [...]
-      313 |   });
-          |
-          | Called from here
-
-      ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
-
-      513 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-          | For function argument '_i'
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_teststructofexportrules.hx:118: characters 29-35
-
- 118 |         for (_i => _test in _tests) {
-     |                             ^^^^^^
-     | You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_testexported.hx:18: characters 253-318
-
-  18 | (new _internal.reflect_test.Reflect_test_t_testexported___localname___exporttest_196198.T_testExported___localname___exportTest_196198(stdgo.Go.toInterface(stdgo.Go.asInterface((new _internal.reflect_test.Reflect_test_t__934exported.T__934Exported() : _internal.reflect_test.Reflect_test_t__934exported.T__934Exported))), true) : _internal.reflect_test.Reflect_test_t_testexported___localname___exporttest_196198.T_testExported___localname___exportTest_196198),
-     |                                                                                                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.reflect_test.Reflect_test_t__934exported
-
-       18 | (new _internal.reflect_test.Reflect_test_t_testexported___localname___exporttest_196198.T_testExported___localname___exportTest_196198(stdgo.Go.toInterface(stdgo.Go.asInterface((new _internal.reflect_test.Reflect_test_t__934exported.T__934Exported() : _internal.reflect_test.Reflect_test_t__934exported.T__934Exported))), true) : _internal.reflect_test.Reflect_test_t_testexported___localname___exporttest_196198.T_testExported___localname___exportTest_196198),
-          |                                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      ->  golibs/stdgo/Go.macro.hx:673: characters 11-31
-
-      673 |   var t = Context.typeof(expr);
-          |           ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
-
-      513 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      ->  golibs/_internal/reflect_test/Reflect_test_testexported.hx:18: characters 157-320
-
-       18 | (new _internal.reflect_test.Reflect_test_t_testexported___localname___exporttest_196198.T_testExported___localname___exportTest_196198(stdgo.Go.toInterface(stdgo.Go.asInterface((new _internal.reflect_test.Reflect_test_t__934exported.T__934Exported() : _internal.reflect_test.Reflect_test_t__934exported.T__934Exported))), true) : _internal.reflect_test.Reflect_test_t_testexported___localname___exporttest_196198.T_testExported___localname___exportTest_196198),
-          |                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      ->  golibs/stdgo/Go.macro.hx:308: lines 308-313
-
-      308 |   final selfType = Context.typeof(switch expr.expr {
-        - |     [...]
-      313 |   });
-          |
-          | Called from here
-
-      ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
-
-      513 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-          | For optional function argument '_v'
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_testexported.hx:25: characters 29-41
-
-  25 |         for (_i => _test in _exportTests) {
-     |                             ^^^^^^^^^^^^
-     | You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
-
-[ERROR] golibs/_internal/reflect_test/Reflect_test_testsetiter.hx:103: characters 19-32
-
- 103 |             x.set(_a__pointer__, _b__pointer__);
-     |                   ^^^^^^^^^^^^^
-     | error: stdgo.GoInt should be stdgo.Pointer<stdgo.GoInt>
-     | have: stdgo.Pointer<stdgo.GoInt>
-     | want: stdgo.Pointer<stdgo.Pointer<...>>
+        | For optional function argument '_v'
 

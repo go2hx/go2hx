@@ -505,7 +505,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 						}
 						final fieldName = field.name;
 						final f:haxe.macro.Expr.Function = {args: []};
-						f.params = typer.HaxeAst.typeParamDeclsToTypeParams(params)
+						f.params = typer.HaxeAst.typeParamDeclsToTypeParams(params);
 						f.args = [
 							for (i in 0...args.length)
 								({

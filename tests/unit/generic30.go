@@ -1,10 +1,21 @@
 package main
 
 func main() {
-	x := new(nistCurve[nistPointStruct])
-	_ = x
-	//x.newPoint().Bytes()
+	x := &nistCurve[*P224Point]{
+		newPoint: func() *P224Point { return NewP224Point() },
+	}
+	x.newPoint().Bytes()
 }
+
+func NewP224Point() *P224Point {
+	return &P224Point{}
+}
+
+func (p *P224Point) Bytes() []byte {
+	return []byte{}
+}
+
+type P224Point struct{}
 
 type nistCurve[Point nistPoint[Point]] struct {
 	newPoint func() Point
@@ -23,6 +34,5 @@ type nistPoint[T any] interface {
 }
 
 func (curve *nistCurve[Point]) pointToAffine(p Point) {
-	out := p.Bytes()
-	_ = out
+	_ = p.Bytes()
 }

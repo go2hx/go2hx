@@ -533,7 +533,7 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 			macro(null : stdgo.Chan<$t>);
 		case pointerType(_.get() => elem):
 			switch elem {
-				case typeParam(_, _):
+				case typeParam(_, _), typeParamConstraint(_, _):
 					macro null;
 				default:
 					final t = toComplexType(elem, info);
@@ -651,7 +651,7 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 					}
 				}
 			]));
-		case typeParam(name, _):
+		case typeParam(name, _), typeParamConstraint(name, _):
 			// null;
 			if (strict) {
 				final t = TPath({name: className(name, info), pack: []});

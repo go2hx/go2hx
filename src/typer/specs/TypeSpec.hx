@@ -487,8 +487,9 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 				isExtern: true,
 				meta: [{name: ":keep", pos: null},],
 			};
-			if (!HaxeAst.alreadyExistsTypeDef(staticExtension, info))
-				info.data.defs.push(staticExtension);
+			// Do not add static extension for interface
+			//if (!HaxeAst.alreadyExistsTypeDef(staticExtension, info))
+			//	info.data.defs.push(staticExtension);
 			final fields:Array<haxe.macro.Expr.Field> = typer.fields.FieldList.typeFieldListMethods(struct.methods, info);
 			final wrapper = macro class Wrapper {};
 			for (i in 0...fields.length) {

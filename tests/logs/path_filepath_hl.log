@@ -209,7 +209,7 @@ Called from stdgo._internal.os._Os_symlink.$Os_symlink_Fields_.symlink (stdgo/_i
 Called from _internal.path.filepath_test._Filepath_test_testrelativesymlinktoabsolute.$Filepath_test_testrelativesymlinktoabsolute_Fields_.testRelativeSymlinkToAbsolute (_internal/path/filepath_test/Filepath_test_testrelativesymlinktoabsolute.hx line 10)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main (_internal/path/filepathdottest/Filepathdottest.hx line 51)
-Uncaught exception: SysError(Can't delete directory tmp_ca7y5nimg9)
+Uncaught exception: SysError(Can't delete directory tmp_ryntd89fnz)
 Called from sys.$FileSystem.deleteDirectory(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/FileSystem.hx:92)
 Called from stdgo._internal.os._Os_removeall.$Os_removeall_Fields_.removeAll(stdgo/_internal/os/Os_removeall.hx:25)
 Called from stdgo._internal.testing.$T_common_static_extension.~tempDir.1(stdgo/_internal/testing/Testing_t_common_static_extension.hx:20)

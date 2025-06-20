@@ -1,6 +1,6 @@
 [ERROR] golibs/stdgo/_internal/go/build/Build__parsegoembed.hx:103: characters 21-45
 
- 103 |                     _iterator_5997879 = 0i64;
+ 103 |                     _iterator_5675253 = 0i64;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^
      | haxe.Int64 should be Null<Int>
 

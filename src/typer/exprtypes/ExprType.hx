@@ -59,13 +59,21 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 			typeof(info.global.hashMapTypes[e.hash], info, isNamed, paths.copy());
 		case "TypeParam":
 			var constraint = hashTypeToExprType(e.constraint, info);
-			if (constraint != null && constraint.embeds == null) {
+			final hasMethods = constraint.methods != null && constraint.methods.length > 0;
+			if (constraint != null && constraint.embeds == null && !hasMethods) {
 				constraint = hashTypeToExprType(constraint.underlying, info);
 			}
 			if (info.typeParamMap.exists(e.name))
 				return info.typeParamMap[e.name];
 			if (constraint == null || constraint.embeds == null || constraint.embeds.length == 0) {
-				typeParam(e.name, [interfaceType(true, [])]);
+				// this
+				if (hasMethods) {
+					final t = typeof(e.constraint, info, false, paths.copy());
+					//trace(hashTypeToExprType(e.constraint, info));
+					typeParamConstraint(e.name, [t]);
+				}else{
+					typeParam(e.name, [interfaceType(true, [])]);
+				}
 			} else {
 				final terms:Array<Dynamic> = hashTypeToExprType(constraint.embeds[0], info).terms;
 				if (terms == null) {
@@ -365,6 +373,7 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 }
 
 enum GoType {
+	typeParamConstraint(name:String, params:Array<GoType>);
 	typeParam(name:String, params:Array<GoType>);
 	invalidType;
 	signature(variadic:Bool, params:Ref<Array<GoType>>, results:Ref<Array<GoType>>, recv:Ref<GoType>, ?typeParams:Ref<Array<GoType>>);
@@ -1005,6 +1014,12 @@ function toComplexType(e:GoType, info:Info, isElem:Bool=false):ComplexType {
 			TFunction(args, ret);
 		case _var(_, _.get() => type):
 			toComplexType(type, info, isElem);
+		case typeParamConstraint(name, params):
+			if (info.typeParamMap.exists(name))
+				return toComplexType(info.typeParamMap[name], info, isElem);
+			//if (isElem)
+			//	return TPath({name: "Dynamic", pack: []});
+			return TPath({pack: [], name: className(name, info)});
 		case typeParam(name, params):
 			if (info.typeParamMap.exists(name))
 				return toComplexType(info.typeParamMap[name], info, isElem);
@@ -1103,7 +1118,7 @@ function addPointerSuffix(ct:ComplexType, info:Info) {
 
 function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bool):MacroExpr {
 	return switch t {
-		case typeParam(name, params):
+		case typeParam(name, params), typeParamConstraint(name, params):
 			final name = HaxeAst.makeString(name);
 			final params = macro [];
 			macro stdgo._internal.internal.reflect.GoType.typeParam($name, {get: () -> params});
@@ -1298,9 +1313,9 @@ function goTypesEqual(a:GoType, b:GoType, depth:Int):Bool {
 				default:
 					false;
 			}
-		case typeParam(_, params):
+		case typeParam(_, params), typeParamConstraint(_, params):
 			switch b {
-				case typeParam(_, params2):
+				case typeParam(_, params2), typeParamConstraint(_, params2):
 					if (params.length != params2.length) {
 						false;
 					} else {

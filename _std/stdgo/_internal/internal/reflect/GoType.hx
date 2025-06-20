@@ -1,6 +1,7 @@
 package stdgo._internal.internal.reflect;
 enum GoType {
 	typeParam(name:String, params:Array<GoType>);
+	typeParamConstraint(name:String, params:Array<GoType>);
 	invalidType;
 	signature(variadic:Bool, params:GoTypeRef<Array<GoType>>, results:GoTypeRef<Array<GoType>>, recv:GoTypeRef<GoType>, ?typeParams:GoTypeRef<Array<GoType>>);
 	basic(kind:BasicKind);

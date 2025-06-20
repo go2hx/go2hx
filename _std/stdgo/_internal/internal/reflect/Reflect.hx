@@ -1069,7 +1069,7 @@ class _Type {
 		var gt:GoType = @:privateAccess (t : Dynamic)._common();
 		gt = getUnderlying(gt);
 		return switch gt {
-			case typeParam(_, _):
+			case typeParam(_, _), typeParamConstraint(_, _):
 				0;
 			case basic(kind):
 				switch kind {

@@ -132,11 +132,17 @@ function typeGenericFunction(func:IntermediateFunctionType, finalDoc, comboList:
 	for (i in 0...comboList.length) {
 		final t = comboList[i];
 		final name = genericTypeName(t);
-		if (name != "") {
-			params.push({name: className(name, info)});
+		final param:TypeParamDecl = {name: className(name, info)};
+		if (name != "" || genericTypes[i].constraint) {
+			if (genericTypes[i].constraint) {
+				final t = getElem(getUnderlying(genericTypes[i].types[0]));
+				final constraint = toComplexType(t, info);
+				param.constraints = [constraint];
+			}
+			params.push(param);
 		}
 		final genericTypeName = genericTypes[i].name;
-		info.typeParamMap[genericTypeName] = t;
+		//info.typeParamMap[genericTypeName] = t;
 	}
 	final args = getArgs(func, info);
 	final meta = [];
@@ -210,6 +216,8 @@ function getGenericTypes(func:IntermediateFunctionType, info):Array<GenericType>
 			switch param {
 				case typeParam(name, params):
 					makeGenericTypes(name, params, genericTypes);
+				case typeParamConstraint(name, params):
+					makeGenericTypes(name, params, genericTypes, true);
 				default:
 					throw "unknown param: " + param;
 			}
@@ -235,10 +243,13 @@ function getGenericTypes(func:IntermediateFunctionType, info):Array<GenericType>
 	}
 	for (genericType in genericTypes) {
 		for (i in 0...genericType.types.length) {
-			if (isAnyInterface(genericType.types[i])) {
+			if (isAnyInterface(genericType.types[i]) || genericType.constraint) {
 				//genericType.types.push(named("T__", [], refType({get: () -> invalidType}), true, {get: () -> [previouslyNamed(genericType.name)]}));
 				//genericTypes.remove(genericType);
-				genericType.types[i] = named("T__", [], refType({get: () -> invalidType}), true, {get: () -> [previouslyNamed(genericType.name)]});
+				var t = invalidType;
+				if (genericType.constraint)
+					t = genericType.types[i];
+				genericType.types[i] = named("T__", [], refType({get: () -> t}), true, {get: () -> [previouslyNamed(genericType.name)]});
 			}
 		}
 	}
@@ -254,7 +265,7 @@ function genericTypeName(t:GoType):String {
 	}
 }
 
-function makeGenericTypes(name:String, types:Array<GoType>, genericTypes:Array<GenericType>) {
+function makeGenericTypes(name:String, types:Array<GoType>, genericTypes:Array<GenericType>, constraint:Bool=false) {
 	final duplicateTypes:Array<GoType> = [];
 	types = [for (type in types) replaceNumber(type)];
 	for (i in 0...types.length) {
@@ -272,6 +283,7 @@ function makeGenericTypes(name:String, types:Array<GoType>, genericTypes:Array<G
 	genericTypes.push({
 		name: name,
 		types: types,
+		constraint: constraint,
 	});
 }
 
@@ -643,9 +655,11 @@ function getSkipTestBlock(cond, block, func:IntermediateFunctionType, info) {
 private class GenericType {
 	public var name:String = "";
 	public var types:Array<GoType> = [];
+	public var constraint:Bool = false;
 
-	public function new(name, types) {
+	public function new(name, types, constraint=false) {
 		this.name = name;
 		this.types = types;
+		this.constraint = constraint;
 	}
 }

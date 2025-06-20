@@ -462,9 +462,11 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 			return cl;
 		case "InterfaceType": // type interface
 			var struct:GoAst.InterfaceType = spec.type;
+
+			final params = typer.fields.FieldList.getParams(spec.params, info, true);
+
 			if (struct.methods.list.length == 0 && !struct.incomplete) {
 				final meta:Metadata = [{name: ":follow", pos: null}];
-				final params = typer.fields.FieldList.getParams(spec.params, info, true);
 				return {
 					name: name,
 					pos: null,
@@ -503,6 +505,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 						}
 						final fieldName = field.name;
 						final f:haxe.macro.Expr.Function = {args: []};
+						f.params = typer.HaxeAst.typeParamDeclsToTypeParams(params)
 						f.args = [
 							for (i in 0...args.length)
 								({
@@ -514,13 +517,13 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 						if (!HaxeAst.isVoid(f.ret))
 							f.expr = macro return ${f.expr};
 						field.meta.push({name: ":interfacetypefprop", pos: null});
-						f.args.unshift({name: "t", type: TPath({name: splitDepFullPathName(name, info), pack: []})});
+						f.args.unshift({name: "t", type: TPath({name: splitDepFullPathName(name, info), pack: [], params: typer.HaxeAst.typeParamDeclsToTypeParams(params)})});
 						// interface struct creation
 						HaxeAst.addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
 						f.expr = null;
 						f.args.shift();
 					case FFun(f):
-						// f.args.unshift({})
+						f.params = params;
 						final args = [for (arg in f.args) macro $i{arg.name}];
 						if (f.args.length > 0 && HaxeAst.isRestType(f.args[f.args.length - 1].type)) {
 							args[args.length - 1] = macro...$e{args[args.length - 1]};
@@ -529,7 +532,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 						f.expr = macro t.$fieldName($a{args});
 						if (!HaxeAst.isVoid(f.ret))
 							f.expr = macro return ${f.expr};
-						f.args.unshift({name: "t", type: TPath({name: splitDepFullPathName(name, info), pack: []})});
+						f.args.unshift({name: "t", type: TPath({name: splitDepFullPathName(name, info), pack: [], params: typer.HaxeAst.typeParamDeclsToTypeParams(params)})});
 						if (field.meta == null)
 							field.meta = [];
 						field.meta.push({name: ":interfacetypeffun", pos: null});

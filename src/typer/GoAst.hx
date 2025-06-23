@@ -314,7 +314,7 @@ typedef StructType = {
 	struct:Pos,
 	fields:FieldList,
 	incomplete:Bool,
-	type:ExprType,
+	//type:ExprType,
 };
 
 typedef PointerType = {
@@ -341,7 +341,7 @@ typedef InterfaceType = {
 	// interface TODO: turn interface -> inter
 	methods:FieldList,
 	incomplete:Bool,
-	type:ExprType,
+	//type:ExprType,
 };
 
 typedef MapType = {

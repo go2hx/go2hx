@@ -527,19 +527,22 @@ func parseLocalPackage(pkg *packages.Package, pkgData *PackageData, excludes map
 	if excludes[pkg.PkgPath] {
 		return
 	}
+	var countStruct = 0
+	var countInterface = 0
 	excludes[pkg.PkgPath] = true
 	for _, file := range pkg.Syntax {
 		_ = file
-		parseLocalFile(file, pkg, pkgData)
+		parseLocalFile(file, pkg, pkgData, &countStruct, &countInterface)
 	}
 }
 
-func parseLocalFile(file *ast.File, pkg *packages.Package, pkgData *PackageData) {
+func parseLocalFile(file *ast.File, pkg *packages.Package, pkgData *PackageData, countStruct *int, countInterface *int) {
+
 	checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 	hashType2 := func(t types.Type) (value uint32) {
 		return hashType(t, pkgData)
 	}
-	analysis.ParseLocalTypes(file, pkg, checker, hashType2, &countStruct, &countInterface)
+	analysis.ParseLocalTypes(file, pkg, checker, hashType2, countStruct, countInterface)
 	analysis.ParseLocalConstants(file, pkg, checker)
 	analysis.ParseLocalPointers(file, checker, pkg.Fset, false)
 	// println("parseLocalFile", pkg.PkgPath, file.Name.Name)
@@ -598,9 +601,6 @@ func mergePackageToFile(pkg *packages.Package) *ast.File {
 	}
 	return ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, 0)
 }
-
-var countStruct = 0
-var countInterface = 0
 
 func hashType(t types.Type, pkg *PackageData) (value uint32) {
 	e := pkg.typeMap.At(t)
@@ -1444,7 +1444,7 @@ func parseData(node interface{}, pkg *PackageData) map[string]interface{} {
 		data["type"] = parseType(pkg.checker.TypeOf(node), map[string]bool{}, pkg)
 	case *ast.IndexExpr, *ast.IndexListExpr, *ast.Ellipsis:
 		data["type"] = parseType(pkg.checker.TypeOf(node.(ast.Expr)), map[string]bool{}, pkg)
-	case *ast.InterfaceType, *ast.MapType, *ast.ArrayType, *ast.ChanType, *ast.FuncType, *ast.StructType:
+	case *ast.MapType, *ast.ArrayType, *ast.ChanType, *ast.FuncType:
 		data["type"] = parseType(pkg.checker.TypeOf(node.(ast.Expr)), map[string]bool{}, pkg)
 	case *ast.TypeAssertExpr:
 	case *ast.UnaryExpr:

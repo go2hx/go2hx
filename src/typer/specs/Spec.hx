@@ -20,7 +20,10 @@ function typeSpec(spec:GoAst.TypeSpec, info:Info, local:Bool = false):TypeDefini
 					nameType = named(className(path, info), [], structType(fields), spec.assign != 0 || local, {get: () -> null});
 				default:
 			}
-			if (hash != 0) {
+			/*if (hash != 0) {
+				info.locals[hash] = nameType;
+			}*/
+			if (StringTools.startsWith(className(path, info), "T__struct_")) {
 				info.locals[hash] = nameType;
 			}
 		}

@@ -23,9 +23,12 @@ function typeSpec(spec:GoAst.TypeSpec, info:Info, local:Bool = false):TypeDefini
 			/*if (hash != 0) {
 				info.locals[hash] = nameType;
 			}*/
-			if (StringTools.startsWith(className(path, info), "T__struct_")) {
+			if (StringTools.startsWith(className(path, info), "T__struct_") || spec.type.id != "StructType") {
 				info.locals[hash] = nameType;
 			}
+			/*if (StringTools.startsWith(className(path, info), "T__struct_")) {
+				info.locals[hash] = nameType;
+			}*/
 		}
 	}
 	if (spec.type != null) {

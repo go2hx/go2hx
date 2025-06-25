@@ -4,7 +4,6 @@
 	"syscall",
 	"os",
 	"os/exec",
-	"context",
 	"testing",
 	"testing/internal/testdeps",
 	"runtime",
@@ -17,9 +16,11 @@
 	"internal/bisect",
 	"internal/godebugs",
 	"log/internal",
-	"context",
 	"internal/platform",
 	"internal/race",
 	"net",
-	"time/tzdata"
+	"time/tzdata",
+	"crypto/elliptic",
+    "crypto/ecdh",
+    "crypto/ecdsa"
 ]

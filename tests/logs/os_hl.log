@@ -464,7 +464,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestStartProcess
 
 === RUN  TestChmod
-Stat "/tmp/tmp_5i4l9q1afr": mode 0 want 0456
+Stat "/tmp/tmp_suihzdxpmr": mode 0 want 0456
 Exception: File:os.chmod is not yet implemented
 Called from _internal.os_test._Os_test_testchmod.$Os_test_testchmod_Fields_.testChmod (_internal/os_test/Os_test_testchmod.hx line 100)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
@@ -494,9 +494,9 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestTruncateNonexistentFile
 golibs/stdgo/_internal/os/Os_truncate.hx:3: os.truncate not implemented
 got error: <nil>
-want an ErrNotExist PathError with path "tmp_1ujd8yee2i/nonexistent"
-got error: readFile tmp_1ujd8yee2i/nonexistent: no such file or directory
-want an ErrNotExist PathError with path "tmp_1ujd8yee2i/nonexistent"
+want an ErrNotExist PathError with path "tmp_ot7c8tbmak/nonexistent"
+got error: readFile tmp_ot7c8tbmak/nonexistent: no such file or directory
+want an ErrNotExist PathError with path "tmp_ot7c8tbmak/nonexistent"
 
 -- FAIL: TestTruncateNonexistentFile
 
@@ -573,52 +573,52 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 
 === RUN  TestProgWideChdir
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11964(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11957(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11964(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11957(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11964(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11957(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11964(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11957(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11964(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11957(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11964(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11957(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11964(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11957(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11964(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11957(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11964(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11957(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: :os.sameFile is not yet implemented
-Called from fun$11964(_internal/os_test/Os_test_testprogwidechdir.hx:225)
+Called from fun$11957(_internal/os_test/Os_test_testprogwidechdir.hx:225)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(_internal/os_test/Os_test_testprogwidechdir.hx:231)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
@@ -779,7 +779,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- PASS: TestLargeWriteToConsole
 
 === RUN  TestStatDirModeExec
-Stat "tmp_n997cmf5bg": mode 0 want 0111
+Stat "tmp_6rqzev4cxs": mode 0 want 0111
 
 -- FAIL: TestStatDirModeExec
 
@@ -855,7 +855,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestNilFileMethods
 Exception: File:os.chdir is not yet implemented
 Called from stdgo._internal.os.$File_static_extension.chdir (stdgo/_internal/os/Os_file_static_extension.hx line 29)
-Called from local function #14826 (_internal/os_test/Os_test__nilfilemethodtests.hx line 5)
+Called from local function #14815 (_internal/os_test/Os_test__nilfilemethodtests.hx line 5)
 Called from _internal.os_test._Os_test_testnilfilemethods.$Os_test_testnilfilemethods_Fields_.testNilFileMethods (_internal/os_test/Os_test_testnilfilemethods.hx line 8)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
@@ -864,18 +864,18 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestNilFileMethods
 
 === RUN  TestRemoveAllRace
-Uncaught exception: SysError(Can't delete directory issuetmp_xca9iy6w4p/b/b/b)
-Called from fun$12121(_internal/os_test/Os_test_testremoveallrace.hx:102)
+Uncaught exception: SysError(Can't delete directory issuetmp_eifnvy91wt)
+Called from fun$12114(_internal/os_test/Os_test_testremoveallrace.hx:102)
 Called from _internal.os_test._Os_test_testremoveallrace.$Os_test_testremoveallrace_Fields_.~testRemoveAllRace.4(_internal/os_test/Os_test_testremoveallrace.hx:108)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: SysError(Can't delete directory issuetmp_xca9iy6w4p/b/b/a/a)
-Called from fun$12121(_internal/os_test/Os_test_testremoveallrace.hx:102)
+Uncaught exception: SysError(Can't delete directory issuetmp_eifnvy91wt)
+Called from fun$12114(_internal/os_test/Os_test_testremoveallrace.hx:102)
 Called from _internal.os_test._Os_test_testremoveallrace.$Os_test_testremoveallrace_Fields_.~testRemoveAllRace.4(_internal/os_test/Os_test_testremoveallrace.hx:108)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: SysError(Can't delete file issuetmp_xca9iy6w4p/a/b/b/a/b)
-Called from fun$12121(_internal/os_test/Os_test_testremoveallrace.hx:102)
+Uncaught exception: SysError(Can't delete directory issuetmp_eifnvy91wt/b/a/b/a)
+Called from fun$12114(_internal/os_test/Os_test_testremoveallrace.hx:102)
 Called from _internal.os_test._Os_test_testremoveallrace.$Os_test_testremoveallrace_Fields_.~testRemoveAllRace.4(_internal/os_test/Os_test_testremoveallrace.hx:108)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
@@ -1015,7 +1015,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestDirFSEmptyDir
 
 === RUN  TestDirFSPathsValid
-writeFile tmp_1tzm0c6np7/control.txt: no such file or directory
+writeFile tmp_6fnljkalyh/control.txt: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
@@ -1304,7 +1304,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestRemoveAllDotDot
 
 === RUN  TestRemoveReadOnlyDir
-chmod: cannot access 'tmp_iznirh6sr3/x': No such file or directory
+chmod: cannot access 'tmp_ei77h3hv9r/x': No such file or directory
 
 -- PASS: TestRemoveReadOnlyDir
 
@@ -1372,7 +1372,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestDirAndSymlinkStats
 
 === RUN  TestFileAndSymlinkStats
-writeFile tmp_k0wso050k3/file: no such file or directory
+writeFile tmp_v159hbne20/file: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
@@ -1395,7 +1395,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestSymlinkWithTrailingSlash
 
 === RUN  TestCreateTemp
-Exception: SysError(Can't open TestCreateTempBadDirtmp_s6jy3lw7ra/_not_exists_/tmp_mdi0j9zgbt for writing)
+Exception: SysError(Can't open TestCreateTempBadDirtmp_il8ngzu944/_not_exists_/tmp_hqmftt2jqz for writing)
 Called from _internal.os_test._Os_test_testcreatetemp.$Os_test_testcreatetemp_Fields_.testCreateTemp (_internal/os_test/Os_test_testcreatetemp.hx line 76)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
@@ -1404,9 +1404,9 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestCreateTemp
 
 === RUN  TestCreateTempPattern
-CreateTemp pattern "tempfile_test" created bad name "tmp_cgh8z0gkkm"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*" created bad name "tmp_fa1bq9kj14"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*xyz" created bad name "tmp_mjfvj249mv"; want prefix "tempfile_test" & suffix "xyz"
+CreateTemp pattern "tempfile_test" created bad name "tmp_qcat1pi771"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*" created bad name "tmp_z5y5cfwhk8"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*xyz" created bad name "tmp_3inaa39mqx"; want prefix "tempfile_test" & suffix "xyz"
 
 -- FAIL: TestCreateTempPattern
 
@@ -1420,32 +1420,32 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestCreateTempBadPattern
 
 === RUN  TestMkdirTemp
-MkdirTemp(`/_not_exists_`, `foo`) = footmp_ouq6mw6eoj, <nil>
+MkdirTemp(`/_not_exists_`, `foo`) = footmp_ils9if6wkf, <nil>
 - SUBRUN  tempfile_test
 MkdirTemp("temp", "tempfile_test") created bad name
-	"tempfile_testtmp_2ceg4wh9kq"
+	"tempfile_testtmp_5ejbjhduce"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*
 MkdirTemp("temp", "tempfile_test*") created bad name
-	"tempfile_testtmp_omllmi9hql"
+	"tempfile_testtmp_cdy9q2ew7p"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*xyz
 MkdirTemp("temp", "tempfile_test*xyz") created bad name
-	"tempfile_testtmp_l97djlh7g3xyz"
+	"tempfile_testtmp_vguto2d2ihxyz"
 did not match pattern
 	"^temp/tempfile_test[0-9]+xyz$"
 - SUBRUN  *xyz
 MkdirTemp("temp", "*xyz") created bad name
-	"tmp_4fugq5gpnnxyz"
+	"tmp_g47my8ug1jxyz"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestMkdirTemp
 
 === RUN  TestMkdirTempBadDir
-TempDir error = (nil)(nil); want PathError for path "MkdirTempBadDirtmp_drufwgggby/not-exist" satisfying IsNotExist
+TempDir error = (nil)(nil); want PathError for path "MkdirTempBadDirtmp_a6bl2q88nf/not-exist" satisfying IsNotExist
 
 -- FAIL: TestMkdirTempBadDir
 

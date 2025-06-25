@@ -240,5 +240,11 @@
  "interp|min1",
  "interp|blank0",
  "interp|chan14",
- "interp|multiassign"
+ "interp|multiassign",
+ "interp|context0",
+ "interp|emptystruct",
+ "interp|interface21",
+ "interp|issuedash230",
+ "interp|issuedash256",
+ "interp|struct3"
 ]

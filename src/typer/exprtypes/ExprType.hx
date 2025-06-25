@@ -110,7 +110,7 @@ function typeof(e:GoAst.Expr, info:Info, isNamed:Bool, paths:Array<String> = nul
 				underlying = {
 					if (e.hash == null) {
 						invalidType;
-					} else if (info.locals.exists(e.hash)) {
+					} else if (e.hash != 0 && info.locals.exists(e.hash)) {
 						getLocalType(e.hash, null, info);
 					} else if (info.localUnderlyingNames.exists(path)) {
 						info.localUnderlyingNames[path];

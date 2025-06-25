@@ -605,9 +605,9 @@ var countInterface = 0
 func hashType(t types.Type, pkg *PackageData) (value uint32) {
 	e := pkg.typeMap.At(t)
 	if e == nil {
+		pkg.typeMapIndex++
 		pkg.typeMap.Set(t, pkg.typeMapIndex)
 		value = pkg.typeMapIndex
-		pkg.typeMapIndex++
 	} else {
 		value = e.(uint32)
 	}

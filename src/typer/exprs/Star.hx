@@ -7,6 +7,11 @@ function typeStarExpr(expr:GoAst.StarExpr, info:Info):Expr {
 	if (!isPointer(t)) {
 		final t = typeof(expr, info, false);
 		final ct = toComplexType(t, info);
+		switch t {
+			case arrayType(_, _), sliceType(_):
+				return macro (($x : Dynamic).__nil__ ? throw "invalid memory address or nil pointer dereference" : ($x : $ct));
+			default:
+		}
 		return macro($x : $ct);
 	}
 

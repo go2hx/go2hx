@@ -3,7 +3,6 @@ Exception: Map_:sync.load is not yet implemented
 Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 35)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 19)
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 135)
-Called from stdgo._internal.time.$Time_static_extension.unmarshalBinary (stdgo/_internal/time/Time_time_static_extension.hx line 161)
 Called from stdgo._internal.encoding.binary._Binary__testread.$Binary__testread_Fields_._testRead (stdgo/_internal/encoding/binary/Binary__testread.hx line 4)
 Called from stdgo._internal.encoding.binary._Binary_testlittleendianread.$Binary_testlittleendianread_Fields_.testLittleEndianRead (stdgo/_internal/encoding/binary/Binary_testlittleendianread.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
@@ -16,8 +15,6 @@ Exception: Map_:sync.load is not yet implemented
 Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 35)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 19)
 Called from stdgo._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (stdgo/_internal/encoding/binary/Binary_write.hx line 187)
-Called from stdgo._internal.time.$Time_static_extension.unmarshalBinary (stdgo/_internal/time/Time_time_static_extension.hx line 161)
-Called from stdgo._internal.time.$Time_static_extension.unmarshalBinary (stdgo/_internal/time/Time_time_static_extension.hx line 161)
 Called from stdgo._internal.encoding.binary._Binary__testwrite.$Binary__testwrite_Fields_._testWrite (stdgo/_internal/encoding/binary/Binary__testwrite.hx line 4)
 Called from stdgo._internal.encoding.binary._Binary_testlittleendianwrite.$Binary_testlittleendianwrite_Fields_.testLittleEndianWrite (stdgo/_internal/encoding/binary/Binary_testlittleendianwrite.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
@@ -35,7 +32,6 @@ Exception: Map_:sync.load is not yet implemented
 Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 35)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 19)
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 135)
-Called from stdgo._internal.time.$Time_static_extension.unmarshalBinary (stdgo/_internal/time/Time_time_static_extension.hx line 161)
 Called from stdgo._internal.encoding.binary._Binary__testread.$Binary__testread_Fields_._testRead (stdgo/_internal/encoding/binary/Binary__testread.hx line 4)
 Called from stdgo._internal.encoding.binary._Binary_testbigendianread.$Binary_testbigendianread_Fields_.testBigEndianRead (stdgo/_internal/encoding/binary/Binary_testbigendianread.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
@@ -48,7 +44,6 @@ Exception: Map_:sync.load is not yet implemented
 Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 35)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 19)
 Called from stdgo._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (stdgo/_internal/encoding/binary/Binary_write.hx line 187)
-Called from stdgo._internal.time.$Time_static_extension.unmarshalBinary (stdgo/_internal/time/Time_time_static_extension.hx line 161)
 Called from stdgo._internal.encoding.binary._Binary__testwrite.$Binary__testwrite_Fields_._testWrite (stdgo/_internal/encoding/binary/Binary__testwrite.hx line 4)
 Called from stdgo._internal.encoding.binary._Binary_testbigendianwrite.$Binary_testbigendianwrite_Fields_.testBigEndianWrite (stdgo/_internal/encoding/binary/Binary_testbigendianwrite.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
@@ -104,7 +99,6 @@ Exception: Map_:sync.load is not yet implemented
 Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 35)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 19)
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 135)
-Called from stdgo._internal.time.$Time_static_extension.unmarshalBinary (stdgo/_internal/time/Time_time_static_extension.hx line 161)
 Called from stdgo._internal.encoding.binary._Binary_testblankfields.$Binary_testblankfields_Fields_.testBlankFields (stdgo/_internal/encoding/binary/Binary_testblankfields.hx line 16)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
@@ -145,7 +139,6 @@ Exception: Map_:sync.load is not yet implemented
 Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 35)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 19)
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 135)
-Called from stdgo._internal.time.$Time_static_extension.unmarshalBinary (stdgo/_internal/time/Time_time_static_extension.hx line 161)
 Called from stdgo._internal.encoding.binary._Binary_testreadtruncated.$Binary_testreadtruncated_Fields_.testReadTruncated (stdgo/_internal/encoding/binary/Binary_testreadtruncated.hx line 32)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
@@ -182,7 +175,7 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 -- FAIL: TestNoFixedSize
 
 === RUN  TestNativeEndian
-golibs/stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#55E93FD420F8}) -> invalidType
+golibs/stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#55AD7203C1D8}) -> invalidType
 Exception: Can't cast hl.types.ArrayDyn to stdgo.GoArrayData
 Called from stdgo._internal.encoding.binary._Binary_testnativeendian.$Binary_testnativeendian_Fields_.testNativeEndian (stdgo/_internal/encoding/binary/Binary_testnativeendian.hx line 6)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)

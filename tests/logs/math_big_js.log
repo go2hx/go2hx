@@ -1,17 +1,240 @@
-/home/runner/work/go2hx/go2hx/golibs/std_big.js:59840
-	var gt = a.type._common();
-	                ^
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/Process.hx:41: characters 1-7
 
-TypeError: Cannot read properties of undefined (reading '_common')
-    at stdgo_AnyInterface.equals (/home/runner/work/go2hx/go2hx/golibs/std_big.js:59840:18)
-    at stdgo_GoObjectMap.compare (/home/runner/work/go2hx/go2hx/golibs/std_big.js:94822:25)
-    at stdgo_GoObjectMap.exists (/home/runner/work/go2hx/go2hx/golibs/std_big.js:75972:17)
-    at stdgo__$internal_encoding_gob_Gob_$_$bootstraptype__bootstrapType (/home/runner/work/go2hx/go2hx/golibs/std_big.js:101418:116)
-    at /home/runner/work/go2hx/go2hx/golibs/std_big.js:179039:55
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_big.js:182608:3)
-    at Module._compile (node:internal/modules/cjs/loader:1734:14)
-    at Object..js (node:internal/modules/cjs/loader:1899:10)
-    at Module.load (node:internal/modules/cjs/loader:1469:32)
-    at Function._load (node:internal/modules/cjs/loader:1286:12)
+  41 | @:enum abstract ProcessEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
 
-Node.js v23.11.1
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/child_process/ChildProcess.hx:38: characters 1-7
+
+  38 | @:enum abstract ChildProcessEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/events/EventEmitter.hx:35: characters 1-7
+
+  35 | @:enum abstract EventEmitterEvent<T:Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/stream/Readable.hx:40: characters 1-7
+
+  40 | @:enum abstract ReadableEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/stream/Writable.hx:43: characters 1-7
+
+  43 | @:enum abstract WritableEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/ChildProcess.hx:139: characters 1-7
+
+ 139 | @:enum abstract ChildProcessSpawnOptionsStdioSimple(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/ChildProcess.hx:159: characters 1-7
+
+ 159 | @:enum abstract ChildProcessSpawnOptionsStdioBehaviour(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/Fs.hx:171: characters 1-7
+
+ 171 | @:enum abstract SymlinkType(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/Fs.hx:187: characters 1-7
+
+ 187 | @:enum abstract FsOpenFlag(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/fs/FSWatcher.hx:36: characters 1-7
+
+  36 | @:enum abstract FSWatcherChangeType(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/fs/FSWatcher.hx:44: characters 1-7
+
+  44 | @:enum abstract FSWatcherEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/fs/ReadStream.hx:28: characters 1-7
+
+  28 | @:enum abstract ReadStreamEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/fs/WriteStream.hx:28: characters 1-7
+
+  28 | @:enum abstract WriteStreamEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testfloatzerovalue.hx:32: characters 161-209
+
+  32 | ({ _z : (0 : stdgo.GoInt), _x : (0 : stdgo.GoInt), _y : (0 : stdgo.GoInt), _want : (0 : stdgo.GoInt), _opname : (43 : stdgo.GoInt32), _op : @:selector_x_ident2 stdgo._internal.math.big.Float__static_extension.add } : stdgo._internal.math.big.Big_t__struct_10.T__struct_10),
+     |                                                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Float__static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testfloatarithmeticspecialvalues.hx:36: characters 58-106
+
+  36 |                                 _f = @:selector_x_ident2 stdgo._internal.math.big.Float__static_extension.add;
+     |                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Float__static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testfloatarithmeticspecialvalues.hx:40: characters 58-106
+
+  40 |                                 _f = @:selector_x_ident2 stdgo._internal.math.big.Float__static_extension.sub;
+     |                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Float__static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testfloatarithmeticspecialvalues.hx:44: characters 58-106
+
+  44 |                                 _f = @:selector_x_ident2 stdgo._internal.math.big.Float__static_extension.mul;
+     |                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Float__static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testfloatarithmeticspecialvalues.hx:48: characters 58-106
+
+  48 |                                 _f = @:selector_x_ident2 stdgo._internal.math.big.Float__static_extension.quo;
+     |                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Float__static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testbitwise.hx:12: characters 116-162
+
+  12 |             stdgo._internal.math.big.Big__testbitfun._testBitFun(_t, ("and" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Int__static_extension.and, _x, _y, _test._and?.__copy__());
+     |                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Int__static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testbitwise.hx:14: characters 124-170
+
+  14 |             stdgo._internal.math.big.Big__testbitfunself._testBitFunSelf(_t, ("and" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Int__static_extension.and, _x, _y, _test._and?.__copy__());
+     |                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Int__static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testbitwise.hx:16: characters 119-165
+
+  16 |             stdgo._internal.math.big.Big__testbitfun._testBitFun(_t, ("andNot" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Int__static_extension.andNot, _x, _y, _test._andNot?.__copy__());
+     |                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Int__static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testbitwise.hx:18: characters 127-173
+
+  18 |             stdgo._internal.math.big.Big__testbitfunself._testBitFunSelf(_t, ("andNot" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Int__static_extension.andNot, _x, _y, _test._andNot?.__copy__());
+     |                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Int__static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testbitwise.hx:20: characters 115-161
+
+  20 |             stdgo._internal.math.big.Big__testbitfun._testBitFun(_t, ("or" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Int__static_extension.or, _x, _y, _test._or?.__copy__());
+     |                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Int__static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testbitwise.hx:22: characters 123-169
+
+  22 |             stdgo._internal.math.big.Big__testbitfunself._testBitFunSelf(_t, ("or" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Int__static_extension.or, _x, _y, _test._or?.__copy__());
+     |                                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Int__static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testbitwise.hx:24: characters 116-162
+
+  24 |             stdgo._internal.math.big.Big__testbitfun._testBitFun(_t, ("xor" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Int__static_extension.xor, _x, _y, _test._xor?.__copy__());
+     |                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Int__static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testbitwise.hx:26: characters 124-170
+
+  26 |             stdgo._internal.math.big.Big__testbitfunself._testBitFunSelf(_t, ("xor" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Int__static_extension.xor, _x, _y, _test._xor?.__copy__());
+     |                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Int__static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testfunnn.hx:7: characters 114-161
+
+   7 |             stdgo._internal.math.big.Big__testfunnn._testFunNN(_t, ("add" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.T_nat_static_extension._add, _arg?.__copy__());
+     |                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.T_nat_static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testfunnn.hx:10: characters 124-171
+
+  10 |             stdgo._internal.math.big.Big__testfunnn._testFunNN(_t, ("add symmetric" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.T_nat_static_extension._add, _arg?.__copy__());
+     |                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.T_nat_static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testfunnn.hx:13: characters 114-161
+
+  13 |             stdgo._internal.math.big.Big__testfunnn._testFunNN(_t, ("sub" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.T_nat_static_extension._sub, _arg?.__copy__());
+     |                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.T_nat_static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testfunnn.hx:16: characters 124-171
+
+  16 |             stdgo._internal.math.big.Big__testfunnn._testFunNN(_t, ("sub symmetric" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.T_nat_static_extension._sub, _arg?.__copy__());
+     |                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.T_nat_static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testfunnn.hx:22: characters 114-161
+
+  22 |             stdgo._internal.math.big.Big__testfunnn._testFunNN(_t, ("mul" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.T_nat_static_extension._mul, _arg?.__copy__());
+     |                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.T_nat_static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testfunnn.hx:25: characters 124-171
+
+  25 |             stdgo._internal.math.big.Big__testfunnn._testFunNN(_t, ("mul symmetric" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.T_nat_static_extension._mul, _arg?.__copy__());
+     |                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.T_nat_static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testratbin.hx:7: characters 120-165
+
+   7 |             stdgo._internal.math.big.Big__testratbin._testRatBin(_t, _i, ("Add" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Rat_static_extension.add, _arg?.__copy__());
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Rat_static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testratbin.hx:10: characters 130-175
+
+  10 |             stdgo._internal.math.big.Big__testratbin._testRatBin(_t, _i, ("Add symmetric" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Rat_static_extension.add, _arg?.__copy__());
+     |                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Rat_static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testratbin.hx:13: characters 120-165
+
+  13 |             stdgo._internal.math.big.Big__testratbin._testRatBin(_t, _i, ("Sub" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Rat_static_extension.sub, _arg?.__copy__());
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Rat_static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testratbin.hx:16: characters 130-175
+
+  16 |             stdgo._internal.math.big.Big__testratbin._testRatBin(_t, _i, ("Sub symmetric" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Rat_static_extension.sub, _arg?.__copy__());
+     |                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Rat_static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testratbin.hx:19: characters 120-165
+
+  19 |             stdgo._internal.math.big.Big__testratbin._testRatBin(_t, _i, ("Mul" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Rat_static_extension.mul, _arg?.__copy__());
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Rat_static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testratbin.hx:22: characters 130-175
+
+  22 |             stdgo._internal.math.big.Big__testratbin._testRatBin(_t, _i, ("Mul symmetric" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Rat_static_extension.mul, _arg?.__copy__());
+     |                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Rat_static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testratbin.hx:27: characters 124-169
+
+  27 |                 stdgo._internal.math.big.Big__testratbin._testRatBin(_t, _i, ("Quo" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Rat_static_extension.quo, _arg?.__copy__());
+     |                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Rat_static_extension
+
+[ERROR] golibs/stdgo/_internal/math/big/Big_testratbin.hx:33: characters 134-179
+
+  33 |                 stdgo._internal.math.big.Big__testratbin._testRatBin(_t, _i, ("Quo symmetric" : stdgo.GoString), @:selector_x_ident2 stdgo._internal.math.big.Rat_static_extension.quo, _arg?.__copy__());
+     |                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.math.big.Rat_static_extension
+

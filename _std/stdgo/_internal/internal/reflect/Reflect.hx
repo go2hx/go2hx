@@ -375,6 +375,24 @@ private function identicalType(t:GoType,v:GoType):Bool {
 				default:
 					false;
 			}
+		case structType(fields):
+			switch v {
+				case structType(fields2):
+					if (fields.length != fields2.length) {
+						false;
+					}else{
+						var isIdentical = true;
+						for (i in 0...fields.length) {
+							if (!identicalType(fields[i].type.get(), fields2[i].type.get())) {
+								isIdentical = false;
+								break;
+							}
+						}
+						isIdentical;
+					}
+				default:
+					false;
+			}
 		default:
 			trace(t);
 			throw "identical type not supported";
@@ -1198,10 +1216,14 @@ class _Type {
 			case pointerType(_.get() => elem), refType(_.get() => elem):
 				"*" + new _Type(elem).string();
 			case structType(fields):
-				"struct { " + [
-					for (field in fields)
-						formatGoFieldName(field.name) + " " + new _Type(field.type.get()).string()
-				].join("; ") + " }";
+				if (fields.length == 0) {
+					"struct {}";
+				}else{
+					"struct { " + [
+						for (field in fields)
+							formatGoFieldName(field.name) + " " + new _Type(field.type.get()).string()
+					].join("; ") + " }";
+				}
 			case arrayType(_.get() => typ, len):
 				if (len == -1) {
 					len = 0;

@@ -1,78 +1,24 @@
 [ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:3: characters 9-19
 
-   3 |         _stopTimer(_t);
-     |         ^^^^^^^^^^
-     | Unknown identifier : _stopTimer
+    3 |         _stopTimer(_t);
+      |         ^^^^^^^^^^
+      | Unknown identifier : _stopTimer
 
 [ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:9: characters 9-20
 
-   9 |         _startTimer(_t);
-     |         ^^^^^^^^^^^
-     | Unknown identifier : _startTimer
+    9 |         _startTimer(_t);
+      |         ^^^^^^^^^^^
+      | Unknown identifier : _startTimer
 
 [ERROR] golibs/stdgo/_internal/net/Net_tcpconn.hx:68: characters 70-73
 
-  68 |     public function get__ok():() -> Bool return @:check32 this._conn._ok;
-     |                                                                      ^^^
-     | stdgo._internal.net.T_conn has no field _ok
+   68 |     public function get__ok():() -> Bool return @:check32 this._conn._ok;
+      |                                                                      ^^^
+      | stdgo._internal.net.T_conn has no field _ok
 
-[ERROR] golibs/stdgo/_internal/net/http/Http_header_static_extension.hx:8: characters 19-31
+[ERROR] (macro) golibs/stdgo/_internal/crypto/tls/Tls_t_serverhandshakestatetls13_static_extension.hx:1106: characters 21-71
 
-   8 |         return _h._writeSubset(_w, _exclude, null);
-     |                   ^^^^^^^^^^^^
-     | stdgo._internal.net.http.Header has no field _writeSubset
-
-[ERROR] golibs/stdgo/_internal/net/http/Http_header_static_extension.hx:51: characters 19-25
-
-  51 |         return _h._write(_w, null);
-     |                   ^^^^^^
-     | stdgo._internal.net.http.Header has no field _write
-
-[ERROR] golibs/stdgo/_internal/net/http/Http_request_static_extension.hx:8: characters 81-129
-
-   8 |         if ((@:checkr _r ?? throw "null pointer dereference").multipartForm == (stdgo._internal.net.http.Http__multipartbyreader._multipartByReader)) {
-     |                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__multipartbyreader
-
-[ERROR] golibs/stdgo/_internal/net/http/Http_request_static_extension.hx:87: characters 81-129
-
-  87 |         if ((@:checkr _r ?? throw "null pointer dereference").multipartForm == (stdgo._internal.net.http.Http__multipartbyreader._multipartByReader)) {
-     |                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__multipartbyreader
-
-[ERROR] golibs/stdgo/_internal/net/http/Http_request_static_extension.hx:144: characters 35-79
-
- 144 |                     var __tmp__ = stdgo._internal.net.http.Http__parsepostform._parsePostForm(_r);
-     |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__parsepostform
-
-[ERROR] golibs/stdgo/_internal/net/http/Http_request_static_extension.hx:170: characters 17-58
-
- 170 |                 stdgo._internal.net.http.Http__copyvalues._copyValues((@:checkr _r ?? throw "null pointer dereference").form, (@:checkr _r ?? throw "null pointer dereference").postForm);
-     |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__copyvalues
-
-[ERROR] golibs/stdgo/_internal/net/http/Http_request_static_extension.hx:180: characters 35-69
-
- 180 |                     var __tmp__ = stdgo._internal.net.http.Http__url._url.parseQuery((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery?.__copy__());
-     |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__url
-
-[ERROR] golibs/stdgo/_internal/net/http/Http_request_static_extension.hx:203: characters 17-58
-
- 203 |                 stdgo._internal.net.http.Http__copyvalues._copyValues((@:checkr _r ?? throw "null pointer dereference").form, _newValues);
-     |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__copyvalues
-
-[ERROR] golibs/stdgo/_internal/net/http/Http_request_static_extension.hx:104: characters 26-42
-
- 104 |         var __tmp__ = _r._multipartReader(false), _mr:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-     |                          ^^^^^^^^^^^^^^^^
-     | stdgo.Ref<stdgo._internal.net.http.Request> has no field _multipartReader
-
-[ERROR] golibs/stdgo/_internal/net/http/Http_errmissingfile.hx:2: characters 36-73
-
-   2 | var errMissingFile : stdgo.Error = stdgo._internal.net.http.Http__errors._errors.new_(("http: no such file" : stdgo.GoString));
-     |                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__errors
+ 1106 |                     stdgo._internal.crypto.tls.Tls_groupselectionbreak.groupSelectionBreak = true;
+      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      | Type not found : stdgo._internal.crypto.tls.Tls_groupselectionbreak
 

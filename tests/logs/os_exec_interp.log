@@ -1,27 +1,3 @@
-[ERROR] golibs/stdgo/_internal/os/signal/Signal_notify.hx:12: characters 66-70
-
-  12 |             stdgo._internal.os.signal.Signal__handlers._handlers.lock();
-     |                                                                  ^^^^
-     | { mutex : stdgo._internal.sync.Mutex, _stopping : stdgo.Slice<stdgo._internal.os.signal.T_stopping>, _ref : stdgo.GoArray<stdgo.GoInt64>, _m : stdgo.GoMap<stdgo.Chan<stdgo._internal.os.Signal>, stdgo.Ref<stdgo._internal.os.signal.T_handler>> } has no field lock
-
-[ERROR] golibs/stdgo/_internal/os/signal/Signal_notify.hx:14: characters 84-90
-
-  14 |                 final __f__ = stdgo._internal.os.signal.Signal__handlers._handlers.unlock;
-     |                                                                                    ^^^^^^
-     | { mutex : stdgo._internal.sync.Mutex, _stopping : stdgo.Slice<stdgo._internal.os.signal.T_stopping>, _ref : stdgo.GoArray<stdgo.GoInt64>, _m : stdgo.GoMap<stdgo.Chan<stdgo._internal.os.Signal>, stdgo.Ref<stdgo._internal.os.signal.T_handler>> } has no field unlock
-
-[ERROR] golibs/stdgo/_internal/os/signal/Signal__cancel.hx:6: characters 66-70
-
-   6 |             stdgo._internal.os.signal.Signal__handlers._handlers.lock();
-     |                                                                  ^^^^
-     | { mutex : stdgo._internal.sync.Mutex, _stopping : stdgo.Slice<stdgo._internal.os.signal.T_stopping>, _ref : stdgo.GoArray<stdgo.GoInt64>, _m : stdgo.GoMap<stdgo.Chan<stdgo._internal.os.Signal>, stdgo.Ref<stdgo._internal.os.signal.T_handler>> } has no field lock
-
-[ERROR] golibs/stdgo/_internal/os/signal/Signal__cancel.hx:8: characters 84-90
-
-   8 |                 final __f__ = stdgo._internal.os.signal.Signal__handlers._handlers.unlock;
-     |                                                                                    ^^^^^^
-     | { mutex : stdgo._internal.sync.Mutex, _stopping : stdgo.Slice<stdgo._internal.os.signal.T_stopping>, _ref : stdgo.GoArray<stdgo.GoInt64>, _m : stdgo.GoMap<stdgo.Chan<stdgo._internal.os.Signal>, stdgo.Ref<stdgo._internal.os.signal.T_handler>> } has no field unlock
-
 [ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:3: characters 9-19
 
    3 |         _stopTimer(_t);

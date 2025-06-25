@@ -10,12 +10,6 @@
       |         ^^^^^^^^^^^
       | Unknown identifier : _startTimer
 
-[ERROR] golibs/stdgo/_internal/net/Net_tcpconn.hx:68: characters 70-73
-
-   68 |     public function get__ok():() -> Bool return @:check32 this._conn._ok;
-      |                                                                      ^^^
-      | stdgo._internal.net.T_conn has no field _ok
-
 [ERROR] (macro) golibs/stdgo/_internal/crypto/tls/Tls_t_serverhandshakestatetls13_static_extension.hx:1106: characters 21-71
 
  1106 |                     stdgo._internal.crypto.tls.Tls_groupselectionbreak.groupSelectionBreak = true;

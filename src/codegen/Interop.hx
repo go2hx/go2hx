@@ -28,15 +28,22 @@ function interopGen(td:TypeDefinition, path:String, cl:TypeDefinition):Array<Typ
 				case FVar(_, _):
 					interopGenVar(td, path, cl);
 				case FFun(f):
+					if (td.name.indexOf("__tp__") != -1)
+						return [];
 					final access = access == null ? [] : access.copy();
 					/*if (access.indexOf(AInline) == -1)
 						access.push(AInline); */
 					// at static level
+					final newAccess = [AStatic, APublic, AInline];
+					if (access.indexOf(AExtern) != -1)
+						newAccess.push(AExtern);
+					if (access.indexOf(AOverload) != -1)
+						newAccess.push(AOverload);
 					cl.fields.push({
 						name: td.name,
 						pos: td.pos,
 						doc: td.doc,
-						access: [AStatic, APublic, AInline],
+						access: newAccess,
 						kind: FFun(interopGenFun(td.name, f, path, cl)),
 					});
 					[];
@@ -51,13 +58,14 @@ function interopGen(td:TypeDefinition, path:String, cl:TypeDefinition):Array<Typ
 private function interopType(td:TypeDefinition, cl:TypeDefinition, path:String):TypeDefinition {
 	final pack = path.split("/");
 	pack.push(io.Path.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase());
-	final params:Array<TypeParam> = [];
+	final params:Array<TypeParam> = td.params == null ? null : typer.HaxeAst.typeParamDeclsToTypeParams(td.params.copy());
 	final p:TypePath = {pack: pack, name: td.name, params: params};
 	final ct = TPath(p);
 	return interopGenAlias({
 		name: td.name,
 		pack: [],
 		fields: [],
+		params: td.params,
 		pos: null,
 		kind: TDAlias(ct),
 	}, cl, path);
@@ -139,16 +147,14 @@ private function interopGenAlias(td:TypeDefinition, cl:TypeDefinition, path:Stri
 				pos: td.pos,
 				pack: td.pack,
 				fields: td.fields,
+				params: td.params,
 				meta: meta,
 				doc: td.doc,
 				kind: TDAlias(TPath({
 					sub: td.name,
 					name: io.Path.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase(),
 					pack: pack,
-					params: td.params?.map(f -> TPType(TPath({
-						name: f.name,
-						pack: []
-					})))
+					params: td.params == null ? null : typer.HaxeAst.typeParamDeclsToTypeParams(td.params.copy()),
 				})),
 				isExtern: td.isExtern,
 			};
@@ -184,6 +190,7 @@ function interopGenFun(name:String, f:Function, path:String, cl:TypeDefinition, 
 	}
 	pathArray.push(name);
 	var expr = macro $p{pathArray}($a{exprArgs});
+	//trace(path, name, f.ret);
 	if (!typer.HaxeAst.isVoid(f.ret))
 		expr = macro return $expr;
 	final block:Array<Expr> = [];

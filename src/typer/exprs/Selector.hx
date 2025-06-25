@@ -160,7 +160,7 @@ function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):MacroExpr { // EFi
 function selectorXIdent(x:MacroExpr, expr:GoAst.SelectorExpr, info:Info):MacroExpr {
 	final exprX:GoAst.Ident = expr.x;
 	exprX.name = removeSpecialIdentPrefix(exprX.name);
-	x = macro $i{splitDepFullPathName(className(exprX.name, info) + "_static_extension", info)};
+	x = macro @:selector_x_ident $i{splitDepFullPathName(className(exprX.name, info) + "_static_extension", info)};
 	final t = typeof(expr, info, false);
 	if (t != null) {
 		switch t {
@@ -183,11 +183,15 @@ function selectorXIdent(x:MacroExpr, expr:GoAst.SelectorExpr, info:Info):MacroEx
 							}
 							final lastPack = p.pack.pop();
 							final isLocal = io.Path.isPackLocal(p.pack, info);
-							if (!info.data.isMain || !isLocal) {
+							if (info.data.isMain) {
+								p.pack.push(lastPack);
+							}else if (isLocal) {
+
+							}else {
 								p.pack.push(lastPack + "_static_extension");
 							}
 							p.name += "_static_extension";
-							x = macro $p{p.pack.concat([p.name])};
+							x = macro @:selector_x_ident2 $p{p.pack.concat([p.name])};
 						default:
 					}
 				}
@@ -212,7 +216,7 @@ function selectorXSelector(x:MacroExpr, expr:GoAst.SelectorExpr, info:Info):Macr
 				p.pack.push(lastPack + "_static_extension");
 			}
 			p.name += "_static_extension";
-			x = macro $p{p.pack.concat([p.name])};
+			x = macro @:selector_x_selector $p{p.pack.concat([p.name])};
 		default:
 	}
 	return x;

@@ -76,33 +76,9 @@
      | ^^^^^^
      | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
 
-[ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:3: characters 9-19
+[ERROR] golibs/stdgo/_internal/time/Time_getmono.hx:2: characters 101-143
 
-   3 |         _stopTimer(_t);
-     |         ^^^^^^^^^^
-     | Unknown identifier : _stopTimer
-
-[ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:9: characters 9-20
-
-   9 |         _startTimer(_t);
-     |         ^^^^^^^^^^^
-     | Unknown identifier : _startTimer
-
-[ERROR] golibs/_internal/time_test/Time_test_testdurationstring.hx:17: characters 35-50
-
-  17 |                     var _str = ((-_tt._d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
-     |                                   ^^^^^^^^^^^^^^^
-     | stdgo.GoString should be Int
-
-[ERROR] golibs/_internal/time_test/Time_test_testdurationstring.hx:17: characters 33-68
-
-  17 |                     var _str = ((-_tt._d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
-     |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Int should be stdgo.GoString
-
-[ERROR] golibs/stdgo/_internal/math/rand/Rand_int31.hx:2: characters 39-55
-
-   2 | function int31():stdgo.GoInt32 return std.Std.random();
-     |                                       ^^^^^^^^^^^^^^^^
-     | Not enough arguments, expected x:Int
+   2 | var getMono : stdgo.Ref<stdgo._internal.time.Time_time.Time> -> stdgo.GoInt64 = @:selector_x_ident2 stdgo._internal.time.Time_static_extension._mono;
+     |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.time.Time_static_extension
 

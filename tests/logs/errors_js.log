@@ -57,14 +57,14 @@ golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: fa
 - SUBRUN  0:As(Errorf(..., <nil>), 0x1)
 - SUBRUN  1:As(Errorf(..., pitied the fool), errorT())
 got <invalid reflect.Value>, want %!v(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 44379 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 44316 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_errors.js:43877:58
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_errors.js:12139:23
-Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 19945 column 2)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_errors_$test_Errors_$test_$testas_testAs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_errors.js:12128:51)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 43639 column 9)
-Called from ._$internal_errorsdottest_Errorsdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 37294 column 59)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 44391 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 44328 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_errors.js:43889:58
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_errors.js:12123:23
+Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 19957 column 2)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_errors_$test_Errors_$test_$testas_testAs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_errors.js:12112:51)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 43651 column 9)
+Called from ._$internal_errorsdottest_Errorsdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 37306 column 59)
 
 -- FAIL: TestAs
 

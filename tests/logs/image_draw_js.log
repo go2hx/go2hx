@@ -78,7 +78,19 @@
 
 [ERROR] golibs/stdgo/_internal/image/draw/Draw_testdraw.hx:158: characters 21-70
 
- 158 |                     stdgo._internal.image.draw.Draw__iterator_5029374._iterator_5029374++;
+ 158 |                     stdgo._internal.image.draw.Draw__iterator_5116107._iterator_5116107++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.image.draw.Draw__iterator_5029374
+     | Type not found : stdgo._internal.image.draw.Draw__iterator_5116107
+
+[ERROR] golibs/stdgo/_internal/compress/flate/Flate_newreaderdict.hx:10: characters 40-102
+
+  10 |         _f._step = @:selector_x_ident2 stdgo._internal.compress.flate.T_decompressor_static_extension._nextBlock;
+     |                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.compress.flate.T_decompressor_static_extension
+
+[ERROR] golibs/stdgo/_internal/compress/flate/Flate_newreader.hx:10: characters 40-102
+
+  10 |         _f._step = @:selector_x_ident2 stdgo._internal.compress.flate.T_decompressor_static_extension._nextBlock;
+     |                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.compress.flate.T_decompressor_static_extension
 

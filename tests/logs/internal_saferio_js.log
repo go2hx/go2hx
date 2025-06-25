@@ -7,14 +7,14 @@
 - SUBRUN  large-UnexpectedEOF
 Exception: Maximum call stack size exceeded
 Called from module RangeError: Maximum call stack size exceeded
-Called from .stdgo__$internal_internal_saferio_Saferio_$readdata_readData (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 12179 column 80)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_saferio.js:10752:17
-Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 11707 column 2)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_internal_saferio_Saferio_$testreaddata_testReadData [as f] (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js:10750:50)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 37636 column 9)
-Called from ._$internal_internal_saferiodottest_Saferiodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 17324 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_saferio.js:46768:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js:46769:3)
+Called from .stdgo__$internal_internal_saferio_Saferio_$readdata_readData (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 12163 column 80)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_saferio.js:10736:17
+Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 11691 column 2)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_internal_saferio_Saferio_$testreaddata_testReadData [as f] (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js:10734:50)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 37648 column 9)
+Called from ._$internal_internal_saferiodottest_Saferiodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js line 17336 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_saferio.js:46761:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_saferio.js:46762:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 

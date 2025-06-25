@@ -246,5 +246,11 @@
  "hl|min1",
  "hl|blank0",
  "hl|chan14",
- "hl|multiassign"
+ "hl|multiassign",
+ "hl|context0",
+ "hl|emptystruct",
+ "hl|interface21",
+ "hl|issuedash230",
+ "hl|issuedash256",
+ "hl|struct3"
 ]

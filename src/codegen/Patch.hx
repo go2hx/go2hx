@@ -107,6 +107,9 @@ final replace = [
 ];
 
 final structs = [
+	"net:T_conn" => macro {
+		var _ok = () -> true;
+	},
 	"testing:M" => macro {
 		@:local
 		var benchBool = false;

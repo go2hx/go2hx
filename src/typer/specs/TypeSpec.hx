@@ -55,10 +55,18 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 								case EVars(_[0] => v):
 									if (structAddFieldsIndex == -1)
 										structAddFieldsIndex = fields.length;
+									final access:Array<Access> = [APublic];
+									for (m in meta) {
+										if (m.name == ":local") {
+											access.remove(APublic);
+											break;
+										}
+									}
 									fields.push({
 										name: v.name,
 										pos: null,
 										meta: meta,
+										access: access,
 										kind: FVar(v.type, v.expr),
 									});
 								default:

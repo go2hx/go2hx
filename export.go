@@ -523,23 +523,23 @@ func memoryStats() {
 	println("memory:", m.Alloc/1024/1024)
 }
 
-func parseLocalPackage(pkg *packages.Package, pkgData *PackageData, excludes map[string]bool) {
+func parseLocalPackage(pkg *packages.Package, pkgData *PackageData, excludes map[string]bool, checker *types.Checker) {
 	if excludes[pkg.PkgPath] {
 		return
 	}
 	excludes[pkg.PkgPath] = true
 	for _, file := range pkg.Syntax {
 		_ = file
-		parseLocalFile(file, pkg, pkgData)
+		parseLocalFile(file, pkg, pkgData, &countStruct, &countInterface, checker, pkgData.hashMap)
 	}
 }
 
-func parseLocalFile(file *ast.File, pkg *packages.Package, pkgData *PackageData) {
-	checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
-	hashType2 := func(t types.Type) (value uint32) {
-		return hashType(t, pkgData)
+func parseLocalFile(file *ast.File, pkg *packages.Package, pkgData *PackageData, countStruct *int, countInterface *int, checker *types.Checker, hashMap map[uint32]map[string]interface{}) {
+	hashType2 := func(t types.Type) uint32 {
+		hash := hashType(t, pkgData)
+		return hash
 	}
-	analysis.ParseLocalTypes(file, pkg, checker, hashType2, &countStruct, &countInterface)
+	analysis.ParseLocalTypes(file, pkg, checker, hashType2, countStruct, countInterface)
 	analysis.ParseLocalConstants(file, pkg, checker)
 	analysis.ParseLocalPointers(file, checker, pkg.Fset, false)
 	// println("parseLocalFile", pkg.PkgPath, file.Name.Name)
@@ -636,24 +636,29 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 	// 2nd pass
 	var wg sync.WaitGroup
 	sem := make(chan struct{}, 20) // Semaphore to limit concurrency
+	const concurrency = true
 	for _, pkg := range list {
-		wg.Add(1)
+		if concurrency {
+			wg.Add(1)
+		}
 		//memoryStats()
 		pkg := pkg
 		// TODO make this not eat up so much memory
-		go func() {
-			defer wg.Done()          // Done for wait group
-			sem <- struct{}{}        // Acquire a token
-			defer func() { <-sem }() // Release the token
+		run := func() {
+			if concurrency {
+				defer wg.Done()          // Done for wait group
+				sem <- struct{}{}        // Acquire a token
+				defer func() { <-sem }() // Release the token*/
+			}
 
 			localExcludes := map[string]bool{}
 			checker := types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
-			pkgData := PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
+			pkgData := &PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0, pkg.PkgPath}
 			//println("parseLocal:", pkg.PkgPath)
-			parseLocalPackage(pkg, &pkgData, localExcludes)
+			parseLocalPackage(pkg, pkgData, localExcludes, checker)
 			//println("parsePkg:", pkg.PkgPath)
 			// parse
-			syntax := parsePkg(pkg)
+			syntax := parsePkg(pkg, checker, pkgData)
 			// set checksum
 			if checksum, exists := checksumMap[pkg.PkgPath]; exists {
 				syntax.Checksum = checksum
@@ -674,13 +679,19 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 			// leave
 			//debug.FreeOSMemory()
 			//memoryStats()
-		}()
+		}
+		if concurrency {
+			go run()
+		} else {
+			run()
+		}
 	}
-	wg.Wait()
+	if concurrency {
+		wg.Wait()
+	}
 }
 
-func parsePkg(pkg *packages.Package) *packageType {
-	fset := pkg.Fset
+func parsePkg(pkg *packages.Package, checker *types.Checker, pkgData *PackageData) *packageType {
 	data := &packageType{}
 	for _, obj := range pkg.TypesInfo.InitOrder {
 		for _, v := range obj.Lhs {
@@ -693,7 +704,6 @@ func parsePkg(pkg *packages.Package) *packageType {
 	}
 	data.Name = pkg.Name
 	data.Path = pkg.PkgPath
-	checker := types.NewChecker(&conf, fset, pkg.Types, pkg.TypesInfo)
 	name := pkg.Name
 	if name == "main" {
 		if pkg.PkgPath == "command-line-arguments" {
@@ -713,7 +723,6 @@ func parsePkg(pkg *packages.Package) *packageType {
 	//pkg.EmbedFiles
 	// parsFeFile
 	if len(pkg.Syntax) > 0 {
-		pkgData := &PackageData{pkg.Fset, checker, make(map[uint32]map[string]interface{}), &typeutil.Map{}, 0}
 		data.Files = []fileType{parseFile(pkg.Syntax[0], name, pkgData)}
 		data.TypeList = make([]map[string]interface{}, len(pkgData.hashMap))
 		i := 0
@@ -722,8 +731,6 @@ func parsePkg(pkg *packages.Package) *packageType {
 			i++
 		}
 	}
-	checker = nil
-	fset = nil
 	return data
 }
 
@@ -1107,6 +1114,7 @@ type PackageData struct {
 	hashMap      map[uint32]map[string]interface{}
 	typeMap      *typeutil.Map
 	typeMapIndex uint32
+	PkgPath      string
 }
 
 func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[string]interface{} {
@@ -1146,8 +1154,7 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 	if !isVar {
 		t = node.(types.Type)
 		hash = hashType(t, pkg)
-		_, exists := pkg.hashMap[hash]
-		if !exists {
+		if _, exists := pkg.hashMap[hash]; !exists {
 			pkg.hashMap[hash] = data
 		} else {
 			return map[string]interface{}{

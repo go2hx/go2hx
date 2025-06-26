@@ -27,3 +27,22 @@ function listen(_network, _address) {
 		}
 	}
 }
+
+
+function joinHostPort(_host:stdgo.GoString,_port:stdgo.GoString):stdgo.GoString {
+	final host:String = _host;
+	final port:String = _port;
+	// We assume that host is a literal IPv6 address if host has
+	// colons.
+	if (host.indexOf(":") >= 0) {
+		return "[" + host + "]:" + port;
+	}
+	return host + ":" + port;
+}
+
+
+function _supportsIPv4()
+	return true;
+
+function _supportsIPv6()
+	return true;

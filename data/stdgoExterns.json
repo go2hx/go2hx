@@ -18,7 +18,6 @@
 	"log/internal",
 	"internal/platform",
 	"internal/race",
-	"net",
 	"time/tzdata",
 	"crypto/elliptic",
     "crypto/ecdh",

@@ -12,6 +12,7 @@ import stdgo.GoByte;
 import stdgo.GoUInt16;
 import stdgo.Slice;
 import stdgo.GoString;
+import stdgo.slices.Slices;
 
 function main() {
 	if (A.mD5 == A.sHA1) {
@@ -53,6 +54,11 @@ function main() {
 
 	Crypto.registerHash;
 	Math.acos(10);
+
+	var x:stdgo.Slice<stdgo.GoInt> = [-1,10,-100];
+	Slices.sort(x);
+	$type(x);
+	trace(x);
 }
 
 class ByteOrder {

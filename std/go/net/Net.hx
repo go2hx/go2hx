@@ -80,3 +80,15 @@ function dialContext(_ctx, _network, _address) {
 		}
 	}
 }
+
+@:recv(Transport)
+function _onceSetNextProtoDefaults() {}
+
+
+@:recv(Transport)
+function _replaceReqCanceler()
+	return true;
+
+
+@:recv(Transport)
+function registerProtocol() {}

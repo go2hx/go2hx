@@ -56,6 +56,7 @@ function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerIns
 
 	final info = new Info();
 	info.global.initBlock = [];
+	info.global.tryBool = instance.tryBool;
 	info.printGoCode = instance.printGoCode;
 	info.global.path = pkg.path;
 	info.global.externBool = false;

@@ -86,13 +86,14 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 				exprs.push(macro if (stdgo.Go.recover_exception != null) {
 					final e = stdgo.Go.recover_exception;
 					stdgo.Go.recover_exception = null;
-					throw e;
+					@:throw1 throw e;
 				});
 				exprs.push(last);
 				catchBlock.push(macro if (stdgo.Go.recover_exception != null) {
 					final e = stdgo.Go.recover_exception;
 					stdgo.Go.recover_exception = null;
-					throw e;
+					//@:throw2 throw __exception__.details();
+					@:throw3 throw e;
 				});
 				catchBlock.push(last);
 			// catchBlock = catchBlock.concat(exprs);
@@ -109,7 +110,7 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 		// exprs.push(typeDeferReturn(info, true));
 		exprs.push(ret);
 		// recover
-		final tryBool = true;
+		final tryBool = info.global.tryBool;
 		if (tryBool) {
 			final pos = 1 + (info.returnNamed ? 1 : 0);
 			final trydef = macro try $b{exprs.slice(pos)} catch (__exception__) {

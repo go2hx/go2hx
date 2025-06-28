@@ -4,15 +4,17 @@ function main() {
 	try {
 		sys.FileSystem.deleteFile("golibs/_internal/githubdotcom/go2hx/go4hx/testbed/.go2hx_cache");
 	}catch(e) {}
-	final args = ["./testbed"];
+	final args = ["./testbed", "-notry"];
 	//args.push("-compiler_cpp");
-	if (haxe.macro.Compiler.getDefine("nocache") != null)
+	if (haxe.macro.Compiler.getDefine("nocache") != null) {
 		args.push("-nocache");
+	}
 	if (haxe.macro.Compiler.getDefine("_hl") != null) {
 		args.push("-compiler_hl");
-	}else{
-		args.push("--rebuild");
+	}else if (haxe.macro.Compiler.getDefine("_interp") != null) {
+		args.push("-compiler_interp");
 	}
+	args.push("--rebuild");
 	if (haxe.macro.Compiler.getDefine("nogo4hx") != null)
 		args.push("-nogo4hx");
 	args.push(Sys.getCwd());
@@ -27,6 +29,8 @@ function main() {
 		main,
 		"--macro",
 		"Go2hxMacro.init()",
+		"-D",
+		"no-inline",
 		"--hl",
 		"testbed.hl",
 	]);
@@ -45,6 +49,15 @@ function main() {
 
 
 function runCommand(cmd:String, args:Array<String>):Int {
-	Sys.println(cmd + " " + args.join(" "));
+	Sys.println(cmd + " " + commandArgs(args).join(" "));
 	return Sys.command(cmd, args);
+}
+
+function commandArgs(args:Array<String>):Array<String> {
+	switch (Sys.systemName()) {
+		case "Windows":
+			return args.map(arg -> haxe.SysTools.quoteWinArg(arg, true));
+		case _:
+			return args.map(haxe.SysTools.quoteUnixArg);
+	}
 }

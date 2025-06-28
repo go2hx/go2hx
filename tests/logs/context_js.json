@@ -5,7 +5,6 @@
         "TestTODO",
         "TestAllocs",
         "TestWithValueChecksKey",
-        "TestInvalidDerivedFail",
         "TestDeadlineExceededSupportsTimeout",
         "TestWithoutCancel"
     ],

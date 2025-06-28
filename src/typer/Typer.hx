@@ -28,6 +28,7 @@ private typedef Ref<T> = {
 }
 
 class Global {
+	public var tryBool:Bool = true;
 	public var localSpecs:Map<String, Array<GoAst.Spec>> = [];
 	public var deferBool:Bool = false;
 	public var varTraceBool:Bool = false;
@@ -47,6 +48,7 @@ class Global {
 
 	public function copy():Global {
 		var g = new Global();
+		g.tryBool = tryBool;
 		g.localSpecs = localSpecs;
 		g.initBlock = initBlock.copy();
 		g.noCommentsBool = noCommentsBool;

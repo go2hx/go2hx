@@ -158,6 +158,9 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 			threadPool = new sys.thread.ElasticThreadPool(threadCount, 0.1);
 			#end
 		},
+		["-notry","--notry"] => () -> {
+			instance.tryBool = false;
+		},
 		@doc("generate Haxe build file from compiler command")
 		["-build", "--build"] => out -> instance.buildPath = out,
 		@doc("generate build hxml from compiler commands")
@@ -440,6 +443,7 @@ function write(instance:CompilerInstanceData):Bool {
 }
 
 class CompilerInstanceData {
+	public var tryBool:Bool = true;
 	public var noCache:Bool = false;
 	public var times:Bool = false;
 	public var printMain:Bool = false;
@@ -486,6 +490,7 @@ class CompilerInstanceData {
 
 	public function copy():CompilerInstanceData {
 		final instance = new CompilerInstanceData();
+		instance.tryBool = tryBool;
 		instance.noCache = noCache;
 		instance.deps = deps.copy();
 		instance.printMain = printMain;

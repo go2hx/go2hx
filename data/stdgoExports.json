@@ -3,7 +3,6 @@
     "runtime/debug",
     "internal/reflectlite",
     "reflect",
-    "net",
     "crypto/elliptic",
     "crypto/ecdh",
     "crypto/ecdsa"

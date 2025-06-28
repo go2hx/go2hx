@@ -1,7 +1,5 @@
 {
-    "passes": [
-        "TestInvalidDerivedFail"
-    ],
+    "passes": [],
     "fails": [
         "TestCustomContextAfterFuncCancel",
         "TestCustomContextAfterFuncTimeout",

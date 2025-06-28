@@ -1,449 +1,84 @@
-=== RUN  TestCustomContextAfterFuncCancel
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testcustomcontextafterfunccancel_testCustomContextAfterFuncCancel [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:16966:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
-
--- FAIL: TestCustomContextAfterFuncCancel
-
-=== RUN  TestCustomContextAfterFuncTimeout
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testcustomcontextafterfunctimeout_testCustomContextAfterFuncTimeout [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:17053:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
-
--- FAIL: TestCustomContextAfterFuncTimeout
-
-=== RUN  TestCustomContextAfterFuncAfterFunc
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testcustomcontextafterfuncafterfunc_testCustomContextAfterFuncAfterFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:16879:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
-
--- FAIL: TestCustomContextAfterFuncAfterFunc
-
-=== RUN  TestCustomContextAfterFuncUnregisterCancel
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 23262 column 23)
-Called from stdgo__$internal_context_T_$cancelCtx_$static_$extension._propagateCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 19436 column 58)
-Called from .stdgo__$internal_context_Context_$_$withcancel__withCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 18913 column 59)
-Called from .stdgo__$internal_context_Context_$withcancel_withCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 18893 column 11)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testcustomcontextafterfuncunregistercancel_testCustomContextAfterFuncUnregisterCancel [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:17101:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-
--- FAIL: TestCustomContextAfterFuncUnregisterCancel
-
-=== RUN  TestCustomContextAfterFuncUnregisterTimeout
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from .stdgo__$internal_context_Context_$withdeadlinecause_withDeadlineCause (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 23676 column 25)
-Called from .stdgo__$internal_context_Context_$withdeadline_withDeadline (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 23524 column 9)
-Called from .stdgo__$internal_context_Context_$withtimeout_withTimeout (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 23521 column 9)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testcustomcontextafterfuncunregistertimeout_testCustomContextAfterFuncUnregisterTimeout [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:17143:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-
--- FAIL: TestCustomContextAfterFuncUnregisterTimeout
-
-=== RUN  TestCustomContextAfterFuncUnregisterAfterFunc
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 23262 column 23)
-Called from stdgo__$internal_context_T_$cancelCtx_$static_$extension._propagateCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 19436 column 58)
-Called from .stdgo__$internal_context_Context_$afterfunc_afterFunc (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 26922 column 59)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testcustomcontextafterfuncunregisterafterfunc_testCustomContextAfterFuncUnregisterAfterFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:17060:14)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-
--- FAIL: TestCustomContextAfterFuncUnregisterAfterFunc
-
-=== RUN  TestDeadlineExceededIsNetError
-
--- PASS: TestDeadlineExceededIsNetError
-
-=== RUN  TestParentFinishesChild
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from .stdgo__$internal_context_Context_$xtestparentfinisheschild_xTestParentFinishesChild (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 28067 column 25)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testparentfinisheschild_testParentFinishesChild [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:17664:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-
--- FAIL: TestParentFinishesChild
-
-=== RUN  TestChildFinishesFirst
-Exception: Cannot read properties of null (reading 'keyValueIterator')
-Called from .stdgo__$internal_context_Context_$xtestchildfinishesfirst_xTestChildFinishesFirst (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 30010 column 25)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testchildfinishesfirst_testChildFinishesFirst [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:16783:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-
--- FAIL: TestChildFinishesFirst
-
-=== RUN  TestCancelRemoves
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 23262 column 23)
-Called from stdgo__$internal_context_T_$cancelCtx_$static_$extension._propagateCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 19436 column 58)
-Called from .stdgo__$internal_context_Context_$_$withcancel__withCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 18913 column 59)
-Called from .stdgo__$internal_context_Context_$withcancel_withCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 18893 column 11)
-Called from .stdgo__$internal_context_Context_$xtestcancelremoves_xTestCancelRemoves (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 30796 column 16)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testcancelremoves_testCancelRemoves [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:16572:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-
--- FAIL: TestCancelRemoves
-
-=== RUN  TestCustomContextGoroutines
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from .stdgo__$internal_context_Context_$xtestcustomcontextgoroutines_xTestCustomContextGoroutines (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 31019 column 25)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testcustomcontextgoroutines_testCustomContextGoroutines [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:17184:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-
--- FAIL: TestCustomContextGoroutines
-
-=== RUN  TestBackground
-
--- PASS: TestBackground
-
-=== RUN  TestTODO
-
--- PASS: TestTODO
-
-=== RUN  TestWithCancel
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 23262 column 23)
-Called from stdgo__$internal_context_T_$cancelCtx_$static_$extension._propagateCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 19436 column 58)
-Called from .stdgo__$internal_context_Context_$_$withcancel__withCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 18913 column 59)
-Called from .stdgo__$internal_context_Context_$withcancel_withCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 18893 column 11)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testwithcancel_testWithCancel [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:18291:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-
--- FAIL: TestWithCancel
-
-=== RUN  TestDeadline
-Exception: T_:testing.deadline is not yet implemented
-Called from ._$internal_context_$test_Context_$test_$_$testdeadline__testDeadline (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 13317 column 25)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testdeadline_testDeadline [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:17319:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-
--- FAIL: TestDeadline
-
-=== RUN  TestTimeout
-Exception: T_:testing.deadline is not yet implemented
-Called from ._$internal_context_$test_Context_$test_$_$testdeadline__testDeadline (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 13317 column 25)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testtimeout_testTimeout [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:17914:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-
--- FAIL: TestTimeout
-
-=== RUN  TestCanceledTimeout
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from .stdgo__$internal_context_Context_$withdeadlinecause_withDeadlineCause (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 23676 column 25)
-Called from .stdgo__$internal_context_Context_$withdeadline_withDeadline (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 23524 column 9)
-Called from .stdgo__$internal_context_Context_$withtimeout_withTimeout (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 23521 column 9)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testcanceledtimeout_testCanceledTimeout [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:16540:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-
--- FAIL: TestCanceledTimeout
-
-=== RUN  TestValues
-<invalid reflect.Value>.Value(k2).(string) = %!q(MISSING), %!t(MISSING) want %!q(MISSING), %!t(MISSING)
-c.String() = <invalid reflect.Value> want %!q(MISSING)
-<invalid reflect.Value>.Value(k1).(string) = %!q(MISSING), %!t(MISSING) want %!q(MISSING), %!t(MISSING)
-<invalid reflect.Value>.Value(k1).(string) = %!q(MISSING), %!t(MISSING) want %!q(MISSING), %!t(MISSING)
-<invalid reflect.Value>.Value(k2).(string) = %!q(MISSING), %!t(MISSING) want %!q(MISSING), %!t(MISSING)
-<invalid reflect.Value>.Value(k2).(string) = %!q(MISSING), %!t(MISSING) want %!q(MISSING), %!t(MISSING)
-<invalid reflect.Value>.Value(k1).(string) = %!q(MISSING), %!t(MISSING) want %!q(MISSING), %!t(MISSING)
-<invalid reflect.Value>.Value(k2).(string) = %!q(MISSING), %!t(MISSING) want %!q(MISSING), %!t(MISSING)
-<invalid reflect.Value>.Value(k2).(string) = %!q(MISSING), %!t(MISSING) want %!q(MISSING), %!t(MISSING)
-
--- FAIL: TestValues
-
-=== RUN  TestAllocs
-golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
-golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
-golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
-golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
-golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
-
--- PASS: TestAllocs
-
-=== RUN  TestSimultaneousCancels
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testsimultaneouscancels_testSimultaneousCancels [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:17896:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
-
--- FAIL: TestSimultaneousCancels
-
-=== RUN  TestInterlockedCancels
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testinterlockedcancels_testInterlockedCancels [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:17631:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
-
--- FAIL: TestInterlockedCancels
-
-=== RUN  TestLayersCancel
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from ._$internal_context_$test_Context_$test_$_$testlayers__testLayers (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 13641 column 25)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testlayerscancel_testLayersCancel [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:17658:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-
--- FAIL: TestLayersCancel
-
-=== RUN  TestLayersTimeout
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from ._$internal_context_$test_Context_$test_$_$testlayers__testLayers (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 13641 column 25)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testlayerstimeout_testLayersTimeout [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:17661:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-
--- FAIL: TestLayersTimeout
-
-=== RUN  TestWithCancelCanceledParent
-Exception: Cannot read properties of null (reading 'keyValueIterator')
-Called from module TypeError: Cannot read properties of null (reading 'keyValueIterator')
-Called from stdgo__$internal_context_T_$cancelCtx_$static_$extension._cancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 19158 column 27)
-Called from ._1 (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 46178 column 60)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testwithcancelcanceledparent_testWithCancelCanceledParent [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:18373:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
-
--- FAIL: TestWithCancelCanceledParent
-
-=== RUN  TestWithCancelSimultaneouslyCanceledParent
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 23262 column 23)
-Called from stdgo__$internal_context_T_$cancelCtx_$static_$extension._propagateCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 19436 column 58)
-Called from .stdgo__$internal_context_Context_$_$withcancel__withCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 18913 column 59)
-Called from .stdgo__$internal_context_Context_$withcancel_withCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 18893 column 11)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testwithcancelsimultaneouslycanceledparent_testWithCancelSimultaneouslyCanceledParent [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:18422:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-
--- FAIL: TestWithCancelSimultaneouslyCanceledParent
-
-=== RUN  TestWithValueChecksKey
-
--- PASS: TestWithValueChecksKey
-
-=== RUN  TestInvalidDerivedFail
-
--- PASS: TestInvalidDerivedFail
-
-=== RUN  TestDeadlineExceededSupportsTimeout
-
--- PASS: TestDeadlineExceededSupportsTimeout
-
-=== RUN  TestCause
-- SUBRUN  Background
-- SUBRUN  TODO
-- SUBRUN  WithCancel
-Exception: Cannot read properties of null (reading 'keyValueIterator')
-Called from module TypeError: Cannot read properties of null (reading 'keyValueIterator')
-Called from stdgo__$internal_context_T_$cancelCtx_$static_$extension._cancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 19158 column 27)
-Called from ._1 (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 18902 column 60)
-Called from Object._ctx (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 16591 column 3)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:16741:25
-Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 44544 column 2)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testcause_testCause [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:16738:51)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-
--- FAIL: TestCause
-
-=== RUN  TestCauseRace
-Exception: :runtime.gosched is not yet implemented
-Called from .stdgo__$internal_runtime_Runtime_$gosched_gosched (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 46998 column 23)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testcauserace_testCauseRace [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:16779:3)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-
--- FAIL: TestCauseRace
-
-=== RUN  TestWithoutCancel
-
--- PASS: TestWithoutCancel
-
-=== RUN  TestCustomContextPropagation
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testcustomcontextpropagation_testCustomContextPropagation [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:17299:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
-
--- FAIL: TestCustomContextPropagation
-
-=== RUN  TestAfterFuncCalledAfterCancel
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 23262 column 23)
-Called from stdgo__$internal_context_T_$cancelCtx_$static_$extension._propagateCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 19436 column 58)
-Called from .stdgo__$internal_context_Context_$afterfunc_afterFunc (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 26922 column 59)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testafterfunccalledaftercancel_testAfterFuncCalledAfterCancel [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:16090:14)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-
--- FAIL: TestAfterFuncCalledAfterCancel
-
-=== RUN  TestAfterFuncCalledAfterTimeout
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testafterfunccalledaftertimeout_testAfterFuncCalledAfterTimeout [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:16255:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
-
--- FAIL: TestAfterFuncCalledAfterTimeout
-
-=== RUN  TestAfterFuncCalledImmediately
-Exception: Cannot read properties of null (reading 'keyValueIterator')
-Called from module TypeError: Cannot read properties of null (reading 'keyValueIterator')
-Called from stdgo__$internal_context_T_$cancelCtx_$static_$extension._cancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 19158 column 27)
-Called from ._1 (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 18902 column 60)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testafterfunccalledimmediately_testAfterFuncCalledImmediately [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:16373:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
-
--- FAIL: TestAfterFuncCalledImmediately
-
-=== RUN  TestAfterFuncNotCalledAfterStop
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 23262 column 23)
-Called from stdgo__$internal_context_T_$cancelCtx_$static_$extension._propagateCancel (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 19436 column 58)
-Called from .stdgo__$internal_context_Context_$afterfunc_afterFunc (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 26922 column 59)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testafterfuncnotcalledafterstop_testAfterFuncNotCalledAfterStop [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:16415:14)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-
--- FAIL: TestAfterFuncNotCalledAfterStop
-
-=== RUN  TestAfterFuncCalledAsynchronously
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from module at stdgo__$internal_testing_InternalTest._$internal_context_$test_Context_$test_$testafterfunccalledasynchronously_testAfterFuncCalledAsynchronously [as f] (/home/runner/work/go2hx/go2hx/golibs/std_context.js:16364:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 54417 column 9)
-Called from ._$internal_contextdottest_Contextdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_context.js line 47844 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_context.js:61428:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_context.js:61429:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
-
--- FAIL: TestAfterFuncCalledAsynchronously
-
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
--- FAIL: TestAfterFuncCalledAsynchronously
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/Process.hx:41: characters 1-7
+
+  41 | @:enum abstract ProcessEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/child_process/ChildProcess.hx:38: characters 1-7
+
+  38 | @:enum abstract ChildProcessEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/events/EventEmitter.hx:35: characters 1-7
+
+  35 | @:enum abstract EventEmitterEvent<T:Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/stream/Readable.hx:40: characters 1-7
+
+  40 | @:enum abstract ReadableEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/stream/Writable.hx:43: characters 1-7
+
+  43 | @:enum abstract WritableEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/ChildProcess.hx:139: characters 1-7
+
+ 139 | @:enum abstract ChildProcessSpawnOptionsStdioSimple(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/ChildProcess.hx:159: characters 1-7
+
+ 159 | @:enum abstract ChildProcessSpawnOptionsStdioBehaviour(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/Fs.hx:171: characters 1-7
+
+ 171 | @:enum abstract SymlinkType(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/Fs.hx:187: characters 1-7
+
+ 187 | @:enum abstract FsOpenFlag(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/fs/FSWatcher.hx:36: characters 1-7
+
+  36 | @:enum abstract FSWatcherChangeType(String) from String to String {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/fs/FSWatcher.hx:44: characters 1-7
+
+  44 | @:enum abstract FSWatcherEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/fs/ReadStream.hx:28: characters 1-7
+
+  28 | @:enum abstract ReadStreamEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[WARNING] /home/runner/haxe/haxe_libraries/hxnodejs/12.1.0/github/e37e79fce8a2a2177a0a73ce9d8eff2acdbcfa8b/src/js/node/fs/WriteStream.hx:28: characters 1-7
+
+  28 | @:enum abstract WriteStreamEvent<T:haxe.Constraints.Function>(Event<T>) to Event<T> {
+     | ^^^^^^
+     | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
+
+[ERROR] golibs/stdgo/_internal/net/Net_t_ipstackcapabilities_static_extension.hx:50: characters 33-69
+
+  50 |                     var _err = (stdgo._internal.syscall.Syscall_bind.bind(_s, _sa) : stdgo.Error);
+     |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Module stdgo._internal.syscall.Syscall_bind does not define type Syscall_bind
+

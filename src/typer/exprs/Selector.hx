@@ -185,7 +185,7 @@ function selectorXIdent(x:MacroExpr, expr:GoAst.SelectorExpr, info:Info):MacroEx
 							final isLocal = io.Path.isPackLocal(p.pack, info);
 							if (info.data.isMain) {
 								p.pack.push(lastPack);
-							}else if (isLocal) {
+							/*}else if (isLocal) {*/
 
 							}else {
 								p.pack.push(lastPack + "_static_extension");

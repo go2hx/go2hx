@@ -99,3 +99,7 @@ function _initLocal() {
 	stdgo._internal.time.Time__localloc._localLoc._zone = new stdgo.Slice<stdgo._internal.time.Time_t_zone.T_zone>(1, 1,
 		...[{_name: (name : stdgo.GoString), _offset: offset, _isDST: false}]);
 }
+
+@:recv(Location)
+function _firstZoneUsed()
+	return false;

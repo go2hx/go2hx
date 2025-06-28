@@ -88,9 +88,3 @@
      |         ^^^^^^^^^^^
      | Unknown identifier : _startTimer
 
-[ERROR] (macro) golibs/stdgo/_internal/compress/flate/Flate_newreader.hx:10: characters 40-102
-
-  10 |         _f._step = @:selector_x_ident2 stdgo._internal.compress.flate.T_decompressor_static_extension._nextBlock;
-     |                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.compress.flate.T_decompressor_static_extension
-

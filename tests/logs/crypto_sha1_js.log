@@ -6,8 +6,8 @@ Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:40609:58
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha1_Sha1_$testgolden_testGolden [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:11125:22)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 40371 column 9)
 Called from ._$internal_crypto_sha1dottest_Sha1dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 34359 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:51993:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:51994:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:51976:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:51977:3)
 
 -- FAIL: TestGolden
 
@@ -32,8 +32,8 @@ Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha1_Sha1_$testblockgeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:32112:3)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 40371 column 9)
 Called from ._$internal_crypto_sha1dottest_Sha1dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 34359 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:51993:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:51994:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:51976:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:51977:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 

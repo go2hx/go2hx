@@ -6,8 +6,8 @@ Called from .stdgo__$internal_internal_abi_Abi_$funcpctest_funcPCTest (/home/run
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_abi_$test_Abi_$test_$testfuncpc_testFuncPC [as f] (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:13011:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 50199 column 9)
 Called from ._$internal_internal_abidottest_Abidottest_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 42997 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:57393:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:57394:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:57376:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:57377:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestFuncPC

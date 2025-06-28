@@ -1,5 +1,14 @@
 {
-    "passes": [],
+    "passes": [
+        "TestDeadlineExceededIsNetError",
+        "TestBackground",
+        "TestTODO",
+        "TestAllocs",
+        "TestWithValueChecksKey",
+        "TestInvalidDerivedFail",
+        "TestDeadlineExceededSupportsTimeout",
+        "TestWithoutCancel"
+    ],
     "fails": [
         "TestCustomContextAfterFuncCancel",
         "TestCustomContextAfterFuncTimeout",

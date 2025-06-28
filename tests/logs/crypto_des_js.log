@@ -57,8 +57,8 @@ Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.encrypt 
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testencrypttripledes_testEncryptTripleDES [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16246:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38178 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17575 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47740:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47741:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47723:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47724:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestEncryptTripleDES
@@ -70,8 +70,8 @@ Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.decrypt 
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testdecrypttripledes_testDecryptTripleDES [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16356:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38178 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17575 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47740:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47741:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47723:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47724:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestDecryptTripleDES
@@ -83,8 +83,8 @@ Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.encrypt 
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testvariableplaintextknownanswer_testVariablePlaintextKnownAnswer [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16376:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38178 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17575 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47740:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47741:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47723:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47724:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestVariablePlaintextKnownAnswer
@@ -96,8 +96,8 @@ Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.decrypt 
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testvariableciphertextknownanswer_testVariableCiphertextKnownAnswer [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16396:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38178 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17575 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47740:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47741:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47723:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47724:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestVariableCiphertextKnownAnswer
@@ -109,8 +109,8 @@ Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.encrypt 
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testinversepermutationknownanswer_testInversePermutationKnownAnswer [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16416:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38178 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17575 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47740:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47741:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47723:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47724:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestInversePermutationKnownAnswer
@@ -122,8 +122,8 @@ Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.decrypt 
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testinitialpermutationknownanswer_testInitialPermutationKnownAnswer [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16436:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38178 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17575 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47740:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47741:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47723:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47724:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestInitialPermutationKnownAnswer
@@ -135,8 +135,8 @@ Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.encrypt 
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testvariablekeyknownanswerencrypt_testVariableKeyKnownAnswerEncrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16456:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38178 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17575 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47740:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47741:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47723:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47724:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestVariableKeyKnownAnswerEncrypt
@@ -148,8 +148,8 @@ Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.decrypt 
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testvariablekeyknownanswerdecrypt_testVariableKeyKnownAnswerDecrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16476:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38178 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17575 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47740:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47741:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47723:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47724:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestVariableKeyKnownAnswerDecrypt
@@ -161,8 +161,8 @@ Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.encrypt 
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testpermutationoperationknownanswerencrypt_testPermutationOperationKnownAnswerEncrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16496:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38178 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17575 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47740:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47741:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47723:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47724:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestPermutationOperationKnownAnswerEncrypt
@@ -174,8 +174,8 @@ Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.decrypt 
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testpermutationoperationknownanswerdecrypt_testPermutationOperationKnownAnswerDecrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16516:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38178 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17575 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47740:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47741:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47723:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47724:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestPermutationOperationKnownAnswerDecrypt
@@ -187,8 +187,8 @@ Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.encrypt 
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testsubstitutiontableknownanswerencrypt_testSubstitutionTableKnownAnswerEncrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16536:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38178 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17575 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47740:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47741:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47723:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47724:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestSubstitutionTableKnownAnswerEncrypt
@@ -200,8 +200,8 @@ Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.decrypt 
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testsubstitutiontableknownanswerdecrypt_testSubstitutionTableKnownAnswerDecrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16556:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38178 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17575 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47740:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47741:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:47723:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:47724:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestSubstitutionTableKnownAnswerDecrypt

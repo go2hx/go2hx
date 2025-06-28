@@ -11,8 +11,8 @@
     at stdgo__$internal_sort_Sort_$_$pdqsort_$func__pdqsort_func (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:16344:4)
     at stdgo__$internal_sort_Sort_$slice_slice (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:11094:2)
     at _$internal_internal_fmtsort_$test_Fmtsort_$test_$_$makechans__makeChans (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:10213:2)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:45907:71
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:48396:3) {
+    at /home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:45890:71
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:48379:3) {
   __previousException: undefined,
   __nativeException: [Circular *1],
   __skipStack: 2,

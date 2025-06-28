@@ -27,8 +27,8 @@ Called from .stdgo__$internal_hash_crc32_Crc32_$_$testcrosscheck__testCrossCheck
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_hash_crc32_Crc32_$testslicing_testSlicing [as f] (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:16894:3)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 41158 column 9)
 Called from ._$internal_hash_crc32dottest_Crc32dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 34904 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50653:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50654:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50636:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50637:3)
 
 -- FAIL: TestSlicing
 
@@ -41,8 +41,8 @@ Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:41435:58
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_hash_crc32_Crc32_$testarchieee_testArchIEEE [as f] (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:20647:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 41158 column 9)
 Called from ._$internal_hash_crc32dottest_Crc32dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 34904 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50653:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50654:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50636:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50637:3)
 
 -- SKIP: TestArchIEEE
 
@@ -57,8 +57,8 @@ Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:41435:58
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_hash_crc32_Crc32_$testarchcastagnoli_testArchCastagnoli [as f] (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:20657:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 41158 column 9)
 Called from ._$internal_hash_crc32dottest_Crc32dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 34904 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50653:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50654:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50636:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50637:3)
 
 -- SKIP: TestArchCastagnoli
 

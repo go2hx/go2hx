@@ -8,8 +8,8 @@ Called from .stdgo__$internal_math_rand_Rand_$int63_int63 (/home/runner/work/go2
 Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testauto_testAuto [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:40384:15)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 61092 column 9)
 Called from ._$internal_math_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 51928 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:68461:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:68462:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:68444:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:68445:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestAuto
@@ -23,8 +23,8 @@ Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:61363:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testdefaultrace_testDefaultRace [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:40407:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 61092 column 9)
 Called from ._$internal_math_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 51928 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:68461:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:68462:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:68444:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:68445:3)
 
 -- SKIP: TestDefaultRace
 
@@ -158,8 +158,8 @@ Called from stdgo__$internal_reflect_Value_$static_$extension.method (/home/runn
 Called from module at stdgo__$internal_testing_InternalTest._$internal_math_rand_$test_Rand_$test_$testregress_testRegress [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:40902:63)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 61092 column 9)
 Called from ._$internal_math_randdottest_Randdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_rand.js line 51928 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:68461:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:68462:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rand.js:68444:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rand.js:68445:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 

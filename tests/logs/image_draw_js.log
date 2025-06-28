@@ -78,9 +78,9 @@
 
 [ERROR] golibs/stdgo/_internal/image/draw/Draw_testdraw.hx:158: characters 21-70
 
- 158 |                     stdgo._internal.image.draw.Draw__iterator_5012021._iterator_5012021++;
+ 158 |                     stdgo._internal.image.draw.Draw__iterator_5109377._iterator_5109377++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.image.draw.Draw__iterator_5012021
+     | Type not found : stdgo._internal.image.draw.Draw__iterator_5109377
 
 [ERROR] golibs/stdgo/_internal/compress/flate/Flate_newreaderdict.hx:10: characters 40-102
 

@@ -1,6 +1,365 @@
-[ERROR] golibs/stdgo/_internal/net/Net_t_ipstackcapabilities_static_extension.hx:50: characters 33-69
+=== RUN  TestCustomContextAfterFuncCancel
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from _internal.context_test._Context_test_testcustomcontextafterfunccancel.$Context_test_testcustomcontextafterfunccancel_Fields_.testCustomContextAfterFuncCancel (_internal/context_test/Context_test_testcustomcontextafterfunccancel.hx line 63)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
 
- 50 |                     var _err = (stdgo._internal.syscall.Syscall_bind.bind(_s, _sa) : stdgo.Error);
-    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | Module stdgo._internal.syscall.Syscall_bind does not define type Syscall_bind
+-- FAIL: TestCustomContextAfterFuncCancel
 
+=== RUN  TestCustomContextAfterFuncTimeout
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from _internal.context_test._Context_test_testcustomcontextafterfunctimeout.$Context_test_testcustomcontextafterfunctimeout_Fields_.testCustomContextAfterFuncTimeout (_internal/context_test/Context_test_testcustomcontextafterfunctimeout.hx line 63)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestCustomContextAfterFuncTimeout
+
+=== RUN  TestCustomContextAfterFuncAfterFunc
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from _internal.context_test._Context_test_testcustomcontextafterfuncafterfunc.$Context_test_testcustomcontextafterfuncafterfunc_Fields_.testCustomContextAfterFuncAfterFunc (_internal/context_test/Context_test_testcustomcontextafterfuncafterfunc.hx line 67)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestCustomContextAfterFuncAfterFunc
+
+=== RUN  TestCustomContextAfterFuncUnregisterCancel
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8)
+Called from stdgo._internal.context.$T_cancelCtx_static_extension._propagateCancel (stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153)
+Called from stdgo._internal.context._Context__withcancel.$Context__withcancel_Fields_._withCancel (stdgo/_internal/context/Context__withcancel.hx line 10)
+Called from stdgo._internal.context._Context_withcancel.$Context_withcancel_Fields_.withCancel (stdgo/_internal/context/Context_withcancel.hx line 4)
+Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregistercancel.$Context_test_testcustomcontextafterfuncunregistercancel_Fields_.testCustomContextAfterFuncUnregisterCancel (_internal/context_test/Context_test_testcustomcontextafterfuncunregistercancel.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestCustomContextAfterFuncUnregisterCancel
+
+=== RUN  TestCustomContextAfterFuncUnregisterTimeout
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.context._Context_withdeadlinecause.$Context_withdeadlinecause_Fields_.withDeadlineCause (stdgo/_internal/context/Context_withdeadlinecause.hx line 106)
+Called from stdgo._internal.context._Context_withdeadline.$Context_withdeadline_Fields_.withDeadline (stdgo/_internal/context/Context_withdeadline.hx line 4)
+Called from stdgo._internal.context._Context_withtimeout.$Context_withtimeout_Fields_.withTimeout (stdgo/_internal/context/Context_withtimeout.hx line 4)
+Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregistertimeout.$Context_test_testcustomcontextafterfuncunregistertimeout_Fields_.testCustomContextAfterFuncUnregisterTimeout (_internal/context_test/Context_test_testcustomcontextafterfuncunregistertimeout.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestCustomContextAfterFuncUnregisterTimeout
+
+=== RUN  TestCustomContextAfterFuncUnregisterAfterFunc
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8)
+Called from stdgo._internal.context.$T_cancelCtx_static_extension._propagateCancel (stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153)
+Called from stdgo._internal.context._Context_afterfunc.$Context_afterfunc_Fields_.afterFunc (stdgo/_internal/context/Context_afterfunc.hx line 6)
+Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregisterafterfunc.$Context_test_testcustomcontextafterfuncunregisterafterfunc_Fields_.testCustomContextAfterFuncUnregisterAfterFunc (_internal/context_test/Context_test_testcustomcontextafterfuncunregisterafterfunc.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestCustomContextAfterFuncUnregisterAfterFunc
+
+=== RUN  TestDeadlineExceededIsNetError
+
+-- PASS: TestDeadlineExceededIsNetError
+
+=== RUN  TestParentFinishesChild
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.context._Context_xtestparentfinisheschild.$Context_xtestparentfinisheschild_Fields_.xTestParentFinishesChild (stdgo/_internal/context/Context_xtestparentfinisheschild.hx line 296)
+Called from _internal.context_test._Context_test_testparentfinisheschild.$Context_test_testparentfinisheschild_Fields_.testParentFinishesChild (_internal/context_test/Context_test_testparentfinisheschild.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestParentFinishesChild
+
+=== RUN  TestChildFinishesFirst
+<-child.Done() blocked, but shouldn't have
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.context._Context_xtestchildfinishesfirst.$Context_xtestchildfinishesfirst_Fields_.xTestChildFinishesFirst (stdgo/_internal/context/Context_xtestchildfinishesfirst.hx line 218)
+Called from _internal.context_test._Context_test_testchildfinishesfirst.$Context_test_testchildfinishesfirst_Fields_.testChildFinishesFirst (_internal/context_test/Context_test_testchildfinishesfirst.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestChildFinishesFirst
+
+=== RUN  TestCancelRemoves
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8)
+Called from stdgo._internal.context.$T_cancelCtx_static_extension._propagateCancel (stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153)
+Called from stdgo._internal.context._Context__withcancel.$Context__withcancel_Fields_._withCancel (stdgo/_internal/context/Context__withcancel.hx line 10)
+Called from stdgo._internal.context._Context_withcancel.$Context_withcancel_Fields_.withCancel (stdgo/_internal/context/Context_withcancel.hx line 4)
+Called from stdgo._internal.context._Context_xtestcancelremoves.$Context_xtestcancelremoves_Fields_.xTestCancelRemoves (stdgo/_internal/context/Context_xtestcancelremoves.hx line 16)
+Called from _internal.context_test._Context_test_testcancelremoves.$Context_test_testcancelremoves_Fields_.testCancelRemoves (_internal/context_test/Context_test_testcancelremoves.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestCancelRemoves
+
+=== RUN  TestCustomContextGoroutines
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.context._Context_xtestcustomcontextgoroutines.$Context_xtestcustomcontextgoroutines_Fields_.xTestCustomContextGoroutines (stdgo/_internal/context/Context_xtestcustomcontextgoroutines.hx line 152)
+Called from _internal.context_test._Context_test_testcustomcontextgoroutines.$Context_test_testcustomcontextgoroutines_Fields_.testCustomContextGoroutines (_internal/context_test/Context_test_testcustomcontextgoroutines.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestCustomContextGoroutines
+
+=== RUN  TestBackground
+
+-- PASS: TestBackground
+
+=== RUN  TestTODO
+
+-- PASS: TestTODO
+
+=== RUN  TestWithCancel
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8)
+Called from stdgo._internal.context.$T_cancelCtx_static_extension._propagateCancel (stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153)
+Called from stdgo._internal.context._Context__withcancel.$Context__withcancel_Fields_._withCancel (stdgo/_internal/context/Context__withcancel.hx line 10)
+Called from stdgo._internal.context._Context_withcancel.$Context_withcancel_Fields_.withCancel (stdgo/_internal/context/Context_withcancel.hx line 4)
+Called from _internal.context_test._Context_test_testwithcancel.$Context_test_testwithcancel_Fields_.testWithCancel (_internal/context_test/Context_test_testwithcancel.hx line 14)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestWithCancel
+
+=== RUN  TestDeadline
+Exception: T_:testing.deadline is not yet implemented
+Called from _internal.context_test._Context_test__testdeadline.$Context_test__testdeadline_Fields_._testDeadline (_internal/context_test/Context_test__testdeadline.hx line 107)
+Called from _internal.context_test._Context_test_testdeadline.$Context_test_testdeadline_Fields_.testDeadline (_internal/context_test/Context_test_testdeadline.hx line 16)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestDeadline
+
+=== RUN  TestTimeout
+Exception: T_:testing.deadline is not yet implemented
+Called from _internal.context_test._Context_test__testdeadline.$Context_test__testdeadline_Fields_._testDeadline (_internal/context_test/Context_test__testdeadline.hx line 107)
+Called from _internal.context_test._Context_test_testtimeout.$Context_test_testtimeout_Fields_.testTimeout (_internal/context_test/Context_test_testtimeout.hx line 16)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestTimeout
+
+=== RUN  TestCanceledTimeout
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.context._Context_withdeadlinecause.$Context_withdeadlinecause_Fields_.withDeadlineCause (stdgo/_internal/context/Context_withdeadlinecause.hx line 106)
+Called from stdgo._internal.context._Context_withdeadline.$Context_withdeadline_Fields_.withDeadline (stdgo/_internal/context/Context_withdeadline.hx line 4)
+Called from stdgo._internal.context._Context_withtimeout.$Context_withtimeout_Fields_.withTimeout (stdgo/_internal/context/Context_withtimeout.hx line 4)
+Called from _internal.context_test._Context_test_testcanceledtimeout.$Context_test_testcanceledtimeout_Fields_.testCanceledTimeout (_internal/context_test/Context_test_testcanceledtimeout.hx line 5)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestCanceledTimeout
+
+=== RUN  TestValues
+c1.Value(k2).(string) = "c1k1", true want "", false
+c.String() = "context.Background.WithValue(type _internal.context_test.key1, val c1k1)" want "context.Background.WithValue(type context_test.key1, val c1k1)"
+c2.Value(k1).(string) = "c2k2", true want "c1k1", true
+c2.Value(k1).(string) = "c2k2", true want "c1k1", true
+c4.Value(k2).(string) = "", false want "c2k2", true
+o1.Value(k2).(string) = "c1k1", true want "", false
+o2.Value(k1).(string) = "o2k2", true want "c1k1", true
+o3.Value(k2).(string) = "", false want "c2k2", true
+o4.Value(k2).(string) = "", false want "c2k2", true
+
+-- FAIL: TestValues
+
+=== RUN  TestAllocs
+golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+
+-- PASS: TestAllocs
+
+=== RUN  TestSimultaneousCancels
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.testSimultaneousCancels (_internal/context_test/Context_test_testsimultaneouscancels.hx line 197)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestSimultaneousCancels
+
+=== RUN  TestInterlockedCancels
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from _internal.context_test._Context_test_testinterlockedcancels.$Context_test_testinterlockedcancels_Fields_.testInterlockedCancels (_internal/context_test/Context_test_testinterlockedcancels.hx line 113)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestInterlockedCancels
+
+=== RUN  TestLayersCancel
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from _internal.context_test._Context_test__testlayers.$Context_test__testlayers_Fields_._testLayers (_internal/context_test/Context_test__testlayers.hx line 243)
+Called from _internal.context_test._Context_test_testlayerscancel.$Context_test_testlayerscancel_Fields_.testLayersCancel (_internal/context_test/Context_test_testlayerscancel.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestLayersCancel
+
+=== RUN  TestLayersTimeout
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from _internal.context_test._Context_test__testlayers.$Context_test__testlayers_Fields_._testLayers (_internal/context_test/Context_test__testlayers.hx line 243)
+Called from _internal.context_test._Context_test_testlayerstimeout.$Context_test_testlayerstimeout_Fields_.testLayersTimeout (_internal/context_test/Context_test_testlayerstimeout.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestLayersTimeout
+
+=== RUN  TestWithCancelCanceledParent
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8)
+Called from stdgo._internal.context.$T_cancelCtx_static_extension._propagateCancel (stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153)
+Called from stdgo._internal.context._Context__withcancel.$Context__withcancel_Fields_._withCancel (stdgo/_internal/context/Context__withcancel.hx line 10)
+Called from stdgo._internal.context._Context_withcancel.$Context_withcancel_Fields_.withCancel (stdgo/_internal/context/Context_withcancel.hx line 4)
+Called from _internal.context_test._Context_test_testwithcancelcanceledparent.$Context_test_testwithcancelcanceledparent_Fields_.testWithCancelCanceledParent (_internal/context_test/Context_test_testwithcancelcanceledparent.hx line 7)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestWithCancelCanceledParent
+
+=== RUN  TestWithCancelSimultaneouslyCanceledParent
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8)
+Called from stdgo._internal.context.$T_cancelCtx_static_extension._propagateCancel (stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153)
+Called from stdgo._internal.context._Context__withcancel.$Context__withcancel_Fields_._withCancel (stdgo/_internal/context/Context__withcancel.hx line 10)
+Called from stdgo._internal.context._Context_withcancel.$Context_withcancel_Fields_.withCancel (stdgo/_internal/context/Context_withcancel.hx line 4)
+Called from _internal.context_test._Context_test_testwithcancelsimultaneouslycanceledparent.$Context_test_testwithcancelsimultaneouslycanceledparent_Fields_.testWithCancelSimultaneouslyCanceledParent (_internal/context_test/Context_test_testwithcancelsimultaneouslycanceledparent.hx line 14)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestWithCancelSimultaneouslyCanceledParent
+
+=== RUN  TestWithValueChecksKey
+
+-- PASS: TestWithValueChecksKey
+
+=== RUN  TestInvalidDerivedFail
+
+-- PASS: TestInvalidDerivedFail
+
+=== RUN  TestDeadlineExceededSupportsTimeout
+
+-- PASS: TestDeadlineExceededSupportsTimeout
+
+=== RUN  TestCause
+- SUBRUN  Background
+- SUBRUN  TODO
+- SUBRUN  WithCancel
+Cause(ctx) = <nil> want context canceled
+- SUBRUN  WithCancelCause
+Cause(ctx) = <nil> want parentCause
+- SUBRUN  WithCancelCause nil
+Cause(ctx) = <nil> want context canceled
+- SUBRUN  WithCancelCause: parent cause before child
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8)
+Called from stdgo._internal.context.$T_cancelCtx_static_extension._propagateCancel (stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153)
+Called from stdgo._internal.context._Context__withcancel.$Context__withcancel_Fields_._withCancel (stdgo/_internal/context/Context__withcancel.hx line 10)
+Called from stdgo._internal.context._Context_withcancelcause.$Context_withcancelcause_Fields_.withCancelCause (stdgo/_internal/context/Context_withcancelcause.hx line 4)
+Called from _internal.context_test._Context_test_testcause.$Context_test_testcause_Fields_.~testCause.27 (_internal/context_test/Context_test_testcause.hx line 184)
+Called from _internal.context_test._Context_test_testcause.$Context_test_testcause_Fields_.~testCause.44 (_internal/context_test/Context_test_testcause.hx line 320)
+Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
+Called from _internal.context_test._Context_test_testcause.$Context_test_testcause_Fields_.testCause (_internal/context_test/Context_test_testcause.hx line 317)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestCause
+
+=== RUN  TestCauseRace
+Exception: :runtime.gosched is not yet implemented
+Called from stdgo._internal.runtime._Runtime_gosched.$Runtime_gosched_Fields_.gosched (stdgo/_internal/runtime/Runtime_gosched.hx line 2)
+Called from _internal.context_test._Context_test_testcauserace.$Context_test_testcauserace_Fields_.testCauseRace (_internal/context_test/Context_test_testcauserace.hx line 29)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestCauseRace
+
+=== RUN  TestWithoutCancel
+
+-- PASS: TestWithoutCancel
+
+=== RUN  TestCustomContextPropagation
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from _internal.context_test._Context_test_testcustomcontextpropagation.$Context_test_testcustomcontextpropagation_Fields_.testCustomContextPropagation (_internal/context_test/Context_test_testcustomcontextpropagation.hx line 86)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestCustomContextPropagation
+
+=== RUN  TestAfterFuncCalledAfterCancel
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8)
+Called from stdgo._internal.context.$T_cancelCtx_static_extension._propagateCancel (stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153)
+Called from stdgo._internal.context._Context_afterfunc.$Context_afterfunc_Fields_.afterFunc (stdgo/_internal/context/Context_afterfunc.hx line 6)
+Called from _internal.context_test._Context_test_testafterfunccalledaftercancel.$Context_test_testafterfunccalledaftercancel_Fields_.testAfterFuncCalledAfterCancel (_internal/context_test/Context_test_testafterfunccalledaftercancel.hx line 5)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestAfterFuncCalledAfterCancel
+
+=== RUN  TestAfterFuncCalledAfterTimeout
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from _internal.context_test._Context_test_testafterfunccalledaftertimeout.$Context_test_testafterfunccalledaftertimeout_Fields_.testAfterFuncCalledAfterTimeout (_internal/context_test/Context_test_testafterfunccalledaftertimeout.hx line 102)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestAfterFuncCalledAfterTimeout
+
+=== RUN  TestAfterFuncCalledImmediately
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8)
+Called from stdgo._internal.context.$T_cancelCtx_static_extension._propagateCancel (stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153)
+Called from stdgo._internal.context._Context_afterfunc.$Context_afterfunc_Fields_.afterFunc (stdgo/_internal/context/Context_afterfunc.hx line 6)
+Called from _internal.context_test._Context_test_testafterfunccalledimmediately.$Context_test_testafterfunccalledimmediately_Fields_.testAfterFuncCalledImmediately (_internal/context_test/Context_test_testafterfunccalledimmediately.hx line 8)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestAfterFuncCalledImmediately
+
+=== RUN  TestAfterFuncNotCalledAfterStop
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8)
+Called from stdgo._internal.context.$T_cancelCtx_static_extension._propagateCancel (stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153)
+Called from stdgo._internal.context._Context_afterfunc.$Context_afterfunc_Fields_.afterFunc (stdgo/_internal/context/Context_afterfunc.hx line 6)
+Called from _internal.context_test._Context_test_testafterfuncnotcalledafterstop.$Context_test_testafterfuncnotcalledafterstop_Fields_.testAfterFuncNotCalledAfterStop (_internal/context_test/Context_test_testafterfuncnotcalledafterstop.hx line 5)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestAfterFuncNotCalledAfterStop
+
+=== RUN  TestAfterFuncCalledAsynchronously
+golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
+Exception: not implemented: add
+Called from _internal.context_test._Context_test_testafterfunccalledasynchronously.$Context_test_testafterfunccalledasynchronously_Fields_.testAfterFuncCalledAsynchronously (_internal/context_test/Context_test_testafterfunccalledasynchronously.hx line 103)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
+
+-- FAIL: TestAfterFuncCalledAsynchronously
+
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
+-- FAIL: TestAfterFuncCalledAsynchronously

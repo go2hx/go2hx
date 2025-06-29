@@ -246,5 +246,6 @@
  "interp|interface21",
  "interp|issuedash230",
  "interp|issuedash256",
- "interp|struct3"
+ "interp|struct3",
+ "interp|nilrange"
 ]

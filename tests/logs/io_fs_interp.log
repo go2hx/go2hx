@@ -17,7 +17,7 @@ Called from _internal.io.fs_test._Fs_test_testglob.Fs_test_testglob_Fields_.test
 Called from stdgo._internal.io.fs._Fs_glob.Fs_glob_Fields_.glob (golibs/stdgo/_internal/io/fs/Fs_glob.hx line 6 column 50)
 Called from stdgo._internal.io.fs._Fs__globwithlimit.Fs__globwithlimit_Fields_._globWithLimit (golibs/stdgo/_internal/io/fs/Fs__globwithlimit.hx line 75 column 54)
 Called from stdgo._internal.io.fs._Fs__glob.Fs__glob_Fields_._glob (golibs/stdgo/_internal/io/fs/Fs__glob.hx line 5 column 23)
-Called from stdgo._internal.io.fs._Fs_readdir.Fs_readdir_Fields_.readDir (golibs/stdgo/_internal/io/fs/Fs_readdir.hx line 109 column 21)
+Called from stdgo._internal.io.fs._Fs_readdir.Fs_readdir_Fields_.readDir (golibs/stdgo/_internal/io/fs/Fs_readdir.hx line 109 column 30)
 
 -- FAIL: TestGlob
 
@@ -67,7 +67,7 @@ Try 'chmod --help' for more information.
 
  8 |                         var entries = sys.FileSystem.readDirectory(path);
    |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   | Uncaught exception tmp_xf1cyedn39/a/bad: Permission denied
+   | Uncaught exception tmp_par5hxfx7u/a/bad: Permission denied
 
     11 |                                 deleteRecursively(path + '/' + entry);
        |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

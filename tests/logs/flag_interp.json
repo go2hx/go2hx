@@ -1,5 +1,6 @@
 {
     "passes": [
+        "TestEverything",
         "TestGet",
         "TestUsage",
         "TestParse",
@@ -9,9 +10,11 @@
         "TestUserDefinedForCommandLine",
         "TestUserDefinedBool",
         "TestUserDefinedBoolUsage",
+        "TestSetOutput",
         "TestChangingArgs",
         "TestHelp",
         "TestIntFlagOverflow",
+        "TestUsageOutput",
         "TestGetters",
         "TestParseError",
         "TestRangeError",
@@ -20,10 +23,7 @@
         "TestUserDefinedBoolFunc"
     ],
     "fails": [
-        "TestEverything",
-        "TestSetOutput",
         "TestPrintDefaults",
-        "TestUsageOutput",
         "TestExitCode",
         "TestDefineAfterSet"
     ],

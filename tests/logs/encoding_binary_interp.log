@@ -111,7 +111,7 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/st
 binary.Write: some values are not fixed-sized in type *.encoding.binary.Unexported
 Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.encoding.binary._Binary_testunexportedread.Binary_testunexportedread_Fields_.testUnexportedRead (golibs/stdgo/_internal/encoding/binary/Binary_testunexportedread.hx line 82 column 21)
+Called from stdgo._internal.encoding.binary._Binary_testunexportedread.Binary_testunexportedread_Fields_.testUnexportedRead (golibs/stdgo/_internal/encoding/binary/Binary_testunexportedread.hx line 82 column 30)
 
 -- FAIL: TestUnexportedRead
 

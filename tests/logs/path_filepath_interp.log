@@ -34,7 +34,7 @@ Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/st
 === RUN  TestWindowsGlob
 skipping windows specific testException: __skip__
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.path.filepath_test._Filepath_test_testwindowsglob.Filepath_test_testwindowsglob_Fields_.testWindowsGlob (golibs/_internal/path/filepath_test/Filepath_test_testwindowsglob.hx line 170 column 21)
+Called from _internal.path.filepath_test._Filepath_test_testwindowsglob.Filepath_test_testwindowsglob_Fields_.testWindowsGlob (golibs/_internal/path/filepath_test/Filepath_test_testwindowsglob.hx line 170 column 30)
 
 -- SKIP: TestWindowsGlob
 
@@ -92,7 +92,7 @@ unexpected errors: [Exception: testdata: Is a directory
 Called from stdgo._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/stdgo/_internal/os/Os_openfile.hx line 8 column 104)]Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testwalk.Filepath_test_testwalk_Fields_.testWalk (golibs/_internal/path/filepath_test/Filepath_test_testwalk.hx line 11 column 9)
-Called from _internal.path.filepath_test._Filepath_test__testwalk.Filepath_test__testwalk_Fields_._testWalk (golibs/_internal/path/filepath_test/Filepath_test__testwalk.hx line 170 column 21)
+Called from _internal.path.filepath_test._Filepath_test__testwalk.Filepath_test__testwalk_Fields_._testWalk (golibs/_internal/path/filepath_test/Filepath_test__testwalk.hx line 170 column 30)
 
 -- FAIL: TestWalk
 
@@ -101,7 +101,7 @@ unexpected errors: [Exception: testdata: Is a directory
 Called from stdgo._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/stdgo/_internal/os/Os_openfile.hx line 8 column 104)]Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testwalkdir.Filepath_test_testwalkdir_Fields_.testWalkDir (golibs/_internal/path/filepath_test/Filepath_test_testwalkdir.hx line 4 column 9)
-Called from _internal.path.filepath_test._Filepath_test__testwalk.Filepath_test__testwalk_Fields_._testWalk (golibs/_internal/path/filepath_test/Filepath_test__testwalk.hx line 170 column 21)
+Called from _internal.path.filepath_test._Filepath_test__testwalk.Filepath_test__testwalk_Fields_._testWalk (golibs/_internal/path/filepath_test/Filepath_test__testwalk.hx line 170 column 30)
 
 -- FAIL: TestWalkDir
 
@@ -124,7 +124,7 @@ Called from stdgo._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (golibs
 === RUN  TestWalkFileError
 Exception: :os.mkdirAll is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.path.filepath_test._Filepath_test_testwalkfileerror.Filepath_test_testwalkfileerror_Fields_.testWalkFileError (golibs/_internal/path/filepath_test/Filepath_test_testwalkfileerror.hx line 122 column 21)
+Called from _internal.path.filepath_test._Filepath_test_testwalkfileerror.Filepath_test_testwalkfileerror_Fields_.testWalkFileError (golibs/_internal/path/filepath_test/Filepath_test_testwalkfileerror.hx line 122 column 30)
 
 -- FAIL: TestWalkFileError
 
@@ -159,7 +159,7 @@ Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/st
 === RUN  TestEvalSymlinksIsNotExist
 Exception: :os.isNotExist is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.path.filepath_test._Filepath_test_testevalsymlinksisnotexist.Filepath_test_testevalsymlinksisnotexist_Fields_.testEvalSymlinksIsNotExist (golibs/_internal/path/filepath_test/Filepath_test_testevalsymlinksisnotexist.hx line 85 column 21)
+Called from _internal.path.filepath_test._Filepath_test_testevalsymlinksisnotexist.Filepath_test_testevalsymlinksisnotexist_Fields_.testEvalSymlinksIsNotExist (golibs/_internal/path/filepath_test/Filepath_test_testevalsymlinksisnotexist.hx line 85 column 30)
 
 -- FAIL: TestEvalSymlinksIsNotExist
 
@@ -178,7 +178,7 @@ Called from _internal.path.filepath_test._Filepath_test_testrelativesymlinktoabs
 Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/stdgo/_internal/os/Os_symlink.hx line 2 column 80)
 [ERROR] golibs/stdgo/_internal/os/Os_removeall.hx
 
-    | Uncaught exception No such file or directory(rmdir, tmp_rpvl7smui5)
+    | Uncaught exception No such file or directory(rmdir, tmp_4bfnxxdgbn)
 
      ->  golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx
 

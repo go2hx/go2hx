@@ -89,7 +89,7 @@ Called from stdgo._internal.sync.RWMutex_static_extension.rLock (golibs/stdgo/_i
 === RUN  TestNumbers
 Exception: RWMutex:sync.rLock is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.go.scanner._Scanner_testnumbers.Scanner_testnumbers_Fields_.testNumbers (golibs/stdgo/_internal/go/scanner/Scanner_testnumbers.hx line 119 column 123)
+Called from stdgo._internal.go.scanner._Scanner_testnumbers.Scanner_testnumbers_Fields_.testNumbers (golibs/stdgo/_internal/go/scanner/Scanner_testnumbers.hx line 230 column 123)
 Called from stdgo._internal.go.token.FileSet_static_extension.base (golibs/stdgo/_internal/go/token/Token_fileset_static_extension.hx line 421 column 9)
 Called from stdgo._internal.sync.RWMutex_static_extension.rLock (golibs/stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 26 column 98)
 

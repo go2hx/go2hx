@@ -13,7 +13,7 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/st
 Exception: RWMutex:sync.lock is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.go.format._Format_testnodenomodify.Format_testnodenomodify_Fields_.testNodeNoModify (golibs/stdgo/_internal/go/format/Format_testnodenomodify.hx line 5 column 23)
-Called from stdgo._internal.go.parser._Parser_parsefile.Parser_parsefile_Fields_.parseFile (golibs/stdgo/_internal/go/parser/Parser_parsefile.hx line 126 column 21)
+Called from stdgo._internal.go.parser._Parser_parsefile.Parser_parsefile_Fields_.parseFile (golibs/stdgo/_internal/go/parser/Parser_parsefile.hx line 126 column 30)
 
 -- FAIL: TestNodeNoModify
 
@@ -35,7 +35,7 @@ Called from stdgo._internal.go.format._Format_testpartial.Format_testpartial_Fie
 Called from stdgo._internal.go.format._Format_string.Format_string_Fields_.string (golibs/stdgo/_internal/go/format/Format_string.hx line 3 column 23)
 Called from stdgo._internal.go.format._Format_source.Format_source_Fields_.source (golibs/stdgo/_internal/go/format/Format_source.hx line 4 column 23)
 Called from stdgo._internal.go.format._Format__parse.Format__parse_Fields_._parse (golibs/stdgo/_internal/go/format/Format__parse.hx line 5 column 27)
-Called from stdgo._internal.go.parser._Parser_parsefile.Parser_parsefile_Fields_.parseFile (golibs/stdgo/_internal/go/parser/Parser_parsefile.hx line 126 column 21)
+Called from stdgo._internal.go.parser._Parser_parsefile.Parser_parsefile_Fields_.parseFile (golibs/stdgo/_internal/go/parser/Parser_parsefile.hx line 126 column 30)
 
 -- FAIL: TestPartial
 

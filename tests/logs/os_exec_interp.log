@@ -1,24 +1,12 @@
 [ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:3: characters 9-19
 
-  3 |         _stopTimer(_t);
-    |         ^^^^^^^^^^
-    | Unknown identifier : _stopTimer
+ 3 |         _stopTimer(_t);
+   |         ^^^^^^^^^^
+   | Unknown identifier : _stopTimer
 
 [ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:9: characters 9-20
 
-  9 |         _startTimer(_t);
-    |         ^^^^^^^^^^^
-    | Unknown identifier : _startTimer
-
-[ERROR] golibs/stdgo/_internal/net/Net_t_ipstackcapabilities_static_extension.hx:50: characters 33-69
-
- 50 |                     var _err = (stdgo._internal.syscall.Syscall_bind.bind(_s, _sa) : stdgo.Error);
-    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | Module stdgo._internal.syscall.Syscall_bind does not define type Syscall_bind
-
-[ERROR] (macro) golibs/stdgo/_internal/compress/flate/Flate_newreader.hx:10: characters 40-102
-
- 10 |         _f._step = @:selector_x_ident2 stdgo._internal.compress.flate.T_decompressor_static_extension._nextBlock;
-    |                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | Type not found : stdgo._internal.compress.flate.T_decompressor_static_extension
+ 9 |         _startTimer(_t);
+   |         ^^^^^^^^^^^
+   | Unknown identifier : _startTimer
 

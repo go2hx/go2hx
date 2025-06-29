@@ -1,27 +1,27 @@
 === RUN  TestFuncPC
 golibs/stdgo/_internal/internal/abi/Abi_funcpcabi0.hx:3: funclit
 Exception: not implemented: funcPCABI0
-Called from .stdgo__$internal_internal_abi_Abi_$funcpcabi0_funcPCABI0 (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 13532 column 23)
-Called from .stdgo__$internal_internal_abi_Abi_$funcpctest_funcPCTest (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 13522 column 9)
+Called from .stdgo__$internal_internal_abi_Abi_$funcpcabi0_funcPCABI0 (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 13534 column 23)
+Called from .stdgo__$internal_internal_abi_Abi_$funcpctest_funcPCTest (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 13524 column 9)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_abi_$test_Abi_$test_$testfuncpc_testFuncPC [as f] (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:13011:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 50199 column 9)
-Called from ._$internal_internal_abidottest_Abidottest_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 42997 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:57376:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:57377:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 50273 column 9)
+Called from ._$internal_internal_abidottest_Abidottest_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 43065 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:57487:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:57488:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestFuncPC
 
 === RUN  TestFuncPCCompileError
 skipping test: 'go build' unavailable: <invalid reflect.Value>Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 51030 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 51044 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:50491:58
-Called from stdgo__$internal_testing_T_$_$asInterface.skipf (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 13779 column 54)
-Called from .stdgo__$internal_internal_testenv_Testenv_$musthavegobuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 13611 column 6)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 51104 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 51118 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:50565:58
+Called from stdgo__$internal_testing_T_$_$asInterface.skipf (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 13781 column 54)
+Called from .stdgo__$internal_internal_testenv_Testenv_$musthavegobuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 13613 column 6)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_abi_$test_Abi_$test_$testfuncpccompileerror_testFuncPCCompileError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:13027:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 50199 column 9)
-Called from ._$internal_internal_abidottest_Abidottest_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 42997 column 59)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 50273 column 9)
+Called from ._$internal_internal_abidottest_Abidottest_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 43065 column 59)
 
 -- SKIP: TestFuncPCCompileError
 

@@ -56,5 +56,5 @@ function typeRangeStmt(stmt:GoAst.RangeStmt, info:Info):MacroExpr { // for stmt
 	if (isArray) {
 		return macro for ($key => $value in $x.__copy__()) $body;
 	}
-	return macro for ($key => $value in $x) $body;
+	return macro if ($x != null) for ($key => $value in $x) $body;
 }

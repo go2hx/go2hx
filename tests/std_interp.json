@@ -29,5 +29,6 @@
  "interp|encoding/base32",
  "interp|io",
  "interp|hash",
- "interp|slices"
+ "interp|slices",
+ "interp|net/textproto"
 ]

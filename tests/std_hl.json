@@ -30,5 +30,6 @@
  "hl|io",
  "hl|hash",
  "hl|go/scanner",
- "hl|slices"
+ "hl|slices",
+ "hl|net/textproto"
 ]

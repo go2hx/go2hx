@@ -34,7 +34,6 @@
     "internal/godebug",
     "internal/godebugs",
     "internal/oserror",
-    "encoding",
     "bufio",
     "regexp",
     "regexp/syntax",
@@ -96,5 +95,6 @@
     "encoding/gob",
     "container/list",
     "container/heap",
-    "container/ring"
+    "container/ring",
+    "net/textproto"
 ]

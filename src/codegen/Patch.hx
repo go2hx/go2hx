@@ -311,8 +311,16 @@ final addTypeDefs = [
 		public dynamic function read(_b:stdgo.Slice<stdgo.GoByte>):{_0:stdgo.GoInt, _1:stdgo.Error} {
 			@:define("sys") {
 				final b = _b.toBytes();
-				final i = _socket.input.readBytes(b, 0, b.length);
-				@:privateAccess _b.__bytes__ = b;
+				var i = 0;
+				try {
+					i = @:privateAccess _socket.input.readBytes(b, 0, b.length);
+				} catch (e:haxe.io.Eof) {
+					return {_0: 0, _1: stdgo._internal.io.Io_eof.eOF};
+				}
+				final data = b.getData();
+				for (pos in 0...i) {
+					(_b : stdgo.GoArray.GoArrayData<stdgo.GoByte>).vector[pos] = haxe.io.Bytes.fastGet(data, pos);
+				}
 				return {_0: i, _1: null};
 			}
 			return {_0: 0, _1: null};

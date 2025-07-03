@@ -220,5 +220,6 @@
  "js|interface21",
  "js|issuedash230",
  "js|issuedash256",
- "js|nilrange"
+ "js|nilrange",
+ "js|mapObjectKeyExists"
 ]

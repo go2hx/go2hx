@@ -1,5 +1,6 @@
-Uncaught exception: Can't cast stdgo._internal.internal.reflect._Type_asInterface to stdgo.AnyInterfaceData
-Called from stdgo.GoAnyInterfaceMap.compare(stdgo/GoMap.hx:700)
-Called from haxe.ds.BalancedTree.exists(/home/runner/haxe/versions/b0b2997/std/haxe/ds/BalancedTree.hx:104)
-Called from stdgo._internal.encoding.gob._Gob__bootstraptype.$Gob__bootstraptype_Fields_._bootstrapType(stdgo/_internal/encoding/gob/Gob__bootstraptype.hx:4)
-Called from .init(stdgo/_internal/encoding/gob/Gob__tint.hx:2)
+Uncaught exception: Map_:sync.load is not yet implemented
+Called from stdgo._internal.sync.$Map__static_extension.load(stdgo/_internal/sync/Sync_map__static_extension.hx:35)
+Called from stdgo._internal.encoding.gob._Gob__validusertype.$Gob__validusertype_Fields_._validUserType(stdgo/_internal/encoding/gob/Gob__validusertype.hx:5)
+Called from stdgo._internal.encoding.gob._Gob__usertype.$Gob__usertype_Fields_._userType(stdgo/_internal/encoding/gob/Gob__usertype.hx:3)
+Called from stdgo._internal.encoding.gob._Gob__mustgettypeinfo.$Gob__mustgettypeinfo_Fields_._mustGetTypeInfo(stdgo/_internal/encoding/gob/Gob__mustgettypeinfo.hx:3)
+Called from .init(stdgo/_internal/encoding/gob/Gob__twiretype.hx:2)

@@ -330,7 +330,7 @@ Called from stdgo._internal.os.exec._Exec_lookpath.Exec_lookpath_Fields_.lookPat
 -- FAIL: TestStartProcess
 
 === RUN  TestChmod
-Stat "/tmp/tmp_gltyvtzri4": mode 0 want 0456
+Stat "/tmp/tmp_fwyvfxljw3": mode 0 want 0456
 Exception: File:os.chmod is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.os_test._Os_test_testchmod.Os_test_testchmod_Fields_.testChmod (golibs/_internal/os_test/Os_test_testchmod.hx line 100 column 30)
@@ -354,9 +354,9 @@ Called from _internal.os_test._Os_test_testtruncate.Os_test_testtruncate_Fields_
 === RUN  TestTruncateNonexistentFile
 golibs/stdgo/_internal/os/Os_truncate.hx:3: os.truncate not implemented
 got error: <nil>
-want an ErrNotExist PathError with path "tmp_o2bxevyxor/nonexistent"
-got error: readFile tmp_o2bxevyxor/nonexistent: no such file or directory
-want an ErrNotExist PathError with path "tmp_o2bxevyxor/nonexistent"
+want an ErrNotExist PathError with path "tmp_ufpkiddpfz/nonexistent"
+got error: readFile tmp_ufpkiddpfz/nonexistent: no such file or directory
+want an ErrNotExist PathError with path "tmp_ufpkiddpfz/nonexistent"
 
 -- FAIL: TestTruncateNonexistentFile
 
@@ -443,25 +443,25 @@ golibs/_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 50-55 : Ca
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:231: characters 25-30 : Called from here
 golibs/stdgo/Go.hx:45: characters 4-10 : Called from here
 golibs/stdgo/Go.hx:36: lines 36-49 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 50-55 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:231: characters 25-30 : Called from here
-golibs/stdgo/Go.hx:45: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:36: lines 36-49 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 50-55 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:231: characters 25-30 : Called from here
-golibs/stdgo/Go.hx:45: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:36: lines 36-49 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 50-55 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:231: characters 25-30 : Called from here
-golibs/stdgo/Go.hx:45: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:36: lines 36-49 : Called from here
 
 -- PASS: TestProgWideChdir
 
 === RUN  TestSeek
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 50-55 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:231: characters 25-30 : Called from here
+golibs/stdgo/Go.hx:45: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:36: lines 36-49 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 50-55 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:231: characters 25-30 : Called from here
+golibs/stdgo/Go.hx:45: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:36: lines 36-49 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:225: characters 50-55 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:231: characters 25-30 : Called from here
+golibs/stdgo/Go.hx:45: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:36: lines 36-49 : Called from here
 golibs/stdgo/_internal/os/Os_file_static_extension.hx:100: not supported on eval target
 #0: Seek(0, 1) = 0, <nil> want 13, nil
 golibs/stdgo/_internal/os/Os_file_static_extension.hx:100: not supported on eval target
@@ -609,7 +609,7 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/st
 -- PASS: TestLargeWriteToConsole
 
 === RUN  TestStatDirModeExec
-Stat "tmp_wjuw1xm3mp": mode 0 want 0111
+Stat "tmp_2kkf8cnwmq": mode 0 want 0111
 
 -- FAIL: TestStatDirModeExec
 
@@ -682,17 +682,17 @@ Called from stdgo._internal.os.File_static_extension.chdir (golibs/stdgo/_intern
 -- FAIL: TestNilFileMethods
 
 === RUN  TestRemoveAllRace
-golibs/_internal/os_test/Os_test_testremoveallrace.hx:102: characters 50-55 : Uncaught exception No such file or directory(rmdir, issuetmp_crn3dnwnaa/b/b/b/b/b)
+golibs/_internal/os_test/Os_test_testremoveallrace.hx:102: characters 50-55 : Uncaught exception issuetmp_uvk1dxybvi/b/b/b/b/b: No such file or directory
 golibs/_internal/os_test/Os_test_testremoveallrace.hx:102: characters 50-55 : Called from here
 golibs/_internal/os_test/Os_test_testremoveallrace.hx:108: characters 25-28 : Called from here
 golibs/stdgo/Go.hx:45: characters 4-10 : Called from here
 golibs/stdgo/Go.hx:36: lines 36-49 : Called from here
-golibs/_internal/os_test/Os_test_testremoveallrace.hx:102: characters 50-55 : Uncaught exception No such file or directory(rmdir, issuetmp_crn3dnwnaa/b/b/b/b/b)
+golibs/_internal/os_test/Os_test_testremoveallrace.hx:102: characters 50-55 : Uncaught exception issuetmp_uvk1dxybvi/b/b/b/b/b: No such file or directory
 golibs/_internal/os_test/Os_test_testremoveallrace.hx:102: characters 50-55 : Called from here
 golibs/_internal/os_test/Os_test_testremoveallrace.hx:108: characters 25-28 : Called from here
 golibs/stdgo/Go.hx:45: characters 4-10 : Called from here
 golibs/stdgo/Go.hx:36: lines 36-49 : Called from here
-golibs/_internal/os_test/Os_test_testremoveallrace.hx:102: characters 50-55 : Uncaught exception No such file or directory(rmdir, issuetmp_crn3dnwnaa/b/b/b/b/b)
+golibs/_internal/os_test/Os_test_testremoveallrace.hx:102: characters 50-55 : Uncaught exception issuetmp_uvk1dxybvi/b/b/b/b/b: No such file or directory
 golibs/_internal/os_test/Os_test_testremoveallrace.hx:102: characters 50-55 : Called from here
 golibs/_internal/os_test/Os_test_testremoveallrace.hx:108: characters 25-28 : Called from here
 golibs/stdgo/Go.hx:45: characters 4-10 : Called from here
@@ -795,7 +795,7 @@ Called from stdgo._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs
 -- FAIL: TestDirFSEmptyDir
 
 === RUN  TestDirFSPathsValid
-writeFile tmp_fkbflc0yze/control.txt: no such file or directory
+writeFile tmp_52u2nglpql/control.txt: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.os_test._Os_test_testdirfspathsvalid.Os_test_testdirfspathsvalid_Fields_.testDirFSPathsValid (golibs/_internal/os_test/Os_test_testdirfspathsvalid.hx line 16 column 26)
@@ -1081,7 +1081,7 @@ Called from _internal.os_test._Os_test__teststatandlstat.Os_test__teststatandlst
 -- FAIL: TestDirAndSymlinkStats
 
 === RUN  TestFileAndSymlinkStats
-writeFile tmp_w3q22pxk76/file: no such file or directory
+writeFile tmp_xzsxrd3l6h/file: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.os_test._Os_test_testfileandsymlinkstats.Os_test_testfileandsymlinkstats_Fields_.testFileAndSymlinkStats (golibs/_internal/os_test/Os_test_testfileandsymlinkstats.hx line 14 column 26)
@@ -1100,16 +1100,16 @@ Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/st
 -- FAIL: TestSymlinkWithTrailingSlash
 
 === RUN  TestCreateTemp
-Exception: TestCreateTempBadDirtmp_la0vivcyqn/_not_exists_/tmp_38q3qbnuaq: No such file or directory
+Exception: TestCreateTempBadDirtmp_i68qo0x6nt/_not_exists_/tmp_f2gui3qa1q: No such file or directory
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.os_test._Os_test_testcreatetemp.Os_test_testcreatetemp_Fields_.testCreateTemp (golibs/_internal/os_test/Os_test_testcreatetemp.hx line 76 column 30)
 
 -- FAIL: TestCreateTemp
 
 === RUN  TestCreateTempPattern
-CreateTemp pattern "tempfile_test" created bad name "tmp_n6zls8lxz6"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*" created bad name "tmp_41n9n6w48k"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*xyz" created bad name "tmp_btta0d5452"; want prefix "tempfile_test" & suffix "xyz"
+CreateTemp pattern "tempfile_test" created bad name "tmp_8uapm2wz0c"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*" created bad name "tmp_zfbib93hfo"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*xyz" created bad name "tmp_oh8tunnzyu"; want prefix "tempfile_test" & suffix "xyz"
 
 -- FAIL: TestCreateTempPattern
 
@@ -1121,32 +1121,32 @@ Called from _internal.os_test._Os_test_testcreatetempbadpattern.Os_test_testcrea
 -- FAIL: TestCreateTempBadPattern
 
 === RUN  TestMkdirTemp
-MkdirTemp(`/_not_exists_`, `foo`) = footmp_bmj6n1v7ly, <nil>
+MkdirTemp(`/_not_exists_`, `foo`) = footmp_b8s8p73b3a, <nil>
 - SUBRUN  tempfile_test
 MkdirTemp("temp", "tempfile_test") created bad name
-	"tempfile_testtmp_w7nwgxreub"
+	"tempfile_testtmp_468l6iwymw"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*
 MkdirTemp("temp", "tempfile_test*") created bad name
-	"tempfile_testtmp_w25ia6am9w"
+	"tempfile_testtmp_wkmglvpqey"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*xyz
 MkdirTemp("temp", "tempfile_test*xyz") created bad name
-	"tempfile_testtmp_pjva5ktrepxyz"
+	"tempfile_testtmp_28qaocg9bvxyz"
 did not match pattern
 	"^temp/tempfile_test[0-9]+xyz$"
 - SUBRUN  *xyz
 MkdirTemp("temp", "*xyz") created bad name
-	"tmp_k9nowz92wrxyz"
+	"tmp_qbjgwmmpduxyz"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestMkdirTemp
 
 === RUN  TestMkdirTempBadDir
-TempDir error = (nil)(nil); want PathError for path "MkdirTempBadDirtmp_afa952svtm/not-exist" satisfying IsNotExist
+TempDir error = (nil)(nil); want PathError for path "MkdirTempBadDirtmp_dvb0ukg161/not-exist" satisfying IsNotExist
 
 -- FAIL: TestMkdirTempBadDir
 
@@ -1159,7 +1159,7 @@ Called from _internal.os_test._Os_test_testmkdirtempbadpattern.Os_test_testmkdir
 
 golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
 -- FAIL: TestMkdirTempBadPattern
-chmod: cannot access 'tmp_gq1skm9dc1/x': No such file or directory
+chmod: cannot access 'tmp_obufjjx1w0/x': No such file or directory
 [ERROR] golibs/stdgo/_internal/os/Os_exit.hx
 
    | Uncaught exception :os.exit is not yet implemented

@@ -671,6 +671,11 @@ class GoObjectMap<K, V> extends GoAnyInterfaceMap<V> {
 		super.set(key,value);
 	}
 
+	override function exists(key:Dynamic):Bool {
+		final key = new AnyInterface(key, t);
+		return super.exists(key);
+	}
+
 	override function get(key:Dynamic):V {
 		final key = new AnyInterface(key, t);
 		return super.get(key);

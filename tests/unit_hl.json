@@ -253,5 +253,6 @@
  "hl|issuedash230",
  "hl|issuedash256",
  "hl|struct3",
- "hl|nilrange"
+ "hl|nilrange",
+ "hl|mapObjectKeyExists"
 ]

@@ -247,5 +247,6 @@
  "interp|issuedash230",
  "interp|issuedash256",
  "interp|struct3",
- "interp|nilrange"
+ "interp|nilrange",
+ "interp|mapObjectKeyExists"
 ]

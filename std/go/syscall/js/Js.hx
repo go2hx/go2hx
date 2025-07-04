@@ -16,3 +16,7 @@ function isUndefined()
 @:recv(Value)
 function type()
 	return 0;
+
+
+function _predefValue()
+	return null;

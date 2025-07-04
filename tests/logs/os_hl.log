@@ -464,7 +464,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestStartProcess
 
 === RUN  TestChmod
-Stat "/tmp/tmp_bp35uazq5d": mode 0 want 0456
+Stat "/tmp/tmp_e7qbxcwot4": mode 0 want 0456
 Exception: File:os.chmod is not yet implemented
 Called from _internal.os_test._Os_test_testchmod.$Os_test_testchmod_Fields_.testChmod (_internal/os_test/Os_test_testchmod.hx line 100)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
@@ -494,9 +494,9 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestTruncateNonexistentFile
 golibs/stdgo/_internal/os/Os_truncate.hx:3: os.truncate not implemented
 got error: <nil>
-want an ErrNotExist PathError with path "tmp_yks509pmxq/nonexistent"
-got error: readFile tmp_yks509pmxq/nonexistent: no such file or directory
-want an ErrNotExist PathError with path "tmp_yks509pmxq/nonexistent"
+want an ErrNotExist PathError with path "tmp_gi2u9vgmuh/nonexistent"
+got error: readFile tmp_gi2u9vgmuh/nonexistent: no such file or directory
+want an ErrNotExist PathError with path "tmp_gi2u9vgmuh/nonexistent"
 
 -- FAIL: TestTruncateNonexistentFile
 
@@ -779,7 +779,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- PASS: TestLargeWriteToConsole
 
 === RUN  TestStatDirModeExec
-Stat "tmp_hcbbyhy5nj": mode 0 want 0111
+Stat "tmp_0jqbs30dw0": mode 0 want 0111
 
 -- FAIL: TestStatDirModeExec
 
@@ -859,7 +859,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestNilFileMethods
 Exception: File:os.chdir is not yet implemented
 Called from stdgo._internal.os.$File_static_extension.chdir (stdgo/_internal/os/Os_file_static_extension.hx line 29)
-Called from local function #15593 (_internal/os_test/Os_test__nilfilemethodtests.hx line 5)
+Called from local function #15595 (_internal/os_test/Os_test__nilfilemethodtests.hx line 5)
 Called from _internal.os_test._Os_test_testnilfilemethods.$Os_test_testnilfilemethods_Fields_.testNilFileMethods (_internal/os_test/Os_test_testnilfilemethods.hx line 8)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
@@ -868,17 +868,17 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestNilFileMethods
 
 === RUN  TestRemoveAllRace
-Uncaught exception: SysError(Can't delete directory issuetmp_8iyd39bxdf/a/b/a/a/a)
+Uncaught exception: SysError(Can't delete directory issuetmp_b9uxpso0oj/b/b/a)
 Called from fun$12585(_internal/os_test/Os_test_testremoveallrace.hx:102)
 Called from _internal.os_test._Os_test_testremoveallrace.$Os_test_testremoveallrace_Fields_.~testRemoveAllRace.4(_internal/os_test/Os_test_testremoveallrace.hx:108)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: SysError(Can't delete directory issuetmp_8iyd39bxdf/a/b/a/b/a)
+Uncaught exception: SysError(Can't delete directory issuetmp_b9uxpso0oj/a/b/b/a/a)
 Called from fun$12585(_internal/os_test/Os_test_testremoveallrace.hx:102)
 Called from _internal.os_test._Os_test_testremoveallrace.$Os_test_testremoveallrace_Fields_.~testRemoveAllRace.4(_internal/os_test/Os_test_testremoveallrace.hx:108)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: SysError(Can't delete directory issuetmp_8iyd39bxdf/a/b/a)
+Uncaught exception: SysError(Can't delete file issuetmp_b9uxpso0oj/a/b/b/a/b)
 Called from fun$12585(_internal/os_test/Os_test_testremoveallrace.hx:102)
 Called from _internal.os_test._Os_test_testremoveallrace.$Os_test_testremoveallrace_Fields_.~testRemoveAllRace.4(_internal/os_test/Os_test_testremoveallrace.hx:108)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:45)
@@ -1019,7 +1019,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestDirFSEmptyDir
 
 === RUN  TestDirFSPathsValid
-writeFile tmp_wu5i1l1fl4/control.txt: no such file or directory
+writeFile tmp_208l8d112q/control.txt: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
@@ -1308,7 +1308,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestRemoveAllDotDot
 
 === RUN  TestRemoveReadOnlyDir
-chmod: cannot access 'tmp_r9gtws05zx/x': No such file or directory
+chmod: cannot access 'tmp_ttmkaqy8te/x': No such file or directory
 
 -- PASS: TestRemoveReadOnlyDir
 
@@ -1376,7 +1376,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestDirAndSymlinkStats
 
 === RUN  TestFileAndSymlinkStats
-writeFile tmp_vcbffw7ygg/file: no such file or directory
+writeFile tmp_mdaeckrdcv/file: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
@@ -1399,7 +1399,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestSymlinkWithTrailingSlash
 
 === RUN  TestCreateTemp
-Exception: SysError(Can't open TestCreateTempBadDirtmp_z39ssd3ye2/_not_exists_/tmp_7ytse0r87m for writing)
+Exception: SysError(Can't open TestCreateTempBadDirtmp_1w9c7p1shk/_not_exists_/tmp_ridzh3eutp for writing)
 Called from _internal.os_test._Os_test_testcreatetemp.$Os_test_testcreatetemp_Fields_.testCreateTemp (_internal/os_test/Os_test_testcreatetemp.hx line 76)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
@@ -1408,9 +1408,9 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestCreateTemp
 
 === RUN  TestCreateTempPattern
-CreateTemp pattern "tempfile_test" created bad name "tmp_usc9wfjgyx"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*" created bad name "tmp_43b652r4wu"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*xyz" created bad name "tmp_zfpqk6t3i8"; want prefix "tempfile_test" & suffix "xyz"
+CreateTemp pattern "tempfile_test" created bad name "tmp_sanfrakfyu"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*" created bad name "tmp_1xj42ay697"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*xyz" created bad name "tmp_tpghkqh1ps"; want prefix "tempfile_test" & suffix "xyz"
 
 -- FAIL: TestCreateTempPattern
 
@@ -1424,32 +1424,32 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestCreateTempBadPattern
 
 === RUN  TestMkdirTemp
-MkdirTemp(`/_not_exists_`, `foo`) = footmp_nih6gnt9lj, <nil>
+MkdirTemp(`/_not_exists_`, `foo`) = footmp_j30pz29mn9, <nil>
 - SUBRUN  tempfile_test
 MkdirTemp("temp", "tempfile_test") created bad name
-	"tempfile_testtmp_i9yb2e1hc2"
+	"tempfile_testtmp_xpefgr8mlz"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*
 MkdirTemp("temp", "tempfile_test*") created bad name
-	"tempfile_testtmp_5j8cuilx6p"
+	"tempfile_testtmp_853y67s207"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*xyz
 MkdirTemp("temp", "tempfile_test*xyz") created bad name
-	"tempfile_testtmp_ezkg8b4hjhxyz"
+	"tempfile_testtmp_l9tv1fk3wwxyz"
 did not match pattern
 	"^temp/tempfile_test[0-9]+xyz$"
 - SUBRUN  *xyz
 MkdirTemp("temp", "*xyz") created bad name
-	"tmp_du0n2bone8xyz"
+	"tmp_0q8v4g9pz0xyz"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestMkdirTemp
 
 === RUN  TestMkdirTempBadDir
-TempDir error = (nil)(nil); want PathError for path "MkdirTempBadDirtmp_p0f7km4cm9/not-exist" satisfying IsNotExist
+TempDir error = (nil)(nil); want PathError for path "MkdirTempBadDirtmp_lc3gj86fzn/not-exist" satisfying IsNotExist
 
 -- FAIL: TestMkdirTempBadDir
 

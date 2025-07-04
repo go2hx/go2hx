@@ -11,9 +11,12 @@ Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.mai
 -- FAIL: TestNode
 
 === RUN  TestNodeNoModify
-Exception: RWMutex:sync.lock is not yet implemented
-Called from stdgo._internal.go.parser._Parser_parsefile.$Parser_parsefile_Fields_.parseFile (stdgo/_internal/go/parser/Parser_parsefile.hx line 126)
-Called from stdgo._internal.go.format._Format_testnodenomodify.$Format_testnodenomodify_Fields_.testNodeNoModify (stdgo/_internal/go/format/Format_testnodenomodify.hx line 5)
+1:1: expected 'package', found package
+Exception: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
+Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 50)
+Called from stdgo._internal.go.format._Format_testnodenomodify.$Format_testnodenomodify_Fields_.testNodeNoModify (stdgo/_internal/go/format/Format_testnodenomodify.hx line 9)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.main (_internal/go/formatdottest/Formatdottest.hx line 13)
 
@@ -32,14 +35,62 @@ Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.mai
 -- FAIL: TestSource
 
 === RUN  TestPartial
-Exception: RWMutex:sync.lock is not yet implemented
-Called from stdgo._internal.go.parser._Parser_parsefile.$Parser_parsefile_Fields_.parseFile (stdgo/_internal/go/parser/Parser_parsefile.hx line 126)
-Called from stdgo._internal.go.format._Format__parse.$Format__parse_Fields_._parse (stdgo/_internal/go/format/Format__parse.hx line 5)
-Called from stdgo._internal.go.format._Format_source.$Format_source_Fields_.source (stdgo/_internal/go/format/Format_source.hx line 4)
-Called from stdgo._internal.go.format._Format_string.$Format_string_Fields_.string (stdgo/_internal/go/format/Format_string.hx line 3)
-Called from stdgo._internal.go.format._Format_testpartial.$Format_testpartial_Fields_.testPartial (stdgo/_internal/go/format/Format_testpartial.hx line 15)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
-Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.main (_internal/go/formatdottest/Formatdottest.hx line 13)
+formatting failed (1:1: expected 'package', found package):
+"import \"go/format\""
+formatting failed (1:1: expected 'package', found package):
+"var x int"
+formatting failed (1:1: expected 'package', found package):
+"var x int\n\ntype T struct{}"
+formatting failed (1:1: expected 'package', found package):
+"x := 0"
+formatting failed (1:1: expected 'package', found package):
+"f(a, b, c)\nvar x int = f(1, 2, 3)"
+formatting failed (1:1: expected 'package', found package):
+"\tx := 0\n\tgo f()"
+formatting failed (1:1: expected 'package', found package):
+"\tx := 0\n\tgo f()\n\n\n"
+formatting failed (1:1: expected 'package', found package):
+"\n\t\t\n\n\tx := 0\n\tgo f()\n\n\n"
+formatting failed (1:1: expected 'package', found package):
+"\n\t\t\n\n\t\t\tx := 0\n\t\t\tgo f()\n\n\n"
+formatting failed (1:1: expected 'package', found package):
+"\n\t\t\n\n\t\t\tx := 0\n\t\t\tconst s = `\nfoo\n`\n\n\n"
+formatting failed (1:1: expected 'package', found package):
+"\n\t\t\n\n\t\t\tx := 0\n\t\t\tconst s = `\n\t\tfoo\n`\n\n\n"
+formatting failed (1:1: expected 'package', found package):
+"/* Comment */"
+formatting failed (1:1: expected 'package', found package):
+"\t/* Comment */ "
+formatting failed (1:1: expected 'package', found package):
+"\n/* Comment */ "
+formatting failed (1:1: expected 'package', found package):
+"i := 5 /* Comment */"
+formatting failed (1:1: expected 'package', found package):
+"\ta()\n//line :1"
+formatting failed (1:1: expected 'package', found package):
+"\t//xxx\n\ta()\n//line :2"
+formatting failed (1:1: expected 'package', found package):
+"\ta() //line :1\n\tb()\n"
+formatting failed (1:1: expected 'package', found package):
+"x := 0\n//line :1\n//line :2"
+formatting failed (1:1: expected 'package', found package):
+""
+formatting failed (1:1: expected 'package', found package):
+" "
+formatting failed (1:1: expected 'package', found package):
+"\t"
+formatting failed (1:1: expected 'package', found package):
+"\t\t"
+formatting failed (1:1: expected 'package', found package):
+"\n"
+formatting failed (1:1: expected 'package', found package):
+"\n\n"
+formatting failed (1:1: expected 'package', found package):
+"\t\n"
+formatting failed (1:1: expected 'package', found package):
+"// copyright\n\n//go:build x\n\npackage p\n"
+formatting failed (1:1: expected 'package', found package):
+"// copyright\n\n//go:build x\n// +build x\n\npackage p\n"
 
 -- FAIL: TestPartial
 

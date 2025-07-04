@@ -4,23 +4,41 @@ function typeExpr(expr:GoAst.Expr, info:Info):MacroExpr {
 	if (expr == null)
 		return null;
 	final def = switch expr.id {
+		// some_ident;
 		case "Ident": Ident.typeIdent(expr, info, false);
-		case "CallExpr": Call.typeCallExpr(expr, info); // *
+		// x(arg0, arg1);
+		case "CallExpr": Call.typeCallExpr(expr, info);
+		// 10 10.2 "hello";
 		case "BasicLit": BasicLit.typeBasicLit(expr, info);
+		// -10;
 		case "UnaryExpr": Unary.typeUnaryExpr(expr, info);
+		// some_ident.select;
 		case "SelectorExpr": Selector.typeSelectorExpr(expr, info);
+		// 10.2 + 3.6;
 		case "BinaryExpr": Binary.typeBinaryExpr(expr, info);
+		// function (arg0,arg1):Void {};
 		case "FuncLit": FunctionLiteral.typeFuncLit(expr, info);
+		// struct{}, map[string]int{}
 		case "CompositeLit": CompositeLiteral.typeCompositeLit(expr, info);
+		// slice[min:max]
 		case "SliceExpr": Slice.typeSliceExpr(expr, info);
+		// x.(string)
 		case "TypeAssertExpr": Assert.typeAssertExpr(expr, info);
+		// x[index];
 		case "IndexExpr": Index.typeIndexExpr(expr, info);
+		// *ptr
 		case "StarExpr": Star.typeStarExpr(expr, info);
+		// (x);
 		case "ParenExpr": Parenthesis.typeParenExpr(expr, info);
+		// ...x;
 		case "Ellipsis": Ellipsis.typeEllipsis(expr, info);
+		// map[string]int
 		case "MapType": MapType.typeMapType();
+		// interface{func X()}
 		case "InterfaceType": InterfaceType.typeInterfaceType();
+		// x[index0,index1]
 		case "IndexListExpr": IndexList.typeIndexListExpr(expr, info);
+		// invalid expr
 		case "BadExpr": Bad.typeBad(info);
 		default:
 			throw info.panic() + "unknown expr";

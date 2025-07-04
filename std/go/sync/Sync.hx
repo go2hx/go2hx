@@ -21,7 +21,83 @@ function _runtime_procPin()
 	return 0;
 
 @:recv(Map_)
-function _dirtyLocked() {}
+function _dirtyLocked() {
+	trace("dirtyLocked not implemented");
+}
+
+@:recv(Map_)
+function range(_m, _f) {
+	for (key => value in @:privateAccess _m.map) {
+		if (!_f(key, value))
+			break;
+	}
+}
+
+@:recv(Map_)
+function load(_m, _key) {
+	if (@:privateAccess _m.map.exists(_key)) {
+		return {_0: @:privateAccess _m.map.get(_key), _1: true};
+	}else{
+		return {_0: null, _1: false};
+	}
+}
+
+@:recv(Map_)
+function store(_m, _key, _value) {
+	@:privateAccess _m._mu.lock();
+	@:privateAccess _m.map.set(_key, _value);
+	@:privateAccess _m._mu.unlock();
+}
+
+@:recv(Map_)
+function delete(_m, _key) {
+	@:privateAccess _m._mu.lock();
+	@:privateAccess _m.map.remove(_key);
+	@:privateAccess _m._mu.unlock();
+}
+
+@:recv(Map_)
+function swap(_m,_key,_value):{_0:stdgo.AnyInterface, _1:Bool} {
+	@:privateAccess _m._mu.lock();
+	if (@:privateAccess _m.map.exists(_key)) {
+		final oldValue = @:privateAccess _m.map.get(_key);
+		@:privateAccess _m.map.set(_key, _value);
+		@:privateAccess _m._mu.unlock();
+		return {_0: oldValue, _1: true};
+	}else{
+		@:privateAccess _m.map.set(_key, _value);
+		@:privateAccess _m._mu.unlock();
+		return {_0: null, _1: false};
+	}
+}
+
+@:recv(Map_)
+function loadOrStore(_m,_key,_value):{_0:stdgo.AnyInterface, _1:Bool} {
+	@:privateAccess _m._mu.lock();
+	if (@:privateAccess _m.map.exists(_key)) {
+		final oldValue = @:privateAccess _m.map.get(_key);
+		@:privateAccess _m._mu.unlock();
+		return {_0: oldValue, _1: true};
+	}else{
+		@:privateAccess _m.map.set(_key, _value);
+		@:privateAccess _m._mu.unlock();
+		return {_0: _value, _1: false};
+	}
+}
+
+@:recv(Map_)
+function loadAndDelete(_m,_key,_value):{_0:stdgo.AnyInterface, _1:Bool} {
+	@:privateAccess _m._mu.lock();
+	if (@:privateAccess _m.map.exists(_key)) {
+		final oldValue = @:privateAccess _m.map.get(_key);
+		@:privateAccess _m.map.remove(_key);
+		@:privateAccess _m._mu.unlock();
+		return {_0: oldValue, _1: true};
+	}else{
+		@:privateAccess _m._mu.unlock();
+		return {_0: null, _1: false};
+	}
+}
 
 @:recv(Cond)
 overload extern inline function wait_(_c) {
@@ -38,6 +114,43 @@ function broadcast(_c) {
 @:recv(Cond)
 function signal(_c) {
 	@:privateAccess @:define("target.threaded") _c.cond.signal();
+}
+
+@:recv(RWMutex)
+function rLock(_rw) {
+	@:privateAccess @:define("target.threaded") _rw.rmutex.acquire();
+}
+
+@:recv(RWMutex)
+function rUnlock(_m) {
+	@:privateAccess @:define("target.threaded") _rw.rmutex.release();
+}
+
+@:recv(RWMutex)
+function rTryLock(_rw):Bool {
+	return @:privateAccess @:define("target.threaded", false) _rw.rmutex.tryAcquire();
+}
+
+@:recv(RWMutex)
+function lock(_rw) {
+	@:privateAccess @:define("target.threaded") _rw.wmutex.acquire();
+}
+
+@:recv(RWMutex)
+function rLocker(_rw) {
+	return @:privateAccess @:define("target.threaded") {
+		{ lock : _rw.rmutex.acquire, unlock : _rw.rmutex.release, __underlying__: null};
+	};
+}
+
+@:recv(RWMutex)
+function unlock(_m) {
+	@:privateAccess @:define("target.threaded") _rw.wmutex.release();
+}
+
+@:recv(RWMutex)
+function tryLock(_m):Bool {
+	return @:privateAccess @:define("target.threaded", false) _rw.wmutex.tryAcquire();
 }
 
 @:recv(Mutex)
@@ -103,4 +216,8 @@ function do_(_o, _f) {
 		return;
 	@:privateAccess _o._done = 1;
 	_f();
+}
+
+function newCond(_l) {
+	return {l: _l};
 }

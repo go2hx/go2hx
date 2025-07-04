@@ -141,12 +141,18 @@ overload extern inline function modTime(_fs) {
 
 @:recv(T_fileStat)
 function mode() {
-	return std.sys.FileSystem.stat(_fs._name).mode;
+	@:define("(sys || hxnodejs)") {
+		return std.sys.FileSystem.stat(_fs._name).mode;
+	}
+	return 0;
 }
 
 @:recv(T_fileStat)
 overload extern inline function size(_fs:Dynamic) {
-	return std.sys.FileSystem.stat(_fs._name).size;
+	@:define("(sys || hxnodejs)") {
+		return std.sys.FileSystem.stat(_fs._name).size;
+	}
+	return 0;
 }
 
 @:recv(T_fileStat)

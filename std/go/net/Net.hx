@@ -15,6 +15,9 @@ function listen(_network, _address) {
 				final l = new sys.net.Socket();
 				l.bind(host, port);
 				l.listen(0);
+				// update port, if it's zero
+				if (port == 0)
+					@:privateAccess addr._port = l.host().port;
 				return {_0: new stdgo._internal.net.Net_haxelistener.HaxeListener(addr, l), _1: null};
 			case "udp", "udp4", "udp6":
 				throw "unimplemented network: " + network;
@@ -56,12 +59,14 @@ function _probe() {
 function dialContext(_ctx, _network, _address) {
 	@:define("sys", throw "Dialer dialContext only implemented on sys targets") {
 		 final network:String = _network;
-		final address:String = _address;
-		trace(_address);
+		var address:String = _address;
 		final colonIndex = address.indexOf(":");
 		if (colonIndex == -1)
 			throw "invalid address formatting: " + address;
-		final host = new sys.net.Host(address.substr(0, colonIndex));
+		address = address.substr(0, colonIndex);
+		if (address == "")
+			address = "0.0.0.0";
+		final host = new sys.net.Host(address);
 		final port = Std.parseInt(address.substr(colonIndex + 1));
 		final addr = new stdgo._internal.net.Net_haxeaddr.HaxeAddr(network, host.toString(), port);
 		switch network {

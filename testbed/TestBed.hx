@@ -9,6 +9,8 @@ function main() {
 	if (haxe.macro.Compiler.getDefine("nocache") != null) {
 		args.push("-nocache");
 	}
+	if (haxe.macro.Compiler.getDefine("compiler_debug") != null)
+		args.push("-compiler_debug");
 	if (haxe.macro.Compiler.getDefine("_hl") != null) {
 		args.push("-compiler_hl");
 	}else if (haxe.macro.Compiler.getDefine("_interp") != null) {
@@ -29,8 +31,6 @@ function main() {
 		main,
 		"--macro",
 		"Go2hxMacro.init()",
-		"-D",
-		"no-inline",
 		"--hl",
 		"testbed.hl",
 	]);

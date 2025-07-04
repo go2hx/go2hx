@@ -123,14 +123,30 @@ overload extern inline function stat(_name:stdgo.GoString) {
 	return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(_name)), _1: null};
 }
 
+@:recv(File)
+overload extern inline function stat(_f) {
+	return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(@:privateAccess _f._file._name)), _1: null};
+}
+
 @:recv(T_fileStat)
 overload extern inline function name(_fs) {
 	return _fs._name;
 }
 
 @:recv(T_fileStat)
+overload extern inline function modTime(_fs) {
+	// TODO use: return std.sys.FileSystem.stat(_fs._name);
+	return stdgo._internal.time.Time_now.now();
+}
+
+@:recv(T_fileStat)
 function mode() {
-	return 0;
+	return std.sys.FileSystem.stat(_fs._name).mode;
+}
+
+@:recv(T_fileStat)
+overload extern inline function size(_fs:Dynamic) {
+	return std.sys.FileSystem.stat(_fs._name).size;
 }
 
 @:recv(T_fileStat)
@@ -295,10 +311,14 @@ function openFile(_name:stdgo.GoString) {
 		if (!sys.FileSystem.exists(_name)) {
 			sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
 		}
-		try {
-			{_0: {_file: {_name: _name}, _input: sys.io.File.read(_name, false), _output: sys.io.File.update(_name)}, _1: null};
-		} catch (e) {
-			{_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
+		if (sys.FileSystem.isDirectory(_name)) {
+			{_0: {_file: {_name: _name}, _input: null, _output: null}, _1: null};
+		}else{
+			try {
+				{_0: {_file: {_name: _name}, _input: sys.io.File.read(_name, false), _output: sys.io.File.update(_name)}, _1: null};
+			} catch (e) {
+				{_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
+			}
 		}
 	};
 }

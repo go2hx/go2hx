@@ -118,27 +118,18 @@ class Go {
 	}
 
 	public static macro function str(exprs:Array<Expr>):Expr {
-		var length = 0;
-		var index = 0;
+		var hexString = "";
 		for (i in 0...exprs.length) {
 			// do switch statement here
 			switch exprs[i].expr {
 				case EConst(CString(s)):
-					exprs[i] = macro b.addString($v{s});
-					// length += s.length * 4;
-					index += s.length * 4;
+					hexString += haxe.io.Bytes.ofString(s).toHex();
 				case EConst(CInt(f)):
-					exprs[i] = macro b.addByte($v{Std.parseInt(f)});
-					length++;
-					index++;
+					hexString += StringTools.hex(Std.parseInt(f));
 				default:
 			}
 		}
-		final e = macro({
-			final b = new haxe.io.BytesBuffer();
-			$b{exprs};
-			b.getBytes();
-		} : stdgo.GoString);
+		final e = macro(haxe.io.Bytes.ofHex($v{hexString}) : stdgo.GoString);
 		return e;
 	}
 

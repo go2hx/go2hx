@@ -34,15 +34,15 @@ class Go {
 		}; __a__();", func);*/
 		#elseif (target.threaded)
 		Thread.createWithEventLoop(() -> {
-			/*try {
-					func();
-				}catch(e) {
-					throw e;
-			}*/
 			grMutex.acquire();
 			goroutines++;
 			grMutex.release();
-			func();
+			try {
+					func();
+				}catch(e) {
+					throw e.details();
+			}
+			//func();
 			grMutex.acquire();
 			goroutines--;
 			grMutex.release();

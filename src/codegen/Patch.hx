@@ -195,6 +195,14 @@ final structs = [
 			return "<" + _v.type().string() + " Value>";
 		}
 	},
+	"sync:Map_" => macro {
+		@:local
+		var map = {
+			final m = new stdgo.GoMap.GoAnyInterfaceMap<stdgo.AnyInterface>();
+			m.__defaultValue__ = () -> null;
+			m;
+		};
+	},
 	"sync:WaitGroup" => macro {
 		@:local
 		var counter:stdgo.GoUInt = 0;
@@ -211,7 +219,9 @@ final structs = [
 	},
 	"sync:RWMutex" => macro {
 		@:local
-		var mutex = @:define("target.threaded") new sys.thread.Semaphore(1);
+		var rmutex = @:define("target.threaded") new sys.thread.Semaphore(1);
+		@:local
+		var wmutex = @:define("target.threaded") new sys.thread.Semaphore(1);
 	},
 	"syscall.js:Value" => macro {
 		@:local
@@ -289,7 +299,7 @@ final addTypeDefs = [
 		}
 
 		public dynamic function string():stdgo.GoString {
-			return "";
+			return _ip + ":" + _port;
 		}
 
 		public function __underlying__():stdgo.AnyInterface
@@ -344,27 +354,27 @@ final addTypeDefs = [
 		}
 
 		public dynamic function localAddr():stdgo._internal.net.Net_addr.Addr {
-			throw "not implemented";
-			return null;
+			 final obj = _socket.host();
+			final addr = new stdgo._internal.net.Net_haxeaddr.HaxeAddr(@:privateAccess _addr._network, obj.host.toString(), obj.port);
+			return addr;
 		}
 
 		public dynamic function remoteAddr():stdgo._internal.net.Net_addr.Addr {
-			throw "not implemented";
-			return null;
+			 final obj = _socket.peer();
+			final addr = new stdgo._internal.net.Net_haxeaddr.HaxeAddr(@:privateAccess _addr._network, obj.host.toString(), obj.port);
+			return addr;
 		}
 
 		public dynamic function setDeadline(t:stdgo._internal.time.Time_time.Time):stdgo.Error {
-			throw "not implemented";
+			// TODO configure
 			return null;
 		}
 
 		public dynamic function setReadDeadline(t:stdgo._internal.time.Time_time.Time):stdgo.Error {
-			throw "not implemented";
 			return null;
 		}
 
 		public dynamic function setWriteDeadline(t:stdgo._internal.time.Time_time.Time):stdgo.Error {
-			throw "not implemented";
 			return null;
 		}
 

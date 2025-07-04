@@ -1,29 +1,29 @@
-[ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:75: characters 50-93
+[ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:75: characters 51-94
 
-  75 |                     _magic_20 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
-     |                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  75 |                     _magic_117 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+     |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : stdgo._internal.internal.xcoff.Xcoff__magic
 
           | For optional function argument 'get'
 
-[ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:75: characters 21-101
+[ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:75: characters 21-102
 
-  75 |                     _magic_20 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  75 |                     _magic_117 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Void should be stdgo.GoUInt16
 
-[ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:207: characters 46-85
+[ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:207: characters 47-86
 
- 207 |                     _l_68 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
-     |                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 207 |                     _l_145 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+     |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : stdgo._internal.internal.xcoff.Xcoff__l
 
           | For optional function argument 'get'
 
-[ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:207: characters 21-89
+[ERROR] golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:207: characters 21-90
 
- 207 |                     _l_68 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 207 |                     _l_145 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Void should be stdgo.GoUInt32
 
 [ERROR] (macro) golibs/stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 108-109

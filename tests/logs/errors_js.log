@@ -57,13 +57,13 @@ golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: fa
 - SUBRUN  0:As(Errorf(..., <nil>), 0x1)
 - SUBRUN  1:As(Errorf(..., pitied the fool), errorT())
 got <invalid reflect.Value>, want %!v(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 44494 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 44431 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_errors.js:43992:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 44501 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 44438 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_errors.js:43999:58
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_errors.js:12124:24
 Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 19989 column 2)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_errors_$test_Errors_$test_$testas_testAs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_errors.js:12113:52)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 43754 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 43761 column 9)
 Called from ._$internal_errorsdottest_Errorsdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_errors.js line 37390 column 59)
 
 -- FAIL: TestAs

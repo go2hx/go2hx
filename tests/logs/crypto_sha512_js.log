@@ -153,10 +153,10 @@ Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/
 Called from .stdgo__$internal_io_Io_$readfull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 19215 column 9)
 Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 19210 column 9)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha512_Sha512_$testblockgeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js:19200:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 41633 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 41640 column 9)
 Called from ._$internal_crypto_sha512dottest_Sha512dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 35242 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha512.js:72248:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js:72249:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha512.js:72255:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js:72256:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 

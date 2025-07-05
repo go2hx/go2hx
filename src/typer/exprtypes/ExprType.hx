@@ -1136,12 +1136,12 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 		case interfaceType(empty, methods):
 			final empty = empty ? macro true : macro false;
 			final methodExprs:Array<Expr> = [];
-			/*for (method in methods) {
+			for (method in methods) {
 				final name = HaxeAst.makeString(method.name);
 				final t = toReflectType(method.type.get(), info, paths.copy(), equalityBool);
 				final recv = macro stdgo._internal.internal.reflect.GoType.invalidType; // toReflectType(method.recv.get(), info, paths.copy());
-				methodExprs.push(macro new stdgo._internal.internal.reflect.Reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
-			}*/
+				methodExprs.push(macro new stdgo._internal.internal.reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
+			}
 			final e = macro stdgo._internal.internal.reflect.GoType.interfaceType($empty, ${macro $a{methodExprs}});
 			e;
 		case invalidType:
@@ -1151,6 +1151,12 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 			namedPath.pack.push(namedPath.name);
 			final path = HaxeAst.makeString(namedPath.pack.join("."));
 			final methodExprs:Array<Expr> = [];
+			for (method in methods) {
+				final name = HaxeAst.makeString(method.name);
+				final t = toReflectType(method.type.get(), info, paths.copy(), equalityBool);
+				final recv = macro stdgo._internal.internal.reflect.GoType.invalidType; // toReflectType(method.recv.get(), info, paths.copy());
+				methodExprs.push(macro new stdgo._internal.internal.reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
+			}
 			var t = macro stdgo._internal.internal.reflect.GoType.invalidType;
 			// new system goes below here
 			final defName = "__type__" + normalizeVarName(namedPath.pack.join("."));

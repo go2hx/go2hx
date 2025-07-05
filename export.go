@@ -35,6 +35,7 @@ import (
 )
 
 type packageType struct {
+	Errors   []string                 `json:"errors"`
 	Path     string                   `json:"path"`
 	Name     string                   `json:"name"`
 	Order    []string                 `json:"order"`
@@ -693,6 +694,14 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 
 func parsePkg(pkg *packages.Package, checker *types.Checker, pkgData *PackageData) *packageType {
 	data := &packageType{}
+	if pkg.PkgPath != "runtime" {
+		for _, err := range pkg.Errors {
+			data.Errors = append(data.Errors, err.Error())
+		}
+		if len(pkg.Errors) > 0 {
+			return data
+		}
+	}
 	for _, obj := range pkg.TypesInfo.InitOrder {
 		for _, v := range obj.Lhs {
 			if !stdExports[pkg.PkgPath] || v.Exported() {

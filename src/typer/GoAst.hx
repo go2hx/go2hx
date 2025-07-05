@@ -17,6 +17,7 @@ typedef PackageType = {
 	files:Array<FileType>,
 	typeList:Array<Dynamic>,
 	checksum:String,
+	errors:Array<String>,
 };
 
 typedef FileType = {

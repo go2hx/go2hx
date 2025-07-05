@@ -50,7 +50,8 @@ function receivedData(buff:Bytes) {
 	final module = typer.Package.typePackage(data, instance);
 	final typePackageTime = measureTime();
 	// generate the code
-	codegen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
+	if (module != null)
+		codegen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
 	mutex.acquire();
 	final countPkgs = modules.push(module);
 	mutex.release();

@@ -22,9 +22,9 @@ typedef IntermediatePackageType = {
 
 function typePackage(pkg:GoAst.PackageType, instance:Compiler.CompilerInstanceData):HaxeAst.Module {
 	if (pkg.errors != null && pkg.errors.length > 0) {
+		Sys.println("Error in " + pkg.path + ":");
 		for (err in pkg.errors)
-			Sys.println(err);
-		return null;
+			Sys.println("    " + err);
 	}
 	final pkg = typePackageAnalyze(pkg, instance);
 	return typePackageEmit(pkg);

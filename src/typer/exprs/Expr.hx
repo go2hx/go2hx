@@ -210,6 +210,7 @@ function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info
 }
 
 function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):MacroExpr {
+	final originalType = t;
 	if (isRef(t))
 		t = getElem(t);
 	switch t {
@@ -225,7 +226,9 @@ function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):M
 			}
 		default:
 	}
-	return macro stdgo.Go.toInterface($x);
+	final typeExpr = toReflectType(originalType, info, [], false);
+	trace(new codegen.Printer().printExpr(typeExpr));
+	return macro new stdgo.AnyInterface($x, new stdgo._internal.internal.reflect.Reflect._Type($typeExpr));
 }
 
 function toGoType(expr:Expr):MacroExpr {

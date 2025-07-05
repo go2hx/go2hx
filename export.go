@@ -698,9 +698,6 @@ func parsePkg(pkg *packages.Package, checker *types.Checker, pkgData *PackageDat
 		for _, err := range pkg.Errors {
 			data.Errors = append(data.Errors, err.Error())
 		}
-		if len(pkg.Errors) > 0 {
-			return data
-		}
 	}
 	for _, obj := range pkg.TypesInfo.InitOrder {
 		for _, v := range obj.Lhs {

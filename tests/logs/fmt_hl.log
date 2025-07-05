@@ -185,9 +185,9 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 
 === RUN  TestScanf
 Exception: array out of bounds, index: 0 length: 0
-Called from stdgo._internal.fmt.$T_ss_static_extension._doScanf (stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 149)
-Called from stdgo._internal.fmt._Fmt_fscanf.$Fmt_fscanf_Fields_.fscanf (stdgo/_internal/fmt/Fmt_fscanf.hx line 7)
-Called from stdgo._internal.fmt._Fmt_sscanf.$Fmt_sscanf_Fields_.sscanf (stdgo/_internal/fmt/Fmt_sscanf.hx line 6)
+Called from stdgo._internal.fmt.$T_ss_static_extension._doScanf (stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 158)
+Called from stdgo._internal.fmt._Fmt_fscanf.$Fmt_fscanf_Fields_.fscanf (stdgo/_internal/fmt/Fmt_fscanf.hx line 16)
+Called from stdgo._internal.fmt._Fmt_sscanf.$Fmt_sscanf_Fields_.sscanf (stdgo/_internal/fmt/Fmt_sscanf.hx line 15)
 Called from _internal.fmt_test._Fmt_test_testscanf.$Fmt_test_testscanf_Fields_.testScanf (_internal/fmt_test/Fmt_test_testscanf.hx line 5)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
@@ -234,8 +234,8 @@ Sscan <empty> expected error; got none
 
 === RUN  TestScanNotPointer
 Exception: Can't cast i32 to stdgo.PointerData
-Called from stdgo._internal.fmt.$T_ss_static_extension._doScan (stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 353)
-Called from stdgo._internal.fmt._Fmt_fscan.$Fmt_fscan_Fields_.fscan (stdgo/_internal/fmt/Fmt_fscan.hx line 7)
+Called from stdgo._internal.fmt.$T_ss_static_extension._doScan (stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 362)
+Called from stdgo._internal.fmt._Fmt_fscan.$Fmt_fscan_Fields_.fscan (stdgo/_internal/fmt/Fmt_fscan.hx line 16)
 Called from _internal.fmt_test._Fmt_test_testscannotpointer.$Fmt_test_testscannotpointer_Fields_.testScanNotPointer (_internal/fmt_test/Fmt_test_testscannotpointer.hx line 5)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)

@@ -24,7 +24,7 @@ Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_i
 Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 46)
 Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_t_.hx line 90)
 Called from stdgo._internal.testing.T__asInterface.skipf (stdgo/_internal/testing/Testing_t__asinterface.hx line 48)
-Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.$Testenv_musthavegobuild_Fields_.mustHaveGoBuild (stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 15)
+Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.$Testenv_musthavegobuild_Fields_.mustHaveGoBuild (stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 29)
 Called from _internal.internal.godebug_test._Godebug_test_testcmdbisect.$Godebug_test_testcmdbisect_Fields_.testCmdBisect (_internal/internal/godebug_test/Godebug_test_testcmdbisect.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.internal.godebugdottest._Godebugdottest.$Godebugdottest_Fields_.main (_internal/internal/godebugdottest/Godebugdottest.hx line 12)

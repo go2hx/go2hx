@@ -4,7 +4,7 @@ sha1[2](aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
-Called from stdgo._internal.crypto.sha1._Sha1_testgolden.$Sha1_testgolden_Fields_.testGolden (stdgo/_internal/crypto/sha1/Sha1_testgolden.hx line 57)
+Called from stdgo._internal.crypto.sha1._Sha1_testgolden.$Sha1_testgolden_Fields_.testGolden (stdgo/_internal/crypto/sha1/Sha1_testgolden.hx line 66)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.sha1dottest._Sha1dottest.$Sha1dottest_Fields_.main (_internal/crypto/sha1dottest/Sha1dottest.hx line 13)
 
@@ -23,11 +23,17 @@ Called from _internal.crypto.sha1dottest._Sha1dottest.$Sha1dottest_Fields_.main 
 -- PASS: TestBlockSize
 
 === RUN  TestBlockGeneric
-Exception: Null access .read
-Called from stdgo._internal.io._Io_readatleast.$Io_readatleast_Fields_.readAtLeast (stdgo/_internal/io/Io_readatleast.hx line 18)
-Called from stdgo._internal.io._Io_readfull.$Io_readfull_Fields_.readFull (stdgo/_internal/io/Io_readfull.hx line 5)
-Called from stdgo._internal.crypto.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/crypto/rand/Rand_read.hx line 5)
-Called from stdgo._internal.crypto.sha1._Sha1_testblockgeneric.$Sha1_testblockgeneric_Fields_.testBlockGeneric (stdgo/_internal/crypto/sha1/Sha1_testblockgeneric.hx line 16)
+golibs/stdgo/_internal/syscall/js/Js_value_static_extension.hx:64: funclit
+Exception: not implemented: new_
+Called from stdgo._internal.syscall.js.$Value_static_extension.new_ (stdgo/_internal/syscall/js/Js_value_static_extension.hx line 65)
+Called from stdgo._internal.crypto.rand._Rand__getrandom.$Rand__getrandom_Fields_._getRandom (stdgo/_internal/crypto/rand/Rand__getrandom.hx line 7)
+Called from stdgo._internal.crypto.rand._Rand__batched.$Rand__batched_Fields_.~_batched.0 (stdgo/_internal/crypto/rand/Rand__batched.hx line 18)
+Called from stdgo._internal.crypto.rand.$T_reader_static_extension.read (stdgo/_internal/crypto/rand/Rand_t_reader_static_extension.hx line 13)
+Called from stdgo._internal.crypto.rand.T_reader_asInterface.read (stdgo/_internal/crypto/rand/Rand_t_reader_asinterface.hx line 8)
+Called from stdgo._internal.io._Io_readatleast.$Io_readatleast_Fields_.readAtLeast (stdgo/_internal/io/Io_readatleast.hx line 19)
+Called from stdgo._internal.io._Io_readfull.$Io_readfull_Fields_.readFull (stdgo/_internal/io/Io_readfull.hx line 6)
+Called from stdgo._internal.crypto.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/crypto/rand/Rand_read.hx line 9)
+Called from stdgo._internal.crypto.sha1._Sha1_testblockgeneric.$Sha1_testblockgeneric_Fields_.testBlockGeneric (stdgo/_internal/crypto/sha1/Sha1_testblockgeneric.hx line 25)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.crypto.sha1dottest._Sha1dottest.$Sha1dottest_Fields_.main (_internal/crypto/sha1dottest/Sha1dottest.hx line 13)
 

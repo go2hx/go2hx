@@ -1,12 +1,12 @@
-[ERROR] golibs/stdgo/_internal/go/build/Build__parsegoembed.hx:103: characters 21-45
+[ERROR] golibs/stdgo/_internal/go/build/Build__parsegoembed.hx:127: characters 21-45
 
- 103 |                     _iterator_6770507 = 0i64;
+ 127 |                     _iterator_6561133 = 0i64;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^
      | haxe.Int64 should be Null<Int>
 
-[ERROR] (macro) golibs/stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 108-109
+[ERROR] (macro) golibs/stdgo/_internal/go/types/Types__isinterfaceptr.hx:21: characters 108-109
 
-   4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
+  21 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
      |                                                                                                            ^
      | stdgo._internal.internal.reflect._Type should be stdgo._internal.go.types.Type_
      | stdgo._internal.internal.reflect._Type has no field __underlying__
@@ -24,9 +24,9 @@
           |           ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  golibs/stdgo/_internal/go/types/Types__isinterfaceptr.hx:4: characters 42-111
+      ->  golibs/stdgo/_internal/go/types/Types__isinterfaceptr.hx:21: characters 42-111
 
-        4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
+       21 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.go.types.Types__under._under(t)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>)) : stdgo.Ref<stdgo._internal.go.types.Types_pointer_.Pointer_>), _1 : true };
           |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 

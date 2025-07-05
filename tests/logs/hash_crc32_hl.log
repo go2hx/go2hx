@@ -20,10 +20,10 @@
 Exception: Null access .value
 Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
 Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load__tp__0 (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 40)
-Called from stdgo._internal.math.rand._Rand__globalrand.$Rand__globalrand_Fields_._globalRand (stdgo/_internal/math/rand/Rand__globalrand.hx line 5)
-Called from stdgo._internal.math.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/math/rand/Rand_read.hx line 5)
-Called from stdgo._internal.hash.crc32._Crc32__testcrosscheck.$Crc32__testcrosscheck_Fields_._testCrossCheck (stdgo/_internal/hash/crc32/Crc32__testcrosscheck.hx line 53)
-Called from stdgo._internal.hash.crc32._Crc32_testslicing.$Crc32_testslicing_Fields_.testSlicing (stdgo/_internal/hash/crc32/Crc32_testslicing.hx line 28)
+Called from stdgo._internal.math.rand._Rand__globalrand.$Rand__globalrand_Fields_._globalRand (stdgo/_internal/math/rand/Rand__globalrand.hx line 7)
+Called from stdgo._internal.math.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/math/rand/Rand_read.hx line 7)
+Called from stdgo._internal.hash.crc32._Crc32__testcrosscheck.$Crc32__testcrosscheck_Fields_._testCrossCheck (stdgo/_internal/hash/crc32/Crc32__testcrosscheck.hx line 57)
+Called from stdgo._internal.hash.crc32._Crc32_testslicing.$Crc32_testslicing_Fields_.testSlicing (stdgo/_internal/hash/crc32/Crc32_testslicing.hx line 32)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.hash.crc32dottest._Crc32dottest.$Crc32dottest_Fields_.main (_internal/hash/crc32dottest/Crc32dottest.hx line 13)
 
@@ -35,7 +35,7 @@ Exception: __skip__
 Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
 Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52)
 Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 80)
-Called from stdgo._internal.hash.crc32._Crc32_testarchieee.$Crc32_testarchieee_Fields_.testArchIEEE (stdgo/_internal/hash/crc32/Crc32_testarchieee.hx line 6)
+Called from stdgo._internal.hash.crc32._Crc32_testarchieee.$Crc32_testarchieee_Fields_.testArchIEEE (stdgo/_internal/hash/crc32/Crc32_testarchieee.hx line 10)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.hash.crc32dottest._Crc32dottest.$Crc32dottest_Fields_.main (_internal/hash/crc32dottest/Crc32dottest.hx line 13)
 
@@ -49,7 +49,7 @@ Exception: __skip__
 Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
 Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52)
 Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 80)
-Called from stdgo._internal.hash.crc32._Crc32_testarchcastagnoli.$Crc32_testarchcastagnoli_Fields_.testArchCastagnoli (stdgo/_internal/hash/crc32/Crc32_testarchcastagnoli.hx line 6)
+Called from stdgo._internal.hash.crc32._Crc32_testarchcastagnoli.$Crc32_testarchcastagnoli_Fields_.testArchCastagnoli (stdgo/_internal/hash/crc32/Crc32_testarchcastagnoli.hx line 10)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.hash.crc32dottest._Crc32dottest.$Crc32dottest_Fields_.main (_internal/hash/crc32dottest/Crc32dottest.hx line 13)
 

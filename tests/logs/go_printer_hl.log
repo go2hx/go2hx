@@ -1,8 +1,8 @@
-[ERROR] golibs/stdgo/_internal/go/printer/Printer__idents.hx:8: characters 75-77
+[ERROR] golibs/stdgo/_internal/go/printer/Printer__idents.hx:29: characters 75-77
 
- 8 |                 stdgo._internal.go.ast.Ast_walk.walk(stdgo.Go.asInterface(_v), stdgo.Go.asInterface(_f));
-   |                                                                           ^^
-   | Unknown identifier : _v
+ 29 |                 stdgo._internal.go.ast.Ast_walk.walk(stdgo.Go.asInterface(_v), stdgo.Go.asInterface(_f));
+    |                                                                           ^^
+    | Unknown identifier : _v
 
-      | For function argument 'dir'
+        | For function argument 'dir'
 

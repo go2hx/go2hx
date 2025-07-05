@@ -1152,12 +1152,23 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 			final path = HaxeAst.makeString(namedPath.pack.join("."));
 			final methodExprs:Array<Expr> = [];
 			var t = macro stdgo._internal.internal.reflect.GoType.invalidType;
-			if (!paths.contains(path2)) {
-				paths.push(path2);
+			// new system goes below here
+			final defName = "__type__" + normalizeVarName(namedPath.pack.join("."));
+			if (!info.global.pathNames.exists(defName)) {
+				// new
+				info.global.pathNames[defName] = true;
 				t = toReflectType(type, info, paths.copy(), equalityBool);
+				final e = macro stdgo._internal.internal.reflect.GoType.named($path, ${macro $a{methodExprs}}, $t, false, {get: () -> null});
+				final def:TypeDefinition = {
+					name: defName,
+					pos: null,
+					fields: [],
+					pack: [],
+					kind: TDField(FVar(null, e)),
+				};
+				info.data.defs.push(def);
 			}
-			final e = macro stdgo._internal.internal.reflect.GoType.named($path, ${macro $a{methodExprs}}, $t, false, {get: () -> null});
-			e;
+			return macro $i{splitDepFullPathName(defName, info)};
 		case previouslyNamed(path):
 			final path = HaxeAst.makeString(path);
 			macro stdgo._internal.internal.reflect.GoType.previousNamed($path);
@@ -1191,6 +1202,14 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 			final vars = [for (v in vars) toReflectType(v, info, paths.copy(), equalityBool)];
 			macro stdgo._internal.internal.reflect.GoType.tuple($len, $a{vars});
 	}
+}
+
+private function normalizeVarName(s:String):String {
+	s = StringTools.replace(s, ".", "dot");
+	s = StringTools.replace(s, "/", "slash");
+	s = StringTools.replace(s, "[", "ob");
+	s = StringTools.replace(s, "]", "cb");
+	return s;
 }
 
 // can also be used for ObjectFields

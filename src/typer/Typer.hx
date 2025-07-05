@@ -28,6 +28,7 @@ private typedef Ref<T> = {
 }
 
 class Global {
+	public var pathNames:Map<String,Bool> = [];
 	public var tryBool:Bool = true;
 	public var localSpecs:Map<String, Array<GoAst.Spec>> = [];
 	public var deferBool:Bool = false;
@@ -51,6 +52,7 @@ class Global {
 		g.tryBool = tryBool;
 		g.localSpecs = localSpecs;
 		g.initBlock = initBlock.copy();
+		g.pathNames = pathNames;
 		g.noCommentsBool = noCommentsBool;
 		g.renameClasses = renameClasses;
 		g.path = path;

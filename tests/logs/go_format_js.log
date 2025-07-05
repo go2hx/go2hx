@@ -1,104 +1,17 @@
-=== RUN  TestNode
-<invalid reflect.Value>
-Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 132616 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 132567 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:131909:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnode_testNode [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:46211:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131680 column 9)
-Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 117771 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:138677:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:138678:3)
+/home/runner/work/go2hx/go2hx/golibs/std_format.js:130073
+	if(stdgo_GoString.toString(_typ.string()) == null.string()) {
+	                                                  ^
 
--- FAIL: TestNode
+TypeError: Cannot read properties of null (reading 'string')
+    at stdgo__$internal_encoding_gob_Gob_$_$implementsinterface__implementsInterface (/home/runner/work/go2hx/go2hx/golibs/std_format.js:130073:52)
+    at stdgo__$internal_encoding_gob_Gob_$_$validusertype__validUserType (/home/runner/work/go2hx/go2hx/golibs/std_format.js:129715:17)
+    at stdgo__$internal_encoding_gob_Gob_$_$usertype__userType (/home/runner/work/go2hx/go2hx/golibs/std_format.js:129553:16)
+    at stdgo__$internal_encoding_gob_Gob_$_$mustgettypeinfo__mustGetTypeInfo (/home/runner/work/go2hx/go2hx/golibs/std_format.js:128732:78)
+    at /home/runner/work/go2hx/go2hx/golibs/std_format.js:164264:65
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:172141:3)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object..js (node:internal/modules/cjs/loader:1899:10)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
 
-=== RUN  TestNodeNoModify
-<invalid reflect.Value>
-Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 132616 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 132567 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:131909:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnodenomodify_testNodeNoModify [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:110521:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131680 column 9)
-Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 117771 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:138677:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:138678:3)
-
--- FAIL: TestNodeNoModify
-
-=== RUN  TestSource
-<invalid reflect.Value>
-Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 132616 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 132567 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:131909:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testsource_testSource [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:112743:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 131680 column 9)
-Called from ._$internal_go_formatdottest_Formatdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 117771 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:138677:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:138678:3)
-
--- FAIL: TestSource
-
-=== RUN  TestPartial
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-formatting failed (<invalid reflect.Value>):
-%!q(MISSING)
-
--- FAIL: TestPartial
-
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
--- FAIL: TestPartial
+Node.js v23.11.1

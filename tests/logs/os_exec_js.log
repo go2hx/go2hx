@@ -76,15 +76,15 @@
      | ^^^^^^
      | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
 
-[ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:3: characters 9-19
+[ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:6: characters 9-19
 
-   3 |         _stopTimer(_t);
+   6 |         _stopTimer(_t);
      |         ^^^^^^^^^^
      | Unknown identifier : _stopTimer
 
-[ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:9: characters 9-20
+[ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:12: characters 9-20
 
-   9 |         _startTimer(_t);
+  12 |         _startTimer(_t);
      |         ^^^^^^^^^^^
      | Unknown identifier : _startTimer
 

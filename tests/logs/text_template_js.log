@@ -1,63 +1,63 @@
 === RUN  TestExecute
 Exception: not implemented numOut
-Called from stdgo__$internal_text_template_Template_$static_$extension.funcs (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 42415 column 25)
-Called from .stdgo__$internal_text_template_Template_$_$testexecute__testExecute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 22575 column 78)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testexecute_testExecute [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:22434:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_text_template_Template_$static_$extension.funcs (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43272 column 25)
+Called from .stdgo__$internal_text_template_Template_$_$testexecute__testExecute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 23432 column 78)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testexecute_testExecute [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:23291:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestExecute
 
 === RUN  TestDelims
 Exception: Value:reflect.methodByName is not yet implemented
-Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43573 column 25)
-Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43580 column 68)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testdelims_testDelims [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:72742:69)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44430 column 25)
+Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44437 column 68)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testdelims_testDelims [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:73599:69)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestDelims
 
 === RUN  TestExecuteError
 Exception: Value:reflect.methodByName is not yet implemented
-Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43573 column 25)
-Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43580 column 68)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testexecuteerror_testExecuteError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:72815:68)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44430 column 25)
+Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44437 column 68)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testexecuteerror_testExecuteError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:73672:68)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestExecuteError
 
 === RUN  TestExecError
 Exception: not implemented numOut
-Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43573 column 25)
-Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43580 column 68)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testexecerror_testExecError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:72858:68)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44430 column 25)
+Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44437 column 68)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testexecerror_testExecError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:73715:68)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestExecError
 
 === RUN  TestExecError_CustomError
 Exception: not implemented numOut
-Called from stdgo__$internal_text_template_Template_$static_$extension.funcs (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 42415 column 25)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testexecerror_$customerror_testExecError_CustomError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:72902:141)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_text_template_Template_$static_$extension.funcs (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43272 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testexecerror_$customerror_testExecError_CustomError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:73759:141)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -69,13 +69,13 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 === RUN  TestTree
 Exception: null pointer dereference
-Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43573 column 25)
-Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43580 column 68)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testtree_testTree [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:73192:68)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44430 column 25)
+Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44437 column 68)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testtree_testTree [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:74049:68)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestTree
@@ -87,14 +87,14 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 === RUN  TestMessageForExecuteEmpty
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94790 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94741 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:94279:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testmessageforexecuteempty_testMessageForExecuteEmpty [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:73319:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97405 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97356 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:96894:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testmessageforexecuteempty_testMessageForExecuteEmpty [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:74176:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 
 -- FAIL: TestMessageForExecuteEmpty
 
@@ -225,13 +225,13 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 
 === RUN  TestMissingMapKey
 Exception: Value:reflect.methodByName is not yet implemented
-Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43573 column 25)
-Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43580 column 68)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testmissingmapkey_testMissingMapKey [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:73686:68)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44430 column 25)
+Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44437 column 68)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testmissingmapkey_testMissingMapKey [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:74543:68)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestMissingMapKey
@@ -239,39 +239,39 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 === RUN  TestUnterminatedStringError
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94790 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94741 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:94279:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testunterminatedstringerror_testUnterminatedStringError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:73815:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97405 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97356 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:96894:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testunterminatedstringerror_testUnterminatedStringError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:74672:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 
 -- FAIL: TestUnterminatedStringError
 
 === RUN  TestExecuteGivesExecError
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94790 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94741 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:94279:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testexecutegivesexecerror_testExecuteGivesExecError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:73838:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97405 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97356 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:96894:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testexecutegivesexecerror_testExecuteGivesExecError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:74695:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 
 -- FAIL: TestExecuteGivesExecError
 
 === RUN  TestGoodFuncNames
 Exception: not implemented numOut
-Called from stdgo__$internal_text_template_Template_$static_$extension.funcs (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 42415 column 25)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testgoodfuncnames_testGoodFuncNames [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:74003:76)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_text_template_Template_$static_$extension.funcs (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43272 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testgoodfuncnames_testGoodFuncNames [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:74860:76)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -288,28 +288,28 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 === RUN  TestEvalFieldErrors
 - SUBRUN  MissingFieldOnNil
 Exception: Value:reflect.methodByName is not yet implemented
-Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43573 column 25)
-Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43580 column 68)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:74294:76
-Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 74321 column 2)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testevalfielderrors_testEvalFieldErrors [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:74284:52)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
+Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44430 column 25)
+Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44437 column 68)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:75151:76
+Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 75178 column 2)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testevalfielderrors_testEvalFieldErrors [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:75141:52)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
 
 -- FAIL: TestEvalFieldErrors
 
 === RUN  TestMaxExecDepth
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94685 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94713 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:94327:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testmaxexecdepth_testMaxExecDepth [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:74508:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97300 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97328 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:96942:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testmaxexecdepth_testMaxExecDepth [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:75365:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 
 -- SKIP: TestMaxExecDepth
 
@@ -317,14 +317,14 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 
 === RUN  TestAddrOfIndex
 <invalid reflect.Value>: template output = %!q(MISSING), want %!q(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94790 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94727 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:94288:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testaddrofindex_testAddrOfIndex [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:74604:22)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97405 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97342 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:96903:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testaddrofindex_testAddrOfIndex [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:75461:22)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 
 -- FAIL: TestAddrOfIndex
 
@@ -364,12 +364,12 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 
 === RUN  TestExecutePanicDuringCall
 Exception: not implemented numOut
-Called from stdgo__$internal_text_template_Template_$static_$extension.funcs (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 42415 column 25)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testexecutepanicduringcall_testExecutePanicDuringCall [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:74998:77)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_text_template_Template_$static_$extension.funcs (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43272 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testexecutepanicduringcall_testExecutePanicDuringCall [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:75855:77)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -392,13 +392,13 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 === RUN  TestIssue48215
 Exception: Value:reflect.methodByName is not yet implemented
-Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43573 column 25)
-Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43580 column 68)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testissue48215_testIssue48215 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:75329:68)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_text_template_Template_$static_$extension._execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44430 column 25)
+Called from stdgo__$internal_text_template_Template_$static_$extension.execute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 44437 column 68)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testissue48215_testIssue48215 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:76186:68)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestIssue48215
@@ -411,79 +411,79 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 
 === RUN  TestMultiExecute
 Exception: not implemented numOut
-Called from stdgo__$internal_text_template_Template_$static_$extension.funcs (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 42415 column 25)
-Called from .stdgo__$internal_text_template_Template_$_$testexecute__testExecute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 22582 column 79)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testmultiexecute_testMultiExecute [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:75531:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_text_template_Template_$static_$extension.funcs (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 43272 column 25)
+Called from .stdgo__$internal_text_template_Template_$_$testexecute__testExecute (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 23439 column 79)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testmultiexecute_testMultiExecute [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:76388:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestMultiExecute
 
 === RUN  TestParseFiles
 error parsing files: <invalid reflect.Value>Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94790 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94727 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:94288:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testparsefiles_testParseFiles [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:75544:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97405 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97342 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:96903:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testparsefiles_testParseFiles [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:76401:20)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 
 -- FAIL: TestParseFiles
 
 === RUN  TestParseGlob
 error parsing files: <invalid reflect.Value>Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94790 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94727 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:94288:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testparseglob_testParseGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:75754:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97405 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97342 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:96903:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testparseglob_testParseGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:76611:20)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 
 -- FAIL: TestParseGlob
 
 === RUN  TestParseFS
 error parsing files: <invalid reflect.Value>Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94790 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94727 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:94288:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testparsefs_testParseFS [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:77577:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97405 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97342 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:96903:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testparsefs_testParseFS [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:78434:20)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 
 -- FAIL: TestParseFS
 
 === RUN  TestParseFilesWithData
 error parsing files: <invalid reflect.Value>Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94790 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94727 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:94288:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testparsefileswithdata_testParseFilesWithData [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:79481:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97405 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97342 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:96903:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testparsefileswithdata_testParseFilesWithData [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:80338:20)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 
 -- FAIL: TestParseFilesWithData
 
 === RUN  TestParseGlobWithData
 error parsing files: <invalid reflect.Value>Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94790 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94727 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:94288:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testparseglobwithdata_testParseGlobWithData [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:79490:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97405 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97342 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:96903:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_text_template_Template_$testparseglobwithdata_testParseGlobWithData [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:80347:20)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 
 -- FAIL: TestParseGlobWithData
 
@@ -534,14 +534,14 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 === RUN  TestLinkerGC
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94685 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94713 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:94327:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_text_template_$test_Template_$test_$testlinkergc_testLinkerGC [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:21980:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 94050 column 9)
-Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 85189 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:109106:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:109107:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97300 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 97328 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:96942:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_text_template_$test_Template_$test_$testlinkergc_testLinkerGC [as f] (/home/runner/work/go2hx/go2hx/golibs/std_template.js:22837:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 96665 column 9)
+Called from ._$internal_text_templatedottest_Templatedottest_main (/home/runner/work/go2hx/go2hx/golibs/std_template.js line 86046 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_template.js:118705:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:118706:3)
 
 -- SKIP: TestLinkerGC
 

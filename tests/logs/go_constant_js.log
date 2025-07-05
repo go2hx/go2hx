@@ -90,9 +90,9 @@
           |                  ^^^^^
           | Called from here
 
-      ->  golibs/stdgo/_internal/go/constant/Constant_unaryop.hx:231: characters 28-56
+      ->  golibs/stdgo/_internal/go/constant/Constant_unaryop.hx:238: characters 28-56
 
-      231 |                     return stdgo.Go.asInterface(!_y_15);
+      238 |                     return stdgo.Go.asInterface(!_y_15);
           |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 

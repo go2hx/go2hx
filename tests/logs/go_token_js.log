@@ -1,14 +1,14 @@
-/home/runner/work/go2hx/go2hx/golibs/std_token.js:47756
+/home/runner/work/go2hx/go2hx/golibs/std_token.js:48815
 	if(stdgo_GoString.toString(_typ.string()) == null.string()) {
 	                                                  ^
 
 TypeError: Cannot read properties of null (reading 'string')
-    at stdgo__$internal_encoding_gob_Gob_$_$implementsinterface__implementsInterface (/home/runner/work/go2hx/go2hx/golibs/std_token.js:47756:52)
-    at stdgo__$internal_encoding_gob_Gob_$_$validusertype__validUserType (/home/runner/work/go2hx/go2hx/golibs/std_token.js:47398:17)
-    at stdgo__$internal_encoding_gob_Gob_$_$usertype__userType (/home/runner/work/go2hx/go2hx/golibs/std_token.js:48130:16)
-    at stdgo__$internal_encoding_gob_Gob_$_$mustgettypeinfo__mustGetTypeInfo (/home/runner/work/go2hx/go2hx/golibs/std_token.js:54718:78)
-    at /home/runner/work/go2hx/go2hx/golibs/std_token.js:120422:65
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_token.js:120869:3)
+    at stdgo__$internal_encoding_gob_Gob_$_$implementsinterface__implementsInterface (/home/runner/work/go2hx/go2hx/golibs/std_token.js:48815:52)
+    at stdgo__$internal_encoding_gob_Gob_$_$validusertype__validUserType (/home/runner/work/go2hx/go2hx/golibs/std_token.js:48457:17)
+    at stdgo__$internal_encoding_gob_Gob_$_$usertype__userType (/home/runner/work/go2hx/go2hx/golibs/std_token.js:49189:16)
+    at stdgo__$internal_encoding_gob_Gob_$_$mustgettypeinfo__mustGetTypeInfo (/home/runner/work/go2hx/go2hx/golibs/std_token.js:55777:78)
+    at /home/runner/work/go2hx/go2hx/golibs/std_token.js:129070:65
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_token.js:137567:3)
     at Module._compile (node:internal/modules/cjs/loader:1734:14)
     at Object..js (node:internal/modules/cjs/loader:1899:10)
     at Module.load (node:internal/modules/cjs/loader:1469:32)

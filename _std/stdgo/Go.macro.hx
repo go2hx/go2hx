@@ -123,7 +123,7 @@ class Go {
 			// do switch statement here
 			switch exprs[i].expr {
 				case EConst(CString(s)):
-					buff.addString(s);
+					buff.addString((s : UnicodeString), UTF8);
 				case EConst(CInt(f)):
 					buff.addInt32(Std.parseInt(f));
 				default:

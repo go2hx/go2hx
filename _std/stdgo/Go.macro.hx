@@ -118,17 +118,18 @@ class Go {
 	}
 
 	public static macro function str(exprs:Array<Expr>):Expr {
-		var hexString = "";
+		var buff = new haxe.io.BytesBuffer();
 		for (i in 0...exprs.length) {
 			// do switch statement here
 			switch exprs[i].expr {
 				case EConst(CString(s)):
-					hexString += haxe.io.Bytes.ofString(s).toHex();
+					buff.addString(s);
 				case EConst(CInt(f)):
-					hexString += StringTools.hex(Std.parseInt(f));
+					buff.addInt32(Std.parseInt(f));
 				default:
 			}
 		}
+		final hexString = buff.getBytes().toHex();
 		final e = macro(haxe.io.Bytes.ofHex($v{hexString}) : stdgo.GoString);
 		return e;
 	}

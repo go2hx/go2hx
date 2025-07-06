@@ -25,7 +25,7 @@ function identType(expr:GoAst.Ident, info:Info):ComplexType {
 		if (basicType != null)
 			return TPath(basicType);
 	}
-	if (StringTools.startsWith(name, "T__struct_") && expr.type != null) {
+	if ((StringTools.startsWith(name, "T__struct_") || StringTools.startsWith(name, "T__interface_")) && expr.type != null) {
 		final type = hashTypeToExprType(expr.type, info);
 		if (type.underlying != null) {
 			info.locals[type.underlying.hash] = typeof(type, info, false);

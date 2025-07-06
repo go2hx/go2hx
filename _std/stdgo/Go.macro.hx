@@ -304,7 +304,7 @@ class Go {
 		Create an interface from a type of expr
 		On the fly interface creation
 	 */
-	public static macro function asInterface(expr) {
+	public static macro function asInterface(expr, gt) {
 		final selfType = Context.typeof(switch expr.expr {
 			case ECall({expr: EField({expr: EField({expr: EConst(CIdent("stdgo"))}, "Go")}, "pointer"), pos: _}, _[0] => param):
 				param;
@@ -318,7 +318,6 @@ class Go {
 					return expr;
 			default:
 		}
-		final gt = gtDecode(t, expr, []);
 		final rt = macro new stdgo._internal.internal.reflect.Reflect._Type($gt);
 		var self:Expr = {expr: expr.expr, pos: expr.pos};
 		var selfPointer = false;
@@ -718,129 +717,6 @@ class Go {
 		return e;
 	}
 
-	public static macro function typeAssert(expr:Expr) {
-		function parens(expr) {
-			return switch expr.expr {
-				case EParenthesis(e): parens(e);
-				default: expr;
-			}
-		}
-		expr = parens(expr);
-		switch expr.expr {
-			case ECheckType(e, t): // e always an anyInterface
-				final t2 = ComplexTypeTools.toType(t);
-				if (t2 == null)
-					Context.error("complexType converted to type is null", Context.currentPos());
-				final toType = gtDecode(t2, null, []);
-				// trace(new haxe.macro.Printer().printExpr(e));
-				final e = macro @:pos(Context.currentPos()) ({
-					var t = new stdgo._internal.internal.reflect.Reflect._Type($toType);
-					// trace($e.type._common());
-					// trace(t._common());
-					final e = $e;
-					final b = e.type.assignableTo(new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t), t));
-					if (!b) {
-						// trace(e.type.string().toString());
-						// trace(t.string().toString());
-						throw "unable to assert";
-					}
-					// interface kind check
-					// interface
-					if (t.kind() == 20) {
-						var isPointer = false;
-						var asInterface = false;
-						final typ = std.Type.typeof(e.value);
-						switch typ {
-							case TClass(cl):
-								final className = std.Type.getClassName(cl);
-								if (StringTools.endsWith(className, "_asInterface")) {
-									asInterface = true;
-								} else if (className == "stdgo.PointerData") {
-									isPointer = true;
-								}
-							default:
-								var _ = false;
-						}
-						if (asInterface) {
-							(e.value : $t);
-						} else {
-							var gt = e.type._common();
-							if (isPointer) {
-								gt = stdgo._internal.internal.reflect.Reflect.getElem(gt);
-							}
-							(stdgo._internal.internal.reflect.Reflect.asInterfaceValue(e.value, gt) : $t);
-						}
-					} else {
-						// exclude basic types from using __underlying__ field access
-						if (t.kind() >= 0 && t.kind() <= 17 || t.kind() == 19) {
-							(e.value : $t);
-						} else if ((e.value : Dynamic).__underlying__ == null) {
-							(e.value : $t);
-						} else {
-							var value:Dynamic = (e.value : Dynamic).__underlying__().value;
-							if (!(value is stdgo.Pointer.PointerData) && t.kind() == 22) {
-								(stdgo.Go.pointer(value) : $t);
-							} else {
-								(value : $t);
-							}
-						}
-					}
-				});
-				// trace(new haxe.macro.Printer().printExpr(e));
-				return e;
-			default:
-				Context.error("unknown assignable expr: " + expr.expr, Context.currentPos());
-				return macro null;
-		}
-	}
-
-	public static macro function typeEquals(expr:Expr) {
-		function removeParens(expr) {
-			return switch expr.expr {
-				case EParenthesis(e): removeParens(e);
-				default: expr;
-			}
-		}
-		expr = removeParens(expr);
-		switch expr.expr {
-			case ECheckType(e, t2):
-				var t2 = ComplexTypeTools.toType(t2);
-				if (t2 == null)
-					Context.error("complexType converted to type is null", Context.currentPos());
-				final t2 = gtDecode(t2, e, []);
-				return macro {
-					final __i__ = stdgo.Go.toInterface($e);
-					if (__i__ == null) {
-						// null AnyInterface
-						false;
-					} else {
-						final t = __i__.type;
-						var t2 = new stdgo._internal.internal.reflect.Reflect._Type(${t2});
-						try {
-							final b = t.assignableTo(new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t2), t2));
-							if (b) {
-								if (t2.kind() != stdgo._internal.internal.reflect.Reflect.KindType.pointer
-									&& t.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer
-									&& !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(t)) {
-									if ((untyped ($e : Dynamic).value is stdgo.Pointer.PointerData)) {
-										final gt = stdgo._internal.internal.reflect.Reflect.getElem(t._common());
-										untyped $e.value = stdgo._internal.internal.reflect.Reflect.asInterfaceValue(($e.value : stdgo.Pointer<Dynamic>).value,
-											gt);
-									}
-								}
-							}
-							b;
-						} catch (_) {
-							false;
-						}
-					}
-				};
-			default:
-				Context.error("unknown assignable expr: " + expr.expr, Context.currentPos());
-				return macro null;
-		}
-	}
-
 	static function escapeParens(expr:Expr):Expr {
 		return switch expr.expr {
 			case EParenthesis(e):
@@ -1025,8 +901,6 @@ class Go {
 							case TAnonymous(a):
 								final path = createPath(ref.module, ref.name);
 								// path cache
-								if (Go2hxMacro.nameTypes.exists(path))
-									return Go2hxMacro.getTypeInfoData(path);
 								if (marked.exists(path)) {
 									ret = macro stdgo._internal.internal.reflect.GoType.named($v{path}, [],
 										stdgo._internal.internal.reflect.GoType.invalidType, false, {
@@ -1085,7 +959,7 @@ class Go {
 											stdgo._internal.internal.reflect.GoType.interfaceType($v{empty}, $a{methods}), false, {
 												get: () -> null
 											});
-										return Go2hxMacro.setTypeInfoData(path, e);
+										return e;
 									}
 								}
 							default:
@@ -1099,8 +973,6 @@ class Go {
 												get: () -> null
 											});
 									} else {
-										if (Go2hxMacro.nameTypes.exists(path))
-											return Go2hxMacro.getTypeInfoData(path);
 										if (marked.exists(path)) {
 											return macro stdgo._internal.internal.reflect.GoType.named($v{path}, [],
 												stdgo._internal.internal.reflect.GoType.invalidType, false, {
@@ -1172,7 +1044,7 @@ class Go {
 										if (isInvalidNamed) {
 											return e;
 										} else {
-											return Go2hxMacro.setTypeInfoData(path, e);
+											return e;
 										}
 									}
 								} else {
@@ -1305,8 +1177,6 @@ class Go {
 						final methods:Array<Expr> = [];
 						final path = createPath(ref.module, ref.name);
 						// patch cache
-						if (Go2hxMacro.nameTypes.exists(path))
-							return Go2hxMacro.getTypeInfoData(path);
 						if (ref.meta.has(":using")) {
 							final s = new haxe.macro.Printer().printExpr(ref.meta.extract(":using")[0].params[0]);
 							switch Context.getType(s) {
@@ -1466,9 +1336,6 @@ class Go {
 		var underlyingType:haxe.macro.Type = null;
 		var module = parseModule(ref.module);
 		final path = createPath(ref.module, ref.name);
-		if (Go2hxMacro.nameTypes.exists(path)) {
-			return Go2hxMacro.getTypeInfoData(path);
-		}
 		if (marked.exists(path)) {
 			return macro stdgo._internal.internal.reflect.GoType.named($v{path}, [], stdgo._internal.internal.reflect.GoType.invalidType, false, {
 				get: () -> null
@@ -1503,7 +1370,7 @@ class Go {
 			t = gtDecode(underlyingType, expr, marked);
 		}
 		final e = macro stdgo._internal.internal.reflect.GoType.named($v{path}, $a{methods}, $t, false, {get: () -> null});
-		return Go2hxMacro.setTypeInfoData(path, e);
+		return e;
 	}
 
 	public static macro function min(exprs:Array<Expr>) {

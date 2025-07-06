@@ -395,7 +395,7 @@ class MethodType {
 		this.recv = recv;
 	}
 
-	public function toString()
+	public function toString():String
 		return '$name: $type';
 }
 
@@ -1170,6 +1170,7 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 					pos: null,
 					fields: [],
 					pack: [],
+					meta: [{name: ":noCompletion", pos: null}],
 					kind: TDField(FVar(null, e)),
 				};
 				info.data.defs.push(def);

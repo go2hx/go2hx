@@ -134,14 +134,94 @@ class Go {
 	 * @param expr must follow the format ($expr: $ct)
 	 * @return Expr
 	 */
-	public static macro function typeAssert(expr:Expr):Expr;
+	public static function typeAssert(e:AnyInterface, toType):Any {
+		var t = new stdgo._internal.internal.reflect.Reflect._Type(toType);
+		// trace($e.type._common());
+		// trace(t._common());
+		// trace(toType);
+		// trace(e.type._common());
+		final b = e.type.assignableTo(new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t), t));
+		if (!b) {
+			// trace(e.type.string().toString());
+			// trace(t.string().toString());
+			throw "unable to assert";
+		}
+		// interface kind check
+		// interface
+		return if (t.kind() == 20) {
+			var isPointer = false;
+			var asInterface = false;
+			final typ = std.Type.typeof(e.value);
+			switch typ {
+				case TClass(cl):
+					final className = std.Type.getClassName(cl);
+					if (StringTools.endsWith(className, "_asInterface")) {
+						asInterface = true;
+					} else if (className == "stdgo.PointerData") {
+						isPointer = true;
+					}
+				default:
+					var _ = false;
+			}
+			if (asInterface) {
+				e.value;
+			} else {
+				var gt = e.type._common();
+				if (isPointer) {
+					gt = stdgo._internal.internal.reflect.Reflect.getElem(gt);
+				}
+				stdgo._internal.internal.reflect.Reflect.asInterfaceValue(e.value, gt);
+			}
+		} else {
+			// exclude basic types from using __underlying__ field access
+			if (t.kind() >= 0 && t.kind() <= 17 || t.kind() == 19) {
+				e.value;
+			} else if ((e.value : Dynamic).__underlying__ == null) {
+				e.value;
+			} else {
+				var value:Dynamic = (e.value : Dynamic).__underlying__().value;
+				if (!(value is stdgo.Pointer.PointerData) && t.kind() == 22) {
+					stdgo.Go.pointer(value);
+				} else {
+					value;
+				}
+			}
+		}
+	}
 
 	/**
 	 * Check if type is equal to the checkType complexType.
 	 * @param expr must follow the format ($expr: $ct)
 	 * @return Expr Bool
 	 */
-	public static macro function typeEquals(expr:Expr):Expr;
+	public static function typeEquals(e:AnyInterface, t2):Bool {
+		final __i__ = e;
+		return if (__i__ == null) {
+			// null AnyInterface
+			false;
+		} else {
+			final t = __i__.type;
+			// used for pointer can not be final
+			var t2 = new stdgo._internal.internal.reflect.Reflect._Type(t2);
+			try {
+				final b = t.assignableTo(new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t2), t2));
+				if (b) {
+					if (t2.kind() != stdgo._internal.internal.reflect.Reflect.KindType.pointer
+						&& t.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer
+						&& !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(t)) {
+						if ((untyped (e : Dynamic).value is stdgo.Pointer.PointerData)) {
+							final gt = stdgo._internal.internal.reflect.Reflect.getElem(t._common());
+							untyped e.value = stdgo._internal.internal.reflect.Reflect.asInterfaceValue((e.value : stdgo.Pointer<Dynamic>).value,
+								gt);
+						}
+					}
+				}
+				b;
+			} catch (_) {
+				false;
+			}
+		}
+	}
 
 	/**
 	 * Create a simulated Go pointer in Haxe

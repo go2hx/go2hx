@@ -268,7 +268,8 @@ function wrapperExpr(t:GoType, y:Expr, info:Info):MacroExpr {
 			if (isInterface(type)) {
 				return selfPointer ? self : y;
 			}
-			return macro stdgo.Go.asInterface($y);
+			final rt = toReflectType(t, info, [], false);
+			return macro stdgo.Go.asInterface($y, $rt);
 		default:
 	}
 	return y;

@@ -29,8 +29,6 @@ function main() {
 		"golibs",
 		"-main",
 		main,
-		"--macro",
-		"Go2hxMacro.init()",
 		"--hl",
 		"testbed.hl",
 	]);

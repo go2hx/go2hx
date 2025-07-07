@@ -29,6 +29,8 @@ function main() {
 		"golibs",
 		"-main",
 		main,
+		"-w",
+		"-WStaticInitOrder",
 		"--hl",
 		"testbed.hl",
 	]);

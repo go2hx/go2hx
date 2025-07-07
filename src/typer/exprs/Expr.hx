@@ -675,13 +675,7 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 				}
 			]));
 		case typeParam(name, _):
-			// null;
-			if (strict) {
-				final t = TPath({name: className(name, info), pack: []});
-				macro stdgo.Go.defaultValue((cast(null) : $t));
-			} else {
-				null;
-			}
+			@:unknown_typeParam_defaultValue null;
 		case _var(_, _.get() => type):
 			defaultValue(type, info, strict);
 		default:

@@ -101,10 +101,6 @@ class Go {
 
 	@:dox(hide)
 	@:deprecated
-	public static macro function map(exprs:Array<Expr>):Expr;
-
-	@:dox(hide)
-	@:deprecated
 	public static macro function copySlice<T>(dst:Expr, src:Expr):Expr;
 
 	@:dox(hide)
@@ -114,20 +110,6 @@ class Go {
 	@:dox(hide)
 	@:deprecated
 	public static macro function typeFunction(e:Expr):Expr;
-
-	/**
-	 * Used in rare cases where Go compiler does not give type information for a type or is not possible and the job is handed off to the Haxe compiler.
-	 * @param value 
-	 * @return Expr
-	 */
-	public static macro function expectedValue(value):Expr;
-
-	/**
-	 * Create a default Go value for an `Expr`.
-	 * @param e 
-	 * @return Expr
-	 */
-	public static macro function defaultValue(e:Expr):Expr;
 
 	/**
 	 * Assert that a type is the checkType complexType, if not throw.
@@ -237,14 +219,6 @@ class Go {
 	 * @return Expr
 	 */
 	public static macro function asInterface(expr:Expr):Expr;
-
-	/**
-	 * Create a simulated any/interface{} type
-	 * @param expr 
-	 * @return Expr stdgo.AnyInterface
-	 */
-	public static macro function toInterface(expr:Expr):Expr;
-
 	/**
 	 * Create a string
 	 * @param expr 

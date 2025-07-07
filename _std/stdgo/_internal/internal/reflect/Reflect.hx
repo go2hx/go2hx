@@ -1023,11 +1023,11 @@ class _Type {
 
 	static public function bits(t:_Type):GoInt {
 		if (t == null) {
-			throw Go.toInterface("reflect: Bits of nil Type");
+			throw new stdgo.Error.T_errorString_asInterface("reflect: Bits of nil Type").__underlying__();
 		}
 		final k = t.kind();
 		if (k < KindType.int || k > KindType.complex128) {
-			throw Go.toInterface("reflect: Bits of non-arithmetic Type " + t.string());
+			throw new stdgo.Error.T_errorString_asInterface("reflect: Bits of non-arithmetic Type " + t.string()).__underlying__();
 		}
 		return t.size().toBasic() * 8;
 	}

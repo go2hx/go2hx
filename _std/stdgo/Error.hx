@@ -28,6 +28,7 @@ class T_errorString_asInterface {
     }
     var errorString:stdgo.GoString = "";
     public function __underlying__()  {
-      return stdgo.Go.toInterface(this);
+      // TODO set type
+      return new AnyInterface(this, new stdgo._internal.internal.reflect.Reflect._Type(null));
     }
 }

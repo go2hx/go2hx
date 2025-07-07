@@ -64,7 +64,7 @@ abstract GoInt32(Int32) from Int32 to Int32 to Int {
 
 	@:op(A / B) private static inline function div(a:GoInt32, b:GoInt32):GoInt32 {
 		if (b == 0) {
-			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			throw @:privateAccess stdgo.Error._divideError.__underlying__();
 		}
 		return Std.int(a.toBasic() / b.toBasic());
 	}
@@ -74,7 +74,7 @@ abstract GoInt32(Int32) from Int32 to Int32 to Int {
 
 	@:op(A % B) private static function mod(a:GoInt32, b:GoInt32):GoInt32 {
 		if (b == 0) {
-			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			throw @:privateAccess stdgo.Error._divideError.__underlying__();
 		}
 		return a.toBasic() % b.toBasic();
 	}

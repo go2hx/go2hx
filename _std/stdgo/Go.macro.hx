@@ -304,7 +304,9 @@ class Go {
 		Create an interface from a type of expr
 		On the fly interface creation
 	 */
-	public static macro function asInterface(expr, gt) {
+	public static macro function asInterface(expr, ?gt) {
+		if (gt == null)
+			gt = macro null;
 		final selfType = Context.typeof(switch expr.expr {
 			case ECall({expr: EField({expr: EField({expr: EConst(CIdent("stdgo"))}, "Go")}, "pointer"), pos: _}, _[0] => param):
 				param;
@@ -379,6 +381,9 @@ class Go {
 						final p = createTypePath(isLocal);
 						final exprs = [macro final __self__ = new $p($expr, $rt)];
 						final fields = t.fields.get();
+						final asInterfaceFields = fields.filter(f -> f.name == "__asInterface__");
+						if (asInterfaceFields.length != 0)
+							return macro $expr.__asInterface__();
 						for (field in fields) {
 							if (field.name == "__underlying__" || field.name == "__self__" || field.name == "__type__")
 								continue;

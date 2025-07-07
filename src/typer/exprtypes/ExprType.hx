@@ -1106,7 +1106,7 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 		case typeParam(name, params):
 			final name = HaxeAst.makeString(name);
 			final params = macro [];
-			macro stdgo._internal.internal.reflect.GoType.typeParam($name, {get: () -> params});
+			macro stdgo._internal.internal.reflect.GoType.typeParam($name, $params);
 		case refType(_.get() => elem):
 			final elem = toReflectType(elem, info, paths.copy(), equalityBool);
 			macro stdgo._internal.internal.reflect.GoType.refType({get: () -> $elem});
@@ -1165,12 +1165,13 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 					methodExprs.push(macro new stdgo._internal.internal.reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
 				}
 				final e = macro stdgo._internal.internal.reflect.GoType.named($path, ${macro $a{methodExprs}}, $t, false, {get: () -> null});
+				final param = shared.Util.makeExpr("-WStaticInitOrder");
 				final def:TypeDefinition = {
 					name: defName,
 					pos: null,
 					fields: [],
 					pack: [],
-					meta: [{name: ":noCompletion", pos: null}],
+					meta: [{name: ":noCompletion", pos: null}, {name: ":haxe.warning", pos: null, params: [param]}],
 					kind: TDField(FVar(null, e)),
 				};
 				info.data.defs.push(def);
@@ -1207,7 +1208,7 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 		case tuple(len, _.get() => vars):
 			final len = toExpr(EConst(CInt('$len')));
 			final vars = [for (v in vars) toReflectType(v, info, paths.copy(), equalityBool)];
-			macro stdgo._internal.internal.reflect.GoType.tuple($len, $a{vars});
+			macro stdgo._internal.internal.reflect.GoType.tuple($len, {get: () -> $a{vars}});
 	}
 }
 

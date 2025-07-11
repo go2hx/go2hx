@@ -163,7 +163,12 @@ class Go {
 			} else {
 				var value:Dynamic = (e.value : Dynamic).__underlying__().value;
 				if (!(value is stdgo.Pointer.PointerData) && t.kind() == 22) {
-					stdgo.Go.pointer(value);
+					switch toType {
+						case refType(_):
+							value;
+						default:
+							stdgo.Go.pointer(value);
+					}
 				} else {
 					value;
 				}

@@ -1153,10 +1153,18 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 			var t = macro stdgo._internal.internal.reflect.GoType.invalidType;
 			// new system goes below here
 			final defName = "__type__" + normalizeVarName(namedPath.pack.join("."));
-			if (!info.global.pathNames.exists(defName)) {
+			var exists = false; //info.reflectTypesData
+			for (def in info.reflectTypesData.defs) {
+				if (def.name == defName) {
+					exists = true;
+					break;
+				}
+			}
+			if (!exists && !info.global.pathNames.exists(defName)) {
 				// new
 				info.global.pathNames[defName] = true;
 				t = toReflectType(type, info, paths.copy(), equalityBool);
+				//trace(defName);
 				final methodExprs:Array<Expr> = [];
 				for (method in methods) {
 					final name = HaxeAst.makeString(method.name);
@@ -1165,18 +1173,17 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 					methodExprs.push(macro new stdgo._internal.internal.reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
 				}
 				final e = macro stdgo._internal.internal.reflect.GoType.named($path, ${macro $a{methodExprs}}, $t, false, {get: () -> null});
-				final param = shared.Util.makeExpr("-WStaticInitOrder");
 				final def:TypeDefinition = {
 					name: defName,
 					pos: null,
 					fields: [],
 					pack: [],
-					meta: [{name: ":noCompletion", pos: null}, {name: ":haxe.warning", pos: null, params: [param]}],
+					meta: [{name: ":noCompletion", pos: null}],
 					kind: TDField(FVar(null, e)),
 				};
-				info.data.defs.push(def);
+				info.reflectTypesData.defs.push(def);
 			}
-			return macro $i{splitDepFullPathName(defName, info)};
+			return macro $i{'_internal.gotype.Gotype_${defName.toLowerCase()}.$defName'};
 		case previouslyNamed(path):
 			final path = HaxeAst.makeString(path);
 			macro stdgo._internal.internal.reflect.GoType.previousNamed($path);

@@ -238,10 +238,6 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 			if (!info.renameIdents.exists(expr.fun.name) && info.localIdents.indexOf(untitle(expr.fun.name)) == -1) {
 				final funcName = expr.fun.name;
 				switch funcName {
-					case "log.Println":
-						genArgs(false);
-						args = args.map(arg -> macro stdgo.Go.toInterface($arg));
-						return (macro @:define("cdebug") stdgo.log.Log.println($a{args}));
 					case "panic":
 						genArgs(false);
 						return returnExpr(macro throw ${typer.exprs.Expr.toAnyInterface(args[0], typeof(expr.args[0], info, false), info)});

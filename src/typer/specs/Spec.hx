@@ -23,7 +23,9 @@ function typeSpec(spec:GoAst.TypeSpec, info:Info, local:Bool = false):TypeDefini
 			/*if (hash != 0) {
 				info.locals[hash] = nameType;
 			}*/
-			if ((StringTools.startsWith(className(path, info), "T__struct_") || StringTools.startsWith(className(path, info), "T__interface_")) && spec.type != null) {
+			// trace(className(path, info));
+			// Do not add T__interface_ as another local type, it behaves differently
+			if (StringTools.startsWith(className(path, info), "T__struct_") && spec.type != null) {
 				info.locals[hash] = nameType;
 			}
 		}

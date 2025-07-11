@@ -83,7 +83,8 @@ class Info {
 	public var className:String = "";
 	public var lastValue:GoAst.Expr = null;
 	public var lastType:GoType = null;
-	public var data:HaxeAst.HaxeFileType;
+	public var data:HaxeAst.HaxeFileType = null;
+	public var reflectTypesData:HaxeAst.HaxeFileType = null;
 	public var switchTag:MacroExpr = null;
 	public var switchIndex:Int = 0;
 	public var switchTagType:GoType = null;
@@ -114,6 +115,7 @@ class Info {
 		info.returnNamed = returnNamed;
 		info.funcName = funcName;
 		info.className = className;
+		info.reflectTypesData = reflectTypesData;
 		info.data = data;
 		info.switchIndex = switchIndex;
 		info.global = global; // .copy(); // imports, types

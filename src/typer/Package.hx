@@ -55,6 +55,7 @@ function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerIns
 	pkg.path = toHaxePath(pkg.path);
 
 	final info = new Info();
+	info.reflectTypesData = instance.reflectTypesData;
 	info.global.initBlock = [];
 	info.global.tryBool = instance.tryBool;
 	info.printGoCode = instance.printGoCode;

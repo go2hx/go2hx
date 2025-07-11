@@ -121,7 +121,8 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 						args: [],
 						expr: macro {
 							final obj = __underlying__();
-							new $pAsInterface(cast stdgo.Go.pointer(obj.value), obj.type);
+							var value = this;
+							new $pAsInterface(cast stdgo.Go.pointer(value), obj.type);
 						},
 					})
 				});

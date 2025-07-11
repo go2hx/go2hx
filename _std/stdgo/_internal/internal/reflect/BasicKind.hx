@@ -17,7 +17,7 @@ enum abstract BasicKind(Int) from Int to Int {
 	public final float64_kind;
 	public final complex64_kind;
 	public final complex128_kind;
-	public final string_kind;
+	public final string_kind; // 17
 	public final unsafepointer_kind;
 
 	public final untyped_bool_kind;

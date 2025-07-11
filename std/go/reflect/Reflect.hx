@@ -3,9 +3,7 @@ package go.reflect;
 function typeOf(_i) {
 	// // set internal Type
 	if (_i == null)
-		return
-			new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.basic(stdgo._internal.internal.reflect.BasicKind.unsafepointer_kind))),
-			new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.basic(stdgo._internal.internal.reflect.BasicKind.unsafepointer_kind)));
+		return null;
 	// set internal Type
 	return new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(_i.type), _i.type);
 }

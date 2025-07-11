@@ -7,6 +7,7 @@ tests/go
 *.data
 test.go
 tests.md
+!std/Go.hx
 ./main
 ./bin
 bin/*

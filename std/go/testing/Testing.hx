@@ -138,7 +138,7 @@ function tempDir(_c) {
 	_c._tempDir = obj._0;
 	_c._tempDirErr = obj._1;
 	if (_c._tempDirErr != null) {
-		_c.fatalf("TempDir: %v", stdgo.Go.toInterface(_c._tempDirErr));
+		_c.fatal("TempDir: " + _c._tempDirErr.error().toString());
 	} else {
 		_c.cleanup(function() {
 			stdgo._internal.os.Os_removeall.removeAll(_c._tempDir);

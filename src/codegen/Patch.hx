@@ -276,9 +276,6 @@ final addTypeDefs = [
 		public dynamic function addr():stdgo._internal.net.Net_addr.Addr {
 			return this._addr;
 		}
-
-		public function __underlying__():stdgo.AnyInterface
-			return stdgo.Go.toInterface(this);
 	},
 	"net:HaxeAddr" => macro class HaxeAddr {
 		@:local
@@ -301,9 +298,6 @@ final addTypeDefs = [
 		public dynamic function string():stdgo.GoString {
 			return _ip + ":" + _port;
 		}
-
-		public function __underlying__():stdgo.AnyInterface
-			return stdgo.Go.toInterface(this);
 	},
 	"net:HaxeConn" => macro class HaxeConn {
 		@:local
@@ -377,9 +371,6 @@ final addTypeDefs = [
 		public dynamic function setWriteDeadline(t:stdgo._internal.time.Time_time.Time):stdgo.Error {
 			return null;
 		}
-
-		public function __underlying__():stdgo.AnyInterface
-			return stdgo.Go.toInterface(this);
 	},
 	"os:JsOutput" => macro class JsOutput extends haxe.io.Output {
 		public function new() {}

@@ -232,7 +232,7 @@ function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):M
 	final typeExpr = toReflectType(originalType, info, [], false);
 	//trace(new codegen.Printer().printExpr(typeExpr));
 	final e = macro new stdgo.AnyInterface($x, new stdgo._internal.internal.reflect.Reflect._Type($typeExpr));
-	return macro ($x != null ? $e : null);
+	return e;
 }
 
 function toGoType(expr:Expr):MacroExpr {

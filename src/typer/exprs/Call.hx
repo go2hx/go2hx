@@ -70,7 +70,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 							for (i in 0...tuples.length) {
 								final fieldName = "_" + i;
 								final type = toComplexType(tuples[i], info);
-								args[i] = macro(__tmp__.$fieldName:$type);
+								args[i] = macro(__tmp__.$fieldName : $type);
 							}
 						}
 					default:
@@ -124,7 +124,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						// exprArgs:Array<GoAst.Expr>
 						// args:Array<Expr>
 						for (i in skip...args.length + (expr.ellipsis > 0 ? -1 : 0)) {
-							final fromType = getVar(typeof(exprArgs[i - skip], info, false));
+							var fromType = getVar(typeof(exprArgs[i - skip], info, false));
 							var toType = switch args[i].expr {
 								case EConst(CIdent("null")):
 									getVar(params[i - skip]);
@@ -149,7 +149,14 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 								}
 							}
 							// trace(new codegen.Printer().printExpr(args[i]));
-							// trace(fromType, toType);
+							// trace(fromType, toType, tupleArg != null);
+							if (tupleArg != null) {
+								switch getVar(typeof(exprArgs[0 - skip], info, false)) {
+									case tuple(_, _.get() => types):
+										fromType = getVar(types[i - skip]);
+									default:
+								}
+							}
 							args[i] = typer.exprs.Expr.explicitConversion(fromType, toType, args[i], info);
 							switch exprArgs[i - skip]?.id {
 								case "Ident":

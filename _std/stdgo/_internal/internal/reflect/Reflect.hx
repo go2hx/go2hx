@@ -1281,6 +1281,8 @@ class _Type {
 				}
 				r = r.substr(1);
 				"interface {" + r + " }";
+			case typeParam(name, _):
+				name;
 			default:
 				throw "not found enum toString " + gt; // should never get here
 		}

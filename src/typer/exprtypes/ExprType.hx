@@ -1151,6 +1151,10 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 			namedPath.pack.push(namedPath.name);
 			final path = HaxeAst.makeString(namedPath.pack.join("."));
 			var t = macro stdgo._internal.internal.reflect.GoType.invalidType;
+			if (StringTools.startsWith(path2, "T__struct_") || StringTools.startsWith(path2, "T__interface_")) {
+				t = toReflectType(type, info, paths.copy(), equalityBool);
+				return t;
+			}
 			// new system goes below here
 			final defName = "__type__" + normalizeVarName(namedPath.pack.join("."));
 			var exists = false; //info.reflectTypesData

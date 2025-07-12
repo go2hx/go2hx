@@ -28,6 +28,9 @@ class T_errorString_asInterface {
     }
     var errorString:stdgo.GoString = "";
     public function __underlying__()  {
-      return stdgo.Go.toInterface(this);
+      // TODO set type
+      return new AnyInterface(this, typeInfo);
     }
 }
+
+var typeInfo = new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.named("errorString", [new stdgo._internal.internal.reflect.MethodType("error", { get : () -> stdgo._internal.internal.reflect.GoType.signature(false, { get : () -> [] }, { get : () -> [stdgo._internal.internal.reflect.GoType.basic(string_kind)] }, { get : () -> stdgo._internal.internal.reflect.GoType.invalidType }) }, { get : () -> stdgo._internal.internal.reflect.GoType.invalidType }), new stdgo._internal.internal.reflect.MethodType("runtimeError", { get : () -> stdgo._internal.internal.reflect.GoType.signature(false, { get : () -> [] }, { get : () -> [] }, { get : () -> stdgo._internal.internal.reflect.GoType.invalidType }) }, { get : () -> stdgo._internal.internal.reflect.GoType.invalidType })], stdgo._internal.internal.reflect.GoType.interfaceType(false, [new stdgo._internal.internal.reflect.MethodType("error", { get : () -> stdgo._internal.internal.reflect.GoType.signature(false, { get : () -> [] }, { get : () -> [stdgo._internal.internal.reflect.GoType.basic(string_kind)] }, { get : () -> stdgo._internal.internal.reflect.GoType.invalidType }) }, { get : () -> stdgo._internal.internal.reflect.GoType.invalidType }), new stdgo._internal.internal.reflect.MethodType("runtimeError", { get : () -> stdgo._internal.internal.reflect.GoType.signature(false, { get : () -> [] }, { get : () -> [] }, { get : () -> stdgo._internal.internal.reflect.GoType.invalidType }) }, { get : () -> stdgo._internal.internal.reflect.GoType.invalidType })]), false, { get : () -> null }));

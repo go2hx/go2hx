@@ -28,6 +28,7 @@ private typedef Ref<T> = {
 }
 
 class Global {
+	public var pathNames:Map<String,Bool> = [];
 	public var tryBool:Bool = true;
 	public var localSpecs:Map<String, Array<GoAst.Spec>> = [];
 	public var deferBool:Bool = false;
@@ -51,6 +52,7 @@ class Global {
 		g.tryBool = tryBool;
 		g.localSpecs = localSpecs;
 		g.initBlock = initBlock.copy();
+		g.pathNames = pathNames;
 		g.noCommentsBool = noCommentsBool;
 		g.renameClasses = renameClasses;
 		g.path = path;
@@ -81,7 +83,8 @@ class Info {
 	public var className:String = "";
 	public var lastValue:GoAst.Expr = null;
 	public var lastType:GoType = null;
-	public var data:HaxeAst.HaxeFileType;
+	public var data:HaxeAst.HaxeFileType = null;
+	public var reflectTypesData:HaxeAst.HaxeFileType = null;
 	public var switchTag:MacroExpr = null;
 	public var switchIndex:Int = 0;
 	public var switchTagType:GoType = null;
@@ -112,6 +115,7 @@ class Info {
 		info.returnNamed = returnNamed;
 		info.funcName = funcName;
 		info.className = className;
+		info.reflectTypesData = reflectTypesData;
 		info.data = data;
 		info.switchIndex = switchIndex;
 		info.global = global; // .copy(); // imports, types

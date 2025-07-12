@@ -210,8 +210,10 @@ function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info
 }
 
 function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):MacroExpr {
+	final originalType = t;
 	if (isRef(t))
 		t = getElem(t);
+	var isBasic = false;
 	switch t {
 		case named(_, _, _, _):
 			if (!isInterface(t) && !isAnyInterface(t) && needWrapping) {
@@ -223,9 +225,14 @@ function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):M
 					return macro(null : stdgo.AnyInterface);
 				default:
 			}
+			isBasic = true;
 		default:
 	}
-	return macro stdgo.Go.toInterface($x);
+	//return macro stdgo.Go.toInterface($x);
+	final typeExpr = toReflectType(originalType, info, [], false);
+	//trace(new codegen.Printer().printExpr(typeExpr));
+	final e = macro new stdgo.AnyInterface($x, new stdgo._internal.internal.reflect.Reflect._Type($typeExpr));
+	return e;
 }
 
 function toGoType(expr:Expr):MacroExpr {
@@ -264,7 +271,8 @@ function wrapperExpr(t:GoType, y:Expr, info:Info):MacroExpr {
 			if (isInterface(type)) {
 				return selfPointer ? self : y;
 			}
-			return macro stdgo.Go.asInterface($y);
+			final rt = toReflectType(t, info, [], false);
+			return macro stdgo.Go.asInterface($y, $rt);
 		default:
 	}
 	return y;
@@ -386,19 +394,6 @@ function implicitConversion(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTy
 function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, info:Info):MacroExpr {
 	if (typeX == null || typeY == null)
 		return toExpr(EBinop(op, x, y));
-	switch typeX {
-		case named(path, _, _, _):
-			if (path == "reflect.Type") {
-				var e = macro($x.string() : String) == ($y.string() : String);
-				switch op {
-					case OpNotEq:
-						e = macro !($e);
-					default:
-				}
-				return e;
-			}
-		default:
-	}
 	var nilExpr:Expr = null;
 	var nilType:GoType = null;
 	switch x.expr {
@@ -428,6 +423,21 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 					if (ct != null) y = macro($y : $ct);
 			}
 		default:
+	}
+	if (nilExpr == null) {
+		switch typeX {
+		case named(path, _, _, _):
+			if (path == "reflect.Type") {
+				var e = macro($x.string() : String) == ($y.string() : String);
+				switch op {
+					case OpNotEq:
+						e = macro !($e);
+					default:
+				}
+				return e;
+			}
+			default:
+		}
 	}
 	var value = nilExpr;
 	if (value != null) {
@@ -670,13 +680,7 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 				}
 			]));
 		case typeParam(name, _):
-			// null;
-			if (strict) {
-				final t = TPath({name: className(name, info), pack: []});
-				macro stdgo.Go.defaultValue((cast(null) : $t));
-			} else {
-				null;
-			}
+			@:unknown_typeParam_defaultValue null;
 		case _var(_, _.get() => type):
 			defaultValue(type, info, strict);
 		default:

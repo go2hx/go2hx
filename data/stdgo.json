@@ -130,6 +130,8 @@
     "regexp",
     "regexp/syntax",
     "runtime",
+    "runtime/internal/atomic",
+    "runtime/internal/atomic_",
     "runtime/cgo",
     "runtime/debug",
     "runtime/metrics",

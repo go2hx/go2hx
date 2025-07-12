@@ -395,7 +395,7 @@ class MethodType {
 		this.recv = recv;
 	}
 
-	public function toString()
+	public function toString():String
 		return '$name: $type';
 }
 
@@ -1106,7 +1106,7 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 		case typeParam(name, params):
 			final name = HaxeAst.makeString(name);
 			final params = macro [];
-			macro stdgo._internal.internal.reflect.GoType.typeParam($name, {get: () -> params});
+			macro stdgo._internal.internal.reflect.GoType.typeParam($name, $params);
 		case refType(_.get() => elem):
 			final elem = toReflectType(elem, info, paths.copy(), equalityBool);
 			macro stdgo._internal.internal.reflect.GoType.refType({get: () -> $elem});
@@ -1136,12 +1136,12 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 		case interfaceType(empty, methods):
 			final empty = empty ? macro true : macro false;
 			final methodExprs:Array<Expr> = [];
-			/*for (method in methods) {
+			for (method in methods) {
 				final name = HaxeAst.makeString(method.name);
 				final t = toReflectType(method.type.get(), info, paths.copy(), equalityBool);
 				final recv = macro stdgo._internal.internal.reflect.GoType.invalidType; // toReflectType(method.recv.get(), info, paths.copy());
-				methodExprs.push(macro new stdgo._internal.internal.reflect.Reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
-			}*/
+				methodExprs.push(macro new stdgo._internal.internal.reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
+			}
 			final e = macro stdgo._internal.internal.reflect.GoType.interfaceType($empty, ${macro $a{methodExprs}});
 			e;
 		case invalidType:
@@ -1150,14 +1150,44 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 			final namedPath = namedTypePath(path2, info);
 			namedPath.pack.push(namedPath.name);
 			final path = HaxeAst.makeString(namedPath.pack.join("."));
-			final methodExprs:Array<Expr> = [];
 			var t = macro stdgo._internal.internal.reflect.GoType.invalidType;
-			if (!paths.contains(path2)) {
-				paths.push(path2);
+			if (StringTools.startsWith(path2, "T__struct_") || StringTools.startsWith(path2, "T__interface_")) {
 				t = toReflectType(type, info, paths.copy(), equalityBool);
+				return t;
 			}
-			final e = macro stdgo._internal.internal.reflect.GoType.named($path, ${macro $a{methodExprs}}, $t, false, {get: () -> null});
-			e;
+			// new system goes below here
+			final defName = "__type__" + normalizeVarName(namedPath.pack.join("."));
+			var exists = false; //info.reflectTypesData
+			for (def in info.reflectTypesData.defs) {
+				if (def.name == defName) {
+					exists = true;
+					break;
+				}
+			}
+			if (!exists && !info.global.pathNames.exists(defName)) {
+				// new
+				info.global.pathNames[defName] = true;
+				t = toReflectType(type, info, paths.copy(), equalityBool);
+				//trace(defName);
+				final methodExprs:Array<Expr> = [];
+				for (method in methods) {
+					final name = HaxeAst.makeString(method.name);
+					final t = toReflectType(method.type.get(), info, paths.copy(), equalityBool);
+					final recv = macro stdgo._internal.internal.reflect.GoType.invalidType; // toReflectType(method.recv.get(), info, paths.copy());
+					methodExprs.push(macro new stdgo._internal.internal.reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
+				}
+				final e = macro stdgo._internal.internal.reflect.GoType.named($path, ${macro $a{methodExprs}}, $t, false, {get: () -> null});
+				final def:TypeDefinition = {
+					name: defName,
+					pos: null,
+					fields: [],
+					pack: [],
+					meta: [{name: ":noCompletion", pos: null}],
+					kind: TDField(FVar(null, e)),
+				};
+				info.reflectTypesData.defs.push(def);
+			}
+			return macro $i{'_internal.gotype.Gotype_${defName.toLowerCase()}.$defName'};
 		case previouslyNamed(path):
 			final path = HaxeAst.makeString(path);
 			macro stdgo._internal.internal.reflect.GoType.previousNamed($path);
@@ -1189,8 +1219,16 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 		case tuple(len, _.get() => vars):
 			final len = toExpr(EConst(CInt('$len')));
 			final vars = [for (v in vars) toReflectType(v, info, paths.copy(), equalityBool)];
-			macro stdgo._internal.internal.reflect.GoType.tuple($len, $a{vars});
+			macro stdgo._internal.internal.reflect.GoType.tuple($len, {get: () -> $a{vars}});
 	}
+}
+
+private function normalizeVarName(s:String):String {
+	s = StringTools.replace(s, ".", "dot");
+	s = StringTools.replace(s, "/", "slash");
+	s = StringTools.replace(s, "[", "ob");
+	s = StringTools.replace(s, "]", "cb");
+	return s;
 }
 
 // can also be used for ObjectFields

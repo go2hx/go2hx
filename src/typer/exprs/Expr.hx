@@ -258,6 +258,7 @@ function toGoType(expr:Expr):MacroExpr {
 function wrapperExpr(t:GoType, y:Expr, info:Info):MacroExpr {
 	var self = y;
 	var selfPointer = false;
+	final originalType = t;
 	if (isPointer(t)) {
 		selfPointer = true;
 		t = getElem(t);
@@ -274,7 +275,7 @@ function wrapperExpr(t:GoType, y:Expr, info:Info):MacroExpr {
 			if (isInterface(type)) {
 				return selfPointer ? self : y;
 			}
-			final rt = toReflectType(t, info, [], false);
+			final rt = toReflectType(originalType, info, [], false);
 			return macro stdgo.Go.asInterface($y, $rt);
 		default:
 	}

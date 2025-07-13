@@ -229,7 +229,14 @@ function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):M
 		default:
 	}
 	if (isInterface(t) && !isAnyInterface(t)) {
-		return macro new stdgo.AnyInterface($x, $x.__underlying__().type);
+		return macro ({
+			final __t__ = $x;
+			if (__t__ == null) {
+				new stdgo.AnyInterface(null, new stdgo._internal.internal.reflect.Reflect._Type(invalidType));
+			}else{
+				new stdgo.AnyInterface(__t__, __t__.__underlying__().type);
+			}
+		});
 	}
 	//return macro stdgo.Go.toInterface($x);
 	final typeExpr = toReflectType(originalType, info, [], false);

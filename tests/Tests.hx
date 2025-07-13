@@ -577,9 +577,9 @@ private function runInterop() {
 		final args = [
 			"-cp",
 			"golibs",
-			"-D",
 			"-w",
 			"-WStaticInitOrder",
+			"-D",
 			"eval-call-stack-depth=40000",
 			lib.main
 		];

@@ -17,12 +17,11 @@ function typeAssertExpr(expr:GoAst.TypeAssertExpr, info:Info):MacroExpr { // a -
 	final t = typeof(expr.type, info, false);
 	if (isAnyInterface(fromType))
 		return setAssert(e, t, ct, info);
-	e = macro $e.__underlying__();
+	e = typer.exprs.Expr.toAnyInterface(e, fromType, info);
 	return setAssert(e, t, ct, info);
 }
 
 private function setAssert(e:haxe.macro.Expr, gt:GoType, ct:ComplexType, info:Info):Expr {
 	final rt = toReflectType(gt, info, [], false);
-	//final t = macro new stdgo._internal.internal.reflect.Reflect._Type($rt);
 	return macro (stdgo.Go.typeAssert($e, $rt) : $ct);
 }

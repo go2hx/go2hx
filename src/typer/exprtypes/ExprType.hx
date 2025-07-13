@@ -1195,8 +1195,8 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 			final path = HaxeAst.makeString(path);
 			macro stdgo._internal.internal.reflect.GoType.previousNamed($path);
 		case signature(variadic, params, results, _.get() => recv):
-			if (equalityBool)
-				return macro stdgo._internal.internal.reflect.GoType.signature(false, {get: () -> null}, {get: () -> null}, {get: () -> null});
+			//if (equalityBool)
+			//	return macro stdgo._internal.internal.reflect.GoType.signature(false, {get: () -> null}, {get: () -> null}, {get: () -> null});
 			final variadic = variadic ? macro true : macro false;
 			final params = macro $a{params.get().map(param -> toReflectType(param, info, paths.copy(), equalityBool))};
 			final results = macro $a{results.get().map(result -> toReflectType(result, info, paths.copy(), equalityBool))};

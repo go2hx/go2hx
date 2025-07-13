@@ -113,19 +113,6 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 					})
 				});
 				final pAsInterface:TypePath = {name: splitDepFullPathName(p.name + "_asInterface", info), params: p.params, pos: p.pos, pack: p.pack};
-				fields.push({
-					name: "__asInterface__",
-					pos: null,
-					access: [APublic],
-					kind: FFun({
-						args: [],
-						expr: macro {
-							final obj = __underlying__();
-							var value = this;
-							new $pAsInterface(cast stdgo.Go.pointer(value), obj.type);
-						},
-					})
-				});
 			}
 			/*if (params != null && params.length > 0)
 				p.params = typeParamDeclsToTypeParams(params); */

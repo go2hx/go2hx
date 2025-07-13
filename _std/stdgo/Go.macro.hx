@@ -291,10 +291,6 @@ class Go {
 						final p = createTypePath(isLocal);
 						final exprs = [macro final __self__ = new $p($expr, $rt)];
 						final fields = t.fields.get();
-						final asInterfaceFields = fields.filter(f -> f.name == "__asInterface__");
-						if (asInterfaceFields.length != 0) {
-							return macro $expr.__asInterface__();
-						}
 						for (field in fields) {
 							if (field.name == "__underlying__" || field.name == "__self__" || field.name == "__type__")
 								continue;
@@ -394,6 +390,7 @@ class Go {
 			}
 		}
 		final result = run();
+		// trace(new haxe.macro.Printer().printExpr(result));
 		return result;
 	}
 

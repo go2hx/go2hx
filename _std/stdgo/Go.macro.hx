@@ -401,7 +401,7 @@ class Go {
 	/*
 		reference of an expression by returning a new expression that references the original one, but with additional modifications. The function can be used to create new objects, modify existing ones, or cast them into other types.
 	 */
-	public static macro function setRef(expr) {
+	public static macro function setRef(expr, gt) {
 		var t = Context.typeof(expr);
 		function run() {
 			switch t {
@@ -462,7 +462,7 @@ class Go {
 						case "stdgo.AnyInterface":
 							// force cast into
 							value = macro new stdgo.AnyInterface(null,
-								new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.invalidType));
+								new stdgo._internal.internal.reflect.Reflect._Type($gt));
 						case ".Null":
 							t = params[0];
 							value = gen(isNull);
@@ -484,7 +484,13 @@ class Go {
 					switch t.type {
 						case TAnonymous(_.get() => a):
 							for (field in a.fields) {
-								fields.push({field: field.name, expr: macro null});
+								var expr = macro null;
+								if (field.name == "__underlying__") {
+									final rt = macro new stdgo._internal.internal.reflect.Reflect._Type($gt);
+									expr = macro () -> new stdgo.AnyInterface(null, $rt);
+								}
+								fields.push({field: field.name, expr: expr});
+								
 							}
 						default:
 							throw "invalid underlying type: " + t.type;
@@ -510,13 +516,13 @@ class Go {
 			default:
 		}
 		final valueNull = gen(false);
-		final e = macro {
+		final e = macro ({
 			if ($expr == null) {
 				$valueNull;
 			} else {
 				$expr;
 			}
-		};
+		});
 		// trace(new haxe.macro.Printer().printExpr(e));
 		return e;
 	}

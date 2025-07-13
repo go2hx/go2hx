@@ -368,7 +368,8 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 									value = macro stdgo.Go.pointer($value);
 								} else {
 									final ct = TPath({name: "Ref", pack: ["stdgo"], params: [TPType(toComplexType(t, info))]});
-									value = macro(stdgo.Go.setRef($value) : $ct);
+									final gt = toReflectType(t, info, [], false);
+									value = macro(stdgo.Go.setRef($value, $gt) : $ct);
 								}
 								return returnExpr(value);
 							default:

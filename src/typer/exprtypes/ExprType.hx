@@ -1147,9 +1147,8 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 		case invalidType:
 			macro stdgo._internal.internal.reflect.GoType.invalidType;
 		case named(path2, methods, type, _, _):
-			final longNamePrefix = "TheNameOfThisTypeIsExactly255BytesLong";
-			if (path2.indexOf(longNamePrefix) == 0)
-				path2 = longNamePrefix;
+			if (path2.length > 100)
+				path2 = path2.substr(0,100);
 			final namedPath = namedTypePath(path2, info);
 			namedPath.pack.push(namedPath.name);
 			final path = HaxeAst.makeString(namedPath.pack.join("."));

@@ -233,7 +233,7 @@ function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):M
 		return macro ({
 			final __t__ = $x;
 			if (__t__ == null) {
-				new stdgo.AnyInterface(null, new stdgo._internal.internal.reflect.Reflect._Type($typeExpr));
+				new stdgo.AnyInterface(null, new stdgo._internal.internal.reflect.Reflect._Type($typeExpr)).__setNil__();
 			}else{
 				new stdgo.AnyInterface(__t__, __t__.__underlying__().type);
 			}
@@ -401,7 +401,7 @@ function implicitConversion(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTy
 
 	return macro($e : $ct);
 }
-
+// x == y
 function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, info:Info):MacroExpr {
 	if (typeX == null || typeY == null)
 		return toExpr(EBinop(op, x, y));
@@ -455,7 +455,7 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 		if (isNamed(nilType))
 			nilType = getUnderlying(nilType);
 		switch nilType {
-			case refType(_):
+			case refType(_), interfaceType(true, _):
 				switch op {
 					case OpEq:
 						return macro({

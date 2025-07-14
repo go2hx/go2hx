@@ -1153,7 +1153,10 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 			namedPath.pack.push(namedPath.name);
 			final path = HaxeAst.makeString(namedPath.pack.join("."));
 			var t = macro stdgo._internal.internal.reflect.GoType.invalidType;
-			if (StringTools.startsWith(path2, "T__struct_") || StringTools.startsWith(path2, "T__interface_")) {
+			final lastPack = namedPath.pack[namedPath.pack.length - 1].split(".");
+			final last = lastPack[lastPack.length - 1];
+			// trace(last);
+			if (StringTools.startsWith(last, "T__struct_") || StringTools.startsWith(last, "T__interface_")) {
 				t = toReflectType(type, info, paths.copy(), equalityBool);
 				return t;
 			}

@@ -229,7 +229,9 @@ function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):M
 		default:
 	}
 	final typeExpr = toReflectType(originalType, info, [], false);
-	if (isInterface(t) && !isAnyInterface(t)) {
+	// trace(t);
+	// trace(new codegen.Printer().printExpr(x));
+	if (isInterface(t)) {
 		return macro ({
 			final __t__ = $x;
 			if (__t__ == null) {

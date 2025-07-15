@@ -47,12 +47,8 @@ func GetConstant(basic *types.Basic, value constant.Value, node ast.Node, allowU
 	case info&types.IsBoolean != 0:
 		e = ast.NewIdent(strconv.FormatBool(constant.BoolVal(value)))
 	case info&types.IsComplex != 0:
-		r, _ := constant.Float64Val(constant.Real(value))
-		i, _ := constant.Float64Val(constant.Imag(value))
-		x := &ast.BasicLit{Kind: token.FLOAT, Value: fmt.Sprint(r)}
-		y := &ast.BasicLit{Kind: token.IMAG, Value: fmt.Sprint(i)}
-		m := &ast.BinaryExpr{Op: token.ADD, X: x, Y: y}
-		e = &ast.ParenExpr{X: m}
+		f := constant.Imag(value)
+		e = &ast.BasicLit{Kind: token.IMAG, Value: fmt.Sprint(f)}
 	case info&types.IsString != 0:
 		s := value.ExactString()
 		if node != nil && s == `"gc"` {

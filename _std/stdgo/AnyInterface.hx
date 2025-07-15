@@ -97,7 +97,12 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		}
 		return switch gt {
 			case refType(_):
-				aValue == bValue;
+				switch gt2 {
+					case refType(_):
+						aValue == bValue;
+					default:
+						false;
+				}
 			case basic(kind):
 				switch kind {
 					case string_kind:

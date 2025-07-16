@@ -243,6 +243,9 @@ function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):M
 	}
 	//return macro stdgo.Go.toInterface($x);
 	//trace(new codegen.Printer().printExpr(typeExpr));
+	if (originalType == invalidType) {
+		return x;
+	}
 	final e = macro new stdgo.AnyInterface($x, new stdgo._internal.internal.reflect.Reflect._Type($typeExpr));
 	return e;
 }

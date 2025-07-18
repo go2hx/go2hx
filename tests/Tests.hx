@@ -210,7 +210,7 @@ function runTask(task:TaskData) {
 		ls.removeAllListeners();
 		ls.kill();
 		trace("COMPLETE");
-		close();
+		close(1);
 	};
 	ls.stdout.on('data', function(data) {
 		if (!noLogs) {
@@ -607,8 +607,9 @@ function commandArgs(args:Array<String>):Array<String> {
 	}
 }
 
-private function close() {
+private function close(setCode:Int=0) {
 	runInterop();
+	logOutput = File.append("close.log", false);
 	log("======= TIME =======");
 	log(Date.now().toString());
 	log("elapsed: " + (haxe.Timer.stamp() - startStamp));
@@ -670,7 +671,7 @@ private function close() {
 			log('[ ] $name$str');
 		}
 	}
-	var code = 0;
+	var code = setCode;
 	if (failedRegressionTasks.length > 0 || regressionTestLines.length > 0) {
 		if (failedRegressionTasks.length > 0) {
 			log('         regression results: ');

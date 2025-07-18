@@ -233,6 +233,17 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						genArgs(true);
 						return (macro @:define("(sys || hxnodejs)") Sys.exit($a{args}));
 					}
+				case "Sizeof", "Offsetof", "Alignof":
+					if (expr.fun.x.id == "Ident" && expr.fun.x.name == "unsafe") {
+						final args = [for (i in 0...expr.args.length) {
+							final e = typer.exprs.Expr.typeExpr(expr.args[i], info);
+							final t = typer.exprtypes.ExprType.typeof(expr.args[i], info, false);
+							// function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):MacroExpr {
+							typer.exprs.Expr.toAnyInterface(e, t, info);
+						}];
+						var e = typer.exprs.Expr.typeExpr(expr.fun, info);
+						return returnExpr(macro $e($a{args}));
+					}
 			}
 		case "FuncLit":
 			final expr = FunctionLiteral.typeFuncLit(expr.fun, info);

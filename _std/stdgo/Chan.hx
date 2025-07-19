@@ -2,6 +2,10 @@ package stdgo;
 
 import stdgo.GoInt;
 
+#if js
+#error	"Channels and Goroutines are not supported in javascript yet"
+#end
+
 @:forward(length, capacity, __isSend__, __isGet__, __smartGet__, __get__, __send__, __close__, keyValueIterator, iterator)
 @:forward.new
 /**

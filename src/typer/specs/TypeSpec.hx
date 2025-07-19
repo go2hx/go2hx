@@ -80,6 +80,8 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 				for (name in names)
 					macro if ($i{name} != null) this.$name = $i{name}
 			];
+			final params = typer.fields.FieldList.getParams(spec.params, info, true);
+			var p:TypePath = {name: name, pack: [], params: params.map(p -> TPType(TPath({name: p.name, pack: []})))};
 			if (!local) {
 				fields.push({
 					name: "new",
@@ -100,19 +102,18 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 						expr: macro $b{exprs},
 					}),
 				});
-
+				final underlying = typer.exprs.Expr.toAnyInterface(macro this, typeof(spec.type, info, false), info);
 				fields.push({
 					name: "__underlying__",
 					pos: null,
 					access: [APublic],
 					kind: FFun({
 						args: [],
-						expr: macro return stdgo.Go.toInterface(this),
+						expr: macro return $underlying,
 					})
 				});
+				final pAsInterface:TypePath = {name: splitDepFullPathName(p.name + "_asInterface", info), params: p.params, pos: p.pos, pack: p.pack};
 			}
-			final params = typer.fields.FieldList.getParams(spec.params, info, true);
-			var p:TypePath = {name: name, pack: [], params: params.map(p -> TPType(TPath({name: p.name, pack: []})))};
 			/*if (params != null && params.length > 0)
 				p.params = typeParamDeclsToTypeParams(params); */
 			var args:Array<Expr> = [];

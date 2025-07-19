@@ -1137,7 +1137,8 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 		isVar = true
 	case "Named":
 		named := node.(*types.Named)
-		path := named.String()
+		_ = named
+		/*path := named.String()
 		if marked[path] {
 			data["path"] = path
 			params := make([]map[string]interface{}, named.TypeArgs().Len())
@@ -1147,6 +1148,7 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 			data["params"] = params
 			return data
 		}
+		*/
 	default:
 	}
 	var t types.Type

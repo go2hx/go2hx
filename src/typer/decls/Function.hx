@@ -301,6 +301,7 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 	final info = new Info();
 	info.blankCounter = data.blankCounter;
 	info.data = data.data;
+	info.reflectTypesData = data.reflectTypesData;
 	info.renameClasses = [];
 	info.classNames = data.classNames.copy();
 	info.renameIdents = data.renameIdents.copy();

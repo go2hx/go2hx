@@ -51,6 +51,8 @@ steps:
     continue-on-error: true
   - name: Run std
     run: haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=::target::  #-D hxb
+  - name: End log
+    run: cat end.log
   - uses: EndBug/add-and-commit@v9
     with:
         message: build std tests update ::target::

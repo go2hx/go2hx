@@ -1,6 +1,5 @@
 -cp golibs 
 -main _internal.githubdotcom.go2hx.go4hx.testbed.Testbed
---macro Go2hxMacro.init()
 --times
 --hl export/testbed.hl
 --cmd hl export/testbed.hl

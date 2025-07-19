@@ -34,7 +34,6 @@ haxelib run go2hx unicode
 Now include the outputted code into your project hxml or equivalent:
 ```hxml
 -cp golibs
---macro Go2hxMacro.init()
 ```
 
 You can now import the Go library and use it in your Haxe project (example: unicode):

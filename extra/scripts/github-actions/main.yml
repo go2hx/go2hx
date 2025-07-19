@@ -22,6 +22,8 @@ jobs:
       - name: Get number of cores (macOS)
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
+      - name: update apt
+        run: sudo apt-get update
       - name: setup c++
         run: sudo apt install g++-multilib
       - name: Install lix

@@ -756,7 +756,7 @@ class GoAnyInterfaceMap<V> extends BalancedTree<AnyInterface, V> {
 }
 
 inline function errorString(s:stdgo.GoString) {
-	return stdgo.Go.toInterface(new Error.T_errorString_asInterface(s));
+	return new Error.T_errorString_asInterface(s).__underlying__();
 }
 
 

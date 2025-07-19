@@ -199,6 +199,24 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 		final path = key.substr(0, index);
 		if (path == info.global.module.path) {
 			final defName = key.substr(index + 1);
+			var hasUnderlying = false;
+			for (field in def.fields) {
+				if (field.name == "__underlying__") {
+					hasUnderlying = true;
+					break;
+				}
+			}
+			if (!hasUnderlying) {
+				def.fields.push({
+					name: "__underlying__",
+					pos: null,
+					access: [APublic],
+					kind: FFun({
+						args: [],
+						expr: macro return new stdgo.AnyInterface(this, new stdgo._internal.internal.reflect.Reflect._Type(invalidType)),
+					}),
+				});
+			}
 			data.defs.push(def);
 			codegen.Patch.addTypeDefs.remove(key);
 		}

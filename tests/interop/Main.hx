@@ -71,7 +71,7 @@ class ByteOrder {
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new stdgo.AnyInterface(this, null);
 }
 
 class X {
@@ -82,5 +82,5 @@ class X {
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new stdgo.AnyInterface(this, null);
 }

@@ -16,8 +16,12 @@ function typeAssertExpr(expr:GoAst.TypeAssertExpr, info:Info):MacroExpr { // a -
 	// non anyInterface conversions are always known to work at compile time
 	final t = typeof(expr.type, info, false);
 	if (isAnyInterface(fromType))
-		return macro(stdgo.Go.typeAssert(($e : $ct)) : $ct);
-
+		return setAssert(e, t, ct, info);
 	e = typer.exprs.Expr.toAnyInterface(e, fromType, info);
-	return macro (stdgo.Go.typeAssert(($e : $ct)) : $ct);
+	return setAssert(e, t, ct, info);
+}
+
+private function setAssert(e:haxe.macro.Expr, gt:GoType, ct:ComplexType, info:Info):Expr {
+	final rt = toReflectType(gt, info, [], false);
+	return macro (stdgo.Go.typeAssert($e, $rt) : $ct);
 }

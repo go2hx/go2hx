@@ -769,6 +769,7 @@ private function excludeTest(name:String) {
 		case "divmod": // go-easy too slow
 		case "issue43111": // go-easy million goroutines being spawned
 		case "more_intstar_input": // go-easy build compiler flag excludes wasm
+		case "issue29264": // go-medium 100 nested slice, times out forever when compiling the Haxe code.
 		case "issue13169": // go-easy too slow
 		case "issue32288": // go-easy inf loop uintptr stack and recover
 		case "index0": // go-easy no main func

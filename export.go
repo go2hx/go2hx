@@ -627,6 +627,7 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 					switch f := d.(type) {
 					case *ast.FuncDecl:
 						f.Body = nil
+						f.Body.Lbrace = -1
 					default:
 					}
 				}
@@ -1607,7 +1608,7 @@ func parseBasicLit(expr *ast.BasicLit, pkg *PackageData) map[string]interface{} 
 			"raw":   raw,
 			"basic": true,
 			"token": expr.Kind.String(),
-			"kind":  nil,
+			"kind":  int32(expr.Kind),
 			"type":  parseType(pkg.checker.TypeOf(expr), map[string]bool{}, pkg),
 		}
 	}
@@ -1716,7 +1717,7 @@ func basicLitFallback(expr *ast.BasicLit, pkg *PackageData) map[string]interface
 	}
 	return map[string]interface{}{
 		"id":    "BasicLit",
-		"kind":  nil,
+		"kind":  int32(expr.Kind),
 		"token": expr.Kind.String(),
 		"value": output,
 		"basic": true,

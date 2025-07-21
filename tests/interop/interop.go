@@ -19,7 +19,9 @@ func Float32(f float32) float32 {
 	return f
 }
 
-func Any(i any) any
+func Any(i any) any {
+	return i
+}
 
 type InterfaceType interface {
 	Run(s struct{ S []string })

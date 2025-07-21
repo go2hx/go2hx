@@ -545,6 +545,14 @@ function isInvalid(type:GoType):Bool {
 	}
 }
 
+function pointerTo(t:Type):Type {
+	final gt = t._common();
+	return new stdgo._internal.internal.reflect.Reflect._Type(pointerType({get: () -> gt}));
+}
+
+inline function ptrTo(t:Type):Type
+	return pointerTo(t);
+
 function getElem(type:GoType):GoType {
 	if (type == null)
 		return type;

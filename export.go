@@ -626,8 +626,7 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 				for _, d := range file.Decls {
 					switch f := d.(type) {
 					case *ast.FuncDecl:
-						f.Body.List = nil
-						f.Body.Lbrace = -1
+						f.Body = &ast.BlockStmt{Lbrace: -1}
 					default:
 					}
 				}

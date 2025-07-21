@@ -4,6 +4,12 @@ package go.sync.atomic;
 function load() {
 	return @:privateAccess _v._v;
 }
+@:recv(Value)
+function store() {
+	stdgo.Go.globalMutex.acquire();
+	@:privateAccess _v._v = _val;
+	stdgo.Go.globalMutex.release();
+}
 
 @:recv(Pointer_)
 function swap(_x, _new_) {
@@ -82,7 +88,7 @@ function store(_x) {
 @:recv(Pointer_)
 function load(_x) {
 	stdgo.Go.globalMutex.acquire();
-	final value = @:privateAccess _x._v.__toRef__();
+	final value = @:privateAccess _x._v?.__toRef__();
 	stdgo.Go.globalMutex.release();
 	return value;
 }

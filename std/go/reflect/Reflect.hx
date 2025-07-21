@@ -296,7 +296,7 @@ function pointerTo(t:stdgo._internal.internal.reflect.Reflect._Type) {
 }
 
 inline function ptrTo(t:stdgo._internal.internal.reflect.Reflect._Type)
-	return pointerTo(t);
+	return stdgo._internal.internal.reflect.Reflect_pointerto.pointerTo(t);
 
 @:recv(Value)
 function field(_v) {

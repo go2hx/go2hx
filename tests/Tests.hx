@@ -609,7 +609,7 @@ function commandArgs(args:Array<String>):Array<String> {
 
 private function close(setCode:Int=0) {
 	runInterop();
-	logOutput = File.append("close.log", false);
+	logOutput = File.append("end.log", false);
 	log("======= TIME =======");
 	log(Date.now().toString());
 	log("elapsed: " + (haxe.Timer.stamp() - startStamp));

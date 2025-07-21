@@ -1,7 +1,7 @@
 package typer.stmts;
 
 function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):MacroExpr {
-	if (stmt.list == null && stmt.lbrace == -1) {
+	if (stmt.list == null && (stmt.lbrace == -1 || info.returnTypes.length > 0)) {
 		if (isFunc) {
 			final s = HaxeAst.makeString("not implemented: " + info.funcName);
 			return macro {

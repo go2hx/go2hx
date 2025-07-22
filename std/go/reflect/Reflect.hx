@@ -289,14 +289,14 @@ function pointer(_v) {
 	return new stdgo.GoUIntptr(value != null ? 1 : 0);
 }
 
-function pointerTo(_t:stdgo._internal.internal.reflect.Reflect._Type) {
+function pointerTo(_t) {
 	final gt = @:privateAccess (_t : Dynamic)._common();
 	var t = new stdgo._internal.internal.reflect.Reflect._Type(pointerType({get: () -> gt}));
 	return new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new stdgo.Pointer(() -> t, value -> t = value), t);
 }
 
-inline function ptrTo(t:stdgo._internal.internal.reflect.Reflect._Type)
-	return stdgo._internal.internal.reflect.Reflect_pointerto.pointerTo(t);
+inline function ptrTo(_t)
+	return stdgo._internal.reflect.Reflect_pointerto.pointerTo(_t);
 
 @:recv(Value)
 function field(_v) {

@@ -290,7 +290,7 @@ function pointer(_v) {
 }
 
 function pointerTo(_t:stdgo._internal.internal.reflect.Reflect._Type) {
-	final gt = @:privateAccess _t._common();
+	final gt = @:privateAccess (_t : Dynamic)._common();
 	var t = new stdgo._internal.internal.reflect.Reflect._Type(pointerType({get: () -> gt}));
 	return new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new stdgo.Pointer(() -> t, value -> t = value), t);
 }

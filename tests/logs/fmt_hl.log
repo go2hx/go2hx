@@ -38,16 +38,14 @@ golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: fa
 golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-Sprintf("%#v", [X X X X X]) = "[]_internal.fmt_test.byteStringer{0x68, 0x65, 0x6c, 0x6c, 0x6f}" want "[]fmt_test.byteStringer{0x68, 0x65, 0x6c, 0x6c, 0x6f}"
-Sprintf("%#v", [X X X X X]) = "[]_internal.fmt_test.byteFormatter{X, X, X, X, X}" want "[]fmt_test.byteFormatter{X, X, X, X, X}"
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-Sprintf("%☠", 0) = "%!☠(_internal.fmt_test.renamedInt=0)" want "%!☠(fmt_test.renamedInt=0)"
-Sprintf("%☠", {0}) = "{%!☠(_internal.fmt_test.renamedInt=0)}" want "{%!☠(fmt_test.renamedInt=0)}"
-Sprintf("%☠", &[<1> 2]) = "&[%!☠(_internal.fmt_test.I=1) %!☠(_internal.fmt_test.G=2)]" want "&[%!☠(fmt_test.I=1) %!☠(fmt_test.G=2)]"
+Exception: Can't cast i32 to virtual<__underlying__:(stdgo.AnyInterfaceData ()),string:(stdgo._GoString.GoStringData ())>
+Called from stdgo._internal.fmt.$T_pp_static_extension._handleMethods (stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 1266)
+Called from stdgo._internal.fmt.$T_pp_static_extension._printArg (stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 1058)
+Called from stdgo._internal.fmt.$T_pp_static_extension._doPrintf (stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 216)
+Called from stdgo._internal.fmt._Fmt_sprintf.$Fmt_sprintf_Fields_.sprintf (stdgo/_internal/fmt/Fmt_sprintf.hx line 15)
+Called from _internal.fmt_test._Fmt_test_testsprintf.$Fmt_test_testsprintf_Fields_.testSprintf (_internal/fmt_test/Fmt_test_testsprintf.hx line 5)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestSprintf
 
@@ -222,7 +220,7 @@ expected overflow scanning "(1-1e500i)"
 -- PASS: TestScanfMulti
 
 === RUN  TestScanMultiple
-Sscan expected error; got none: %!s(nil=<nil>)
+Sscan expected error; got none: %!s(<nil>)
 
 -- FAIL: TestScanMultiple
 
@@ -258,47 +256,47 @@ expected error scanning empty string
 -- FAIL: TestEOF
 
 === RUN  TestEOFAtEndOfInput
-Sscanf expected EOF; got %!q(nil=<nil>)
-Sscan expected EOF; got %!q(nil=<nil>)
-Sscan expected EOF; got %!q(nil=<nil>)
+Sscanf expected EOF; got %!q(<nil>)
+Sscan expected EOF; got %!q(<nil>)
+Sscan expected EOF; got %!q(<nil>)
 
 -- FAIL: TestEOFAtEndOfInput
 
 === RUN  TestEOFAllTypes
-#0: %s *string not eof on empty string: %!s(nil=<nil>)
-#0: %s *string not eof on trailing blanks: %!s(nil=<nil>)
-#1: %q *string not eof on empty string: %!s(nil=<nil>)
-#1: %q *string not eof on trailing blanks: %!s(nil=<nil>)
-#2: %x *string not eof on empty string: %!s(nil=<nil>)
-#2: %x *string not eof on trailing blanks: %!s(nil=<nil>)
-#3: %v *string not eof on empty string: %!s(nil=<nil>)
-#3: %v *string not eof on trailing blanks: %!s(nil=<nil>)
-#4: %v *[]uint8 not eof on empty string: %!s(nil=<nil>)
-#4: %v *[]uint8 not eof on trailing blanks: %!s(nil=<nil>)
-#5: %v *int not eof on empty string: %!s(nil=<nil>)
-#5: %v *int not eof on trailing blanks: %!s(nil=<nil>)
-#6: %v *uint not eof on empty string: %!s(nil=<nil>)
-#6: %v *uint not eof on trailing blanks: %!s(nil=<nil>)
-#7: %v *bool not eof on empty string: %!s(nil=<nil>)
-#7: %v *bool not eof on trailing blanks: %!s(nil=<nil>)
-#8: %v *float32 not eof on empty string: %!s(nil=<nil>)
-#8: %v *float32 not eof on trailing blanks: %!s(nil=<nil>)
-#9: %v *complex64 not eof on empty string: %!s(nil=<nil>)
-#9: %v *complex64 not eof on trailing blanks: %!s(nil=<nil>)
-#10: %v *_internal.fmt_test.renamedString not eof on empty string: %!s(nil=<nil>)
-#10: %v *_internal.fmt_test.renamedString not eof on trailing blanks: %!s(nil=<nil>)
-#11: %v *_internal.fmt_test.renamedBytes not eof on empty string: %!s(nil=<nil>)
-#11: %v *_internal.fmt_test.renamedBytes not eof on trailing blanks: %!s(nil=<nil>)
-#12: %v *_internal.fmt_test.renamedInt not eof on empty string: %!s(nil=<nil>)
-#12: %v *_internal.fmt_test.renamedInt not eof on trailing blanks: %!s(nil=<nil>)
-#13: %v *_internal.fmt_test.renamedUint not eof on empty string: %!s(nil=<nil>)
-#13: %v *_internal.fmt_test.renamedUint not eof on trailing blanks: %!s(nil=<nil>)
-#14: %v *_internal.fmt_test.renamedBool not eof on empty string: %!s(nil=<nil>)
-#14: %v *_internal.fmt_test.renamedBool not eof on trailing blanks: %!s(nil=<nil>)
-#15: %v *_internal.fmt_test.renamedFloat32 not eof on empty string: %!s(nil=<nil>)
-#15: %v *_internal.fmt_test.renamedFloat32 not eof on trailing blanks: %!s(nil=<nil>)
-#16: %v *_internal.fmt_test.renamedComplex64 not eof on empty string: %!s(nil=<nil>)
-#16: %v *_internal.fmt_test.renamedComplex64 not eof on trailing blanks: %!s(nil=<nil>)
+#0: %s *string not eof on empty string: %!s(<nil>)
+#0: %s *string not eof on trailing blanks: %!s(<nil>)
+#1: %q *string not eof on empty string: %!s(<nil>)
+#1: %q *string not eof on trailing blanks: %!s(<nil>)
+#2: %x *string not eof on empty string: %!s(<nil>)
+#2: %x *string not eof on trailing blanks: %!s(<nil>)
+#3: %v *string not eof on empty string: %!s(<nil>)
+#3: %v *string not eof on trailing blanks: %!s(<nil>)
+#4: %v *[]uint8 not eof on empty string: %!s(<nil>)
+#4: %v *[]uint8 not eof on trailing blanks: %!s(<nil>)
+#5: %v *int not eof on empty string: %!s(<nil>)
+#5: %v *int not eof on trailing blanks: %!s(<nil>)
+#6: %v *uint not eof on empty string: %!s(<nil>)
+#6: %v *uint not eof on trailing blanks: %!s(<nil>)
+#7: %v *bool not eof on empty string: %!s(<nil>)
+#7: %v *bool not eof on trailing blanks: %!s(<nil>)
+#8: %v *float32 not eof on empty string: %!s(<nil>)
+#8: %v *float32 not eof on trailing blanks: %!s(<nil>)
+#9: %v *complex64 not eof on empty string: %!s(<nil>)
+#9: %v *complex64 not eof on trailing blanks: %!s(<nil>)
+#10: %v *_internal.fmt_test.renamedString not eof on empty string: %!s(<nil>)
+#10: %v *_internal.fmt_test.renamedString not eof on trailing blanks: %!s(<nil>)
+#11: %v *_internal.fmt_test.renamedBytes not eof on empty string: %!s(<nil>)
+#11: %v *_internal.fmt_test.renamedBytes not eof on trailing blanks: %!s(<nil>)
+#12: %v *_internal.fmt_test.renamedInt not eof on empty string: %!s(<nil>)
+#12: %v *_internal.fmt_test.renamedInt not eof on trailing blanks: %!s(<nil>)
+#13: %v *_internal.fmt_test.renamedUint not eof on empty string: %!s(<nil>)
+#13: %v *_internal.fmt_test.renamedUint not eof on trailing blanks: %!s(<nil>)
+#14: %v *_internal.fmt_test.renamedBool not eof on empty string: %!s(<nil>)
+#14: %v *_internal.fmt_test.renamedBool not eof on trailing blanks: %!s(<nil>)
+#15: %v *_internal.fmt_test.renamedFloat32 not eof on empty string: %!s(<nil>)
+#15: %v *_internal.fmt_test.renamedFloat32 not eof on trailing blanks: %!s(<nil>)
+#16: %v *_internal.fmt_test.renamedComplex64 not eof on empty string: %!s(<nil>)
+#16: %v *_internal.fmt_test.renamedComplex64 not eof on trailing blanks: %!s(<nil>)
 
 -- FAIL: TestEOFAllTypes
 
@@ -324,7 +322,7 @@ bad scan: expected 801 got 0Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
-Called from _internal.fmt_test._Fmt_test__testscanints.$Fmt_test__testscanints_Fields_._testScanInts (_internal/fmt_test/Fmt_test__testscanints.hx line 21)
+Called from _internal.fmt_test._Fmt_test__testscanints.$Fmt_test__testscanints_Fields_._testScanInts (_internal/fmt_test/Fmt_test__testscanints.hx line 28)
 Called from _internal.fmt_test._Fmt_test_testscanints.$Fmt_test_testscanints_Fields_.testScanInts (_internal/fmt_test/Fmt_test_testscanints.hx line 6)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
@@ -370,7 +368,7 @@ expected 0123 got 0000Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
-Called from _internal.fmt_test._Fmt_test_testhexbyte.$Fmt_test_testhexbyte_Fields_.testHexByte (_internal/fmt_test/Fmt_test_testhexbyte.hx line 18)
+Called from _internal.fmt_test._Fmt_test_testhexbyte.$Fmt_test_testhexbyte_Fields_.testHexByte (_internal/fmt_test/Fmt_test_testhexbyte.hx line 25)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
 

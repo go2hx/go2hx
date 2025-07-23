@@ -1,20 +1,20 @@
-[ERROR] golibs/stdgo/Go.macro.hx:437: characters 18-19
+[ERROR] golibs/stdgo/Go.macro.hx:348: characters 18-19
 
- 437 |    return switch t {
+ 348 |    return switch t {
      |                  ^
      | Uncaught exception Null Access
 
-      459 |       return run();
+      370 |       return run();
           |              ^^^^^
           | Called from here
 
-      481 |   final result = run();
+      392 |   final result = run();
           |                  ^^^^^
           | Called from here
 
-      ->  golibs/stdgo/_internal/go/constant/Constant_unaryop.hx:238: characters 28-56
+      ->  golibs/stdgo/_internal/go/constant/Constant_unaryop.hx:357: characters 28-231
 
-      238 |                     return stdgo.Go.asInterface(!_y_15);
-          |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      357 |                     return stdgo.Go.asInterface(!_y_15, _internal.gotype.Gotype___type__stdgodot_internaldotgodotconstantdotconstant_t_boolvaldott_boolval.__type__stdgodot_internaldotgodotconstantdotConstant_t_boolvaldotT_boolVal);
+          |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 

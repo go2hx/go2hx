@@ -1,6 +1,5 @@
-Uncaught exception: Null access .string
-Called from stdgo._internal.encoding.gob._Gob__implementsinterface.$Gob__implementsinterface_Fields_._implementsInterface(stdgo/_internal/encoding/gob/Gob__implementsinterface.hx:17)
-Called from stdgo._internal.encoding.gob._Gob__validusertype.$Gob__validusertype_Fields_._validUserType(stdgo/_internal/encoding/gob/Gob__validusertype.hx:50)
-Called from stdgo._internal.encoding.gob._Gob__usertype.$Gob__usertype_Fields_._userType(stdgo/_internal/encoding/gob/Gob__usertype.hx:15)
+Uncaught exception: not implemented name
+Called from stdgo._internal.encoding.gob._Gob__buildtypeinfo.$Gob__buildtypeinfo_Fields_._buildTypeInfo(stdgo/_internal/encoding/gob/Gob__buildtypeinfo.hx:237)
+Called from stdgo._internal.encoding.gob._Gob__gettypeinfo.$Gob__gettypeinfo_Fields_._getTypeInfo(stdgo/_internal/encoding/gob/Gob__gettypeinfo.hx:32)
 Called from stdgo._internal.encoding.gob._Gob__mustgettypeinfo.$Gob__mustgettypeinfo_Fields_._mustGetTypeInfo(stdgo/_internal/encoding/gob/Gob__mustgettypeinfo.hx:15)
 Called from .init(stdgo/_internal/encoding/gob/Gob__twiretype.hx:14)

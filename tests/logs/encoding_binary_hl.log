@@ -1,11 +1,18 @@
 === RUN  TestLittleEndianRead
-Read LittleEndian: binary.Read: invalid type *.encoding.binary.Struct
+Exception: Value:reflect.canSet is not yet implemented
+Called from stdgo._internal.reflect.$Value_static_extension.canSet (stdgo/_internal/reflect/Reflect_value_static_extension.hx line 770)
+Called from stdgo._internal.encoding.binary.$T_decoder_static_extension._value (stdgo/_internal/encoding/binary/Binary_t_decoder_static_extension.hx line 45)
+Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 163)
+Called from stdgo._internal.encoding.binary._Binary__testread.$Binary__testread_Fields_._testRead (stdgo/_internal/encoding/binary/Binary__testread.hx line 12)
+Called from stdgo._internal.encoding.binary._Binary_testlittleendianread.$Binary_testlittleendianread_Fields_.testLittleEndianRead (stdgo/_internal/encoding/binary/Binary_testlittleendianread.hx line 12)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestLittleEndianRead
 
 === RUN  TestLittleEndianWrite
 Exception: stdgo.T_errorString_asInterface
-Called from stdgo._AnyInterface.$AnyInterface_Impl_.equals (stdgo/AnyInterface.hx line 167)
+Called from stdgo._AnyInterface.$AnyInterface_Impl_.equals (stdgo/AnyInterface.hx line 172)
 Called from stdgo.GoAnyInterfaceMap.compare (stdgo/GoMap.hx line 705)
 Called from haxe.ds.BalancedTree.exists (/home/runner/haxe/versions/b0b2997/std/haxe/ds/BalancedTree.hx line 104)
 Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 84)
@@ -25,7 +32,7 @@ Write LittleEndian: binary.Write: some values are not fixed-sized in type *.enco
 
 === RUN  TestBigEndianRead
 Exception: stdgo.T_errorString_asInterface
-Called from stdgo._AnyInterface.$AnyInterface_Impl_.equals (stdgo/AnyInterface.hx line 167)
+Called from stdgo._AnyInterface.$AnyInterface_Impl_.equals (stdgo/AnyInterface.hx line 172)
 Called from stdgo.GoAnyInterfaceMap.compare (stdgo/GoMap.hx line 705)
 Called from haxe.ds.BalancedTree.exists (/home/runner/haxe/versions/b0b2997/std/haxe/ds/BalancedTree.hx line 104)
 Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 84)
@@ -40,7 +47,7 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 
 === RUN  TestBigEndianWrite
 Exception: stdgo.T_errorString_asInterface
-Called from stdgo._AnyInterface.$AnyInterface_Impl_.equals (stdgo/AnyInterface.hx line 167)
+Called from stdgo._AnyInterface.$AnyInterface_Impl_.equals (stdgo/AnyInterface.hx line 172)
 Called from stdgo.GoAnyInterfaceMap.compare (stdgo/GoMap.hx line 705)
 Called from haxe.ds.BalancedTree.exists (/home/runner/haxe/versions/b0b2997/std/haxe/ds/BalancedTree.hx line 104)
 Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 84)
@@ -77,7 +84,7 @@ Write BigEndian: binary.Write: some values are not fixed-sized in type *.encodin
 === RUN  TestSliceRoundTrip
 Exception: Can't cast hl.types.ArrayDyn to i32
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 79)
-Called from stdgo._internal.encoding.binary._Binary_testsliceroundtrip.$Binary_testsliceroundtrip_Fields_.testSliceRoundTrip (stdgo/_internal/encoding/binary/Binary_testsliceroundtrip.hx line 49)
+Called from stdgo._internal.encoding.binary._Binary_testsliceroundtrip.$Binary_testsliceroundtrip_Fields_.testSliceRoundTrip (stdgo/_internal/encoding/binary/Binary_testsliceroundtrip.hx line 56)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
@@ -85,8 +92,8 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 
 === RUN  TestWriteT
 Exception: Can't cast stdgo._internal.internal.reflect._Type to i32
-Called from stdgo._internal.fmt.$T_pp_static_extension._printArg (stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 982)
-Called from stdgo._internal.fmt.$T_pp_static_extension._doPrintf (stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 213)
+Called from stdgo._internal.fmt.$T_pp_static_extension._printArg (stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 991)
+Called from stdgo._internal.fmt.$T_pp_static_extension._doPrintf (stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 216)
 Called from stdgo._internal.fmt._Fmt_fprintf.$Fmt_fprintf_Fields_.fprintf (stdgo/_internal/fmt/Fmt_fprintf.hx line 16)
 Called from stdgo._internal.fmt._Fmt_printf.$Fmt_printf_Fields_.printf (stdgo/_internal/fmt/Fmt_printf.hx line 15)
 Called from stdgo._internal.testing.$T_common_static_extension.errorf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
@@ -99,10 +106,10 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 
 === RUN  TestBlankFields
 binary.Write: some values are not fixed-sized in type *.encoding.binary.BlankFields
-binary.Read: invalid type *.encoding.binary.BlankFieldsProbe
+EOF
 binary.Write: some values are not fixed-sized in type *.encoding.binary.BlankFieldsProbe
-binary.Read: invalid type *.encoding.binary.BlankFields
-.encoding.binary.BlankFields{A:0x499602d2, _0:0, B:2.718281828, _1:[0]int16{0, 0, 0, 0}, C:0x2a, _2:[0]uint8{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, _3:struct { f [0]float32 }{f:[0]float32{0, 0, 0, 0, 0, 0, 0, 0}}} != .encoding.binary.BlankFields{A:0x0, _0:0, B:0, _1:[0]int16{0, 0, 0, 0}, C:0x0, _2:[0]uint8{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, _3:struct { f [0]float32 }{f:[0]float32{0, 0, 0, 0, 0, 0, 0, 0}}}
+EOF
+.encoding.binary.BlankFields{A:0x499602d2, _0:0, B:2.718281828, _1:[4]int16{0, 0, 0, 0}, C:0x2a, _2:[7]uint8{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, _3:struct { f [8]float32 }{f:[8]float32{0, 0, 0, 0, 0, 0, 0, 0}}} != .encoding.binary.BlankFields{A:0x0, _0:0, B:0, _1:[4]int16{0, 0, 0, 0}, C:0x0, _2:[7]uint8{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, _3:struct { f [8]float32 }{f:[8]float32{0, 0, 0, 0, 0, 0, 0, 0}}}
 
 -- FAIL: TestBlankFields
 
@@ -124,7 +131,7 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 === RUN  TestUnexportedRead
 binary.Write: some values are not fixed-sized in type *.encoding.binary.Unexported
 Exception: __fail__
-Called from stdgo._internal.encoding.binary._Binary_testunexportedread.$Binary_testunexportedread_Fields_.testUnexportedRead (stdgo/_internal/encoding/binary/Binary_testunexportedread.hx line 90)
+Called from stdgo._internal.encoding.binary._Binary_testunexportedread.$Binary_testunexportedread_Fields_.testUnexportedRead (stdgo/_internal/encoding/binary/Binary_testunexportedread.hx line 100)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
@@ -140,7 +147,7 @@ Exception: Value:reflect.canSet is not yet implemented
 Called from stdgo._internal.reflect.$Value_static_extension.canSet (stdgo/_internal/reflect/Reflect_value_static_extension.hx line 770)
 Called from stdgo._internal.encoding.binary.$T_decoder_static_extension._value (stdgo/_internal/encoding/binary/Binary_t_decoder_static_extension.hx line 45)
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 163)
-Called from stdgo._internal.encoding.binary._Binary_testreadtruncated.$Binary_testreadtruncated_Fields_.testReadTruncated (stdgo/_internal/encoding/binary/Binary_testreadtruncated.hx line 40)
+Called from stdgo._internal.encoding.binary._Binary_testreadtruncated.$Binary_testreadtruncated_Fields_.testReadTruncated (stdgo/_internal/encoding/binary/Binary_testreadtruncated.hx line 68)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
@@ -176,7 +183,7 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 -- FAIL: TestNoFixedSize
 
 === RUN  TestNativeEndian
-golibs/stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#55D1B9701F00}) -> invalidType
+golibs/stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: basic(18) -> invalidType
 Exception: Can't cast hl.types.ArrayDyn to stdgo.GoArrayData
 Called from stdgo._internal.encoding.binary._Binary_testnativeendian.$Binary_testnativeendian_Fields_.testNativeEndian (stdgo/_internal/encoding/binary/Binary_testnativeendian.hx line 14)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)

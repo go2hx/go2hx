@@ -1,8 +1,8 @@
 === RUN  TestAuto
-Exception: Null access .value
-Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
-Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load__tp__0 (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 40)
-Called from stdgo._internal.math.rand._Rand__globalrand.$Rand__globalrand_Fields_._globalRand (stdgo/_internal/math/rand/Rand__globalrand.hx line 7)
+Exception: Null access .underlying
+Called from stdgo._Pointer.$Pointer_Impl_.equals (stdgo/Pointer.hx line 47)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.compareAndSwap__tp__0 (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 9)
+Called from stdgo._internal.math.rand._Rand__globalrand.$Rand__globalrand_Fields_._globalRand (stdgo/_internal/math/rand/Rand__globalrand.hx line 28)
 Called from stdgo._internal.math.rand._Rand_int63.$Rand_int63_Fields_.int63 (stdgo/_internal/math/rand/Rand_int63.hx line 6)
 Called from _internal.math.rand_test._Rand_test_testauto.$Rand_test_testauto_Fields_.testAuto (_internal/math/rand_test/Rand_test_testauto.hx line 8)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)

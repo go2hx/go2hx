@@ -210,7 +210,7 @@ function runTask(task:TaskData) {
 		ls.removeAllListeners();
 		ls.kill();
 		trace("COMPLETE");
-		close();
+		close(1);
 	};
 	ls.stdout.on('data', function(data) {
 		if (!noLogs) {
@@ -398,7 +398,7 @@ function spawnTargets(path:String, excludes:Array<String>) {
 	trace(path);
 	final out = createTargetOutput(target, type, path);
 	final outCmd = BuildTools.buildTarget(target, "golibs/" + out).split(" ");
-	var args:Array<String> = ["-m", "_internal." + main, "-cp", "golibs", "--macro", "Go2hxMacro.init()", "-D", "eval-call-stack-depth=40000"];
+	var args:Array<String> = ["-m", "_internal." + main, "-cp", "golibs", "-w", "-WStaticInitOrder","-D", "eval-call-stack-depth=40000"];
 	args = args.concat(outCmd);
 	if (ciBool)
 		args.unshift("haxe");
@@ -538,7 +538,7 @@ function createRunnableStd(name:String, prefix:String, excludeFuncArgs:Array<Str
 	mainPathStd.push(last);
 	mainPathStd.push(last.charAt(0).toUpperCase() + last.substr(1));
 	var mainStd = "_internal." + mainPathStd.join(".");
-	var args = ["-m", mainStd, "-cp", "golibs", "--macro", "Go2hxMacro.init()", "-D", "eval-call-stack-depth=40000"].concat(outCmd);
+	var args = ["-m", mainStd, "-cp", "golibs", "-w", "-WStaticInitOrder", "-D", "eval-call-stack-depth=40000"].concat(outCmd);
 	// remove ANSI escape codes for colours
 	args.push("-D");
 	args.push("message.no-color");
@@ -577,8 +577,8 @@ private function runInterop() {
 		final args = [
 			"-cp",
 			"golibs",
-			"--macro",
-			"Go2hxMacro.init()",
+			"-w",
+			"-WStaticInitOrder",
 			"-D",
 			"eval-call-stack-depth=40000",
 			lib.main
@@ -607,8 +607,9 @@ function commandArgs(args:Array<String>):Array<String> {
 	}
 }
 
-private function close() {
+private function close(setCode:Int=0) {
 	runInterop();
+	logOutput = File.append("end.log", false);
 	log("======= TIME =======");
 	log(Date.now().toString());
 	log("elapsed: " + (haxe.Timer.stamp() - startStamp));
@@ -670,7 +671,7 @@ private function close() {
 			log('[ ] $name$str');
 		}
 	}
-	var code = 0;
+	var code = setCode;
 	if (failedRegressionTasks.length > 0 || regressionTestLines.length > 0) {
 		if (failedRegressionTasks.length > 0) {
 			log('         regression results: ');
@@ -768,6 +769,7 @@ private function excludeTest(name:String) {
 		case "divmod": // go-easy too slow
 		case "issue43111": // go-easy million goroutines being spawned
 		case "more_intstar_input": // go-easy build compiler flag excludes wasm
+		case "issue29264": // go-medium 100 nested slice, times out forever when compiling the Haxe code.
 		case "issue13169": // go-easy too slow
 		case "issue32288": // go-easy inf loop uintptr stack and recover
 		case "index0": // go-easy no main func

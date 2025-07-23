@@ -29,8 +29,8 @@ function main() {
 		"golibs",
 		"-main",
 		main,
-		"--macro",
-		"Go2hxMacro.init()",
+		"-w",
+		"-WStaticInitOrder",
 		"--hl",
 		"testbed.hl",
 	]);

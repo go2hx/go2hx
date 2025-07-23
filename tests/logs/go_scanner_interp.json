@@ -1,7 +1,5 @@
 {
-    "passes": [
-        "TestStripCR"
-    ],
+    "passes": [],
     "fails": [
         "TestScan",
         "TestSemicolons",

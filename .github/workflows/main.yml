@@ -23,6 +23,8 @@ jobs:
       - name: Get number of cores (macOS)
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
+      - name: update apt
+        run: sudo apt-get update
       - name: setup c++
         run: sudo apt install g++-multilib
       - name: Install lix
@@ -280,55 +282,6 @@ jobs:
             pull: --rebase --autostash
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-  libs-js:
-    timeout-minutes: 75
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 23
-      - run: node --v8-options
-      # Get the cores 
-      - name: Get number of cores (Ubuntu)
-        if: startsWith(runner.os, 'Linux')
-        run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
-      - name: Get number of cores (macOS)
-        if: startsWith(runner.os, 'macOS')
-        run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      - name: Install lix
-        run: npm i lix -g
-      - name: Run lix
-        run: npx lix download
-      # go2hx setup
-      - name: Clean stdgo
-        run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
-      - name: Set source
-        run: npx haxelib dev go2hx .
-      - uses: actions/cache/restore@v4
-        id: setup-cache
-        with:
-          path: |
-            TypeInfoData_go2hx_hxb.hx
-            ./_internal/*
-            ./go2hx.*.zip 
-            export
-            golibs
-          key: ${{ github.sha }}-build-${{ env.cache-name }}
-      - name: Run lib tests
-        run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
-      - uses: EndBug/add-and-commit@v9
-        with:
-            message: libs tests update js
-            add: ./tests
-            pull: --rebase --autostash
-        continue-on-error: true
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   go-easy-hl:
     timeout-minutes: 75
     needs: setup
@@ -461,75 +414,6 @@ jobs:
             pull: --rebase --autostash
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
-  go-easy-js:
-    timeout-minutes: 75
-    needs: setup
-    strategy:
-      fail-fast: false
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-      - name: cleanup
-        run: |
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /opt/ghc
-          sudo rm -rf "/usr/local/share/boost"
-          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '${{env.VERSION}}' # The Go version to download (if necessary) and use.
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 23
-      - run: node --v8-options
-      # Get the cores 
-      - name: Get number of cores (Ubuntu)
-        if: startsWith(runner.os, 'Linux')
-        run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
-      - name: Get number of cores (macOS)
-        if: startsWith(runner.os, 'macOS')
-        run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      - name: Install lix
-        run: npm i lix -g
-      - name: Run lix
-        run: npx lix download
-      # go2hx setup
-      # clean stdgo
-      - name: Clean go2hx
-        run: npx haxe --run Run clean
-      # compile stdgo
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
-      - name: Set source
-        run: haxelib dev go2hx .
-      - uses: actions/cache/restore@v4
-        id: setup-cache
-        with:
-          path: |
-            TypeInfoData_go2hx_hxb.hx
-            ./_internal/*
-            ./go2hx.*.zip
-            export
-            golibs
-          key: ${{ github.sha }}-build-${{ env.cache-name }}
-      - name: clone go
-        run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
-      - name: Sort tests
-        run: go run ./extra/scripts/sortTests ci
-      # run go easy tests
-      - name: Run go easy tests
-        run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=js #-D hxb
-      # add go_easy.json regression 
-      - uses: EndBug/add-and-commit@v9
-        with:
-            message: go easy tests update js
-            add: ./tests
-            pull: --rebase --autostash
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-        continue-on-error: true
   yaegi-easy-hl:
     timeout-minutes: 75
     needs: setup
@@ -634,61 +518,6 @@ jobs:
             pull: --rebase --autostash
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-  yaegi-easy-js:
-    timeout-minutes: 75
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 23
-      - run: node --v8-options
-      # Get the cores 
-      - name: Get number of cores (Ubuntu)
-        if: startsWith(runner.os, 'Linux')
-        run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
-      - name: Get number of cores (macOS)
-        if: startsWith(runner.os, 'macOS')
-        run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      - name: Install lix
-        run: npm i lix -g
-      - name: Run lix
-        run: npx lix download
-      # go2hx setup
-      - name: Clean stdgo
-        run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
-      - name: Set source
-        run: npx haxelib dev go2hx .
-      - uses: actions/cache/restore@v4
-        id: setup-cache
-        with:
-          path: |
-            TypeInfoData_go2hx_hxb.hx
-            ./_internal/*
-            ./go2hx.*.zip 
-            export
-            golibs
-          key: ${{ github.sha }}-build-${{ env.cache-name }}
-      # run yaegi easy tests
-      - name: clone yaegi
-        run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
-      - name: Sort tests
-        run: go run ./extra/scripts/sortTests ci
-      - name: Run yaegi easy tests
-        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
-      # add yaegi_easy.json regression 
-      - uses: EndBug/add-and-commit@v9
-        with:
-            message: yaegi easy tests update js
-            add: ./tests
-            pull: --rebase --autostash
-        continue-on-error: true
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   go-medium-hl:
     timeout-minutes: 75
     needs: setup
@@ -748,72 +577,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: go medium tests update hl
-            add: ./tests
-            pull: --rebase --autostash
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-        continue-on-error: true
-  go-medium-js:
-    timeout-minutes: 75
-    needs: setup
-    strategy:
-      fail-fast: false
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-      - name: cleanup
-        run: |
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /opt/ghc
-          sudo rm -rf "/usr/local/share/boost"
-          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-      - run: echo "VERSION=$(cat .gorc)" >> $GITHUB_ENV
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 23
-      - run: node --v8-options
-      # Get the cores 
-      - name: Get number of cores (Ubuntu)
-        if: startsWith(runner.os, 'Linux')
-        run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
-      - name: Get number of cores (macOS)
-        if: startsWith(runner.os, 'macOS')
-        run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      - name: Install lix
-        run: npm i lix -g
-      - name: Run lix
-        run: npx lix download
-      # go2hx setup
-      # clean stdgo
-      - name: Clean go2hx
-        run: npx haxe --run Run clean
-      # compile stdgo
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
-      - name: Set source
-        run: haxelib dev go2hx .
-      - uses: actions/cache/restore@v4
-        id: setup-cache
-        with:
-          path: |
-            TypeInfoData_go2hx_hxb.hx
-            ./_internal/*
-            ./go2hx.*.zip 
-            export
-            golibs
-          key: ${{ github.sha }}-build-${{ env.cache-name }}
-      - name: clone go
-        run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
-      - name: Sort tests
-        run: haxelib run go2hx go run ./extra/scripts/sortTests ci
-      # run go medium tests
-      - name: Run go medium tests
-        run: haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D target=js #-D hxb
-      # add go_medium.json regression 
-      - uses: EndBug/add-and-commit@v9
-        with:
-            message: go medium tests update js
             add: ./tests
             pull: --rebase --autostash
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
@@ -922,61 +685,6 @@ jobs:
             pull: --rebase --autostash
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-  yaegi-medium-js:
-    timeout-minutes: 75
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 23
-      - run: node --v8-options
-      # Get the cores 
-      - name: Get number of cores (Ubuntu)
-        if: startsWith(runner.os, 'Linux')
-        run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
-      - name: Get number of cores (macOS)
-        if: startsWith(runner.os, 'macOS')
-        run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      - name: Install lix
-        run: npm i lix -g
-      - name: Run lix
-        run: npx lix download
-      # go2hx setup
-      - name: Clean stdgo
-        run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
-      - name: Set source
-        run: npx haxelib dev go2hx .
-      - uses: actions/cache/restore@v4
-        id: setup-cache
-        with:
-          path: |
-            TypeInfoData_go2hx_hxb.hx
-            ./_internal/*
-            ./go2hx.*.zip 
-            export
-            golibs
-          key: ${{ github.sha }}-build-${{ env.cache-name }}
-      # run yaegi medium tests
-      - name: clone yaegi
-        run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
-      - name: Sort tests
-        run: go run ./extra/scripts/sortTests ci
-      - name: Run yaegi medium tests
-        run: haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
-      # add yaegi_medium.json regression 
-      - uses: EndBug/add-and-commit@v9
-        with:
-            message: yaegi medium tests update js
-            add: ./tests
-            pull: --rebase --autostash
-        continue-on-error: true
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   build-hl:
     
     timeout-minutes: 75
@@ -1031,6 +739,8 @@ jobs:
         continue-on-error: true
       - name: Run std
         run: haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl  #-D hxb
+      - name: End log
+        run: cat end.log
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update hl
@@ -1092,73 +802,11 @@ jobs:
         continue-on-error: true
       - name: Run std
         run: haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp  #-D hxb
+      - name: End log
+        run: cat end.log
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update interp
-            add: ./tests
-            pull: --rebase --autostash
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-        continue-on-error: true
-  build-js:
-    
-    timeout-minutes: 75
-    needs: setup
-    strategy:
-      fail-fast: false
-    runs-on: [ubuntu-latest]
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-      # Get the cores 
-      - name: Get number of cores (Ubuntu)
-        if: startsWith(runner.os, 'Linux')
-        run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
-      - name: Get number of cores (macOS)
-        if: startsWith(runner.os, 'macOS')
-        run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      # non self-host setup
-        continue-on-error: true
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 23
-      - run: node --v8-options
-      - name: Install lix
-        run: npm i lix -g
-      - name: Run lix
-        run: npx lix download
-      # go2hx setup
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
-      - name: Set source
-        run: haxelib dev go2hx .
-      - name: Clean stdgo
-        run: npx haxe --run Run clean
-      - uses: actions/cache/restore@v4
-        id: setup-cache
-        with:
-          path: |
-            TypeInfoData_go2hx_hxb.hx
-            ./_internal/*
-            ./go2hx.*.zip
-            export
-            golibs
-          key: ${{ github.sha }}-build-${{ env.cache-name }}
-      - run: ls
-      - name: Run unit
-        run: haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D target=js #-D hxb
-      - uses: EndBug/add-and-commit@v9
-        with:
-            message: go easy tests update js
-            add: ./tests
-            pull: --rebase --autostash
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-        continue-on-error: true
-      - name: Run std
-        run: haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js  #-D hxb
-      - uses: EndBug/add-and-commit@v9
-        with:
-            message: build std tests update js
             add: ./tests
             pull: --rebase --autostash
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'

@@ -626,7 +626,7 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 				for _, d := range file.Decls {
 					switch f := d.(type) {
 					case *ast.FuncDecl:
-						f.Body = nil
+						f.Body = &ast.BlockStmt{Lbrace: -1}
 					default:
 					}
 				}
@@ -1137,7 +1137,8 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 		isVar = true
 	case "Named":
 		named := node.(*types.Named)
-		path := named.String()
+		_ = named
+		/*path := named.String()
 		if marked[path] {
 			data["path"] = path
 			params := make([]map[string]interface{}, named.TypeArgs().Len())
@@ -1147,6 +1148,7 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 			data["params"] = params
 			return data
 		}
+		*/
 	default:
 	}
 	var t types.Type
@@ -1605,7 +1607,7 @@ func parseBasicLit(expr *ast.BasicLit, pkg *PackageData) map[string]interface{} 
 			"raw":   raw,
 			"basic": true,
 			"token": expr.Kind.String(),
-			"kind":  nil,
+			"kind":  int32(expr.Kind),
 			"type":  parseType(pkg.checker.TypeOf(expr), map[string]bool{}, pkg),
 		}
 	}
@@ -1714,7 +1716,7 @@ func basicLitFallback(expr *ast.BasicLit, pkg *PackageData) map[string]interface
 	}
 	return map[string]interface{}{
 		"id":    "BasicLit",
-		"kind":  nil,
+		"kind":  int32(expr.Kind),
 		"token": expr.Kind.String(),
 		"value": output,
 		"basic": true,

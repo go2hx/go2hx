@@ -170,8 +170,12 @@ function deepValueEqual(v1:ReflectValue, v2:ReflectValue, visited:Map<Visit, Boo
 function directlyAssignable(t:Type, v:Type):Bool {
 	var tgt:GoType = (t : Dynamic)._common();
 	var vgt:GoType = (v : Dynamic)._common();
-	//trace("directlyAssignable tgt:", tgt);
-	//trace("directlyAssignable vgt:", vgt);
+	return _directlyAssignable(tgt,vgt); 
+}
+
+function _directlyAssignable(tgt:GoType, vgt:GoType):Bool {
+	// trace("directlyAssignable tgt:", tgt);
+	// trace("directlyAssignable vgt:", vgt);
 	switch vgt {
 		case named(path, _, _):
 			switch tgt {
@@ -184,8 +188,8 @@ function directlyAssignable(t:Type, v:Type):Bool {
 	}
 	tgt = getUnderlying(tgt);
 	vgt = getUnderlying(vgt);
-	//trace("directlyAssignable underlying tgt:", tgt);
-	//trace("directlyAssignable underlying vgt:", vgt);
+	// trace("directlyAssignable underlying tgt:", tgt);
+	// trace("directlyAssignable underlying vgt:", vgt);
 	return switch tgt {
 		case chanType(_, _.get() => elem), sliceType(_.get() => elem):
 			switch vgt {
@@ -367,7 +371,7 @@ private function identicalType(t:GoType,v:GoType):Bool {
 					false;
 			}
 		case signature(_, _, _, _):
-			return false;
+			return _directlyAssignable(t, v); 
 		case mapType(_.get() => key,_.get() => value):
 			switch v {
 				case mapType(_.get() => key2,_.get() => value2):
@@ -414,8 +418,8 @@ function implementsMethod(t:Type, v:Type):Bool {
 		vgtIsPointer = true;
 		vgt = getElem(vgt);
 	}
-	//trace("n0:", gt);
-	//trace("n1:", vgt);
+	// trace("n0:", gt);
+	// trace("n1:", vgt);
 	if (!isInterface(gt) && !isInterface(vgt))
 		return false;
 	return switch gt {
@@ -1023,11 +1027,11 @@ class _Type {
 
 	static public function bits(t:_Type):GoInt {
 		if (t == null) {
-			throw Go.toInterface("reflect: Bits of nil Type");
+			throw new stdgo.Error.T_errorString_asInterface("reflect: Bits of nil Type").__underlying__();
 		}
 		final k = t.kind();
 		if (k < KindType.int || k > KindType.complex128) {
-			throw Go.toInterface("reflect: Bits of non-arithmetic Type " + t.string());
+			throw new stdgo.Error.T_errorString_asInterface("reflect: Bits of non-arithmetic Type " + t.string()).__underlying__();
 		}
 		return t.size().toBasic() * 8;
 	}
@@ -1281,6 +1285,8 @@ class _Type {
 				}
 				r = r.substr(1);
 				"interface {" + r + " }";
+			case typeParam(name, _):
+				name;
 			default:
 				throw "not found enum toString " + gt; // should never get here
 		}

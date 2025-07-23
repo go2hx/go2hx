@@ -73,8 +73,8 @@ function testrun(args:Array<String>) {
 	runCommand("haxe", [
 		"-cp",
 		"golibs",
-		"--macro",
-		"Go2hxMacro.init()",
+		"-w",
+		"-WStaticInitOrder",
 		"-m",
 		mainStd,
 	].concat(args.slice(2)));

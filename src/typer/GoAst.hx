@@ -831,9 +831,10 @@ function castTranslate(obj:GoAst.Expr, e:Expr, info:Info):MacroExpr {
 			var obj:GoAst.TypeAssertExpr = obj;
 			final t = typeof(obj.type, info, false);
 			var value = typer.exprs.Expr.defaultValue(t, info);
-			macro try {
+			macro @:castTranslate try {
 				{_0: $e, _1: true};
-			} catch (_) {
+			} catch (__exception__) {
+				// trace(__exception__.details());
 				{_0: $value, _1: false};
 			}
 		case "UnaryExpr":

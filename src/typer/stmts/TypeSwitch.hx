@@ -52,9 +52,12 @@ function typeTypeSwitchStmt(stmt:GoAst.TypeSwitchStmt, info:Info):MacroExpr { //
 			types.push(interfaceType(true, []));
 			macro __type__ == null;
 		} else {
-			final type = typeExprType(obj.list[i], info);
+			final t = toReflectType(typeof(obj.list[i], info, false), info, [], true);
 			types.push(typeof(obj.list[i], info, false));
-			macro stdgo.Go.typeEquals((__type__ : $type));
+			var e = macro __type__;
+			if (!isAnyInterface(assignType))
+				e = typer.exprs.Expr.toAnyInterface(e, assignType, info);
+			macro stdgo.Go.typeEquals($e, $t);
 		}
 		if (i + 1 >= obj.list.length)
 			return value;

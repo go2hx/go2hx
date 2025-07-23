@@ -65,6 +65,16 @@ function receivedData(buff:Bytes) {
 
 function end(instance:CompilerInstanceData) {
 	codegen.Std.moveStd(instance.localPath + instance.outputPath);
+	// create gotype module
+	final module:typer.HaxeAst.Module = {
+		path: "gotype",
+		files: [instance.reflectTypesData],
+		isMain: false,
+		name: "gotype",
+		checksum: "",
+	};
+	codegen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
+	// set back current working directory
 	Sys.setCwd(cwd);
 	final mains = mainPaths(modules);
 	if (instance.printMain) {
@@ -128,6 +138,13 @@ private function removeArg(args:Array<String>, arg:String):Bool {
 function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData {
 	final args = args.copy();
 	final instance = new CompilerInstanceData();
+	instance.reflectTypesData = {
+		name: importClassName(normalizePath("gotype")),
+		imports: [],
+		defs: [],
+		location: "",
+		isMain: false,
+	};
 	instance.outputPath = "golibs/";
 	instance.root = "";
 	var help = false;
@@ -443,6 +460,7 @@ function write(instance:CompilerInstanceData):Bool {
 }
 
 class CompilerInstanceData {
+	public var reflectTypesData:typer.HaxeAst.HaxeFileType = null;
 	public var tryBool:Bool = true;
 	public var noCache:Bool = false;
 	public var times:Bool = false;
@@ -492,6 +510,7 @@ class CompilerInstanceData {
 		final instance = new CompilerInstanceData();
 		instance.tryBool = tryBool;
 		instance.noCache = noCache;
+		instance.reflectTypesData = reflectTypesData;
 		instance.deps = deps.copy();
 		instance.printMain = printMain;
 		instance.countPkgs = countPkgs;

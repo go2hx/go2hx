@@ -35,6 +35,8 @@ jobs:
       - name: Set source
         run: npx haxelib dev go2hx .
       # clean stdgo
+      - name: setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Clean stdgo
         run: npx haxe --run Run clean
       - name: Build go2hx compiler
@@ -685,6 +687,16 @@ jobs:
             pull: --rebase --autostash
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+  js-hl:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 23
+    - run: node --v8-options
+  js-interp:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 23
+    - run: node --v8-options
   build-hl:
     
     timeout-minutes: 75

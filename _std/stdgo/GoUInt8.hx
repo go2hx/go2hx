@@ -96,14 +96,14 @@ abstract GoUInt8(UInt8) from UInt8 from Int to UInt8 {
 
 	@:op(A % B) private static function mod(a:GoUInt8, b:GoUInt8):GoUInt8 {
 		if (b == 0) {
-			throw @:privateAccess stdgo.Error._divideError.__underlying__();
+			throw stdgo.Error._divideError.__underlying__();
 		}
 		return clamp(a.toBasic() % b.toBasic());
 	}
 
 	@:op(A / B) private static function div(a:GoUInt8, b:GoUInt8):GoUInt8 {
 		if (b == 0) {
-			throw @:privateAccess stdgo.Error._divideError.__underlying__();
+			throw stdgo.Error._divideError.__underlying__();
 		}
 		return clamp(Std.int(a.toBasic() / b.toBasic()));
 	}

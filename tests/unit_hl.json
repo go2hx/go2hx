@@ -254,5 +254,18 @@
  "hl|issuedash256",
  "hl|struct3",
  "hl|nilrange",
- "hl|mapObjectKeyExists"
+ "hl|mapObjectKeyExists",
+ "hl|any0",
+ "hl|any1",
+ "hl|atomic2",
+ "hl|complex2",
+ "hl|context1",
+ "hl|fmt0",
+ "hl|fmt1",
+ "hl|interface22",
+ "hl|interface23",
+ "hl|interface24",
+ "hl|nilany",
+ "hl|recursiveTypeReflect",
+ "hl|tagBootstrap2"
 ]

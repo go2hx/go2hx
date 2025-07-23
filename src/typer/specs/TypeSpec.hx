@@ -239,11 +239,11 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 										addPointerSuffix(ct, info);
 										macro @:check420 (stdgo.Go.pointer(this.$name) : $ct).$fieldName;
 									} else {
-										macro @:check50 (this.$name ?? throw "null pointer dereference").$fieldName;
+										macro @:check50 (this.$name ?? throw stdgo.Error._nullPointerDereference.__underlying__()).$fieldName;
 									}
 								default:
 									if (!isRef(getUnderlying(methodRecv))) {
-										macro @:check310 (this.$name ?? throw "null pointer dereference").value.$fieldName;
+										macro @:check310 (this.$name ?? throw stdgo.Error._nullPointerDereference.__underlying__()).value.$fieldName;
 									} else {
 										macro @:check320 this.$name.value.$fieldName;
 									}
@@ -254,14 +254,14 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 									if (isNamed(elem)) {
 										final ct = toComplexType(elem, info);
 										addPointerSuffix(ct, info);
-										macro @:check42 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer dereference").$fieldName;
+										macro @:check42 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw stdgo.Error._nullPointerDereference.__underlying__()).$fieldName;
 									} else {
-										macro @:check5 (this.$name ?? throw "null pointer dereference").$fieldName;
+										macro @:check5 (this.$name ?? throw stdgo.Error._nullPointerDereference.__underlying__()).$fieldName;
 									}
 								default:
 									// trace(getUnderlying(methodRecv));
 									if (!isRef(getUnderlying(methodRecv))) {
-										macro @:check31 (this.$name ?? throw "null pointer dereference").$fieldName;
+										macro @:check31 (this.$name ?? throw stdgo.Error._nullPointerDereference.__underlying__()).$fieldName;
 									} else {
 										macro @:check32 this.$name.$fieldName;
 									}

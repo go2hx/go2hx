@@ -101,7 +101,7 @@ function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):MacroExpr { // EFi
 							}
 							if (!recvPointerBool) {
 								if (expr.x.id != "CallExpr")
-									x = macro(@:checkr $x ?? throw "null pointer dereference");
+									x = macro(@:checkr $x ?? throw stdgo.Error._nullPointerDereference.__underlying__());
 							} else {
 								final ct = toComplexType(named(path, methods, type, alias, params), info);
 								addPointerSuffix(ct, info);

@@ -9,9 +9,9 @@ import stdgo.Pointer;
 import stdgo.Slice;
 
 
-private var _divideError:Error = new T_errorString_asInterface("integer divide by zero");
-private var _overflowError:Error = new T_errorString_asInterface("integer overflow");
-
+var _divideError:Error = new T_errorString_asInterface("integer divide by zero");
+var _overflowError:Error = new T_errorString_asInterface("integer overflow");
+var _nullPointerDereference:Error = new T_errorString_asInterface("null pointer dereference");
 typedef Error = StructType & {
 	public dynamic function error():GoString;
 };

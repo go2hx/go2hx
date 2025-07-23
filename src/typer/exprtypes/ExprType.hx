@@ -1147,11 +1147,12 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 		case invalidType:
 			macro stdgo._internal.internal.reflect.GoType.invalidType;
 		case named(path2, methods, type, _, _):
-			if (path2.length > 100)
-				path2 = path2.substr(0,100);
 			final namedPath = namedTypePath(path2, info);
 			namedPath.pack.push(namedPath.name);
-			final path = HaxeAst.makeString(namedPath.pack.join("."));
+			var namedPathString = namedPath.pack.join(".");
+			if (namedPathString.length > 150)
+				namedPathString = namedPathString.substr(0,150);
+			final path = HaxeAst.makeString(namedPathString);
 			var t = macro stdgo._internal.internal.reflect.GoType.invalidType;
 			final lastPack = namedPath.pack[namedPath.pack.length - 1].split(".");
 			final last = lastPack[lastPack.length - 1];
@@ -1161,7 +1162,7 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 				return t;
 			}
 			// new system goes below here
-			final defName = "__type__" + normalizeVarName(namedPath.pack.join("."));
+			final defName = "__type__" + normalizeVarName(namedPathString);
 			var exists = false; //info.reflectTypesData
 			for (def in info.reflectTypesData.defs) {
 				if (def.name == defName) {

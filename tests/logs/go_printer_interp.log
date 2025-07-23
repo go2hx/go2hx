@@ -1,8 +1,6 @@
-[ERROR] golibs/stdgo/_internal/go/printer/Printer__idents.hx:8: characters 75-77
+[ERROR] golibs/stdgo/_internal/go/printer/Printer.hx:51: characters 75-80
 
- 8 |                 stdgo._internal.go.ast.Ast_walk.walk(stdgo.Go.asInterface(_v), stdgo.Go.asInterface(_f));
-   |                                                                           ^^
-   | Unknown identifier : _v
-
-      | For function argument 'dir'
+ 51 |         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
+    |                                                                           ^^^^^
+    | Uncaught exception unreachable
 

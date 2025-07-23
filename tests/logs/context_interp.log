@@ -1,103 +1,60 @@
 === RUN  TestCustomContextAfterFuncCancel
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testcustomcontextafterfunccancel.Context_test_testcustomcontextafterfunccancel_Fields_.testCustomContextAfterFuncCancel (golibs/_internal/context_test/Context_test_testcustomcontextafterfunccancel.hx line 63 column 30)
 
--- FAIL: TestCustomContextAfterFuncCancel
+-- PASS: TestCustomContextAfterFuncCancel
 
 === RUN  TestCustomContextAfterFuncTimeout
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testcustomcontextafterfunctimeout.Context_test_testcustomcontextafterfunctimeout_Fields_.testCustomContextAfterFuncTimeout (golibs/_internal/context_test/Context_test_testcustomcontextafterfunctimeout.hx line 63 column 30)
 
--- FAIL: TestCustomContextAfterFuncTimeout
+-- PASS: TestCustomContextAfterFuncTimeout
 
 === RUN  TestCustomContextAfterFuncAfterFunc
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testcustomcontextafterfuncafterfunc.Context_test_testcustomcontextafterfuncafterfunc_Fields_.testCustomContextAfterFuncAfterFunc (golibs/_internal/context_test/Context_test_testcustomcontextafterfuncafterfunc.hx line 67 column 30)
 
--- FAIL: TestCustomContextAfterFuncAfterFunc
+-- PASS: TestCustomContextAfterFuncAfterFunc
 
 === RUN  TestCustomContextAfterFuncUnregisterCancel
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregistercancel.Context_test_testcustomcontextafterfuncunregistercancel_Fields_.testCustomContextAfterFuncUnregisterCancel (golibs/_internal/context_test/Context_test_testcustomcontextafterfuncunregistercancel.hx line 4 column 23)
-Called from stdgo._internal.context._Context_withcancel.Context_withcancel_Fields_.withCancel (golibs/stdgo/_internal/context/Context_withcancel.hx line 4 column 18)
-Called from stdgo._internal.context._Context__withcancel.Context__withcancel_Fields_._withCancel (golibs/stdgo/_internal/context/Context__withcancel.hx line 10 column 9)
-Called from stdgo._internal.context.T_cancelCtx_static_extension._propagateCancel (golibs/stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153 column 9)
-Called from stdgo._internal.sync.atomic_.Int32_static_extension.add (golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8 column 9)
 
--- FAIL: TestCustomContextAfterFuncUnregisterCancel
+-- PASS: TestCustomContextAfterFuncUnregisterCancel
 
 === RUN  TestCustomContextAfterFuncUnregisterTimeout
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregistertimeout.Context_test_testcustomcontextafterfuncunregistertimeout_Fields_.testCustomContextAfterFuncUnregisterTimeout (golibs/_internal/context_test/Context_test_testcustomcontextafterfuncunregistertimeout.hx line 4 column 23)
-Called from stdgo._internal.context._Context_withtimeout.Context_withtimeout_Fields_.withTimeout (golibs/stdgo/_internal/context/Context_withtimeout.hx line 4 column 16)
-Called from stdgo._internal.context._Context_withdeadline.Context_withdeadline_Fields_.withDeadline (golibs/stdgo/_internal/context/Context_withdeadline.hx line 4 column 16)
-Called from stdgo._internal.context._Context_withdeadlinecause.Context_withdeadlinecause_Fields_.withDeadlineCause (golibs/stdgo/_internal/context/Context_withdeadlinecause.hx line 106 column 30)
 
--- FAIL: TestCustomContextAfterFuncUnregisterTimeout
+-- PASS: TestCustomContextAfterFuncUnregisterTimeout
 
 === RUN  TestCustomContextAfterFuncUnregisterAfterFunc
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregisterafterfunc.Context_test_testcustomcontextafterfuncunregisterafterfunc_Fields_.testCustomContextAfterFuncUnregisterAfterFunc (golibs/_internal/context_test/Context_test_testcustomcontextafterfuncunregisterafterfunc.hx line 4 column 21)
-Called from stdgo._internal.context._Context_afterfunc.Context_afterfunc_Fields_.afterFunc (golibs/stdgo/_internal/context/Context_afterfunc.hx line 6 column 9)
-Called from stdgo._internal.context.T_cancelCtx_static_extension._propagateCancel (golibs/stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153 column 9)
-Called from stdgo._internal.sync.atomic_.Int32_static_extension.add (golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8 column 9)
 
--- FAIL: TestCustomContextAfterFuncUnregisterAfterFunc
+-- PASS: TestCustomContextAfterFuncUnregisterAfterFunc
 
 === RUN  TestDeadlineExceededIsNetError
 
 -- PASS: TestDeadlineExceededIsNetError
 
 === RUN  TestParentFinishesChild
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
+bad linkage: pc.children = map[], want context.Background.WithCancel.WithCancel, context.Background.WithCancel.WithValue(type string, val value).WithDeadline(2157-04-27 04:56:31.405777408 +0000 UTC+0 [1000h0m0s]), and an afterFunc
+bad linkage: parentCancelCtx(cancelChild.Context) = <nil>, false want context.Background.WithCancel, true
+bad linkage: parentCancelCtx(timerChild.Context) = <nil>, false want context.Background.WithCancel, true
+Exception: null pointer dereference
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.context_test._Context_test_testparentfinisheschild.Context_test_testparentfinisheschild_Fields_.testParentFinishesChild (golibs/_internal/context_test/Context_test_testparentfinisheschild.hx line 4 column 9)
-Called from stdgo._internal.context._Context_xtestparentfinisheschild.Context_xtestparentfinisheschild_Fields_.xTestParentFinishesChild (golibs/stdgo/_internal/context/Context_xtestparentfinisheschild.hx line 296 column 30)
+Called from stdgo._internal.context._Context_xtestparentfinisheschild.Context_xtestparentfinisheschild_Fields_.xTestParentFinishesChild (golibs/stdgo/_internal/context/Context_xtestparentfinisheschild.hx line 383 column 30)
 
 -- FAIL: TestParentFinishesChild
 
 === RUN  TestChildFinishesFirst
-<-child.Done() blocked, but shouldn't have
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testchildfinishesfirst.Context_test_testchildfinishesfirst_Fields_.testChildFinishesFirst (golibs/_internal/context_test/Context_test_testchildfinishesfirst.hx line 4 column 9)
-Called from stdgo._internal.context._Context_xtestchildfinishesfirst.Context_xtestchildfinishesfirst_Fields_.xTestChildFinishesFirst (golibs/stdgo/_internal/context/Context_xtestchildfinishesfirst.hx line 218 column 30)
+bad linkage: parentCancelCtx(cc.Context) = <nil>, false want context.Background.WithCancel, true
+bad linkage: pc.children = map[], cc = context.Background.WithCancel.WithCancel
 
 -- FAIL: TestChildFinishesFirst
 
 === RUN  TestCancelRemoves
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testcancelremoves.Context_test_testcancelremoves_Fields_.testCancelRemoves (golibs/_internal/context_test/Context_test_testcancelremoves.hx line 4 column 9)
-Called from stdgo._internal.context._Context_xtestcancelremoves.Context_xtestcancelremoves_Fields_.xTestCancelRemoves (golibs/stdgo/_internal/context/Context_xtestcancelremoves.hx line 16 column 23)
-Called from stdgo._internal.context._Context_withcancel.Context_withcancel_Fields_.withCancel (golibs/stdgo/_internal/context/Context_withcancel.hx line 4 column 18)
-Called from stdgo._internal.context._Context__withcancel.Context__withcancel_Fields_._withCancel (golibs/stdgo/_internal/context/Context__withcancel.hx line 10 column 9)
-Called from stdgo._internal.context.T_cancelCtx_static_extension._propagateCancel (golibs/stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153 column 9)
-Called from stdgo._internal.sync.atomic_.Int32_static_extension.add (golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8 column 9)
+with WithCancel child : context has 0 children, want 1
+with WithTimeout child : context has 0 children, want 1
+with AfterFunc child : context has 0 children, want 1
 
 -- FAIL: TestCancelRemoves
 
 === RUN  TestCustomContextGoroutines
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
+1 goroutines created1 goroutines createdException: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.context_test._Context_test_testcustomcontextgoroutines.Context_test_testcustomcontextgoroutines_Fields_.testCustomContextGoroutines (golibs/_internal/context_test/Context_test_testcustomcontextgoroutines.hx line 4 column 9)
-Called from stdgo._internal.context._Context_xtestcustomcontextgoroutines.Context_xtestcustomcontextgoroutines_Fields_.xTestCustomContextGoroutines (golibs/stdgo/_internal/context/Context_xtestcustomcontextgoroutines.hx line 152 column 30)
+Called from stdgo._internal.context._Context_xtestcustomcontextgoroutines.Context_xtestcustomcontextgoroutines_Fields_.xTestCustomContextGoroutines (golibs/stdgo/_internal/context/Context_xtestcustomcontextgoroutines.hx line 155 column 30)
 
 -- FAIL: TestCustomContextGoroutines
 
@@ -110,43 +67,28 @@ Called from stdgo._internal.context._Context_xtestcustomcontextgoroutines.Contex
 -- PASS: TestTODO
 
 === RUN  TestWithCancel
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testwithcancel.Context_test_testwithcancel_Fields_.testWithCancel (golibs/_internal/context_test/Context_test_testwithcancel.hx line 14 column 23)
-Called from stdgo._internal.context._Context_withcancel.Context_withcancel_Fields_.withCancel (golibs/stdgo/_internal/context/Context_withcancel.hx line 4 column 18)
-Called from stdgo._internal.context._Context__withcancel.Context__withcancel_Fields_._withCancel (golibs/stdgo/_internal/context/Context__withcancel.hx line 10 column 9)
-Called from stdgo._internal.context.T_cancelCtx_static_extension._propagateCancel (golibs/stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153 column 9)
-Called from stdgo._internal.sync.atomic_.Int32_static_extension.add (golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8 column 9)
 
--- FAIL: TestWithCancel
+-- PASS: TestWithCancel
 
 === RUN  TestDeadline
 Exception: T_:testing.deadline is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testdeadline.Context_test_testdeadline_Fields_.testDeadline (golibs/_internal/context_test/Context_test_testdeadline.hx line 16 column 9)
-Called from _internal.context_test._Context_test__testdeadline.Context_test__testdeadline_Fields_._testDeadline (golibs/_internal/context_test/Context_test__testdeadline.hx line 107 column 30)
+Called from _internal.context_test._Context_test_testdeadline.Context_test_testdeadline_Fields_.testDeadline (golibs/_internal/context_test/Context_test_testdeadline.hx line 23 column 9)
+Called from _internal.context_test._Context_test__testdeadline.Context_test__testdeadline_Fields_._testDeadline (golibs/_internal/context_test/Context_test__testdeadline.hx line 135 column 30)
 
 -- FAIL: TestDeadline
 
 === RUN  TestTimeout
 Exception: T_:testing.deadline is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testtimeout.Context_test_testtimeout_Fields_.testTimeout (golibs/_internal/context_test/Context_test_testtimeout.hx line 16 column 9)
-Called from _internal.context_test._Context_test__testdeadline.Context_test__testdeadline_Fields_._testDeadline (golibs/_internal/context_test/Context_test__testdeadline.hx line 107 column 30)
+Called from _internal.context_test._Context_test_testtimeout.Context_test_testtimeout_Fields_.testTimeout (golibs/_internal/context_test/Context_test_testtimeout.hx line 23 column 9)
+Called from _internal.context_test._Context_test__testdeadline.Context_test__testdeadline_Fields_._testDeadline (golibs/_internal/context_test/Context_test__testdeadline.hx line 135 column 30)
 
 -- FAIL: TestTimeout
 
 === RUN  TestCanceledTimeout
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testcanceledtimeout.Context_test_testcanceledtimeout_Fields_.testCanceledTimeout (golibs/_internal/context_test/Context_test_testcanceledtimeout.hx line 5 column 23)
-Called from stdgo._internal.context._Context_withtimeout.Context_withtimeout_Fields_.withTimeout (golibs/stdgo/_internal/context/Context_withtimeout.hx line 4 column 16)
-Called from stdgo._internal.context._Context_withdeadline.Context_withdeadline_Fields_.withDeadline (golibs/stdgo/_internal/context/Context_withdeadline.hx line 4 column 16)
-Called from stdgo._internal.context._Context_withdeadlinecause.Context_withdeadlinecause_Fields_.withDeadlineCause (golibs/stdgo/_internal/context/Context_withdeadlinecause.hx line 106 column 30)
 
--- FAIL: TestCanceledTimeout
+-- PASS: TestCanceledTimeout
 
 === RUN  TestValues
 c1.Value(k2).(string) = "c1k1", true want "", false
@@ -171,60 +113,603 @@ golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not imple
 -- PASS: TestAllocs
 
 === RUN  TestSimultaneousCancels
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Exception: T_:testing.deadline is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.Context_test_testsimultaneouscancels_Fields_.testSimultaneousCancels (golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx line 197 column 30)
 
 -- FAIL: TestSimultaneousCancels
 
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
 === RUN  TestInterlockedCancels
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Exception: T_:testing.deadline is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.context_test._Context_test_testinterlockedcancels.Context_test_testinterlockedcancels_Fields_.testInterlockedCancels (golibs/_internal/context_test/Context_test_testinterlockedcancels.hx line 113 column 30)
 
 -- FAIL: TestInterlockedCancels
 
 === RUN  TestLayersCancel
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testlayerscancel.Context_test_testlayerscancel_Fields_.testLayersCancel (golibs/_internal/context_test/Context_test_testlayerscancel.hx line 4 column 9)
-Called from _internal.context_test._Context_test__testlayers.Context_test__testlayers_Fields_._testLayers (golibs/_internal/context_test/Context_test__testlayers.hx line 243 column 30)
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from hereUncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from hereUncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+seed=1753255456332035584: ctx should be canceled
 
 -- FAIL: TestLayersCancel
 
 === RUN  TestLayersTimeout
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
+Exception: T_:testing.deadline is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.context_test._Context_test_testlayerstimeout.Context_test_testlayerstimeout_Fields_.testLayersTimeout (golibs/_internal/context_test/Context_test_testlayerstimeout.hx line 4 column 9)
-Called from _internal.context_test._Context_test__testlayers.Context_test__testlayers_Fields_._testLayers (golibs/_internal/context_test/Context_test__testlayers.hx line 243 column 30)
+Called from _internal.context_test._Context_test__testlayers.Context_test__testlayers_Fields_._testLayers (golibs/_internal/context_test/Context_test__testlayers.hx line 257 column 30)
 
 -- FAIL: TestLayersTimeout
 
 === RUN  TestWithCancelCanceledParent
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testwithcancelcanceledparent.Context_test_testwithcancelcanceledparent_Fields_.testWithCancelCanceledParent (golibs/_internal/context_test/Context_test_testwithcancelcanceledparent.hx line 7 column 23)
-Called from stdgo._internal.context._Context_withcancel.Context_withcancel_Fields_.withCancel (golibs/stdgo/_internal/context/Context_withcancel.hx line 4 column 18)
-Called from stdgo._internal.context._Context__withcancel.Context__withcancel_Fields_._withCancel (golibs/stdgo/_internal/context/Context__withcancel.hx line 10 column 9)
-Called from stdgo._internal.context.T_cancelCtx_static_extension._propagateCancel (golibs/stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153 column 9)
-Called from stdgo._internal.sync.atomic_.Int32_static_extension.add (golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8 column 9)
+child has wrong cause; got = <nil>, want = Because!
 
 -- FAIL: TestWithCancelCanceledParent
 
 === RUN  TestWithCancelSimultaneouslyCanceledParent
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testwithcancelsimultaneouslycanceledparent.Context_test_testwithcancelsimultaneouslycanceledparent_Fields_.testWithCancelSimultaneouslyCanceledParent (golibs/_internal/context_test/Context_test_testwithcancelsimultaneouslycanceledparent.hx line 14 column 15)
-Called from stdgo._internal.context._Context_withcancel.Context_withcancel_Fields_.withCancel (golibs/stdgo/_internal/context/Context_withcancel.hx line 4 column 18)
-Called from stdgo._internal.context._Context__withcancel.Context__withcancel_Fields_._withCancel (golibs/stdgo/_internal/context/Context__withcancel.hx line 10 column 9)
-Called from stdgo._internal.context.T_cancelCtx_static_extension._propagateCancel (golibs/stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153 column 9)
-Called from stdgo._internal.sync.atomic_.Int32_static_extension.add (golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8 column 9)
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
+child has wrong cause; got = <nil>, want = Because!
 
 -- FAIL: TestWithCancelSimultaneouslyCanceledParent
 
@@ -250,24 +735,40 @@ Cause(ctx) = <nil> want parentCause
 - SUBRUN  WithCancelCause nil
 Cause(ctx) = <nil> want context canceled
 - SUBRUN  WithCancelCause: parent cause before child
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testcause.Context_test_testcause_Fields_.testCause (golibs/_internal/context_test/Context_test_testcause.hx line 317 column 13)
-Called from stdgo._internal.testing.T__static_extension.run (golibs/stdgo/_internal/testing/Testing_t__static_extension.hx line 13 column 9)
-Called from local function #37 (golibs/_internal/context_test/Context_test_testcause.hx line 320 column 28)
-Called from local function #22 (golibs/_internal/context_test/Context_test_testcause.hx line 184 column 27)
-Called from stdgo._internal.context._Context_withcancelcause.Context_withcancelcause_Fields_.withCancelCause (golibs/stdgo/_internal/context/Context_withcancelcause.hx line 4 column 18)
-Called from stdgo._internal.context._Context__withcancel.Context__withcancel_Fields_._withCancel (golibs/stdgo/_internal/context/Context__withcancel.hx line 10 column 9)
-Called from stdgo._internal.context.T_cancelCtx_static_extension._propagateCancel (golibs/stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153 column 9)
-Called from stdgo._internal.sync.atomic_.Int32_static_extension.add (golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8 column 9)
+Cause(ctx) = <nil> want parentCause
+- SUBRUN  WithCancelCause: parent cause after child
+Cause(ctx) = <nil> want childCause
+- SUBRUN  WithCancelCause: parent cause before nil
+Cause(ctx) = <nil> want parentCause
+- SUBRUN  WithCancelCause: parent cause after nil
+Cause(ctx) = <nil> want context canceled
+- SUBRUN  WithCancelCause: child cause after nil
+Cause(ctx) = <nil> want context canceled
+- SUBRUN  WithCancelCause: child cause before nil
+Cause(ctx) = <nil> want childCause
+- SUBRUN  WithTimeout
+Cause(ctx) = <nil> want context deadline exceeded
+- SUBRUN  WithTimeout canceled
+Cause(ctx) = <nil> want context canceled
+- SUBRUN  WithTimeoutCause
+Cause(ctx) = <nil> want tooSlow
+- SUBRUN  WithTimeoutCause canceled
+Cause(ctx) = <nil> want context canceled
+- SUBRUN  WithTimeoutCause stacked
+Cause(ctx) = <nil> want tooSlow
+- SUBRUN  WithTimeoutCause stacked canceled
+ctx.Err() = <nil> want context canceled
+Cause(ctx) = <nil> want finishedEarly
+- SUBRUN  WithoutCancel
+- SUBRUN  WithoutCancel canceled
+- SUBRUN  WithoutCancel timeout
 
 -- FAIL: TestCause
 
 === RUN  TestCauseRace
 Exception: :runtime.gosched is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testcauserace.Context_test_testcauserace_Fields_.testCauseRace (golibs/_internal/context_test/Context_test_testcauserace.hx line 29 column 13)
+Called from _internal.context_test._Context_test_testcauserace.Context_test_testcauserace_Fields_.testCauseRace (golibs/_internal/context_test/Context_test_testcauserace.hx line 57 column 13)
 Called from stdgo._internal.runtime._Runtime_gosched.Runtime_gosched_Fields_.gosched (golibs/stdgo/_internal/runtime/Runtime_gosched.hx line 2 column 25)
 
 -- FAIL: TestCauseRace
@@ -277,61 +778,29 @@ Called from stdgo._internal.runtime._Runtime_gosched.Runtime_gosched_Fields_.gos
 -- PASS: TestWithoutCancel
 
 === RUN  TestCustomContextPropagation
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testcustomcontextpropagation.Context_test_testcustomcontextpropagation_Fields_.testCustomContextPropagation (golibs/_internal/context_test/Context_test_testcustomcontextpropagation.hx line 86 column 30)
+child has wrong cause; got = <nil>, want = TestCustomContextPropagation
 
 -- FAIL: TestCustomContextPropagation
 
 === RUN  TestAfterFuncCalledAfterCancel
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testafterfunccalledaftercancel.Context_test_testafterfunccalledaftercancel_Fields_.testAfterFuncCalledAfterCancel (golibs/_internal/context_test/Context_test_testafterfunccalledaftercancel.hx line 5 column 21)
-Called from stdgo._internal.context._Context_afterfunc.Context_afterfunc_Fields_.afterFunc (golibs/stdgo/_internal/context/Context_afterfunc.hx line 6 column 9)
-Called from stdgo._internal.context.T_cancelCtx_static_extension._propagateCancel (golibs/stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153 column 9)
-Called from stdgo._internal.sync.atomic_.Int32_static_extension.add (golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8 column 9)
 
--- FAIL: TestAfterFuncCalledAfterCancel
+-- PASS: TestAfterFuncCalledAfterCancel
 
 === RUN  TestAfterFuncCalledAfterTimeout
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testafterfunccalledaftertimeout.Context_test_testafterfunccalledaftertimeout_Fields_.testAfterFuncCalledAfterTimeout (golibs/_internal/context_test/Context_test_testafterfunccalledaftertimeout.hx line 102 column 30)
 
--- FAIL: TestAfterFuncCalledAfterTimeout
+-- PASS: TestAfterFuncCalledAfterTimeout
 
 === RUN  TestAfterFuncCalledImmediately
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testafterfunccalledimmediately.Context_test_testafterfunccalledimmediately_Fields_.testAfterFuncCalledImmediately (golibs/_internal/context_test/Context_test_testafterfunccalledimmediately.hx line 8 column 9)
-Called from stdgo._internal.context._Context_afterfunc.Context_afterfunc_Fields_.afterFunc (golibs/stdgo/_internal/context/Context_afterfunc.hx line 6 column 9)
-Called from stdgo._internal.context.T_cancelCtx_static_extension._propagateCancel (golibs/stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153 column 9)
-Called from stdgo._internal.sync.atomic_.Int32_static_extension.add (golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8 column 9)
 
--- FAIL: TestAfterFuncCalledImmediately
+-- PASS: TestAfterFuncCalledImmediately
 
 === RUN  TestAfterFuncNotCalledAfterStop
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testafterfuncnotcalledafterstop.Context_test_testafterfuncnotcalledafterstop_Fields_.testAfterFuncNotCalledAfterStop (golibs/_internal/context_test/Context_test_testafterfuncnotcalledafterstop.hx line 5 column 21)
-Called from stdgo._internal.context._Context_afterfunc.Context_afterfunc_Fields_.afterFunc (golibs/stdgo/_internal/context/Context_afterfunc.hx line 6 column 9)
-Called from stdgo._internal.context.T_cancelCtx_static_extension._propagateCancel (golibs/stdgo/_internal/context/Context_t_cancelctx_static_extension.hx line 153 column 9)
-Called from stdgo._internal.sync.atomic_.Int32_static_extension.add (golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 8 column 9)
 
--- FAIL: TestAfterFuncNotCalledAfterStop
+-- PASS: TestAfterFuncNotCalledAfterStop
 
 === RUN  TestAfterFuncCalledAsynchronously
-golibs/stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:7: funclit
-Exception: not implemented: add
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.context_test._Context_test_testafterfunccalledasynchronously.Context_test_testafterfunccalledasynchronously_Fields_.testAfterFuncCalledAsynchronously (golibs/_internal/context_test/Context_test_testafterfunccalledasynchronously.hx line 103 column 30)
 
--- FAIL: TestAfterFuncCalledAsynchronously
+-- PASS: TestAfterFuncCalledAsynchronously
 
 golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
--- FAIL: TestAfterFuncCalledAsynchronously
+-- FAIL: TestCustomContextPropagation

@@ -11,13 +11,12 @@
 -- PASS: TestValidPath
 
 === RUN  TestGlob
-Exception: : No such file or directory
+Exception: File:os.stat is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.io.fs_test._Fs_test_testglob.Fs_test_testglob_Fields_.testGlob (golibs/_internal/io/fs_test/Fs_test_testglob.hx line 5 column 27)
-Called from stdgo._internal.io.fs._Fs_glob.Fs_glob_Fields_.glob (golibs/stdgo/_internal/io/fs/Fs_glob.hx line 6 column 50)
-Called from stdgo._internal.io.fs._Fs__globwithlimit.Fs__globwithlimit_Fields_._globWithLimit (golibs/stdgo/_internal/io/fs/Fs__globwithlimit.hx line 75 column 54)
-Called from stdgo._internal.io.fs._Fs__glob.Fs__glob_Fields_._glob (golibs/stdgo/_internal/io/fs/Fs__glob.hx line 5 column 23)
-Called from stdgo._internal.io.fs._Fs_readdir.Fs_readdir_Fields_.readDir (golibs/stdgo/_internal/io/fs/Fs_readdir.hx line 109 column 30)
+Called from stdgo._internal.io.fs._Fs_glob.Fs_glob_Fields_.glob (golibs/stdgo/_internal/io/fs/Fs_glob.hx line 12 column 50)
+Called from stdgo._internal.io.fs._Fs__globwithlimit.Fs__globwithlimit_Fields_._globWithLimit (golibs/stdgo/_internal/io/fs/Fs__globwithlimit.hx line 61 column 35)
+Called from stdgo._internal.io.fs._Fs_stat.Fs_stat_Fields_.stat (golibs/stdgo/_internal/io/fs/Fs_stat.hx line 98 column 30)
 
 -- FAIL: TestGlob
 
@@ -67,7 +66,7 @@ Try 'chmod --help' for more information.
 
  8 |                         var entries = sys.FileSystem.readDirectory(path);
    |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   | Uncaught exception tmp_fx9glkwsaz/a/bad: Permission denied
+   | Uncaught exception tmp_zm0zf4dc8v/a/bad: Permission denied
 
     11 |                                 deleteRecursively(path + '/' + entry);
        |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -95,4 +94,4 @@ Try 'chmod --help' for more information.
        |                                    ^^^^^^^^
        | Called from here
 
-got directories [.], want [. a a/bad a/next]
+got directories [], want [. a a/bad a/next]

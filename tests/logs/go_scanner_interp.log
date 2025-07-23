@@ -1,99 +1,24 @@
-=== RUN  TestScan
-Exception: RWMutex:sync.rLock is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.go.scanner._Scanner_testscan.Scanner_testscan_Fields_.testScan (golibs/stdgo/_internal/go/scanner/Scanner_testscan.hx line 10 column 119)
-Called from stdgo._internal.go.token.FileSet_static_extension.base (golibs/stdgo/_internal/go/token/Token_fileset_static_extension.hx line 421 column 9)
-Called from stdgo._internal.sync.RWMutex_static_extension.rLock (golibs/stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 26 column 98)
+[ERROR] golibs/stdgo/_internal/encoding/gob/Gob__buildtypeinfo.hx:237: characters 30-35
 
--- FAIL: TestScan
+ 237 |                     @:throw3 throw e;
+     |                              ^^^^^
+     | Uncaught exception not implemented name
 
-=== RUN  TestStripCR
+      ->  golibs/stdgo/_internal/encoding/gob/Gob__gettypeinfo.hx:32: characters 16-88
 
--- PASS: TestStripCR
+      32 |         return stdgo._internal.encoding.gob.Gob__buildtypeinfo._buildTypeInfo(_ut, _rt);
+         |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-=== RUN  TestSemicolons
-Exception: RWMutex:sync.rLock is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.go.scanner._Scanner_testsemicolons.Scanner_testsemicolons_Fields_.testSemicolons (golibs/stdgo/_internal/go/scanner/Scanner_testsemicolons.hx line 8 column 13)
-Called from stdgo._internal.go.scanner._Scanner__checksemi.Scanner__checksemi_Fields_._checkSemi (golibs/stdgo/_internal/go/scanner/Scanner__checksemi.hx line 9 column 108)
-Called from stdgo._internal.go.token.FileSet_static_extension.base (golibs/stdgo/_internal/go/token/Token_fileset_static_extension.hx line 421 column 9)
-Called from stdgo._internal.sync.RWMutex_static_extension.rLock (golibs/stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 26 column 98)
+      ->  golibs/stdgo/_internal/encoding/gob/Gob__mustgettypeinfo.hx:15: characters 23-140
 
--- FAIL: TestSemicolons
+      15 |         var __tmp__ = stdgo._internal.encoding.gob.Gob__gettypeinfo._getTypeInfo(stdgo._internal.encoding.gob.Gob__usertype._userType(_rt)), _t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_typeinfo.T_typeInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+         |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-=== RUN  TestLineDirectives
-Exception: RWMutex:sync.rLock is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.go.scanner._Scanner_testlinedirectives.Scanner_testlinedirectives_Fields_.testLineDirectives (golibs/stdgo/_internal/go/scanner/Scanner_testlinedirectives.hx line 4 column 9)
-Called from stdgo._internal.go.scanner._Scanner__testsegments.Scanner__testsegments_Fields_._testSegments (golibs/stdgo/_internal/go/scanner/Scanner__testsegments.hx line 9 column 99)
-Called from stdgo._internal.go.token.FileSet_static_extension.base (golibs/stdgo/_internal/go/token/Token_fileset_static_extension.hx line 421 column 9)
-Called from stdgo._internal.sync.RWMutex_static_extension.rLock (golibs/stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 26 column 98)
+      ->  golibs/stdgo/_internal/encoding/gob/Gob__twiretype.hx:14: characters 71-199
 
--- FAIL: TestLineDirectives
+      14 | var _tWireType : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId = stdgo._internal.encoding.gob.Gob__mustgettypeinfo._mustGetTypeInfo(stdgo._internal.encoding.gob.Gob__wiretypetype._wireTypeType)._id;
+         |                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-=== RUN  TestInvalidLineDirectives
-Exception: RWMutex:sync.rLock is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.go.scanner._Scanner_testinvalidlinedirectives.Scanner_testinvalidlinedirectives_Fields_.testInvalidLineDirectives (golibs/stdgo/_internal/go/scanner/Scanner_testinvalidlinedirectives.hx line 10 column 212)
-Called from stdgo._internal.go.token.FileSet_static_extension.base (golibs/stdgo/_internal/go/token/Token_fileset_static_extension.hx line 421 column 9)
-Called from stdgo._internal.sync.RWMutex_static_extension.rLock (golibs/stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 26 column 98)
-
--- FAIL: TestInvalidLineDirectives
-
-=== RUN  TestInit
-Exception: RWMutex:sync.rLock is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.go.scanner._Scanner_testinit.Scanner_testinit_Fields_.testInit (golibs/stdgo/_internal/go/scanner/Scanner_testinit.hx line 5 column 101)
-Called from stdgo._internal.go.token.FileSet_static_extension.base (golibs/stdgo/_internal/go/token/Token_fileset_static_extension.hx line 421 column 9)
-Called from stdgo._internal.sync.RWMutex_static_extension.rLock (golibs/stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 26 column 98)
-
--- FAIL: TestInit
-
-=== RUN  TestStdErrorHandler
-Exception: RWMutex:sync.rLock is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.go.scanner._Scanner_teststderrorhandler.Scanner_teststderrorhandler_Fields_.testStdErrorHandler (golibs/stdgo/_internal/go/scanner/Scanner_teststderrorhandler.hx line 11 column 100)
-Called from stdgo._internal.go.token.FileSet_static_extension.base (golibs/stdgo/_internal/go/token/Token_fileset_static_extension.hx line 421 column 9)
-Called from stdgo._internal.sync.RWMutex_static_extension.rLock (golibs/stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 26 column 98)
-
--- FAIL: TestStdErrorHandler
-
-=== RUN  TestScanErrors
-Exception: RWMutex:sync.rLock is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.go.scanner._Scanner_testscanerrors.Scanner_testscanerrors_Fields_.testScanErrors (golibs/stdgo/_internal/go/scanner/Scanner_testscanerrors.hx line 6 column 13)
-Called from stdgo._internal.go.scanner._Scanner__checkerror.Scanner__checkerror_Fields_._checkError (golibs/stdgo/_internal/go/scanner/Scanner__checkerror.hx line 12 column 119)
-Called from stdgo._internal.go.token.FileSet_static_extension.base (golibs/stdgo/_internal/go/token/Token_fileset_static_extension.hx line 421 column 9)
-Called from stdgo._internal.sync.RWMutex_static_extension.rLock (golibs/stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 26 column 98)
-
--- FAIL: TestScanErrors
-
-=== RUN  TestIssue10213
-Exception: RWMutex:sync.rLock is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.go.scanner._Scanner_testissue10213.Scanner_testissue10213_Fields_.testIssue10213 (golibs/stdgo/_internal/go/scanner/Scanner_testissue10213.hx line 6 column 119)
-Called from stdgo._internal.go.token.FileSet_static_extension.base (golibs/stdgo/_internal/go/token/Token_fileset_static_extension.hx line 421 column 9)
-Called from stdgo._internal.sync.RWMutex_static_extension.rLock (golibs/stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 26 column 98)
-
--- FAIL: TestIssue10213
-
-=== RUN  TestIssue28112
-Exception: RWMutex:sync.rLock is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.go.scanner._Scanner_testissue28112.Scanner_testissue28112_Fields_.testIssue28112 (golibs/stdgo/_internal/go/scanner/Scanner_testissue28112.hx line 7 column 119)
-Called from stdgo._internal.go.token.FileSet_static_extension.base (golibs/stdgo/_internal/go/token/Token_fileset_static_extension.hx line 421 column 9)
-Called from stdgo._internal.sync.RWMutex_static_extension.rLock (golibs/stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 26 column 98)
-
--- FAIL: TestIssue28112
-
-=== RUN  TestNumbers
-Exception: RWMutex:sync.rLock is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.go.scanner._Scanner_testnumbers.Scanner_testnumbers_Fields_.testNumbers (golibs/stdgo/_internal/go/scanner/Scanner_testnumbers.hx line 230 column 123)
-Called from stdgo._internal.go.token.FileSet_static_extension.base (golibs/stdgo/_internal/go/token/Token_fileset_static_extension.hx line 421 column 9)
-Called from stdgo._internal.sync.RWMutex_static_extension.rLock (golibs/stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 26 column 98)
-
--- FAIL: TestNumbers
-
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
--- FAIL: TestNumbers

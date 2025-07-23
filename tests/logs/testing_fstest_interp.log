@@ -8,10 +8,10 @@
 -- PASS: TestMapFSChmodDot
 
 === RUN  TestSymlink
-writeFile tmp_bcqbmmbhn9/hello: no such file or directory
+writeFile tmp_p26wzs3d7g/hello: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.testing.fstest._Fstest_testsymlink.Fstest_testsymlink_Fields_.testSymlink (golibs/stdgo/_internal/testing/fstest/Fstest_testsymlink.hx line 12 column 26)
+Called from stdgo._internal.testing.fstest._Fstest_testsymlink.Fstest_testsymlink_Fields_.testSymlink (golibs/stdgo/_internal/testing/fstest/Fstest_testsymlink.hx line 24 column 17)
 Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 50 column 88)
 Called from stdgo._internal.testing.T_common_static_extension.fatal (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)

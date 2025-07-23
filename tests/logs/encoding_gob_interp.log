@@ -1,30 +1,24 @@
-[ERROR] golibs/stdgo/_internal/encoding/gob/Gob__implementsinterface.hx:26: characters 42-46
+[ERROR] golibs/stdgo/_internal/encoding/gob/Gob__buildtypeinfo.hx:246: characters 30-35
 
- 26 |         if ((_typ.string() : String) == (null.string() : String)) {
-    |                                          ^^^^
-    | Uncaught exception Null Access
+ 246 |                     @:throw3 throw e;
+     |                              ^^^^^
+     | Uncaught exception not implemented name
 
-     ->  golibs/stdgo/_internal/encoding/gob/Gob__validusertype.hx:59: characters 27-243
+      ->  golibs/stdgo/_internal/encoding/gob/Gob__gettypeinfo.hx:41: characters 16-88
 
-     59 |             var __tmp__ = stdgo._internal.encoding.gob.Gob__implementsinterface._implementsInterface((@:checkr _ut ?? throw "null pointer dereference")._user, stdgo._internal.encoding.gob.Gob__gobencoderinterfacetype._gobEncoderInterfaceType), _ok:Bool = __tmp__._0, _indir:stdgo.GoInt8 = __tmp__._1;
-        |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        | Called from here
+      41 |         return stdgo._internal.encoding.gob.Gob__buildtypeinfo._buildTypeInfo(_ut, _rt);
+         |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-     ->  golibs/stdgo/_internal/encoding/gob/Gob__usertype.hx:24: characters 23-90
+      ->  golibs/stdgo/_internal/encoding/gob/Gob__mustgettypeinfo.hx:24: characters 23-140
 
-     24 |         var __tmp__ = stdgo._internal.encoding.gob.Gob__validusertype._validUserType(_rt), _ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_usertypeinfo.T_userTypeInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        | Called from here
+      24 |         var __tmp__ = stdgo._internal.encoding.gob.Gob__gettypeinfo._getTypeInfo(stdgo._internal.encoding.gob.Gob__usertype._userType(_rt)), _t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_typeinfo.T_typeInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+         |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-     ->  golibs/stdgo/_internal/encoding/gob/Gob__mustgettypeinfo.hx:24: characters 82-139
+      ->  golibs/stdgo/_internal/encoding/gob/Gob__twiretype.hx:23: characters 71-199
 
-     24 |         var __tmp__ = stdgo._internal.encoding.gob.Gob__gettypeinfo._getTypeInfo(stdgo._internal.encoding.gob.Gob__usertype._userType(_rt)), _t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_typeinfo.T_typeInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        |                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        | Called from here
-
-     ->  golibs/stdgo/_internal/encoding/gob/Gob__twiretype.hx:23: characters 71-199
-
-     23 | var _tWireType : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId = stdgo._internal.encoding.gob.Gob__mustgettypeinfo._mustGetTypeInfo(stdgo._internal.encoding.gob.Gob__wiretypetype._wireTypeType)._id;
-        |                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        | Called from here
+      23 | var _tWireType : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId = stdgo._internal.encoding.gob.Gob__mustgettypeinfo._mustGetTypeInfo(stdgo._internal.encoding.gob.Gob__wiretypetype._wireTypeType)._id;
+         |                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 

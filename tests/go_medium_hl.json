@@ -69,7 +69,6 @@
  "hl|issue7863",
  "hl|issue7995",
  "hl|issue8139",
- "hl|literal2",
  "hl|rob2",
  "hl|typeswitch1",
  "hl|utf",
@@ -85,5 +84,6 @@
  "hl|issue22683",
  "hl|issue48289",
  "hl|clear",
- "hl|divide"
+ "hl|divide",
+ "hl|literal2"
 ]

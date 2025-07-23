@@ -70,7 +70,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 							for (i in 0...tuples.length) {
 								final fieldName = "_" + i;
 								final type = toComplexType(tuples[i], info);
-								args[i] = macro(__tmp__.$fieldName:$type);
+								args[i] = macro(__tmp__.$fieldName : $type);
 							}
 						}
 					default:
@@ -124,7 +124,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						// exprArgs:Array<GoAst.Expr>
 						// args:Array<Expr>
 						for (i in skip...args.length + (expr.ellipsis > 0 ? -1 : 0)) {
-							final fromType = getVar(typeof(exprArgs[i - skip], info, false));
+							var fromType = getVar(typeof(exprArgs[i - skip], info, false));
 							var toType = switch args[i].expr {
 								case EConst(CIdent("null")):
 									getVar(params[i - skip]);
@@ -149,7 +149,14 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 								}
 							}
 							// trace(new codegen.Printer().printExpr(args[i]));
-							// trace(fromType, toType);
+							// trace(fromType, toType, tupleArg != null);
+							if (tupleArg != null) {
+								switch getVar(typeof(exprArgs[0 - skip], info, false)) {
+									case tuple(_, _.get() => types):
+										fromType = getVar(types[i - skip]);
+									default:
+								}
+							}
 							args[i] = typer.exprs.Expr.explicitConversion(fromType, toType, args[i], info);
 							switch exprArgs[i - skip]?.id {
 								case "Ident":
@@ -226,6 +233,17 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						genArgs(true);
 						return (macro @:define("(sys || hxnodejs)") Sys.exit($a{args}));
 					}
+				case "Sizeof", "Offsetof", "Alignof":
+					if (expr.fun.x.id == "Ident" && expr.fun.x.name == "unsafe") {
+						final args = [for (i in 0...expr.args.length) {
+							final e = typer.exprs.Expr.typeExpr(expr.args[i], info);
+							final t = typer.exprtypes.ExprType.typeof(expr.args[i], info, false);
+							// function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):MacroExpr {
+							typer.exprs.Expr.toAnyInterface(e, t, info);
+						}];
+						var e = typer.exprs.Expr.typeExpr(expr.fun, info);
+						return returnExpr(macro $e($a{args}));
+					}
 			}
 		case "FuncLit":
 			final expr = FunctionLiteral.typeFuncLit(expr.fun, info);
@@ -238,10 +256,6 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 			if (!info.renameIdents.exists(expr.fun.name) && info.localIdents.indexOf(untitle(expr.fun.name)) == -1) {
 				final funcName = expr.fun.name;
 				switch funcName {
-					case "log.Println":
-						genArgs(false);
-						args = args.map(arg -> macro stdgo.Go.toInterface($arg));
-						return (macro @:define("cdebug") stdgo.log.Log.println($a{args}));
 					case "panic":
 						genArgs(false);
 						return returnExpr(macro throw ${typer.exprs.Expr.toAnyInterface(args[0], typeof(expr.args[0], info, false), info)});
@@ -365,7 +379,8 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 									value = macro stdgo.Go.pointer($value);
 								} else {
 									final ct = TPath({name: "Ref", pack: ["stdgo"], params: [TPType(toComplexType(t, info))]});
-									value = macro(stdgo.Go.setRef($value) : $ct);
+									final gt = toReflectType(refType({get: () -> t}), info, [], false);
+									value = macro(stdgo.Go.setRef($value, $gt) : $ct);
 								}
 								return returnExpr(value);
 							default:

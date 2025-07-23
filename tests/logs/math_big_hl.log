@@ -1,6 +1,5 @@
-Uncaught exception: Map_:sync.load is not yet implemented
-Called from stdgo._internal.sync.$Map__static_extension.load(stdgo/_internal/sync/Sync_map__static_extension.hx:35)
-Called from stdgo._internal.encoding.gob._Gob__validusertype.$Gob__validusertype_Fields_._validUserType(stdgo/_internal/encoding/gob/Gob__validusertype.hx:5)
-Called from stdgo._internal.encoding.gob._Gob__usertype.$Gob__usertype_Fields_._userType(stdgo/_internal/encoding/gob/Gob__usertype.hx:3)
-Called from stdgo._internal.encoding.gob._Gob__mustgettypeinfo.$Gob__mustgettypeinfo_Fields_._mustGetTypeInfo(stdgo/_internal/encoding/gob/Gob__mustgettypeinfo.hx:3)
-Called from .init(stdgo/_internal/encoding/gob/Gob__twiretype.hx:2)
+Uncaught exception: not implemented name
+Called from stdgo._internal.encoding.gob._Gob__buildtypeinfo.$Gob__buildtypeinfo_Fields_._buildTypeInfo(stdgo/_internal/encoding/gob/Gob__buildtypeinfo.hx:237)
+Called from stdgo._internal.encoding.gob._Gob__gettypeinfo.$Gob__gettypeinfo_Fields_._getTypeInfo(stdgo/_internal/encoding/gob/Gob__gettypeinfo.hx:32)
+Called from stdgo._internal.encoding.gob._Gob__mustgettypeinfo.$Gob__mustgettypeinfo_Fields_._mustGetTypeInfo(stdgo/_internal/encoding/gob/Gob__mustgettypeinfo.hx:15)
+Called from .init(/home/runner/haxe/versions/b0b2997/std/hl/_std/Date.hx:0)

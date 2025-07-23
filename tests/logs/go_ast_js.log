@@ -76,9 +76,9 @@
      | ^^^^^^
      | (WDeprecatedEnumAbstract) `@:enum abstract` is deprecated in favor of `enum abstract`
 
-[ERROR] (macro) golibs/stdgo/_internal/go/ast/Ast__summary.hx:49: characters 21-58
+[ERROR] (macro) golibs/stdgo/_internal/go/ast/Ast__summary.hx:56: characters 21-58
 
-  49 |                     stdgo._internal.go.ast.Ast__loopbreak._loopBreak = true;
+  56 |                     stdgo._internal.go.ast.Ast__loopbreak._loopBreak = true;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : stdgo._internal.go.ast.Ast__loopbreak
 

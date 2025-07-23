@@ -1,7 +1,6 @@
 #haxelib run go2hx ./tests/interop
 -cp tests/interop
 -cp golibs
---macro Go2hxMacro.init()
 #-lib interop
 -m Main
 --hl interop.hl

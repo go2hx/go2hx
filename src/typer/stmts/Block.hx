@@ -1,8 +1,8 @@
 package typer.stmts;
 
 function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):MacroExpr {
-	if (stmt.list == null) {
-		if (isFunc && info.returnTypes.length > 0) {
+	if (stmt.list == null && (stmt.lbrace == -1 || info.returnTypes.length > 0)) {
+		if (isFunc) {
 			final s = HaxeAst.makeString("not implemented: " + info.funcName);
 			return macro {
 				trace("funclit");
@@ -57,7 +57,7 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 		catchBlock.push(macro if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
 			if (__exception__.message == "__return__")
 				throw "__return__";
-			exe = stdgo.Go.toInterface(__exception__.message);
+			exe = new stdgo.AnyInterface((__exception__.message : stdgo.GoString), new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.basic(17)));
 		});
 		catchBlock.push(macro stdgo.Go.recover_exception = exe);
 		switch e.expr {
@@ -75,7 +75,7 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 							if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
 								if (__exception__.message == "__return__")
 									throw "__return__";
-								exe = stdgo.Go.toInterface(__exception__.message);
+								exe = new stdgo.AnyInterface((__exception__.message : stdgo.GoString), new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.basic(17)));
 							};
 							stdgo.Go.recover_exception = exe;
 							f();

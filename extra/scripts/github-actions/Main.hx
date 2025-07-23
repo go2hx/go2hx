@@ -9,8 +9,9 @@ inline var dir = "extra/scripts/github-actions/";
 final targets = [
     "hl",     // 1
     "interp", // 1
-    "js",     // 1
-    //"cpp",    // 1
+    // "js",  // 1
+    //"cpp",  // 1
+    //"jvm",    // 1
 ];
 
 function main() {

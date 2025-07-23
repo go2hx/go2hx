@@ -90,8 +90,8 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):MacroExpr {
 		macro($e : $ct);
 	} else if (expr.info & GoAst.BasicInfo.isComplex != 0) {
 		final index = expr.value.indexOf("i");
-		var imagFloat = expr.value.substr(0, index);
-		var realFloat = expr.value.substr(index + 1);
+		var realFloat = expr.value.substr(0, index);
+		var imagFloat = expr.value.substr(index + 1);
 		final imag = toExpr(EConst(CFloat(imagFloat, "f64")));
 		final real = toExpr(EConst(CFloat(realFloat, "f64")));
 		macro new stdgo.GoComplex128($real, $imag);

@@ -248,5 +248,17 @@
  "interp|issuedash256",
  "interp|struct3",
  "interp|nilrange",
- "interp|mapObjectKeyExists"
+ "interp|mapObjectKeyExists",
+ "interp|any0",
+ "interp|any1",
+ "interp|atomic2",
+ "interp|context1",
+ "interp|fmt0",
+ "interp|fmt1",
+ "interp|interface22",
+ "interp|interface23",
+ "interp|interface24",
+ "interp|nilany",
+ "interp|recursiveTypeReflect",
+ "interp|tagBootstrap2"
 ]

@@ -162,9 +162,13 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 			if (elt.id == "KeyValueExpr") { // array expansion syntax uses KeyValue, value being a string word representation of the number
 				var elt:GoAst.KeyValueExpr = elt;
 				final index = Std.parseInt(elt.key.value);
-				exprs.push(run(elt.value, index));
+				var expr = run(elt.value, index);
+				expr.expr = typer.exprs.Expr.explicitConversion(typeof(elt.value, info, false), elem, expr.expr, info);
+				exprs.push(expr);
 			} else {
-				exprs.push(run(elt, index));
+				var expr = run(elt, index);
+				expr.expr = typer.exprs.Expr.explicitConversion(typeof(elt, info, false), elem, expr.expr, info);
+				exprs.push(expr);
 			}
 			index++;
 		}
@@ -176,7 +180,6 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 			if (index > max)
 				max = index;
 			var value = exprs[i].expr;
-			value = typer.exprs.Expr.explicitConversion(typeof(expr.elts[i], info, false), elem, value, info);
 			sets.push(macro s[${makeExpr(index)}] = $value);
 		}
 		sets.push(macro s);

@@ -97,7 +97,12 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		}
 		return switch gt {
 			case refType(_):
-				aValue == bValue;
+				switch gt2 {
+					case refType(_):
+						aValue == bValue;
+					default:
+						false;
+				}
 			case basic(kind):
 				switch kind {
 					case string_kind:
@@ -216,5 +221,5 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 }
 
 inline function errorString(s:stdgo.GoString) {
-	return stdgo.Go.toInterface(new Error.T_errorString_asInterface(s));
+	return new Error.T_errorString_asInterface(s).__underlying__();
 }

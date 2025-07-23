@@ -3,9 +3,7 @@ package go.reflect;
 function typeOf(_i) {
 	// // set internal Type
 	if (_i == null)
-		return
-			new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.basic(stdgo._internal.internal.reflect.BasicKind.unsafepointer_kind))),
-			new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.basic(stdgo._internal.internal.reflect.BasicKind.unsafepointer_kind)));
+		return null;
 	// set internal Type
 	return new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(_i.type), _i.type);
 }
@@ -290,6 +288,15 @@ function pointer(_v) {
 	var value = @:privateAccess _v.value.value;
 	return new stdgo.GoUIntptr(value != null ? 1 : 0);
 }
+
+function pointerTo(_t) {
+	final gt = @:privateAccess (_t : Dynamic)._common();
+	var t = new stdgo._internal.internal.reflect.Reflect._Type(pointerType({get: () -> gt}));
+	return new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new stdgo.Pointer(() -> t, value -> t = value), t);
+}
+
+inline function ptrTo(_t)
+	return stdgo._internal.reflect.Reflect_pointerto.pointerTo(_t);
 
 @:recv(Value)
 function field(_v) {

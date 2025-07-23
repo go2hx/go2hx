@@ -21,8 +21,8 @@ func runBits() {
 		if err := recover(); err == nil {
 			println("Div should have panicked when y<=hi")
 		} else if e, ok := err.(runtime.Error); !ok || e.Error() != overflowErrorStr {
-			println(e)
-			fmt.Printf("Div expected panic: %q, got: %q ", overflowError, e.Error())
+			fmt.Printf("Div expected panic: %q, got: %q ", overflowError, e)
+			panic("issue0")
 		}
 	}()
 
@@ -35,8 +35,8 @@ func runInternal() {
 		if err := recover(); err == nil {
 			println("Div should have panicked when y<=hi")
 		} else if e, ok := err.(runtime.Error); !ok || e.Error() != overflowErrorStr {
-			println(e)
-			fmt.Printf("Div expected panic: %q, got: %q ", overflowError, e.Error())
+			fmt.Printf("Div expected panic: %q, got: %q ", overflowError, e)
+			panic("issue1")
 		}
 	}()
 	panic(overflowError)

@@ -1,5 +1,494 @@
-Uncaught exception: RWMutex:sync.rLock is not yet implemented
-Called from stdgo._internal.sync.$RWMutex_static_extension.rLock(stdgo/_internal/sync/Sync_rwmutex_static_extension.hx:26)
-Called from stdgo._internal.text.template.$Template_static_extension.parse(stdgo/_internal/text/template/Template_template_static_extension.hx:37)
-Called from fun$17228(stdgo/_internal/text/template/Template__tval.hx:93)
-Called from .init(stdgo/_internal/text/template/Template__tval.hx:2)
+=== RUN  TestExecute
+Exception: not implemented numOut
+Called from stdgo._internal.text.template.$Template_static_extension.funcs (stdgo/_internal/text/template/Template_template_static_extension.hx line 236)
+Called from stdgo._internal.text.template._Template__testexecute.$Template__testexecute_Fields_._testExecute (stdgo/_internal/text/template/Template__testexecute.hx line 54)
+Called from stdgo._internal.text.template._Template_testexecute.$Template_testexecute_Fields_.testExecute (stdgo/_internal/text/template/Template_testexecute.hx line 21)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestExecute
+
+=== RUN  TestDelims
+Exception: Value:reflect.methodByName is not yet implemented
+Called from stdgo._internal.text.template.$Template_static_extension._execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 884)
+Called from stdgo._internal.text.template.$Template_static_extension.execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 895)
+Called from stdgo._internal.text.template._Template_testdelims.$Template_testdelims_Fields_.testDelims (stdgo/_internal/text/template/Template_testdelims.hx line 56)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestDelims
+
+=== RUN  TestExecuteError
+Exception: Value:reflect.methodByName is not yet implemented
+Called from stdgo._internal.text.template.$Template_static_extension._execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 884)
+Called from stdgo._internal.text.template.$Template_static_extension.execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 895)
+Called from stdgo._internal.text.template._Template_testexecuteerror.$Template_testexecuteerror_Fields_.testExecuteError (stdgo/_internal/text/template/Template_testexecuteerror.hx line 35)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestExecuteError
+
+=== RUN  TestExecError
+Exception: not implemented numOut
+Called from stdgo._internal.text.template.$Template_static_extension._execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 884)
+Called from stdgo._internal.text.template.$Template_static_extension.execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 895)
+Called from stdgo._internal.text.template._Template_testexecerror.$Template_testexecerror_Fields_.testExecError (stdgo/_internal/text/template/Template_testexecerror.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestExecError
+
+=== RUN  TestExecError_CustomError
+Exception: not implemented numOut
+Called from stdgo._internal.text.template.$Template_static_extension.funcs (stdgo/_internal/text/template/Template_template_static_extension.hx line 236)
+Called from stdgo._internal.text.template._Template_testexecerror_customerror.$Template_testexecerror_customerror_Fields_.testExecError_CustomError (stdgo/_internal/text/template/Template_testexecerror_customerror.hx line 25)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestExecError_CustomError
+
+=== RUN  TestJSEscaping
+
+-- PASS: TestJSEscaping
+
+=== RUN  TestTree
+Exception: null pointer dereference
+Called from stdgo._internal.text.template.$Template_static_extension._execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 884)
+Called from stdgo._internal.text.template.$Template_static_extension.execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 895)
+Called from stdgo._internal.text.template._Template_testtree.$Template_testtree_Fields_.testTree (stdgo/_internal/text/template/Template_testtree.hx line 36)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestTree
+
+=== RUN  TestExecuteOnNewTemplate
+
+-- PASS: TestExecuteOnNewTemplate
+
+=== RUN  TestMessageForExecuteEmpty
+expected initial error
+Exception: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
+Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 50)
+Called from stdgo._internal.text.template._Template_testmessageforexecuteempty.$Template_testmessageforexecuteempty_Fields_.testMessageForExecuteEmpty (stdgo/_internal/text/template/Template_testmessageforexecuteempty.hx line 26)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestMessageForExecuteEmpty
+
+=== RUN  TestFinalForPrintf
+
+-- PASS: TestFinalForPrintf
+
+=== RUN  TestComparison
+eq true true: want true; got 
+eq true false: want false; got 
+eq 1+2i 1+2i: want true; got 
+eq 1+2i 1+3i: want false; got 
+eq 1.5 1.5: want true; got 
+eq 1.5 2.5: want false; got 
+eq 1 1: want true; got 
+eq 1 2: want false; got 
+eq `xy` `xy`: want true; got 
+eq `xy` `xyz`: want false; got 
+eq .Uthree .Uthree: want true; got 
+eq .Uthree .Ufour: want false; got 
+eq 3 4 5 6 3: want true; got 
+eq 3 4 5 6 7: want false; got 
+ne true true: want false; got 
+ne true false: want true; got 
+ne 1+2i 1+2i: want false; got 
+ne 1+2i 1+3i: want true; got 
+ne 1.5 1.5: want false; got 
+ne 1.5 2.5: want true; got 
+ne 1 1: want false; got 
+ne 1 2: want true; got 
+ne `xy` `xy`: want false; got 
+ne `xy` `xyz`: want true; got 
+ne .Uthree .Uthree: want false; got 
+ne .Uthree .Ufour: want true; got 
+lt 1.5 1.5: want false; got 
+lt 1.5 2.5: want true; got 
+lt 1 1: want false; got 
+lt 1 2: want true; got 
+lt `xy` `xy`: want false; got 
+lt `xy` `xyz`: want true; got 
+lt .Uthree .Uthree: want false; got 
+lt .Uthree .Ufour: want true; got 
+le 1.5 1.5: want true; got 
+le 1.5 2.5: want true; got 
+le 2.5 1.5: want false; got 
+le 1 1: want true; got 
+le 1 2: want true; got 
+le 2 1: want false; got 
+le `xy` `xy`: want true; got 
+le `xy` `xyz`: want true; got 
+le `xyz` `xy`: want false; got 
+le .Uthree .Uthree: want true; got 
+le .Uthree .Ufour: want true; got 
+le .Ufour .Uthree: want false; got 
+gt 1.5 1.5: want false; got 
+gt 1.5 2.5: want false; got 
+gt 1 1: want false; got 
+gt 2 1: want true; got 
+gt 1 2: want false; got 
+gt `xy` `xy`: want false; got 
+gt `xy` `xyz`: want false; got 
+gt .Uthree .Uthree: want false; got 
+gt .Uthree .Ufour: want false; got 
+gt .Ufour .Uthree: want true; got 
+ge 1.5 1.5: want true; got 
+ge 1.5 2.5: want false; got 
+ge 2.5 1.5: want true; got 
+ge 1 1: want true; got 
+ge 1 2: want false; got 
+ge 2 1: want true; got 
+ge `xy` `xy`: want true; got 
+ge `xy` `xyz`: want false; got 
+ge `xyz` `xy`: want true; got 
+ge .Uthree .Uthree: want true; got 
+ge .Uthree .Ufour: want false; got 
+ge .Ufour .Uthree: want true; got 
+eq .Uthree .Three: want true; got 
+eq .Three .Uthree: want true; got 
+le .Uthree .Three: want true; got 
+le .Three .Uthree: want true; got 
+ge .Uthree .Three: want true; got 
+ge .Three .Uthree: want true; got 
+lt .Uthree .Three: want false; got 
+lt .Three .Uthree: want false; got 
+gt .Uthree .Three: want false; got 
+gt .Three .Uthree: want false; got 
+eq .Ufour .Three: want false; got 
+lt .Ufour .Three: want false; got 
+gt .Ufour .Three: want true; got 
+eq .NegOne .Uthree: want false; got 
+eq .Uthree .NegOne: want false; got 
+ne .NegOne .Uthree: want true; got 
+ne .Uthree .NegOne: want true; got 
+lt .NegOne .Uthree: want true; got 
+lt .Uthree .NegOne: want false; got 
+le .NegOne .Uthree: want true; got 
+le .Uthree .NegOne: want false; got 
+gt .NegOne .Uthree: want false; got 
+gt .Uthree .NegOne: want true; got 
+ge .NegOne .Uthree: want false; got 
+ge .Uthree .NegOne: want true; got 
+eq (index `x` 0) 'x': want true; got 
+eq (index `x` 0) 'y': want false; got 
+eq .V1 .V2: want true; got 
+eq .Ptr .Ptr: want true; got 
+eq .Ptr .NilPtr: want false; got 
+eq .NilPtr .NilPtr: want true; got 
+eq .Iface1 .Iface1: want true; got 
+eq .Iface1 .NilIface: want false; got 
+eq .NilIface .NilIface: want true; got 
+eq .NilIface .Iface1: want false; got 
+eq .NilIface 0: want false; got 
+eq 0 .NilIface: want false; got 
+eq .Map .Map: want true; got 
+eq .Map nil: want true; got 
+eq nil .Map: want true; got 
+eq .Map .NonNilMap: want false; got 
+eq `xy` 1 did not error
+eq 2 2.0 did not error
+lt true true did not error
+lt 1+0i 1+0i did not error
+eq .Ptr 1 did not error
+eq .Ptr .NegOne did not error
+eq .Map .V1 did not error
+eq .NonNilMap .NonNilMap did not error
+
+-- FAIL: TestComparison
+
+=== RUN  TestMissingMapKey
+Exception: Value:reflect.methodByName is not yet implemented
+Called from stdgo._internal.text.template.$Template_static_extension._execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 884)
+Called from stdgo._internal.text.template.$Template_static_extension.execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 895)
+Called from stdgo._internal.text.template._Template_testmissingmapkey.$Template_testmissingmapkey_Fields_.testMissingMapKey (stdgo/_internal/text/template/Template_testmissingmapkey.hx line 40)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestMissingMapKey
+
+=== RUN  TestUnterminatedStringError
+expected error
+Exception: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
+Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 50)
+Called from stdgo._internal.text.template._Template_testunterminatedstringerror.$Template_testunterminatedstringerror_Fields_.testUnterminatedStringError (stdgo/_internal/text/template/Template_testunterminatedstringerror.hx line 24)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestUnterminatedStringError
+
+=== RUN  TestExecuteGivesExecError
+expected error; got none
+Exception: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
+Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 50)
+Called from stdgo._internal.text.template._Template_testexecutegivesexecerror.$Template_testexecutegivesexecerror_Fields_.testExecuteGivesExecError (stdgo/_internal/text/template/Template_testexecutegivesexecerror.hx line 37)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestExecuteGivesExecError
+
+=== RUN  TestGoodFuncNames
+Exception: not implemented numOut
+Called from stdgo._internal.text.template.$Template_static_extension.funcs (stdgo/_internal/text/template/Template_template_static_extension.hx line 236)
+Called from stdgo._internal.text.template._Template_testgoodfuncnames.$Template_testgoodfuncnames_Fields_.testGoodFuncNames (stdgo/_internal/text/template/Template_testgoodfuncnames.hx line 23)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestGoodFuncNames
+
+=== RUN  TestBadFuncNames
+
+-- PASS: TestBadFuncNames
+
+=== RUN  TestBlock
+
+-- PASS: TestBlock
+
+=== RUN  TestEvalFieldErrors
+- SUBRUN  MissingFieldOnNil
+Exception: Value:reflect.methodByName is not yet implemented
+Called from stdgo._internal.text.template.$Template_static_extension._execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 884)
+Called from stdgo._internal.text.template.$Template_static_extension.execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 895)
+Called from stdgo._internal.text.template._Template_testevalfielderrors.$Template_testevalfielderrors_Fields_.~testEvalFieldErrors.23 (stdgo/_internal/text/template/Template_testevalfielderrors.hx line 36)
+Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
+Called from stdgo._internal.text.template._Template_testevalfielderrors.$Template_testevalfielderrors_Fields_.testEvalFieldErrors (stdgo/_internal/text/template/Template_testevalfielderrors.hx line 29)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestEvalFieldErrors
+
+=== RUN  TestMaxExecDepth
+skipping in -short mode
+Exception: __skip__
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52)
+Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 80)
+Called from stdgo._internal.text.template._Template_testmaxexecdepth.$Template_testmaxexecdepth_Fields_.testMaxExecDepth (stdgo/_internal/text/template/Template_testmaxexecdepth.hx line 23)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- SKIP: TestMaxExecDepth
+
+-- PASS: TestMaxExecDepth
+
+=== RUN  TestAddrOfIndex
+{{range .}}{{.String}}{{end}}: template output = "", want "<1>"Exception: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
+Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
+Called from stdgo._internal.text.template._Template_testaddrofindex.$Template_testaddrofindex_Fields_.testAddrOfIndex (stdgo/_internal/text/template/Template_testaddrofindex.hx line 46)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestAddrOfIndex
+
+=== RUN  TestInterfaceValues
+{{index .Nil 1}}: Execute: <nil>, want error "index of untyped nil"
+{{index .Slice 2}}: template output = "", want "2"
+{{index .Slice .Two}}: template output = "", want "2"
+{{call .Nil 1}}: Execute: <nil>, want error "call of nil"
+{{call .PlusOne 1}}: template output = "", want "2"
+{{call .PlusOne .One}}: template output = "", want "2"
+{{and (index .Slice 0) true}}: template output = "", want "0"
+{{and .Zero true}}: template output = "", want "0"
+{{and (index .Slice 1) false}}: template output = "", want "false"
+{{and .One false}}: template output = "", want "false"
+{{or (index .Slice 0) false}}: template output = "", want "false"
+{{or .Zero false}}: template output = "", want "false"
+{{or (index .Slice 1) true}}: template output = "", want "1"
+{{or .One true}}: template output = "", want "1"
+{{not (index .Slice 0)}}: template output = "", want "true"
+{{not .Zero}}: template output = "", want "true"
+{{not (index .Slice 1)}}: template output = "", want "false"
+{{not .One}}: template output = "", want "false"
+{{eq (index .Slice 0) .Zero}}: template output = "", want "true"
+{{eq (index .Slice 1) .One}}: template output = "", want "true"
+{{ne (index .Slice 0) .Zero}}: template output = "", want "false"
+{{ne (index .Slice 1) .One}}: template output = "", want "false"
+{{ge (index .Slice 0) .One}}: template output = "", want "false"
+{{ge (index .Slice 1) .Zero}}: template output = "", want "true"
+{{gt (index .Slice 0) .One}}: template output = "", want "false"
+{{gt (index .Slice 1) .Zero}}: template output = "", want "true"
+{{le (index .Slice 0) .One}}: template output = "", want "true"
+{{le (index .Slice 1) .Zero}}: template output = "", want "false"
+{{lt (index .Slice 0) .One}}: template output = "", want "true"
+{{lt (index .Slice 1) .Zero}}: template output = "", want "false"
+
+-- FAIL: TestInterfaceValues
+
+=== RUN  TestExecutePanicDuringCall
+Exception: not implemented numOut
+Called from stdgo._internal.text.template.$Template_static_extension.funcs (stdgo/_internal/text/template/Template_template_static_extension.hx line 236)
+Called from stdgo._internal.text.template._Template_testexecutepanicduringcall.$Template_testexecutepanicduringcall_Fields_.testExecutePanicDuringCall (stdgo/_internal/text/template/Template_testexecutepanicduringcall.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestExecutePanicDuringCall
+
+=== RUN  TestIssue31810
+expected error with no call, got none
+{{ (call .)  }} got "", expected "result"
+
+-- FAIL: TestIssue31810
+
+=== RUN  TestIssue43065
+expected err got nil
+
+-- FAIL: TestIssue43065
+
+=== RUN  TestIssue39807
+
+-- PASS: TestIssue39807
+
+=== RUN  TestIssue48215
+Exception: Value:reflect.methodByName is not yet implemented
+Called from stdgo._internal.text.template.$Template_static_extension._execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 884)
+Called from stdgo._internal.text.template.$Template_static_extension.execute (stdgo/_internal/text/template/Template_template_static_extension.hx line 895)
+Called from stdgo._internal.text.template._Template_testissue48215.$Template_testissue48215_Fields_.testIssue48215 (stdgo/_internal/text/template/Template_testissue48215.hx line 35)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestIssue48215
+
+=== RUN  TestMultiParse
+"missing end": expected error; got none
+"malformed name": expected error; got none
+
+-- FAIL: TestMultiParse
+
+=== RUN  TestMultiExecute
+Exception: not implemented numOut
+Called from stdgo._internal.text.template.$Template_static_extension.funcs (stdgo/_internal/text/template/Template_template_static_extension.hx line 236)
+Called from stdgo._internal.text.template._Template__testexecute.$Template__testexecute_Fields_._testExecute (stdgo/_internal/text/template/Template__testexecute.hx line 60)
+Called from stdgo._internal.text.template._Template_testmultiexecute.$Template_testmultiexecute_Fields_.testMultiExecute (stdgo/_internal/text/template/Template_testmultiexecute.hx line 50)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestMultiExecute
+
+=== RUN  TestParseFiles
+error parsing files: readFile testdata/file1.tmpl: no such file or directoryException: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
+Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
+Called from stdgo._internal.text.template._Template_testparsefiles.$Template_testparsefiles_Fields_.testParseFiles (stdgo/_internal/text/template/Template_testparsefiles.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestParseFiles
+
+=== RUN  TestParseGlob
+error parsing files: template: pattern matches no files: `testdata/file*.tmpl`Exception: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
+Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
+Called from stdgo._internal.text.template._Template_testparseglob.$Template_testparseglob_Fields_.testParseGlob (stdgo/_internal/text/template/Template_testparseglob.hx line 43)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestParseGlob
+
+=== RUN  TestParseFS
+Exception: SysError(Can't open testdata/DOES NOT EXIST for writing)
+Called from stdgo._internal.io.fs._Fs_stat.$Fs_stat_Fields_.stat (stdgo/_internal/io/fs/Fs_stat.hx line 98)
+Called from stdgo._internal.io.fs._Fs__globwithlimit.$Fs__globwithlimit_Fields_._globWithLimit (stdgo/_internal/io/fs/Fs__globwithlimit.hx line 61)
+Called from stdgo._internal.io.fs._Fs_glob.$Fs_glob_Fields_.glob (stdgo/_internal/io/fs/Fs_glob.hx line 12)
+Called from stdgo._internal.text.template._Template__parsefs.$Template__parsefs_Fields_._parseFS (stdgo/_internal/text/template/Template__parsefs.hx line 23)
+Called from stdgo._internal.text.template._Template_parsefs.$Template_parsefs_Fields_.parseFS (stdgo/_internal/text/template/Template_parsefs.hx line 22)
+Called from stdgo._internal.text.template._Template_testparsefs.$Template_testparsefs_Fields_.testParseFS (stdgo/_internal/text/template/Template_testparsefs.hx line 23)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestParseFS
+
+=== RUN  TestParseFilesWithData
+error parsing files: readFile testdata/tmpl1.tmpl: no such file or directoryException: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
+Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
+Called from stdgo._internal.text.template._Template_testparsefileswithdata.$Template_testparsefileswithdata_Fields_.testParseFilesWithData (stdgo/_internal/text/template/Template_testparsefileswithdata.hx line 24)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestParseFilesWithData
+
+=== RUN  TestParseGlobWithData
+error parsing files: template: pattern matches no files: `testdata/tmpl*.tmpl`Exception: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
+Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
+Called from stdgo._internal.text.template._Template_testparseglobwithdata.$Template_testparseglobwithdata_Fields_.testParseGlobWithData (stdgo/_internal/text/template/Template_testparseglobwithdata.hx line 24)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- FAIL: TestParseGlobWithData
+
+=== RUN  TestClone
+
+-- PASS: TestClone
+
+=== RUN  TestAddParseTree
+
+-- PASS: TestAddParseTree
+
+=== RUN  TestAddParseTreeToUnparsedTemplate
+
+-- PASS: TestAddParseTreeToUnparsedTemplate
+
+=== RUN  TestRedefinition
+
+-- PASS: TestRedefinition
+
+=== RUN  TestEmptyTemplateCloneCrash
+
+-- PASS: TestEmptyTemplateCloneCrash
+
+=== RUN  TestTemplateLookUp
+
+-- PASS: TestTemplateLookUp
+
+=== RUN  TestNew
+
+-- PASS: TestNew
+
+=== RUN  TestParse
+
+-- PASS: TestParse
+
+=== RUN  TestEmptyTemplate
+
+-- PASS: TestEmptyTemplate
+
+=== RUN  TestIssue19294
+
+-- PASS: TestIssue19294
+
+=== RUN  TestAddToZeroTemplate
+
+-- PASS: TestAddToZeroTemplate
+
+=== RUN  TestLinkerGC
+skipping in short mode
+Exception: __skip__
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52)
+Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 80)
+Called from _internal.text.template_test._Template_test_testlinkergc.$Template_test_testlinkergc_Fields_.testLinkerGC (_internal/text/template_test/Template_test_testlinkergc.hx line 6)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fields_.main (_internal/text/templatedottest/Templatedottest.hx line 58)
+
+-- SKIP: TestLinkerGC
+
+-- PASS: TestLinkerGC
+
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
+-- FAIL: TestParseGlobWithData

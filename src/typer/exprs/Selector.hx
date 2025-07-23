@@ -30,8 +30,7 @@ function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):MacroExpr { // EFi
 					}
 				}
 				if (!exists) {
-					if (stdgoList.indexOf(toGoPath(info.global.path)) == -1
-						&& !StringTools.endsWith(toGoPath(info.global.path), "_test")) {
+					if (!StringTools.endsWith(toGoPath(info.global.path), "_test")) {
 						info.data.imports.push({
 							path: s.split("."),
 							doc: "",

@@ -1,11 +1,11 @@
 === RUN  TestAll
 Exception: :os.isNotExist is not yet implemented
-Called from .stdgo__$internal_os_Os_$isnotexist_isNotExist (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js line 11379 column 23)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebugs_$test_Godebugs_$test_$testall_testAll [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js:10065:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js line 36297 column 9)
-Called from ._$internal_internal_godebugsdottest_Godebugsdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js line 12237 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebugs.js:45581:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js:45582:3)
+Called from .stdgo__$internal_os_Os_$isnotexist_isNotExist (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js line 14806 column 23)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebugs_$test_Godebugs_$test_$testall_testAll [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js:13480:6)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js line 53114 column 9)
+Called from ._$internal_internal_godebugsdottest_Godebugsdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js line 15664 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebugs.js:70576:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js:70577:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 

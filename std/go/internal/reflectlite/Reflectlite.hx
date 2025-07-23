@@ -9,7 +9,7 @@ function valueOf(_i:stdgo.AnyInterface)
 	return Reflect.valueOf(_i);
 
 function swapper(_slice:stdgo.AnyInterface) {
-	var _v = (Reflect.valueOf(stdgo.Go.toInterface(_slice)) == null ? null : Reflect.valueOf(stdgo.Go.toInterface(_slice)).__copy__());
+	var _v = (Reflect.valueOf(_slice) == null ? null : Reflect.valueOf(_slice).__copy__());
 	var _tmp = (Reflect.new_(_v.type().elem())
 		.elem() == null ? null : Reflect.new_(_v.type().elem())
 		.elem()

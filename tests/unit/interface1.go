@@ -1,5 +1,7 @@
 package main
 
+import "reflect"
+
 type Value interface {
 	String() string
 	Set(string) string
@@ -27,11 +29,13 @@ func main() {
 	switch j.(type) {
 	case Value:
 	default:
+		println(reflect.TypeOf(j).String())
 		panic("wrong type")
 	}
 	switch x.(type) {
 	case Value:
 	default:
+		println(reflect.TypeOf(x).String())
 		panic("wrong type")
 	}
 }

@@ -1,5 +1,5 @@
 -cp golibs 
--main github_com.go2hx.go4hx.testbed.Testbed
+-main _internal.githubdotcom.go2hx.go4hx.testbed.Testbed
 --times
 --hl export/testbed.hl
---cmd export/testbed.hl
+--cmd hl export/testbed.hl

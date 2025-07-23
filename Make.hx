@@ -41,7 +41,7 @@ function main() {
 			Sys.command("haxe extra/scripts/github-actions/build.hxml");
 		case ["interop"]:
 			Sys.println("build");
-			Sys.command("haxelib run go2hx ./tests/interop --nolibwrap");
+			Sys.command("haxelib run go2hx ./tests/interop --nolibwrap -nocache --rebuild");
 			Sys.println("test");
 			Sys.command("haxe tests/interop.hxml");
 			Sys.command("hl interop.hl");
@@ -73,8 +73,8 @@ function testrun(args:Array<String>) {
 	runCommand("haxe", [
 		"-cp",
 		"golibs",
-		"--macro",
-		"Go2hxMacro.init()",
+		"-w",
+		"-WStaticInitOrder",
 		"-m",
 		mainStd,
 	].concat(args.slice(2)));

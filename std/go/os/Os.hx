@@ -2,6 +2,9 @@ package go.os;
 
 import stdgo.errors.Errors;
 
+function exit(_code)
+	Sys.exit(_code);
+
 function mkdir(_name:stdgo.GoString):stdgo.Error {
 	@:define("(sys || hxnodejs)") try {
 		sys.FileSystem.createDirectory(_name);

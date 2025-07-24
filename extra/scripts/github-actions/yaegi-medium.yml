@@ -20,8 +20,6 @@ steps:
   # go2hx setup
   - name: Clean stdgo
     run: npx haxe --run Run clean
-  - name: Build go2hx compiler
-    run: npx haxe --run Run build
   - name: Set source
     run: npx haxelib dev go2hx .
   - uses: actions/cache/restore@v4

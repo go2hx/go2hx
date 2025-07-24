@@ -94,8 +94,6 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - name: Clean stdgo
@@ -215,8 +213,6 @@ jobs:
       # go2hx setup
       - name: Clean stdgo
         run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: npx haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -261,8 +257,6 @@ jobs:
       # go2hx setup
       - name: Clean stdgo
         run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: npx haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -321,8 +315,6 @@ jobs:
       - name: Clean go2hx
         run: npx haxe --run Run clean
       # compile stdgo
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -387,8 +379,6 @@ jobs:
       - name: Clean go2hx
         run: npx haxe --run Run clean
       # compile stdgo
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -439,8 +429,6 @@ jobs:
       # go2hx setup
       - name: Clean stdgo
         run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: npx haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -491,8 +479,6 @@ jobs:
       # go2hx setup
       - name: Clean stdgo
         run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: npx haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -554,8 +540,6 @@ jobs:
       - name: Clean go2hx
         run: npx haxe --run Run clean
       # compile stdgo
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -606,8 +590,6 @@ jobs:
       # go2hx setup
       - name: Clean stdgo
         run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: npx haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -658,8 +640,6 @@ jobs:
       # go2hx setup
       - name: Clean stdgo
         run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: npx haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -713,8 +693,6 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - name: Clean stdgo
@@ -776,8 +754,6 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - name: Clean stdgo

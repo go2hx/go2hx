@@ -84,24 +84,15 @@ function lstat(_name:stdgo.GoString) {
 
 function mkdirTemp(_pattern:stdgo.GoString) {
 	@:define("(sys || hxnodejs)") {
-		function randomName(length:Int) {
-			var chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-			var result = "";
-
-			for (i in 0...length) {
-				var randomIndex = std.Math.floor(std.Math.random() * chars.length);
-				result += chars.charAt(randomIndex);
-			}
-
-			return result;
+		final chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+		function randomNext(length:Int) {
+			return chars[std.Math.ceil(std.Math.random() * chars.length) - 1];
 		}
-		var name = "tmp_" + randomName(10);
-		final pattern:String = _pattern;
-		final wildCardIndex = pattern.indexOf("*");
-		if (wildCardIndex != -1) {
-			name = pattern.substr(0, wildCardIndex) + name + pattern.substr(wildCardIndex + 1);
-		} else {
-			name = pattern + name;
+		var name = "tmpdir_";
+		while (sys.FileSystem.exists(name)) {
+			name += randomNext();
+			if (name.length > 150)
+				throw "to many attempts";
 		}
 		sys.FileSystem.createDirectory(name);
 		return {_0: name, _1: null};
@@ -432,18 +423,16 @@ function tempDir()
 function createTemp(_dir, _pattern) {
 	final dir = _dir;
 	final pattern = _pattern;
-	function randomName(length:Int) {
-		var chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-		var result = "";
-
-		for (i in 0...length) {
-			var randomIndex = std.Math.floor(std.Math.random() * chars.length);
-			result += chars.charAt(randomIndex);
-		}
-
-		return result;
+	var name = "tmpfile_" + randomName(10);
+		final chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+	function randomNext(length:Int) {
+		return chars[std.Math.ceil(std.Math.random() * chars.length) - 1];
 	}
-	var name = "tmp_" + randomName(10);
+	while (sys.FileSystem.exists((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name)) {
+		name += randomNext();
+		if (name.length > 150)
+			throw "to many attempts";
+	}
 	return stdgo._internal.os.Os_openfile.openFile((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name, 0, 0);
 }
 

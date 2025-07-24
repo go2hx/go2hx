@@ -364,10 +364,10 @@ function readdirnames(_n) {
 			final slice:stdgo.Slice<stdgo.GoString> = paths.map(path -> (path : stdgo.GoString));
 			return {_0: slice, _1: null};
 		}
-		return {_0: [], stdgo._internal.errors.Errors_new_.new_("File.writeAt readDirNames: invalid")};
+		return {_0: [], _1: stdgo._internal.errors.Errors_new_.new_("File.writeAt readDirNames: invalid")};
 	}
 	trace("not supported on non sys target");
-	return {_0: [], stdgo._internal.errors.Errors_new_.new_("File.writeAt readDirNames: invalid")};
+	return {_0: [], _1: stdgo._internal.errors.Errors_new_.new_("File.writeAt readDirNames: invalid")};
 }
 
 @:recv(File)

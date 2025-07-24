@@ -34,7 +34,7 @@ jobs:
       - name: Set source
         run: npx haxelib dev go2hx .
       # clean stdgo
-      - name: setup hxcpp
+      - name: Setup hxcpp
         run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Clean stdgo
         run: npx haxe --run Run clean
@@ -107,6 +107,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Build interop test
         run: haxelib run go2hx ./tests/interop --nolibwrap
       - name: Test interop

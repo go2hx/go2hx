@@ -32,6 +32,8 @@ steps:
         export
         golibs
       key: ${{ github.sha }}-build-${{ env.cache-name }}
+  - name: Setup hxcpp
+    run: haxe -cp extra/scripts --run SetupHxcpp
   # run yaegi medium tests
   - name: clone yaegi
     run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi

@@ -32,6 +32,8 @@ steps:
         export
         golibs
       key: ${{ github.sha }}-build-${{ env.cache-name }}
+  - name: Setup hxcpp
+    run: haxe -cp extra/scripts --run SetupHxcpp
   - name: Run lib tests
     run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=::target:: #-D hxb
   - uses: EndBug/add-and-commit@v9

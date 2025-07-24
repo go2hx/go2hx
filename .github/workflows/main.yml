@@ -35,7 +35,7 @@ jobs:
       - name: Set source
         run: npx haxelib dev go2hx .
       # clean stdgo
-      - name: setup hxcpp
+      - name: Setup hxcpp
         run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Clean stdgo
         run: npx haxe --run Run clean
@@ -225,6 +225,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Run lib tests
         run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -269,6 +271,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Run lib tests
         run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -327,6 +331,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
       - name: Sort tests
@@ -391,6 +397,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
       - name: Sort tests
@@ -441,6 +449,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       # run yaegi easy tests
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
@@ -491,6 +501,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       # run yaegi easy tests
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
@@ -552,6 +564,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
       - name: Sort tests
@@ -602,6 +616,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       # run yaegi medium tests
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
@@ -652,6 +668,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       # run yaegi medium tests
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
@@ -708,6 +726,8 @@ jobs:
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - run: ls
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Run unit
         run: haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -769,6 +789,8 @@ jobs:
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - run: ls
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Run unit
         run: haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
       - uses: EndBug/add-and-commit@v9

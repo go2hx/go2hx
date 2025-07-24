@@ -354,6 +354,23 @@ function write(_f, _b:stdgo.Slice<stdgo.GoByte>) {
 }
 
 @:recv(File)
+function readdirnames(_n) {
+	@:define("(sys || hxnodejs)") {
+		if (sys.FileSystem.isDirectory(_f._file._name)) {
+			var paths = sys.FileSystem.readDirectory(_f._file._name);
+			if (_n >= 0) {
+				paths = paths.slice(0, _n);
+			}
+			final slice:stdgo.Slice<stdgo.GoString> = paths.map(path -> (path : stdgo.GoString));
+			return {_0: slice, _1: null};
+		}
+		return {_0: [], stdgo._internal.errors.Errors_new_.new_("File.writeAt readDirNames: invalid")};
+	}
+	trace("not supported on non sys target");
+	return {_0: [], stdgo._internal.errors.Errors_new_.new_("File.writeAt readDirNames: invalid")};
+}
+
+@:recv(File)
 function writeString(_f, _s)
 	return _f.write(_s);
 

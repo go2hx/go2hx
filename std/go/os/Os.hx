@@ -423,7 +423,7 @@ function tempDir()
 function createTemp(_dir, _pattern) {
 	final dir = _dir;
 	final pattern = _pattern;
-	var name = "tmpfile_" + randomName(10);
+	var name = "tmpfile_";
 		final chars = "abcdefghijklmnopqrstuvwxyz0123456789";
 	function randomNext() {
 		return chars.charAt(std.Math.ceil(std.Math.random() * chars.length) - 1);

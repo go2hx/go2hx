@@ -85,7 +85,7 @@ function lstat(_name:stdgo.GoString) {
 function mkdirTemp(_pattern:stdgo.GoString) {
 	@:define("(sys || hxnodejs)") {
 		final chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-		function randomNext(length:Int) {
+		function randomNext() {
 			return chars[std.Math.ceil(std.Math.random() * chars.length) - 1];
 		}
 		var name = "tmpdir_";
@@ -425,7 +425,7 @@ function createTemp(_dir, _pattern) {
 	final pattern = _pattern;
 	var name = "tmpfile_" + randomName(10);
 		final chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-	function randomNext(length:Int) {
+	function randomNext() {
 		return chars[std.Math.ceil(std.Math.random() * chars.length) - 1];
 	}
 	while (sys.FileSystem.exists((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name)) {

@@ -426,7 +426,7 @@ function createTemp(_dir, _pattern) {
 	var name = "tmpfile_" + randomName(10);
 		final chars = "abcdefghijklmnopqrstuvwxyz0123456789";
 	function randomNext() {
-		return chars[std.Math.ceil(std.Math.random() * chars.length) - 1];
+		return chars.charAt(std.Math.ceil(std.Math.random() * chars.length) - 1);
 	}
 	while (sys.FileSystem.exists((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name)) {
 		name += randomNext();

@@ -86,7 +86,7 @@ function mkdirTemp(_pattern:stdgo.GoString) {
 	@:define("(sys || hxnodejs)") {
 		final chars = "abcdefghijklmnopqrstuvwxyz0123456789";
 		function randomNext() {
-			return chars[std.Math.ceil(std.Math.random() * chars.length) - 1];
+			return chars.charAt(std.Math.ceil(std.Math.random() * chars.length) - 1);	
 		}
 		var name = "tmpdir_";
 		while (sys.FileSystem.exists(name)) {

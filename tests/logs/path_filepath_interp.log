@@ -3,12 +3,8 @@
 -- PASS: TestMatch
 
 === RUN  TestGlob
-Glob(`match.go`) = []string(nil) want match.go
-Glob(`mat?h.go`) = []string(nil) want match.go
-Glob(`*`) = []string(nil) want match.go
-Glob(`../*/match.go`) = []string(nil) want ../filepath/match.go
 
--- FAIL: TestGlob
+-- PASS: TestGlob
 
 === RUN  TestCVE202230632
 -- SKIP: testCVE202230632
@@ -25,7 +21,7 @@ Glob(`../*/match.go`) = []string(nil) want ../filepath/match.go
 
 === RUN  TestGlobSymlink
 Exception: :os.symlink is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testglobsymlink.Filepath_test_testglobsymlink_Fields_.testGlobSymlink (golibs/_internal/path/filepath_test/Filepath_test_testglobsymlink.hx line 38 column 20)
 Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/stdgo/_internal/os/Os_symlink.hx line 2 column 80)
 
@@ -33,7 +29,7 @@ Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/st
 
 === RUN  TestWindowsGlob
 skipping windows specific testException: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testwindowsglob.Filepath_test_testwindowsglob_Fields_.testWindowsGlob (golibs/_internal/path/filepath_test/Filepath_test_testwindowsglob.hx line 247 column 30)
 
 -- SKIP: TestWindowsGlob
@@ -41,19 +37,13 @@ Called from _internal.path.filepath_test._Filepath_test_testwindowsglob.Filepath
 -- PASS: TestWindowsGlob
 
 === RUN  TestNonWindowsGlobEscape
-Glob(`\match.go`) = [] want [match.go]Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from _internal.path.filepath_test._Filepath_test_testnonwindowsglobescape.Filepath_test_testnonwindowsglobescape_Fields_.testNonWindowsGlobEscape (golibs/_internal/path/filepath_test/Filepath_test_testnonwindowsglobescape.hx line 26 column 427)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
--- FAIL: TestNonWindowsGlobEscape
+-- PASS: TestNonWindowsGlobEscape
 
 === RUN  TestClean
 skipping malloc count in short mode
 Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testclean.Filepath_test_testclean_Fields_.testClean (golibs/_internal/path/filepath_test/Filepath_test_testclean.hx line 36 column 21)
 Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 80 column 87)
 Called from stdgo._internal.testing.T_common_static_extension.skip (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
@@ -88,18 +78,26 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/st
 -- PASS: TestExt
 
 === RUN  TestWalk
-unexpected errors: [Exception: testdata: Is a directory
-Called from stdgo._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/stdgo/_internal/os/Os_openfile.hx line 8 column 104)]Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+node testdata/a mark = 0; expected 1
+node testdata/b mark = 0; expected 1
+node testdata/c mark = 0; expected 1
+node testdata/d mark = 0; expected 1
+node testdata/d/x mark = 0; expected 1
+node testdata/d/y mark = 0; expected 1
+node testdata/d/z mark = 0; expected 1
+node testdata/d/z/u mark = 0; expected 1
+node testdata/d/z/v mark = 0; expected 1
+- SUBRUN  PermErr
+Exception: :os.getuid is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testwalk.Filepath_test_testwalk_Fields_.testWalk (golibs/_internal/path/filepath_test/Filepath_test_testwalk.hx line 11 column 9)
 Called from _internal.path.filepath_test._Filepath_test__testwalk.Filepath_test__testwalk_Fields_._testWalk (golibs/_internal/path/filepath_test/Filepath_test__testwalk.hx line 198 column 30)
 
 -- FAIL: TestWalk
 
 === RUN  TestWalkDir
-unexpected errors: [Exception: testdata: Is a directory
-Called from stdgo._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/stdgo/_internal/os/Os_openfile.hx line 8 column 104)]Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Exception: File:os.readDir is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testwalkdir.Filepath_test_testwalkdir_Fields_.testWalkDir (golibs/_internal/path/filepath_test/Filepath_test_testwalkdir.hx line 4 column 9)
 Called from _internal.path.filepath_test._Filepath_test__testwalk.Filepath_test__testwalk_Fields_._testWalk (golibs/_internal/path/filepath_test/Filepath_test__testwalk.hx line 198 column 30)
 
@@ -107,7 +105,7 @@ Called from _internal.path.filepath_test._Filepath_test__testwalk.Filepath_test_
 
 === RUN  TestWalkSkipDirOnFile
 Exception: :os.mkdirAll is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testwalkskipdironfile.Filepath_test_testwalkskipdironfile_Fields_.testWalkSkipDirOnFile (golibs/_internal/path/filepath_test/Filepath_test_testwalkskipdironfile.hx line 6 column 24)
 Called from stdgo._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (golibs/stdgo/_internal/os/Os_mkdirall.hx line 2 column 103)
 
@@ -115,7 +113,7 @@ Called from stdgo._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (golibs
 
 === RUN  TestWalkSkipAllOnFile
 Exception: :os.mkdirAll is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testwalkskipallonfile.Filepath_test_testwalkskipallonfile_Fields_.testWalkSkipAllOnFile (golibs/_internal/path/filepath_test/Filepath_test_testwalkskipallonfile.hx line 6 column 24)
 Called from stdgo._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (golibs/stdgo/_internal/os/Os_mkdirall.hx line 2 column 103)
 
@@ -123,14 +121,14 @@ Called from stdgo._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (golibs
 
 === RUN  TestWalkFileError
 Exception: :os.mkdirAll is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testwalkfileerror.Filepath_test_testwalkfileerror_Fields_.testWalkFileError (golibs/_internal/path/filepath_test/Filepath_test_testwalkfileerror.hx line 136 column 30)
 
 -- FAIL: TestWalkFileError
 
 === RUN  TestWalkSymlinkRoot
 Exception: :os.mkdirAll is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testwalksymlinkroot.Filepath_test_testwalksymlinkroot_Fields_.testWalkSymlinkRoot (golibs/_internal/path/filepath_test/Filepath_test_testwalksymlinkroot.hx line 9 column 24)
 Called from stdgo._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (golibs/stdgo/_internal/os/Os_mkdirall.hx line 2 column 103)
 
@@ -150,7 +148,7 @@ Called from stdgo._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (golibs
 
 === RUN  TestEvalSymlinks
 Exception: :os.symlink is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testevalsymlinks.Filepath_test_testevalsymlinks_Fields_.testEvalSymlinks (golibs/_internal/path/filepath_test/Filepath_test_testevalsymlinks.hx line 32 column 24)
 Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/stdgo/_internal/os/Os_symlink.hx line 2 column 80)
 
@@ -158,14 +156,14 @@ Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/st
 
 === RUN  TestEvalSymlinksIsNotExist
 Exception: :os.isNotExist is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testevalsymlinksisnotexist.Filepath_test_testevalsymlinksisnotexist_Fields_.testEvalSymlinksIsNotExist (golibs/_internal/path/filepath_test/Filepath_test_testevalsymlinksisnotexist.hx line 106 column 30)
 
 -- FAIL: TestEvalSymlinksIsNotExist
 
 === RUN  TestIssue13582
 Exception: :os.symlink is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testissue13582.Filepath_test_testissue13582_Fields_.testIssue13582 (golibs/_internal/path/filepath_test/Filepath_test_testissue13582.hx line 21 column 16)
 Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/stdgo/_internal/os/Os_symlink.hx line 2 column 80)
 
@@ -173,12 +171,12 @@ Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/st
 
 === RUN  TestRelativeSymlinkToAbsolute
 Exception: :os.symlink is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testrelativesymlinktoabsolute.Filepath_test_testrelativesymlinktoabsolute_Fields_.testRelativeSymlinkToAbsolute (golibs/_internal/path/filepath_test/Filepath_test_testrelativesymlinktoabsolute.hx line 10 column 24)
 Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/stdgo/_internal/os/Os_symlink.hx line 2 column 80)
 [ERROR] golibs/stdgo/_internal/os/Os_removeall.hx
 
-    | Uncaught exception No such file or directory(rmdir, tmp_cj5iubyw9q)
+    | Uncaught exception No such file or directory(rmdir, tmpdir_)
 
      ->  golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx
 

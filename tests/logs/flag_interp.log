@@ -80,7 +80,7 @@ want:
 
 === RUN  TestExitCode
 Exception: :os.executable is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.flag_test._Flag_test_testexitcode.Flag_test_testexitcode_Fields_.testExitCode (golibs/_internal/flag_test/Flag_test_testexitcode.hx line 4 column 9)
 Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.Testenv_musthaveexec_Fields_.mustHaveExec (golibs/stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 18 column 9)
 Called from stdgo._internal.sync.Once_static_extension.do_ (golibs/stdgo/_internal/sync/Sync_once_static_extension.hx line 11 column 9)
@@ -108,5 +108,5 @@ DefineAfterSet
 
 -- FAIL: TestDefineAfterSet
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestDefineAfterSet

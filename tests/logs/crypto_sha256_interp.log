@@ -1,6 +1,6 @@
 === RUN  TestGolden
 sha256[2]() = be27808a748f37fa2f2b7a7a7d9404e1139dedfedcc41c68b92b8f41f2e5d20e want e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from stdgo._internal.crypto.sha256._Sha256_testgolden.Sha256_testgolden_Fields_.testGolden (golibs/stdgo/_internal/crypto/sha256/Sha256_testgolden.hx line 45 column 510)
 Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
 Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
@@ -29,7 +29,7 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/st
 === RUN  TestBlockGeneric
 golibs/stdgo/_internal/syscall/js/Js_value_static_extension.hx:64: funclit
 Exception: not implemented: new_
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from stdgo._internal.crypto.sha256._Sha256_testblockgeneric.Sha256_testblockgeneric_Fields_.testBlockGeneric (golibs/stdgo/_internal/crypto/sha256/Sha256_testblockgeneric.hx line 36 column 9)
 Called from stdgo._internal.crypto.rand._Rand_read.Rand_read_Fields_.read (golibs/stdgo/_internal/crypto/rand/Rand_read.hx line 9 column 16)
 Called from stdgo._internal.io._Io_readfull.Io_readfull_Fields_.readFull (golibs/stdgo/_internal/io/Io_readfull.hx line 6 column 16)
@@ -55,5 +55,5 @@ golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not imple
 
 -- PASS: TestCgo
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestBlockGeneric

@@ -30,5 +30,6 @@
  "interp|io",
  "interp|hash",
  "interp|slices",
- "interp|net/textproto"
+ "interp|net/textproto",
+ "interp|internal/godebugs"
 ]

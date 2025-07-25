@@ -1,6 +1,6 @@
 package go.testing;
 
-function mainStart(_tests, _benchmarks, _examples) {
+function mainStart(_deps, _tests, _benchmarks, _examples) {
 	final args = @:define("(sys || hxnodejs)", []) Sys.args();
 	var testlist:Array<stdgo._internal.testing.Testing_internaltest.InternalTest> = [];
 	var runArgBool = false;
@@ -205,16 +205,27 @@ function errorf(_c) {
 
 @:recv(M)
 function run(_m) {
+	// get working directory
+	final home = Sys.getEnv(if (Sys.systemName() == "Windows") "UserProfile" else "HOME");
+	final goRoot = home +  "/.go/" + stdgo._internal.runtime.Runtime_version.version();
+	final workingDirectory = goRoot + "/src/" + stdgo._internal.testing.internal.testdeps.Testdeps_importpath.importPath;
+	// set vars
 	final chatty = true;
 	final chattyTimes = false;
 	// use go version of path for passing go tests
 	stdgo._internal.internal.reflect.Reflect.useHaxePath = false;
 	_m._numRun++;
+	
 	var exitCodeReason = "";
 	for (test in _m._tests) {
 		var error = false;
 		final output = new StringBuf();
 		var t = new stdgo._internal.testing.Testing_t_.T_(null, null, null, output);
+		// set the working directory for every test
+		try {
+			Sys.setCwd(workingDirectory);
+		}catch(_) {}
+		// time stamp
 		final stamp = @:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time();
 		stdgo.Go.println("=== RUN  " + test.name.toString());
 		try {

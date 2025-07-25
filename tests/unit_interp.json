@@ -260,5 +260,6 @@
  "interp|interface24",
  "interp|nilany",
  "interp|recursiveTypeReflect",
- "interp|tagBootstrap2"
+ "interp|tagBootstrap2",
+ "interp|osDir"
 ]

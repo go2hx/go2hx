@@ -73,14 +73,14 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 
 	@:op(A % B) private static function mod(a:GoUInt32, b:GoUInt32):GoUInt32 {
 		if (b == 0) {
-			throw @:privateAccess stdgo.Error._divideError.__underlying__();
+			throw stdgo.Error._divideError.__underlying__();
 		}
 		return a - (a / b * b);
 	}
 
 	@:op(A / B) private static function div(a:GoUInt32, b:GoUInt32):GoUInt32 {
 		if (b == 0) {
-			throw @:privateAccess stdgo.Error._divideError.__underlying__();
+			throw stdgo.Error._divideError.__underlying__();
 		}
 		if (b == 1)
 			return a;

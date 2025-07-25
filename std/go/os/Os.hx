@@ -2,9 +2,6 @@ package go.os;
 
 import stdgo.errors.Errors;
 
-function exit(_code)
-	Sys.exit(_code);
-
 function mkdir(_name:stdgo.GoString):stdgo.Error {
 	@:define("(sys || hxnodejs)") try {
 		sys.FileSystem.createDirectory(_name);
@@ -84,15 +81,24 @@ function lstat(_name:stdgo.GoString) {
 
 function mkdirTemp(_pattern:stdgo.GoString) {
 	@:define("(sys || hxnodejs)") {
-		final chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-		function randomNext() {
-			return chars.charAt(std.Math.ceil(std.Math.random() * chars.length) - 1);	
+		function randomName(length:Int) {
+			var chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+			var result = "";
+
+			for (i in 0...length) {
+				var randomIndex = std.Math.floor(std.Math.random() * chars.length);
+				result += chars.charAt(randomIndex);
+			}
+
+			return result;
 		}
-		var name = "tmpdir_";
-		while (sys.FileSystem.exists(name)) {
-			name += randomNext();
-			if (name.length > 150)
-				throw "to many attempts";
+		var name = "tmp_" + randomName(10);
+		final pattern:String = _pattern;
+		final wildCardIndex = pattern.indexOf("*");
+		if (wildCardIndex != -1) {
+			name = pattern.substr(0, wildCardIndex) + name + pattern.substr(wildCardIndex + 1);
+		} else {
+			name = pattern + name;
 		}
 		sys.FileSystem.createDirectory(name);
 		return {_0: name, _1: null};
@@ -117,35 +123,13 @@ overload extern inline function stat(_name:stdgo.GoString) {
 	return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(_name)), _1: null};
 }
 
-@:recv(File)
-overload extern inline function stat(_f) {
-	return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(@:privateAccess _f._file._name)), _1: null};
-}
-
 @:recv(T_fileStat)
 overload extern inline function name(_fs) {
 	return _fs._name;
 }
 
 @:recv(T_fileStat)
-overload extern inline function modTime(_fs) {
-	// TODO use: return std.sys.FileSystem.stat(_fs._name);
-	return stdgo._internal.time.Time_now.now();
-}
-
-@:recv(T_fileStat)
 function mode() {
-	@:define("(sys || hxnodejs)") {
-		return std.sys.FileSystem.stat(_fs._name).mode;
-	}
-	return 0;
-}
-
-@:recv(T_fileStat)
-overload extern inline function size(_fs:Dynamic) {
-	@:define("(sys || hxnodejs)") {
-		return std.sys.FileSystem.stat(_fs._name).size;
-	}
 	return 0;
 }
 
@@ -311,14 +295,10 @@ function openFile(_name:stdgo.GoString) {
 		if (!sys.FileSystem.exists(_name)) {
 			sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
 		}
-		if (sys.FileSystem.isDirectory(_name)) {
-			{_0: {_file: {_name: _name}, _input: null, _output: null}, _1: null};
-		}else{
-			try {
-				{_0: {_file: {_name: _name}, _input: sys.io.File.read(_name, false), _output: sys.io.File.update(_name)}, _1: null};
-			} catch (e) {
-				{_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
-			}
+		try {
+			{_0: {_file: {_name: _name}, _input: sys.io.File.read(_name, false), _output: sys.io.File.update(_name)}, _1: null};
+		} catch (e) {
+			{_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
 		}
 	};
 }
@@ -342,23 +322,6 @@ function write(_f, _b:stdgo.Slice<stdgo.GoByte>) {
 	if (i != b.length)
 		return {_0: i, _1: stdgo._internal.errors.Errors_new_.new_("invalid write")};
 	return {_0: i, _1: null};
-}
-
-@:recv(File)
-function readdirnames(_n) {
-	@:define("(sys || hxnodejs)") {
-		if (sys.FileSystem.isDirectory(_f._file._name)) {
-			var paths = sys.FileSystem.readDirectory(_f._file._name);
-			if (_n >= 0) {
-				paths = paths.slice(0, _n);
-			}
-			final slice:stdgo.Slice<stdgo.GoString> = paths.map(path -> (path : stdgo.GoString));
-			return {_0: slice, _1: null};
-		}
-		return {_0: [], _1: stdgo._internal.errors.Errors_new_.new_("File.writeAt readDirNames: invalid")};
-	}
-	trace("not supported on non sys target");
-	return {_0: [], _1: stdgo._internal.errors.Errors_new_.new_("File.writeAt readDirNames: invalid")};
 }
 
 @:recv(File)
@@ -423,16 +386,18 @@ function tempDir()
 function createTemp(_dir, _pattern) {
 	final dir = _dir;
 	final pattern = _pattern;
-	var name = "tmpfile_";
-		final chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-	function randomNext() {
-		return chars.charAt(std.Math.ceil(std.Math.random() * chars.length) - 1);
+	function randomName(length:Int) {
+		var chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+		var result = "";
+
+		for (i in 0...length) {
+			var randomIndex = std.Math.floor(std.Math.random() * chars.length);
+			result += chars.charAt(randomIndex);
+		}
+
+		return result;
 	}
-	while (sys.FileSystem.exists((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name)) {
-		name += randomNext();
-		if (name.length > 150)
-			throw "to many attempts";
-	}
+	var name = "tmp_" + randomName(10);
 	return stdgo._internal.os.Os_openfile.openFile((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name, 0, 0);
 }
 

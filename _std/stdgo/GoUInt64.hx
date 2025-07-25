@@ -59,6 +59,9 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 		return toFloatUInt64(this);
 	}
 
+	@:to inline function toUIntptr():GoUIntptr
+		return new stdgo.GoUIntptr(toIntInt64(this));
+
 	@:from public static inline function ofInt(x:Int):GoUInt64
 		return ofIntUInt64(x);
 
@@ -121,14 +124,14 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 
 	@:op(A % B) private static function mod(a:GoUInt64, b:GoUInt64):GoUInt64 {
 		if (b == 0) {
-			throw @:privateAccess stdgo.Error._divideError.__underlying__();
+			throw stdgo.Error._divideError.__underlying__();
 		}
 		return a.toBasic() % b.toBasic();
 	}
 
 	@:op(A / B) private static function div(a:GoUInt64, b:GoUInt64):GoUInt64 {
 		if (b == 0) {
-			throw @:privateAccess stdgo.Error._divideError.__underlying__();
+			throw stdgo.Error._divideError.__underlying__();
 		}
 		return a.toBasic() / b.toBasic();
 	}

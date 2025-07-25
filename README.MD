@@ -12,11 +12,7 @@ Import Go libraries into your Haxe projects.
 
 ## Installation
 
-> [!WARNING]  
-> Early alpha version, not able to compile most Go code correctly
-
-
-* [Download Haxe 4.3.2+](https://build.haxe.org/builds/haxe/)
+* [Download Haxe 5.0.0+](https://haxe.org/download/version/5.0.0-preview.1/)
 * Hxcpp haxe library is required for the compiler
 
 

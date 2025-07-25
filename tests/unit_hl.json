@@ -267,5 +267,6 @@
  "hl|interface24",
  "hl|nilany",
  "hl|recursiveTypeReflect",
- "hl|tagBootstrap2"
+ "hl|tagBootstrap2",
+ "hl|osDir"
 ]

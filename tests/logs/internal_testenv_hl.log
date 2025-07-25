@@ -6,7 +6,7 @@ Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Tes
 Called from stdgo._internal.testing.T__asInterface.skipf (stdgo/_internal/testing/Testing_t__asinterface.hx line 48)
 Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.$Testenv_musthavegobuild_Fields_.mustHaveGoBuild (stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 29)
 Called from _internal.internal.testenv_test._Testenv_test_testgotoollocation.$Testenv_test_testgotoollocation_Fields_.testGoToolLocation (_internal/internal/testenv_test/Testenv_test_testgotoollocation.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.internal.testenvdottest._Testenvdottest.$Testenvdottest_Fields_.main (_internal/internal/testenvdottest/Testenvdottest.hx line 12)
 
 -- SKIP: TestGoToolLocation
@@ -28,10 +28,10 @@ Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.$Testenv_must
 Called from _internal.internal.testenv_test._Testenv_test_testmusthaveexec.$Testenv_test_testmusthaveexec_Fields_.~testMustHaveExec.1 (_internal/internal/testenv_test/Testenv_test_testmusthaveexec.hx line 7)
 Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
 Called from _internal.internal.testenv_test._Testenv_test_testmusthaveexec.$Testenv_test_testmusthaveexec_Fields_.testMustHaveExec (_internal/internal/testenv_test/Testenv_test_testmusthaveexec.hx line 5)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.internal.testenvdottest._Testenvdottest.$Testenvdottest_Fields_.main (_internal/internal/testenvdottest/Testenvdottest.hx line 12)
 
 -- FAIL: TestMustHaveExec
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestMustHaveExec

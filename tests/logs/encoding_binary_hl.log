@@ -5,7 +5,7 @@ Called from stdgo._internal.encoding.binary.$T_decoder_static_extension._value (
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 163)
 Called from stdgo._internal.encoding.binary._Binary__testread.$Binary__testread_Fields_._testRead (stdgo/_internal/encoding/binary/Binary__testread.hx line 12)
 Called from stdgo._internal.encoding.binary._Binary_testlittleendianread.$Binary_testlittleendianread_Fields_.testLittleEndianRead (stdgo/_internal/encoding/binary/Binary_testlittleendianread.hx line 12)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestLittleEndianRead
@@ -20,7 +20,7 @@ Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_
 Called from stdgo._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (stdgo/_internal/encoding/binary/Binary_write.hx line 195)
 Called from stdgo._internal.encoding.binary._Binary__testwrite.$Binary__testwrite_Fields_._testWrite (stdgo/_internal/encoding/binary/Binary__testwrite.hx line 12)
 Called from stdgo._internal.encoding.binary._Binary_testlittleendianwrite.$Binary_testlittleendianwrite_Fields_.testLittleEndianWrite (stdgo/_internal/encoding/binary/Binary_testlittleendianwrite.hx line 12)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestLittleEndianWrite
@@ -40,7 +40,7 @@ Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 143)
 Called from stdgo._internal.encoding.binary._Binary__testread.$Binary__testread_Fields_._testRead (stdgo/_internal/encoding/binary/Binary__testread.hx line 12)
 Called from stdgo._internal.encoding.binary._Binary_testbigendianread.$Binary_testbigendianread_Fields_.testBigEndianRead (stdgo/_internal/encoding/binary/Binary_testbigendianread.hx line 12)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestBigEndianRead
@@ -55,7 +55,7 @@ Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_
 Called from stdgo._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (stdgo/_internal/encoding/binary/Binary_write.hx line 195)
 Called from stdgo._internal.encoding.binary._Binary__testwrite.$Binary__testwrite_Fields_._testWrite (stdgo/_internal/encoding/binary/Binary__testwrite.hx line 12)
 Called from stdgo._internal.encoding.binary._Binary_testbigendianwrite.$Binary_testbigendianwrite_Fields_.testBigEndianWrite (stdgo/_internal/encoding/binary/Binary_testbigendianwrite.hx line 12)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestBigEndianWrite
@@ -85,7 +85,7 @@ Write BigEndian: binary.Write: some values are not fixed-sized in type *.encodin
 Exception: Can't cast hl.types.ArrayDyn to i32
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 79)
 Called from stdgo._internal.encoding.binary._Binary_testsliceroundtrip.$Binary_testsliceroundtrip_Fields_.testSliceRoundTrip (stdgo/_internal/encoding/binary/Binary_testsliceroundtrip.hx line 56)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestSliceRoundTrip
@@ -99,7 +99,7 @@ Called from stdgo._internal.fmt._Fmt_printf.$Fmt_printf_Fields_.printf (stdgo/_i
 Called from stdgo._internal.testing.$T_common_static_extension.errorf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_errorf.0 (stdgo/_internal/testing/Testing_t_.hx line 30)
 Called from stdgo._internal.encoding.binary._Binary_testwritet.$Binary_testwritet_Fields_.testWriteT (stdgo/_internal/encoding/binary/Binary_testwritet.hx line 37)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestWriteT
@@ -119,7 +119,7 @@ Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_i
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
 Called from stdgo._internal.encoding.binary._Binary_testsizestructcache.$Binary_testsizestructcache_Fields_.testSizeStructCache (stdgo/_internal/encoding/binary/Binary_testsizestructcache.hx line 39)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestSizeStructCache
@@ -132,7 +132,7 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 binary.Write: some values are not fixed-sized in type *.encoding.binary.Unexported
 Exception: __fail__
 Called from stdgo._internal.encoding.binary._Binary_testunexportedread.$Binary_testunexportedread_Fields_.testUnexportedRead (stdgo/_internal/encoding/binary/Binary_testunexportedread.hx line 100)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestUnexportedRead
@@ -148,7 +148,7 @@ Called from stdgo._internal.reflect.$Value_static_extension.canSet (stdgo/_inter
 Called from stdgo._internal.encoding.binary.$T_decoder_static_extension._value (stdgo/_internal/encoding/binary/Binary_t_decoder_static_extension.hx line 45)
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 163)
 Called from stdgo._internal.encoding.binary._Binary_testreadtruncated.$Binary_testreadtruncated_Fields_.testReadTruncated (stdgo/_internal/encoding/binary/Binary_testreadtruncated.hx line 68)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestReadTruncated
@@ -166,7 +166,7 @@ Exception: Can't cast i32 to stdgo.PointerData
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 31)
 Called from stdgo._internal.encoding.binary._Binary__testreadinvaliddestination.$Binary__testreadinvaliddestination_Fields_._testReadInvalidDestination (stdgo/_internal/encoding/binary/Binary__testreadinvaliddestination.hx line 14)
 Called from stdgo._internal.encoding.binary._Binary_testreadinvaliddestination.$Binary_testreadinvaliddestination_Fields_.testReadInvalidDestination (stdgo/_internal/encoding/binary/Binary_testreadinvaliddestination.hx line 12)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestReadInvalidDestination
@@ -177,7 +177,7 @@ Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_i
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
 Called from stdgo._internal.encoding.binary._Binary_testnofixedsize.$Binary_testnofixedsize_Fields_.testNoFixedSize (stdgo/_internal/encoding/binary/Binary_testnofixedsize.hx line 24)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestNoFixedSize
@@ -186,7 +186,7 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 golibs/stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: basic(18) -> invalidType
 Exception: Can't cast hl.types.ArrayDyn to stdgo.GoArrayData
 Called from stdgo._internal.encoding.binary._Binary_testnativeendian.$Binary_testnativeendian_Fields_.testNativeEndian (stdgo/_internal/encoding/binary/Binary_testnativeendian.hx line 14)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestNativeEndian
@@ -223,5 +223,5 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 
 -- PASS: TestNonCanonicalZero
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestNativeEndian

@@ -8,13 +8,13 @@
 -- PASS: TestMapFSChmodDot
 
 === RUN  TestSymlink
-writeFile tmp_ym0myt671k/hello: no such file or directory
+writeFile tmpdir_/hello: no such file or directory
 Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64)
 Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 50)
 Called from stdgo._internal.testing.fstest._Fstest_testsymlink.$Fstest_testsymlink_Fields_.testSymlink (stdgo/_internal/testing/fstest/Fstest_testsymlink.hx line 24)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.testing.fstestdottest._Fstestdottest.$Fstestdottest_Fields_.main (_internal/testing/fstestdottest/Fstestdottest.hx line 12)
 
 -- FAIL: TestSymlink
@@ -27,5 +27,5 @@ Called from _internal.testing.fstestdottest._Fstestdottest.$Fstestdottest_Fields
 
 -- PASS: TestShuffledFS
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestSymlink

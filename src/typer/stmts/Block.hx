@@ -39,10 +39,15 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 	}
 	if (list != null) { // file://./If.hx#10
 		final stmts = [for (stmt in list) typer.stmts.Stmt.typeStmt(stmt, info)];
+		var isWindows = Sys.systemName().toLowerCase() == "windows";
 		for (i in 0...stmts.length) {
-			final location = list[i].location;
+			var location = list[i].location;
 			if (location == null || location == "")
 				continue;
+			if (isWindows) {
+				location = haxe.io.Path.normalize(location);
+				location = "/" + location;
+			}
 			final commentString = 'file://$location';
 			stmts[i] = macro @:comment(${HaxeAst.makeString(commentString)}) ${stmts[i]};
 		}

@@ -7,7 +7,6 @@
 		"pxshadow",
 		"elliott5"
 	],
-	"classPath": "_std",
 	"version": "0.2.0",
 	"tags": [
 		"go",
@@ -15,9 +14,8 @@
 		"haxe",
         "transpiler",
         "compiler",
-        "macro",
-		"crossplatform",
-		"tests"
+		"crosstarget",
+		"crossplatform"
 	],
 	"license": "MIT"
 }

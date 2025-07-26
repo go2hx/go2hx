@@ -54,6 +54,16 @@ overload extern inline function readDir(_name:stdgo.GoString) {
 	}
 }
 
+@:recv(File)
+overload extern inline function readDir(_n) {
+	final tuple = stdgo._internal.os.Os_readdir.readDir(_f.name()); 
+	if (tuple._1 != null)
+		return tuple;
+	if (_n >= 0)
+		return {_0: tuple._0.__slice__(0, _n), _1: null};
+	return tuple;
+}
+
 @:recv(T_dirFS)
 overload extern inline function readDir(_dir:stdgo.GoString, _name:stdgo.GoString) {
 	final fullname = haxe.io.Path.join([_dir, _name]);
@@ -263,7 +273,13 @@ function read(_f, _b) {
 		@:privateAccess _f.mutex.release();
 		return {_0: 0, _1: stdgo._internal.io.Io_eof.eOF};
 	}
-	@:privateAccess _b.__bytes__ = b;
+	// ref
+	if (_b.__bytes__ != null) {
+		_b.__bytes__.blit(_b.__offset__, b, 0, _b.length);
+	} else {
+		for (i in 0 ... _b.length)
+			_b.__vector__.set(_b.__offset__ + i, b.get(i));
+	}
 	@:privateAccess _f.mutex.release();
 	return {_0: i, _1: null};
 }
@@ -306,9 +322,9 @@ overload extern inline function open(_name:stdgo.GoString) {
 	return stdgo._internal.os.Os_openfile.openFile(_name, 0, 0);
 }
 
-function openFile(_name:stdgo.GoString) {
+function openFile(_name:stdgo.GoString, _perm) {
 	return @:define("(sys || hxnodejs)") {
-		if (!sys.FileSystem.exists(_name)) {
+		if (_perm & stdgo._internal.os.Os_o_create.o_CREATE != 0 && !sys.FileSystem.exists(_name)) {
 			sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
 		}
 		if (sys.FileSystem.isDirectory(_name)) {
@@ -506,7 +522,13 @@ overload extern inline function readAt(_f, _b, _off) {
 			@:define("!eval") {
 				@:privateAccess cast(_f._input, sys.io.FileInput).seek(t, sys.io.FileSeek.SeekBegin);
 			}
-			@:privateAccess _b.__bytes__ = b;
+			// ref
+			if (_b.__bytes__ != null) {
+				_b.__bytes__.blit(_b.__offset__, b, 0, _b.length);
+			} else {
+				for (i in 0 ... _b.length)
+					_b.__vector__.set(_b.__offset__ + i, b.get(i));
+			}
 			// always returns a non-nil error when n < len(b). At end of file, that error is io.EOF.
 			var err = null;
 			if (n < b.length) {

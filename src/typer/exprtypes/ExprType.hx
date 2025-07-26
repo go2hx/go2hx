@@ -945,7 +945,7 @@ function toComplexType(e:GoType, info:Info, isElem:Bool=false):ComplexType {
 			if (path == "comparable")
 				return TPath({name: "Comparable", pack: ["stdgo"]});
 			if (path == null) {
-				trace("underlying null path: " + new codegen.Printer().printComplexType(toComplexType(underlying, info, isElem)));
+				trace("underlying null path: " + new gen.Printer().printComplexType(toComplexType(underlying, info, isElem)));
 				throw info.panic() + path;
 			}
 			final p = namedTypePath(path, info);
@@ -1255,7 +1255,7 @@ function typeFields(list:Array<typer.exprtypes.ExprType.FieldType>, info:Info, a
 		}
 		if (field.optional)
 			meta.push({name: ":optional", pos: null});
-		var doc:String = codegen.Doc.getDocComment({doc: docs == null ? null : docs[i]}, {comment: comments == null ? null : comments[i]});
+		var doc:String = gen.Doc.getDocComment({doc: docs == null ? null : docs[i]}, {comment: comments == null ? null : comments[i]});
 		// trace(name);
 		// trace(field.type.get());
 		// trace(toComplexType(field.type.get(), info));

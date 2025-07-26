@@ -148,7 +148,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 									toType = pointerType({get: () -> elem});
 								}
 							}
-							// trace(new codegen.Printer().printExpr(args[i]));
+							// trace(new gen.Printer().printExpr(args[i]));
 							// trace(fromType, toType, tupleArg != null);
 							if (tupleArg != null) {
 								switch getVar(typeof(exprArgs[0 - skip], info, false)) {

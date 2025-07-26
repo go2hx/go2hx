@@ -230,7 +230,7 @@ function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):M
 	}
 	final typeExpr = toReflectType(originalType, info, [], false);
 	// trace(t);
-	// trace(new codegen.Printer().printExpr(x));
+	// trace(new gen.Printer().printExpr(x));
 	if (isInterface(t)) {
 		return macro ({
 			final __t__ = $x;
@@ -242,7 +242,7 @@ function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):M
 		});
 	}
 	//return macro stdgo.Go.toInterface($x);
-	//trace(new codegen.Printer().printExpr(typeExpr));
+	//trace(new gen.Printer().printExpr(typeExpr));
 	if (originalType == invalidType) {
 		return x;
 	}

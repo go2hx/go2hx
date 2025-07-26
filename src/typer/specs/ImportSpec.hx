@@ -1,7 +1,7 @@
 package typer.specs;
 
 function typeImport(imp:GoAst.ImportSpec, info:Info) {
-	var doc = codegen.Doc.getDocComment(imp);
+	var doc = gen.Doc.getDocComment(imp);
 	imp.path = imp.path.substr(1, imp.path.length - 2); // remove quotes
 	var path = normalizePath(imp.path);
 	var alias = imp.name;

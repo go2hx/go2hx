@@ -1,4 +1,4 @@
-package codegen;
+package gen;
 
 import typer.Typer.Info;
 import shared.Util;

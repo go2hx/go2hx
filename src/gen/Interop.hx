@@ -1,4 +1,4 @@
-package codegen;
+package gen;
 
 import haxe.macro.Expr;
 
@@ -64,6 +64,7 @@ private function interopType(td:TypeDefinition, cl:TypeDefinition, path:String):
 	return interopGenAlias({
 		name: td.name,
 		pack: [],
+		meta: [{name: ":eager", pos: null}, {name: ":follow", pos: null}],
 		fields: [],
 		params: td.params,
 		pos: null,
@@ -139,7 +140,7 @@ private function interopGenAlias(td:TypeDefinition, cl:TypeDefinition, path:Stri
 		case TDAlias(_):
 			final pack = path.split("/");
 			final isNameUsed = td.name == cl.name;
-			final meta:Array<MetadataEntry> = [];
+			final meta:Array<MetadataEntry> = [{name: ":eager", pos: null}];
 			if (StringTools.startsWith(td.name, "T_"))
 				meta.push({name: ":dox", params: [macro hide], pos: null});
 			{

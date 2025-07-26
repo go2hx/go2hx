@@ -5,10 +5,10 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 	info.global.renameClasses[spec.name.name] = name;
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
-	var doc:String = codegen.Doc.getDocComment(spec, spec) + codegen.Doc.getSource(spec, info);
+	var doc:String = gen.Doc.getDocComment(spec, spec) + gen.Doc.getSource(spec, info);
 	final patchName = info.global.module.path + ":" + name;
-	final replaceExpr = codegen.Patch.replace[patchName];
-	final printer = new codegen.Printer();
+	final replaceExpr = gen.Patch.replace[patchName];
+	final printer = new gen.Printer();
 	if (replaceExpr != null) {
 		final td:TypeDefinition = {
 			name: name,
@@ -29,7 +29,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 			info.renameIdents[spec.name.name] = splitDepFullPathName(name + "_static_extension", info);
 			info.classNames[spec.name.name] = splitDepFullPathName(name + "_static_extension", info);
 			// add to fields patch structs
-			final structExpr = codegen.Patch.structs[patchName];
+			final structExpr = gen.Patch.structs[patchName];
 			var structAddFieldsIndex = -1;
 			if (structExpr != null) { // patch modify struct
 				switch structExpr.expr {
@@ -481,7 +481,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 					pos: null,
 					fields: [],
 					pack: [],
-					doc: codegen.Doc.getDocComment(spec),
+					doc: gen.Doc.getDocComment(spec),
 					params: params,
 					isExtern: externBool,
 					meta: meta,

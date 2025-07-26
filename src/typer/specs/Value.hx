@@ -64,7 +64,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 			final patchName = info.global.module.path + ":" + name;
 			var patch = null;
 			#if !macro
-			patch = codegen.Patch2.getValue(info.global.module.path, name, pkg);
+			patch = gen.Patch2.getValue(info.global.module.path, name, pkg);
 			#end
 			if (patch != null)
 				expr = patch;
@@ -114,7 +114,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 			// empty name
 			if (value.names[i].name == "_")
 				pkg.varOrder.push(name);
-			var doc:String = codegen.Doc.getDocComment(value, value); // + getSource(value, info);
+			var doc:String = gen.Doc.getDocComment(value, value); // + getSource(value, info);
 			var access = [];
 			if (constant)
 				access.push(AFinal);

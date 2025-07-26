@@ -7,7 +7,7 @@ function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 	// info.classNames[spec.name.name] = name + "_static_extension";
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
-	var doc:String = codegen.Doc.getDocComment(spec, spec) + codegen.Doc.getSource(spec, info);
+	var doc:String = gen.Doc.getDocComment(spec, spec) + gen.Doc.getSource(spec, info);
 	var ct = TPath({name: name, pack: []});
 	var t = typeof(spec.type, info, false);
 	switch t {
@@ -43,7 +43,7 @@ function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 				default:
 			}
 			td.meta = meta;
-			td.doc = codegen.Doc.getDocComment(spec);
+			td.doc = gen.Doc.getDocComment(spec);
 			td.isExtern = isTitle(spec.name.name);
 			td.kind = TDClass(superClass);
 			return td;
@@ -58,7 +58,7 @@ function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 					params: params,
 					isExtern: isTitle(spec.name.name),
 					fields: [],
-					doc: codegen.Doc.getDocComment(spec),
+					doc: gen.Doc.getDocComment(spec),
 					meta: meta,
 					kind: TDAlias(HaxeAst.anyInterfaceType()),
 				};
@@ -70,7 +70,7 @@ function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 				pos: null,
 				params: params,
 				pack: [],
-				doc: codegen.Doc.getDocComment(spec),
+				doc: gen.Doc.getDocComment(spec),
 				isExtern: isTitle(spec.name.name),
 				fields: [],
 				meta: meta,
@@ -108,7 +108,7 @@ function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 		pack: [],
 		fields: [],
 		isExtern: isTitle(spec.name.name),
-		doc: codegen.Doc.getDocComment(spec),
+		doc: gen.Doc.getDocComment(spec),
 		params: params,
 		meta: meta,
 		kind: TDAlias(uct),

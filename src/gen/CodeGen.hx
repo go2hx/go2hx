@@ -1,4 +1,4 @@
-package codegen;
+package gen;
 
 import haxe.macro.Type.FieldKind;
 import typer.HaxeAst.Module;
@@ -25,7 +25,7 @@ function cutPrefixComplexType(ct:ComplexType):ComplexType {
 }
 
 function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
-	final printer = new codegen.Printer();
+	final printer = new gen.Printer();
 	var actualPath = StringTools.replace(module.path, ".", "/");
 	final paths = actualPath.split("/");
 	// get rid of github.com/org/repo prefix
@@ -191,7 +191,7 @@ private function runCmd(cmd:String) {
 	#end
 }
 
-private function save(dir:String, name:String, content:Array<TypeDefinition>, prefix:String, extension:String, splitDepsContent:Bool, splitFiles:Array<String>, printer:codegen.Printer) {
+private function save(dir:String, name:String, content:Array<TypeDefinition>, prefix:String, extension:String, splitDepsContent:Bool, splitFiles:Array<String>, printer:gen.Printer) {
 	if (content.length == 0)
 		return;
 	if (splitDepsContent)
@@ -201,7 +201,7 @@ private function save(dir:String, name:String, content:Array<TypeDefinition>, pr
 	saveRaw(dir, name, contentString, prefix, extension, splitDepsContent);
 }
 
-function splitDeps(dir:String, name:String, prefix:String, extension:String, content:Array<TypeDefinition>, splitFiles:Array<String>, printer:codegen.Printer):Array<TypeDefinition> {
+function splitDeps(dir:String, name:String, prefix:String, extension:String, content:Array<TypeDefinition>, splitFiles:Array<String>, printer:gen.Printer):Array<TypeDefinition> {
 	final newContent = [];
 	for (td in content) {
 		switch td.kind {

@@ -1,4 +1,4 @@
-package codegen;
+package gen;
 
 import haxe.macro.Expr.TypeParam;
 import haxe.macro.Expr;

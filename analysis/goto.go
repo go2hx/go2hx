@@ -840,6 +840,13 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 					fs.labelMapLoop[labelName] = stmt.Stmt
 				case *ast.RangeStmt:
 					var x = ast.NewIdent("iterator_" + fmt.Sprint(child.Range))
+					ident := x
+					ident.Obj = ast.NewObj(ast.Var, ident.Name)
+					ident.NamePos = child.Range
+					fs.tempVars[ident.Obj] = tempVarData{
+						Ident: ident,
+						Type:  ast.NewIdent("int"),
+					}
 					switch t := fs.checker.TypeOf(child.X).Underlying().(type) {
 					case *types.Array, *types.Slice:
 						_ = t
@@ -889,7 +896,7 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 		_ = switchStmt
 		secondPass := true
 		// debug comment
-		commentBool := false
+		commentBool := true
 		if secondPass {
 			if commentBool {
 				buf := bytes.NewBufferString("")

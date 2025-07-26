@@ -1089,6 +1089,8 @@ class _Type {
 			return KindType.invalid;
 		}
 		var gt:GoType = @:privateAccess (t : Dynamic)._common();
+		if (gt == null)
+			return 0;
 		gt = getUnderlying(gt);
 		return switch gt {
 			case typeParam(_, _):

@@ -34,8 +34,6 @@ steps:
   - name: Clean go2hx
     run: npx haxe --run Run clean
   # compile stdgo
-  - name: Build go2hx compiler
-    run: npx haxe --run Run build
   - name: Set source
     run: haxelib dev go2hx .
   - uses: actions/cache/restore@v4
@@ -48,6 +46,8 @@ steps:
         export
         golibs
       key: ${{ github.sha }}-build-${{ env.cache-name }}
+  - name: Setup hxcpp
+    run: haxe -cp extra/scripts --run SetupHxcpp
   - name: clone go
     run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
   - name: Sort tests

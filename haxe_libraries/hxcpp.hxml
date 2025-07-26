@@ -1,4 +1,4 @@
-# @install: lix --silent download "haxelib:/hxcpp#4.3.2" into hxcpp/4.3.2/haxelib
-# @run: haxelib run-dir hxcpp "${HAXE_LIBCACHE}/hxcpp/4.3.2/haxelib"
--cp ${HAXE_LIBCACHE}/hxcpp/4.3.2/haxelib/
--D hxcpp=4.3.2
+# @install: lix --silent download "gh://github.com/haxefoundation/hxcpp#be7ef02b785cf9cac8377b0ddbeef5026aa65221" into hxcpp/4.3.0/github/be7ef02b785cf9cac8377b0ddbeef5026aa65221
+# @run: haxelib run-dir hxcpp "${HAXE_LIBCACHE}/hxcpp/4.3.0/github/be7ef02b785cf9cac8377b0ddbeef5026aa65221"
+-cp ${HAXE_LIBCACHE}/hxcpp/4.3.0/github/be7ef02b785cf9cac8377b0ddbeef5026aa65221/
+-D hxcpp=4.3.0

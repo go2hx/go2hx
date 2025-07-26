@@ -544,62 +544,38 @@ typedef GoComplex64Map<T> = GoComplex128Map<T>;
 
 // ref
 @:dox(hide)
-class GoRefMap<K, V> extends BalancedTree<Ref<K>, V> {
+class GoRefMap<K, V> extends CompareMap<Ref<K>, V> {
 	public var __defaultValue__:Void->V;
-	override function compare(k1:Ref<K>, k2:Ref<K>):Int {
-		return k1 == k2 ? 0 : 1;
+	override function compare(k1:Ref<K>, k2:Ref<K>):Bool {
+		return k1 == k2;
 	}
 	override function get(key:Ref<K>):V {
-		var node = root;
-		while (node != null) {
-			var c = compare(key, node.key);
-			if (c == 0)
-				return node.value;
-			if (c < 0)
-				node = node.left;
-			else
-				node = node.right;
-		}
+		if (exists(key))
+			return super.get(key);
 		return __defaultValue__();
 	}
 }
 @:dox(hide)
-class GoPointerMap<K, V> extends BalancedTree<Pointer<K>, V> {
+class GoPointerMap<K, V> extends CompareMap<Pointer<K>, V> {
 	public var __defaultValue__:Void->V;
-	override function compare(k1:Pointer<K>, k2:Pointer<K>):Int {
-		return k1 == k2 ? 0 : 1;
+	override function compare(k1:Pointer<K>, k2:Pointer<K>):Bool {
+		return k1 == k2;
 	}
 	override function get(key:Pointer<K>):V {
-		var node = root;
-		while (node != null) {
-			var c = compare(key, node.key);
-			if (c == 0)
-				return node.value;
-			if (c < 0)
-				node = node.left;
-			else
-				node = node.right;
-		}
+		if (exists(key))
+			return super.get(key);
 		return __defaultValue__();
 	}
 }
 @:dox(hide)
-class GoChanMap<K, V> extends BalancedTree<Chan<K>, V> {
+class GoChanMap<K, V> extends CompareMap<Chan<K>, V> {
 	public var __defaultValue__:Void->V;
-	override function compare(k1:Chan<K>, k2:Chan<K>):Int {
-		return k1 == k2 ? 0 : 1;
+	override function compare(k1:Chan<K>, k2:Chan<K>):Bool {
+		return k1 == k2;
 	}
 	override function get(key:Chan<K>):V {
-		var node = root;
-		while (node != null) {
-			var c = compare(key, node.key);
-			if (c == 0)
-				return node.value;
-			if (c < 0)
-				node = node.left;
-			else
-				node = node.right;
-		}
+		if (exists(key))
+			return super.get(key);
 		return __defaultValue__();
 	}
 }
@@ -656,29 +632,21 @@ class GoComplex128Map<T> extends BalancedTree<GoComplex128, T> {
 	}
 }
 @:dox(hide)
-class GoBoolMap<T> extends BalancedTree<Bool, T> {
+class GoBoolMap<T> extends CompareMap<Bool, T> {
 	public var __defaultValue__:Void->T;
-	override function compare(k1:Bool, k2:Bool):Int {
-		return k1 == k2 ? 0 : 1;
+	override function compare(k1:Bool, k2:Bool):Bool {
+		return k1 == k2;
 	}
 	override function get(key:Bool):T {
-		var node = root;
-		while (node != null) {
-			var c = compare(key, node.key);
-			if (c == 0)
-				return node.value;
-			if (c < 0)
-				node = node.left;
-			else
-				node = node.right;
-		}
+		if (exists(key))
+			return super.get(key);
 		return __defaultValue__();
 	}
 }
 @:dox(hide)
-class GoArrayMap<T, V> extends BalancedTree<GoArray<T>, V> {
-	override function compare(k1:GoArray<T>, k2:GoArray<T>):Int {
-		return k1 == k2 ? 0 : 1;
+class GoArrayMap<T, V> extends CompareMap<GoArray<T>, V> {
+	override function compare(k1:GoArray<T>, k2:GoArray<T>):Bool {
+		return k1 == k2;
 	}
 }
 @:dox(hide)

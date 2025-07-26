@@ -1,6 +1,6 @@
 [ERROR] golibs/stdgo/_internal/image/draw/Draw_testdraw.hx:228: characters 21-70
 
- 228 |                     stdgo._internal.image.draw.Draw__iterator_5005587._iterator_5005587++;
+ 228 |                     stdgo._internal.image.draw.Draw__iterator_5151759._iterator_5151759++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.image.draw.Draw__iterator_5005587
+     | Type not found : stdgo._internal.image.draw.Draw__iterator_5151759
 

@@ -724,7 +724,7 @@ class CompareMap<K,V> implements haxe.Constraints.IMap<K,V> {
 	public var _keys:Array<K> = [];
 	public var _values:Array<V> = [];
 	public function new() {}
-	public function compare(key, key2):Bool {
+	public function compare(key:K, key2:K):Bool {
 		return false;
 	}
 	public function set(k:K,v:V) {
@@ -798,6 +798,23 @@ class GoAnyInterfaceMap<V> extends CompareMap<AnyInterface, V> {
 		#else
 		return k1 == k2;
 		#end
+	}
+	
+	override function remove(key:AnyInterface):Bool {
+		final gt = @:privateAccess key.type._common();
+		switch gt {
+			case sliceType(_):
+				throw errorString("hash of unhashable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
+			default:
+				//trace(gt);
+		}
+		return super.remove(key);
+	}
+
+	override function get(key:AnyInterface):V {
+		if (exists(key))
+			return super.get(key);
+		return __defaultValue__();
 	}
 }
 

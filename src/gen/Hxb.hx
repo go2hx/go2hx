@@ -1,10 +1,39 @@
 package gen;
 
+import haxe.io.Path;
 import sys.io.File;
+import sys.FileSystem;
 
 
-function generateHxb(instance:Compiler.CompilerInstanceData, exports:Array<String>=null):String {
-    exports = exports ?? [];
+private function getExports(instance:Compiler.CompilerInstanceData):Array<String> {
+    final exports = [];
+    function f(path:String) {
+        for (name in FileSystem.readDirectory(path)) {
+            if (name.charAt(0) == "." || name.charAt(0) == "_")
+                continue; 
+            name = Path.join([path, name]);
+            if (FileSystem.isDirectory(name)) {
+                f(name);
+                continue;
+            }
+            if (Path.extension(name) == "hx") {
+                if (Path.extension(Path.withoutExtension(name)) != "")
+                    continue; // ignore .macro.hx
+                var exportPackage = Path.normalize(Path.withoutExtension(name)).split("/");
+                exportPackage.shift();
+                final export = exportPackage.join(".");
+                trace(export);
+                exports.push(export);
+            }
+        }
+    }
+    f(instance.outputPath);
+    //(exports);
+    return exports;
+}
+
+function generateHxb(instance:Compiler.CompilerInstanceData):String {
+    final exports = getExports(instance);
     Sys.setCwd(instance.localPath);
     final filePath = instance.outputPath + "hxb.hxml";
     File.saveContent(instance.outputPath + "hxb.json", hxbJsonContent);

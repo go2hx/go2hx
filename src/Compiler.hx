@@ -73,6 +73,9 @@ function end(instance:CompilerInstanceData) {
 		checksum: "",
 	};
 	gen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
+	if (instance.hxbBool) {
+		gen.Hxb.generateHxb(instance);
+	}
 	// set back current working directory
 	Sys.setCwd(cwd);
 	final mains = mainPaths(modules);

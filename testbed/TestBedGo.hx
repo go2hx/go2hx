@@ -4,7 +4,7 @@ function main() {
 	try {
 		sys.FileSystem.deleteFile("golibs/_internal/githubdotcom/go2hx/go4hx/testbed/.go2hx_cache");
 	}catch(e) {}
-	final args = ["./testbed", "-notry"];
+	final args = ["./testbed", "-notry", "--nohxb"];
 	//args.push("-compiler_cpp");
 	if (haxe.macro.Compiler.getDefine("nocache") != null) {
 		args.push("-nocache");
@@ -32,11 +32,11 @@ function main() {
 		"-w",
 		"-WStaticInitOrder",
 		"--hl",
-		"testbed.hl",
+		"testbed_go.hl",
 	]);
 	if (code != 0)
 		throw "failed to build";
-	final command = "hl testbed.hl";
+	final command = "hl testbed_go.hl";
 	Sys.println(command);
 	code = Sys.command(command);
 	if (code != 0)

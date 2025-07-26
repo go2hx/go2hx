@@ -421,7 +421,7 @@ function runNewTest() {
 	if (test == null)
 		return;
 	final hxmlName = sanatize(Path.withoutExtension(test));
-	final args = [test, "-compiler_cpp", "-printmain"];
+	final args = [test, "-compiler_cpp", "-printmain", "-nohxb"];
 	if (testBool)
 		args.push("--test");
 	if (noDepsBool)

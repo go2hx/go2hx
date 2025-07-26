@@ -42,11 +42,6 @@ function main() {
 		build(true);
 		return;
 	}
-
-	if (args.length > 0 && args.indexOf("hxb") != -1) {
-		setupHxb();
-		return;
-	}
 	var rebuild = false;
 	var process = new Process('git', ['rev-parse', 'HEAD']);
 	if (process.exitCode() != 0) {
@@ -394,15 +389,4 @@ function setupHashlink(rebuild:Bool, args:Array<String>) {
 function setupInterp(rebuild:Bool, args:Array<String>) {
 	Sys.println("Interp compiler version");
 	Sys.command("haxe extra/scripts/build-interp.hxml " + args.join(" "));
-}
-
-function setupHxb() {
-	Sys.println("setting up Hxb");
-	var args = Sys.args();
-	final index = args.indexOf("hxb");
-	args = args.slice(index + 1);
-	if (Sys.command('haxe extra/scripts/hxb.hxml ' + args.join(" ")) != 0) {
-		Sys.println("Failed to setup Hxb");
-		Sys.exit(1);
-	}
 }

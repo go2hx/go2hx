@@ -81,3 +81,4 @@ analysis/tests/unit/pointermod/*
 !tests/logs/*.log
 tests/logs/*.md
 tmp_*
+*.zip

@@ -261,5 +261,8 @@
  "interp|nilany",
  "interp|recursiveTypeReflect",
  "interp|tagBootstrap2",
- "interp|osDir"
+ "interp|osDir",
+ "interp|const0",
+ "interp|ref4",
+ "interp|runtimeVersion"
 ]

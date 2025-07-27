@@ -1,6 +1,6 @@
 package testbed.lib;
 
-function float64bits(f:stdgo.GoFloat64) {
+function float64bits(f:go.GoFloat64) {
 	final bytes = haxe.io.Bytes.alloc(8);
 	bytes.setDouble(0, f.toBasic());
 	final bits:Array<Int> = [

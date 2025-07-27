@@ -449,7 +449,7 @@ function compileFromInstance(inst:CompilerInstanceData):Bool {
 		}
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
-		if (io.Data.stdgoList.indexOf(path) != -1)
+		if (io.Data.stdList.indexOf(path) != -1)
 			continue;
 		if (instance.goRoot != "")
 			Sys.putEnv("GOROOT", instance.goRoot);

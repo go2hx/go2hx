@@ -1,20 +1,20 @@
 package go.internal.reflectlite;
 
-import stdgo.reflect.Reflect;
+import go.reflect.Reflect;
 
-function typeOf(_i:stdgo.AnyInterface)
+function typeOf(_i:go.AnyInterface)
 	return Reflect.typeOf(_i);
 
-function valueOf(_i:stdgo.AnyInterface)
+function valueOf(_i:go.AnyInterface)
 	return Reflect.valueOf(_i);
 
-function swapper(_slice:stdgo.AnyInterface) {
+function swapper(_slice:go.AnyInterface) {
 	var _v = (Reflect.valueOf(_slice) == null ? null : Reflect.valueOf(_slice).__copy__());
 	var _tmp = (Reflect.new_(_v.type().elem())
 		.elem() == null ? null : Reflect.new_(_v.type().elem())
 		.elem()
 		.__copy__());
-	return function(_i:stdgo.GoInt, _j:stdgo.GoInt):Void {
+	return function(_i:go.GoInt, _j:go.GoInt):Void {
 		var _a = (_v.index(_i) == null ? null : _v.index(_i).__copy__()),
 			_b = (_v.index(_j) == null ? null : _v.index(_j).__copy__());
 		_tmp.set((_a == null ? null : _a.__copy__()));

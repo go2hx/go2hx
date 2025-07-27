@@ -116,35 +116,35 @@ function clean() {
 	return;
 	if (FileSystem.exists("golibs"))
 		deleteDirectoryRecursively("golibs");
-	for (path in FileSystem.readDirectory("stdgo")) {
-		if (!FileSystem.isDirectory('stdgo/$path'))
+	for (path in FileSystem.readDirectory("go")) {
+		if (!FileSystem.isDirectory('go/$path'))
 			continue;
 		switch path {
 			case "_internal":
-				for (path2 in FileSystem.readDirectory('stdgo/$path')) {
-					if (FileSystem.isDirectory('stdgo/$path/$path2')) {
+				for (path2 in FileSystem.readDirectory('go/$path')) {
+					if (FileSystem.isDirectory('go/$path/$path2')) {
 						switch path2 {
 							case "unsafe":
 								continue;
 							case "internal":
-								for (path3 in FileSystem.readDirectory('stdgo/$path/$path2')) {
-									if (FileSystem.isDirectory('stdgo/$path/$path2/$path3')) {
+								for (path3 in FileSystem.readDirectory('go/$path/$path2')) {
+									if (FileSystem.isDirectory('go/$path/$path2/$path3')) {
 										switch path3 {
 											case "reflect":
 											default:
-												deleteDirectoryRecursively('stdgo/$path/$path2/$path3');
+												deleteDirectoryRecursively('go/$path/$path2/$path3');
 										}
 									}
 								}
 								continue;
 							default:
-								deleteDirectoryRecursively('stdgo/$path/$path2');
+								deleteDirectoryRecursively('go/$path/$path2');
 						}
 					}
 				}
 				continue;
 		}
-		deleteDirectoryRecursively('stdgo/$path');
+		deleteDirectoryRecursively('go/$path');
 	}
 }
 

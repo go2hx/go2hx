@@ -3,9 +3,9 @@ package gen;
 import haxe.macro.Expr.TypePath;
 
 final splitDepsBool = true;
-final newValue:TypePath = splitDepsBool ? {pack: "stdgo._internal.reflect.Reflect_value".split("."), name: "Value"} : {pack: [], name: "Value"};
+final newValue:TypePath = splitDepsBool ? {pack: "go._internal.reflect.Reflect_value".split("."), name: "Value"} : {pack: [], name: "Value"};
 
-final newValueError:TypePath = splitDepsBool ? {pack: "stdgo._internal.reflect.Reflect_valueerror".split("."), name: "ValueError"} : {
+final newValueError:TypePath = splitDepsBool ? {pack: "go._internal.reflect.Reflect_valueerror".split("."), name: "ValueError"} : {
 	pack: [],
 	name: "ValueError"
 };
@@ -75,35 +75,35 @@ final skipTests = [
 	"encoding.json:testHTTPDecoding" => [], // uses net/http
 	"compress.gzip:example_compressingReader" => [], // uses net/http
 	"encoding.binary_test:testNativeEndian" => [], // uses unsafe pointer conversions
-	// stdgo/math/rand_test
+	// go/math/rand_test
 	"math.rand_test:testFloat32" => [], // slow
-	// stdgo/math/big_test
+	// go/math/big_test
 	"math.big_test:testLinkerGC" => [], // specific to GC's linker
 	"math.big_test:testModSqrt" => [], // slow
 	"math.big_test:testBytes" => [], // broken for gopherjs
-	// stdgo/sync_test
+	// go/sync_test
 	"sync_test:testCondCopy" => [], // raw pointers
 	"sync_test:testIssue40999" => [], // uses runtime.setFinalizers
 	"sync_test:testPoolGC" => [], // uses runtime.GC()
 	"sync_test:testPoolRelease" => [], // uses runtime.GC()
 	"sync_test:testPoolDequeue" => [], // This test targets upstream pool implementation, which is not used by GopherJS.
 	"sync_test:testPoolChain" => [], // This test targets upstream pool implementation, which is not used by GopherJS.
-	// stdgo/math_test
+	// go/math_test
 	"math_test:testFloatMinMax" => [], // fmt formatter
 	"math:testGamma" => ["interp"], // high floating point precision
 	"io.fs_test:testCVE202230630" => [], // signal 11, freezes
 	"regexp.syntax:testParseInvalidRegexps" => [], // testParseInvalidRegexps not implemented: too slow
-	// stdgo/math_bits_test
+	// go/math_bits_test
 	"math_bits_test:testLeadingZeros" => [],
 	"math_bits_test:testOnesCount" => [],
 	"math_bits_test:testLen" => [],
-	// stdgo/strings_test
+	// go/strings_test
 	"strings_test:_makeBenchInputHard" => [],
 ];
 
 final replace = [
-	"internal.reflectlite:Value" => macro stdgo._internal.reflect.Reflect_value.Value,
-	"internal.reflectlite:Type_" => macro stdgo._internal.reflect.Reflect_type_.Type_,
+	"internal.reflectlite:Value" => macro go._internal.reflect.Reflect_value.Value,
+	"internal.reflectlite:Type_" => macro go._internal.reflect.Reflect_type_.Type_,
 ];
 
 final structs = [
@@ -124,9 +124,9 @@ final structs = [
 	},
 	"syscall:IPv6Mreq" => macro {
 		@:local
-		var Multiaddr:stdgo.GoUInt8;
+		var Multiaddr:go.GoUInt8;
 		@:local
-		var Interface:stdgo.GoUInt32;
+		var Interface:go.GoUInt32;
 	},
 	"os:File" => macro {
 		@:local
@@ -146,27 +146,27 @@ final structs = [
 		@:local
 		var values:Array<Dynamic>;
 		@:local
-		var t:stdgo._internal.internal.reflect.Reflect._Type;
+		var t:go._internal.internal.reflect.Reflect._Type;
 		@:local
 		var index:Int = 0;
 	},
 	"reflect:Value" => macro {
-		var value:stdgo.AnyInterface;
+		var value:go.AnyInterface;
 		@:local
 		var underlyingValue:Dynamic;
-		var underlyingIndex:stdgo.GoInt = -1;
+		var underlyingIndex:go.GoInt = -1;
 		@:local
 		var underlyingKey:Dynamic = null;
 		var canAddrBool:Bool = false;
 		var notSetBool:Bool = false;
-		function string():stdgo.GoString @:splitdeps {
+		function string():go.GoString @:splitdeps {
 			var _v = this;
 			if (@:privateAccess _v.value == null) {
 				return "<invalid Value>";
 			}
 			var value = @:privateAccess _v.value.value;
-			final t:stdgo._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
-			if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
+			final t:go._internal.internal.reflect.GoType = @:privateAccess _v.value.type._common();
+			if (go._internal.internal.reflect.Reflect.isNamed(t)) {
 				switch std.Type.typeof(value) {
 					case std.Type.ValueType.TClass(c):
 						final name = std.Type.getClassName(c);
@@ -176,13 +176,13 @@ final structs = [
 						final _ = false;
 				}
 			}
-			if (stdgo._internal.internal.reflect.Reflect.isPointer(t)) {
-				@:privateAccess _v.value.type.gt = stdgo._internal.internal.reflect.Reflect.getElem(t);
-				value = (value : stdgo.Pointer<Dynamic>).value;
+			if (go._internal.internal.reflect.Reflect.isPointer(t)) {
+				@:privateAccess _v.value.type.gt = go._internal.internal.reflect.Reflect.getElem(t);
+				value = (value : go.Pointer<Dynamic>).value;
 			};
-			final underlyingType = stdgo._internal.internal.reflect.Reflect.getUnderlying(t);
+			final underlyingType = go._internal.internal.reflect.Reflect.getUnderlying(t);
 			switch (underlyingType) {
-				case stdgo._internal.internal.reflect.GoType.basic(kind):
+				case go._internal.internal.reflect.GoType.basic(kind):
 					switch kind {
 						case string_kind:
 							return value;
@@ -198,14 +198,14 @@ final structs = [
 	"sync:Map_" => macro {
 		@:local
 		var map = {
-			final m = new stdgo.GoMap.GoAnyInterfaceMap<stdgo.AnyInterface>();
+			final m = new go.GoMap.GoAnyInterfaceMap<go.AnyInterface>();
 			m.__defaultValue__ = () -> null;
 			m;
 		};
 	},
 	"sync:WaitGroup" => macro {
 		@:local
-		var counter:stdgo.GoUInt = 0;
+		var counter:go.GoUInt = 0;
 		@:local
 		var mutex = @:define("target.threaded") new sys.thread.Mutex();
 	},
@@ -229,7 +229,7 @@ final structs = [
 	},
 	"sync:Pool" => macro {
 		@:local
-		var pool = @:define("target.threaded", new Array<stdgo.AnyInterface>()) new sys.thread.Deque<stdgo.AnyInterface>();
+		var pool = @:define("target.threaded", new Array<go.AnyInterface>()) new sys.thread.Deque<go.AnyInterface>();
 	},
 	"reflect:ValueError" => macro {
 		@:splitdeps function toString():String {
@@ -240,7 +240,7 @@ final structs = [
 
 final addFuncs = [
 	"math:negZero" => macro {
-		return stdgo._internal.math.Math_copysign.copysign(0.0, -1.0);
+		return go._internal.math.Math_copysign.copysign(0.0, -1.0);
 	},
 ];
 
@@ -258,22 +258,22 @@ final addTypeDefs = [
 			this._socket = socket;
 		}
 
-		public dynamic function accept():{_0:stdgo._internal.net.Net_conn.Conn, _1:stdgo.Error} {
+		public dynamic function accept():{_0:go._internal.net.Net_conn.Conn, _1:go.Error} {
 			@:define("sys") {
 				final s = _socket.accept();
-				return {_0: new stdgo._internal.net.Net_haxeconn.HaxeConn(this._addr, s), _1: null};
+				return {_0: new go._internal.net.Net_haxeconn.HaxeConn(this._addr, s), _1: null};
 			}
 			return {_0: null, _1: null};
 		}
 
-		public dynamic function close():stdgo.Error {
+		public dynamic function close():go.Error {
 			@:define("sys") {
 				_socket.close();
 			}
 			return null;
 		}
 
-		public dynamic function addr():stdgo._internal.net.Net_addr.Addr {
+		public dynamic function addr():go._internal.net.Net_addr.Addr {
 			return this._addr;
 		}
 	},
@@ -291,11 +291,11 @@ final addTypeDefs = [
 			this._port = port;
 		}
 
-		public dynamic function network():stdgo.GoString {
+		public dynamic function network():go.GoString {
 			return _network;
 		}
 
-		public dynamic function string():stdgo.GoString {
+		public dynamic function string():go.GoString {
 			return _ip + ":" + _port;
 		}
 	},
@@ -312,25 +312,25 @@ final addTypeDefs = [
 			this._addr = addr;
 		}
 
-		public dynamic function read(_b:stdgo.Slice<stdgo.GoByte>):{_0:stdgo.GoInt, _1:stdgo.Error} {
+		public dynamic function read(_b:go.Slice<go.GoByte>):{_0:go.GoInt, _1:go.Error} {
 			@:define("sys") {
 				final b = _b.toBytes();
 				var i = 0;
 				try {
 					i = @:privateAccess _socket.input.readBytes(b, 0, b.length);
 				} catch (e:haxe.io.Eof) {
-					return {_0: 0, _1: stdgo._internal.io.Io_eof.eOF};
+					return {_0: 0, _1: go._internal.io.Io_eof.eOF};
 				}
 				final data = b.getData();
 				for (pos in 0...i) {
-					(_b : stdgo.GoArray.GoArrayData<stdgo.GoByte>).vector[pos] = haxe.io.Bytes.fastGet(data, pos);
+					(_b : go.GoArray.GoArrayData<go.GoByte>).vector[pos] = haxe.io.Bytes.fastGet(data, pos);
 				}
 				return {_0: i, _1: null};
 			}
 			return {_0: 0, _1: null};
 		}
 
-		public dynamic function write(_b:stdgo.Slice<stdgo.GoByte>):{_0:stdgo.GoInt, _1:stdgo.Error} {
+		public dynamic function write(_b:go.Slice<go.GoByte>):{_0:go.GoInt, _1:go.Error} {
 			@:define("sys") {
 				final b = _b.toBytes();
 				final i = _socket.output.writeBytes(b, 0, b.length);
@@ -340,35 +340,35 @@ final addTypeDefs = [
 			return {_0: 0, _1: null};
 		}
 
-		public dynamic function close():stdgo.Error {
+		public dynamic function close():go.Error {
 			@:define("sys") {
 				_socket.close();
 			}
 			return null;
 		}
 
-		public dynamic function localAddr():stdgo._internal.net.Net_addr.Addr {
+		public dynamic function localAddr():go._internal.net.Net_addr.Addr {
 			 final obj = _socket.host();
-			final addr = new stdgo._internal.net.Net_haxeaddr.HaxeAddr(@:privateAccess _addr._network, obj.host.toString(), obj.port);
+			final addr = new go._internal.net.Net_haxeaddr.HaxeAddr(@:privateAccess _addr._network, obj.host.toString(), obj.port);
 			return addr;
 		}
 
-		public dynamic function remoteAddr():stdgo._internal.net.Net_addr.Addr {
+		public dynamic function remoteAddr():go._internal.net.Net_addr.Addr {
 			 final obj = _socket.peer();
-			final addr = new stdgo._internal.net.Net_haxeaddr.HaxeAddr(@:privateAccess _addr._network, obj.host.toString(), obj.port);
+			final addr = new go._internal.net.Net_haxeaddr.HaxeAddr(@:privateAccess _addr._network, obj.host.toString(), obj.port);
 			return addr;
 		}
 
-		public dynamic function setDeadline(t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+		public dynamic function setDeadline(t:go._internal.time.Time_time.Time):go.Error {
 			// TODO configure
 			return null;
 		}
 
-		public dynamic function setReadDeadline(t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+		public dynamic function setReadDeadline(t:go._internal.time.Time_time.Time):go.Error {
 			return null;
 		}
 
-		public dynamic function setWriteDeadline(t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+		public dynamic function setWriteDeadline(t:go._internal.time.Time_time.Time):go.Error {
 			return null;
 		}
 	},
@@ -377,13 +377,13 @@ final addTypeDefs = [
 
 		override public function writeBytes(buf, pos, len) {
 			if (pos == 0 && len == buf.length) {
-				stdgo.Go.print(buf.toString());
+				go.Go.print(buf.toString());
 			}
 			return 0;
 		}
 
 		override public function write(s) {
-			stdgo.Go.print(s.toString());
+			go.Go.print(s.toString());
 		}
 	},
 ];

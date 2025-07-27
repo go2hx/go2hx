@@ -6,7 +6,7 @@ function typeIndexExpr(expr:GoAst.IndexExpr, info:Info):Expr {
 		case EConst(c):
 			switch c {
 				case CString(_):
-					x = macro($x : stdgo.GoString);
+					x = macro($x : go.GoString);
 				default:
 			}
 		default:
@@ -20,7 +20,7 @@ function typeIndexExpr(expr:GoAst.IndexExpr, info:Info):Expr {
 	switch t {
 		case arrayType(_, _), sliceType(_), basic(untyped_string_kind), basic(string_kind):
 			index = typer.exprs.Expr.explicitConversion(typeof(expr.index, info, false), basic(int_kind), index, info, false);
-			index = macro($index : stdgo.GoInt); // explicit casting needed for macro typeParam system otherwise compilation breaks
+			index = macro($index : go.GoInt); // explicit casting needed for macro typeParam system otherwise compilation breaks
 		case mapType(_.get() => indexType, _.get() => valueType):
 			index = typer.exprs.Expr.explicitConversion(typeof(expr.index, info, false), indexType, index, info, false);
 			final value = typer.exprs.Expr.defaultValue(valueType, info);

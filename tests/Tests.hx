@@ -499,7 +499,7 @@ private function testStd() { // standard library package tests
 	list = list.slice(0, count);
 
 	Sys.println("______________________");
-	// haxe stdgo/unicode.hxml --interp
+	// haxe go/unicode.hxml --interp
 	final timer = new haxe.Timer(100);
 	timer.run = () -> updateStd(list);
 }
@@ -522,7 +522,7 @@ function updateStd(list:Array<String>) {
 			return;
 		tests = [name];
 		runNewTest();
-		createRunnableStd(name, "stdgo/");
+		createRunnableStd(name, "go/");
 		runTask(tasks.pop());
 	}
 }

@@ -42,6 +42,7 @@ class Global {
 	public var noCommentsBool:Bool = false;
 	public var renameClasses:Map<String, String> = [];
 	public var externBool:Bool = false;
+	public var exportBool:Bool = false;
 	public var root:String = "";
 	public var hashMapTypes:Map<UInt, Dynamic> = [];
 
@@ -49,6 +50,8 @@ class Global {
 
 	public function copy():Global {
 		var g = new Global();
+		g.exportBool = exportBool;
+		g.externBool = externBool;
 		g.tryBool = tryBool;
 		g.localSpecs = localSpecs;
 		g.initBlock = initBlock.copy();

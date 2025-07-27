@@ -212,7 +212,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 						var fieldPointerBool = false;
 						// var elemType:ComplexType = null;
 						switch field.kind {
-							case FVar(TPath({name: "Pointer", pack: ["stdgo"], params: params}), _):
+							case FVar(TPath({name: "Pointer", pack: ["go"], params: params}), _):
 								switch params[0] {
 									case TPType(TPath(p)):
 										// elemType = TPath({name: p.name, pack: p.pack.copy(), sub: p.sub});
@@ -225,7 +225,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 							if (fieldPointerBool) {
 								args.unshift(macro $i{name});
 							} else {
-								args.unshift(macro stdgo.Go.pointer($i{name}));
+								args.unshift(macro go.Go.pointer($i{name}));
 							}
 						}
 						final methodName = formatHaxeFieldName(method.name, info);
@@ -237,7 +237,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 									if (isNamed(elem)) {
 										final ct = toComplexType(elem, info);
 										addPointerSuffix(ct, info);
-										macro @:check420 (stdgo.Go.pointer(this.$name) : $ct).$fieldName;
+										macro @:check420 (go.Go.pointer(this.$name) : $ct).$fieldName;
 									} else {
 										macro @:check50 (this.$name ?? throw "null pointer dereference").$fieldName;
 									}
@@ -254,7 +254,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 									if (isNamed(elem)) {
 										final ct = toComplexType(elem, info);
 										addPointerSuffix(ct, info);
-										macro @:check42 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer dereference").$fieldName;
+										macro @:check42 ((go.Go.pointer(this.$name) : $ct) ?? throw "null pointer dereference").$fieldName;
 									} else {
 										macro @:check5 (this.$name ?? throw "null pointer dereference").$fieldName;
 									}
@@ -296,12 +296,14 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 								params: [],
 							}),
 						};
-						if (local) {
-							localEmbeddedFields.push(field);
-							localEmbeddedFields.push(fieldGet);
-						} else {
-							fields.push(field);
-							fields.push(fieldGet);
+						if (!info.global.exportBool || methodName.charAt(0) != "_") {
+							if (local) {
+								localEmbeddedFields.push(field);
+								localEmbeddedFields.push(fieldGet);
+							} else {
+								fields.push(field);
+								fields.push(fieldGet);
+							}
 						}
 					default:
 						throw info.panic() + "method not a signature";
@@ -339,7 +341,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 					pack: [],
 					kind: TDAlias(TPath({
 						name: "Pointer",
-						pack: ["stdgo"],
+						pack: ["go"],
 						params: [
 							TPType(TPath({
 								pack: [],
@@ -647,7 +649,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 				kind: TDAlias(TIntersection([
 					TPath({
 						name: "StructType",
-						pack: ["stdgo"]
+						pack: ["go"]
 					}),
 					TExtend(implicits, fields)
 				]))

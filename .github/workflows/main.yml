@@ -34,20 +34,20 @@ jobs:
       # go2hx setup
       - name: Set source
         run: npx haxelib dev go2hx .
-      # clean stdgo
-      - name: Clean stdgo
+      # Clean std
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Build go2hx compiler
         run: npx haxe --run Run build
       - name: Create vendor
         run: go mod vendor
-      # compile stdgo
-      - name: Run stdgo automatic compile
-        run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+      # compile std
+      - name: Run std automatic compile
+        run: npx haxe extra/scripts/go.hxml -D runnerCount=${{ env.CORES }}
       #- name: Create hxb
       #  run: npx haxelib run go2hx hxb .
       # cache
-      - name: Cache setup of stdgo and hxb
+      - name: cache setup of std and hxb
         id: cache-setup
         uses: actions/cache/save@v4
         env:
@@ -96,7 +96,7 @@ jobs:
         run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - uses: actions/cache/restore@v4
         id: setup-cache
@@ -211,7 +211,7 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Build go2hx compiler
         run: npx haxe --run Run build
@@ -257,7 +257,7 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Build go2hx compiler
         run: npx haxe --run Run build
@@ -315,10 +315,10 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      # clean stdgo
-      - name: Clean go2hx
+      # Clean std
+      - name: Clean std2hx
         run: npx haxe --run Run clean
-      # compile stdgo
+      # compile std
       - name: Build go2hx compiler
         run: npx haxe --run Run build
       - name: Set source
@@ -381,10 +381,10 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      # clean stdgo
-      - name: Clean go2hx
+      # Clean std
+      - name: Clean std2hx
         run: npx haxe --run Run clean
-      # compile stdgo
+      # compile std
       - name: Build go2hx compiler
         run: npx haxe --run Run build
       - name: Set source
@@ -435,7 +435,7 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Build go2hx compiler
         run: npx haxe --run Run build
@@ -487,7 +487,7 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Build go2hx compiler
         run: npx haxe --run Run build
@@ -548,10 +548,10 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      # clean stdgo
-      - name: Clean go2hx
+      # Clean std
+      - name: Clean std2hx
         run: npx haxe --run Run clean
-      # compile stdgo
+      # compile std
       - name: Build go2hx compiler
         run: npx haxe --run Run build
       - name: Set source
@@ -602,7 +602,7 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Build go2hx compiler
         run: npx haxe --run Run build
@@ -654,7 +654,7 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Build go2hx compiler
         run: npx haxe --run Run build
@@ -685,6 +685,16 @@ jobs:
             pull: --rebase --autostash
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+  js-hl:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 23
+    - run: node --v8-options
+  js-interp:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 23
+    - run: node --v8-options
   build-hl:
     
     timeout-minutes: 75
@@ -715,7 +725,7 @@ jobs:
         run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - uses: actions/cache/restore@v4
         id: setup-cache
@@ -778,7 +788,7 @@ jobs:
         run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - uses: actions/cache/restore@v4
         id: setup-cache

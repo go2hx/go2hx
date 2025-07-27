@@ -5,9 +5,9 @@ package io;
 **/
 import sys.io.File;
 
-final stdgoList:Array<String> = parseData('stdgo.list');
-final exports:Array<String> = parseData('stdgoExports.json');
-final externs:Array<String> = parseData('stdgoExterns.json');
+final stdList:Array<String> = parseData('std.list');
+final exports:Array<String> = parseData('stdExports.json');
+final externs:Array<String> = parseData('stdExterns.json');
 
 function parseData(fileName:String) {
 	final ext = haxe.io.Path.extension(fileName);
@@ -133,7 +133,7 @@ final reservedClassNames = [
 	"Map",
 	// "Math",
 	"Std",
-	"Sys",
+	//"Sys",
 	// "StringBuf",
 	"StringTools",
 	"SysError",

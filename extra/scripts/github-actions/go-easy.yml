@@ -30,10 +30,10 @@ steps:
   - name: Run lix
     run: npx lix download
   # go2hx setup
-  # clean stdgo
-  - name: Clean go2hx
+  # Clean std
+  - name: Clean std2hx
     run: npx haxe --run Run clean
-  # compile stdgo
+  # compile std
   - name: Build go2hx compiler
     run: npx haxe --run Run build
   - name: Set source

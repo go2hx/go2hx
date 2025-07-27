@@ -287,7 +287,7 @@ function convertComplexType(ct:ComplexType, path:String, cl:TypeDefinition):Comp
 					return TPath({
 						name: name,
 						sub: sub,
-						pack: ["stdgo"],
+						pack: ["go"],
 						params: types
 					});
 				}
@@ -308,7 +308,7 @@ function convertComplexType(ct:ComplexType, path:String, cl:TypeDefinition):Comp
 			]);
 		case TPath({name: "Bool", pack: [], params: _}):
 			return ct;
-		case TPath(p) if (p.pack != null && p.pack.length > 0 && p.pack[0] == "stdgo"):
+		case TPath(p) if (p.pack != null && p.pack.length > 0 && p.pack[0] == "go"):
 			return ct;
 		case TPath({name: name, pack: pack, params: params}):
 			return TPath({
@@ -322,7 +322,7 @@ function convertComplexType(ct:ComplexType, path:String, cl:TypeDefinition):Comp
 				})
 			});
 		case TIntersection(tl):
-			// skip over stdgo.StructType
+			// skip over go.StructType
 			return TIntersection([convertComplexType(tl[1], path, cl)]);
 		case TExtend(p, fields):
 			return TExtend(p.map(p -> {

@@ -61,9 +61,12 @@ function typePackageAnalyze(pkg:GoAst.PackageType, instance:Compiler.CompilerIns
 	info.printGoCode = instance.printGoCode;
 	info.global.path = pkg.path;
 	info.global.externBool = false;
-	if (stdgoList.indexOf(pkg.path) != -1) {
+	info.global.exportBool = false;
+	if (stdList.indexOf(pkg.path) != -1) {
 		if (externs.indexOf(pkg.path) != -1)
 			info.global.externBool = true;
+		if (exports.indexOf(pkg.path) != -1)
+			info.global.exportBool = true;
 	}
 
 	info.global.varTraceBool = instance.varTraceBool;

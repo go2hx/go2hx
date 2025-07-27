@@ -27,7 +27,7 @@ function indexByteString(_s, _c) {
 }
 
 function makeNoZero(_n) {
-	final s = new stdgo.Slice<stdgo.GoByte>(_n, _n).__setNumber32__();
+	final s = new go.Slice<go.GoByte>(_n, _n).__setNumber32__();
 	return s;
 }
 

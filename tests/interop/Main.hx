@@ -3,16 +3,16 @@ package;
 import go4hx.tests.interop.Interop;
 // import go4hx.tests.interop.go_dash_colorful
 import go4hx.tests.interop.a.A;
-import stdgo.Go;
+import go.Go;
 import go4hx.tests.interop.godashcolorful.Godashcolorful;
-import stdgo.encoding.binary.Binary;
-import stdgo.crypto.Crypto;
-import stdgo.math.Math;
-import stdgo.GoByte;
-import stdgo.GoUInt16;
-import stdgo.Slice;
-import stdgo.GoString;
-import stdgo.slices.Slices;
+import go.encoding.binary.Binary;
+import go.crypto.Crypto;
+import go.math.Math;
+import go.GoByte;
+import go.GoUInt16;
+import go.Slice;
+import go.GoString;
+import go.slices.Slices;
 
 function main() {
 	if (A.mD5 == A.sHA1) {
@@ -33,7 +33,7 @@ function main() {
 
 	// Map<Int,Int> arg and return
 	final m = [0 => 1, 1 => 2];
-	final value = Interop.map_(stdgo.GoMap.fromIntMap(m, 0));
+	final value = Interop.map_(go.GoMap.fromIntMap(m, 0));
 	$type(value);
 	if (value[0] != 1)
 		throw "incorrect value";
@@ -43,7 +43,7 @@ function main() {
 	i.run({s: ["Haxe"]});
 
 	// Error (Interface) arg and return
-	final err = Interop.error(stdgo.errors.Errors.new_("this is an error"));
+	final err = Interop.error(go.errors.Errors.new_("this is an error"));
 	trace(err.error().toString());
 
 	final i = Interop.interfaceByteOrder(new ByteOrder());
@@ -55,7 +55,7 @@ function main() {
 	Crypto.registerHash;
 	Math.acos(10);
 
-	var x:stdgo.Slice<stdgo.GoInt> = [-1,10,-100];
+	var x:go.Slice<go.GoInt> = [-1,10,-100];
 	Slices.sort(x);
 	$type(x);
 	trace(x);
@@ -71,7 +71,7 @@ class ByteOrder {
 	}
 
 	public function __underlying__()
-		return new stdgo.AnyInterface(this, null);
+		return new go.AnyInterface(this, null);
 }
 
 class X {
@@ -82,5 +82,5 @@ class X {
 	}
 
 	public function __underlying__()
-		return new stdgo.AnyInterface(this, null);
+		return new go.AnyInterface(this, null);
 }

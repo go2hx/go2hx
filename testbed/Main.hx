@@ -1,7 +1,7 @@
-import stdgo.net.http.Http;
+import go.net.http.Http;
 function main() {
     // issue
-    // Http.handle("/", Http.fileServer(stdgo.Go.asInterface(("." : stdgo._internal.net.http.Http_dir.Dir))));
+    // Http.handle("/", Http.fileServer(go.Go.asInterface(("." : go._internal.net.http.Http_dir.Dir))));
     Http.handleFunc("/export.go", (struct, request) -> {
         Http.serveFile(struct, request, "export.go");
     });

@@ -57,7 +57,7 @@ function typeTypeSwitchStmt(stmt:GoAst.TypeSwitchStmt, info:Info):MacroExpr { //
 			var e = macro __type__;
 			if (!isAnyInterface(assignType))
 				e = typer.exprs.Expr.toAnyInterface(e, assignType, info);
-			macro stdgo.Go.typeEquals($e, $t);
+			macro go.Go.typeEquals($e, $t);
 		}
 		if (i + 1 >= obj.list.length)
 			return value;
@@ -90,7 +90,7 @@ function typeTypeSwitchStmt(stmt:GoAst.TypeSwitchStmt, info:Info):MacroExpr { //
 							if (isInterface(types[0])) {
 								set = macro $set == null ? $defValue : $set.value;
 							} else {
-								set = macro $set == null ? $defValue : stdgo.Go.fromAsInterfaceToValue($set.value);
+								set = macro $set == null ? $defValue : go.Go.fromAsInterfaceToValue($set.value);
 							}
 						}
 					} else {

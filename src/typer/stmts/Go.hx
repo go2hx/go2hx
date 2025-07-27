@@ -14,9 +14,9 @@ function typeGoStmt(stmt:GoAst.GoStmt, info:Info):MacroExpr {
 			}
 			return macro {
 				@:mergeBlock $b{vars};
-				stdgo.Go.routine(() -> $e($a{args}));
+				go.Go.routine(() -> $e($a{args}));
 			};
 		default:
-			return macro stdgo.Go.routine(() -> $call);
+			return macro go.Go.routine(() -> $call);
 	}
 }

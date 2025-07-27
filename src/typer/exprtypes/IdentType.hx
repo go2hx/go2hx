@@ -11,12 +11,12 @@ function identType(expr:GoAst.Ident, info:Info):ComplexType {
 				}
 				if (name == "GoString") {
 					return TPath({
-						pack: ["stdgo"],
+						pack: ["go"],
 						name: "GoString",
 					});
 				}
 				return TPath({
-					pack: ["stdgo"],
+					pack: ["go"],
 					name: name,
 				});
 			}

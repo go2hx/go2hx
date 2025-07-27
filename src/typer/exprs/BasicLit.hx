@@ -25,14 +25,14 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):MacroExpr {
 				}
 			case FLOAT:
 				final e = toExpr(EConst(CFloat(expr.value, "f64")));
-				macro($e : stdgo.GoFloat64);
+				macro($e : go.GoFloat64);
 			case IMAG:
 				final index = expr.value.indexOf("i");
 				var imagFloat = expr.value.substr(0, index);
 				var realFloat = expr.value.substr(index + 1);
 				final imag = toExpr(EConst(CFloat(imagFloat, "f64")));
 				final real = toExpr(EConst(CFloat(realFloat, "f64")));
-				macro new stdgo.GoComplex128($real, $imag);
+				macro new go.GoComplex128($real, $imag);
 			case INT:
 				var e = toExpr(EConst(CInt(expr.value, "i64")));
 				e;
@@ -43,7 +43,7 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):MacroExpr {
 		final ct = toComplexType(t, info);
 		switch getUnderlying(t) {
 			case basic(uintptr_kind): // uintptr
-				e = macro(new stdgo.GoUIntptr($e) : $ct);
+				e = macro(new go.GoUIntptr($e) : $ct);
 			case invalidType:
 			default:
 				e = macro($e : $ct);
@@ -52,7 +52,7 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):MacroExpr {
 	}
 	return if (expr.info & GoAst.BasicInfo.isFloat != 0) {
 		final f = toExpr(EConst(CFloat(expr.value)));
-		macro($f : stdgo.GoFloat64);
+		macro($f : go.GoFloat64);
 	} else if (expr.info & GoAst.BasicInfo.isInteger != 0) {
 		final t = typeof(expr.type, info, false);
 		final underlyingType = getUnderlying(t);
@@ -83,7 +83,7 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):MacroExpr {
 		final t = typeof(expr.type, info, false);
 		switch getUnderlying(t) {
 			case basic(uintptr_kind): // uintptr
-				return macro(new stdgo.GoUIntptr($e) : $ct);
+				return macro(new go.GoUIntptr($e) : $ct);
 			default:
 		}
 		// casting
@@ -94,7 +94,7 @@ function typeBasicLit(expr:GoAst.BasicLit, info:Info):MacroExpr {
 		var imagFloat = expr.value.substr(index + 1);
 		final imag = toExpr(EConst(CFloat(imagFloat, "f64")));
 		final real = toExpr(EConst(CFloat(realFloat, "f64")));
-		macro new stdgo.GoComplex128($real, $imag);
+		macro new go.GoComplex128($real, $imag);
 	} else {
 		trace(expr);
 		macro null;
@@ -180,7 +180,7 @@ private function decodeEscapeSequences(value:UnicodeString):Array<{?s:String, ?c
 }
 
 private function makeStringLit(values:Array<{?s:String, ?code:Int}>):MacroExpr {
-	var e:Expr = macro("" : stdgo.GoString);
+	var e:Expr = macro("" : go.GoString);
 	final exprs:Array<Expr> = [];
 	for (value in values) {
 		final expr = if (value.s != null) {
@@ -194,11 +194,11 @@ private function makeStringLit(values:Array<{?s:String, ?code:Int}>):MacroExpr {
 	if (exprs.length == 1) {
 		switch exprs[0].expr {
 			case EConst(CString(_)):
-				return macro(${exprs[0]} : stdgo.GoString);
+				return macro(${exprs[0]} : go.GoString);
 			default:
 		}
 	}
-	return macro stdgo.Go.str($a{exprs});
+	return macro go.Go.str($a{exprs});
 }
 
 private function getRune(value:String):String {

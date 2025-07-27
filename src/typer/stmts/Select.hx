@@ -110,7 +110,7 @@ function typeSelectStmt(stmt:GoAst.SelectStmt, info:Info):MacroExpr {
 		while (__select__) {
 			$e;
 			@:define("(sys || hxnodejs)") Sys.sleep(0.01);
-			stdgo._internal.internal.Async.tick();
+			go._internal.internal.Async.tick();
 		}
 		@:mergeBlock $b{resets};
 	};

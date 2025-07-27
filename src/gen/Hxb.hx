@@ -22,7 +22,7 @@ private function getExports(instance:Compiler.CompilerInstanceData):Array<String
                 var exportPackage = Path.normalize(Path.withoutExtension(name)).split("/");
                 exportPackage.shift();
                 final export = exportPackage.join(".");
-                trace(export);
+                // trace(export);
                 exports.push(export);
             }
         }

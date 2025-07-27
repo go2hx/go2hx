@@ -367,7 +367,7 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 				case TPath(p):
 					var f = null;
 					f = (p:TypePath) -> {
-						if (p.pack.length == 1 && p.pack[0] == "stdgo" && (p.name == "Pointer" || p.name == "Ref")) {
+						if (p.pack.length == 1 && p.pack[0] == "go" && (p.name == "Pointer" || p.name == "Ref")) {
 							switch p.params[0] {
 								case TPType(TPath(p)):
 									return f(p);
@@ -504,9 +504,9 @@ function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.Fie
 								final name = arg.name;
 								switch p.params[0] {
 									case TPType(ct):
-										// new stdgo.Slice<$ct>($i{name}.length, 0, ...$i{name}));
-										exprs.unshift(macro var $name = new stdgo.Slice<$ct>($i{name}.length, 0, ...$i{name}));
-									// exprs.unshift(macro var $name:stdgo.Slice<$ct> = $i{name}.toArray());
+										// new go.Slice<$ct>($i{name}.length, 0, ...$i{name}));
+										exprs.unshift(macro var $name = new go.Slice<$ct>($i{name}.length, 0, ...$i{name}));
+									// exprs.unshift(macro var $name:go.Slice<$ct> = $i{name}.toArray());
 									default:
 								}
 							}
@@ -624,14 +624,14 @@ function getSkipTestBlock(cond, block, func:IntermediateFunctionType, info) {
 			info.global.deferBool = deferBool;
 			if (cond.length == 0) {
 				return macro {
-					stdgo.Go.println('-- SKIP: ' + $e{makeExpr(func.name)});
+					go.Go.println('-- SKIP: ' + $e{makeExpr(func.name)});
 					$e;
 				};
 			} else {
 				final targets = HaxeAst.makeString("(" + cond.join(" || ") + ")");
 				return macro @:define($targets) {
-					stdgo.Go.println('-- SKIP: ' + $e{makeExpr(func.name)});
-					stdgo.Go.println(" skip targets: " + $e{HaxeAst.makeString(cond.join(", "))});
+					go.Go.println('-- SKIP: ' + $e{makeExpr(func.name)});
+					go.Go.println(" skip targets: " + $e{HaxeAst.makeString(cond.join(", "))});
 					$e;
 				};
 			}

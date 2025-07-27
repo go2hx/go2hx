@@ -14,7 +14,7 @@ function main() {
 			Sys.command("haxelib dev go2hx .");
 			Sys.command("haxelib run go2hx setup");
 		case _ if (args[0] == "std" || args[0] == "go"):
-			var cmd = "haxe extra/scripts/go.hxml -D runnerCount=4";
+			var cmd = "haxe extra/scripts/std.hxml -D runnerCount=4";
 			if (args.length > 1)
 				cmd += " -D libs=" + args.slice(1).join(",");
 			Sys.println(cmd);

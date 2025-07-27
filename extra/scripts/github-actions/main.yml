@@ -42,7 +42,7 @@ jobs:
         run: go mod vendor
       # compile std
       - name: Run std automatic compile
-        run: npx haxe extra/scripts/go.hxml -D runnerCount=${{ env.CORES }}
+        run: npx haxe extra/scripts/std.hxml -D runnerCount=${{ env.CORES }}
       #- name: Create hxb
       #  run: npx haxelib run go2hx hxb .
       # cache

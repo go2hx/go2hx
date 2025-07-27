@@ -27,7 +27,7 @@
 -- PASS: TestDeadlineExceededIsNetError
 
 === RUN  TestParentFinishesChild
-bad linkage: pc.children = map[], want context.Background.WithCancel.WithCancel, context.Background.WithCancel.WithValue(type string, val value).WithDeadline(2157-04-27 04:56:32.002740736 +0000 UTC+0 [1000h0m0s]), and an afterFunc
+bad linkage: pc.children = map[], want context.Background.WithCancel.WithCancel, context.Background.WithCancel.WithValue(type string, val value).WithDeadline(2157-04-27 04:56:31.440520192 +0000 UTC+0 [1000h0m0s]), and an afterFunc
 bad linkage: parentCancelCtx(cancelChild.Context) = <nil>, false want context.Background.WithCancel, true
 bad linkage: parentCancelCtx(timerChild.Context) = <nil>, false want context.Background.WithCancel, true
 Exception: null pointer dereference
@@ -113,6 +113,31 @@ golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not imple
 -- PASS: TestAllocs
 
 === RUN  TestSimultaneousCancels
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
 Exception: T_:testing.deadline is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.Context_test_testsimultaneouscancels_Fields_.testSimultaneousCancels (golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx line 197 column 30)
@@ -165,353 +190,365 @@ golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: charac
 golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
 golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
 golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from hereUncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from hereUncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from hereUncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from hereUncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from hereUncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from hereUncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from hereUncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+
+
 Exception: T_:testing.deadline is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.context_test._Context_test_testinterlockedcancels.Context_test_testinterlockedcancels_Fields_.testInterlockedCancels (golibs/_internal/context_test/Context_test_testinterlockedcancels.hx line 113 column 30)
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
 
 -- FAIL: TestInterlockedCancels
 
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+
 === RUN  TestLayersCancel
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+
 Uncaught exception Cannot call null
 golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
 golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
@@ -530,56 +567,14 @@ Uncaught exception Cannot call null
 golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
 golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
 golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
 golibs/stdgo/Go.hx:37: lines 37-50 : Called from hereUncaught exception Cannot call null
 golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
 golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
 golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
 golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
-Uncaught exception Cannot call null
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
-golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
-golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
-golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+
+
+
 Uncaught exception Cannot call null
 golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
 golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
@@ -592,7 +587,12 @@ golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
 golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
 
 
-seed=1753539383928998912: ctx should be canceled
+Uncaught exception Cannot call null
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:38: characters 25-34 : Called from here
+golibs/_internal/context_test/Context_test_testsimultaneouscancels.hx:42: characters 21-31 : Called from here
+golibs/stdgo/Go.hx:46: characters 4-10 : Called from here
+golibs/stdgo/Go.hx:37: lines 37-50 : Called from here
+seed=1753597532366778368: ctx should be canceled
 
 -- FAIL: TestLayersCancel
 

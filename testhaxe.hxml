@@ -5,3 +5,4 @@
 -w -WStaticInitOrder
 --hl testbed_hl.hl
 --times
+--cmd hl testbed_hl.hl

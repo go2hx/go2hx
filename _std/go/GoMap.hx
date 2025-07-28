@@ -498,6 +498,25 @@ class GoFloat64MapMapKeyValueIterator<V> {
 	}
 }
 
+@:dox(hide)
+@:ifFeature("anon_read.keyValueIterator", "dynamic_read.keyValueIterator")
+class CompareMapKeyValueIterator<K,V> {
+	var map:CompareMap<K,V> = null;
+	var index = 0;
+	public inline function new(map:CompareMap<K,V>) {
+		this.map = map;
+	}
+	public inline function hasNext():Bool {
+		return map._keys.length < index;
+	}
+	public inline function next():{key:K,value:V} {
+		final key = map._keys[index];
+		final value = map._values[index];
+		index++;
+		return {key: key, value: value};
+	}
+}
+
 
 // int
 @:dox(hide)
@@ -525,62 +544,38 @@ typedef GoComplex64Map<T> = GoComplex128Map<T>;
 
 // ref
 @:dox(hide)
-class GoRefMap<K, V> extends BalancedTree<Ref<K>, V> {
+class GoRefMap<K, V> extends CompareMap<Ref<K>, V> {
 	public var __defaultValue__:Void->V;
-	override function compare(k1:Ref<K>, k2:Ref<K>):Int {
-		return k1 == k2 ? 0 : 1;
+	override function compare(k1:Ref<K>, k2:Ref<K>):Bool {
+		return k1 == k2;
 	}
 	override function get(key:Ref<K>):V {
-		var node = root;
-		while (node != null) {
-			var c = compare(key, node.key);
-			if (c == 0)
-				return node.value;
-			if (c < 0)
-				node = node.left;
-			else
-				node = node.right;
-		}
+		if (exists(key))
+			return super.get(key);
 		return __defaultValue__();
 	}
 }
 @:dox(hide)
-class GoPointerMap<K, V> extends BalancedTree<Pointer<K>, V> {
+class GoPointerMap<K, V> extends CompareMap<Pointer<K>, V> {
 	public var __defaultValue__:Void->V;
-	override function compare(k1:Pointer<K>, k2:Pointer<K>):Int {
-		return k1 == k2 ? 0 : 1;
+	override function compare(k1:Pointer<K>, k2:Pointer<K>):Bool {
+		return k1 == k2;
 	}
 	override function get(key:Pointer<K>):V {
-		var node = root;
-		while (node != null) {
-			var c = compare(key, node.key);
-			if (c == 0)
-				return node.value;
-			if (c < 0)
-				node = node.left;
-			else
-				node = node.right;
-		}
+		if (exists(key))
+			return super.get(key);
 		return __defaultValue__();
 	}
 }
 @:dox(hide)
-class GoChanMap<K, V> extends BalancedTree<Chan<K>, V> {
+class GoChanMap<K, V> extends CompareMap<Chan<K>, V> {
 	public var __defaultValue__:Void->V;
-	override function compare(k1:Chan<K>, k2:Chan<K>):Int {
-		return k1 == k2 ? 0 : 1;
+	override function compare(k1:Chan<K>, k2:Chan<K>):Bool {
+		return k1 == k2;
 	}
 	override function get(key:Chan<K>):V {
-		var node = root;
-		while (node != null) {
-			var c = compare(key, node.key);
-			if (c == 0)
-				return node.value;
-			if (c < 0)
-				node = node.left;
-			else
-				node = node.right;
-		}
+		if (exists(key))
+			return super.get(key);
 		return __defaultValue__();
 	}
 }
@@ -637,29 +632,21 @@ class GoComplex128Map<T> extends BalancedTree<GoComplex128, T> {
 	}
 }
 @:dox(hide)
-class GoBoolMap<T> extends BalancedTree<Bool, T> {
+class GoBoolMap<T> extends CompareMap<Bool, T> {
 	public var __defaultValue__:Void->T;
-	override function compare(k1:Bool, k2:Bool):Int {
-		return k1 == k2 ? 0 : 1;
+	override function compare(k1:Bool, k2:Bool):Bool {
+		return k1 == k2;
 	}
 	override function get(key:Bool):T {
-		var node = root;
-		while (node != null) {
-			var c = compare(key, node.key);
-			if (c == 0)
-				return node.value;
-			if (c < 0)
-				node = node.left;
-			else
-				node = node.right;
-		}
+		if (exists(key))
+			return super.get(key);
 		return __defaultValue__();
 	}
 }
 @:dox(hide)
-class GoArrayMap<T, V> extends BalancedTree<GoArray<T>, V> {
-	override function compare(k1:GoArray<T>, k2:GoArray<T>):Int {
-		return k1 == k2 ? 0 : 1;
+class GoArrayMap<T, V> extends CompareMap<GoArray<T>, V> {
+	override function compare(k1:GoArray<T>, k2:GoArray<T>):Bool {
+		return k1 == k2;
 	}
 }
 @:dox(hide)
@@ -685,35 +672,102 @@ class GoObjectMap<K, V> extends GoAnyInterfaceMap<V> {
 		final key = new AnyInterface(key, t);
 		return super.remove(key);
 	}
+}
 
-	override function keysLoop(node:TreeNode<Dynamic, V>, acc:Array<Dynamic>) {
-		if (node != null) {
-			keysLoop(node.left, acc);
-			acc.push((node.key : AnyInterface).value);
-			keysLoop(node.right, acc);
+/*
+	function get(k:K):Null<V>;
+	function set(k:K, v:V):Void;
+	function exists(k:K):Bool;
+	function remove(k:K):Bool;
+	function keys():Iterator<K>;
+	function iterator():Iterator<V>;
+	function keyValueIterator():KeyValueIterator<K, V>;
+	function copy():IMap<K, V>;
+	function toString():String;
+	function clear():Void;
+*/
+
+@:dox(hide)
+class CompareMap<K,V> implements haxe.Constraints.IMap<K,V> {
+	public var _keys:Array<K> = [];
+	public var _values:Array<V> = [];
+	public function new() {}
+	public function compare(key:K, key2:K):Bool {
+		return false;
+	}
+	public function set(k:K,v:V) {
+		for (i in 0..._keys.length) {
+			if (compare(k, _keys[i])) {
+				_keys[i] = k;
+				_values[i] = v;
+				return;
+			}
 		}
+		_keys.push(k);
+		_values.push(v);
+	}
+	public function get(k:K):V {
+		for (i in 0..._keys.length) {
+			if (compare(k, _keys[i])) {
+				return _values[i];
+			}
+		}
+		return null;
+	}
+	public function remove(k:K):Bool {
+		for (i in 0..._keys.length) {
+			if (compare(k, _keys[i])) {
+				_keys.remove(_keys[i]);
+				_values.remove(_values[i]);
+				return true;
+			}
+		}
+		return false;
+	}
+	public function exists(k:K):Bool {
+		for (i in 0..._keys.length) {
+			if (compare(k, _keys[i])) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public function copy():CompareMap<K,V> {
+		final copied = new CompareMap<K,V>();
+		copied._keys = _keys.copy();
+		copied._values = _values.copy();
+		return cast copied;
+	}
+	public inline function keys()
+		return _keys.iterator();
+	public inline function values()
+		return _values.iterator();
+	public inline function iterator() {
+		return _values.iterator();
+	}
+	public function keyValueIterator() {
+		return new CompareMapKeyValueIterator<K,V>(cast this);
+	}
+	public function toString():String {
+		return _keys + " " + _values;
+	}
+	public inline function clear() {
+		_keys = [];
+		_values = [];
 	}
 }
 @:dox(hide)
-class GoAnyInterfaceMap<V> extends BalancedTree<AnyInterface, V> {
+class GoAnyInterfaceMap<V> extends CompareMap<AnyInterface, V> {
 	public var __defaultValue__:Void->V;
 
-	override function compare(k1:AnyInterface, k2:AnyInterface):Int {
+	override function compare(k1:AnyInterface, k2:AnyInterface):Bool {
 		#if nolinkstd
-		return 0;
+		return false;
 		#else
-		if (k1 == k2) {
-			return 0;
-		}else{
-			return -1;
-		}
+		return k1 == k2;
 		#end
 	}
-
-	override function set(key:AnyInterface, value:V) {
-		super.set(key, value);
-	}
-
+	
 	override function remove(key:AnyInterface):Bool {
 		final gt = @:privateAccess key.type._common();
 		switch gt {
@@ -726,32 +780,9 @@ class GoAnyInterfaceMap<V> extends BalancedTree<AnyInterface, V> {
 	}
 
 	override function get(key:AnyInterface):V {
-		var node = root;
-		final gt = @:privateAccess key.type._common();
-		switch gt {
-			case sliceType(_):
-				throw errorString("comparing uncomparable type " + new go._internal.internal.reflect.Reflect._Type(gt).string().toString());
-			default:
-		}
-
-		while (node != null) {
-			var c = compare(key, node.key);
-			if (c == 0)
-				return node.value;
-			if (c < 0)
-				node = node.left;
-			else
-				node = node.right;
-		}
+		if (exists(key))
+			return super.get(key);
 		return __defaultValue__();
-	}
-
-	override function keysLoop(node:TreeNode<AnyInterface, V>, acc:Array<AnyInterface>) {
-		if (node != null) {
-			keysLoop(node.left, acc);
-			acc.push(node.key);
-			keysLoop(node.right, acc);
-		}
 	}
 }
 

@@ -1,20 +1,20 @@
-[ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:6: characters 9-19
+[ERROR] golibs/go/_internal/time/Time__modtimer.hx:6: characters 9-19
 
    6 |         _stopTimer(_t);
      |         ^^^^^^^^^^
      | Unknown identifier : _stopTimer
 
-[ERROR] golibs/stdgo/_internal/time/Time__modtimer.hx:12: characters 9-20
+[ERROR] golibs/go/_internal/time/Time__modtimer.hx:12: characters 9-20
 
   12 |         _startTimer(_t);
      |         ^^^^^^^^^^^
      | Unknown identifier : _startTimer
 
-[ERROR] golibs/stdgo/_internal/net/http/Http_t_http2clientstream_static_extension.hx:354: characters 79-82
+[ERROR] golibs/go/_internal/net/http/Http_t_http2clientstream_static_extension.hx:354: characters 79-82
 
  354 |                         __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
      |                                                                               ^^^
-     | stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>> should be stdgo.AnyInterface
+     | go.Ref<go.Slice<go.GoUInt8>> should be go.AnyInterface
      | For function argument '_x'
 
           | For function argument 'x'

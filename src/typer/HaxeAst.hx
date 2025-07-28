@@ -138,13 +138,13 @@ function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:Info):Macr
 }
 
 function anyInterfaceType():ComplexType
-	return TPath({name: "AnyInterface", pack: ["stdgo"]});
+	return TPath({name: "AnyInterface", pack: ["go"]});
 
 function invalidComplexType():ComplexType
 	return null;
 
 function errorType():ComplexType
-	return TPath({name: "Error", pack: ["stdgo"]});
+	return TPath({name: "Error", pack: ["go"]});
 
 function createWrapper(wrapperName:String, ct:ComplexType) {
 	return macro class $wrapperName {
@@ -154,12 +154,12 @@ function createWrapper(wrapperName:String, ct:ComplexType) {
 		}
 
 		public function __underlying__()
-			return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer
-				&& !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			return new go.AnyInterface((__type__.kind() == go._internal.internal.reflect.Reflect.KindType.pointer
+				&& !go._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 				__type__);
 
 		var __self__:$ct;
-		var __type__:stdgo._internal.internal.reflect.Reflect._Type;
+		var __type__:go._internal.internal.reflect.Reflect._Type;
 	};
 }
 

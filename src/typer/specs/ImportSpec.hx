@@ -13,8 +13,8 @@ function typeImport(imp:GoAst.ImportSpec, info:Info) {
 	path = toGoPath(path);
 	final pack = path.split("/");
 	pack.unshift("_internal");
-	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
-		pack.unshift("stdgo");
+	if (stdList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
+		pack.unshift("go");
 	}
 	final name = pack[pack.length - 1];
 	pack.push(importClassName(name)); // shorten path here

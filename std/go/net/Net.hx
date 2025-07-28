@@ -9,7 +9,7 @@ function listen(_network, _address) {
 			throw "invalid address formatting: " + address;
 		final host = new sys.net.Host(address.substr(0, colonIndex));
 		final port = Std.parseInt(address.substr(colonIndex + 1));
-		final addr = new stdgo._internal.net.Net_haxeaddr.HaxeAddr(network, host.toString(), port);
+		final addr = new go._internal.net.Net_haxeaddr.HaxeAddr(network, host.toString(), port);
 		switch network {
 			case "tcp", "tcp4", "tcp6":
 				final l = new sys.net.Socket();
@@ -18,7 +18,7 @@ function listen(_network, _address) {
 				// update port, if it's zero
 				if (port == 0)
 					@:privateAccess addr._port = l.host().port;
-				return {_0: new stdgo._internal.net.Net_haxelistener.HaxeListener(addr, l), _1: null};
+				return {_0: new go._internal.net.Net_haxelistener.HaxeListener(addr, l), _1: null};
 			case "udp", "udp4", "udp6":
 				throw "unimplemented network: " + network;
 			case "ip", "ip4", "ip6":
@@ -32,7 +32,7 @@ function listen(_network, _address) {
 }
 
 
-function joinHostPort(_host:stdgo.GoString,_port:stdgo.GoString):stdgo.GoString {
+function joinHostPort(_host:go.GoString,_port:go.GoString):go.GoString {
 	final host:String = _host;
 	final port:String = _port;
 	// We assume that host is a literal IPv6 address if host has
@@ -68,12 +68,12 @@ function dialContext(_ctx, _network, _address) {
 			address = "0.0.0.0";
 		final host = new sys.net.Host(address);
 		final port = Std.parseInt(address.substr(colonIndex + 1));
-		final addr = new stdgo._internal.net.Net_haxeaddr.HaxeAddr(network, host.toString(), port);
+		final addr = new go._internal.net.Net_haxeaddr.HaxeAddr(network, host.toString(), port);
 		switch network {
 			case "tcp", "tcp4", "tcp6":
 				final s = new sys.net.Socket();
 				s.connect(host,port);
-				return {_0: new stdgo._internal.net.Net_haxeconn.HaxeConn(addr, s), _1: null};
+				return {_0: new go._internal.net.Net_haxeconn.HaxeConn(addr, s), _1: null};
 			case "udp", "udp4", "udp6":
 				throw "unimplemented network: " + network;
 			case "ip", "ip4", "ip6":

@@ -51,7 +51,7 @@ function getFunction(pack:String, funcName:String, recvName:String, pkg:typer.Pa
 					if (importMap.exists(s)) {
 						final path = importMap[s].split(".");
 						final prefix = path.shift();
-						if (prefix == "stdgo") {
+						if (prefix == "go") {
 							path.unshift("_internal");
 							path.unshift(prefix);
 						} else {

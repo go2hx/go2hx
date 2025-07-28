@@ -60,7 +60,7 @@ func main() {
         // create
         shared.Util.hxmlToArgs(cwd + "/scripts/create_hxb.hxml", commands);
         //commands.push("--macro");
-        //commands.push('\"stdgo._internal.internal.Macro.initHxb(\'$startingPath\')"');
+        //commands.push('\"go._internal.internal.Macro.initHxb(\'$startingPath\')"');
         commands.push('--no-output');
         commands.push('--$target');
         if (target != "interp")

@@ -31,17 +31,17 @@ function classToBuiltinTypePath(name:String, info:Info):TypePath {
 	return switch name {
 		case "error":
 			{
-				pack: ["stdgo"],
+				pack: ["go"],
 				name: "Error",
 			};
 		case "chan":
 			{
-				pack: ["stdgo"],
+				pack: ["go"],
 				name: "Chan",
 			};
 		case "any":
 			{
-				pack: ["stdgo"],
+				pack: ["go"],
 				name: "AnyInterface",
 			};
 		default:
@@ -86,8 +86,8 @@ function getGlobalPath(info:Info):String {
 	}
 	final globalPathOld = globalPath;
 	globalPath = "_internal." + globalPath;
-	if (io.Data.stdgoList.indexOf(toGoPath(globalPathOld)) != -1) { // haxe only type, otherwise the go code references Haxe
-		globalPath = "stdgo." + globalPath;
+	if (io.Data.stdList.indexOf(toGoPath(globalPathOld)) != -1) { // haxe only type, otherwise the go code references Haxe
+		globalPath = "go." + globalPath;
 	}
 	return globalPath;
 }
@@ -123,8 +123,8 @@ function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
 	pack.unshift("_internal");
 
 	final path = toGoPath(path);
-	if (io.Data.stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
-		pack.unshift("stdgo");
+	if (io.Data.stdList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
+		pack.unshift("go");
 	}
 	if (last == 0 && split == -1) {
 		return {pack: [], name: splitDepFullPathName(cl, info)};

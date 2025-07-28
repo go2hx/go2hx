@@ -6,5 +6,5 @@ function _mustLoadFile(_f) {
 			panic(err)
 		}
 		return b */
-	return new stdgo.Slice<stdgo.GoByte>(0, 0).__setNumber32__();
+	return new go.Slice<go.GoByte>(0, 0).__setNumber32__();
 }

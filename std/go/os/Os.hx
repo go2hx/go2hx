@@ -1,11 +1,11 @@
 package go.os;
 
-import stdgo.errors.Errors;
+import go.errors.Errors;
 
 function exit(_code)
 	Sys.exit(_code);
 
-function mkdir(_name:stdgo.GoString):stdgo.Error {
+function mkdir(_name:go.GoString):go.Error {
 	@:define("(sys || hxnodejs)") try {
 		sys.FileSystem.createDirectory(_name);
 		return null;
@@ -14,7 +14,7 @@ function mkdir(_name:stdgo.GoString):stdgo.Error {
 	}
 }
 
-function chdir(_dir:stdgo.GoString):stdgo.Error {
+function chdir(_dir:go.GoString):go.Error {
 	@:define("(sys || hxnodejs)") {
 		Sys.setCwd(_dir);
 		return null;
@@ -22,7 +22,7 @@ function chdir(_dir:stdgo.GoString):stdgo.Error {
 	return Errors.new_("chdir not supported on this target");
 }
 
-function chmod(_name:stdgo.GoString, _mode):stdgo.Error {
+function chmod(_name:go.GoString, _mode):go.Error {
 	@:define("(sys || hxnodejs)") {
 		final perm:Int = _mode;
 		final name = _name;
@@ -35,20 +35,20 @@ function chmod(_name:stdgo.GoString, _mode):stdgo.Error {
 	return Errors.new_("chmod not supported on this target");
 }
 
-function dirFS(_dir:stdgo.GoString) {
-	return stdgo.Go.asInterface((_dir : stdgo._internal.os.Os_t_dirfs.T_dirFS));
+function dirFS(_dir:go.GoString) {
+	return go.Go.asInterface((_dir : go._internal.os.Os_t_dirfs.T_dirFS));
 }
 
-overload extern inline function readDir(_name:stdgo.GoString) {
+overload extern inline function readDir(_name:go.GoString) {
 	@:define("(js && !hxnodejs)") {
 		throw "readDir not supported on this target";
 	}
 	@:define("(sys || hxnodejs)") {
 		final name = _name;
 		final paths = sys.FileSystem.readDirectory(name);
-		final dirs = new stdgo.Slice<stdgo._internal.os.Os_direntry.DirEntry>(paths.length, paths.length);
+		final dirs = new go.Slice<go._internal.os.Os_direntry.DirEntry>(paths.length, paths.length);
 		for (i in 0...paths.length) {
-			dirs[i] = cast stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(paths[i]));
+			dirs[i] = cast go.Go.asInterface(new go._internal.os.Os_t_filestat.T_fileStat(paths[i]));
 		}
 		return {_0: dirs, _1: null};
 	}
@@ -65,34 +65,34 @@ overload extern inline function readDir(_n) {
 }
 
 @:recv(T_dirFS)
-overload extern inline function readDir(_dir:stdgo.GoString, _name:stdgo.GoString) {
+overload extern inline function readDir(_dir:go.GoString, _name:go.GoString) {
 	final fullname = haxe.io.Path.join([_dir, _name]);
-	return stdgo._internal.os.Os_readdir.readDir(fullname);
+	return go._internal.os.Os_readdir.readDir(fullname);
 }
 
 @:recv(T_dirFS)
-overload extern inline function open(_dir:stdgo.GoString, _name:stdgo.GoString) {
+overload extern inline function open(_dir:go.GoString, _name:go.GoString) {
 	final fullname = haxe.io.Path.join([_dir, _name]);
-	final obj = stdgo._internal.os.Os_open.open(fullname);
-	return {_0: stdgo.Go.asInterface(obj._0), _1: obj._1};
+	final obj = go._internal.os.Os_open.open(fullname);
+	return {_0: go.Go.asInterface(obj._0), _1: obj._1};
 }
 
-final args = stdgo._internal.os.Os__runtime_args._runtime_args();
+final args = go._internal.os.Os__runtime_args._runtime_args();
 
 function environ_() {
-	final slice = new stdgo.Slice<stdgo.GoString>(0, 0);
+	final slice = new go.Slice<go.GoString>(0, 0);
 	return slice;
 }
 
-function lstat(_name:stdgo.GoString) {
+function lstat(_name:go.GoString) {
 	@:define("(sys || hxnodejs)") {
 		if (!sys.FileSystem.exists(_name))
-			return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _name + ": no such file or directory")};
+			return {_0: null, _1: go._internal.errors.Errors_new_.new_("readFile " + _name + ": no such file or directory")};
 	}
-	return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(_name)), _1: null};
+	return {_0: go.Go.asInterface(new go._internal.os.Os_t_filestat.T_fileStat(_name)), _1: null};
 }
 
-function mkdirTemp(_pattern:stdgo.GoString) {
+function mkdirTemp(_pattern:go.GoString) {
 	@:define("(sys || hxnodejs)") {
 		final chars = "abcdefghijklmnopqrstuvwxyz0123456789";
 		function randomNext() {
@@ -114,22 +114,22 @@ function mkdirTemp(_pattern:stdgo.GoString) {
 overload extern inline function stat(_dir, _0, _1) {
 	@:define("(sys || hxnodejs)") {
 		if (!sys.FileSystem.exists(_dir))
-			return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _dir + ": no such file or directory")};
+			return {_0: null, _1: go._internal.errors.Errors_new_.new_("readFile " + _dir + ": no such file or directory")};
 	}
-	return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(_dir)), _1: null};
+	return {_0: go.Go.asInterface(new go._internal.os.Os_t_filestat.T_fileStat(_dir)), _1: null};
 }
 
-overload extern inline function stat(_name:stdgo.GoString) {
+overload extern inline function stat(_name:go.GoString) {
 	@:define("(sys || hxnodejs)") {
 		if (!sys.FileSystem.exists(_name))
 			return {_0: null, _1: Errors.new_("readFile " + _name + ": no such file or directory")};
 	}
-	return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(_name)), _1: null};
+	return {_0: go.Go.asInterface(new go._internal.os.Os_t_filestat.T_fileStat(_name)), _1: null};
 }
 
 @:recv(File)
 overload extern inline function stat(_f) {
-	return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(@:privateAccess _f._file._name)), _1: null};
+	return {_0: go.Go.asInterface(new go._internal.os.Os_t_filestat.T_fileStat(@:privateAccess _f._file._name)), _1: null};
 }
 
 @:recv(T_fileStat)
@@ -140,7 +140,7 @@ overload extern inline function name(_fs) {
 @:recv(T_fileStat)
 overload extern inline function modTime(_fs) {
 	// TODO use: return std.sys.FileSystem.stat(_fs._name);
-	return stdgo._internal.time.Time_now.now();
+	return go._internal.time.Time_now.now();
 }
 
 @:recv(T_fileStat)
@@ -165,7 +165,7 @@ overload extern inline function stat(_fs:Dynamic) {
 		if (!sys.FileSystem.exists(_fs._name))
 			return {_0: null, _1: Errors.new_("readFile " + _fs._name + ": no such file or directory")};
 	}
-	return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(_fs._name)), _1: null};
+	return {_0: go.Go.asInterface(new go._internal.os.Os_t_filestat.T_fileStat(_fs._name)), _1: null};
 }
 
 @:recv(T_dirStat)
@@ -174,7 +174,7 @@ overload extern inline function stat(t, _dir) {
 		if (!sys.FileSystem.exists(_dir))
 			return {_0: null, _1: Errors.new_("readFile " + _dir + ": no such file or directory")};
 	}
-	return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(_dir)), _1: null};
+	return {_0: go.Go.asInterface(new go._internal.os.Os_t_filestat.T_fileStat(_dir)), _1: null};
 }
 
 @:recv(T_fileStat)
@@ -185,7 +185,7 @@ function isDir(_fs):Bool {
 	return false;
 }
 
-function isPathSeparator(_c:stdgo.GoRune):Bool {
+function isPathSeparator(_c:go.GoRune):Bool {
 	@:define("js") return _c == "/".code;
 	@:define("(sys || hxnodejs)") {
 		final sep = switch Sys.systemName() {
@@ -198,7 +198,7 @@ function isPathSeparator(_c:stdgo.GoRune):Bool {
 	}
 }
 
-function writeFile(_name:stdgo.GoString, _data) {
+function writeFile(_name:go.GoString, _data) {
 	return @:define("(sys || hxnodejs)") {
 		if (!sys.FileSystem.exists(_name)) {
 			return Errors.new_("writeFile " + _name + ": no such file or directory");
@@ -213,7 +213,7 @@ function writeFile(_name:stdgo.GoString, _data) {
 	}
 }
 
-function remove(_name:stdgo.GoString):stdgo.Error {
+function remove(_name:go.GoString):go.Error {
 	@:define("(sys || hxnodejs)") {
 		final path = _name;
 		if (sys.FileSystem.isDirectory(path)) {
@@ -225,7 +225,7 @@ function remove(_name:stdgo.GoString):stdgo.Error {
 	return null;
 }
 
-function removeAll(_path:stdgo.GoString):stdgo.Error {
+function removeAll(_path:go.GoString):go.Error {
 	var deleteRecursively:String->Void = null;
 	deleteRecursively = function(path:String) {
 		@:define("(sys || hxnodejs)") {
@@ -255,7 +255,7 @@ function removeAll(_path:stdgo.GoString):stdgo.Error {
 
 @:recv(File)
 function readFrom(_f, _r) {
-	final data = stdgo._internal.io.Io_readall.readAll(_r);
+	final data = go._internal.io.Io_readall.readAll(_r);
 	if (data._1 != null)
 		return {_0: 0, _1: data._1};
 	final obj = _f.write(data._0);
@@ -271,7 +271,7 @@ function read(_f, _b) {
 		i = @:privateAccess _f._input.readBytes(b, 0, b.length);
 	} catch (e:haxe.io.Eof) {
 		@:privateAccess _f.mutex.release();
-		return {_0: 0, _1: stdgo._internal.io.Io_eof.eOF};
+		return {_0: 0, _1: go._internal.io.Io_eof.eOF};
 	}
 	// ref
 	if (_b.__bytes__ != null) {
@@ -304,23 +304,24 @@ function seek(_f, _offset, _whence) {
 	return {_0: 0, _1: null};
 }
 
-function readFile(_name:stdgo.GoString) {
+function readFile(_name:go.GoString) {
 	return @:define("(sys || hxnodejs)") {
 		if (!sys.FileSystem.exists(_name)) {
-			return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _name + ": no such file or directory")};
+			return {_0: null, _1: go._internal.errors.Errors_new_.new_("readFile " + _name + ": no such file or directory")};
 		} else {
 			try {
 				return {_0: sys.io.File.getBytes(_name), _1: null};
 			} catch (e) {
-				{_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
+				{_0: null, _1: go._internal.errors.Errors_new_.new_(e.details())};
 			}
 		}
 	};
 }
 
-overload extern inline function open(_name:stdgo.GoString) {
-	return stdgo._internal.os.Os_openfile.openFile(_name, 0, 0);
+overload extern inline function open(_name:go.GoString) {
+	return go._internal.os.Os_openfile.openFile(_name, 0, 0);
 }
+
 
 function openFile(_name:stdgo.GoString, _perm) {
 	return @:define("(sys || hxnodejs)") {
@@ -333,7 +334,7 @@ function openFile(_name:stdgo.GoString, _perm) {
 			try {
 				{_0: {_file: {_name: _name}, _input: sys.io.File.read(_name, false), _output: sys.io.File.update(_name)}, _1: null};
 			} catch (e) {
-				{_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
+				{_0: null, _1: go._internal.errors.Errors_new_.new_(e.details())};
 			}
 		}
 	};
@@ -345,7 +346,7 @@ overload extern inline function truncate() {
 }
 
 @:recv(File)
-function write(_f, _b:stdgo.Slice<stdgo.GoByte>) {
+function write(_f, _b:go.Slice<go.GoByte>) {
 	if (_b.length == 0) {
 		return {_0: 0, _1: null};
 	}
@@ -356,7 +357,7 @@ function write(_f, _b:stdgo.Slice<stdgo.GoByte>) {
 	// @:privateAccess _f._output.flush();
 	@:privateAccess _f.mutex.release();
 	if (i != b.length)
-		return {_0: i, _1: stdgo._internal.errors.Errors_new_.new_("invalid write")};
+		return {_0: i, _1: go._internal.errors.Errors_new_.new_("invalid write")};
 	return {_0: i, _1: null};
 }
 
@@ -368,13 +369,13 @@ function readdirnames(_n) {
 			if (_n >= 0) {
 				paths = paths.slice(0, _n);
 			}
-			final slice:stdgo.Slice<stdgo.GoString> = paths.map(path -> (path : stdgo.GoString));
+			final slice:go.Slice<go.GoString> = paths.map(path -> (path : go.GoString));
 			return {_0: slice, _1: null};
 		}
-		return {_0: [], _1: stdgo._internal.errors.Errors_new_.new_("File.writeAt readDirNames: invalid")};
+		return {_0: [], _1: go._internal.errors.Errors_new_.new_("File.writeAt readDirNames: invalid")};
 	}
 	trace("not supported on non sys target");
-	return {_0: [], _1: stdgo._internal.errors.Errors_new_.new_("File.writeAt readDirNames: invalid")};
+	return {_0: [], _1: go._internal.errors.Errors_new_.new_("File.writeAt readDirNames: invalid")};
 }
 
 @:recv(File)
@@ -388,7 +389,7 @@ overload extern inline function truncate(_f, _size) {
 		@:privateAccess _f._output.flush();
 		@:privateAccess _f._output.close();
 		final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
-		sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0, (_size : stdgo.GoInt).toBasic()));
+		sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0, (_size : go.GoInt).toBasic()));
 		@:privateAccess _f._output = sys.io.File.write(@:privateAccess _f._file._name);
 		@:privateAccess _f.mutex.release();
 	}
@@ -414,23 +415,23 @@ function getwd() {
 		try {
 			return {_0: std.Sys.getCwd(), _1: null};
 		} catch (e) {
-			return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
+			return {_0: null, _1: go._internal.errors.Errors_new_.new_(e.details())};
 		}
 	};
 }
 
 function _runtime_args() {
 	@:define("(sys || hxnodejs)") {
-		final args:Array<stdgo.GoString> = std.Sys.args().map(arg -> (arg : stdgo.GoString));
+		final args:Array<go.GoString> = std.Sys.args().map(arg -> (arg : go.GoString));
 		args.unshift(std.Sys.getCwd());
-		return new stdgo.Slice<stdgo.GoString>(args.length, args.length, ...args).__setString__();
+		return new go.Slice<go.GoString>(args.length, args.length, ...args).__setString__();
 	};
-	@:define("js") return new stdgo.Slice<stdgo.GoString>(1, 1, ".").__setString__();
+	@:define("js") return new go.Slice<go.GoString>(1, 1, ".").__setString__();
 }
 
 function create(_name) {
 	// O_RDWR|O_CREATE|O_TRUNC
-	return stdgo._internal.os.Os_openfile.openFile(_name, 0, 0);
+	return go._internal.os.Os_openfile.openFile(_name, 0, 0);
 }
 
 function tempDir()
@@ -449,24 +450,24 @@ function createTemp(_dir, _pattern) {
 		if (name.length > 150)
 			throw "to many attempts";
 	}
-	return stdgo._internal.os.Os_openfile.openFile((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name, 0, 0);
+	return go._internal.os.Os_openfile.openFile((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name, 0, 0);
 }
 
 final stdin = {
 	final input:haxe.io.Input = @:define("(sys || hxnodejs)") std.Sys.stdin();
-	new stdgo._internal.os.Os_file.File(input, null);
+	new go._internal.os.Os_file.File(input, null);
 };
 
 final stdout = {
 	var output:haxe.io.Output = null;
-	@:define("js") (output = new stdgo._internal.os.Os_jsoutput.JsOutput());
+	@:define("js") (output = new go._internal.os.Os_jsoutput.JsOutput());
 	@:define("(sys || hxnodejs)") (output = std.Sys.stdout());
-	new stdgo._internal.os.Os_file.File(null, output);
+	new go._internal.os.Os_file.File(null, output);
 };
 
 final stderr = {
 	final output:haxe.io.Output = @:define("(sys || hxnodejs)") std.Sys.stderr();
-	new stdgo._internal.os.Os_file.File(null, output);
+	new go._internal.os.Os_file.File(null, output);
 };
 
 @:recv(File)
@@ -491,7 +492,7 @@ function writeAt(_f, _b, _off) {
 			return {_0: i, _1: null};
 		} catch (e) {
 			@:privateAccess _f.mutex.release();
-			return {_0: 0, _1: stdgo._internal.errors.Errors_new_.new_("File.writeAt failed: " + e)};
+			return {_0: 0, _1: go._internal.errors.Errors_new_.new_("File.writeAt failed: " + e)};
 		}
 	};
 	trace("not supported on non sys target");
@@ -532,13 +533,13 @@ overload extern inline function readAt(_f, _b, _off) {
 			// always returns a non-nil error when n < len(b). At end of file, that error is io.EOF.
 			var err = null;
 			if (n < b.length) {
-				err = stdgo._internal.io.Io_eof.eOF;
+				err = go._internal.io.Io_eof.eOF;
 			}
 			@:privateAccess _f.mutex.release();
 			return {_0: n, _1: err};
 		} catch (e) {
 			@:privateAccess _f.mutex.release();
-			return {_0: 0, _1: stdgo._internal.errors.Errors_new_.new_("File.readAt failed: " + e)};
+			return {_0: 0, _1: go._internal.errors.Errors_new_.new_("File.readAt failed: " + e)};
 		}
 	};
 	trace("not supported on non sys target");

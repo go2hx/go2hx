@@ -2,7 +2,7 @@ package go.runtime;
 
 function caller() {
 	return {
-		_0: new stdgo.GoUIntptr(0),
+		_0: new go.GoUIntptr(0),
 		_1: "",
 		_2: 0,
 		_3: false
@@ -15,7 +15,7 @@ function version()
 function numCPU()
 	return 1;
 
-final compiler = ("go2hx" : stdgo.GoString);
+final compiler = ("go2hx" : go.GoString);
 
 function setMutexProfileFraction()
 	return 0;
@@ -42,4 +42,4 @@ function gOMAXPROCS()
 	return 1;
 
 function numGoroutine()
-	return stdgo.Go.goroutines + 1;
+	return go.Go.goroutines + 1;

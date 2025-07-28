@@ -61,16 +61,16 @@ type interfaceData struct {
 	isExport bool
 }
 
-//go:embed data/stdgo.list
-var stdgoListBytes []byte
+//go:embed data/std.list
+var stdListBytes []byte
 
-var stdgoList map[string]bool
+var stdList map[string]bool
 
-//go:embed data/stdgoExports.json
-var stdgoExportsBytes []byte
+//go:embed data/stdExports.json
+var stdExportsBytes []byte
 
-//go:embed data/stdgoExterns.json
-var stdgoExternsBytes []byte
+//go:embed data/stdExterns.json
+var stdExternsBytes []byte
 
 var stdExterns map[string]bool
 var stdExports map[string]bool
@@ -187,8 +187,8 @@ func processPkgs(outputPath string, checksumMap map[string]string, excludes map[
 			})
 			pkgPath := normalizePath(pkg.PkgPath)
 			addedPkg := "_internal"
-			if stdgoList[pkg.PkgPath] { // add stdgo prefix
-				addedPkg = "stdgo/_internal"
+			if stdList[pkg.PkgPath] { // add go prefix
+				addedPkg = "go/_internal"
 			}
 			dir := path.Join(outputPath, addedPkg, pkgPath)
 			b, err := os.ReadFile(path.Join(dir, ".go2hx_cache"))
@@ -473,19 +473,19 @@ func main() {
 		return
 	}
 	port := args[len(args)-1]
-	CRLF := strings.ReplaceAll(string(stdgoListBytes), "\r\n", "\n")
+	CRLF := strings.ReplaceAll(string(stdListBytes), "\r\n", "\n")
 	CR := strings.ReplaceAll(CRLF, "\r", "\n")
 	list2 := strings.Split(CR, "\n")
-	stdgoList = make(map[string]bool, len(list2))
+	stdList = make(map[string]bool, len(list2))
 	for _, s := range list2 {
-		stdgoList[s] = true
+		stdList[s] = true
 	}
 	externList := []string{}
 	exportList := []string{}
 
-	err = json.Unmarshal(stdgoExportsBytes, &exportList)
+	err = json.Unmarshal(stdExportsBytes, &exportList)
 	panicIfError(err)
-	err = json.Unmarshal(stdgoExternsBytes, &externList)
+	err = json.Unmarshal(stdExternsBytes, &externList)
 	panicIfError(err)
 
 	stdExports = make(map[string]bool, len(exportList))
@@ -696,7 +696,7 @@ func parsePkg(pkg *packages.Package, checker *types.Checker, pkgData *PackageDat
 	for _, obj := range pkg.TypesInfo.InitOrder {
 		for _, v := range obj.Lhs {
 			if !stdExports[pkg.PkgPath] || v.Exported() {
-				//println(v.Name(), stdgoExports[pkg.PkgPath], v.Exported())
+				//println(v.Name(), stdExports[pkg.PkgPath], v.Exported())
 				data.Order = append(data.Order, v.Name())
 			}
 		}

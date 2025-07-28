@@ -16,7 +16,7 @@ function cutPrefix(paths:Array<String>):Array<String> {
 function cutPrefixComplexType(ct:ComplexType):ComplexType {
 	switch ct {
 		case TPath(p):
-			if (p.pack.length > 2 && p.pack[0] != "stdgo") {
+			if (p.pack.length > 2 && p.pack[0] != "go") {
 				p.pack = cutPrefix(p.pack);
 			}
 		default:
@@ -46,15 +46,15 @@ function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
 			actualPath = "_internal/" + actualPath;
 		}
 	}
-	// if stdgo
-	if (io.Data.stdgoList.contains(toGoPath(stdFormatPath))) {
+	// if go
+	if (io.Data.stdList.contains(toGoPath(stdFormatPath))) {
 		isStdgo = true;
-		root = "stdgo";
-		actualPath = "stdgo/" + actualPath;
+		root = "go";
+		actualPath = "go/" + actualPath;
 		if (actualPathInterop.length > 0) {
-			actualPathInterop = "stdgo/" + actualPathInterop;
+			actualPathInterop = "go/" + actualPathInterop;
 		} else {
-			actualPathInterop = "stdgo";
+			actualPathInterop = "go";
 		}
 	}
 	if (!isStdgo)

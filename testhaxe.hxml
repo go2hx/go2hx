@@ -1,0 +1,8 @@
+-cp testbed
+#-cp golibs
+--hxb-lib go2hx.zip
+-m Main
+-w -WStaticInitOrder
+--hl testbed_hl.hl
+--times
+--cmd hl testbed_hl.hl

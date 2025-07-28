@@ -1,7 +1,7 @@
 package go.time;
 
 function _parseRFC3339() {
-	return {_0: stdgo._internal.time.Time_now.now(), _1: true};
+	return {_0: go._internal.time.Time_now.now(), _1: true};
 }
 
 function sleep(_d) {
@@ -9,7 +9,7 @@ function sleep(_d) {
 	@:define("(sys || hxnodejs)") {
 		var ticks = std.Math.floor(seconds * 100);
 		while (--ticks > 0) {
-			stdgo._internal.internal.Async.tick();
+			go._internal.internal.Async.tick();
 			std.Sys.sleep(0.01);
 		}
 	}
@@ -19,7 +19,7 @@ function forceUSPacificForTesting() {}
 
 function _stopTimer(_0) {
 	final t = _0;
-	if (t._pp != new stdgo.GoUIntptr(0)) {
+	if (t._pp != new go.GoUIntptr(0)) {
 		final timer:haxe.Timer = t._pp.toDynamic();
 		timer.stop();
 	}
@@ -31,25 +31,25 @@ function _stopTimer(_0) {
 function _startTimer(_0) {
 	final t:Dynamic = _0;
 	t._status = 1;
-	var diff = (t._when - stdgo._internal.time.Time__runtimenano._runtimeNano()) / (1000 * 1000);
+	var diff = (t._when - go._internal.time.Time__runtimenano._runtimeNano()) / (1000 * 1000);
 	if (diff > 1 << 31 - 1)
 		return;
 	if (diff < 0)
 		diff = 0;
-	final d = (diff : stdgo.GoInt).toBasic() + 1;
+	final d = (diff : go.GoInt).toBasic() + 1;
 	final timer = new haxe.Timer(d);
 	timer.run = function() {
 		timer.stop();
 		t._status = 0;
-		if (t._period != (0 : stdgo.GoInt64)) {
+		if (t._period != (0 : go.GoInt64)) {
 			t._when += t._period;
 			_startTimer(t);
 		}
-		stdgo.Go.routine(function() {
-			t._f(t._arg, new stdgo.GoUIntptr(0));
+		go.Go.routine(function() {
+			t._f(t._arg, new go.GoUIntptr(0));
 		});
 	};
-	t._pp = new stdgo.GoUIntptr(timer);
+	t._pp = new go.GoUIntptr(timer);
 }
 
 function _resetTimer(_0, _1) {
@@ -71,16 +71,16 @@ function _modTimer(_t:Dynamic, _when, _period, _f, _arg, _seq) {
 
 function _runtimeNano() {
 	return (((@:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time()) * 1000000 * 1000)
-		- std.Date.now().getTimezoneOffset() * 60000000000 : stdgo.GoInt64);
+		- std.Date.now().getTimezoneOffset() * 60000000000 : go.GoInt64);
 }
 
 function _now() {
-	final n = stdgo._internal.time.Time__runtimenano._runtimeNano();
+	final n = go._internal.time.Time__runtimenano._runtimeNano();
 	return {_0: n / 1000000000, _1: n % 1000000000, _2: n};
 }
 
 function _initLocal() {
-	stdgo._internal.time.Time__localloc._localLoc._name = ("Local" : stdgo.GoString);
+	go._internal.time.Time__localloc._localLoc._name = ("Local" : go.GoString);
 	final d = new std.Date(0, 0, 0, 0, 0, 0);
 	var offset = d.getTimezoneOffset() * -1;
 	offset *= 60;
@@ -96,8 +96,8 @@ function _initLocal() {
 	if (min != 0) {
 		name += ":" + std.Std.string(min);
 	}
-	stdgo._internal.time.Time__localloc._localLoc._zone = new stdgo.Slice<stdgo._internal.time.Time_t_zone.T_zone>(1, 1,
-		...[{_name: (name : stdgo.GoString), _offset: offset, _isDST: false}]);
+	go._internal.time.Time__localloc._localLoc._zone = new go.Slice<go._internal.time.Time_t_zone.T_zone>(1, 1,
+		...[{_name: (name : go.GoString), _offset: offset, _isDST: false}]);
 }
 
 @:recv(Location)

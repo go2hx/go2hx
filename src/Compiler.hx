@@ -73,6 +73,9 @@ function end(instance:CompilerInstanceData) {
 		checksum: "",
 	};
 	gen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
+	if (instance.hxbBool) {
+		gen.Hxb.generateHxb(instance);
+	}
 	// set back current working directory
 	Sys.setCwd(cwd);
 	final mains = mainPaths(modules);
@@ -446,7 +449,7 @@ function compileFromInstance(inst:CompilerInstanceData):Bool {
 		}
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
-		if (io.Data.stdgoList.indexOf(path) != -1)
+		if (io.Data.stdList.indexOf(path) != -1)
 			continue;
 		if (instance.goRoot != "")
 			Sys.putEnv("GOROOT", instance.goRoot);

@@ -1,9 +1,0 @@
--cp testbed
--cp src
--main TestBed
-#--interp
-#-D debug
--cp git/haxeparser/src
--cp git/hxparse/src
--D no-deprecation-warnings
---interp

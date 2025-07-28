@@ -8,15 +8,15 @@ function typeUnaryExpr(expr:GoAst.UnaryExpr, info:Info):MacroExpr {
 		return switch t {
 			case refType(_.get() => elem):
 				if (elem == invalidType) {
-					return macro stdgo.Go.pointer($x);
+					return macro go.Go.pointer($x);
 				} else {
 					final t = typeof(expr, info, false);
 					final ct = toComplexType(t, info);
 					final gt = toReflectType(t, info, [], false);
-					return macro (stdgo.Go.setRef($x, $gt) : $ct);
+					return macro (go.Go.setRef($x, $gt) : $ct);
 				}
 			case pointerType(_):
-				return macro stdgo.Go.pointer($x);
+				return macro go.Go.pointer($x);
 			default:
 				x;
 		}

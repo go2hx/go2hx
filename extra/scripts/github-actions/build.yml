@@ -27,7 +27,7 @@ steps:
     run: npx haxe --run Run build
   - name: Set source
     run: haxelib dev go2hx .
-  - name: Clean stdgo
+  - name: Clean std
     run: npx haxe --run Run clean
   - uses: actions/cache/restore@v4
     id: setup-cache

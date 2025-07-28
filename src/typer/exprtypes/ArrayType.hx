@@ -13,17 +13,17 @@ function arrayTypeExpr(expr:GoAst.ArrayType, info:Info):ComplexType {
 				len = toExpr(EConst(CInt("0")));
 			default:
 				len = typer.exprs.Expr.typeExpr(expr.len, info);
-				len = macro($len : stdgo.GoInt).toBasic();
+				len = macro($len : go.GoInt).toBasic();
 		}
 		return TPath({
-			pack: ["stdgo"],
+			pack: ["go"],
 			name: "GoArray",
 			params: type != null ? [TPType(type), TPExpr(len)] : [],
 		});
 	}
 	// slice
 	return TPath({
-		pack: ["stdgo"],
+		pack: ["go"],
 		name: "Slice",
 		params: type != null ? [TPType(type)] : []
 	});

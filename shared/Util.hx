@@ -76,16 +76,24 @@ function deleteDirectoryRecursively(dir:String):Int {
 
 function copyDirectoryRecursively(from:String, to:String):Int {
 	#if (sys || hxnodejs)
-	return switch (systemName) {
+	var proc:sys.io.Process = null;
+	var cmd = "";
+	final code = switch (systemName) {
 		case "Windows":
-			final cmd = "xcopy /E /I /Y \"" + (from + "\" \"" + to + "\"").replace("/", "\\").replace("\\", "\\\\");
-			Sys.println(cmd);
-			Sys.command(cmd);
+			cmd = "xcopy /E /I /Y \"" + (from + "\" \"" + to + "\"").replace("/", "\\").replace("\\", "\\\\");
+			proc = new sys.io.Process(cmd);
+			proc.exitCode();
 		default:
-			final cmd = "cp -r " + from + " " + to;
-			Sys.println(cmd);
-			Sys.command(cmd);
+			cmd = "cp -r " + from + " " + to;
+			//Sys.println(cmd);
+			proc = new sys.io.Process(cmd);
+			proc.exitCode();
 	}
+	if (code != 0) {
+		trace("command: " + cmd);
+		trace(proc.stderr.readAll().toString());
+	}
+	return code;
 	#else
 	trace("unable to copy directory on js target without nodejs");
 	return 0;

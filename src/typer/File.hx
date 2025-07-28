@@ -213,7 +213,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 					access: [APublic],
 					kind: FFun({
 						args: [],
-						expr: macro return new stdgo.AnyInterface(this, new stdgo._internal.internal.reflect.Reflect._Type(invalidType)),
+						expr: macro return new go.AnyInterface(this, new go._internal.internal.reflect.Reflect._Type(invalidType)),
 					}),
 				});
 			}
@@ -224,7 +224,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 
 	// init system
 	if (info.global.initBlock.length > 0) {
-		// info.global.initBlock.unshift(macro trace(stdgo._internal.internal.type.Type.names));
+		// info.global.initBlock.unshift(macro trace(go._internal.internal.type.Type.names));
 		var block = toExpr(EBlock(info.global.initBlock));
 		final pathString = HaxeAst.makeString(info.global.path);
 		if (info.global.varTraceBool) {
@@ -377,7 +377,7 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 			pack: [],
 			kind: TDAlias(TPath({
 				name: "Pointer",
-				pack: ["stdgo"],
+				pack: ["go"],
 				params: [
 					TPType(TPath({
 						pack: [],

@@ -9,7 +9,7 @@ var libs:Array<String> = [];
 final cwd = Sys.getCwd();
 
 function main() {
-	var list:Array<String> = File.getContent("data/stdgo.list").split("\n");
+	var list:Array<String> = File.getContent("data/std.list").split("\n");
 	final testList:Array<String> = Json.parse(File.getContent("data/tests.json"));
 	for (pkg in list) {
 		if (!noMain.contains(pkg))

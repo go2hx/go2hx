@@ -1,0 +1,7 @@
+-cp testbed
+-cp src
+-main TestBedGo
+-cp git/haxeparser/src
+-cp git/hxparse/src
+-D no-deprecation-warnings
+--interp

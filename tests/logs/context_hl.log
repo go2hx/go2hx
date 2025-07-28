@@ -27,7 +27,7 @@
 -- PASS: TestDeadlineExceededIsNetError
 
 === RUN  TestParentFinishesChild
-bad linkage: pc.children = map[], want context.Background.WithCancel.WithCancel, context.Background.WithCancel.WithValue(type string, val value).WithDeadline(2157-04-27 04:56:31.170696704 +0000 UTC+0 [1000h0m0s]), and an afterFunc
+bad linkage: pc.children = map[], want context.Background.WithCancel.WithCancel, context.Background.WithCancel.WithValue(type string, val value).WithDeadline(2025-09-06 22:46:40.351426048 +0000 UTC+0 m=+3600000.000000001 [1000h0m0s]), and an afterFunc
 bad linkage: parentCancelCtx(cancelChild.Context) = <nil>, false want context.Background.WithCancel, true
 bad linkage: parentCancelCtx(timerChild.Context) = <nil>, false want context.Background.WithCancel, true
 Exception: null pointer dereference
@@ -464,10 +464,10 @@ Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
-Uncaught exception: Null access
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
+Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
@@ -598,7 +598,7 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 -- FAIL: TestInterlockedCancels
 
 === RUN  TestLayersCancel
-seed=1753432082096954880: ctx should be canceled
+seed=5907646591130200576: ctx should be canceled
 
 -- FAIL: TestLayersCancel
 

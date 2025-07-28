@@ -2,7 +2,7 @@ package go.testing;
 
 function mainStart(_deps, _tests, _benchmarks, _examples) {
 	final args = @:define("(sys || hxnodejs)", []) Sys.args();
-	var testlist:Array<stdgo._internal.testing.Testing_internaltest.InternalTest> = [];
+	var testlist:Array<go._internal.testing.Testing_internaltest.InternalTest> = [];
 	var runArgBool = false;
 	var benchBool = false;
 	if (haxe.macro.Compiler.getDefine("bench") != null)
@@ -35,7 +35,7 @@ function mainStart(_deps, _tests, _benchmarks, _examples) {
 			}
 		}
 	}
-	var m = new stdgo._internal.testing.Testing_m.M(_deps, testlist, _benchmarks, _fuzzTargets, _examples);
+	var m = new go._internal.testing.Testing_m.M(_deps, testlist, _benchmarks, _fuzzTargets, _examples);
 	@:privateAccess m.benchBool = benchBool;
 	return m;
 }
@@ -64,7 +64,7 @@ function resetTimer(_b) {
 		/*runtime.ReadMemStats(&memStats)
 			b.startAllocs = memStats.Mallocs
 			b.startBytes = memStats.TotalAlloc */
-		_b._common._start = stdgo._internal.time.Time_now.now();
+		_b._common._start = go._internal.time.Time_now.now();
 	}
 	_b._common._duration = 0;
 	_b._netAllocs = 0;
@@ -74,7 +74,7 @@ function resetTimer(_b) {
 @:recv(B)
 function startTimer(_b) {
 	if (!_b._timerOn) {
-		_b._common._start = stdgo._internal.time.Time_now.now();
+		_b._common._start = go._internal.time.Time_now.now();
 		_b._timerOn = true;
 	}
 }
@@ -82,14 +82,14 @@ function startTimer(_b) {
 @:recv(B)
 function stopTimer(_b) {
 	if (_b._timerOn) {
-		_b._common._duration += stdgo._internal.time.Time_since.since(_b._common._start);
+		_b._common._duration += go._internal.time.Time_since.since(_b._common._start);
 		_b._timerOn = false;
 	}
 }
 
 @:recv(B)
 overload extern inline function run(_b, _name) {
-	stdgo.Go.println("- SUBRUN  " + _name.toString());
+	go.Go.println("- SUBRUN  " + _name.toString());
 	_b.n = 1;
 	_f(_b);
 	return true;
@@ -97,7 +97,7 @@ overload extern inline function run(_b, _name) {
 
 @:recv(T_)
 overload extern inline function run(_t, _name) {
-	stdgo.Go.println("- SUBRUN  " + _name.toString());
+	go.Go.println("- SUBRUN  " + _name.toString());
 	_f(_t);
 	return true;
 }
@@ -116,7 +116,7 @@ function logf() {}
 
 @:recv(T_common)
 function fatal(_c, _args) {
-	stdgo._internal.fmt.Fmt_println.println(...[for (arg in _args) arg]);
+	go._internal.fmt.Fmt_println.println(...[for (arg in _args) arg]);
 	_c.failNow();
 }
 
@@ -127,21 +127,21 @@ function cleanup(_c) {
 
 @:recv(T_common)
 function fatalf(_c) {
-	stdgo._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);
+	go._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);
 	_c.failNow();
 }
 
 @:recv(T_common)
 function tempDir(_c) {
 	final pattern = "";
-	final obj = stdgo._internal.os.Os_mkdirtemp.mkdirTemp("", pattern);
+	final obj = go._internal.os.Os_mkdirtemp.mkdirTemp("", pattern);
 	_c._tempDir = obj._0;
 	_c._tempDirErr = obj._1;
 	if (_c._tempDirErr != null) {
-		_c.fatal(new stdgo.AnyInterface(_c._tempDirErr, _c._tempDirErr.__underlying__().type));
+		_c.fatal(new go.AnyInterface(_c._tempDirErr, _c._tempDirErr.__underlying__().type));
 	} else {
 		_c.cleanup(function() {
-			stdgo._internal.os.Os_removeall.removeAll(_c._tempDir);
+			go._internal.os.Os_removeall.removeAll(_c._tempDir);
 		});
 	}
 	return _c._tempDir;
@@ -162,13 +162,13 @@ function fail(_c) {
 
 @:recv(T_common)
 function skipf(_c) {
-	stdgo._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);
+	go._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);
 	_c.skipNow();
 }
 
 @:recv(T_common)
 function skip(_c) {
-	stdgo._internal.fmt.Fmt_println.println(...[for (arg in _args) arg]);
+	go._internal.fmt.Fmt_println.println(...[for (arg in _args) arg]);
 	_c.skipNow();
 }
 
@@ -193,13 +193,13 @@ function failed(_c)
 
 @:recv(T_common)
 function error(_c) {
-	stdgo._internal.fmt.Fmt_println.println(...[for (arg in _args) arg]);
+	go._internal.fmt.Fmt_println.println(...[for (arg in _args) arg]);
 	_c.fail();
 }
 
 @:recv(T_common)
 function errorf(_c) {
-	stdgo._internal.fmt.Fmt_printf.printf(_format + "\n", ...[for (arg in _args) arg]);
+	go._internal.fmt.Fmt_printf.printf(_format + "\n", ...[for (arg in _args) arg]);
 	_c.fail();
 }
 
@@ -207,31 +207,31 @@ function errorf(_c) {
 function run(_m) {
 	// get working directory
 	final home = Sys.getEnv(if (Sys.systemName() == "Windows") "UserProfile" else "HOME");
-	final goRoot = home +  "/.go/" + stdgo._internal.runtime.Runtime_version.version();
-	final workingDirectory = goRoot + "/src/" + stdgo._internal.testing.internal.testdeps.Testdeps_importpath.importPath;
+	final goRoot = home +  "/.go/" + go._internal.runtime.Runtime_version.version();
+	final workingDirectory = goRoot + "/src/" + go._internal.testing.internal.testdeps.Testdeps_importpath.importPath;
 	// set vars
 	final chatty = true;
 	final chattyTimes = false;
 	// use go version of path for passing go tests
-	stdgo._internal.internal.reflect.Reflect.useHaxePath = false;
+	go._internal.internal.reflect.Reflect.useHaxePath = false;
 	_m._numRun++;
 	
 	var exitCodeReason = "";
 	for (test in _m._tests) {
 		var error = false;
 		final output = new StringBuf();
-		var t = new stdgo._internal.testing.Testing_t_.T_(null, null, null, output);
+		var t = new go._internal.testing.Testing_t_.T_(null, null, null, output);
 		// set the working directory for every test
 		try {
 			Sys.setCwd(workingDirectory);
 		}catch(_) {}
 		// time stamp
 		final stamp = @:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time();
-		stdgo.Go.println("=== RUN  " + test.name.toString());
+		go.Go.println("=== RUN  " + test.name.toString());
 		try {
 			test.f(t);
 		} catch (e) {
-			stdgo.Go.println(e.details());
+			go.Go.println(e.details());
 			if (e.message != "__skip__") {
 				error = true;
 			}
@@ -242,23 +242,23 @@ function run(_m) {
 		final dstr = (@:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time()) - stamp; // duration
 		if (t.failed() || error) {
 			final reason = '\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : '');
-			stdgo.Go.println(reason);
+			go.Go.println(reason);
 			exitCodeReason = reason;
 			_m._exitCode = 1;
 		} else if (chatty) {
 			if (t.skipped()) {
-				stdgo.Go.println('\n-- SKIP: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
-				stdgo.Go.println('\n-- PASS: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
+				go.Go.println('\n-- SKIP: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
+				go.Go.println('\n-- PASS: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
 			} else {
-				stdgo.Go.println('\n-- PASS: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
+				go.Go.println('\n-- PASS: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
 			}
 		}
-		stdgo.Go.println(output.toString());
+		go.Go.println(output.toString());
 	}
 	if (@:privateAccess _m.benchBool) {
-		stdgo.Go.println("BENCHMARKING");
+		go.Go.println("BENCHMARKING");
 		for (bench in _m._benchmarks) {
-			var b = new stdgo._internal.testing.Testing_b.B();
+			var b = new go._internal.testing.Testing_b.B();
 			var error = false;
 			try {
 				b.resetTimer();
@@ -266,7 +266,7 @@ function run(_m) {
 				bench.f(b);
 				b.stopTimer();
 			} catch (e) {
-				stdgo.Go.println(e.details());
+				go.Go.println(e.details());
 				error = true;
 			}
 			for (f in b._common._cleanups) {
@@ -274,16 +274,16 @@ function run(_m) {
 			}
 			if (error) {
 				final reason = '\n-- FAIL: ${bench.name.toString()}';
-				stdgo.Go.println(reason);
+				go.Go.println(reason);
 				exitCodeReason = reason;
 				_m._exitCode = 1;
 			} else if (chatty) {
 				if (b.skipped()) {
-					stdgo.Go.println('\n-- SKIP: ${bench.name.toString()}');
+					go.Go.println('\n-- SKIP: ${bench.name.toString()}');
 				} else {
 					final output = b._common._duration.string().toString();
 					// get allocs and memory here
-					stdgo.Go.println('\n-- BENCH: ${bench.name.toString()}' + ' ' + output);
+					go.Go.println('\n-- BENCH: ${bench.name.toString()}' + ' ' + output);
 				}
 			}
 		}
@@ -294,4 +294,4 @@ function run(_m) {
 }
 
 function benchmark()
-	return new stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult();
+	return new go._internal.testing.Testing_benchmarkresult.BenchmarkResult();

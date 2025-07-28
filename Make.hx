@@ -58,7 +58,7 @@ function main() {
 
 function testbuild(args:Array<String>) {
 	// args[2...] = run command
-	final command = "haxe --run Run --test -compiler_cpp --rebuild -nocache " + args.slice(1).join(" ") + " .";
+	final command = "haxe --run Run --test -compiler_cpp --rebuild -nocache --nohxb " + args.slice(1).join(" ") + " .";
 	Sys.println(command);
 	Sys.command(command);
 }
@@ -66,6 +66,8 @@ function testbuild(args:Array<String>) {
 function testrun(args:Array<String>) {
 	final main = normalizePath(args[1]);
 	final mainPathStd = main.split("/");
+	if (mainPathStd[0] == "go")
+		mainPathStd[0] = "go_";
 	final last = mainPathStd.pop() + "dottest";
 	mainPathStd.push(last);
 	mainPathStd.push(last.charAt(0).toUpperCase() + last.substr(1));

@@ -216,10 +216,14 @@ function writeFile(_name:go.GoString, _data) {
 function remove(_name:go.GoString):go.Error {
 	@:define("(sys || hxnodejs)") {
 		final path = _name;
-		if (sys.FileSystem.isDirectory(path)) {
-			sys.FileSystem.deleteDirectory(path);
-		} else {
-			sys.FileSystem.deleteFile(path);
+		try {
+			if (sys.FileSystem.isDirectory(path)) {
+				sys.FileSystem.deleteDirectory(path);
+			} else {
+				sys.FileSystem.deleteFile(path);
+			}
+		}catch(e) {
+			return go._internal.errors.Errors_new_.new_(e.details());
 		}
 	}
 	return null;
@@ -246,9 +250,19 @@ function removeAll(_path:go.GoString):go.Error {
 			}
 		}
 	}
-	deleteRecursively(_path);
 	@:define("(sys || hxnodejs)") {
-		sys.FileSystem.deleteDirectory(_path);
+		try {
+			if (!sys.FileSystem.exists(_path))
+				return go._internal.errors.Errors_new_.new_("file not found");
+			if (sys.FileSystem.isDirectory(_path)) {
+				deleteRecursively(_path);
+				sys.FileSystem.deleteDirectory(_path);
+			}else{
+				sys.FileSystem.deleteFile(_path);
+			}
+		} catch (e) {
+			return go._internal.errors.Errors_new_.new_(e.details());
+		}
 	}
 	return null;
 }

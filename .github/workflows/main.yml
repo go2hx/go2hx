@@ -35,6 +35,8 @@ jobs:
       - name: Set source
         run: npx haxelib dev go2hx .
       # Clean std
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Clean std
         run: npx haxe --run Run clean
       - name: Build go2hx compiler

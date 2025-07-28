@@ -30,6 +30,7 @@ function parseDataJson(fileName:String) {
 }
 
 final reserved = [
+	"go",
 	"iterator",
 	"keyValueIterator",
 	"switch",

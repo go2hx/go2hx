@@ -1,3 +1,3 @@
 Uncaught exception: unreachable
-Called from fun$18014(stdgo/_internal/go/printer/Printer.hx:51)
-Called from .init(stdgo/_internal/go/printer/Printer.hx:23)
+Called from fun$15220(_internal/go_/printer/Printer.hx:51)
+Called from .init(_internal/go_/printer/Printer.hx:23)

@@ -52,16 +52,16 @@
 -- PASS: TestIs
 
 === RUN  TestAs
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 - SUBRUN  0:As(Errorf(..., <nil>), 0x1)
 - SUBRUN  1:As(Errorf(..., pitied the fool), errorT())
 Exception: errors: *target must be interface or implement error
-Called from stdgo._internal.errors._Errors_as.$Errors_as_Fields_.as (stdgo/_internal/errors/Errors_as.hx line 28)
+Called from go._internal.errors._Errors_as.$Errors_as_Fields_.as (go/_internal/errors/Errors_as.hx line 28)
 Called from _internal.errors_test._Errors_test_testas.$Errors_test_testas_Fields_.~testAs.213 (_internal/errors_test/Errors_test_testas.hx line 99)
-Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 13)
+Called from go._internal.testing.$T__static_extension.run (go/_internal/testing/Testing_t__static_extension.hx line 13)
 Called from _internal.errors_test._Errors_test_testas.$Errors_test_testas_Fields_.testAs (_internal/errors_test/Errors_test_testas.hx line 98)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.errorsdottest._Errorsdottest.$Errorsdottest_Fields_.main (_internal/errorsdottest/Errorsdottest.hx line 12)
 
 -- FAIL: TestAs
@@ -70,10 +70,10 @@ Called from _internal.errorsdottest._Errorsdottest.$Errorsdottest_Fields_.main (
 - SUBRUN  <nil>(<nil>)
 - SUBRUN  *int(<nil>)
 - SUBRUN  string(error)
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 - SUBRUN  *string(0x1)
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 
 -- PASS: TestAsValidation
 
@@ -81,5 +81,5 @@ golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: fa
 
 -- PASS: TestUnwrap
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestAs

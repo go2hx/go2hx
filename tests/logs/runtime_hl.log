@@ -1,6 +1,6 @@
 [ERROR] golibs/_internal/go_/build/Build__parsegoembed.hx:127: characters 21-45
 
-   127 |                     _iterator_7320213 = 0i64;
+   127 |                     _iterator_7377484 = 0i64;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^
        | haxe.Int64 should be Null<Int>
 
@@ -12,45 +12,45 @@
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3473: characters 21-64
 
-  3473 |                     _internal.go_.types.Types__iterator_7031137._iterator_7031137++;
+  3473 |                     _internal.go_.types.Types__iterator_6792718._iterator_6792718++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_7031137
+       | Type not found : _internal.go_.types.Types__iterator_6792718
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3486: characters 21-64
 
-  3486 |                     _internal.go_.types.Types__iterator_7031137._iterator_7031137++;
+  3486 |                     _internal.go_.types.Types__iterator_6792718._iterator_6792718++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_7031137
+       | Type not found : _internal.go_.types.Types__iterator_6792718
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3500: characters 21-64
 
-  3500 |                     _internal.go_.types.Types__iterator_7031137._iterator_7031137++;
+  3500 |                     _internal.go_.types.Types__iterator_6792718._iterator_6792718++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_7031137
+       | Type not found : _internal.go_.types.Types__iterator_6792718
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3511: characters 21-64
 
-  3511 |                     _internal.go_.types.Types__iterator_7031137._iterator_7031137++;
+  3511 |                     _internal.go_.types.Types__iterator_6792718._iterator_6792718++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_7031137
+       | Type not found : _internal.go_.types.Types__iterator_6792718
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3551: characters 21-64
 
-  3551 |                     _internal.go_.types.Types__iterator_7031137._iterator_7031137++;
+  3551 |                     _internal.go_.types.Types__iterator_6792718._iterator_6792718++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_7031137
+       | Type not found : _internal.go_.types.Types__iterator_6792718
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3293: characters 21-64
 
-  3293 |                     _internal.go_.types.Types__iterator_7032677._iterator_7032677++;
+  3293 |                     _internal.go_.types.Types__iterator_6794258._iterator_6794258++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_7032677
+       | Type not found : _internal.go_.types.Types__iterator_6794258
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3337: characters 21-64
 
-  3337 |                     _internal.go_.types.Types__iterator_7032677._iterator_7032677++;
+  3337 |                     _internal.go_.types.Types__iterator_6794258._iterator_6794258++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_7032677
+       | Type not found : _internal.go_.types.Types__iterator_6794258
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:8863: characters 21-53
 
@@ -72,15 +72,15 @@
             |                  ^^^^^
             | Called from here
 
-        ->  golibs/_internal/go_/constant/Constant_unaryop.hx:357: characters 28-215
+        ->  golibs/_internal/go_/constant/Constant_unaryop.hx:357: characters 28-214
 
-        357 |                     return go.Go.asInterface(!_y_127, _internal.gotype.Gotype___type___internaldotgo_dotconstantdotconstant_t_boolvaldott_boolval.__type___internaldotgo_dotconstantdotConstant_t_boolvaldotT_boolVal);
-            |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        357 |                     return go.Go.asInterface(!_y_38, _internal.gotype.Gotype___type___internaldotgo_dotconstantdotconstant_t_boolvaldott_boolval.__type___internaldotgo_dotconstantdotConstant_t_boolvaldotT_boolVal);
+            |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             | Called from here
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:16793: characters 97-105
 
- 16793 |                             final __t__ = (@:checkr _m_301 ?? throw "null pointer dereference")._obj_281;
+ 16793 |                             final __t__ = (@:checkr _m_287 ?? throw "null pointer dereference")._obj_281;
        |                                                                                                 ^^^^^^^^
        | go.Ref<_internal.go_.types.Selection> has no field _obj_281
 
@@ -92,7 +92,7 @@
 
 [ERROR] (macro) golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:83: characters 48-88
 
-    83 |                     _magic_132 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
+    83 |                     _magic_101 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
        |                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Type not found : go._internal.internal.xcoff.Xcoff__magic
 

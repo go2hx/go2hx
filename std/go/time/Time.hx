@@ -43,7 +43,7 @@ function _startTimer(_0) {
 		t._status = 0;
 		if (t._period != (0 : go.GoInt64)) {
 			t._when += t._period;
-			_startTimer(t);
+			go._internal.time.Time__starttimer._startTimer(t);
 		}
 		go.Go.routine(function() {
 			t._f(t._arg, new go.GoUIntptr(0));
@@ -60,13 +60,13 @@ function _resetTimer(_0, _1) {
 }
 
 function _modTimer(_t:Dynamic, _when, _period, _f, _arg, _seq) {
-	_stopTimer(_t);
+	go._internal.time.Time__stoptimer._stopTimer(_t);
 	_t._when = _when;
 	_t._period = _period;
 	_t._f = _f;
 	_t._arg = _arg;
 	_t._seq = _seq;
-	_startTimer(_t);
+	go._internal.time.Time__starttimer._startTimer(_t);
 }
 
 function _runtimeNano() {

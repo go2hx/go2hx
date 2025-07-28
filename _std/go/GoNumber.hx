@@ -263,3 +263,5 @@ private function float64bits(_f:go.GoFloat64):go.GoUInt64 {
 function signbit(x:go.GoFloat64):Bool {
 	return float64bits(x)&(1<<63) != 0;
 }
+
+final MAXINT = 2147483647;

@@ -780,6 +780,12 @@ class GoAnyInterfaceMap<V> extends CompareMap<AnyInterface, V> {
 	}
 
 	override function get(key:AnyInterface):V {
+		final gt = @:privateAccess key.type._common();
+		switch gt {
+			case sliceType(_):
+				throw errorString("comparing uncomparable type " + new go._internal.internal.reflect.Reflect._Type(gt).string().toString());
+			default:
+		}
 		if (exists(key))
 			return super.get(key);
 		return __defaultValue__();

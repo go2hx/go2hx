@@ -44,13 +44,12 @@ function receivedData(buff:Bytes) {
 	}
 	final instance = getInstanceData();
 	final data:typer.GoAst.PackageType = decodeData(buff);
-	Sys.println("Loading: " + data.path);
 	final decodeDataTime = measureTime();
 	// IMPORTANT: typing phase Go AST -> Haxe AST
 	final module = typer.Package.typePackage(data, instance);
 	final typePackageTime = measureTime();
 	// generate the code
-	codegen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
+	gen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
 	mutex.acquire();
 	final countPkgs = modules.push(module);
 	mutex.release();
@@ -64,7 +63,7 @@ function receivedData(buff:Bytes) {
 }
 
 function end(instance:CompilerInstanceData) {
-	codegen.Std.moveStd(instance.localPath + instance.outputPath);
+	gen.Std.moveStd(instance.localPath + instance.outputPath);
 	// create gotype module
 	final module:typer.HaxeAst.Module = {
 		path: "gotype",
@@ -73,7 +72,10 @@ function end(instance:CompilerInstanceData) {
 		name: "gotype",
 		checksum: "",
 	};
-	codegen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
+	gen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
+	if (instance.hxbBool) {
+		gen.Hxb.generateHxb(instance);
+	}
 	// set back current working directory
 	Sys.setCwd(cwd);
 	final mains = mainPaths(modules);
@@ -147,7 +149,10 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 	};
 	instance.outputPath = "golibs/";
 	instance.root = "";
+	instance.tryBool = instance.hxbBool = true;
 	var help = false;
+	var hxbOnly = false;
+	var moveStd = false;
 	final argHandler = cli.Args.generate([
 		@doc("Set what command should be used for gocmd get & gocmd mod init")
 		["-gocmd", "--gocmd"] => s -> instance.goCommand = s,
@@ -208,9 +213,27 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 		["-version", "--version"] => () -> Sys.println(sys.io.File.getContent("version.txt")),
 		["-printmain", "--printmain"] => () -> instance.printMain = true,
 		["-times", "--times"] => () -> instance.times = true,
+		["-onlyhxb", "--onlyhxb"] => () -> hxbOnly = true,
+		["-nohxb", "--nohxb"] => () -> instance.hxbBool = false,
+		["-movestd", "--movestd"] => () -> moveStd = true,
 	]);
 
 	argHandler.parse(args);
+
+	if (moveStd) {
+		gen.Std.moveStd(instance.outputPath);
+		Sys.exit(0);
+	}
+
+	if (hxbOnly) {
+		final hxbPath = gen.Hxb.generateHxb(instance);
+		if (hxbPath != "") {
+			Sys.println("Add to your HXML:");
+			Sys.println("--hxb-lib " + hxbPath);
+		}
+		Sys.exit(0);
+		return null;
+	}
 	for (i in 0...args.length) {
 		switch args[i] {
 			case "-a", "--a", "-arg", "--arg":
@@ -330,7 +353,7 @@ function accept(server:Socket, ready:Void->Void) {
 				#end
 				startedPkgs++;
 				if (startedPkgs >= instance.totalPkgs) {
-					Sys.println("threadData load: " + (haxe.Timer.stamp() - stamp));
+					//Sys.println("threadData load: " + (haxe.Timer.stamp() - stamp));
 					break;
 				}
 			}
@@ -426,7 +449,7 @@ function compileFromInstance(inst:CompilerInstanceData):Bool {
 		}
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
-		if (io.Data.stdgoList.indexOf(path) != -1)
+		if (io.Data.stdList.indexOf(path) != -1)
 			continue;
 		if (instance.goRoot != "")
 			Sys.putEnv("GOROOT", instance.goRoot);
@@ -462,6 +485,7 @@ function write(instance:CompilerInstanceData):Bool {
 class CompilerInstanceData {
 	public var reflectTypesData:typer.HaxeAst.HaxeFileType = null;
 	public var tryBool:Bool = true;
+	public var hxbBool:Bool = true;
 	public var noCache:Bool = false;
 	public var times:Bool = false;
 	public var printMain:Bool = false;
@@ -509,6 +533,7 @@ class CompilerInstanceData {
 	public function copy():CompilerInstanceData {
 		final instance = new CompilerInstanceData();
 		instance.tryBool = tryBool;
+		instance.hxbBool = hxbBool;
 		instance.noCache = noCache;
 		instance.reflectTypesData = reflectTypesData;
 		instance.deps = deps.copy();

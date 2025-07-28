@@ -267,5 +267,10 @@
  "hl|interface24",
  "hl|nilany",
  "hl|recursiveTypeReflect",
- "hl|tagBootstrap2"
+ "hl|tagBootstrap2",
+ "hl|osDir",
+ "hl|const0",
+ "hl|ref4",
+ "hl|runtimeVersion",
+ "hl|unsafeOffset"
 ]

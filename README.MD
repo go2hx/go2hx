@@ -34,7 +34,7 @@ Now include the outputted code into your project hxml or equivalent:
 
 You can now import the Go library and use it in your Haxe project (example: unicode):
 ```haxe
-import stdgo.unicode.Unicode;
+import go.unicode.Unicode;
 function main() {
     trace(Unicode.isGraphic('g'.code));
 }

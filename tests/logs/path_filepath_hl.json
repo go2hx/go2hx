@@ -1,10 +1,12 @@
 {
     "passes": [
         "TestMatch",
+        "TestGlob",
         "TestCVE202230632",
         "TestGlobError",
         "TestGlobUNC",
         "TestWindowsGlob",
+        "TestNonWindowsGlobEscape",
         "TestClean",
         "TestIsLocal",
         "TestFromAndToSlash",
@@ -17,9 +19,7 @@
         "TestIsAbs"
     ],
     "fails": [
-        "TestGlob",
         "TestGlobSymlink",
-        "TestNonWindowsGlobEscape",
         "TestWalk",
         "TestWalkDir",
         "TestWalkSkipDirOnFile",

@@ -65,8 +65,8 @@ function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:B
 		final pack = path.split("/");
 		pack.unshift("_internal");
 		final path = toGoPath(path);
-		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
-			pack.unshift("stdgo");
+		if (stdList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
+			pack.unshift("go");
 		}
 		if (!info.data.isMain || !isPackLocal(pack, info)) {
 			final filePath = pack.pop();
@@ -98,8 +98,8 @@ function getRestrictedName(name:String, info:Info):String { // all function defs
 			if (def.name == name) {
 				final pack = info.global.module.path.split(".");
 				pack.unshift("_internal");
-				if (stdgoList.indexOf(toGoPath(info.global.module.path)) == -1) { // haxe only type, otherwise the go code references Haxe
-					pack.unshift("stdgo");
+				if (stdList.indexOf(toGoPath(info.global.module.path)) == -1) { // haxe only type, otherwise the go code references Haxe
+					pack.unshift("go");
 				}
 				final name = pack[pack.length - 1];
 				pack.push(file.name);

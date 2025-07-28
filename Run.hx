@@ -46,11 +46,6 @@ function main() {
 		build(true);
 		return;
 	}
-
-	if (args.length > 0 && args.indexOf("hxb") != -1) {
-		setupHxb();
-		return;
-	}
 	var rebuild = false;
 	var process = new Process('git', ['rev-parse', 'HEAD']);
 	if (process.exitCode() != 0) {
@@ -125,35 +120,35 @@ function clean() {
 	return;
 	if (FileSystem.exists("golibs"))
 		deleteDirectoryRecursively("golibs");
-	for (path in FileSystem.readDirectory("stdgo")) {
-		if (!FileSystem.isDirectory('stdgo/$path'))
+	for (path in FileSystem.readDirectory("go")) {
+		if (!FileSystem.isDirectory('go/$path'))
 			continue;
 		switch path {
 			case "_internal":
-				for (path2 in FileSystem.readDirectory('stdgo/$path')) {
-					if (FileSystem.isDirectory('stdgo/$path/$path2')) {
+				for (path2 in FileSystem.readDirectory('go/$path')) {
+					if (FileSystem.isDirectory('go/$path/$path2')) {
 						switch path2 {
 							case "unsafe":
 								continue;
 							case "internal":
-								for (path3 in FileSystem.readDirectory('stdgo/$path/$path2')) {
-									if (FileSystem.isDirectory('stdgo/$path/$path2/$path3')) {
+								for (path3 in FileSystem.readDirectory('go/$path/$path2')) {
+									if (FileSystem.isDirectory('go/$path/$path2/$path3')) {
 										switch path3 {
 											case "reflect":
 											default:
-												deleteDirectoryRecursively('stdgo/$path/$path2/$path3');
+												deleteDirectoryRecursively('go/$path/$path2/$path3');
 										}
 									}
 								}
 								continue;
 							default:
-								deleteDirectoryRecursively('stdgo/$path/$path2');
+								deleteDirectoryRecursively('go/$path/$path2');
 						}
 					}
 				}
 				continue;
 		}
-		deleteDirectoryRecursively('stdgo/$path');
+		deleteDirectoryRecursively('go/$path');
 	}
 }
 
@@ -401,15 +396,4 @@ function setupHashlink(rebuild:Bool, args:Array<String>) {
 function setupInterp(rebuild:Bool, args:Array<String>) {
 	Sys.println("Interp compiler version");
 	Sys.command("haxe extra/scripts/build-interp.hxml " + args.join(" "));
-}
-
-function setupHxb() {
-	Sys.println("setting up Hxb");
-	var args = Sys.args();
-	final index = args.indexOf("hxb");
-	args = args.slice(index + 1);
-	if (Sys.command('haxe extra/scripts/hxb.hxml ' + args.join(" ")) != 0) {
-		Sys.println("Failed to setup Hxb");
-		Sys.exit(1);
-	}
 }

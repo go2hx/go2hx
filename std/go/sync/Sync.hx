@@ -57,7 +57,7 @@ function delete(_m, _key) {
 }
 
 @:recv(Map_)
-function swap(_m,_key,_value):{_0:stdgo.AnyInterface, _1:Bool} {
+function swap(_m,_key,_value):{_0:go.AnyInterface, _1:Bool} {
 	@:privateAccess _m._mu.lock();
 	if (@:privateAccess _m.map.exists(_key)) {
 		final oldValue = @:privateAccess _m.map.get(_key);
@@ -72,7 +72,7 @@ function swap(_m,_key,_value):{_0:stdgo.AnyInterface, _1:Bool} {
 }
 
 @:recv(Map_)
-function loadOrStore(_m,_key,_value):{_0:stdgo.AnyInterface, _1:Bool} {
+function loadOrStore(_m,_key,_value):{_0:go.AnyInterface, _1:Bool} {
 	@:privateAccess _m._mu.lock();
 	if (@:privateAccess _m.map.exists(_key)) {
 		final oldValue = @:privateAccess _m.map.get(_key);
@@ -86,7 +86,7 @@ function loadOrStore(_m,_key,_value):{_0:stdgo.AnyInterface, _1:Bool} {
 }
 
 @:recv(Map_)
-function loadAndDelete(_m,_key,_value):{_0:stdgo.AnyInterface, _1:Bool} {
+function loadAndDelete(_m,_key,_value):{_0:go.AnyInterface, _1:Bool} {
 	@:privateAccess _m._mu.lock();
 	if (@:privateAccess _m.map.exists(_key)) {
 		final oldValue = @:privateAccess _m.map.get(_key);
@@ -195,7 +195,7 @@ overload extern inline function wait_(_wg) {
 	@:define("target.threaded") {
 		while (true) {
 			if (@:privateAccess !_wg.mutex.tryAcquire()) {
-				stdgo._internal.internal.Async.tick();
+				go._internal.internal.Async.tick();
 				std.Sys.sleep(0.001);
 				continue;
 			}
@@ -204,7 +204,7 @@ overload extern inline function wait_(_wg) {
 				break;
 			}
 			@:privateAccess _wg.mutex.release();
-			stdgo._internal.internal.Async.tick();
+			go._internal.internal.Async.tick();
 			std.Sys.sleep(0.001);
 		}
 	};

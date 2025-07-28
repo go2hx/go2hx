@@ -1,6 +1,4 @@
-[ERROR] golibs/stdgo/_internal/go/printer/Printer.hx:51: characters 75-80
+[ERROR] (unknown position)
 
- 51 |         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
-    |                                                                           ^^^^^
-    | Uncaught exception unreachable
+   | Type not found : _internal.go.printerdottest.Printerdottest
 

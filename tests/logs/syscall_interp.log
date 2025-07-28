@@ -4,37 +4,37 @@
 
 === RUN  TestEnv
 Exception: :syscall.setenv is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.syscall_test._Syscall_test_testenv.Syscall_test_testenv_Fields_.testEnv (golibs/_internal/syscall_test/Syscall_test_testenv.hx line 4 column 5)
 Called from _internal.syscall_test._Syscall_test__testsetgetenv.Syscall_test__testsetgetenv_Fields_._testSetGetenv (golibs/_internal/syscall_test/Syscall_test__testsetgetenv.hx line 3 column 16)
-Called from stdgo._internal.syscall._Syscall_setenv.Syscall_setenv_Fields_.setenv (golibs/stdgo/_internal/syscall/Syscall_setenv.hx line 2 column 73)
+Called from go._internal.syscall._Syscall_setenv.Syscall_setenv_Fields_.setenv (golibs/go/_internal/syscall/Syscall_setenv.hx line 2 column 64)
 
 -- FAIL: TestEnv
 
 === RUN  TestExecErrPermutedFds
 Exception: :os.executable is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.syscall_test._Syscall_test_testexecerrpermutedfds.Syscall_test_testexecerrpermutedfds_Fields_.testExecErrPermutedFds (golibs/_internal/syscall_test/Syscall_test_testexecerrpermutedfds.hx line 4 column 5)
-Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.Testenv_musthaveexec_Fields_.mustHaveExec (golibs/stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 18 column 9)
-Called from stdgo._internal.sync.Once_static_extension.do_ (golibs/stdgo/_internal/sync/Sync_once_static_extension.hx line 11 column 9)
-Called from local function #1 (golibs/stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 19 column 80)
-Called from stdgo._internal.internal.testenv._Testenv__tryexec.Testenv__tryexec_Fields_._tryExec (golibs/stdgo/_internal/internal/testenv/Testenv__tryexec.hx line 30 column 23)
-Called from stdgo._internal.os._Os_executable.Os_executable_Fields_.executable (golibs/stdgo/_internal/os/Os_executable.hx line 2 column 74)
+Called from go._internal.internal.testenv._Testenv_musthaveexec.Testenv_musthaveexec_Fields_.mustHaveExec (golibs/go/_internal/internal/testenv/Testenv_musthaveexec.hx line 18 column 9)
+Called from go._internal.sync.Once_static_extension.do_ (golibs/go/_internal/sync/Sync_once_static_extension.hx line 11 column 9)
+Called from local function #1 (golibs/go/_internal/internal/testenv/Testenv_musthaveexec.hx line 19 column 77)
+Called from go._internal.internal.testenv._Testenv__tryexec.Testenv__tryexec_Fields_._tryExec (golibs/go/_internal/internal/testenv/Testenv__tryexec.hx line 30 column 23)
+Called from go._internal.os._Os_executable.Os_executable_Fields_.executable (golibs/go/_internal/os/Os_executable.hx line 2 column 68)
 
 -- FAIL: TestExecErrPermutedFds
 
 === RUN  TestGettimeofday
 not implemented on js
 Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.syscall_test._Syscall_test_testgettimeofday.Syscall_test_testgettimeofday_Fields_.testGettimeofday (golibs/_internal/syscall_test/Syscall_test_testgettimeofday.hx line 6 column 17)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 80 column 87)
-Called from stdgo._internal.testing.T_common_static_extension.skip (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
+Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
+Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
 
 -- SKIP: TestGettimeofday
 
 -- PASS: TestGettimeofday
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestExecErrPermutedFds

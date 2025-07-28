@@ -40,7 +40,7 @@ function typeFunctionEmit(func:IntermediateFunctionType, disableGenericCasting:B
 	final access = [];
 	// recv != null
 	var recvArg = getRecv(func, info, args, meta);
-	if (codegen.Patch.funcInline.indexOf(func.patchName) != -1 && access.indexOf(AInline) == -1)
+	if (gen.Patch.funcInline.indexOf(func.patchName) != -1 && access.indexOf(AInline) == -1)
 		access.push(AInline);
 
 	var ret = getRet(func, info);
@@ -150,7 +150,7 @@ function typeGenericFunction(func:IntermediateFunctionType, finalDoc, comboList:
 		info.global.renameClasses = previousRenameClasses; */
 	final ret = getRet(func, info);
 	var block = getBlock(info, func, args, recvArg);
-	//final printer = new codegen.Printer();
+	//final printer = new gen.Printer();
 	// Can not add type information to end of function because the function names will be too long
 	//final typeStr = args.map(arg -> io.Path.normalizePath(printer.printComplexType(arg.type))).join("_");
 	final genericName = func.name + "__tp__" + count;
@@ -315,8 +315,8 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 	final name = formatHaxeFieldName(decl.name.name, info);
 	final irFunc:IntermediateFunctionType = {
 		name: name,
-		doc: codegen.Doc.getDocComment(decl),
-		source: codegen.Doc.getSource(decl, info),
+		doc: gen.Doc.getDocComment(decl),
+		source: gen.Doc.getSource(decl, info),
 		params: decl.type.params,
 		patchName: recvName != "" ? '${info.global.module.path}.$recvName:$name' : info.global.module.path + ":" + name,
 		patchRecvName: recvName,
@@ -367,7 +367,7 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 				case TPath(p):
 					var f = null;
 					f = (p:TypePath) -> {
-						if (p.pack.length == 1 && p.pack[0] == "stdgo" && (p.name == "Pointer" || p.name == "Ref")) {
+						if (p.pack.length == 1 && p.pack[0] == "go" && (p.name == "Pointer" || p.name == "Ref")) {
 							switch p.params[0] {
 								case TPType(TPath(p)):
 									return f(p);
@@ -504,9 +504,9 @@ function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.Fie
 								final name = arg.name;
 								switch p.params[0] {
 									case TPType(ct):
-										// new stdgo.Slice<$ct>($i{name}.length, 0, ...$i{name}));
-										exprs.unshift(macro var $name = new stdgo.Slice<$ct>($i{name}.length, 0, ...$i{name}));
-									// exprs.unshift(macro var $name:stdgo.Slice<$ct> = $i{name}.toArray());
+										// new go.Slice<$ct>($i{name}.length, 0, ...$i{name}));
+										exprs.unshift(macro var $name = new go.Slice<$ct>($i{name}.length, 0, ...$i{name}));
+									// exprs.unshift(macro var $name:go.Slice<$ct> = $i{name}.toArray());
 									default:
 								}
 							}
@@ -580,7 +580,7 @@ private inline function getRet(func:IntermediateFunctionType, info) {
 private function getBlock(info, func:IntermediateFunctionType, args, recvArg:RecvArg) {
 	var patch:MacroExpr = null;
 	#if !macro
-	patch = codegen.Patch2.getFunction(func.patchPack, func.name, func.patchRecvName, func.pkg);
+	patch = gen.Patch2.getFunction(func.patchPack, func.name, func.patchRecvName, func.pkg);
 	#end
 	var block:MacroExpr = if (patch != null) {
 		patch;
@@ -597,7 +597,7 @@ private function getBlock(info, func:IntermediateFunctionType, args, recvArg:Rec
 			}
 			return null;
 		}
-		final cond = codegen.Patch.skipTests[func.patchName];
+		final cond = gen.Patch.skipTests[func.patchName];
 		if (cond != null) {
 			block = getSkipTestBlock(cond, block, func, info);
 		}
@@ -609,7 +609,7 @@ private function getBlock(info, func:IntermediateFunctionType, args, recvArg:Rec
 
 function hasPatchFunction(func):Bool {
 	#if !macro
-	return codegen.Patch2.hasFunction(func.patchPack, func.name, func.patchRecvName, func.pkg);
+	return gen.Patch2.hasFunction(func.patchPack, func.name, func.patchRecvName, func.pkg);
 	#else
 	return false;
 	#end
@@ -624,14 +624,14 @@ function getSkipTestBlock(cond, block, func:IntermediateFunctionType, info) {
 			info.global.deferBool = deferBool;
 			if (cond.length == 0) {
 				return macro {
-					stdgo.Go.println('-- SKIP: ' + $e{makeExpr(func.name)});
+					go.Go.println('-- SKIP: ' + $e{makeExpr(func.name)});
 					$e;
 				};
 			} else {
 				final targets = HaxeAst.makeString("(" + cond.join(" || ") + ")");
 				return macro @:define($targets) {
-					stdgo.Go.println('-- SKIP: ' + $e{makeExpr(func.name)});
-					stdgo.Go.println(" skip targets: " + $e{HaxeAst.makeString(cond.join(", "))});
+					go.Go.println('-- SKIP: ' + $e{makeExpr(func.name)});
+					go.Go.println(" skip targets: " + $e{HaxeAst.makeString(cond.join(", "))});
 					$e;
 				};
 			}

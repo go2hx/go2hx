@@ -21,7 +21,7 @@ function hasExclude(std:String):Bool {
 }
 
 function main() {
-    final stdList:Array<String> = File.getContent("data/stdgo.list").split("\n");
+    final stdList:Array<String> = File.getContent("data/std.list").split("\n");
     var passingStdList:Array<String> = Json.parse(File.getContent("tests/std.json"));
     passingStdList.filter(s -> s.split("|")[0] == "hl");
     passingStdList = passingStdList.map(s -> s.split("|")[1]);

@@ -1,25 +1,25 @@
 === RUN  TestLittleEndianRead
 Exception: Value:reflect.canSet is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.encoding.binary._Binary_testlittleendianread.Binary_testlittleendianread_Fields_.testLittleEndianRead (golibs/stdgo/_internal/encoding/binary/Binary_testlittleendianread.hx line 12 column 9)
-Called from stdgo._internal.encoding.binary._Binary__testread.Binary__testread_Fields_._testRead (golibs/stdgo/_internal/encoding/binary/Binary__testread.hx line 12 column 20)
-Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (golibs/stdgo/_internal/encoding/binary/Binary_read.hx line 163 column 9)
-Called from stdgo._internal.encoding.binary.T_decoder_static_extension._value (golibs/stdgo/_internal/encoding/binary/Binary_t_decoder_static_extension.hx line 45 column 34)
-Called from stdgo._internal.reflect.Value_static_extension.canSet (golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx line 770 column 89)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.encoding.binary._Binary_testlittleendianread.Binary_testlittleendianread_Fields_.testLittleEndianRead (golibs/go/_internal/encoding/binary/Binary_testlittleendianread.hx line 12 column 9)
+Called from go._internal.encoding.binary._Binary__testread.Binary__testread_Fields_._testRead (golibs/go/_internal/encoding/binary/Binary__testread.hx line 12 column 20)
+Called from go._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (golibs/go/_internal/encoding/binary/Binary_read.hx line 163 column 9)
+Called from go._internal.encoding.binary.T_decoder_static_extension._value (golibs/go/_internal/encoding/binary/Binary_t_decoder_static_extension.hx line 45 column 34)
+Called from go._internal.reflect.Value_static_extension.canSet (golibs/go/_internal/reflect/Reflect_value_static_extension.hx line 770 column 86)
 
 -- FAIL: TestLittleEndianRead
 
 === RUN  TestLittleEndianWrite
-Exception: stdgo.T_errorString_asInterface
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.encoding.binary._Binary_testlittleendianwrite.Binary_testlittleendianwrite_Fields_.testLittleEndianWrite (golibs/stdgo/_internal/encoding/binary/Binary_testlittleendianwrite.hx line 12 column 9)
-Called from stdgo._internal.encoding.binary._Binary__testwrite.Binary__testwrite_Fields_._testWrite (golibs/stdgo/_internal/encoding/binary/Binary__testwrite.hx line 12 column 20)
-Called from stdgo._internal.encoding.binary._Binary_write.Binary_write_Fields_.write (golibs/stdgo/_internal/encoding/binary/Binary_write.hx line 195 column 21)
-Called from stdgo._internal.encoding.binary._Binary__datasize.Binary__datasize_Fields_._dataSize (golibs/stdgo/_internal/encoding/binary/Binary__datasize.hx line 27 column 35)
-Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 84 column 29)
+Exception: go.T_errorString_asInterface
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.encoding.binary._Binary_testlittleendianwrite.Binary_testlittleendianwrite_Fields_.testLittleEndianWrite (golibs/go/_internal/encoding/binary/Binary_testlittleendianwrite.hx line 12 column 9)
+Called from go._internal.encoding.binary._Binary__testwrite.Binary__testwrite_Fields_._testWrite (golibs/go/_internal/encoding/binary/Binary__testwrite.hx line 12 column 20)
+Called from go._internal.encoding.binary._Binary_write.Binary_write_Fields_.write (golibs/go/_internal/encoding/binary/Binary_write.hx line 195 column 21)
+Called from go._internal.encoding.binary._Binary__datasize.Binary__datasize_Fields_._dataSize (golibs/go/_internal/encoding/binary/Binary__datasize.hx line 27 column 35)
+Called from go._internal.sync.Map__static_extension.load (golibs/go/_internal/sync/Sync_map__static_extension.hx line 84 column 29)
 Called from haxe.ds.BalancedTree.exists (/home/runner/haxe/versions/b0b2997/std/haxe/ds/BalancedTree.hx line 104 column 12)
-Called from stdgo.GoAnyInterfaceMap.compare (golibs/stdgo/GoMap.hx line 705 column 7)
-Called from stdgo._AnyInterface.AnyInterface_Impl_.equals (golibs/stdgo/AnyInterface.hx line 172 column 9)
+Called from go.GoAnyInterfaceMap.compare (golibs/go/GoMap.hx line 705 column 7)
+Called from go._AnyInterface.AnyInterface_Impl_.equals (golibs/go/AnyInterface.hx line 172 column 9)
 
 -- FAIL: TestLittleEndianWrite
 
@@ -29,30 +29,30 @@ Write LittleEndian: binary.Write: some values are not fixed-sized in type *.enco
 -- FAIL: TestLittleEndianPtrWrite
 
 === RUN  TestBigEndianRead
-Exception: stdgo.T_errorString_asInterface
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.encoding.binary._Binary_testbigendianread.Binary_testbigendianread_Fields_.testBigEndianRead (golibs/stdgo/_internal/encoding/binary/Binary_testbigendianread.hx line 12 column 9)
-Called from stdgo._internal.encoding.binary._Binary__testread.Binary__testread_Fields_._testRead (golibs/stdgo/_internal/encoding/binary/Binary__testread.hx line 12 column 20)
-Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (golibs/stdgo/_internal/encoding/binary/Binary_read.hx line 143 column 25)
-Called from stdgo._internal.encoding.binary._Binary__datasize.Binary__datasize_Fields_._dataSize (golibs/stdgo/_internal/encoding/binary/Binary__datasize.hx line 27 column 35)
-Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 84 column 29)
+Exception: go.T_errorString_asInterface
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.encoding.binary._Binary_testbigendianread.Binary_testbigendianread_Fields_.testBigEndianRead (golibs/go/_internal/encoding/binary/Binary_testbigendianread.hx line 12 column 9)
+Called from go._internal.encoding.binary._Binary__testread.Binary__testread_Fields_._testRead (golibs/go/_internal/encoding/binary/Binary__testread.hx line 12 column 20)
+Called from go._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (golibs/go/_internal/encoding/binary/Binary_read.hx line 143 column 25)
+Called from go._internal.encoding.binary._Binary__datasize.Binary__datasize_Fields_._dataSize (golibs/go/_internal/encoding/binary/Binary__datasize.hx line 27 column 35)
+Called from go._internal.sync.Map__static_extension.load (golibs/go/_internal/sync/Sync_map__static_extension.hx line 84 column 29)
 Called from haxe.ds.BalancedTree.exists (/home/runner/haxe/versions/b0b2997/std/haxe/ds/BalancedTree.hx line 104 column 12)
-Called from stdgo.GoAnyInterfaceMap.compare (golibs/stdgo/GoMap.hx line 705 column 7)
-Called from stdgo._AnyInterface.AnyInterface_Impl_.equals (golibs/stdgo/AnyInterface.hx line 172 column 9)
+Called from go.GoAnyInterfaceMap.compare (golibs/go/GoMap.hx line 705 column 7)
+Called from go._AnyInterface.AnyInterface_Impl_.equals (golibs/go/AnyInterface.hx line 172 column 9)
 
 -- FAIL: TestBigEndianRead
 
 === RUN  TestBigEndianWrite
-Exception: stdgo.T_errorString_asInterface
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.encoding.binary._Binary_testbigendianwrite.Binary_testbigendianwrite_Fields_.testBigEndianWrite (golibs/stdgo/_internal/encoding/binary/Binary_testbigendianwrite.hx line 12 column 9)
-Called from stdgo._internal.encoding.binary._Binary__testwrite.Binary__testwrite_Fields_._testWrite (golibs/stdgo/_internal/encoding/binary/Binary__testwrite.hx line 12 column 20)
-Called from stdgo._internal.encoding.binary._Binary_write.Binary_write_Fields_.write (golibs/stdgo/_internal/encoding/binary/Binary_write.hx line 195 column 21)
-Called from stdgo._internal.encoding.binary._Binary__datasize.Binary__datasize_Fields_._dataSize (golibs/stdgo/_internal/encoding/binary/Binary__datasize.hx line 27 column 35)
-Called from stdgo._internal.sync.Map__static_extension.load (golibs/stdgo/_internal/sync/Sync_map__static_extension.hx line 84 column 29)
+Exception: go.T_errorString_asInterface
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.encoding.binary._Binary_testbigendianwrite.Binary_testbigendianwrite_Fields_.testBigEndianWrite (golibs/go/_internal/encoding/binary/Binary_testbigendianwrite.hx line 12 column 9)
+Called from go._internal.encoding.binary._Binary__testwrite.Binary__testwrite_Fields_._testWrite (golibs/go/_internal/encoding/binary/Binary__testwrite.hx line 12 column 20)
+Called from go._internal.encoding.binary._Binary_write.Binary_write_Fields_.write (golibs/go/_internal/encoding/binary/Binary_write.hx line 195 column 21)
+Called from go._internal.encoding.binary._Binary__datasize.Binary__datasize_Fields_._dataSize (golibs/go/_internal/encoding/binary/Binary__datasize.hx line 27 column 35)
+Called from go._internal.sync.Map__static_extension.load (golibs/go/_internal/sync/Sync_map__static_extension.hx line 84 column 29)
 Called from haxe.ds.BalancedTree.exists (/home/runner/haxe/versions/b0b2997/std/haxe/ds/BalancedTree.hx line 104 column 12)
-Called from stdgo.GoAnyInterfaceMap.compare (golibs/stdgo/GoMap.hx line 705 column 7)
-Called from stdgo._AnyInterface.AnyInterface_Impl_.equals (golibs/stdgo/AnyInterface.hx line 172 column 9)
+Called from go.GoAnyInterfaceMap.compare (golibs/go/GoMap.hx line 705 column 7)
+Called from go._AnyInterface.AnyInterface_Impl_.equals (golibs/go/AnyInterface.hx line 172 column 9)
 
 -- FAIL: TestBigEndianWrite
 
@@ -82,16 +82,16 @@ Write BigEndian: binary.Write: some values are not fixed-sized in type *.encodin
 -- PASS: TestSliceRoundTrip
 
 === RUN  TestWriteT
-Exception: Invalid operation: stdgo._internal.internal.reflect._Type >> 31
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.encoding.binary._Binary_testwritet.Binary_testwritet_Fields_.testWriteT (golibs/stdgo/_internal/encoding/binary/Binary_testwritet.hx line 37 column 25)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 30 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.errorf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
-Called from stdgo._internal.fmt._Fmt_printf.Fmt_printf_Fields_.printf (golibs/stdgo/_internal/fmt/Fmt_printf.hx line 15 column 16)
-Called from stdgo._internal.fmt._Fmt_fprintf.Fmt_fprintf_Fields_.fprintf (golibs/stdgo/_internal/fmt/Fmt_fprintf.hx line 16 column 9)
-Called from stdgo._internal.fmt.T_pp_static_extension._doPrintf (golibs/stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 216 column 21)
-Called from stdgo._internal.fmt.T_pp_static_extension._printArg (golibs/stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 993 column 32)
-Called from stdgo._GoNumber.GoNumber_Fields_.ofIntUInt64 (golibs/stdgo/GoNumber.hx line 37 column 9)
+Exception: Invalid operation: go._internal.internal.reflect._Type >> 31
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.encoding.binary._Binary_testwritet.Binary_testwritet_Fields_.testWriteT (golibs/go/_internal/encoding/binary/Binary_testwritet.hx line 37 column 25)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 30 column 101)
+Called from go._internal.testing.T_common_static_extension.errorf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
+Called from go._internal.fmt._Fmt_printf.Fmt_printf_Fields_.printf (golibs/go/_internal/fmt/Fmt_printf.hx line 15 column 16)
+Called from go._internal.fmt._Fmt_fprintf.Fmt_fprintf_Fields_.fprintf (golibs/go/_internal/fmt/Fmt_fprintf.hx line 16 column 9)
+Called from go._internal.fmt.T_pp_static_extension._doPrintf (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 216 column 21)
+Called from go._internal.fmt.T_pp_static_extension._printArg (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 993 column 32)
+Called from go._GoNumber.GoNumber_Fields_.ofIntUInt64 (golibs/go/GoNumber.hx line 37 column 9)
 
 -- FAIL: TestWriteT
 
@@ -106,11 +106,11 @@ EOF
 
 === RUN  TestSizeStructCache
 Can't get the size of *.encoding.binary.foo_7241Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.encoding.binary._Binary_testsizestructcache.Binary_testsizestructcache_Fields_.testSizeStructCache (golibs/stdgo/_internal/encoding/binary/Binary_testsizestructcache.hx line 39 column 27)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.encoding.binary._Binary_testsizestructcache.Binary_testsizestructcache_Fields_.testSizeStructCache (golibs/go/_internal/encoding/binary/Binary_testsizestructcache.hx line 39 column 27)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
+Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestSizeStructCache
 
@@ -121,8 +121,8 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/st
 === RUN  TestUnexportedRead
 binary.Write: some values are not fixed-sized in type *.encoding.binary.Unexported
 Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.encoding.binary._Binary_testunexportedread.Binary_testunexportedread_Fields_.testUnexportedRead (golibs/stdgo/_internal/encoding/binary/Binary_testunexportedread.hx line 100 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.encoding.binary._Binary_testunexportedread.Binary_testunexportedread_Fields_.testUnexportedRead (golibs/go/_internal/encoding/binary/Binary_testunexportedread.hx line 100 column 30)
 
 -- FAIL: TestUnexportedRead
 
@@ -133,11 +133,11 @@ int: got "EOF"; want "binary.Read: invalid type int"
 
 === RUN  TestReadTruncated
 Exception: Value:reflect.canSet is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.encoding.binary._Binary_testreadtruncated.Binary_testreadtruncated_Fields_.testReadTruncated (golibs/stdgo/_internal/encoding/binary/Binary_testreadtruncated.hx line 68 column 32)
-Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (golibs/stdgo/_internal/encoding/binary/Binary_read.hx line 163 column 9)
-Called from stdgo._internal.encoding.binary.T_decoder_static_extension._value (golibs/stdgo/_internal/encoding/binary/Binary_t_decoder_static_extension.hx line 45 column 34)
-Called from stdgo._internal.reflect.Value_static_extension.canSet (golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx line 770 column 89)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.encoding.binary._Binary_testreadtruncated.Binary_testreadtruncated_Fields_.testReadTruncated (golibs/go/_internal/encoding/binary/Binary_testreadtruncated.hx line 68 column 32)
+Called from go._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (golibs/go/_internal/encoding/binary/Binary_read.hx line 163 column 9)
+Called from go._internal.encoding.binary.T_decoder_static_extension._value (golibs/go/_internal/encoding/binary/Binary_t_decoder_static_extension.hx line 45 column 34)
+Called from go._internal.reflect.Value_static_extension.canSet (golibs/go/_internal/reflect/Reflect_value_static_extension.hx line 770 column 86)
 
 -- FAIL: TestReadTruncated
 
@@ -151,32 +151,32 @@ Called from stdgo._internal.reflect.Value_static_extension.canSet (golibs/stdgo/
 
 === RUN  TestReadInvalidDestination
 Exception: Unexpected value 0, expected instance
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.encoding.binary._Binary_testreadinvaliddestination.Binary_testreadinvaliddestination_Fields_.testReadInvalidDestination (golibs/stdgo/_internal/encoding/binary/Binary_testreadinvaliddestination.hx line 12 column 9)
-Called from stdgo._internal.encoding.binary._Binary__testreadinvaliddestination.Binary__testreadinvaliddestination_Fields_._testReadInvalidDestination (golibs/stdgo/_internal/encoding/binary/Binary__testreadinvaliddestination.hx line 14 column 24)
-Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (golibs/stdgo/_internal/encoding/binary/Binary_read.hx line 32 column 25)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.encoding.binary._Binary_testreadinvaliddestination.Binary_testreadinvaliddestination_Fields_.testReadInvalidDestination (golibs/go/_internal/encoding/binary/Binary_testreadinvaliddestination.hx line 12 column 9)
+Called from go._internal.encoding.binary._Binary__testreadinvaliddestination.Binary__testreadinvaliddestination_Fields_._testReadInvalidDestination (golibs/go/_internal/encoding/binary/Binary__testreadinvaliddestination.hx line 14 column 24)
+Called from go._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (golibs/go/_internal/encoding/binary/Binary_read.hx line 32 column 25)
 
 -- FAIL: TestReadInvalidDestination
 
 === RUN  TestNoFixedSize
 got "binary.Write: some values are not fixed-sized in type *.encoding.binary.Person_12888", want "binary.Write: some values are not fixed-sized in type *binary.Person"Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.encoding.binary._Binary_testnofixedsize.Binary_testnofixedsize_Fields_.testNoFixedSize (golibs/stdgo/_internal/encoding/binary/Binary_testnofixedsize.hx line 31 column 17)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.encoding.binary._Binary_testnofixedsize.Binary_testnofixedsize_Fields_.testNoFixedSize (golibs/go/_internal/encoding/binary/Binary_testnofixedsize.hx line 31 column 17)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
+Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestNoFixedSize
 
 === RUN  TestNativeEndian
-golibs/stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: basic(18) -> invalidType
+golibs/go/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: basic(18) -> invalidType
 Exception: Unexpected value [], expected instance
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.encoding.binary._Binary_testnativeendian.Binary_testnativeendian_Fields_.testNativeEndian (golibs/stdgo/_internal/encoding/binary/Binary_testnativeendian.hx line 17 column 22)
-Called from local function #1 (golibs/stdgo/_internal/encoding/binary/Binary_t_nativeendian.hx line 56 column 96)
-Called from stdgo._internal.encoding.binary.T_littleEndian_static_extension.uint32 (golibs/stdgo/_internal/encoding/binary/Binary_t_littleendian_static_extension.hx line 75 column 9)
-Called from stdgo._Slice.Slice_Impl_.__get__ (golibs/stdgo/Slice.hx line 164 column 3)
-Called from stdgo._Slice.Slice_Impl_.__boundsCheck__ (golibs/stdgo/Slice.hx line 156 column 21)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.encoding.binary._Binary_testnativeendian.Binary_testnativeendian_Fields_.testNativeEndian (golibs/go/_internal/encoding/binary/Binary_testnativeendian.hx line 17 column 22)
+Called from local function #1 (golibs/go/_internal/encoding/binary/Binary_t_nativeendian.hx line 56 column 87)
+Called from go._internal.encoding.binary.T_littleEndian_static_extension.uint32 (golibs/go/_internal/encoding/binary/Binary_t_littleendian_static_extension.hx line 75 column 9)
+Called from go._Slice.Slice_Impl_.__get__ (golibs/go/Slice.hx line 164 column 3)
+Called from go._Slice.Slice_Impl_.__boundsCheck__ (golibs/go/Slice.hx line 156 column 21)
 
 -- FAIL: TestNativeEndian
 
@@ -212,5 +212,5 @@ Called from stdgo._Slice.Slice_Impl_.__boundsCheck__ (golibs/stdgo/Slice.hx line
 
 -- PASS: TestNonCanonicalZero
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestNativeEndian

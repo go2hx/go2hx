@@ -133,7 +133,7 @@ function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info
 	// trace(fromType, toType);
 	// trace(isRef(fromType), isPointer(toType));
 	if (isRef(fromType) && isPointer(toType)) {
-		return macro stdgo.Go.pointer($y);
+		return macro go.Go.pointer($y);
 	}
 	if (isAnyInterface(fromType) && !isInvalid(toType) && !isInterface(toType)) {
 		switch expr.expr {
@@ -222,7 +222,7 @@ function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):M
 		case basic(kind):
 			switch kind {
 				case untyped_nil_kind:
-					return macro(null : stdgo.AnyInterface);
+					return macro(null : go.AnyInterface);
 				default:
 			}
 			isBasic = true;
@@ -230,23 +230,23 @@ function toAnyInterface(x:Expr, t:GoType, info:Info, needWrapping:Bool = true):M
 	}
 	final typeExpr = toReflectType(originalType, info, [], false);
 	// trace(t);
-	// trace(new codegen.Printer().printExpr(x));
+	// trace(new gen.Printer().printExpr(x));
 	if (isInterface(t)) {
 		return macro ({
 			final __t__ = $x;
 			if (__t__ == null) {
-				new stdgo.AnyInterface(null, new stdgo._internal.internal.reflect.Reflect._Type($typeExpr)).__setNil__();
+				new go.AnyInterface(null, new go._internal.internal.reflect.Reflect._Type($typeExpr)).__setNil__();
 			}else{
-				new stdgo.AnyInterface(__t__, __t__.__underlying__().type);
+				new go.AnyInterface(__t__, __t__.__underlying__().type);
 			}
 		});
 	}
-	//return macro stdgo.Go.toInterface($x);
-	//trace(new codegen.Printer().printExpr(typeExpr));
+	//return macro go.Go.toInterface($x);
+	//trace(new gen.Printer().printExpr(typeExpr));
 	if (originalType == invalidType) {
 		return x;
 	}
-	final e = macro new stdgo.AnyInterface($x, new stdgo._internal.internal.reflect.Reflect._Type($typeExpr));
+	final e = macro new go.AnyInterface($x, new go._internal.internal.reflect.Reflect._Type($typeExpr));
 	return e;
 }
 
@@ -255,11 +255,11 @@ function toGoType(expr:Expr):MacroExpr {
 		case EConst(c):
 			switch c {
 				case CString(_, _):
-					return macro($expr : stdgo.GoString);
+					return macro($expr : go.GoString);
 				case CInt(_):
-					return macro($expr : stdgo.GoInt);
+					return macro($expr : go.GoInt);
 				case CFloat(_):
-					return macro($expr : stdgo.GoFloat64);
+					return macro($expr : go.GoFloat64);
 				default:
 			}
 		default:
@@ -288,7 +288,7 @@ function wrapperExpr(t:GoType, y:Expr, info:Info):MacroExpr {
 				return selfPointer ? self : y;
 			}
 			final rt = toReflectType(originalType, info, [], false);
-			return macro stdgo.Go.asInterface($y, $rt);
+			return macro go.Go.asInterface($y, $rt);
 		default:
 	}
 	return y;
@@ -390,7 +390,7 @@ function implicitConversion(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTy
 			}
 		case basic(uintptr_kind):
 			if (fromType != toType) {
-				e = macro(new stdgo.GoUIntptr($e) : $ct);
+				e = macro(new go.GoUIntptr($e) : $ct);
 			}
 		default:
 			switch fromType {
@@ -548,24 +548,24 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 			switch keyUnderlying {
 				case structType(_):
 					return macro(({
-						final x:stdgo.GoMap.GoObjectMap<$keyComplexType, $valueComplexType> = null;
-						// x.t = new stdgo._internal.internal.reflect.Reflect._Type($keyT);
+						final x:go.GoMap.GoObjectMap<$keyComplexType, $valueComplexType> = null;
+						// x.t = new go._internal.internal.reflect.Reflect._Type($keyT);
 						// x.__typer.exprs.Expr.defaultValue__ = () -> $typer.exprs.Expr.defaultValueExpr;
 						// @:mergeBlock $b{exprs};
 						cast x;
-					} : stdgo.GoMap<$keyComplexType, $valueComplexType>));
+					} : go.GoMap<$keyComplexType, $valueComplexType>));
 				default:
 					// trace(keyUnderlying);
 			}
-			macro(null : stdgo.GoMap<$keyComplexType, $valueComplexType>);
+			macro(null : go.GoMap<$keyComplexType, $valueComplexType>);
 		case sliceType(_.get() => elem):
 			final t = toComplexType(elem, info, true);
-			macro(null : stdgo.Slice<$t>);
+			macro(null : go.Slice<$t>);
 		case arrayType(_.get() => elem, len):
 			final param = toComplexType(elem, info, true);
 			final size = makeExpr(len);
 			final cap = size;
-			final p:TypePath = {name: "GoArray", params: [TPType(param)], pack: ["stdgo"]};
+			final p:TypePath = {name: "GoArray", params: [TPType(param)], pack: ["go"]};
 			final s = CompositeLiteral.createSlice(p, elem, size, cap, e -> e, info, null);
 			s;
 		case interfaceType(_):
@@ -574,14 +574,14 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 		case chanType(_, _.get() => elem):
 			final t = toComplexType(elem, info, true && strict);
 			var value = typer.exprs.Expr.defaultValue(elem, info);
-			macro(null : stdgo.Chan<$t>);
+			macro(null : go.Chan<$t>);
 		case pointerType(_.get() => elem):
 			switch elem {
 				case typeParam(_, _):
 					macro null;
 				default:
 					final t = toComplexType(elem, info);
-					macro(null : stdgo.Pointer<$t>);
+					macro(null : go.Pointer<$t>);
 			}
 		case signature(_, _, _, _):
 			macro null;
@@ -592,7 +592,7 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 					final s = typer.exprs.Expr.defaultValue(elem, info, strict);
 					macro $s.__setNil__();
 				default:
-					macro(null : stdgo.Ref<$ct>); // pointer can be nil
+					macro(null : go.Ref<$ct>); // pointer can be nil
 			}
 		case named(path, _, underlying, alias, _):
 			switch getUnderlying(underlying) {
@@ -637,22 +637,22 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 			if (strict) {
 				switch kind {
 					case bool_kind: macro false;
-					case int_kind: macro(0 : stdgo.GoInt);
-					case int8_kind: macro(0 : stdgo.GoInt8);
-					case int16_kind: macro(0 : stdgo.GoInt16);
-					case int32_kind: macro(0 : stdgo.GoInt32);
-					case int64_kind: macro(0 : stdgo.GoInt64);
-					case string_kind: macro("" : stdgo.GoString);
-					case uint_kind: macro(0 : stdgo.GoUInt);
-					case uint8_kind: macro(0 : stdgo.GoUInt8);
-					case uint16_kind: macro(0 : stdgo.GoUInt16);
-					case uint32_kind: macro(0 : stdgo.GoUInt32);
-					case uint64_kind: macro(0 : stdgo.GoUInt64);
-					case uintptr_kind: macro new stdgo.GoUIntptr(0);
-					case float32_kind: macro(0 : stdgo.GoFloat32);
-					case float64_kind: macro(0 : stdgo.GoFloat64);
-					case complex64_kind: macro new stdgo.GoComplex64(0, 0);
-					case complex128_kind: macro new stdgo.GoComplex128(0, 0);
+					case int_kind: macro(0 : go.GoInt);
+					case int8_kind: macro(0 : go.GoInt8);
+					case int16_kind: macro(0 : go.GoInt16);
+					case int32_kind: macro(0 : go.GoInt32);
+					case int64_kind: macro(0 : go.GoInt64);
+					case string_kind: macro("" : go.GoString);
+					case uint_kind: macro(0 : go.GoUInt);
+					case uint8_kind: macro(0 : go.GoUInt8);
+					case uint16_kind: macro(0 : go.GoUInt16);
+					case uint32_kind: macro(0 : go.GoUInt32);
+					case uint64_kind: macro(0 : go.GoUInt64);
+					case uintptr_kind: macro new go.GoUIntptr(0);
+					case float32_kind: macro(0 : go.GoFloat32);
+					case float64_kind: macro(0 : go.GoFloat64);
+					case complex64_kind: macro new go.GoComplex64(0, 0);
+					case complex128_kind: macro new go.GoComplex128(0, 0);
 					case untyped_bool_kind, untyped_rune_kind, untyped_string_kind, untyped_int_kind, untyped_float_kind, untyped_complex_kind:
 						throw info.panic() + "untyped kind: " + kind;
 					default: macro @:default_value null;
@@ -663,10 +663,10 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 					case string_kind: macro "";
 					case int_kind, int8_kind, int16_kind, int32_kind, int64_kind: macro 0;
 					case uint_kind, uint8_kind, uint16_kind, uint32_kind, uint64_kind: macro 0;
-					case uintptr_kind: macro new stdgo.GoUIntptr(0);
+					case uintptr_kind: macro new go.GoUIntptr(0);
 					case float32_kind, float64_kind: macro 0;
-					case complex64_kind: macro new stdgo.GoComplex64(0, 0);
-					case complex128_kind: macro new stdgo.GoComplex128(0, 0);
+					case complex64_kind: macro new go.GoComplex64(0, 0);
+					case complex128_kind: macro new go.GoComplex128(0, 0);
 					default: macro @:default_value_kind
 						null;
 				}

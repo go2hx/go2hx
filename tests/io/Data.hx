@@ -5,10 +5,10 @@ package io;
 **/
 import sys.io.File;
 
-final stdgoList:Array<String> = parseData('stdgo.list');
+final stdList:Array<String> = parseData('std.list');
 final excludesList:Array<String> = parseData('excludes.json');
-final exports:Array<String> = parseData('stdgoExports.json');
-final externs:Array<String> = parseData('stdgoExterns.json');
+final exports:Array<String> = parseData('stdExports.json');
+final externs:Array<String> = parseData('stdExterns.json');
 
 function parseData(fileName:String) {
 	final ext = haxe.io.Path.extension(fileName);

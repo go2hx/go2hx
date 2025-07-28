@@ -1,85 +1,85 @@
 === RUN  TestCheckEqual
 Exception: field access on null
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.testing.quick._Quick_testcheckequal.Quick_testcheckequal_Fields_.testCheckEqual (golibs/stdgo/_internal/testing/quick/Quick_testcheckequal.hx line 10 column 100)
-Called from stdgo._internal.testing.quick._Quick_checkequal.Quick_checkequal_Fields_.checkEqual (golibs/stdgo/_internal/testing/quick/Quick_checkequal.hx line 40 column 28)
-Called from stdgo._internal.testing.quick._Quick__arbitraryvalues.Quick__arbitraryvalues_Fields_._arbitraryValues (golibs/stdgo/_internal/testing/quick/Quick__arbitraryvalues.hx line 23 column 35)
-Called from stdgo._internal.testing.quick._Quick_value.Quick_value_Fields_.value (golibs/stdgo/_internal/testing/quick/Quick_value.hx line 11 column 16)
-Called from stdgo._internal.testing.quick._Quick__sizedvalue.Quick__sizedvalue_Fields_._sizedValue (golibs/stdgo/_internal/testing/quick/Quick__sizedvalue.hx line 170 column 29)
-Called from stdgo._internal.reflect.Value_static_extension.set (golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx line 283 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.quick._Quick_testcheckequal.Quick_testcheckequal_Fields_.testCheckEqual (golibs/go/_internal/testing/quick/Quick_testcheckequal.hx line 10 column 94)
+Called from go._internal.testing.quick._Quick_checkequal.Quick_checkequal_Fields_.checkEqual (golibs/go/_internal/testing/quick/Quick_checkequal.hx line 40 column 28)
+Called from go._internal.testing.quick._Quick__arbitraryvalues.Quick__arbitraryvalues_Fields_._arbitraryValues (golibs/go/_internal/testing/quick/Quick__arbitraryvalues.hx line 23 column 35)
+Called from go._internal.testing.quick._Quick_value.Quick_value_Fields_.value (golibs/go/_internal/testing/quick/Quick_value.hx line 11 column 16)
+Called from go._internal.testing.quick._Quick__sizedvalue.Quick__sizedvalue_Fields_._sizedValue (golibs/go/_internal/testing/quick/Quick__sizedvalue.hx line 170 column 29)
+Called from go._internal.reflect.Value_static_extension.set (golibs/go/_internal/reflect/Reflect_value_static_extension.hx line 283 column 17)
 Called from StringTools.endsWith (/home/runner/haxe/versions/b0b2997/std/StringTools.hx line 260 column 14)
 
 -- FAIL: TestCheckEqual
 
 === RUN  TestCheckProperty
 Exception: not implemented numOut
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.testing.quick._Quick_testcheckproperty.Quick_testcheckproperty_Fields_.testCheckProperty (golibs/stdgo/_internal/testing/quick/Quick_testcheckproperty.hx line 10 column 110)
-Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/stdgo/_internal/testing/quick/Quick_check.hx line 23 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 1395 column 10)
-Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 925 column 3)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.quick._Quick_testcheckproperty.Quick_testcheckproperty_Fields_.testCheckProperty (golibs/go/_internal/testing/quick/Quick_testcheckproperty.hx line 10 column 104)
+Called from go._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23 column 13)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397 column 10)
+Called from go._internal.internal.reflect._Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925 column 3)
 
 -- FAIL: TestCheckProperty
 
 === RUN  TestFailure
 Exception: not implemented numOut
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.testing.quick._Quick_testfailure.Quick_testfailure_Fields_.testFailure (golibs/stdgo/_internal/testing/quick/Quick_testfailure.hx line 13 column 20)
-Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/stdgo/_internal/testing/quick/Quick_check.hx line 23 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 1395 column 10)
-Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 925 column 3)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.quick._Quick_testfailure.Quick_testfailure_Fields_.testFailure (golibs/go/_internal/testing/quick/Quick_testfailure.hx line 13 column 20)
+Called from go._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23 column 13)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397 column 10)
+Called from go._internal.internal.reflect._Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925 column 3)
 
 -- FAIL: TestFailure
 
 === RUN  TestRecursive
 Exception: not implemented numOut
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.testing.quick._Quick_testrecursive.Quick_testrecursive_Fields_.testRecursive (golibs/stdgo/_internal/testing/quick/Quick_testrecursive.hx line 15 column 9)
-Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/stdgo/_internal/testing/quick/Quick_check.hx line 23 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 1395 column 10)
-Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 925 column 3)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.quick._Quick_testrecursive.Quick_testrecursive_Fields_.testRecursive (golibs/go/_internal/testing/quick/Quick_testrecursive.hx line 15 column 9)
+Called from go._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23 column 13)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397 column 10)
+Called from go._internal.internal.reflect._Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925 column 3)
 
 -- FAIL: TestRecursive
 
 === RUN  TestEmptyStruct
 Exception: not implemented numOut
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.testing.quick._Quick_testemptystruct.Quick_testemptystruct_Fields_.testEmptyStruct (golibs/stdgo/_internal/testing/quick/Quick_testemptystruct.hx line 14 column 9)
-Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/stdgo/_internal/testing/quick/Quick_check.hx line 23 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 1395 column 10)
-Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 925 column 3)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.quick._Quick_testemptystruct.Quick_testemptystruct_Fields_.testEmptyStruct (golibs/go/_internal/testing/quick/Quick_testemptystruct.hx line 14 column 9)
+Called from go._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23 column 13)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397 column 10)
+Called from go._internal.internal.reflect._Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925 column 3)
 
 -- FAIL: TestEmptyStruct
 
 === RUN  TestMutuallyRecursive
 Exception: not implemented numOut
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.testing.quick._Quick_testmutuallyrecursive.Quick_testmutuallyrecursive_Fields_.testMutuallyRecursive (golibs/stdgo/_internal/testing/quick/Quick_testmutuallyrecursive.hx line 14 column 9)
-Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/stdgo/_internal/testing/quick/Quick_check.hx line 23 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 1395 column 10)
-Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 925 column 3)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.quick._Quick_testmutuallyrecursive.Quick_testmutuallyrecursive_Fields_.testMutuallyRecursive (golibs/go/_internal/testing/quick/Quick_testmutuallyrecursive.hx line 14 column 9)
+Called from go._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23 column 13)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397 column 10)
+Called from go._internal.internal.reflect._Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925 column 3)
 
 -- FAIL: TestMutuallyRecursive
 
 === RUN  TestNonZeroSliceAndMap
 Exception: not implemented numOut
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.testing.quick._Quick_testnonzerosliceandmap.Quick_testnonzerosliceandmap_Fields_.testNonZeroSliceAndMap (golibs/stdgo/_internal/testing/quick/Quick_testnonzerosliceandmap.hx line 14 column 20)
-Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/stdgo/_internal/testing/quick/Quick_check.hx line 23 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 1395 column 10)
-Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 925 column 3)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.quick._Quick_testnonzerosliceandmap.Quick_testnonzerosliceandmap_Fields_.testNonZeroSliceAndMap (golibs/go/_internal/testing/quick/Quick_testnonzerosliceandmap.hx line 14 column 20)
+Called from go._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23 column 13)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397 column 10)
+Called from go._internal.internal.reflect._Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925 column 3)
 
 -- FAIL: TestNonZeroSliceAndMap
 
 === RUN  TestInt64
 Exception: not implemented numOut
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.testing.quick._Quick_testint64.Quick_testint64_Fields_.testInt64 (golibs/stdgo/_internal/testing/quick/Quick_testint64.hx line 24 column 9)
-Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/stdgo/_internal/testing/quick/Quick_check.hx line 23 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 1395 column 10)
-Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (golibs/stdgo/_internal/internal/reflect/Reflect.hx line 925 column 3)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.quick._Quick_testint64.Quick_testint64_Fields_.testInt64 (golibs/go/_internal/testing/quick/Quick_testint64.hx line 24 column 9)
+Called from go._internal.testing.quick._Quick_check.Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23 column 13)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397 column 10)
+Called from go._internal.internal.reflect._Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925 column 3)
 
 -- FAIL: TestInt64
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestInt64

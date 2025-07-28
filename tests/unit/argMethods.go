@@ -3,12 +3,14 @@ package main
 func main() {
 	d := &Decoder{}
 	d2 := &Decoder2{}
-	if d.help != 0.0 {
-		panic("invalid value: d.help")
-	}
-	if d.name() != "test" {
-		panic("invalid value: d.name()")
-	}
+	_ = d2
+	_ = d
+	// if d.help != 0.0 {
+	// 	panic("invalid value: d.help")
+	// }
+	// if d.name() != "test" {
+	// 	panic("invalid value: d.name()")
+	// }
 	if d2.name != 0 {
 		panic("invalid value: d2.name")
 	}

@@ -104,7 +104,7 @@ function typeFieldListMethods(list:GoAst.FieldList, info:Info):Array<Field> {
 		var params = typer.decls.Function.typeFieldListArgs(expr.params, info);
 		if (ret == null || params == null)
 			continue;
-		final doc = codegen.Doc.getDocComment(field, field);
+		final doc = gen.Doc.getDocComment(field, field);
 		for (n in field.names) {
 			final name = formatHaxeFieldName(n.name, info);
 			fields.push({

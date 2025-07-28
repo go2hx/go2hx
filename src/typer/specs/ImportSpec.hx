@@ -1,7 +1,7 @@
 package typer.specs;
 
 function typeImport(imp:GoAst.ImportSpec, info:Info) {
-	var doc = codegen.Doc.getDocComment(imp);
+	var doc = gen.Doc.getDocComment(imp);
 	imp.path = imp.path.substr(1, imp.path.length - 2); // remove quotes
 	var path = normalizePath(imp.path);
 	var alias = imp.name;
@@ -13,8 +13,8 @@ function typeImport(imp:GoAst.ImportSpec, info:Info) {
 	path = toGoPath(path);
 	final pack = path.split("/");
 	pack.unshift("_internal");
-	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
-		pack.unshift("stdgo");
+	if (stdList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
+		pack.unshift("go");
 	}
 	final name = pack[pack.length - 1];
 	pack.push(importClassName(name)); // shorten path here

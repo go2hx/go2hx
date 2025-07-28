@@ -20,7 +20,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 	info.locals.clear();
 	info.localUnderlyingNames.clear();
 	info.data = data;
-	final pkgDoc = codegen.Doc.getDocComment(file);
+	final pkgDoc = gen.Doc.getDocComment(file);
 	var declFuncs:Array<GoAst.FuncDecl> = [];
 	var declGens:Array<GoAst.GenDecl> = [];
 	for (decl in file.decls) {
@@ -170,7 +170,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 	}
 
 	// patch system to add functions
-	for (key => expr in codegen.Patch.addFuncs) {
+	for (key => expr in gen.Patch.addFuncs) {
 		final index = key.indexOf(":");
 		final path = key.substr(0, index);
 		if (path == info.global.module.path) {
@@ -191,10 +191,10 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 				pack: [],
 				kind: TDField(FFun({args: [], expr: expr}), []),
 			});
-			// codegen.Patch.addFuncs.remove(key);
+			// gen.Patch.addFuncs.remove(key);
 		}
 	}
-	for (key => def in codegen.Patch.addTypeDefs) {
+	for (key => def in gen.Patch.addTypeDefs) {
 		final index = key.indexOf(":");
 		final path = key.substr(0, index);
 		if (path == info.global.module.path) {
@@ -213,18 +213,18 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 					access: [APublic],
 					kind: FFun({
 						args: [],
-						expr: macro return new stdgo.AnyInterface(this, new stdgo._internal.internal.reflect.Reflect._Type(invalidType)),
+						expr: macro return new go.AnyInterface(this, new go._internal.internal.reflect.Reflect._Type(invalidType)),
 					}),
 				});
 			}
 			data.defs.push(def);
-			codegen.Patch.addTypeDefs.remove(key);
+			gen.Patch.addTypeDefs.remove(key);
 		}
 	}
 
 	// init system
 	if (info.global.initBlock.length > 0) {
-		// info.global.initBlock.unshift(macro trace(stdgo._internal.internal.type.Type.names));
+		// info.global.initBlock.unshift(macro trace(go._internal.internal.type.Type.names));
 		var block = toExpr(EBlock(info.global.initBlock));
 		final pathString = HaxeAst.makeString(info.global.path);
 		if (info.global.varTraceBool) {
@@ -377,7 +377,7 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 			pack: [],
 			kind: TDAlias(TPath({
 				name: "Pointer",
-				pack: ["stdgo"],
+				pack: ["go"],
 				params: [
 					TPType(TPath({
 						pack: [],
@@ -394,7 +394,7 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 		if (!HaxeAst.alreadyExistsTypeDef(aliasPointer, info))
 			info.data.defs.push(aliasPointer);
 		// files check against all TypeSpecs
-		if (def.meta != null) { // prevents adding @:using or other metadata to codegen.Patch.replace types
+		if (def.meta != null) { // prevents adding @:using or other metadata to gen.Patch.replace types
 			def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
 		}
 		aliasPointer.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
@@ -548,7 +548,7 @@ function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:A
 							case FFun(fun):
 								final patchName = info.global.module.path + "." + def.name + ":" + func.name;
 								func.meta.push({name: ":tdfield", pos: null});
-								if (codegen.Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
+								if (gen.Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 									access.push(AInline);
 								// recv func named
 								HaxeAst.addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, null,

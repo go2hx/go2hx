@@ -7,7 +7,7 @@ function mapTypeExpr(expr:GoAst.MapType, info:Info):ComplexType {
 		return null;
 	return TPath({
 		name: "GoMap",
-		pack: ["stdgo"],
+		pack: ["go"],
 		params: [TPType(keyType), TPType(valueType)],
 	});
 }

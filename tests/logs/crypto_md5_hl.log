@@ -4,7 +4,7 @@ Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_i
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
 Called from stdgo._internal.crypto.md5._Md5_testgolden.$Md5_testgolden_Fields_.testGolden (stdgo/_internal/crypto/md5/Md5_testgolden.hx line 51)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.crypto.md5dottest._Md5dottest.$Md5dottest_Fields_.main (_internal/crypto/md5dottest/Md5dottest.hx line 25)
 
 -- FAIL: TestGolden
@@ -29,7 +29,7 @@ Called from stdgo._internal.io._Io_readatleast.$Io_readatleast_Fields_.readAtLea
 Called from stdgo._internal.io._Io_readfull.$Io_readfull_Fields_.readFull (stdgo/_internal/io/Io_readfull.hx line 6)
 Called from stdgo._internal.crypto.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/crypto/rand/Rand_read.hx line 9)
 Called from stdgo._internal.crypto.md5._Md5_testblockgeneric.$Md5_testblockgeneric_Fields_.testBlockGeneric (stdgo/_internal/crypto/md5/Md5_testblockgeneric.hx line 30)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.crypto.md5dottest._Md5dottest.$Md5dottest_Fields_.main (_internal/crypto/md5dottest/Md5dottest.hx line 25)
 
 -- FAIL: TestBlockGeneric
@@ -43,5 +43,5 @@ golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not imple
 
 -- PASS: TestAllocations
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
+golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestBlockGeneric

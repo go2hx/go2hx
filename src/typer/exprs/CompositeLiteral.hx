@@ -47,7 +47,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 			return e;
 		case pointerType(_.get() => elem):
 			final e = compositeLit(elem, HaxeAst.complexTypeElem(ct), expr, info);
-			return macro stdgo.Go.pointer($e);
+			return macro go.Go.pointer($e);
 		case structType(fields):
 			var objectFields:Array<ObjectField> = [];
 			var fields = fields.copy();
@@ -265,28 +265,28 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 		final p:TypePath = {
 			name: "GoMap",
 			sub: name,
-			pack: ["stdgo"],
+			pack: ["go"],
 			params: [TPType(keyComplexType), TPType(valueComplexType)]
 		};
 		return macro({
 			final x = new $p();
 			@:mergeBlock $b{exprs};
 			cast x;
-		} : stdgo.GoMap<$keyComplexType, $valueComplexType>);
+		} : go.GoMap<$keyComplexType, $valueComplexType>);
 	}
 	final uk = getUnderlying(k);
-	final p:TypePath = {name: "GoMap", pack: ["stdgo"], params: [TPType(keyComplexType), TPType(valueComplexType)]};
+	final p:TypePath = {name: "GoMap", pack: ["go"], params: [TPType(keyComplexType), TPType(valueComplexType)]};
 	switch uk {
 		case interfaceType(empty, _):
 			if (!empty) {
 				isObjectMap = true;
 			} else {
 				return macro({
-					final x = new stdgo.GoMap.GoAnyInterfaceMap<$valueComplexType>();
+					final x = new go.GoMap.GoAnyInterfaceMap<$valueComplexType>();
 					x.__defaultValue__ = () -> $defaultValueExpr;
 					@:mergeBlock $b{exprs};
 					cast x;
-				} : stdgo.GoMap<$keyComplexType, $valueComplexType>);
+				} : go.GoMap<$keyComplexType, $valueComplexType>);
 			}
 		case structType(_), arrayType(_):
 			isObjectMap = true;
@@ -317,27 +317,27 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 	}
 	if (isObjectMap) {
 		return macro(({
-			final x = new stdgo.GoMap.GoObjectMap<$keyComplexType, $valueComplexType>();
-			x.t = new stdgo._internal.internal.reflect.Reflect._Type($keyT);
+			final x = new go.GoMap.GoObjectMap<$keyComplexType, $valueComplexType>();
+			x.t = new go._internal.internal.reflect.Reflect._Type($keyT);
 			x.__defaultValue__ = () -> $defaultValueExpr;
 			@:mergeBlock $b{exprs};
 			cast x;
-		} : stdgo.GoMap<$keyComplexType, $valueComplexType>) : $ct);
+		} : go.GoMap<$keyComplexType, $valueComplexType>) : $ct);
 	}
 	if (isUIntptrMap) {
 		return macro(({
-			final x = new stdgo.GoMap.GoUIntptrMap<$valueComplexType>();
+			final x = new go.GoMap.GoUIntptrMap<$valueComplexType>();
 			x.__defaultValue__ = () -> $defaultValueExpr;
 			@:mergeBlock $b{exprs};
 			cast x;
-		} : stdgo.GoMap<$keyComplexType, $valueComplexType>) : $ct);
+		} : go.GoMap<$keyComplexType, $valueComplexType>) : $ct);
 	}
 	return macro(({
 		final x = new $p();
 		x.__defaultValue__ = () -> $defaultValueExpr;
 		@:mergeBlock $b{exprs};
 		x;
-	} : stdgo.GoMap<$keyComplexType, $valueComplexType>) : $ct);
+	} : go.GoMap<$keyComplexType, $valueComplexType>) : $ct);
 } private function hasKeyValueExpr(elts:Array<GoAst.Expr>) {
 
 	for (e in elts) {
@@ -350,7 +350,7 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 	var param = toComplexType(elem, info);
 	var value = typer.exprs.Expr.defaultValue(elem, info);
 	if (value == null)
-		value = macro stdgo.Go.expectedValue();
+		value = macro go.Go.expectedValue();
 	if (size == null)
 		return returnExpr(macro new $p(0, 0));
 
@@ -363,11 +363,11 @@ package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Inf
 		case structType(_), arrayType(_):
 			if (sets == null) {
 				sets = [
-					macro for (i in 0...($size > $cap ? $size : $cap : stdgo.GoInt).toBasic()) $value
+					macro for (i in 0...($size > $cap ? $size : $cap : go.GoInt).toBasic()) $value
 				];
 			} else {
 				return macro new $p($size, $cap, ...$a{sets}.concat([
-					for (i in ${makeExpr(sets.length)}...($size > $cap ? $size : $cap : stdgo.GoInt).toBasic()
+					for (i in ${makeExpr(sets.length)}...($size > $cap ? $size : $cap : go.GoInt).toBasic()
 				) $value]));
 			}
 			return returnExpr(macro new $p($a{createArgs(size, cap, sets)}));

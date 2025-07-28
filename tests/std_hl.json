@@ -31,5 +31,6 @@
  "hl|hash",
  "hl|go/scanner",
  "hl|slices",
- "hl|net/textproto"
+ "hl|net/textproto",
+ "hl|internal/godebugs"
 ]

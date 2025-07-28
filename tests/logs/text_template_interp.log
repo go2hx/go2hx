@@ -1,44 +1,44 @@
 === RUN  TestExecute
 Exception: not implemented numOut
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testexecute.Template_testexecute_Fields_.testExecute (golibs/stdgo/_internal/text/template/Template_testexecute.hx line 21 column 9)
-Called from stdgo._internal.text.template._Template__testexecute.Template__testexecute_Fields_._testExecute (golibs/stdgo/_internal/text/template/Template__testexecute.hx line 54 column 35)
-Called from stdgo._internal.text.template.Template_static_extension.funcs (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testexecute.Template_testexecute_Fields_.testExecute (golibs/go/_internal/text/template/Template_testexecute.hx line 21 column 9)
+Called from go._internal.text.template._Template__testexecute.Template__testexecute_Fields_._testExecute (golibs/go/_internal/text/template/Template__testexecute.hx line 54 column 35)
+Called from go._internal.text.template.Template_static_extension.funcs (golibs/go/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
 
 -- FAIL: TestExecute
 
 === RUN  TestDelims
 Exception: Value:reflect.methodByName is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testdelims.Template_testdelims_Fields_.testDelims (golibs/stdgo/_internal/text/template/Template_testdelims.hx line 56 column 8)
-Called from stdgo._internal.text.template.Template_static_extension.execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
-Called from stdgo._internal.text.template.Template_static_extension._execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testdelims.Template_testdelims_Fields_.testDelims (golibs/go/_internal/text/template/Template_testdelims.hx line 56 column 8)
+Called from go._internal.text.template.Template_static_extension.execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
+Called from go._internal.text.template.Template_static_extension._execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
 
 -- FAIL: TestDelims
 
 === RUN  TestExecuteError
 Exception: Value:reflect.methodByName is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testexecuteerror.Template_testexecuteerror_Fields_.testExecuteError (golibs/stdgo/_internal/text/template/Template_testexecuteerror.hx line 35 column 16)
-Called from stdgo._internal.text.template.Template_static_extension.execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
-Called from stdgo._internal.text.template.Template_static_extension._execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testexecuteerror.Template_testexecuteerror_Fields_.testExecuteError (golibs/go/_internal/text/template/Template_testexecuteerror.hx line 35 column 16)
+Called from go._internal.text.template.Template_static_extension.execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
+Called from go._internal.text.template.Template_static_extension._execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
 
 -- FAIL: TestExecuteError
 
 === RUN  TestExecError
 Exception: not implemented numOut
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testexecerror.Template_testexecerror_Fields_.testExecError (golibs/stdgo/_internal/text/template/Template_testexecerror.hx line 34 column 16)
-Called from stdgo._internal.text.template.Template_static_extension.execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
-Called from stdgo._internal.text.template.Template_static_extension._execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testexecerror.Template_testexecerror_Fields_.testExecError (golibs/go/_internal/text/template/Template_testexecerror.hx line 34 column 16)
+Called from go._internal.text.template.Template_static_extension.execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
+Called from go._internal.text.template.Template_static_extension._execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
 
 -- FAIL: TestExecError
 
 === RUN  TestExecError_CustomError
 Exception: not implemented numOut
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testexecerror_customerror.Template_testexecerror_customerror_Fields_.testExecError_CustomError (golibs/stdgo/_internal/text/template/Template_testexecerror_customerror.hx line 25 column 38)
-Called from stdgo._internal.text.template.Template_static_extension.funcs (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testexecerror_customerror.Template_testexecerror_customerror_Fields_.testExecError_CustomError (golibs/go/_internal/text/template/Template_testexecerror_customerror.hx line 25 column 38)
+Called from go._internal.text.template.Template_static_extension.funcs (golibs/go/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
 
 -- FAIL: TestExecError_CustomError
 
@@ -48,10 +48,10 @@ Called from stdgo._internal.text.template.Template_static_extension.funcs (golib
 
 === RUN  TestTree
 Exception: null pointer dereference
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testtree.Template_testtree_Fields_.testTree (golibs/stdgo/_internal/text/template/Template_testtree.hx line 36 column 16)
-Called from stdgo._internal.text.template.Template_static_extension.execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
-Called from stdgo._internal.text.template.Template_static_extension._execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testtree.Template_testtree_Fields_.testTree (golibs/go/_internal/text/template/Template_testtree.hx line 36 column 16)
+Called from go._internal.text.template.Template_static_extension.execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
+Called from go._internal.text.template.Template_static_extension._execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
 
 -- FAIL: TestTree
 
@@ -62,11 +62,11 @@ Called from stdgo._internal.text.template.Template_static_extension._execute (go
 === RUN  TestMessageForExecuteEmpty
 expected initial error
 Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testmessageforexecuteempty.Template_testmessageforexecuteempty_Fields_.testMessageForExecuteEmpty (golibs/stdgo/_internal/text/template/Template_testmessageforexecuteempty.hx line 26 column 22)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 50 column 88)
-Called from stdgo._internal.testing.T_common_static_extension.fatal (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testmessageforexecuteempty.Template_testmessageforexecuteempty_Fields_.testMessageForExecuteEmpty (golibs/go/_internal/text/template/Template_testmessageforexecuteempty.hx line 26 column 22)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
+Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
+Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestMessageForExecuteEmpty
 
@@ -197,40 +197,40 @@ eq .NonNilMap .NonNilMap did not error
 
 === RUN  TestMissingMapKey
 Exception: Value:reflect.methodByName is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testmissingmapkey.Template_testmissingmapkey_Fields_.testMissingMapKey (golibs/stdgo/_internal/text/template/Template_testmissingmapkey.hx line 40 column 16)
-Called from stdgo._internal.text.template.Template_static_extension.execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
-Called from stdgo._internal.text.template.Template_static_extension._execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testmissingmapkey.Template_testmissingmapkey_Fields_.testMissingMapKey (golibs/go/_internal/text/template/Template_testmissingmapkey.hx line 40 column 16)
+Called from go._internal.text.template.Template_static_extension.execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
+Called from go._internal.text.template.Template_static_extension._execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
 
 -- FAIL: TestMissingMapKey
 
 === RUN  TestUnterminatedStringError
 expected error
 Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testunterminatedstringerror.Template_testunterminatedstringerror_Fields_.testUnterminatedStringError (golibs/stdgo/_internal/text/template/Template_testunterminatedstringerror.hx line 24 column 22)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 50 column 88)
-Called from stdgo._internal.testing.T_common_static_extension.fatal (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testunterminatedstringerror.Template_testunterminatedstringerror_Fields_.testUnterminatedStringError (golibs/go/_internal/text/template/Template_testunterminatedstringerror.hx line 24 column 22)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
+Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
+Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestUnterminatedStringError
 
 === RUN  TestExecuteGivesExecError
 expected error; got none
 Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testexecutegivesexecerror.Template_testexecutegivesexecerror_Fields_.testExecuteGivesExecError (golibs/stdgo/_internal/text/template/Template_testexecutegivesexecerror.hx line 37 column 22)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 50 column 88)
-Called from stdgo._internal.testing.T_common_static_extension.fatal (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testexecutegivesexecerror.Template_testexecutegivesexecerror_Fields_.testExecuteGivesExecError (golibs/go/_internal/text/template/Template_testexecutegivesexecerror.hx line 37 column 22)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
+Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
+Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestExecuteGivesExecError
 
 === RUN  TestGoodFuncNames
 Exception: not implemented numOut
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testgoodfuncnames.Template_testgoodfuncnames_Fields_.testGoodFuncNames (golibs/stdgo/_internal/text/template/Template_testgoodfuncnames.hx line 23 column 25)
-Called from stdgo._internal.text.template.Template_static_extension.funcs (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testgoodfuncnames.Template_testgoodfuncnames_Fields_.testGoodFuncNames (golibs/go/_internal/text/template/Template_testgoodfuncnames.hx line 23 column 25)
+Called from go._internal.text.template.Template_static_extension.funcs (golibs/go/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
 
 -- FAIL: TestGoodFuncNames
 
@@ -245,23 +245,23 @@ Called from stdgo._internal.text.template.Template_static_extension.funcs (golib
 === RUN  TestEvalFieldErrors
 - SUBRUN  MissingFieldOnNil
 Exception: Value:reflect.methodByName is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testevalfielderrors.Template_testevalfielderrors_Fields_.testEvalFieldErrors (golibs/stdgo/_internal/text/template/Template_testevalfielderrors.hx line 29 column 13)
-Called from stdgo._internal.testing.T__static_extension.run (golibs/stdgo/_internal/testing/Testing_t__static_extension.hx line 13 column 9)
-Called from local function #16 (golibs/stdgo/_internal/text/template/Template_testevalfielderrors.hx line 36 column 28)
-Called from stdgo._internal.text.template.Template_static_extension.execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
-Called from stdgo._internal.text.template.Template_static_extension._execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testevalfielderrors.Template_testevalfielderrors_Fields_.testEvalFieldErrors (golibs/go/_internal/text/template/Template_testevalfielderrors.hx line 29 column 13)
+Called from go._internal.testing.T__static_extension.run (golibs/go/_internal/testing/Testing_t__static_extension.hx line 13 column 9)
+Called from local function #16 (golibs/go/_internal/text/template/Template_testevalfielderrors.hx line 36 column 28)
+Called from go._internal.text.template.Template_static_extension.execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
+Called from go._internal.text.template.Template_static_extension._execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
 
 -- FAIL: TestEvalFieldErrors
 
 === RUN  TestMaxExecDepth
 skipping in -short mode
 Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testmaxexecdepth.Template_testmaxexecdepth_Fields_.testMaxExecDepth (golibs/stdgo/_internal/text/template/Template_testmaxexecdepth.hx line 23 column 21)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 80 column 87)
-Called from stdgo._internal.testing.T_common_static_extension.skip (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testmaxexecdepth.Template_testmaxexecdepth_Fields_.testMaxExecDepth (golibs/go/_internal/text/template/Template_testmaxexecdepth.hx line 23 column 21)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
+Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
+Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
 
 -- SKIP: TestMaxExecDepth
 
@@ -269,11 +269,11 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/st
 
 === RUN  TestAddrOfIndex
 {{range .}}{{.String}}{{end}}: template output = "", want "<1>"Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testaddrofindex.Template_testaddrofindex_Fields_.testAddrOfIndex (golibs/stdgo/_internal/text/template/Template_testaddrofindex.hx line 46 column 999)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testaddrofindex.Template_testaddrofindex_Fields_.testAddrOfIndex (golibs/go/_internal/text/template/Template_testaddrofindex.hx line 46 column 945)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
+Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestAddrOfIndex
 
@@ -313,9 +313,9 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/st
 
 === RUN  TestExecutePanicDuringCall
 Exception: not implemented numOut
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testexecutepanicduringcall.Template_testexecutepanicduringcall_Fields_.testExecutePanicDuringCall (golibs/stdgo/_internal/text/template/Template_testexecutepanicduringcall.hx line 33 column 27)
-Called from stdgo._internal.text.template.Template_static_extension.funcs (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testexecutepanicduringcall.Template_testexecutepanicduringcall_Fields_.testExecutePanicDuringCall (golibs/go/_internal/text/template/Template_testexecutepanicduringcall.hx line 33 column 27)
+Called from go._internal.text.template.Template_static_extension.funcs (golibs/go/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
 
 -- FAIL: TestExecutePanicDuringCall
 
@@ -336,10 +336,10 @@ expected err got nil
 
 === RUN  TestIssue48215
 Exception: Value:reflect.methodByName is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testissue48215.Template_testissue48215_Fields_.testIssue48215 (golibs/stdgo/_internal/text/template/Template_testissue48215.hx line 35 column 16)
-Called from stdgo._internal.text.template.Template_static_extension.execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
-Called from stdgo._internal.text.template.Template_static_extension._execute (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testissue48215.Template_testissue48215_Fields_.testIssue48215 (golibs/go/_internal/text/template/Template_testissue48215.hx line 35 column 16)
+Called from go._internal.text.template.Template_static_extension.execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
+Called from go._internal.text.template.Template_static_extension._execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
 
 -- FAIL: TestIssue48215
 
@@ -351,62 +351,56 @@ Called from stdgo._internal.text.template.Template_static_extension._execute (go
 
 === RUN  TestMultiExecute
 Exception: not implemented numOut
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testmultiexecute.Template_testmultiexecute_Fields_.testMultiExecute (golibs/stdgo/_internal/text/template/Template_testmultiexecute.hx line 50 column 9)
-Called from stdgo._internal.text.template._Template__testexecute.Template__testexecute_Fields_._testExecute (golibs/stdgo/_internal/text/template/Template__testexecute.hx line 60 column 35)
-Called from stdgo._internal.text.template.Template_static_extension.funcs (golibs/stdgo/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testmultiexecute.Template_testmultiexecute_Fields_.testMultiExecute (golibs/go/_internal/text/template/Template_testmultiexecute.hx line 50 column 9)
+Called from go._internal.text.template._Template__testexecute.Template__testexecute_Fields_._testExecute (golibs/go/_internal/text/template/Template__testexecute.hx line 60 column 35)
+Called from go._internal.text.template.Template_static_extension.funcs (golibs/go/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
 
 -- FAIL: TestMultiExecute
 
 === RUN  TestParseFiles
-error parsing files: readFile testdata/file1.tmpl: no such file or directoryException: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testparsefiles.Template_testparsefiles_Fields_.testParseFiles (golibs/stdgo/_internal/text/template/Template_testparsefiles.hx line 34 column 13)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Exception: not implemented numOut
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testparsefiles.Template_testparsefiles_Fields_.testParseFiles (golibs/go/_internal/text/template/Template_testparsefiles.hx line 44 column 9)
+Called from go._internal.text.template._Template__testexecute.Template__testexecute_Fields_._testExecute (golibs/go/_internal/text/template/Template__testexecute.hx line 60 column 35)
+Called from go._internal.text.template.Template_static_extension.funcs (golibs/go/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
 
 -- FAIL: TestParseFiles
 
 === RUN  TestParseGlob
-error parsing files: template: pattern matches no files: `testdata/file*.tmpl`Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testparseglob.Template_testparseglob_Fields_.testParseGlob (golibs/stdgo/_internal/text/template/Template_testparseglob.hx line 43 column 13)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Exception: not implemented numOut
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testparseglob.Template_testparseglob_Fields_.testParseGlob (golibs/go/_internal/text/template/Template_testparseglob.hx line 53 column 9)
+Called from go._internal.text.template._Template__testexecute.Template__testexecute_Fields_._testExecute (golibs/go/_internal/text/template/Template__testexecute.hx line 60 column 35)
+Called from go._internal.text.template.Template_static_extension.funcs (golibs/go/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
 
 -- FAIL: TestParseGlob
 
 === RUN  TestParseFS
-Exception: testdata/DOES NOT EXIST: No such file or directory
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testparsefs.Template_testparsefs_Fields_.testParseFS (golibs/stdgo/_internal/text/template/Template_testparsefs.hx line 23 column 27)
-Called from stdgo._internal.text.template._Template_parsefs.Template_parsefs_Fields_.parseFS (golibs/stdgo/_internal/text/template/Template_parsefs.hx line 22 column 16)
-Called from stdgo._internal.text.template._Template__parsefs.Template__parsefs_Fields_._parseFS (golibs/stdgo/_internal/text/template/Template__parsefs.hx line 23 column 27)
-Called from stdgo._internal.io.fs._Fs_glob.Fs_glob_Fields_.glob (golibs/stdgo/_internal/io/fs/Fs_glob.hx line 12 column 50)
-Called from stdgo._internal.io.fs._Fs__globwithlimit.Fs__globwithlimit_Fields_._globWithLimit (golibs/stdgo/_internal/io/fs/Fs__globwithlimit.hx line 61 column 35)
-Called from stdgo._internal.io.fs._Fs_stat.Fs_stat_Fields_.stat (golibs/stdgo/_internal/io/fs/Fs_stat.hx line 98 column 30)
+expected error for non-existent file; got none
+Exception: not implemented numOut
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testparsefs.Template_testparsefs_Fields_.testParseFS (golibs/go/_internal/text/template/Template_testparsefs.hx line 47 column 13)
+Called from go._internal.text.template._Template__testexecute.Template__testexecute_Fields_._testExecute (golibs/go/_internal/text/template/Template__testexecute.hx line 60 column 35)
+Called from go._internal.text.template.Template_static_extension.funcs (golibs/go/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
 
 -- FAIL: TestParseFS
 
 === RUN  TestParseFilesWithData
-error parsing files: readFile testdata/tmpl1.tmpl: no such file or directoryException: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testparsefileswithdata.Template_testparsefileswithdata_Fields_.testParseFilesWithData (golibs/stdgo/_internal/text/template/Template_testparsefileswithdata.hx line 24 column 13)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Exception: not implemented numOut
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testparsefileswithdata.Template_testparsefileswithdata_Fields_.testParseFilesWithData (golibs/go/_internal/text/template/Template_testparsefileswithdata.hx line 34 column 9)
+Called from go._internal.text.template._Template__testexecute.Template__testexecute_Fields_._testExecute (golibs/go/_internal/text/template/Template__testexecute.hx line 60 column 35)
+Called from go._internal.text.template.Template_static_extension.funcs (golibs/go/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
 
 -- FAIL: TestParseFilesWithData
 
 === RUN  TestParseGlobWithData
-error parsing files: template: pattern matches no files: `testdata/tmpl*.tmpl`Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
-Called from stdgo._internal.text.template._Template_testparseglobwithdata.Template_testparseglobwithdata_Fields_.testParseGlobWithData (golibs/stdgo/_internal/text/template/Template_testparseglobwithdata.hx line 24 column 13)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Exception: not implemented numOut
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.text.template._Template_testparseglobwithdata.Template_testparseglobwithdata_Fields_.testParseGlobWithData (golibs/go/_internal/text/template/Template_testparseglobwithdata.hx line 34 column 9)
+Called from go._internal.text.template._Template__testexecute.Template__testexecute_Fields_._testExecute (golibs/go/_internal/text/template/Template__testexecute.hx line 60 column 35)
+Called from go._internal.text.template.Template_static_extension.funcs (golibs/go/_internal/text/template/Template_template_static_extension.hx line 236 column 30)
 
 -- FAIL: TestParseGlobWithData
 
@@ -457,15 +451,15 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/st
 === RUN  TestLinkerGC
 skipping in short mode
 Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.text.template_test._Template_test_testlinkergc.Template_test_testlinkergc_Fields_.testLinkerGC (golibs/_internal/text/template_test/Template_test_testlinkergc.hx line 6 column 21)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 80 column 87)
-Called from stdgo._internal.testing.T_common_static_extension.skip (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
+Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
+Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
 
 -- SKIP: TestLinkerGC
 
 -- PASS: TestLinkerGC
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:91: exitCode: 1 exitCodeReason: 
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestParseGlobWithData

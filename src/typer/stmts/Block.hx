@@ -39,10 +39,15 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 	}
 	if (list != null) { // file://./If.hx#10
 		final stmts = [for (stmt in list) typer.stmts.Stmt.typeStmt(stmt, info)];
+		var isWindows = Sys.systemName().toLowerCase() == "windows";
 		for (i in 0...stmts.length) {
-			final location = list[i].location;
+			var location = list[i].location;
 			if (location == null || location == "")
 				continue;
+			if (isWindows) {
+				location = haxe.io.Path.normalize(location);
+				location = "/" + location;
+			}
 			final commentString = 'file://$location';
 			stmts[i] = macro @:comment(${HaxeAst.makeString(commentString)}) ${stmts[i]};
 		}
@@ -54,12 +59,12 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 		final e = ret;
 		var catchBlock:Array<Expr> = [macro var exe:Dynamic = __exception__.native];
 		catchBlock.push(macro if ((exe is haxe.ValueException)) exe = exe.value);
-		catchBlock.push(macro if ((exe is stdgo.AnyInterface.AnyInterfaceData) == false) {
+		catchBlock.push(macro if ((exe is go.AnyInterface.AnyInterfaceData) == false) {
 			if (__exception__.message == "__return__")
 				throw "__return__";
-			exe = new stdgo.AnyInterface((__exception__.message : stdgo.GoString), new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.basic(17)));
+			exe = new go.AnyInterface((__exception__.message : go.GoString), new go._internal.internal.reflect.Reflect._Type(go._internal.internal.reflect.GoType.basic(17)));
 		});
-		catchBlock.push(macro stdgo.Go.recover_exception = exe);
+		catchBlock.push(macro go.Go.recover_exception = exe);
 		switch e.expr {
 			case EBlock(exprs):
 				final last = exprs.pop();
@@ -72,26 +77,26 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 							var exe:Dynamic = __exception__2.native;
 							if ((exe is haxe.ValueException))
 								exe = exe.value;
-							if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+							if (!(exe is go.AnyInterface.AnyInterfaceData)) {
 								if (__exception__.message == "__return__")
 									throw "__return__";
-								exe = new stdgo.AnyInterface((__exception__.message : stdgo.GoString), new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.basic(17)));
+								exe = new go.AnyInterface((__exception__.message : go.GoString), new go._internal.internal.reflect.Reflect._Type(go._internal.internal.reflect.GoType.basic(17)));
 							};
-							stdgo.Go.recover_exception = exe;
+							go.Go.recover_exception = exe;
 							f();
 						}
 					}
 					f();
 				});
-				exprs.push(macro if (stdgo.Go.recover_exception != null) {
-					final e = stdgo.Go.recover_exception;
-					stdgo.Go.recover_exception = null;
+				exprs.push(macro if (go.Go.recover_exception != null) {
+					final e = go.Go.recover_exception;
+					go.Go.recover_exception = null;
 					@:throw1 throw e;
 				});
 				exprs.push(last);
-				catchBlock.push(macro if (stdgo.Go.recover_exception != null) {
-					final e = stdgo.Go.recover_exception;
-					stdgo.Go.recover_exception = null;
+				catchBlock.push(macro if (go.Go.recover_exception != null) {
+					final e = go.Go.recover_exception;
+					go.Go.recover_exception = null;
 					//@:throw2 throw __exception__.details();
 					@:throw3 throw e;
 				});
@@ -99,9 +104,9 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 			// catchBlock = catchBlock.concat(exprs);
 			default:
 				catchBlock = catchBlock.concat([
-					macro stdgo.Go.recover_exception != null ? {
-						final e = stdgo.Go.recover_exception;
-						stdgo.Go.recover_exception = null;
+					macro go.Go.recover_exception != null ? {
+						final e = go.Go.recover_exception;
+						go.Go.recover_exception = null;
 						throw e;
 					} : $e
 				]);

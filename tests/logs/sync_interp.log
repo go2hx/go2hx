@@ -1,12 +1,12 @@
-[ERROR] golibs/stdgo/_internal/sync/Sync_oncefunc.hx:2: characters 45-50
+[ERROR] golibs/go/_internal/sync/Sync_oncefunc.hx:2: characters 45-50
 
  2 | function onceFunc(_f:() -> Void):() -> Void throw ":sync.onceFunc is not yet implemented";
    |                                             ^^^^^
    | Uncaught exception :sync.onceFunc is not yet implemented
 
-    ->  golibs/_internal/sync_test/Sync_test__oncefunc.hx:2: characters 30-93
+    ->  golibs/_internal/sync_test/Sync_test__oncefunc.hx:2: characters 30-90
 
-    2 | var _onceFunc : () -> Void = stdgo._internal.sync.Sync_oncefunc.onceFunc(function():Void {});
-      |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 | var _onceFunc : () -> Void = go._internal.sync.Sync_oncefunc.onceFunc(function():Void {});
+      |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       | Called from here
 

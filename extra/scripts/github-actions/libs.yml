@@ -18,7 +18,7 @@ steps:
   - name: Run lix
     run: npx lix download
   # go2hx setup
-  - name: Clean stdgo
+  - name: Clean std
     run: npx haxe --run Run clean
   - name: Set source
     run: npx haxelib dev go2hx .

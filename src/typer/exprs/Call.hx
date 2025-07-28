@@ -148,7 +148,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 									toType = pointerType({get: () -> elem});
 								}
 							}
-							// trace(new codegen.Printer().printExpr(args[i]));
+							// trace(new gen.Printer().printExpr(args[i]));
 							// trace(fromType, toType, tupleArg != null);
 							if (tupleArg != null) {
 								switch getVar(typeof(exprArgs[0 - skip], info, false)) {
@@ -226,7 +226,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 					if (typeof(expr.type, info, false).match(basic(string_kind))) {
 						var e = typer.exprs.Expr.typeExpr(expr.fun, info);
 						genArgs(true);
-						return returnExpr(macro($e($a{args}) : stdgo.GoString));
+						return returnExpr(macro($e($a{args}) : go.GoString));
 					}
 				case "Exit":
 					if (expr.fun.x.id == "Ident" && expr.fun.x.name == "os") {
@@ -261,13 +261,13 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						return returnExpr(macro throw ${typer.exprs.Expr.toAnyInterface(args[0], typeof(expr.args[0], info, false), info)});
 					case "recover":
 						return returnExpr(macro({
-							final r = stdgo.Go.recover_exception;
-							stdgo.Go.recover_exception = null;
+							final r = go.Go.recover_exception;
+							go.Go.recover_exception = null;
 							r;
 						}));
 					case "min", "max":
 						genArgs(false);
-						return (macro stdgo.Go.$funcName($a{args}));
+						return (macro go.Go.$funcName($a{args}));
 					case "append":
 						final t = typeof(expr.args[0], info, false);
 						var eType = t;
@@ -288,7 +288,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						return returnExpr(e);
 					case "copy":
 						genArgs(false);
-						// return returnExpr(macro stdgo.Go.copySlice($a{args}));
+						// return returnExpr(macro go.Go.copySlice($a{args}));
 						return returnExpr(macro ${args[0]}.__copyTo__($a{args.slice(1)}));
 					case "delete":
 						var e = typer.exprs.Expr.typeExpr(expr.args[0], info);
@@ -326,22 +326,22 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 					case "print":
 						genArgs(true, 0);
 						if (args.length == 0)
-							return returnExpr(macro stdgo.Go.print(""));
+							return returnExpr(macro go.Go.print(""));
 						for (i in 0...args.length) {
 							args[i] = exprToString(typeof(expr.args[i], info, false), basic(string_kind), args[i], info);
 						}
-						return returnExpr(macro stdgo.Go.print($a{args}));
+						return returnExpr(macro go.Go.print($a{args}));
 					case "println":
 						genArgs(true, 0);
 						if (args.length == 0)
-							return returnExpr(macro stdgo.Go.println(""));
+							return returnExpr(macro go.Go.println(""));
 						for (i in 0...args.length) {
 							args[i] = exprToString(typeof(expr.args[i], info, false), basic(string_kind), args[i], info);
 						}
-						return returnExpr(macro stdgo.Go.println($a{args}));
+						return returnExpr(macro go.Go.println($a{args}));
 					case "complex":
 						genArgs(false);
-						return returnExpr(macro new stdgo.GoComplex128($a{args}));
+						return returnExpr(macro new go.GoComplex128($a{args}));
 					case "real":
 						var e = typer.exprs.Expr.typeExpr(expr.args[0], info);
 						var t = typeof(expr.args[0], info, false);
@@ -376,11 +376,11 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 								var t = typeof(expr.args[0], info, false);
 								var value = typer.exprs.Expr.defaultValue(t, info);
 								if (!isRefValue(t)) {
-									value = macro stdgo.Go.pointer($value);
+									value = macro go.Go.pointer($value);
 								} else {
-									final ct = TPath({name: "Ref", pack: ["stdgo"], params: [TPType(toComplexType(t, info))]});
+									final ct = TPath({name: "Ref", pack: ["go"], params: [TPType(toComplexType(t, info))]});
 									final gt = toReflectType(refType({get: () -> t}), info, [], false);
-									value = macro(stdgo.Go.setRef($value, $gt) : $ct);
+									value = macro(go.Go.setRef($value, $gt) : $ct);
 								}
 								return returnExpr(value);
 							default:
@@ -394,7 +394,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						var setCap:Bool = cap != null;
 						if (size != null) {
 							size = typer.exprs.Expr.explicitConversion(typeof(expr.args[1], info, false), basic(int_kind), size, info);
-							size = macro($size : stdgo.GoInt).toBasic();
+							size = macro($size : go.GoInt).toBasic();
 						}
 						if (cap != null) {
 							cap = typer.exprs.Expr.explicitConversion(typeof(expr.args[2], info, false), basic(int_kind), cap, info);
@@ -414,7 +414,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						var e = switch underlyingType {
 							case sliceType(_.get() => elem):
 								final param = toComplexType(elem, info);
-								final p:TypePath = {name: "Slice", params: [TPType(param)], pack: ["stdgo"]};
+								final p:TypePath = {name: "Slice", params: [TPType(param)], pack: ["go"]};
 								CompositeLiteral.createSlice(p, elem, size, cap, returnExpr, info, null);
 							case mapType(_.get() => key, _.get() => value):
 								var keyType = toComplexType(key, info);
@@ -426,7 +426,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 								if (size == null)
 									size = macro 0;
 								if (p == null)
-									p = {name: "Chan", pack: ["stdgo"], params: [TPType(param)]};
+									p = {name: "Chan", pack: ["go"], params: [TPType(param)]};
 								macro new $p($size, () -> $value);
 							case invalidType:
 								macro @:invalid_make null;

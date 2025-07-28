@@ -23,5 +23,5 @@ function typeAssertExpr(expr:GoAst.TypeAssertExpr, info:Info):MacroExpr { // a -
 
 private function setAssert(e:haxe.macro.Expr, gt:GoType, ct:ComplexType, info:Info):Expr {
 	final rt = toReflectType(gt, info, [], false);
-	return macro (stdgo.Go.typeAssert($e, $rt) : $ct);
+	return macro (go.Go.typeAssert($e, $rt) : $ct);
 }

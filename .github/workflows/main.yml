@@ -34,22 +34,20 @@ jobs:
       # go2hx setup
       - name: Set source
         run: npx haxelib dev go2hx .
-      # clean stdgo
-      - name: Setup hxcpp
-        run: haxe -cp extra/scripts --run SetupHxcpp
-      - name: Clean stdgo
+      # Clean std
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Build go2hx compiler
         run: npx haxe --run Run build
       - name: Create vendor
         run: go mod vendor
-      # compile stdgo
-      - name: Run stdgo automatic compile
-        run: npx haxe extra/scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+      # compile std
+      - name: Run std automatic compile
+        run: npx haxe extra/scripts/std.hxml -D runnerCount=${{ env.CORES }}
       #- name: Create hxb
       #  run: npx haxelib run go2hx hxb .
       # cache
-      - name: Cache setup of stdgo and hxb
+      - name: cache setup of std and hxb
         id: cache-setup
         uses: actions/cache/save@v4
         env:
@@ -96,7 +94,7 @@ jobs:
       # go2hx setup
       - name: Set source
         run: haxelib dev go2hx .
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - uses: actions/cache/restore@v4
         id: setup-cache
@@ -213,7 +211,7 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Set source
         run: npx haxelib dev go2hx .
@@ -259,7 +257,7 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Set source
         run: npx haxelib dev go2hx .
@@ -317,10 +315,12 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      # clean stdgo
-      - name: Clean go2hx
+      # Clean std
+      - name: Clean std2hx
         run: npx haxe --run Run clean
-      # compile stdgo
+      # compile std
+      - name: Build go2hx compiler
+        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -383,10 +383,12 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      # clean stdgo
-      - name: Clean go2hx
+      # Clean std
+      - name: Clean std2hx
         run: npx haxe --run Run clean
-      # compile stdgo
+      # compile std
+      - name: Build go2hx compiler
+        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -437,7 +439,7 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Set source
         run: npx haxelib dev go2hx .
@@ -489,7 +491,7 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Set source
         run: npx haxelib dev go2hx .
@@ -550,10 +552,12 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      # clean stdgo
-      - name: Clean go2hx
+      # Clean std
+      - name: Clean std2hx
         run: npx haxe --run Run clean
-      # compile stdgo
+      # compile std
+      - name: Build go2hx compiler
+        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -606,7 +610,7 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Set source
         run: npx haxelib dev go2hx .
@@ -660,7 +664,7 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - name: Set source
         run: npx haxelib dev go2hx .
@@ -721,7 +725,7 @@ jobs:
       # go2hx setup
       - name: Set source
         run: haxelib dev go2hx .
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - uses: actions/cache/restore@v4
         id: setup-cache
@@ -784,7 +788,7 @@ jobs:
       # go2hx setup
       - name: Set source
         run: haxelib dev go2hx .
-      - name: Clean stdgo
+      - name: Clean std
         run: npx haxe --run Run clean
       - uses: actions/cache/restore@v4
         id: setup-cache

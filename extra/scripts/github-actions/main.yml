@@ -91,8 +91,6 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - name: Clean std
@@ -107,6 +105,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Build interop test
         run: haxelib run go2hx ./tests/interop --nolibwrap
       - name: Test interop

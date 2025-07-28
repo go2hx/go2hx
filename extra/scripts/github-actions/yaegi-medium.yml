@@ -20,8 +20,6 @@ steps:
   # go2hx setup
   - name: Clean std
     run: npx haxe --run Run clean
-  - name: Build go2hx compiler
-    run: npx haxe --run Run build
   - name: Set source
     run: npx haxelib dev go2hx .
   - uses: actions/cache/restore@v4
@@ -34,6 +32,10 @@ steps:
         export
         golibs
       key: ${{ github.sha }}-build-${{ env.cache-name }}
+  - name: Setup hxcpp
+    run: haxe -cp extra/scripts --run SetupHxcpp
+  - name: Build go2hx compiler
+    run: npx haxe --run Run build
   # run yaegi medium tests
   - name: clone yaegi
     run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi

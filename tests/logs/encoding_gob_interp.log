@@ -1,24 +1,24 @@
-[ERROR] golibs/stdgo/_internal/encoding/gob/Gob__buildtypeinfo.hx:246: characters 30-35
+[ERROR] golibs/go/_internal/encoding/gob/Gob__buildtypeinfo.hx:246: characters 30-35
 
  246 |                     @:throw3 throw e;
      |                              ^^^^^
      | Uncaught exception not implemented name
 
-      ->  golibs/stdgo/_internal/encoding/gob/Gob__gettypeinfo.hx:41: characters 16-88
+      ->  golibs/go/_internal/encoding/gob/Gob__gettypeinfo.hx:41: characters 16-85
 
-      41 |         return stdgo._internal.encoding.gob.Gob__buildtypeinfo._buildTypeInfo(_ut, _rt);
-         |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      41 |         return go._internal.encoding.gob.Gob__buildtypeinfo._buildTypeInfo(_ut, _rt);
+         |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-      ->  golibs/stdgo/_internal/encoding/gob/Gob__mustgettypeinfo.hx:24: characters 23-140
+      ->  golibs/go/_internal/encoding/gob/Gob__mustgettypeinfo.hx:24: characters 23-134
 
-      24 |         var __tmp__ = stdgo._internal.encoding.gob.Gob__gettypeinfo._getTypeInfo(stdgo._internal.encoding.gob.Gob__usertype._userType(_rt)), _t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_typeinfo.T_typeInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-         |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      24 |         var __tmp__ = go._internal.encoding.gob.Gob__gettypeinfo._getTypeInfo(go._internal.encoding.gob.Gob__usertype._userType(_rt)), _t:go.Ref<go._internal.encoding.gob.Gob_t_typeinfo.T_typeInfo> = __tmp__._0, _err:go.Error = __tmp__._1;
+         |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-      ->  golibs/stdgo/_internal/encoding/gob/Gob__twiretype.hx:23: characters 71-199
+      ->  golibs/go/_internal/encoding/gob/Gob__twiretype.hx:23: characters 68-190
 
-      23 | var _tWireType : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId = stdgo._internal.encoding.gob.Gob__mustgettypeinfo._mustGetTypeInfo(stdgo._internal.encoding.gob.Gob__wiretypetype._wireTypeType)._id;
-         |                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      23 | var _tWireType : go._internal.encoding.gob.Gob_t_typeid.T_typeId = go._internal.encoding.gob.Gob__mustgettypeinfo._mustGetTypeInfo(go._internal.encoding.gob.Gob__wiretypetype._wireTypeType)._id;
+         |                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          | Called from here
 

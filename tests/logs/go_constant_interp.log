@@ -1,20 +1,4 @@
-[ERROR] golibs/stdgo/Go.macro.hx:348: characters 18-19
+[ERROR] (unknown position)
 
- 348 |    return switch t {
-     |                  ^
-     | Uncaught exception Null Access
-
-      370 |       return run();
-          |              ^^^^^
-          | Called from here
-
-      392 |   final result = run();
-          |                  ^^^^^
-          | Called from here
-
-      ->  golibs/stdgo/_internal/go/constant/Constant_unaryop.hx:357: characters 28-231
-
-      357 |                     return stdgo.Go.asInterface(!_y_15, _internal.gotype.Gotype___type__stdgodot_internaldotgodotconstantdotconstant_t_boolvaldott_boolval.__type__stdgodot_internaldotgodotconstantdotConstant_t_boolvaldotT_boolVal);
-          |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+   | Type not found : _internal.go.constantdottest.Constantdottest
 

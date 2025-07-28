@@ -1,30 +1,30 @@
 === RUN  TestGet
 Exception: T_:testing.setenv is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.internal.godebug_test._Godebug_test_testget.Godebug_test_testget_Fields_.testGet (golibs/_internal/internal/godebug_test/Godebug_test_testget.hx line 20 column 13)
-Called from stdgo._internal.testing.T__static_extension.setenv (golibs/stdgo/_internal/testing/Testing_t__static_extension.hx line 18 column 138)
+Called from go._internal.testing.T__static_extension.setenv (golibs/go/_internal/testing/Testing_t__static_extension.hx line 18 column 126)
 
 -- FAIL: TestGet
 
 === RUN  TestMetrics
 NonDefault kind = 0, want uint64Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.internal.godebug_test._Godebug_test_testmetrics.Godebug_test_testmetrics_Fields_.testMetrics (golibs/_internal/internal/godebug_test/Godebug_test_testmetrics.hx line 13 column 83)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.internal.godebug_test._Godebug_test_testmetrics.Godebug_test_testmetrics_Fields_.testMetrics (golibs/_internal/internal/godebug_test/Godebug_test_testmetrics.hx line 13 column 80)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
+Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestMetrics
 
 === RUN  TestCmdBisect
 skipping test: 'go build' unavailable: <nil>Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.internal.godebug_test._Godebug_test_testcmdbisect.Godebug_test_testcmdbisect_Fields_.testCmdBisect (golibs/_internal/internal/godebug_test/Godebug_test_testcmdbisect.hx line 4 column 9)
-Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.Testenv_musthavegobuild_Fields_.mustHaveGoBuild (golibs/stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 29 column 13)
-Called from stdgo._internal.testing.T__asInterface.skipf (golibs/stdgo/_internal/testing/Testing_t__asinterface.hx line 48 column 98)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 90 column 106)
-Called from stdgo._internal.testing.T_common_static_extension.skipf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.internal.testenv._Testenv_musthavegobuild.Testenv_musthavegobuild_Fields_.mustHaveGoBuild (golibs/go/_internal/internal/testenv/Testenv_musthavegobuild.hx line 29 column 13)
+Called from go._internal.testing.T__asInterface.skipf (golibs/go/_internal/testing/Testing_t__asinterface.hx line 48 column 92)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 90 column 100)
+Called from go._internal.testing.T_common_static_extension.skipf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
+Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
 
 -- SKIP: TestCmdBisect
 
@@ -34,5 +34,5 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/st
 
 -- PASS: TestBisectTestCase
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestMetrics

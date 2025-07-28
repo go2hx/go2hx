@@ -1,10 +1,10 @@
 === RUN  TestGolden
 md5[2]() = cdd149ceb5d2f7682b24480ff26d4ca0 want d41d8cd98f00b204e9800998ecf8427eException: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from stdgo._internal.crypto.md5._Md5_testgolden.Md5_testgolden_Fields_.testGolden (golibs/stdgo/_internal/crypto/md5/Md5_testgolden.hx line 51 column 507)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.crypto.md5._Md5_testgolden.Md5_testgolden_Fields_.testGolden (golibs/go/_internal/crypto/md5/Md5_testgolden.hx line 51 column 477)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
+Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestGolden
 
@@ -17,18 +17,18 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/st
 -- PASS: TestLarge
 
 === RUN  TestBlockGeneric
-golibs/stdgo/_internal/syscall/js/Js_value_static_extension.hx:64: funclit
+golibs/go/_internal/syscall/js/Js_value_static_extension.hx:64: funclit
 Exception: not implemented: new_
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from stdgo._internal.crypto.md5._Md5_testblockgeneric.Md5_testblockgeneric_Fields_.testBlockGeneric (golibs/stdgo/_internal/crypto/md5/Md5_testblockgeneric.hx line 30 column 9)
-Called from stdgo._internal.crypto.rand._Rand_read.Rand_read_Fields_.read (golibs/stdgo/_internal/crypto/rand/Rand_read.hx line 9 column 16)
-Called from stdgo._internal.io._Io_readfull.Io_readfull_Fields_.readFull (golibs/stdgo/_internal/io/Io_readfull.hx line 6 column 16)
-Called from stdgo._internal.io._Io_readatleast.Io_readatleast_Fields_.readAtLeast (golibs/stdgo/_internal/io/Io_readatleast.hx line 19 column 31)
-Called from stdgo._internal.crypto.rand.T_reader_asInterface.read (golibs/stdgo/_internal/crypto/rand/Rand_t_reader_asinterface.hx line 8 column 125)
-Called from stdgo._internal.crypto.rand.T_reader_static_extension.read (golibs/stdgo/_internal/crypto/rand/Rand_t_reader_static_extension.hx line 13 column 24)
-Called from local function #1 (golibs/stdgo/_internal/crypto/rand/Rand__batched.hx line 18 column 36)
-Called from stdgo._internal.crypto.rand._Rand__getrandom.Rand__getrandom_Fields_._getRandom (golibs/stdgo/_internal/crypto/rand/Rand__getrandom.hx line 7 column 19)
-Called from stdgo._internal.syscall.js.Value_static_extension.new_ (golibs/stdgo/_internal/syscall/js/Js_value_static_extension.hx line 65 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.crypto.md5._Md5_testblockgeneric.Md5_testblockgeneric_Fields_.testBlockGeneric (golibs/go/_internal/crypto/md5/Md5_testblockgeneric.hx line 30 column 9)
+Called from go._internal.crypto.rand._Rand_read.Rand_read_Fields_.read (golibs/go/_internal/crypto/rand/Rand_read.hx line 9 column 16)
+Called from go._internal.io._Io_readfull.Io_readfull_Fields_.readFull (golibs/go/_internal/io/Io_readfull.hx line 6 column 16)
+Called from go._internal.io._Io_readatleast.Io_readatleast_Fields_.readAtLeast (golibs/go/_internal/io/Io_readatleast.hx line 19 column 31)
+Called from go._internal.crypto.rand.T_reader_asInterface.read (golibs/go/_internal/crypto/rand/Rand_t_reader_asinterface.hx line 8 column 113)
+Called from go._internal.crypto.rand.T_reader_static_extension.read (golibs/go/_internal/crypto/rand/Rand_t_reader_static_extension.hx line 13 column 24)
+Called from local function #1 (golibs/go/_internal/crypto/rand/Rand__batched.hx line 18 column 36)
+Called from go._internal.crypto.rand._Rand__getrandom.Rand__getrandom_Fields_._getRandom (golibs/go/_internal/crypto/rand/Rand__getrandom.hx line 7 column 19)
+Called from go._internal.syscall.js.Value_static_extension.new_ (golibs/go/_internal/syscall/js/Js_value_static_extension.hx line 65 column 9)
 
 -- FAIL: TestBlockGeneric
 
@@ -37,9 +37,9 @@ Called from stdgo._internal.syscall.js.Value_static_extension.new_ (golibs/stdgo
 -- PASS: TestLargeHashes
 
 === RUN  TestAllocations
-golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+golibs/go/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
 
 -- PASS: TestAllocations
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestBlockGeneric

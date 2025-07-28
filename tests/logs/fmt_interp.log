@@ -8,8 +8,8 @@
 
 === RUN  TestSprintf
 Sprintf("%#v", {1 2 a [1 2]}) = "_internal.fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" want "fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}"
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 Sprintf("%#v", 0x1) = "(func(*.testing.))(0xPTR)" want "(func(*testing.T))(0xPTR)"
 Sprintf("%#v", map[a:{<1> 2}]) = "map[string]_internal.fmt_test.B{\"a\":_internal.fmt_test.B{I:1, j:2}}" want "map[string]fmt_test.B{\"a\":fmt_test.B{I:1, j:2}}"
 Sprintf("%#v", {<nil>}) = "_internal.fmt_test.SI{I:interface {}(nil)}" want "fmt_test.SI{I:interface {}(nil)}"
@@ -19,32 +19,32 @@ Sprintf("%d", true) = "%!d(_internal.fmt_test.renamedBool=true)" want "%!d(fmt_t
 Sprintf("%#v", {<v=F(7)> 8}) = "_internal.fmt_test.S{F:<v=F(7)>, G:GoString(8)}" want "fmt_test.S{F:<v=F(7)>, G:GoString(8)}"
 Sprintf("%T", <invalid reflect.Value>) = ".reflect.Value" want "reflect.Value"
 Sprintf("%T", (4-3i)) = "_internal.fmt_test.renamedComplex128" want "fmt_test.renamedComplex128"
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 Exception: Cannot call null
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.fmt_test._Fmt_test_testsprintf.Fmt_test_testsprintf_Fields_.testSprintf (golibs/_internal/fmt_test/Fmt_test_testsprintf.hx line 5 column 23)
-Called from stdgo._internal.fmt._Fmt_sprintf.Fmt_sprintf_Fields_.sprintf (golibs/stdgo/_internal/fmt/Fmt_sprintf.hx line 15 column 9)
-Called from stdgo._internal.fmt.T_pp_static_extension._doPrintf (golibs/stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 216 column 21)
-Called from stdgo._internal.fmt.T_pp_static_extension._printArg (golibs/stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 1058 column 22)
-Called from stdgo._internal.fmt.T_pp_static_extension._handleMethods (golibs/stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 1266 column 30)
+Called from go._internal.fmt._Fmt_sprintf.Fmt_sprintf_Fields_.sprintf (golibs/go/_internal/fmt/Fmt_sprintf.hx line 15 column 9)
+Called from go._internal.fmt.T_pp_static_extension._doPrintf (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 216 column 21)
+Called from go._internal.fmt.T_pp_static_extension._printArg (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1058 column 22)
+Called from go._internal.fmt.T_pp_static_extension._handleMethods (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1266 column 30)
 
 -- FAIL: TestSprintf
 
@@ -59,11 +59,11 @@ Called from stdgo._internal.fmt.T_pp_static_extension._handleMethods (golibs/std
 === RUN  TestCountMallocs
 skipping malloc count in short mode
 Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.fmt_test._Fmt_test_testcountmallocs.Fmt_test_testcountmallocs_Fields_.testCountMallocs (golibs/_internal/fmt_test/Fmt_test_testcountmallocs.hx line 6 column 21)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 80 column 87)
-Called from stdgo._internal.testing.T_common_static_extension.skip (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.skipNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
+Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
+Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
 
 -- SKIP: TestCountMallocs
 
@@ -113,7 +113,7 @@ Sprintf("%#v", &s) = `&_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, wan
 -- PASS: TestPanics
 
 === RUN  TestBadVerbRecursion
-golibs/stdgo/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
+golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 
 -- PASS: TestBadVerbRecursion
 
@@ -140,31 +140,31 @@ Sprintf("%#v", [1]_internal.fmt_test.flagPrinter) = "[1]_internal.fmt_test.flagP
 
 === RUN  TestAppendf
 Appendf allocated a new sliceException: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.fmt_test._Fmt_test_testappendf.Fmt_test_testappendf_Fields_.testAppendf (golibs/_internal/fmt_test/Fmt_test_testappendf.hx line 14 column 23)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
+Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestAppendf
 
 === RUN  TestAppend
 Append allocated a new sliceException: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.fmt_test._Fmt_test_testappend.Fmt_test_testappend_Fields_.testAppend (golibs/_internal/fmt_test/Fmt_test_testappend.hx line 14 column 23)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
+Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestAppend
 
 === RUN  TestAppendln
 Appendln allocated a new sliceException: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.fmt_test._Fmt_test_testappendln.Fmt_test_testappendln_Fields_.testAppendln (golibs/_internal/fmt_test/Fmt_test_testappendln.hx line 14 column 23)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
+Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestAppendln
 
@@ -178,11 +178,11 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/st
 
 === RUN  TestScanf
 Exception: array out of bounds, index: 0 length: 0
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.fmt_test._Fmt_test_testscanf.Fmt_test_testscanf_Fields_.testScanf (golibs/_internal/fmt_test/Fmt_test_testscanf.hx line 5 column 27)
-Called from stdgo._internal.fmt._Fmt_sscanf.Fmt_sscanf_Fields_.sscanf (golibs/stdgo/_internal/fmt/Fmt_sscanf.hx line 15 column 16)
-Called from stdgo._internal.fmt._Fmt_fscanf.Fmt_fscanf_Fields_.fscanf (golibs/stdgo/_internal/fmt/Fmt_fscanf.hx line 16 column 27)
-Called from stdgo._internal.fmt.T_ss_static_extension._doScanf (golibs/stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 158 column 30)
+Called from go._internal.fmt._Fmt_sscanf.Fmt_sscanf_Fields_.sscanf (golibs/go/_internal/fmt/Fmt_sscanf.hx line 15 column 16)
+Called from go._internal.fmt._Fmt_fscanf.Fmt_fscanf_Fields_.fscanf (golibs/go/_internal/fmt/Fmt_fscanf.hx line 16 column 27)
+Called from go._internal.fmt.T_ss_static_extension._doScanf (golibs/go/_internal/fmt/Fmt_t_ss_static_extension.hx line 158 column 30)
 
 -- FAIL: TestScanf
 
@@ -226,10 +226,10 @@ Sscan <empty> expected error; got none
 
 === RUN  TestScanNotPointer
 Exception: Unexpected value 0, expected instance
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.fmt_test._Fmt_test_testscannotpointer.Fmt_test_testscannotpointer_Fields_.testScanNotPointer (golibs/_internal/fmt_test/Fmt_test_testscannotpointer.hx line 5 column 23)
-Called from stdgo._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (golibs/stdgo/_internal/fmt/Fmt_fscan.hx line 16 column 27)
-Called from stdgo._internal.fmt.T_ss_static_extension._doScan (golibs/stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 362 column 30)
+Called from go._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (golibs/go/_internal/fmt/Fmt_fscan.hx line 16 column 27)
+Called from go._internal.fmt.T_ss_static_extension._doScan (golibs/go/_internal/fmt/Fmt_t_ss_static_extension.hx line 362 column 30)
 
 -- FAIL: TestScanNotPointer
 
@@ -312,12 +312,12 @@ Sscanln: expected error; got none
 
 === RUN  TestScanInts
 bad scan: expected 801 got 0Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.fmt_test._Fmt_test_testscanints.Fmt_test_testscanints_Fields_.testScanInts (golibs/_internal/fmt_test/Fmt_test_testscanints.hx line 6 column 9)
-Called from _internal.fmt_test._Fmt_test__testscanints.Fmt_test__testscanints_Fields_._testScanInts (golibs/_internal/fmt_test/Fmt_test__testscanints.hx line 28 column 215)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from _internal.fmt_test._Fmt_test__testscanints.Fmt_test__testscanints_Fields_._testScanInts (golibs/_internal/fmt_test/Fmt_test__testscanints.hx line 28 column 203)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
+Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestScanInts
 
@@ -357,11 +357,11 @@ space vs newline no-percent 1110: expected error; got none
 
 === RUN  TestHexByte
 expected 0123 got 0000Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (golibs/stdgo/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.fmt_test._Fmt_test_testhexbyte.Fmt_test_testhexbyte_Fields_.testHexByte (golibs/_internal/fmt_test/Fmt_test_testhexbyte.hx line 25 column 66)
-Called from local function #1 (golibs/stdgo/_internal/testing/Testing_t_.hx line 55 column 107)
-Called from stdgo._internal.testing.T_common_static_extension.fatalf (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.fmt_test._Fmt_test_testhexbyte.Fmt_test_testhexbyte_Fields_.testHexByte (golibs/_internal/fmt_test/Fmt_test_testhexbyte.hx line 25 column 63)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
+Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 
 -- FAIL: TestHexByte
 
@@ -373,5 +373,5 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (golibs/st
 
 -- PASS: TestStringer
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestHexByte

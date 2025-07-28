@@ -1,13 +1,13 @@
-golibs/stdgo/_internal/syscall/js/Js_value_static_extension.hx:80: funclit
-[ERROR] golibs/stdgo/_internal/syscall/js/Js_value_static_extension.hx:81: characters 9-14
+golibs/go/_internal/syscall/js/Js_value_static_extension.hx:80: funclit
+[ERROR] golibs/go/_internal/syscall/js/Js_value_static_extension.hx:81: characters 9-14
 
  81 |         throw "not implemented: call";
     |         ^^^^^
     | Uncaught exception not implemented: call
 
-     ->  golibs/_internal/syscall/js_test/Js_test__dummys.hx:2: characters 59-695
+     ->  golibs/_internal/syscall/js_test/Js_test__dummys.hx:2: characters 56-674
 
-     2 | var _dummys : stdgo._internal.syscall.js.Js_value.Value = stdgo._internal.syscall.js.Js_global.global().call(("eval" : stdgo.GoString), new stdgo.AnyInterface(("({\n\tsomeBool: true,\n\tsomeString: \"abc\\u1234\",\n\tsomeInt: 42,\n\tsomeFloat: 42.123,\n\tsomeArray: [41, 42, 43],\n\tsomeDate: new Date(),\n\tadd: function(a, b) {\n\t\treturn a + b;\n\t},\n\tzero: 0,\n\tstringZero: \"0\",\n\tNaN: NaN,\n\temptyObj: {},\n\temptyArray: [],\n\tInfinity: Infinity,\n\tNegInfinity: -Infinity,\n\tobjNumber0: new Number(0),\n\tobjBooleanFalse: new Boolean(false),\n})" : stdgo.GoString), new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.GoType.basic(string_kind))));
-       |                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     2 | var _dummys : go._internal.syscall.js.Js_value.Value = go._internal.syscall.js.Js_global.global().call(("eval" : go.GoString), new go.AnyInterface(("({\n\tsomeBool: true,\n\tsomeString: \"abc\\u1234\",\n\tsomeInt: 42,\n\tsomeFloat: 42.123,\n\tsomeArray: [41, 42, 43],\n\tsomeDate: new Date(),\n\tadd: function(a, b) {\n\t\treturn a + b;\n\t},\n\tzero: 0,\n\tstringZero: \"0\",\n\tNaN: NaN,\n\temptyObj: {},\n\temptyArray: [],\n\tInfinity: Infinity,\n\tNegInfinity: -Infinity,\n\tobjNumber0: new Number(0),\n\tobjBooleanFalse: new Boolean(false),\n})" : go.GoString), new go._internal.internal.reflect.Reflect._Type(go._internal.internal.reflect.GoType.basic(string_kind))));
+       |                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Called from here
 

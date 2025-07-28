@@ -1,14 +1,14 @@
-[ERROR] golibs/_internal/runtime/debug_test/Debug_test__dummy.hx:2: characters 1-351
+[ERROR] golibs/_internal/runtime/debug_test/Debug_test__dummy.hx:2: characters 1-342
 
- 2 | var _dummy : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>), _internal.gotype.Gotype___type___internaldotruntimedotdebug_testdotdebug_test_gdotg.__type___internaldotruntimedotdebug_testdotDebug_test_gdotG);
-   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   | _internal.runtime.debug_test.G_asInterface<stdgo.GoInt> should be _internal.runtime.debug_test.I
-   | _internal.runtime.debug_test.G_asInterface<stdgo.GoInt> has no field m
+ 2 | var _dummy : _internal.runtime.debug_test.Debug_test_i.I = go.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<go.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<go.GoInt>), _internal.gotype.Gotype___type___internaldotruntimedotdebug_testdotdebug_test_gdotg.__type___internaldotruntimedotdebug_testdotDebug_test_gdotG);
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   | _internal.runtime.debug_test.G_asInterface<go.GoInt> should be _internal.runtime.debug_test.I
+   | _internal.runtime.debug_test.G_asInterface<go.GoInt> has no field m
 
-[ERROR] golibs/_internal/runtime/debug_test/Debug_test__dummy2.hx:2: characters 1-442
+[ERROR] golibs/_internal/runtime/debug_test/Debug_test__dummy2.hx:2: characters 1-433
 
- 2 | var _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>), _internal.gotype.Gotype___type___internaldotruntimedotdebug_testdotdebug_test_gdotg.__type___internaldotruntimedotdebug_testdotDebug_test_gdotG);
-   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   | _internal.runtime.debug_test.G_asInterface<_internal.runtime.debug_test.G<stdgo.GoInt>> should be _internal.runtime.debug_test.I
-   | _internal.runtime.debug_test.G_asInterface<_internal.runtime.debug_test.G<stdgo.GoInt>> has no field m
+ 2 | var _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = go.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<go.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<go.GoInt>>), _internal.gotype.Gotype___type___internaldotruntimedotdebug_testdotdebug_test_gdotg.__type___internaldotruntimedotdebug_testdotDebug_test_gdotG);
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   | _internal.runtime.debug_test.G_asInterface<_internal.runtime.debug_test.G<go.GoInt>> should be _internal.runtime.debug_test.I
+   | _internal.runtime.debug_test.G_asInterface<_internal.runtime.debug_test.G<go.GoInt>> has no field m
 

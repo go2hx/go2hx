@@ -271,5 +271,6 @@
  "hl|osDir",
  "hl|const0",
  "hl|ref4",
- "hl|runtimeVersion"
+ "hl|runtimeVersion",
+ "hl|unsafeOffset"
 ]

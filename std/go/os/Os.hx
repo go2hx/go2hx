@@ -56,7 +56,7 @@ overload extern inline function readDir(_name:go.GoString) {
 
 @:recv(File)
 overload extern inline function readDir(_n) {
-	final tuple = stdgo._internal.os.Os_readdir.readDir(_f.name()); 
+	final tuple = go._internal.os.Os_readdir.readDir(_f.name()); 
 	if (tuple._1 != null)
 		return tuple;
 	if (_n >= 0)
@@ -337,9 +337,9 @@ overload extern inline function open(_name:go.GoString) {
 }
 
 
-function openFile(_name:stdgo.GoString, _perm) {
+function openFile(_name:go.GoString, _perm) {
 	return @:define("(sys || hxnodejs)") {
-		if (_perm & stdgo._internal.os.Os_o_create.o_CREATE != 0 && !sys.FileSystem.exists(_name)) {
+		if (_perm & go._internal.os.Os_o_create.o_CREATE != 0 && !sys.FileSystem.exists(_name)) {
 			sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
 		}
 		if (sys.FileSystem.isDirectory(_name)) {

@@ -2,6 +2,17 @@ package go.os;
 
 import go.errors.Errors;
 
+
+final o_RDONLY = 0;
+final o_WRONLY = 1;
+final o_RDWR = 2;
+
+final o_APPEND = 8;
+final o_CREATE = 512;
+final o_EXCL = 2048; 
+final o_SYNC = 128;
+final o_TRUNC = 1024;
+
 function exit(_code)
 	Sys.exit(_code);
 
@@ -337,9 +348,9 @@ overload extern inline function open(_name:go.GoString) {
 }
 
 
-function openFile(_name:go.GoString, _perm) {
+function openFile(_name:go.GoString, _flag, _perm) {
 	return @:define("(sys || hxnodejs)") {
-		if (_perm & go._internal.os.Os_o_create.o_CREATE != 0 && !sys.FileSystem.exists(_name)) {
+		if (_flag & go._internal.os.Os_o_create.o_CREATE != 0 && !sys.FileSystem.exists(_name)) {
 			sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
 		}
 		if (sys.FileSystem.isDirectory(_name)) {
@@ -445,7 +456,7 @@ function _runtime_args() {
 
 function create(_name) {
 	// O_RDWR|O_CREATE|O_TRUNC
-	return go._internal.os.Os_openfile.openFile(_name, 0, 0);
+	return go._internal.os.Os_openfile.openFile(_name, go._internal.os.Os_o_create.o_CREATE, 0);
 }
 
 function tempDir()

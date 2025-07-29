@@ -467,6 +467,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			fs.tempVars[ident.Obj] = tempVarData{
 				Ident: ident,
 				Type:  ast.NewIdent("int"),
+				Value: createPos(0),
 			}
 			rhs := []ast.Expr{createPos(token.Pos(0))}
 			init := &ast.AssignStmt{Lhs: []ast.Expr{ident}, Tok: token.ASSIGN, TokPos: stmt.TokPos, Rhs: rhs}
@@ -840,22 +841,14 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 					fs.labelMapLoop[labelName] = stmt.Stmt
 				case *ast.RangeStmt:
 					var x = ast.NewIdent("iterator_" + fmt.Sprint(child.Range))
-					ident := x
-					ident.Obj = ast.NewObj(ast.Var, ident.Name)
-					ident.NamePos = child.Range
-					fs.tempVars[ident.Obj] = tempVarData{
-						Ident: ident,
-						Type:  ast.NewIdent("int"),
-					}
-					switch t := fs.checker.TypeOf(child.X).Underlying().(type) {
+					t := fs.checker.TypeOf(child.X).Underlying()
+					switch t := t.(type) {
 					case *types.Array, *types.Slice:
 						_ = t
 						if child.Key != nil {
 							switch key := child.Key.(type) {
 							case *ast.Ident:
-								if key.Name != "_" {
-									x = key
-								}
+								x = key
 							}
 						} else {
 							x.Obj = ast.NewObj(ast.Var, x.Name)

@@ -1,3 +1,3 @@
 Uncaught exception: :sync.onceFunc is not yet implemented
-Called from stdgo._internal.sync._Sync_oncefunc.$Sync_oncefunc_Fields_.onceFunc(stdgo/_internal/sync/Sync_oncefunc.hx:2)
+Called from go._internal.sync._Sync_oncefunc.$Sync_oncefunc_Fields_.onceFunc(go/_internal/sync/Sync_oncefunc.hx:2)
 Called from .init(_internal/sync_test/Sync_test__oncefunc.hx:2)

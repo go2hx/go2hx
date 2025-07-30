@@ -1,6 +1,6 @@
-[ERROR] golibs/stdgo/_internal/go/ast/Ast__summary.hx:56: characters 21-58
+[ERROR] golibs/_internal/go_/ast/Ast__summary.hx:56: characters 21-53
 
- 56 |                     stdgo._internal.go.ast.Ast__loopbreak._loopBreak = true;
-    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | Type not found : stdgo._internal.go.ast.Ast__loopbreak
+ 56 |                     _internal.go_.ast.Ast__loopbreak._loopBreak = true;
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | Type not found : _internal.go_.ast.Ast__loopbreak
 

@@ -1,5 +1,5 @@
 Uncaught exception: not implemented name
-Called from stdgo._internal.encoding.gob._Gob__buildtypeinfo.$Gob__buildtypeinfo_Fields_._buildTypeInfo(stdgo/_internal/encoding/gob/Gob__buildtypeinfo.hx:237)
-Called from stdgo._internal.encoding.gob._Gob__gettypeinfo.$Gob__gettypeinfo_Fields_._getTypeInfo(stdgo/_internal/encoding/gob/Gob__gettypeinfo.hx:32)
-Called from stdgo._internal.encoding.gob._Gob__mustgettypeinfo.$Gob__mustgettypeinfo_Fields_._mustGetTypeInfo(stdgo/_internal/encoding/gob/Gob__mustgettypeinfo.hx:15)
+Called from go._internal.encoding.gob._Gob__buildtypeinfo.$Gob__buildtypeinfo_Fields_._buildTypeInfo(go/_internal/encoding/gob/Gob__buildtypeinfo.hx:237)
+Called from go._internal.encoding.gob._Gob__gettypeinfo.$Gob__gettypeinfo_Fields_._getTypeInfo(go/_internal/encoding/gob/Gob__gettypeinfo.hx:32)
+Called from go._internal.encoding.gob._Gob__mustgettypeinfo.$Gob__mustgettypeinfo_Fields_._mustGetTypeInfo(go/_internal/encoding/gob/Gob__mustgettypeinfo.hx:15)
 Called from .init(/home/runner/haxe/versions/b0b2997/std/hl/_std/Date.hx:0)

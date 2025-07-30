@@ -1,64 +1,64 @@
-[ERROR] golibs/stdgo/_internal/go/build/Build__parsegoembed.hx:127: characters 21-45
+[ERROR] golibs/_internal/go_/build/Build__parsegoembed.hx:127: characters 21-45
 
-   127 |                     _iterator_6506291 = 0i64;
+   127 |                     _iterator_7377484 = 0i64;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^
        | haxe.Int64 should be Null<Int>
 
-[ERROR] golibs/stdgo/_internal/go/types/Types_checker_static_extension.hx:14145: characters 25-66
+[ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:14145: characters 25-61
 
- 14145 |                         stdgo._internal.go.types.Types__loopbreak._loopBreak = true;
-       |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : stdgo._internal.go.types.Types__loopbreak
+ 14145 |                         _internal.go_.types.Types__loopbreak._loopBreak = true;
+       |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       | Type not found : _internal.go_.types.Types__loopbreak
 
-[ERROR] golibs/stdgo/_internal/go/types/Types_checker_static_extension.hx:3473: characters 21-69
+[ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3473: characters 21-64
 
-  3473 |                     stdgo._internal.go.types.Types__iterator_6163280._iterator_6163280++;
-       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : stdgo._internal.go.types.Types__iterator_6163280
+  3473 |                     _internal.go_.types.Types__iterator_6792718._iterator_6792718++;
+       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       | Type not found : _internal.go_.types.Types__iterator_6792718
 
-[ERROR] golibs/stdgo/_internal/go/types/Types_checker_static_extension.hx:3486: characters 21-69
+[ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3486: characters 21-64
 
-  3486 |                     stdgo._internal.go.types.Types__iterator_6163280._iterator_6163280++;
-       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : stdgo._internal.go.types.Types__iterator_6163280
+  3486 |                     _internal.go_.types.Types__iterator_6792718._iterator_6792718++;
+       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       | Type not found : _internal.go_.types.Types__iterator_6792718
 
-[ERROR] golibs/stdgo/_internal/go/types/Types_checker_static_extension.hx:3500: characters 21-69
+[ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3500: characters 21-64
 
-  3500 |                     stdgo._internal.go.types.Types__iterator_6163280._iterator_6163280++;
-       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : stdgo._internal.go.types.Types__iterator_6163280
+  3500 |                     _internal.go_.types.Types__iterator_6792718._iterator_6792718++;
+       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       | Type not found : _internal.go_.types.Types__iterator_6792718
 
-[ERROR] golibs/stdgo/_internal/go/types/Types_checker_static_extension.hx:3511: characters 21-69
+[ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3511: characters 21-64
 
-  3511 |                     stdgo._internal.go.types.Types__iterator_6163280._iterator_6163280++;
-       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : stdgo._internal.go.types.Types__iterator_6163280
+  3511 |                     _internal.go_.types.Types__iterator_6792718._iterator_6792718++;
+       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       | Type not found : _internal.go_.types.Types__iterator_6792718
 
-[ERROR] golibs/stdgo/_internal/go/types/Types_checker_static_extension.hx:3551: characters 21-69
+[ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3551: characters 21-64
 
-  3551 |                     stdgo._internal.go.types.Types__iterator_6163280._iterator_6163280++;
-       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : stdgo._internal.go.types.Types__iterator_6163280
+  3551 |                     _internal.go_.types.Types__iterator_6792718._iterator_6792718++;
+       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       | Type not found : _internal.go_.types.Types__iterator_6792718
 
-[ERROR] golibs/stdgo/_internal/go/types/Types_checker_static_extension.hx:3293: characters 21-69
+[ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3293: characters 21-64
 
-  3293 |                     stdgo._internal.go.types.Types__iterator_6164820._iterator_6164820++;
-       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : stdgo._internal.go.types.Types__iterator_6164820
+  3293 |                     _internal.go_.types.Types__iterator_6794258._iterator_6794258++;
+       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       | Type not found : _internal.go_.types.Types__iterator_6794258
 
-[ERROR] golibs/stdgo/_internal/go/types/Types_checker_static_extension.hx:3337: characters 21-69
+[ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3337: characters 21-64
 
-  3337 |                     stdgo._internal.go.types.Types__iterator_6164820._iterator_6164820++;
-       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : stdgo._internal.go.types.Types__iterator_6164820
+  3337 |                     _internal.go_.types.Types__iterator_6794258._iterator_6794258++;
+       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       | Type not found : _internal.go_.types.Types__iterator_6794258
 
-[ERROR] golibs/stdgo/_internal/go/types/Types_checker_static_extension.hx:8863: characters 21-58
+[ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:8863: characters 21-53
 
-  8863 |                     stdgo._internal.go.types.Types_lbreak.lBreak = true;
-       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : stdgo._internal.go.types.Types_lbreak
+  8863 |                     _internal.go_.types.Types_lbreak.lBreak = true;
+       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       | Type not found : _internal.go_.types.Types_lbreak
 
-[ERROR] golibs/stdgo/Go.macro.hx:348: characters 18-19
+[ERROR] golibs/go/Go.macro.hx:348: characters 18-19
 
    348 |    return switch t {
        |                  ^
@@ -72,29 +72,29 @@
             |                  ^^^^^
             | Called from here
 
-        ->  golibs/stdgo/_internal/go/constant/Constant_unaryop.hx:357: characters 28-231
+        ->  golibs/_internal/go_/constant/Constant_unaryop.hx:357: characters 28-214
 
-        357 |                     return stdgo.Go.asInterface(!_y_15, _internal.gotype.Gotype___type__stdgodot_internaldotgodotconstantdotconstant_t_boolvaldott_boolval.__type__stdgodot_internaldotgodotconstantdotConstant_t_boolvaldotT_boolVal);
-            |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        357 |                     return go.Go.asInterface(!_y_38, _internal.gotype.Gotype___type___internaldotgo_dotconstantdotconstant_t_boolvaldott_boolval.__type___internaldotgo_dotconstantdotConstant_t_boolvaldotT_boolVal);
+            |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             | Called from here
 
-[ERROR] golibs/stdgo/_internal/go/types/Types_checker_static_extension.hx:16793: characters 96-103
+[ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:16793: characters 97-105
 
- 16793 |                             final __t__ = (@:checkr _m_36 ?? throw "null pointer dereference")._obj_30;
-       |                                                                                                ^^^^^^^
-       | stdgo.Ref<stdgo._internal.go.types.Selection> has no field _obj_30
+ 16793 |                             final __t__ = (@:checkr _m_287 ?? throw "null pointer dereference")._obj_281;
+       |                                                                                                 ^^^^^^^^
+       | go.Ref<_internal.go_.types.Selection> has no field _obj_281
 
-[ERROR] golibs/stdgo/_internal/go/types/Types_checker_static_extension.hx:16797: characters 69-83
+[ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:16797: characters 66-80
 
- 16797 |                                 new stdgo.AnyInterface(__t__, __t__.__underlying__().type);
-       |                                                                     ^^^^^^^^^^^^^^
+ 16797 |                                 new go.AnyInterface(__t__, __t__.__underlying__().type);
+       |                                                                  ^^^^^^^^^^^^^^
        | Null<Any> has no field __underlying__
 
-[ERROR] (macro) golibs/stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:83: characters 50-93
+[ERROR] (macro) golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:83: characters 48-88
 
-    83 |                     _magic_33 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
-       |                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : stdgo._internal.internal.xcoff.Xcoff__magic
+    83 |                     _magic_101 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
+       |                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       | Type not found : go._internal.internal.xcoff.Xcoff__magic
 
             | For optional function argument 'get'
 

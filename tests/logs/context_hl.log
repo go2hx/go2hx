@@ -27,13 +27,13 @@
 -- PASS: TestDeadlineExceededIsNetError
 
 === RUN  TestParentFinishesChild
-bad linkage: pc.children = map[], want context.Background.WithCancel.WithCancel, context.Background.WithCancel.WithValue(type string, val value).WithDeadline(2025-09-06 22:46:40.351426048 +0000 UTC+0 m=+3600000.000000001 [1000h0m0s]), and an afterFunc
+bad linkage: pc.children = map[], want context.Background.WithCancel.WithCancel, context.Background.WithCancel.WithValue(type string, val value).WithDeadline(2025-09-08 10:23:46.102803968 +0000 UTC+0 m=+3600000.000000001 [1000h0m0s]), and an afterFunc
 bad linkage: parentCancelCtx(cancelChild.Context) = <nil>, false want context.Background.WithCancel, true
 bad linkage: parentCancelCtx(timerChild.Context) = <nil>, false want context.Background.WithCancel, true
 Exception: null pointer dereference
-Called from stdgo._internal.context._Context_xtestparentfinisheschild.$Context_xtestparentfinisheschild_Fields_.xTestParentFinishesChild (stdgo/_internal/context/Context_xtestparentfinisheschild.hx line 383)
+Called from go._internal.context._Context_xtestparentfinisheschild.$Context_xtestparentfinisheschild_Fields_.xTestParentFinishesChild (go/_internal/context/Context_xtestparentfinisheschild.hx line 383)
 Called from _internal.context_test._Context_test_testparentfinisheschild.$Context_test_testparentfinisheschild_Fields_.testParentFinishesChild (_internal/context_test/Context_test_testparentfinisheschild.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
 
 -- FAIL: TestParentFinishesChild
@@ -53,9 +53,9 @@ with AfterFunc child : context has 0 children, want 1
 
 === RUN  TestCustomContextGoroutines
 1 goroutines created1 goroutines createdException: __fail__
-Called from stdgo._internal.context._Context_xtestcustomcontextgoroutines.$Context_xtestcustomcontextgoroutines_Fields_.xTestCustomContextGoroutines (stdgo/_internal/context/Context_xtestcustomcontextgoroutines.hx line 155)
+Called from go._internal.context._Context_xtestcustomcontextgoroutines.$Context_xtestcustomcontextgoroutines_Fields_.xTestCustomContextGoroutines (go/_internal/context/Context_xtestcustomcontextgoroutines.hx line 155)
 Called from _internal.context_test._Context_test_testcustomcontextgoroutines.$Context_test_testcustomcontextgoroutines_Fields_.testCustomContextGoroutines (_internal/context_test/Context_test_testcustomcontextgoroutines.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
 
 -- FAIL: TestCustomContextGoroutines
@@ -76,7 +76,7 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 Exception: T_:testing.deadline is not yet implemented
 Called from _internal.context_test._Context_test__testdeadline.$Context_test__testdeadline_Fields_._testDeadline (_internal/context_test/Context_test__testdeadline.hx line 135)
 Called from _internal.context_test._Context_test_testdeadline.$Context_test_testdeadline_Fields_.testDeadline (_internal/context_test/Context_test_testdeadline.hx line 23)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
 
 -- FAIL: TestDeadline
@@ -85,7 +85,7 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 Exception: T_:testing.deadline is not yet implemented
 Called from _internal.context_test._Context_test__testdeadline.$Context_test__testdeadline_Fields_._testDeadline (_internal/context_test/Context_test__testdeadline.hx line 135)
 Called from _internal.context_test._Context_test_testtimeout.$Context_test_testtimeout_Fields_.testTimeout (_internal/context_test/Context_test_testtimeout.hx line 23)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
 
 -- FAIL: TestTimeout
@@ -108,11 +108,11 @@ o4.Value(k2).(string) = "", false want "c2k2", true
 -- FAIL: TestValues
 
 === RUN  TestAllocs
-golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
-golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
-golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
-golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
-golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+golibs/go/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+golibs/go/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+golibs/go/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+golibs/go/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+golibs/go/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
 
 -- PASS: TestAllocs
 
@@ -120,471 +120,471 @@ golibs/stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not imple
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Uncaught exception: Null access
 Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:46)
+Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Exception: T_:testing.deadline is not yet implemented
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.testSimultaneousCancels (_internal/context_test/Context_test_testsimultaneouscancels.hx line 197)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
 
 -- FAIL: TestSimultaneousCancels
@@ -592,13 +592,13 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 === RUN  TestInterlockedCancels
 Exception: T_:testing.deadline is not yet implemented
 Called from _internal.context_test._Context_test_testinterlockedcancels.$Context_test_testinterlockedcancels_Fields_.testInterlockedCancels (_internal/context_test/Context_test_testinterlockedcancels.hx line 113)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
 
 -- FAIL: TestInterlockedCancels
 
 === RUN  TestLayersCancel
-seed=5907646591130200576: ctx should be canceled
+seed=5907646591881578496: ctx should be canceled
 
 -- FAIL: TestLayersCancel
 
@@ -606,7 +606,7 @@ seed=5907646591130200576: ctx should be canceled
 Exception: T_:testing.deadline is not yet implemented
 Called from _internal.context_test._Context_test__testlayers.$Context_test__testlayers_Fields_._testLayers (_internal/context_test/Context_test__testlayers.hx line 257)
 Called from _internal.context_test._Context_test_testlayerstimeout.$Context_test_testlayerstimeout_Fields_.testLayersTimeout (_internal/context_test/Context_test_testlayerstimeout.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
 
 -- FAIL: TestLayersTimeout
@@ -774,9 +774,9 @@ Cause(ctx) = <nil> want finishedEarly
 
 === RUN  TestCauseRace
 Exception: :runtime.gosched is not yet implemented
-Called from stdgo._internal.runtime._Runtime_gosched.$Runtime_gosched_Fields_.gosched (stdgo/_internal/runtime/Runtime_gosched.hx line 2)
+Called from go._internal.runtime._Runtime_gosched.$Runtime_gosched_Fields_.gosched (go/_internal/runtime/Runtime_gosched.hx line 2)
 Called from _internal.context_test._Context_test_testcauserace.$Context_test_testcauserace_Fields_.testCauseRace (_internal/context_test/Context_test_testcauserace.hx line 57)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 49)
 
 -- FAIL: TestCauseRace
@@ -810,5 +810,5 @@ child has wrong cause; got = <nil>, want = TestCustomContextPropagation
 
 -- PASS: TestAfterFuncCalledAsynchronously
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestCustomContextPropagation

@@ -6,45 +6,45 @@
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3473: characters 21-64
 
-  3473 |                     _internal.go_.types.Types__iterator_6159483._iterator_6159483++;
+  3473 |                     _internal.go_.types.Types__iterator_5999051._iterator_5999051++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_6159483
+       | Type not found : _internal.go_.types.Types__iterator_5999051
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3486: characters 21-64
 
-  3486 |                     _internal.go_.types.Types__iterator_6159483._iterator_6159483++;
+  3486 |                     _internal.go_.types.Types__iterator_5999051._iterator_5999051++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_6159483
+       | Type not found : _internal.go_.types.Types__iterator_5999051
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3500: characters 21-64
 
-  3500 |                     _internal.go_.types.Types__iterator_6159483._iterator_6159483++;
+  3500 |                     _internal.go_.types.Types__iterator_5999051._iterator_5999051++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_6159483
+       | Type not found : _internal.go_.types.Types__iterator_5999051
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3511: characters 21-64
 
-  3511 |                     _internal.go_.types.Types__iterator_6159483._iterator_6159483++;
+  3511 |                     _internal.go_.types.Types__iterator_5999051._iterator_5999051++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_6159483
+       | Type not found : _internal.go_.types.Types__iterator_5999051
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3551: characters 21-64
 
-  3551 |                     _internal.go_.types.Types__iterator_6159483._iterator_6159483++;
+  3551 |                     _internal.go_.types.Types__iterator_5999051._iterator_5999051++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_6159483
+       | Type not found : _internal.go_.types.Types__iterator_5999051
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3293: characters 21-64
 
-  3293 |                     _internal.go_.types.Types__iterator_6161023._iterator_6161023++;
+  3293 |                     _internal.go_.types.Types__iterator_6000591._iterator_6000591++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_6161023
+       | Type not found : _internal.go_.types.Types__iterator_6000591
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:3337: characters 21-64
 
-  3337 |                     _internal.go_.types.Types__iterator_6161023._iterator_6161023++;
+  3337 |                     _internal.go_.types.Types__iterator_6000591._iterator_6000591++;
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       | Type not found : _internal.go_.types.Types__iterator_6161023
+       | Type not found : _internal.go_.types.Types__iterator_6000591
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:8863: characters 21-53
 
@@ -68,7 +68,7 @@
 
         ->  golibs/_internal/go_/constant/Constant_unaryop.hx:357: characters 28-214
 
-        357 |                     return go.Go.asInterface(!_y_30, _internal.gotype.Gotype___type___internaldotgo_dotconstantdotconstant_t_boolvaldott_boolval.__type___internaldotgo_dotconstantdotConstant_t_boolvaldotT_boolVal);
+        357 |                     return go.Go.asInterface(!_y_33, _internal.gotype.Gotype___type___internaldotgo_dotconstantdotconstant_t_boolvaldott_boolval.__type___internaldotgo_dotconstantdotConstant_t_boolvaldotT_boolVal);
             |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             | Called from here
 
@@ -86,7 +86,7 @@
 
 [ERROR] golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:83: characters 48-88
 
-    83 |                     _magic_132 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
+    83 |                     _magic_101 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
        |                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Type not found : go._internal.internal.xcoff.Xcoff__magic
 
@@ -94,13 +94,13 @@
 
 [ERROR] golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:83: characters 21-96
 
-    83 |                     _magic_132 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
+    83 |                     _magic_101 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Void should be go.GoUInt16
 
 [ERROR] golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:215: characters 44-80
 
-   215 |                     _l_197 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__l._l);
+   215 |                     _l_116 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__l._l);
        |                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Type not found : go._internal.internal.xcoff.Xcoff__l
 
@@ -108,7 +108,7 @@
 
 [ERROR] golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:215: characters 21-84
 
-   215 |                     _l_197 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__l._l);
+   215 |                     _l_116 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__l._l);
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Void should be go.GoUInt32
 

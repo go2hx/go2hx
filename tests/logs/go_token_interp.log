@@ -1,4 +1,24 @@
-[ERROR] (unknown position)
+[ERROR] golibs/go/_internal/encoding/gob/Gob__buildtypeinfo.hx:237: characters 30-35
 
-   | Type not found : _internal.go.tokendottest.Tokendottest
+ 237 |                     @:throw3 throw e;
+     |                              ^^^^^
+     | Uncaught exception not implemented name
+
+      ->  golibs/go/_internal/encoding/gob/Gob__gettypeinfo.hx:32: characters 16-85
+
+      32 |         return go._internal.encoding.gob.Gob__buildtypeinfo._buildTypeInfo(_ut, _rt);
+         |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+      ->  golibs/go/_internal/encoding/gob/Gob__mustgettypeinfo.hx:15: characters 23-134
+
+      15 |         var __tmp__ = go._internal.encoding.gob.Gob__gettypeinfo._getTypeInfo(go._internal.encoding.gob.Gob__usertype._userType(_rt)), _t:go.Ref<go._internal.encoding.gob.Gob_t_typeinfo.T_typeInfo> = __tmp__._0, _err:go.Error = __tmp__._1;
+         |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+      ->  golibs/go/_internal/encoding/gob/Gob__twiretype.hx:14: characters 68-190
+
+      14 | var _tWireType : go._internal.encoding.gob.Gob_t_typeid.T_typeId = go._internal.encoding.gob.Gob__mustgettypeinfo._mustGetTypeInfo(go._internal.encoding.gob.Gob__wiretypetype._wireTypeType)._id;
+         |                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 

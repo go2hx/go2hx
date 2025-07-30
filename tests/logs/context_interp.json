@@ -32,6 +32,7 @@
         "TestValues",
         "TestSimultaneousCancels",
         "TestInterlockedCancels",
+        "TestLayersCancel",
         "TestLayersTimeout",
         "TestWithCancelCanceledParent",
         "TestWithCancelSimultaneouslyCanceledParent",

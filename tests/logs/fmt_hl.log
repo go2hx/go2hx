@@ -39,9 +39,9 @@ golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 Exception: Can't cast i32 to virtual<__underlying__:(go.AnyInterfaceData ()),string:(go._GoString.GoStringData ())>
-Called from go._internal.fmt.$T_pp_static_extension._handleMethods (go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1266)
-Called from go._internal.fmt.$T_pp_static_extension._printArg (go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1058)
-Called from go._internal.fmt.$T_pp_static_extension._doPrintf (go/_internal/fmt/Fmt_t_pp_static_extension.hx line 216)
+Called from go._internal.fmt.$T_pp_static_extension._handleMethods (go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1269)
+Called from go._internal.fmt.$T_pp_static_extension._printArg (go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1061)
+Called from go._internal.fmt.$T_pp_static_extension._doPrintf (go/_internal/fmt/Fmt_t_pp_static_extension.hx line 218)
 Called from go._internal.fmt._Fmt_sprintf.$Fmt_sprintf_Fields_.sprintf (go/_internal/fmt/Fmt_sprintf.hx line 15)
 Called from _internal.fmt_test._Fmt_test_testsprintf.$Fmt_test_testsprintf_Fields_.testSprintf (_internal/fmt_test/Fmt_test_testsprintf.hx line 5)
 Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)

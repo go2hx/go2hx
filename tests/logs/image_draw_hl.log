@@ -1,6 +1,47 @@
-[ERROR] golibs/go/_internal/image/draw/Draw_testdraw.hx:228: characters 21-67
+=== RUN  TestClip
 
- 228 |                     go._internal.image.draw.Draw__iterator_5109377._iterator_5109377++;
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : go._internal.image.draw.Draw__iterator_5109377
+-- PASS: TestClip
 
+=== RUN  TestDraw
+draw (3,5)-(12,10) fillNil on *.image.RGBA: at (8, 8) {136 0 0 255} versus {88 0 90 255}
+draw (8,8)-(16,16) fillNil on *.image.RGBA: at (8, 8) {136 0 0 255} versus {88 0 90 255}
+draw (8,0)-(9,16) fillNil on *.image.RGBA: at (8, 8) {136 0 0 255} versus {88 0 90 255}
+draw (0,8)-(16,9) fillNil on *.image.RGBA: at (8, 8) {136 0 0 255} versus {88 0 90 255}
+draw (8,8)-(9,9) fillNil on *.image.RGBA: at (8, 8) {136 0 0 255} versus {88 0 90 255}
+
+-- FAIL: TestDraw
+
+=== RUN  TestDrawOverlap
+
+-- PASS: TestDrawOverlap
+
+=== RUN  TestNonZeroSrcPt
+
+-- PASS: TestNonZeroSrcPt
+
+=== RUN  TestFill
+
+-- PASS: TestFill
+
+=== RUN  TestDrawSrcNonpremultiplied
+
+-- PASS: TestDrawSrcNonpremultiplied
+
+=== RUN  TestFloydSteinbergCheckerboard
+
+-- PASS: TestFloydSteinbergCheckerboard
+
+=== RUN  TestPaletted
+decode: png: invalid format: not a PNG fileException: __fail__
+Called from go._internal.image.draw._Draw_testpaletted.$Draw_testpaletted_Fields_.testPaletted (go/_internal/image/draw/Draw_testpaletted.hx line 282)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.image.drawdottest._Drawdottest.$Drawdottest_Fields_.main (_internal/image/drawdottest/Drawdottest.hx line 32)
+
+-- FAIL: TestPaletted
+
+=== RUN  TestSqDiff
+
+-- PASS: TestSqDiff
+
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
+-- FAIL: TestPaletted

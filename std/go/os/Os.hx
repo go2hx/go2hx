@@ -475,7 +475,7 @@ function createTemp(_dir, _pattern) {
 		if (name.length > 150)
 			throw "to many attempts";
 	}
-	return go._internal.os.Os_openfile.openFile((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name, 0, 0);
+	return go._internal.os.Os_openfile.openFile((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name, go._internal.os.Os_o_create.o_CREATE, 0);
 }
 
 final stdin = {

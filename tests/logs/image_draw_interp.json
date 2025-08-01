@@ -1,5 +1,26 @@
 {
-    "passes": [],
-    "fails": [],
-    "runs": []
+    "passes": [
+        "TestClip",
+        "TestDrawOverlap",
+        "TestNonZeroSrcPt",
+        "TestFill",
+        "TestDrawSrcNonpremultiplied",
+        "TestFloydSteinbergCheckerboard",
+        "TestSqDiff"
+    ],
+    "fails": [
+        "TestDraw",
+        "TestPaletted"
+    ],
+    "runs": [
+        "TestClip",
+        "TestDraw",
+        "TestDrawOverlap",
+        "TestNonZeroSrcPt",
+        "TestFill",
+        "TestDrawSrcNonpremultiplied",
+        "TestFloydSteinbergCheckerboard",
+        "TestPaletted",
+        "TestSqDiff"
+    ]
 }

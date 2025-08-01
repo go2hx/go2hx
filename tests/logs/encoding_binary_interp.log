@@ -89,8 +89,8 @@ Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 30
 Called from go._internal.testing.T_common_static_extension.errorf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
 Called from go._internal.fmt._Fmt_printf.Fmt_printf_Fields_.printf (golibs/go/_internal/fmt/Fmt_printf.hx line 15 column 16)
 Called from go._internal.fmt._Fmt_fprintf.Fmt_fprintf_Fields_.fprintf (golibs/go/_internal/fmt/Fmt_fprintf.hx line 16 column 9)
-Called from go._internal.fmt.T_pp_static_extension._doPrintf (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 216 column 21)
-Called from go._internal.fmt.T_pp_static_extension._printArg (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 993 column 32)
+Called from go._internal.fmt.T_pp_static_extension._doPrintf (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 218 column 21)
+Called from go._internal.fmt.T_pp_static_extension._printArg (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 996 column 32)
 Called from go._GoNumber.GoNumber_Fields_.ofIntUInt64 (golibs/go/GoNumber.hx line 37 column 9)
 
 -- FAIL: TestWriteT

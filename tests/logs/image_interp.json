@@ -1,5 +1,24 @@
 {
-    "passes": [],
-    "fails": [],
-    "runs": []
+    "passes": [
+        "TestNewXxxBadRectangle",
+        "Test16BitsPerColorChannel",
+        "TestRGBA64Image",
+        "TestYCbCr",
+        "TestYCbCrSlicesDontOverlap"
+    ],
+    "fails": [
+        "TestRectangle",
+        "TestImage",
+        "TestDecode"
+    ],
+    "runs": [
+        "TestRectangle",
+        "TestImage",
+        "TestNewXxxBadRectangle",
+        "Test16BitsPerColorChannel",
+        "TestRGBA64Image",
+        "TestYCbCr",
+        "TestYCbCrSlicesDontOverlap",
+        "TestDecode"
+    ]
 }

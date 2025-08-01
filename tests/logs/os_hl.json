@@ -10,7 +10,6 @@
         "TestProgWideChdir",
         "TestSeekError",
         "TestWriteAt",
-        "TestWriteAtInAppendMode",
         "TestStatDirWithTrailingSlash",
         "TestLargeWriteToConsole",
         "TestStatDirModeExec",

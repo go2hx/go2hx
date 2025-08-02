@@ -498,25 +498,6 @@ class GoFloat64MapMapKeyValueIterator<V> {
 	}
 }
 
-@:dox(hide)
-@:ifFeature("anon_read.keyValueIterator", "dynamic_read.keyValueIterator")
-class CompareMapKeyValueIterator<K,V> {
-	var map:CompareMap<K,V> = null;
-	var index = 0;
-	public inline function new(map:CompareMap<K,V>) {
-		this.map = map;
-	}
-	public inline function hasNext():Bool {
-		return map._keys.length > index;
-	}
-	public inline function next():{key:K,value:V} {
-		final key = map._keys[index];
-		final value = map._values[index];
-		index++;
-		return {key: key, value: value};
-	}
-}
-
 
 // int
 @:dox(hide)
@@ -659,7 +640,6 @@ class GoObjectMap<K, V> extends GoAnyInterfaceMap<V> {
 	}
 
 	override function exists(key:Dynamic):Bool {
-		final key = new AnyInterface(key, t);
 		return super.exists(key);
 	}
 
@@ -671,6 +651,12 @@ class GoObjectMap<K, V> extends GoAnyInterfaceMap<V> {
 	override function remove(key:Dynamic):Bool {
 		final key = new AnyInterface(key, t);
 		return super.remove(key);
+	}
+
+	override function keysLoop(keys:Array<Dynamic>, acc:Array<Dynamic>) {
+		for (key in keys) {
+			acc.push((key : AnyInterface).value);
+		}
 	}
 }
 
@@ -695,6 +681,12 @@ class CompareMap<K,V> implements haxe.Constraints.IMap<K,V> {
 	public function compare(key:K, key2:K):Bool {
 		return false;
 	}
+
+	function keysLoop(keys:Array<Dynamic>, acc:Array<K>) {
+		for (key in keys)
+			acc.push(key);
+	}
+
 	public function set(k:K,v:V) {
 		for (i in 0..._keys.length) {
 			if (compare(k, _keys[i])) {
@@ -738,15 +730,21 @@ class CompareMap<K,V> implements haxe.Constraints.IMap<K,V> {
 		copied._values = _values.copy();
 		return cast copied;
 	}
-	public inline function keys()
-		return _keys.iterator();
-	public inline function values()
+	public function keys():Iterator<K> {
+		var ret = [];
+		keysLoop(_keys, ret);
+		return ret.iterator();
+	}
+	public function values():Iterator<V>
 		return _values.iterator();
-	public inline function iterator() {
+	public function iterator():Iterator<V> {
 		return _values.iterator();
 	}
-	public function keyValueIterator() {
-		return new CompareMapKeyValueIterator<K,V>(cast this);
+	/**
+		See `Map.keyValueIterator`
+	**/
+	@:runtime public inline function keyValueIterator():KeyValueIterator<K, V> {
+		return new haxe.iterators.MapKeyValueIterator(this);
 	}
 	public function toString():String {
 		return _keys + " " + _values;
@@ -789,6 +787,12 @@ class GoAnyInterfaceMap<V> extends CompareMap<AnyInterface, V> {
 		if (exists(key))
 			return super.get(key);
 		return __defaultValue__();
+	}
+	
+	override function keysLoop(keys:Array<Dynamic>, acc:Array<Dynamic>) {
+		for (key in keys) {
+			acc.push((key : AnyInterface));
+		}
 	}
 }
 

@@ -272,5 +272,7 @@
  "hl|const0",
  "hl|ref4",
  "hl|runtimeVersion",
- "hl|unsafeOffset"
+ "hl|unsafeOffset",
+ "hl|atomic0",
+ "hl|os0"
 ]

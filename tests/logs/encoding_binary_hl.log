@@ -92,8 +92,8 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 
 === RUN  TestWriteT
 Exception: Can't cast go._internal.internal.reflect._Type to i32
-Called from go._internal.fmt.$T_pp_static_extension._printArg (go/_internal/fmt/Fmt_t_pp_static_extension.hx line 991)
-Called from go._internal.fmt.$T_pp_static_extension._doPrintf (go/_internal/fmt/Fmt_t_pp_static_extension.hx line 216)
+Called from go._internal.fmt.$T_pp_static_extension._printArg (go/_internal/fmt/Fmt_t_pp_static_extension.hx line 994)
+Called from go._internal.fmt.$T_pp_static_extension._doPrintf (go/_internal/fmt/Fmt_t_pp_static_extension.hx line 218)
 Called from go._internal.fmt._Fmt_fprintf.$Fmt_fprintf_Fields_.fprintf (go/_internal/fmt/Fmt_fprintf.hx line 16)
 Called from go._internal.fmt._Fmt_printf.$Fmt_printf_Fields_.printf (go/_internal/fmt/Fmt_printf.hx line 15)
 Called from go._internal.testing.$T_common_static_extension.errorf (go/_internal/testing/Testing_t_common_static_extension.hx line 69)

@@ -42,9 +42,9 @@ Exception: Cannot call null
 Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.fmt_test._Fmt_test_testsprintf.Fmt_test_testsprintf_Fields_.testSprintf (golibs/_internal/fmt_test/Fmt_test_testsprintf.hx line 5 column 23)
 Called from go._internal.fmt._Fmt_sprintf.Fmt_sprintf_Fields_.sprintf (golibs/go/_internal/fmt/Fmt_sprintf.hx line 15 column 9)
-Called from go._internal.fmt.T_pp_static_extension._doPrintf (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 216 column 21)
-Called from go._internal.fmt.T_pp_static_extension._printArg (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1058 column 22)
-Called from go._internal.fmt.T_pp_static_extension._handleMethods (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1266 column 30)
+Called from go._internal.fmt.T_pp_static_extension._doPrintf (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 218 column 21)
+Called from go._internal.fmt.T_pp_static_extension._printArg (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1061 column 22)
+Called from go._internal.fmt.T_pp_static_extension._handleMethods (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1269 column 30)
 
 -- FAIL: TestSprintf
 

@@ -27,7 +27,7 @@
 -- PASS: TestDeadlineExceededIsNetError
 
 === RUN  TestParentFinishesChild
-bad linkage: pc.children = map[], want context.Background.WithCancel.WithCancel, context.Background.WithCancel.WithValue(type string, val value).WithDeadline(2025-09-13 10:24:03.227401216 +0000 UTC+0 m=+3600000.000000001 [999h59m59s]), and an afterFunc
+bad linkage: pc.children = map[], want context.Background.WithCancel.WithCancel, context.Background.WithCancel.WithValue(type string, val value).WithDeadline(2025-09-13 12:20:50.13574144 +0000 UTC+0 m=+3600000.000000001 [999h59m59s]), and an afterFunc
 bad linkage: parentCancelCtx(cancelChild.Context) = <nil>, false want context.Background.WithCancel, true
 bad linkage: parentCancelCtx(timerChild.Context) = <nil>, false want context.Background.WithCancel, true
 Exception: null pointer dereference
@@ -598,7 +598,7 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 -- FAIL: TestInterlockedCancels
 
 === RUN  TestLayersCancel
-seed=5907646592006175744: ctx should be canceled
+seed=1754166053840774144: ctx should be canceled
 
 -- FAIL: TestLayersCancel
 

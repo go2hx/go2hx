@@ -507,7 +507,7 @@ class CompareMapKeyValueIterator<K,V> {
 		this.map = map;
 	}
 	public inline function hasNext():Bool {
-		return map._keys.length < index;
+		return map._keys.length > index;
 	}
 	public inline function next():{key:K,value:V} {
 		final key = map._keys[index];

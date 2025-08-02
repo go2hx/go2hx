@@ -19,6 +19,7 @@ final skipTests = [
 	"testing.iotest:testWriteLogger" => [],
 	// testing/fstest
 	"testing.fstest:testMapFS" => [],
+	"os_test:testRemoveAllRace" => [], // flaky test
 	"os_test:_createSocketPair" => [], // exclude because it pulls in x/net/
 	"encoding.csv:testRead" => [], // temp disable FIXME
 	"math.rand_test:testConcurrent" => [], // sync.WaitGroup and goroutines with exceptions inside

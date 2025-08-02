@@ -2,6 +2,17 @@ package go.os;
 
 import go.errors.Errors;
 
+
+final o_RDONLY = 0;
+final o_WRONLY = 1;
+final o_RDWR = 2;
+
+final o_APPEND = 8;
+final o_CREATE = 512;
+final o_EXCL = 2048; 
+final o_SYNC = 128;
+final o_TRUNC = 1024;
+
 function exit(_code)
 	Sys.exit(_code);
 
@@ -52,6 +63,16 @@ overload extern inline function readDir(_name:go.GoString) {
 		}
 		return {_0: dirs, _1: null};
 	}
+}
+
+@:recv(File)
+overload extern inline function readDir(_n) {
+	final tuple = go._internal.os.Os_readdir.readDir(_f.name()); 
+	if (tuple._1 != null)
+		return tuple;
+	if (_n >= 0)
+		return {_0: tuple._0.__slice__(0, _n), _1: null};
+	return tuple;
 }
 
 @:recv(T_dirFS)
@@ -206,10 +227,14 @@ function writeFile(_name:go.GoString, _data) {
 function remove(_name:go.GoString):go.Error {
 	@:define("(sys || hxnodejs)") {
 		final path = _name;
-		if (sys.FileSystem.isDirectory(path)) {
-			sys.FileSystem.deleteDirectory(path);
-		} else {
-			sys.FileSystem.deleteFile(path);
+		try {
+			if (sys.FileSystem.isDirectory(path)) {
+				sys.FileSystem.deleteDirectory(path);
+			} else {
+				sys.FileSystem.deleteFile(path);
+			}
+		}catch(e) {
+			return go._internal.errors.Errors_new_.new_(e.details());
 		}
 	}
 	return null;
@@ -236,9 +261,19 @@ function removeAll(_path:go.GoString):go.Error {
 			}
 		}
 	}
-	deleteRecursively(_path);
 	@:define("(sys || hxnodejs)") {
-		sys.FileSystem.deleteDirectory(_path);
+		try {
+			if (!sys.FileSystem.exists(_path))
+				return go._internal.errors.Errors_new_.new_("file not found");
+			if (sys.FileSystem.isDirectory(_path)) {
+				deleteRecursively(_path);
+				sys.FileSystem.deleteDirectory(_path);
+			}else{
+				sys.FileSystem.deleteFile(_path);
+			}
+		} catch (e) {
+			return go._internal.errors.Errors_new_.new_(e.details());
+		}
 	}
 	return null;
 }
@@ -263,7 +298,13 @@ function read(_f, _b) {
 		@:privateAccess _f.mutex.release();
 		return {_0: 0, _1: go._internal.io.Io_eof.eOF};
 	}
-	@:privateAccess _b.__bytes__ = b;
+	// ref
+	if (_b.__bytes__ != null) {
+		_b.__bytes__.blit(_b.__offset__, b, 0, _b.length);
+	} else {
+		for (i in 0 ... _b.length)
+			_b.__vector__.set(_b.__offset__ + i, b.get(i));
+	}
 	@:privateAccess _f.mutex.release();
 	return {_0: i, _1: null};
 }
@@ -306,9 +347,10 @@ overload extern inline function open(_name:go.GoString) {
 	return go._internal.os.Os_openfile.openFile(_name, 0, 0);
 }
 
-function openFile(_name:go.GoString) {
+
+function openFile(_name:go.GoString, _flag, _perm) {
 	return @:define("(sys || hxnodejs)") {
-		if (!sys.FileSystem.exists(_name)) {
+		if (_flag & go._internal.os.Os_o_create.o_CREATE != 0 && !sys.FileSystem.exists(_name)) {
 			sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
 		}
 		if (sys.FileSystem.isDirectory(_name)) {
@@ -414,7 +456,7 @@ function _runtime_args() {
 
 function create(_name) {
 	// O_RDWR|O_CREATE|O_TRUNC
-	return go._internal.os.Os_openfile.openFile(_name, 0, 0);
+	return go._internal.os.Os_openfile.openFile(_name, go._internal.os.Os_o_create.o_CREATE, 0);
 }
 
 function tempDir()
@@ -433,7 +475,7 @@ function createTemp(_dir, _pattern) {
 		if (name.length > 150)
 			throw "to many attempts";
 	}
-	return go._internal.os.Os_openfile.openFile((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name, 0, 0);
+	return go._internal.os.Os_openfile.openFile((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name, go._internal.os.Os_o_create.o_CREATE, 0);
 }
 
 final stdin = {
@@ -506,7 +548,13 @@ overload extern inline function readAt(_f, _b, _off) {
 			@:define("!eval") {
 				@:privateAccess cast(_f._input, sys.io.FileInput).seek(t, sys.io.FileSeek.SeekBegin);
 			}
-			@:privateAccess _b.__bytes__ = b;
+			// ref
+			if (_b.__bytes__ != null) {
+				_b.__bytes__.blit(_b.__offset__, b, 0, _b.length);
+			} else {
+				for (i in 0 ... _b.length)
+					_b.__vector__.set(_b.__offset__ + i, b.get(i));
+			}
 			// always returns a non-nil error when n < len(b). At end of file, that error is io.EOF.
 			var err = null;
 			if (n < b.length) {

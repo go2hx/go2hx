@@ -4,6 +4,10 @@ import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
 
+#if !haxe5
+#error "Requires Haxe 5"
+#end
+
 final goRequiredVersion = File.getContent(".gorc");
 final home = Sys.getEnv(if (Sys.systemName() == "Windows") "UserProfile" else "HOME");
 final goCommand = executable(home + "/.go/go" + goRequiredVersion + "/bin/go");
@@ -304,6 +308,7 @@ function build(rebuild:Bool) {
 			Sys.exit(code);
 		}
 	}
+	setupCPP(true, [], false);
 }
 
 function setupNodeJS(rebuild:Bool, args:Array<String>) {
@@ -334,12 +339,14 @@ function setupCPP(rebuild:Bool, args:Array<String>, debug:Bool) {
 			Sys.exit(1);
 		}
 	}
-	final command = fileName + " " + args.join(" ");
-	Sys.println(command);
-	final code = Sys.command(fileName, args);
-	if (code != 0) {
-		Sys.println("COMPILER RUN FAILED: " + command);
-		Sys.exit(code);
+	if (args.length > 0) {
+		final command = fileName + " " + args.join(" ");
+		Sys.println(command);
+		final code = Sys.command(fileName, args);
+		if (code != 0) {
+			Sys.println("COMPILER RUN FAILED: " + command);
+			Sys.exit(code);
+		}
 	}
 }
 

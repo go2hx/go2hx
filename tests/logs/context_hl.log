@@ -27,7 +27,7 @@
 -- PASS: TestDeadlineExceededIsNetError
 
 === RUN  TestParentFinishesChild
-bad linkage: pc.children = map[], want context.Background.WithCancel.WithCancel, context.Background.WithCancel.WithValue(type string, val value).WithDeadline(2157-04-27 04:56:31.075022848 +0000 UTC+0 [1000h0m0s]), and an afterFunc
+bad linkage: pc.children = map[], want context.Background.WithCancel.WithCancel, context.Background.WithCancel.WithValue(type string, val value).WithDeadline(2025-09-13 10:24:03.227401216 +0000 UTC+0 m=+3600000.000000001 [999h59m59s]), and an afterFunc
 bad linkage: parentCancelCtx(cancelChild.Context) = <nil>, false want context.Background.WithCancel, true
 bad linkage: parentCancelCtx(timerChild.Context) = <nil>, false want context.Background.WithCancel, true
 Exception: null pointer dereference
@@ -577,6 +577,11 @@ Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
 Called from go.$Go.~routine.0(go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
+Uncaught exception: Null access
+Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
+Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
+Called from go.$Go.~routine.0(go/Go.hx:46)
+Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Exception: T_:testing.deadline is not yet implemented
 Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.testSimultaneousCancels (_internal/context_test/Context_test_testsimultaneouscancels.hx line 197)
 Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
@@ -585,11 +590,6 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 -- FAIL: TestSimultaneousCancels
 
 === RUN  TestInterlockedCancels
-Uncaught exception: Null access
-Called from fun$1263(_internal/context_test/Context_test_testsimultaneouscancels.hx:38)
-Called from _internal.context_test._Context_test_testsimultaneouscancels.$Context_test_testsimultaneouscancels_Fields_.~testSimultaneousCancels.9(_internal/context_test/Context_test_testsimultaneouscancels.hx:42)
-Called from go.$Go.~routine.0(go/Go.hx:46)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Exception: T_:testing.deadline is not yet implemented
 Called from _internal.context_test._Context_test_testinterlockedcancels.$Context_test_testinterlockedcancels_Fields_.testInterlockedCancels (_internal/context_test/Context_test_testinterlockedcancels.hx line 113)
 Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
@@ -598,7 +598,7 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 -- FAIL: TestInterlockedCancels
 
 === RUN  TestLayersCancel
-seed=1754059087001281024: ctx should be canceled
+seed=5907646592006175744: ctx should be canceled
 
 -- FAIL: TestLayersCancel
 

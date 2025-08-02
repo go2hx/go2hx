@@ -55,12 +55,11 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestErrIsExist
 
 === RUN  TestErrIsNotExist
-Open should have failed
-Exception: __fail__
-Called from go._internal.testing.$T_common_static_extension.failNow (go/_internal/testing/Testing_t_common_static_extension.hx line 94)
-Called from go._internal.testing.$T_common_static_extension.fatal (go/_internal/testing/Testing_t_common_static_extension.hx line 64)
-Called from go._internal.testing.T_.~get_fatal.0 (go/_internal/testing/Testing_t_.hx line 50)
-Called from _internal.os_test._Os_test_testerrisnotexist.$Os_test_testerrisnotexist_Fields_.testErrIsNotExist (_internal/os_test/Os_test_testerrisnotexist.hx line 10)
+Exception: :os.isNotExist is not yet implemented
+Called from go._internal.os._Os_isnotexist.$Os_isnotexist_Fields_.isNotExist (go/_internal/os/Os_isnotexist.hx line 2)
+Called from _internal.os_test._Os_test__checkerrorpredicate.$Os_test__checkerrorpredicate_Fields_._checkErrorPredicate (_internal/os_test/Os_test__checkerrorpredicate.hx line 4)
+Called from _internal.os_test._Os_test__testerrnotexist.$Os_test__testerrnotexist_Fields_._testErrNotExist (_internal/os_test/Os_test__testerrnotexist.hx line 26)
+Called from _internal.os_test._Os_test_testerrisnotexist.$Os_test_testerrisnotexist_Fields_.testErrIsNotExist (_internal/os_test/Os_test_testerrisnotexist.hx line 7)
 Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
@@ -275,7 +274,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 
 === RUN  TestFileReadDir
 - SUBRUN  .
-Exception: File:os.readDir is not yet implemented
+Exception: Null access
 Called from _internal.os_test._Os_test__testreaddir.$Os_test__testreaddir_Fields_.~_testReadDir.0 (_internal/os_test/Os_test__testreaddir.hx line 295)
 Called from go._internal.testing.$T__static_extension.run (go/_internal/testing/Testing_t__static_extension.hx line 13)
 Called from _internal.os_test._Os_test_testfilereaddir.$Os_test_testfilereaddir_Fields_.testFileReadDir (_internal/os_test/Os_test_testfilereaddir.hx line 16)
@@ -601,11 +600,9 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- PASS: TestSeekError
 
 === RUN  TestOpenError
-Exception: SysError(Can't open /etc/no-such-file for writing)
-Called from sys.io.$File.write (/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/io/File.hx line 70)
-Called from sys.io.$File.saveBytes (/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/io/File.hx line 55)
-Called from go._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (go/_internal/os/Os_openfile.hx line 5)
-Called from _internal.os_test._Os_test_testopenerror.$Os_test_testopenerror_Fields_.testOpenError (_internal/os_test/Os_test_testopenerror.hx line 7)
+Open("/etc/no-such-file", 0) returns error of *.errors.errorString type; want *PathError
+Exception: null pointer dereference
+Called from _internal.os_test._Os_test_testopenerror.$Os_test_testopenerror_Fields_.testOpenError (_internal/os_test/Os_test_testopenerror.hx line 43)
 Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
@@ -613,17 +610,8 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestOpenError
 
 === RUN  TestOpenNoName
-Exception: SysError(Can't open  for writing)
-Called from sys.io.$File.write (/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/io/File.hx line 70)
-Called from sys.io.$File.saveBytes (/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/io/File.hx line 55)
-Called from go._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (go/_internal/os/Os_openfile.hx line 5)
-Called from go._internal.os._Os_open.$Os_open_Fields_.open (go/_internal/os/Os_open.hx line 3)
-Called from _internal.os_test._Os_test_testopennoname.$Os_test_testopennoname_Fields_.testOpenNoName (_internal/os_test/Os_test_testopennoname.hx line 3)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
-Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
--- FAIL: TestOpenNoName
+-- PASS: TestOpenNoName
 
 === RUN  TestHostname
 Exception: :os.hostname is not yet implemented
@@ -668,8 +656,19 @@ WriteAt(-10) = 0, File.writeAt failed: Custom(seek() failure); want 0, ..."negat
 -- FAIL: TestWriteAtNegativeOffset
 
 === RUN  TestWriteAtInAppendMode
+OpenFile: Exception: SysError(Can't open write_at_in_append_mode.txt)
+Called from sys.io.$File.read (/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/io/File.hx line 63)
+Called from go._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (go/_internal/os/Os_openfile.hx line 11)
+Called from _internal.os_test._Os_test_testwriteatinappendmode.$Os_test_testwriteatinappendmode_Fields_.testWriteAtInAppendMode (_internal/os_test/Os_test_testwriteatinappendmode.hx line 9)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
+Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)Exception: __fail__
+Called from _internal.os_test._Os_test_testwriteatinappendmode.$Os_test_testwriteatinappendmode_Fields_.testWriteAtInAppendMode (_internal/os_test/Os_test_testwriteatinappendmode.hx line 111)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
+Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
--- PASS: TestWriteAtInAppendMode
+-- FAIL: TestWriteAtInAppendMode
 
 === RUN  TestAppend
 writeFile: have "|append" want "new|append"Exception: __fail__
@@ -806,7 +805,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 === RUN  TestNilFileMethods
 Exception: File:os.chdir is not yet implemented
 Called from go._internal.os.$File_static_extension.chdir (go/_internal/os/Os_file_static_extension.hx line 31)
-Called from local function #16268 (_internal/os_test/Os_test__nilfilemethodtests.hx line 5)
+Called from local function #16257 (_internal/os_test/Os_test__nilfilemethodtests.hx line 5)
 Called from _internal.os_test._Os_test_testnilfilemethods.$Os_test_testnilfilemethods_Fields_.testNilFileMethods (_internal/os_test/Os_test_testnilfilemethods.hx line 8)
 Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
@@ -815,21 +814,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestNilFileMethods
 
 === RUN  TestRemoveAllRace
-Uncaught exception: SysError(Can't delete directory tmpdir_/a/a/a)
-Called from fun$3536(_internal/os_test/Os_test_testremoveallrace.hx:123)
-Called from _internal.os_test._Os_test_testremoveallrace.$Os_test_testremoveallrace_Fields_.~testRemoveAllRace.4(_internal/os_test/Os_test_testremoveallrace.hx:129)
-Called from go.$Go.~routine.0(go/Go.hx:46)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: SysError(Can't delete directory tmpdir_)
-Called from fun$3536(_internal/os_test/Os_test_testremoveallrace.hx:123)
-Called from _internal.os_test._Os_test_testremoveallrace.$Os_test_testremoveallrace_Fields_.~testRemoveAllRace.4(_internal/os_test/Os_test_testremoveallrace.hx:129)
-Called from go.$Go.~routine.0(go/Go.hx:46)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: SysError(Can't delete directory tmpdir_/b/b/b)
-Called from fun$3536(_internal/os_test/Os_test_testremoveallrace.hx:123)
-Called from _internal.os_test._Os_test_testremoveallrace.$Os_test_testremoveallrace_Fields_.~testRemoveAllRace.4(_internal/os_test/Os_test_testremoveallrace.hx:129)
-Called from go.$Go.~routine.0(go/Go.hx:46)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
+-- SKIP: testRemoveAllRace
 
 -- PASS: TestRemoveAllRace
 
@@ -1162,10 +1147,10 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestReadDir
 
 === RUN  TestRemoveAll
-Exception: SysError(Can't delete directory )
-Called from sys.$FileSystem.deleteDirectory (/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/FileSystem.hx line 92)
-Called from go._internal.os._Os_removeall.$Os_removeall_Fields_.removeAll (go/_internal/os/Os_removeall.hx line 25)
-Called from _internal.os_test._Os_test_testremoveall.$Os_test_testremoveall_Fields_.testRemoveAll (_internal/os_test/Os_test_testremoveall.hx line 8)
+RemoveAll(""): file not found; want nil
+Exception: :os.mkdirAll is not yet implemented
+Called from go._internal.os._Os_mkdirall.$Os_mkdirall_Fields_.mkdirAll (go/_internal/os/Os_mkdirall.hx line 2)
+Called from _internal.os_test._Os_test_testremoveall.$Os_test_testremoveall_Fields_.testRemoveAll (_internal/os_test/Os_test_testremoveall.hx line 68)
 Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
 Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
@@ -1200,13 +1185,8 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- PASS: TestRemoveAllLongPath
 
 === RUN  TestRemoveAllDot
-Exception: SysError(Can't delete directory .)
-Called from _internal.os_test._Os_test_testremovealldot.$Os_test_testremovealldot_Fields_.testRemoveAllDot (_internal/os_test/Os_test_testremovealldot.hx line 116)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
-Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/osdottest/Osdottest.hx line 140)
 
--- FAIL: TestRemoveAllDot
+-- PASS: TestRemoveAllDot
 
 === RUN  TestRemoveAllDotDot
 Exception: :os.mkdirAll is not yet implemented
@@ -1219,7 +1199,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestRemoveAllDotDot
 
 === RUN  TestRemoveReadOnlyDir
-chmod: cannot access 'tmpdir_o/x': No such file or directory
+chmod: cannot access 'tmpdir_/x': No such file or directory
 
 -- PASS: TestRemoveReadOnlyDir
 
@@ -1287,7 +1267,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestDirAndSymlinkStats
 
 === RUN  TestFileAndSymlinkStats
-writeFile tmpdir_q/file: no such file or directory
+writeFile tmpdir_/file: no such file or directory
 Exception: __fail__
 Called from go._internal.testing.$T_common_static_extension.failNow (go/_internal/testing/Testing_t_common_static_extension.hx line 94)
 Called from go._internal.testing.$T_common_static_extension.fatal (go/_internal/testing/Testing_t_common_static_extension.hx line 64)
@@ -1310,7 +1290,7 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestSymlinkWithTrailingSlash
 
 === RUN  TestCreateTemp
-Exception: SysError(Can't open tmpdir_h/_not_exists_/tmpfile_ for writing)
+Exception: SysError(Can't open tmpdir_/_not_exists_/tmpfile_ for writing)
 Called from _internal.os_test._Os_test_testcreatetemp.$Os_test_testcreatetemp_Fields_.testCreateTemp (_internal/os_test/Os_test_testcreatetemp.hx line 90)
 Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.os_test._Os_test_testmain.$Os_test_testmain_Fields_.testMain (_internal/os_test/Os_test_testmain.hx line 13)
@@ -1319,8 +1299,8 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestCreateTemp
 
 === RUN  TestCreateTempPattern
-CreateTemp pattern "tempfile_test" created bad name "tmpfile_h"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*" created bad name "tmpfile_l"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test" created bad name "tmpfile_1"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*" created bad name "tmpfile_g"; want prefix "tempfile_test" & suffix ""
 CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_2"; want prefix "tempfile_test" & suffix "xyz"
 
 -- FAIL: TestCreateTempPattern
@@ -1335,32 +1315,32 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (_internal/os
 -- FAIL: TestCreateTempBadPattern
 
 === RUN  TestMkdirTemp
-MkdirTemp(`/_not_exists_`, `foo`) = tmpdir_j, <nil>
+MkdirTemp(`/_not_exists_`, `foo`) = tmpdir_, <nil>
 - SUBRUN  tempfile_test
 MkdirTemp("temp", "tempfile_test") created bad name
-	"tmpdir_g"
+	"tmpdir_i"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*
 MkdirTemp("temp", "tempfile_test*") created bad name
-	"tmpdir_v"
+	"tmpdir_d"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*xyz
 MkdirTemp("temp", "tempfile_test*xyz") created bad name
-	"tmpdir_r"
+	"tmpdir_q"
 did not match pattern
 	"^temp/tempfile_test[0-9]+xyz$"
 - SUBRUN  *xyz
 MkdirTemp("temp", "*xyz") created bad name
-	"tmpdir_q"
+	"tmpdir_r"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestMkdirTemp
 
 === RUN  TestMkdirTempBadDir
-TempDir error = <nil>; want PathError for path "tmpdir_x/not-exist" satisfying IsNotExist
+TempDir error = <nil>; want PathError for path "tmpdir_k/not-exist" satisfying IsNotExist
 
 -- FAIL: TestMkdirTempBadDir
 

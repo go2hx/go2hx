@@ -32,7 +32,7 @@ draw (8,8)-(9,9) fillNil on *.image.RGBA: at (8, 8) {136 0 0 255} versus {88 0 9
 -- PASS: TestFloydSteinbergCheckerboard
 
 === RUN  TestPaletted
-decode: png: invalid format: not a PNG fileException: __fail__
+Exception: Null access
 Called from go._internal.image.draw._Draw_testpaletted.$Draw_testpaletted_Fields_.testPaletted (go/_internal/image/draw/Draw_testpaletted.hx line 282)
 Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.image.drawdottest._Drawdottest.$Drawdottest_Fields_.main (_internal/image/drawdottest/Drawdottest.hx line 32)

@@ -100,7 +100,13 @@ Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fie
 -- FAIL: TestWalk
 
 === RUN  TestWalkDir
-Exception: File:os.readDir is not yet implemented
+node testdata/d/x mark = 0; expected 1
+node testdata/d/y mark = 0; expected 1
+node testdata/d/z mark = 0; expected 1
+node testdata/d/z/u mark = 0; expected 1
+node testdata/d/z/v mark = 0; expected 1
+- SUBRUN  PermErr
+Exception: :os.getuid is not yet implemented
 Called from _internal.path.filepath_test._Filepath_test__testwalk.$Filepath_test__testwalk_Fields_._testWalk (_internal/path/filepath_test/Filepath_test__testwalk.hx line 198)
 Called from _internal.path.filepath_test._Filepath_test_testwalkdir.$Filepath_test_testwalkdir_Fields_.testWalkDir (_internal/path/filepath_test/Filepath_test_testwalkdir.hx line 4)
 Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
@@ -187,10 +193,94 @@ Called from go._internal.os._Os_symlink.$Os_symlink_Fields_.symlink (go/_interna
 Called from _internal.path.filepath_test._Filepath_test_testrelativesymlinktoabsolute.$Filepath_test_testrelativesymlinktoabsolute_Fields_.testRelativeSymlinkToAbsolute (_internal/path/filepath_test/Filepath_test_testrelativesymlinktoabsolute.hx line 10)
 Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main (_internal/path/filepathdottest/Filepathdottest.hx line 51)
-Uncaught exception: SysError(Can't delete directory tmpdir_)
-Called from sys.$FileSystem.deleteDirectory(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/FileSystem.hx:92)
-Called from go._internal.os._Os_removeall.$Os_removeall_Fields_.removeAll(go/_internal/os/Os_removeall.hx:25)
-Called from go._internal.testing.$T_common_static_extension.~tempDir.1(go/_internal/testing/Testing_t_common_static_extension.hx:20)
-Called from go._internal.testing.$M_static_extension.run(go/_internal/testing/Testing_m_static_extension.hx:47)
-Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main(_internal/path/filepathdottest/Filepathdottest.hx:51)
-Called from .init(?:1)
+
+-- FAIL: TestRelativeSymlinkToAbsolute
+
+=== RUN  TestAbs
+Exception: :os.sameFile is not yet implemented
+Called from _internal.path.filepath_test._Filepath_test_testabs.$Filepath_test_testabs_Fields_.testAbs (_internal/path/filepath_test/Filepath_test_testabs.hx line 180)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main (_internal/path/filepathdottest/Filepathdottest.hx line 51)
+
+-- FAIL: TestAbs
+
+=== RUN  TestAbsEmptyString
+tmpdir_m: readFile tmpdir_m: no such file or directoryException: __fail__
+Called from _internal.path.filepath_test._Filepath_test_testabsemptystring.$Filepath_test_testabsemptystring_Fields_.testAbsEmptyString (_internal/path/filepath_test/Filepath_test_testabsemptystring.hx line 127)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main (_internal/path/filepathdottest/Filepathdottest.hx line 51)
+
+-- FAIL: TestAbsEmptyString
+
+=== RUN  TestRel
+
+-- PASS: TestRel
+
+=== RUN  TestVolumeName
+
+-- PASS: TestVolumeName
+
+=== RUN  TestDriveLetterInEvalSymlinks
+
+-- PASS: TestDriveLetterInEvalSymlinks
+
+=== RUN  TestBug3486
+Exception: :runtime.gOROOT is not yet implemented
+Called from go._internal.runtime._Runtime_goroot.$Runtime_goroot_Fields_.gOROOT (go/_internal/runtime/Runtime_goroot.hx line 2)
+Called from go._internal.internal.testenv._Testenv__findgoroot.$Testenv__findgoroot_Fields_.~_findGOROOT.0 (go/_internal/internal/testenv/Testenv__findgoroot.hx line 19)
+Called from go._internal.sync.$Once_static_extension.do_ (go/_internal/sync/Sync_once_static_extension.hx line 11)
+Called from go._internal.internal.testenv._Testenv__findgoroot.$Testenv__findgoroot_Fields_._findGOROOT (go/_internal/internal/testenv/Testenv__findgoroot.hx line 18)
+Called from go._internal.internal.testenv._Testenv_goroot.$Testenv_goroot_Fields_.gOROOT (go/_internal/internal/testenv/Testenv_goroot.hx line 17)
+Called from _internal.path.filepath_test._Filepath_test_testbug3486.$Filepath_test_testbug3486_Fields_.testBug3486 (_internal/path/filepath_test/Filepath_test_testbug3486.hx line 8)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main (_internal/path/filepathdottest/Filepathdottest.hx line 51)
+
+-- FAIL: TestBug3486
+
+=== RUN  TestWalkSymlink
+Exception: :os.symlink is not yet implemented
+Called from _internal.path.filepath_test._Filepath_test__testwalksymlink.$Filepath_test__testwalksymlink_Fields_._testWalkSymlink (_internal/path/filepath_test/Filepath_test__testwalksymlink.hx line 149)
+Called from _internal.path.filepath_test._Filepath_test_testwalksymlink.$Filepath_test_testwalksymlink_Fields_.testWalkSymlink (_internal/path/filepath_test/Filepath_test_testwalksymlink.hx line 6)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main (_internal/path/filepathdottest/Filepathdottest.hx line 51)
+
+-- FAIL: TestWalkSymlink
+
+=== RUN  TestIssue29372
+writeFile tmpdir_m/file.txt: no such file or directory
+Exception: __fail__
+Called from go._internal.testing.$T_common_static_extension.failNow (go/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from go._internal.testing.$T_common_static_extension.fatal (go/_internal/testing/Testing_t_common_static_extension.hx line 64)
+Called from go._internal.testing.T_.~get_fatal.0 (go/_internal/testing/Testing_t_.hx line 50)
+Called from _internal.path.filepath_test._Filepath_test_testissue29372.$Filepath_test_testissue29372_Fields_.testIssue29372 (_internal/path/filepath_test/Filepath_test_testissue29372.hx line 9)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main (_internal/path/filepathdottest/Filepathdottest.hx line 51)
+
+-- FAIL: TestIssue29372
+
+=== RUN  TestEvalSymlinksAboveRoot
+Exception: :os.symlink is not yet implemented
+Called from go._internal.os._Os_symlink.$Os_symlink_Fields_.symlink (go/_internal/os/Os_symlink.hx line 2)
+Called from _internal.path.filepath_test._Filepath_test_testevalsymlinksaboveroot.$Filepath_test_testevalsymlinksaboveroot_Fields_.testEvalSymlinksAboveRoot (_internal/path/filepath_test/Filepath_test_testevalsymlinksaboveroot.hx line 38)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main (_internal/path/filepathdottest/Filepathdottest.hx line 51)
+
+-- FAIL: TestEvalSymlinksAboveRoot
+
+=== RUN  TestEvalSymlinksAboveRootChdir
+Exception: :os.mkdirAll is not yet implemented
+Called from _internal.path.filepath_test._Filepath_test_testevalsymlinksaboverootchdir.$Filepath_test_testevalsymlinksaboverootchdir_Fields_.testEvalSymlinksAboveRootChdir (_internal/path/filepath_test/Filepath_test_testevalsymlinksaboverootchdir.hx line 175)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main (_internal/path/filepathdottest/Filepathdottest.hx line 51)
+
+-- FAIL: TestEvalSymlinksAboveRootChdir
+
+=== RUN  TestIssue51617
+chmod: invalid mode: ‘448’
+Try 'chmod --help' for more information.
+got directories [.], want [. a a/bad a/next]
+
+-- FAIL: TestIssue51617
+
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
+-- FAIL: TestIssue51617

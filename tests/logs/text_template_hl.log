@@ -396,7 +396,6 @@ Called from _internal.text.templatedottest._Templatedottest.$Templatedottest_Fie
 -- FAIL: TestParseGlob
 
 === RUN  TestParseFS
-expected error for non-existent file; got none
 Exception: not implemented numOut
 Called from go._internal.text.template.$Template_static_extension.funcs (go/_internal/text/template/Template_template_static_extension.hx line 236)
 Called from go._internal.text.template._Template__testexecute.$Template__testexecute_Fields_._testExecute (go/_internal/text/template/Template__testexecute.hx line 60)

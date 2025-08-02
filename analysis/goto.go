@@ -706,6 +706,11 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		fs.changeVars(stmt.Call)
 	case *ast.LabeledStmt:
 		return append([]ast.Stmt{jumpTo(stmt.Label.Pos()), setJump(stmt.Label.Pos())}, fs.markJumps(stmt.Stmt, scopeIndex)...)
+	case *ast.GoStmt:
+		fs.changeVars(stmt.Call)
+	case *ast.EmptyStmt:
+	default:
+		println("not being handled:", reflect.TypeOf(stmt).String())
 	}
 	return []ast.Stmt{stmt}
 }
@@ -891,7 +896,7 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 		_ = switchStmt
 		secondPass := true
 		// debug comment
-		commentBool := true
+		commentBool := false
 		if secondPass {
 			if commentBool {
 				buf := bytes.NewBufferString("")

@@ -190,11 +190,3 @@
     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | go.GoUInt64 should be go.GoUIntptr
 
-[ERROR] golibs/_internal/sync/atomic_test/Atomic_test_testvalueconcurrent.hx:79: characters 54-94
-
- 79 |                                         while ((_j < _internal.sync.atomic_test.Atomic_test_n.n : Bool)) {
-    |                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | Type not found : _internal.sync.atomic_test.Atomic_test_n
-
-        | For function argument 'func'
-

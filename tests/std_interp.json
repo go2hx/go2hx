@@ -32,5 +32,6 @@
  "interp|slices",
  "interp|net/textproto",
  "interp|internal/godebugs",
- "interp|go/scanner"
+ "interp|go/scanner",
+ "interp|image/draw"
 ]

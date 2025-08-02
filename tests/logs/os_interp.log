@@ -45,13 +45,12 @@ Called from _internal.os_test._Os_test_testerrisexist.Os_test_testerrisexist_Fie
 -- FAIL: TestErrIsExist
 
 === RUN  TestErrIsNotExist
-Open should have failed
-Exception: __fail__
+Exception: :os.isNotExist is not yet implemented
 Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testerrisnotexist.Os_test_testerrisnotexist_Fields_.testErrIsNotExist (golibs/_internal/os_test/Os_test_testerrisnotexist.hx line 10 column 26)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
-Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
-Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from _internal.os_test._Os_test_testerrisnotexist.Os_test_testerrisnotexist_Fields_.testErrIsNotExist (golibs/_internal/os_test/Os_test_testerrisnotexist.hx line 7 column 23)
+Called from _internal.os_test._Os_test__testerrnotexist.Os_test__testerrnotexist_Fields_._testErrNotExist (golibs/_internal/os_test/Os_test__testerrnotexist.hx line 26 column 23)
+Called from _internal.os_test._Os_test__checkerrorpredicate.Os_test__checkerrorpredicate_Fields_._checkErrorPredicate (golibs/_internal/os_test/Os_test__checkerrorpredicate.hx line 4 column 14)
+Called from go._internal.os._Os_isnotexist.Os_isnotexist_Fields_.isNotExist (golibs/go/_internal/os/Os_isnotexist.hx line 2 column 41)
 
 -- FAIL: TestErrIsNotExist
 
@@ -203,7 +202,7 @@ Called from local function #1 (golibs/_internal/os_test/Os_test__testreaddir.hx 
 
 === RUN  TestFileReadDir
 - SUBRUN  .
-Exception: File:os.readDir is not yet implemented
+Exception: Cannot call null
 Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testfilereaddir.Os_test_testfilereaddir_Fields_.testFileReadDir (golibs/_internal/os_test/Os_test_testfilereaddir.hx line 16 column 9)
 Called from go._internal.testing.T__static_extension.run (golibs/go/_internal/testing/Testing_t__static_extension.hx line 13 column 9)
@@ -439,15 +438,25 @@ golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Ca
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
 golibs/go/Go.hx:46: characters 4-10 : Called from here
 golibs/go/Go.hx:37: lines 37-50 : Called from here
-
--- PASS: TestProgWideChdir
-
-=== RUN  TestSeek
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
 golibs/go/Go.hx:46: characters 4-10 : Called from here
 golibs/go/Go.hx:37: lines 37-50 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
+golibs/go/Go.hx:46: characters 4-10 : Called from here
+golibs/go/Go.hx:37: lines 37-50 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
+golibs/go/Go.hx:46: characters 4-10 : Called from here
+golibs/go/Go.hx:37: lines 37-50 : Called from here
+
+-- PASS: TestProgWideChdir
+
+=== RUN  TestSeek
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
 #0: Seek(0, 1) = 0, <nil> want 13, nil
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
@@ -457,11 +466,6 @@ golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval ta
 #3: Seek(0, 2) = 0, <nil> want 13, nil
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
-golibs/go/Go.hx:46: characters 4-10 : Called from here
-golibs/go/Go.hx:37: lines 37-50 : Called from here
 #5: Seek(-1, 2) = 0, <nil> want 12, nil
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
 #6: Seek(8589934592, 0) = 0, <nil> want 8589934592, nil
@@ -474,11 +478,6 @@ golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval ta
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
 #10: Seek(8589934591, 0) = 0, <nil> want 8589934591, nil
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
-golibs/go/Go.hx:46: characters 4-10 : Called from here
-golibs/go/Go.hx:37: lines 37-50 : Called from here
 #11: Seek(0, 1) = 0, <nil> want 8589934591, nil
 
 -- FAIL: TestSeek
@@ -496,21 +495,16 @@ Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_i
 -- PASS: TestSeekError
 
 === RUN  TestOpenError
-Exception: /etc/no-such-file: Permission denied
+Open("/etc/no-such-file", 0) returns error of *.errors.errorString type; want *PathError
+Exception: null pointer dereference
 Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testopenerror.Os_test_testopenerror_Fields_.testOpenError (golibs/_internal/os_test/Os_test_testopenerror.hx line 7 column 27)
-Called from go._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/go/_internal/os/Os_openfile.hx line 5 column 17)
+Called from _internal.os_test._Os_test_testopenerror.Os_test_testopenerror_Fields_.testOpenError (golibs/_internal/os_test/Os_test_testopenerror.hx line 43 column 50)
 
 -- FAIL: TestOpenError
 
 === RUN  TestOpenNoName
-Exception: : No such file or directory
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testopennoname.Os_test_testopennoname_Fields_.testOpenNoName (golibs/_internal/os_test/Os_test_testopennoname.hx line 3 column 23)
-Called from go._internal.os._Os_open.Os_open_Fields_.open (golibs/go/_internal/os/Os_open.hx line 3 column 16)
-Called from go._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/go/_internal/os/Os_openfile.hx line 5 column 17)
 
--- FAIL: TestOpenNoName
+-- PASS: TestOpenNoName
 
 === RUN  TestHostname
 Exception: :os.hostname is not yet implemented
@@ -554,8 +548,12 @@ WriteAt(-10) = 5, <nil>; want 0, ..."negative offset"...
 -- FAIL: TestWriteAtNegativeOffset
 
 === RUN  TestWriteAtInAppendMode
+OpenFile: Exception: write_at_in_append_mode.txt: No such file or directory
+Called from go._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/go/_internal/os/Os_openfile.hx line 11 column 66)Exception: __fail__
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testwriteatinappendmode.Os_test_testwriteatinappendmode_Fields_.testWriteAtInAppendMode (golibs/_internal/os_test/Os_test_testwriteatinappendmode.hx line 111 column 30)
 
--- PASS: TestWriteAtInAppendMode
+-- FAIL: TestWriteAtInAppendMode
 
 === RUN  TestAppend
 writeFile: have "|append" want "new|append"Exception: __fail__
@@ -677,21 +675,7 @@ Called from go._internal.os.File_static_extension.chdir (golibs/go/_internal/os/
 -- FAIL: TestNilFileMethods
 
 === RUN  TestRemoveAllRace
-golibs/_internal/os_test/Os_test_testremoveallrace.hx:123: characters 50-55 : Uncaught exception tmpdir_/a/a/a/a/b: No such file or directory
-golibs/_internal/os_test/Os_test_testremoveallrace.hx:123: characters 50-55 : Called from here
-golibs/_internal/os_test/Os_test_testremoveallrace.hx:129: characters 25-28 : Called from here
-golibs/go/Go.hx:46: characters 4-10 : Called from here
-golibs/go/Go.hx:37: lines 37-50 : Called from here
-golibs/_internal/os_test/Os_test_testremoveallrace.hx:123: characters 50-55 : Uncaught exception tmpdir_/a/a/a/a/b: No such file or directory
-golibs/_internal/os_test/Os_test_testremoveallrace.hx:123: characters 50-55 : Called from here
-golibs/_internal/os_test/Os_test_testremoveallrace.hx:129: characters 25-28 : Called from here
-golibs/go/Go.hx:46: characters 4-10 : Called from here
-golibs/go/Go.hx:37: lines 37-50 : Called from here
-golibs/_internal/os_test/Os_test_testremoveallrace.hx:123: characters 50-55 : Uncaught exception No such file or directory(rmdir, tmpdir_/a/a/a/a)
-golibs/_internal/os_test/Os_test_testremoveallrace.hx:123: characters 50-55 : Called from here
-golibs/_internal/os_test/Os_test_testremoveallrace.hx:129: characters 25-28 : Called from here
-golibs/go/Go.hx:46: characters 4-10 : Called from here
-golibs/go/Go.hx:37: lines 37-50 : Called from here
+-- SKIP: testRemoveAllRace
 
 -- PASS: TestRemoveAllRace
 
@@ -955,10 +939,11 @@ Called from go._internal.os._Os_readdir.Os_readdir_Fields_.readDir (golibs/go/_i
 -- FAIL: TestReadDir
 
 === RUN  TestRemoveAll
-Exception: No such file or directory(rmdir, )
+RemoveAll(""): file not found; want nil
+Exception: :os.mkdirAll is not yet implemented
 Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testremoveall.Os_test_testremoveall_Fields_.testRemoveAll (golibs/_internal/os_test/Os_test_testremoveall.hx line 8 column 24)
-Called from go._internal.os._Os_removeall.Os_removeall_Fields_.removeAll (golibs/go/_internal/os/Os_removeall.hx line 25 column 13)
+Called from _internal.os_test._Os_test_testremoveall.Os_test_testremoveall_Fields_.testRemoveAll (golibs/_internal/os_test/Os_test_testremoveall.hx line 68 column 24)
+Called from go._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (golibs/go/_internal/os/Os_mkdirall.hx line 2 column 94)
 
 -- FAIL: TestRemoveAll
 
@@ -986,11 +971,8 @@ Called from _internal.os_test._Os_test_testremovealllongpath.Os_test_testremovea
 -- PASS: TestRemoveAllLongPath
 
 === RUN  TestRemoveAllDot
-Exception: Invalid argument(rmdir, .)
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testremovealldot.Os_test_testremovealldot_Fields_.testRemoveAllDot (golibs/_internal/os_test/Os_test_testremovealldot.hx line 116 column 30)
 
--- FAIL: TestRemoveAllDot
+-- PASS: TestRemoveAllDot
 
 === RUN  TestRemoveAllDotDot
 Exception: :os.mkdirAll is not yet implemented
@@ -1058,7 +1040,7 @@ Called from _internal.os_test._Os_test__teststatandlstat.Os_test__teststatandlst
 -- FAIL: TestDirAndSymlinkStats
 
 === RUN  TestFileAndSymlinkStats
-writeFile tmpdir_h/file: no such file or directory
+writeFile tmpdir_/file: no such file or directory
 Exception: __fail__
 Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testfileandsymlinkstats.Os_test_testfileandsymlinkstats_Fields_.testFileAndSymlinkStats (golibs/_internal/os_test/Os_test_testfileandsymlinkstats.hx line 14 column 17)
@@ -1077,16 +1059,16 @@ Called from go._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/go/_i
 -- FAIL: TestSymlinkWithTrailingSlash
 
 === RUN  TestCreateTemp
-Exception: tmpdir_k/_not_exists_/tmpfile_: No such file or directory
+Exception: tmpdir_/_not_exists_/tmpfile_: No such file or directory
 Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testcreatetemp.Os_test_testcreatetemp_Fields_.testCreateTemp (golibs/_internal/os_test/Os_test_testcreatetemp.hx line 90 column 30)
 
 -- FAIL: TestCreateTemp
 
 === RUN  TestCreateTempPattern
-CreateTemp pattern "tempfile_test" created bad name "tmpfile_0"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*" created bad name "tmpfile_1"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_g"; want prefix "tempfile_test" & suffix "xyz"
+CreateTemp pattern "tempfile_test" created bad name "tmpfile_n"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*" created bad name "tmpfile_j"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_o"; want prefix "tempfile_test" & suffix "xyz"
 
 -- FAIL: TestCreateTempPattern
 
@@ -1098,32 +1080,32 @@ Called from _internal.os_test._Os_test_testcreatetempbadpattern.Os_test_testcrea
 -- FAIL: TestCreateTempBadPattern
 
 === RUN  TestMkdirTemp
-MkdirTemp(`/_not_exists_`, `foo`) = tmpdir_9, <nil>
+MkdirTemp(`/_not_exists_`, `foo`) = tmpdir_, <nil>
 - SUBRUN  tempfile_test
 MkdirTemp("temp", "tempfile_test") created bad name
-	"tmpdir_9w"
+	"tmpdir_q"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*
 MkdirTemp("temp", "tempfile_test*") created bad name
-	"tmpdir_1"
+	"tmpdir_8"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*xyz
 MkdirTemp("temp", "tempfile_test*xyz") created bad name
-	"tmpdir_q"
+	"tmpdir_d"
 did not match pattern
 	"^temp/tempfile_test[0-9]+xyz$"
 - SUBRUN  *xyz
 MkdirTemp("temp", "*xyz") created bad name
-	"tmpdir_7"
+	"tmpdir_9"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestMkdirTemp
 
 === RUN  TestMkdirTempBadDir
-TempDir error = <nil>; want PathError for path "tmpdir_9z/not-exist" satisfying IsNotExist
+TempDir error = <nil>; want PathError for path "tmpdir_n/not-exist" satisfying IsNotExist
 
 -- FAIL: TestMkdirTempBadDir
 
@@ -1136,4 +1118,4 @@ Called from _internal.os_test._Os_test_testmkdirtempbadpattern.Os_test_testmkdir
 
 golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestMkdirTempBadPattern
-chmod: cannot access 'tmpdir_o/x': No such file or directory
+chmod: cannot access 'tmpdir_/x': No such file or directory

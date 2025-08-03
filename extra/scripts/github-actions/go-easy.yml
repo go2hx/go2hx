@@ -33,6 +33,8 @@ steps:
   # Clean std
   - name: Clean std2hx
     run: npx haxe --run Run clean
+  - name: Setup hxcpp
+    run: haxe -cp extra/scripts --run SetupHxcpp
   # compile std
   - name: Build go2hx compiler
     run: npx haxe --run Run build

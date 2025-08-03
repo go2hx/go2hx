@@ -320,6 +320,8 @@ jobs:
       # Clean std
       - name: Clean std2hx
         run: npx haxe --run Run clean
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       # compile std
       - name: Build go2hx compiler
         run: npx haxe --run Run build
@@ -388,6 +390,8 @@ jobs:
       # Clean std
       - name: Clean std2hx
         run: npx haxe --run Run clean
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       # compile std
       - name: Build go2hx compiler
         run: npx haxe --run Run build
@@ -557,9 +561,6 @@ jobs:
       # Clean std
       - name: Clean std2hx
         run: npx haxe --run Run clean
-      # compile std
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - uses: actions/cache/restore@v4

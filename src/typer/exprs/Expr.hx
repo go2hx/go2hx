@@ -126,7 +126,7 @@ function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info
 	if (passCopy && toType != null)
 		y = HaxeAst.passByCopy(toType, y, info);
 
-	if (isAnyInterface(toType) && !HaxeAst.isRestExpr(expr)) {
+	if (!isAnyInterface(fromType) && isAnyInterface(toType) && !HaxeAst.isRestExpr(expr)) {
 		y = typer.exprs.Expr.toAnyInterface(y, fromType, info);
 	}
 

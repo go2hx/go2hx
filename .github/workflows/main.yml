@@ -35,6 +35,8 @@ jobs:
       - name: Set source
         run: npx haxelib dev go2hx .
       # Clean std
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Clean std
         run: npx haxe --run Run clean
       - name: Build go2hx compiler
@@ -92,8 +94,6 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - name: Clean std
@@ -108,6 +108,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Build interop test
         run: haxelib run go2hx ./tests/interop --nolibwrap
       - name: Test interop
@@ -213,8 +215,6 @@ jobs:
       # go2hx setup
       - name: Clean std
         run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: npx haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -227,6 +227,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Run lib tests
         run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -259,8 +261,6 @@ jobs:
       # go2hx setup
       - name: Clean std
         run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: npx haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -273,6 +273,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Run lib tests
         run: haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -318,6 +320,8 @@ jobs:
       # Clean std
       - name: Clean std2hx
         run: npx haxe --run Run clean
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       # compile std
       - name: Build go2hx compiler
         run: npx haxe --run Run build
@@ -333,6 +337,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
       - name: Sort tests
@@ -384,6 +390,8 @@ jobs:
       # Clean std
       - name: Clean std2hx
         run: npx haxe --run Run clean
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       # compile std
       - name: Build go2hx compiler
         run: npx haxe --run Run build
@@ -399,6 +407,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
       - name: Sort tests
@@ -437,8 +447,6 @@ jobs:
       # go2hx setup
       - name: Clean std
         run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: npx haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -451,6 +459,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       # run yaegi easy tests
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
@@ -489,8 +499,6 @@ jobs:
       # go2hx setup
       - name: Clean std
         run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: npx haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -503,6 +511,8 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       # run yaegi easy tests
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
@@ -551,9 +561,6 @@ jobs:
       # Clean std
       - name: Clean std2hx
         run: npx haxe --run Run clean
-      # compile std
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -566,6 +573,10 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
+      - name: Build go2hx compiler
+        run: npx haxe --run Run build
       - name: clone go
         run: git clone https://github.com/golang/go -b go${{env.VERSION}} --depth=1 ./tests/go
       - name: Sort tests
@@ -604,8 +615,6 @@ jobs:
       # go2hx setup
       - name: Clean std
         run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: npx haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -618,6 +627,10 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
+      - name: Build go2hx compiler
+        run: npx haxe --run Run build
       # run yaegi medium tests
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
@@ -656,8 +669,6 @@ jobs:
       # go2hx setup
       - name: Clean std
         run: npx haxe --run Run clean
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: npx haxelib dev go2hx .
       - uses: actions/cache/restore@v4
@@ -670,6 +681,10 @@ jobs:
             export
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
+      - name: Build go2hx compiler
+        run: npx haxe --run Run build
       # run yaegi medium tests
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
@@ -711,8 +726,6 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - name: Clean std
@@ -728,6 +741,8 @@ jobs:
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - run: ls
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Run unit
         run: haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D target=hl #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -774,8 +789,6 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
       - name: Clean std
@@ -791,6 +804,8 @@ jobs:
             golibs
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - run: ls
+      - name: Setup hxcpp
+        run: haxe -cp extra/scripts --run SetupHxcpp
       - name: Run unit
         run: haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D target=interp #-D hxb
       - uses: EndBug/add-and-commit@v9

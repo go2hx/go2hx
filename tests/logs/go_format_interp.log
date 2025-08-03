@@ -1,11 +1,12 @@
 === RUN  TestNode
 Node failed: format.Node internal error (187:2: expected 'package', found 'EOF')
 Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.go_.format._Format_testnode.Format_testnode_Fields_.testNode (golibs/_internal/go_/format/Format_testnode.hx line 43 column 17)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
-Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
 Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
+Called from _internal.go_.format._Format_testnode.Format_testnode_Fields_.testNode (golibs/_internal/go_/format/Format_testnode.hx line 43 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.go_.formatdottest._Formatdottest.Formatdottest_Fields_.main (golibs/_internal/go_/formatdottest/Formatdottest.hx line 13 column 36)
 
 -- FAIL: TestNode
 
@@ -21,11 +22,6 @@ src:1: p
 === RUN  TestSource
 Exception: Cannot call null
 Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.go_.format._Format_testsource.Format_testsource_Fields_.testSource (golibs/_internal/go_/format/Format_testsource.hx line 23 column 23)
-Called from _internal.go_.format._Format_source.Format_source_Fields_.source (golibs/_internal/go_/format/Format_source.hx line 20 column 13)
-Called from _internal.go_.ast._Ast_sortimports.Ast_sortimports_Fields_.sortImports (golibs/_internal/go_/ast/Ast_sortimports.hx line 44 column 45)
-Called from _internal.go_.ast._Ast__sortspecs.Ast__sortspecs_Fields_._sortSpecs (golibs/_internal/go_/ast/Ast__sortspecs.hx line 142 column 18)
-Called from go.GoRefMap.get (golibs/go/GoMap.hx line 544 column 10)
 
 -- FAIL: TestSource
 

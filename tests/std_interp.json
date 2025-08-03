@@ -33,5 +33,8 @@
  "interp|net/textproto",
  "interp|internal/godebugs",
  "interp|go/scanner",
- "interp|image/draw"
+ "interp|image/draw",
+ "interp|encoding/binary",
+ "interp|fmt",
+ "interp|math"
 ]

@@ -1,8 +1,10 @@
 === RUN  TestExpand
 Exception: :os.expand is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testexpand.Os_test_testexpand_Fields_.testExpand (golibs/_internal/os_test/Os_test_testexpand.hx line 5 column 28)
 Called from go._internal.os._Os_expand.Os_expand_Fields_.expand (golibs/go/_internal/os/Os_expand.hx line 2 column 82)
+Called from _internal.os_test._Os_test_testexpand.Os_test_testexpand_Fields_.testExpand (golibs/_internal/os_test/Os_test_testexpand.hx line 5 column 28)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestExpand
 
@@ -12,23 +14,29 @@ Called from go._internal.os._Os_expand.Os_expand_Fields_.expand (golibs/go/_inte
 
 === RUN  TestUnsetenv
 Exception: :os.setenv is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testunsetenv.Os_test_testunsetenv_Fields_.testUnsetenv (golibs/_internal/os_test/Os_test_testunsetenv.hx line 19 column 24)
 Called from go._internal.os._Os_setenv.Os_setenv_Fields_.setenv (golibs/go/_internal/os/Os_setenv.hx line 2 column 64)
+Called from _internal.os_test._Os_test_testunsetenv.Os_test_testunsetenv_Fields_.testUnsetenv (golibs/_internal/os_test/Os_test_testunsetenv.hx line 19 column 24)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestUnsetenv
 
 === RUN  TestClearenv
 Exception: :os.setenv is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testclearenv.Os_test_testclearenv_Fields_.testClearenv (golibs/_internal/os_test/Os_test_testclearenv.hx line 115 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestClearenv
 
 === RUN  TestLookupEnv
 Exception: :os.lookupEnv is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testlookupenv.Os_test_testlookupenv_Fields_.testLookupEnv (golibs/_internal/os_test/Os_test_testlookupenv.hx line 80 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestLookupEnv
 
@@ -39,42 +47,52 @@ Called from _internal.os_test._Os_test_testlookupenv.Os_test_testlookupenv_Field
 === RUN  TestErrIsExist
 Open should have failed
 Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testerrisexist.Os_test_testerrisexist_Fields_.testErrIsExist (golibs/_internal/os_test/Os_test_testerrisexist.hx line 95 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestErrIsExist
 
 === RUN  TestErrIsNotExist
 Exception: :os.isNotExist is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testerrisnotexist.Os_test_testerrisnotexist_Fields_.testErrIsNotExist (golibs/_internal/os_test/Os_test_testerrisnotexist.hx line 7 column 23)
-Called from _internal.os_test._Os_test__testerrnotexist.Os_test__testerrnotexist_Fields_._testErrNotExist (golibs/_internal/os_test/Os_test__testerrnotexist.hx line 26 column 23)
-Called from _internal.os_test._Os_test__checkerrorpredicate.Os_test__checkerrorpredicate_Fields_._checkErrorPredicate (golibs/_internal/os_test/Os_test__checkerrorpredicate.hx line 4 column 14)
 Called from go._internal.os._Os_isnotexist.Os_isnotexist_Fields_.isNotExist (golibs/go/_internal/os/Os_isnotexist.hx line 2 column 41)
+Called from _internal.os_test._Os_test__checkerrorpredicate.Os_test__checkerrorpredicate_Fields_._checkErrorPredicate (golibs/_internal/os_test/Os_test__checkerrorpredicate.hx line 4 column 14)
+Called from _internal.os_test._Os_test__testerrnotexist.Os_test__testerrnotexist_Fields_._testErrNotExist (golibs/_internal/os_test/Os_test__testerrnotexist.hx line 26 column 23)
+Called from _internal.os_test._Os_test_testerrisnotexist.Os_test_testerrisnotexist_Fields_.testErrIsNotExist (golibs/_internal/os_test/Os_test_testerrisnotexist.hx line 7 column 23)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestErrIsNotExist
 
 === RUN  TestIsExist
 Exception: :os.isExist is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testisexist.Os_test_testisexist_Fields_.testIsExist (golibs/_internal/os_test/Os_test_testisexist.hx line 7 column 27)
 Called from go._internal.os._Os_isexist.Os_isexist_Fields_.isExist (golibs/go/_internal/os/Os_isexist.hx line 2 column 38)
+Called from _internal.os_test._Os_test_testisexist.Os_test_testisexist_Fields_.testIsExist (golibs/_internal/os_test/Os_test_testisexist.hx line 7 column 27)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestIsExist
 
 === RUN  TestIsPermission
 Exception: :os.isPermission is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testispermission.Os_test_testispermission_Fields_.testIsPermission (golibs/_internal/os_test/Os_test_testispermission.hx line 7 column 28)
 Called from go._internal.os._Os_ispermission.Os_ispermission_Fields_.isPermission (golibs/go/_internal/os/Os_ispermission.hx line 2 column 43)
+Called from _internal.os_test._Os_test_testispermission.Os_test_testispermission_Fields_.testIsPermission (golibs/_internal/os_test/Os_test_testispermission.hx line 7 column 28)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestIsPermission
 
 === RUN  TestErrPathNUL
 TempFile should have failed
 Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testerrpathnul.Os_test_testerrpathnul_Fields_.testErrPathNUL (golibs/_internal/os_test/Os_test_testerrpathnul.hx line 116 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestErrPathNUL
 
@@ -84,33 +102,39 @@ Called from _internal.os_test._Os_test_testerrpathnul.Os_test_testerrpathnul_Fie
 
 === RUN  TestErrorIsMethods
 Exception: :os.isPermission is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testerrorismethods.Os_test_testerrorismethods_Fields_.testErrorIsMethods (golibs/_internal/os_test/Os_test_testerrorismethods.hx line 4 column 13)
 Called from go._internal.os._Os_ispermission.Os_ispermission_Fields_.isPermission (golibs/go/_internal/os/Os_ispermission.hx line 2 column 43)
+Called from _internal.os_test._Os_test_testerrorismethods.Os_test_testerrorismethods_Fields_.testErrorIsMethods (golibs/_internal/os_test/Os_test_testerrorismethods.hx line 4 column 13)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestErrorIsMethods
 
 === RUN  TestExecutable
 Exception: :os.executable is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testexecutable.Os_test_testexecutable_Fields_.testExecutable (golibs/_internal/os_test/Os_test_testexecutable.hx line 4 column 9)
-Called from go._internal.internal.testenv._Testenv_musthaveexec.Testenv_musthaveexec_Fields_.mustHaveExec (golibs/go/_internal/internal/testenv/Testenv_musthaveexec.hx line 18 column 9)
-Called from go._internal.sync.Once_static_extension.do_ (golibs/go/_internal/sync/Sync_once_static_extension.hx line 11 column 9)
-Called from local function #1 (golibs/go/_internal/internal/testenv/Testenv_musthaveexec.hx line 19 column 77)
-Called from go._internal.internal.testenv._Testenv__tryexec.Testenv__tryexec_Fields_._tryExec (golibs/go/_internal/internal/testenv/Testenv__tryexec.hx line 30 column 23)
 Called from go._internal.os._Os_executable.Os_executable_Fields_.executable (golibs/go/_internal/os/Os_executable.hx line 2 column 68)
+Called from go._internal.internal.testenv._Testenv__tryexec.Testenv__tryexec_Fields_._tryExec (golibs/go/_internal/internal/testenv/Testenv__tryexec.hx line 30 column 23)
+Called from local function #1 (golibs/go/_internal/internal/testenv/Testenv_musthaveexec.hx line 19 column 77)
+Called from go._internal.sync.Once_static_extension.do_ (golibs/go/_internal/sync/Sync_once_static_extension.hx line 11 column 9)
+Called from go._internal.internal.testenv._Testenv_musthaveexec.Testenv_musthaveexec_Fields_.mustHaveExec (golibs/go/_internal/internal/testenv/Testenv_musthaveexec.hx line 18 column 9)
+Called from _internal.os_test._Os_test_testexecutable.Os_test_testexecutable_Fields_.testExecutable (golibs/_internal/os_test/Os_test_testexecutable.hx line 4 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestExecutable
 
 === RUN  TestExecutableDeleted
 skipping test: 'go build' unavailable: <nil>Exception: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testexecutabledeleted.Os_test_testexecutabledeleted_Fields_.testExecutableDeleted (golibs/_internal/os_test/Os_test_testexecutabledeleted.hx line 4 column 9)
-Called from go._internal.internal.testenv._Testenv_musthavegobuild.Testenv_musthavegobuild_Fields_.mustHaveGoBuild (golibs/go/_internal/internal/testenv/Testenv_musthavegobuild.hx line 29 column 13)
-Called from go._internal.testing.T__asInterface.skipf (golibs/go/_internal/testing/Testing_t__asinterface.hx line 48 column 92)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 90 column 100)
-Called from go._internal.testing.T_common_static_extension.skipf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
 Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.testing.T_common_static_extension.skipf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 90 column 100)
+Called from go._internal.testing.T__asInterface.skipf (golibs/go/_internal/testing/Testing_t__asinterface.hx line 48 column 92)
+Called from go._internal.internal.testenv._Testenv_musthavegobuild.Testenv_musthavegobuild_Fields_.mustHaveGoBuild (golibs/go/_internal/internal/testenv/Testenv_musthavegobuild.hx line 29 column 13)
+Called from _internal.os_test._Os_test_testexecutabledeleted.Os_test_testexecutabledeleted_Fields_.testExecutableDeleted (golibs/_internal/os_test/Os_test_testexecutabledeleted.hx line 4 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestExecutableDeleted
 
@@ -121,24 +145,30 @@ name should be  group ; is /etc/group
 open failed: Exception: /etc/group: Permission denied
 Called from go._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/go/_internal/os/Os_openfile.hx line 11 column 108)
 Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_teststat.Os_test_teststat_Fields_.testStat (golibs/_internal/os_test/Os_test_teststat.hx line 24 column 25)
 Called from _internal.os_test._Os_test__size.Os_test__size_Fields_._size (golibs/_internal/os_test/Os_test__size.hx line 110 column 30)
+Called from _internal.os_test._Os_test_teststat.Os_test_teststat_Fields_.testStat (golibs/_internal/os_test/Os_test_teststat.hx line 24 column 25)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestStat
 
 === RUN  TestStatError
 got *.errors.errorString, want *.io.fs.PathError
 Exception: :os.symlink is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_teststaterror.Os_test_teststaterror_Fields_.testStatError (golibs/_internal/os_test/Os_test_teststaterror.hx line 166 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestStatError
 
 === RUN  TestStatSymlinkLoop
 Exception: :os.symlink is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_teststatsymlinkloop.Os_test_teststatsymlinkloop_Fields_.testStatSymlinkLoop (golibs/_internal/os_test/Os_test_teststatsymlinkloop.hx line 132 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestStatSymlinkLoop
 
@@ -146,8 +176,10 @@ Called from _internal.os_test._Os_test_teststatsymlinkloop.Os_test_teststatsymli
 open failed: Exception: /etc/group: Permission denied
 Called from go._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/go/_internal/os/Os_openfile.hx line 11 column 108)
 Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testfstat.Os_test_testfstat_Fields_.testFstat (golibs/_internal/os_test/Os_test_testfstat.hx line 97 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestFstat
 
@@ -156,9 +188,11 @@ name should be  group ; is /etc/group
 open failed: Exception: /etc/group: Permission denied
 Called from go._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/go/_internal/os/Os_openfile.hx line 11 column 108)
 Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testlstat.Os_test_testlstat_Fields_.testLstat (golibs/_internal/os_test/Os_test_testlstat.hx line 26 column 29)
 Called from _internal.os_test._Os_test__size.Os_test__size_Fields_._size (golibs/_internal/os_test/Os_test__size.hx line 110 column 30)
+Called from _internal.os_test._Os_test_testlstat.Os_test_testlstat_Fields_.testLstat (golibs/_internal/os_test/Os_test_testlstat.hx line 26 column 29)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestLstat
 
@@ -166,8 +200,10 @@ Called from _internal.os_test._Os_test__size.Os_test__size_Fields_._size (golibs
 open failed: Exception: /etc/group: Permission denied
 Called from go._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/go/_internal/os/Os_openfile.hx line 11 column 108)
 Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testread0.Os_test_testread0_Fields_.testRead0 (golibs/_internal/os_test/Os_test_testread0.hx line 105 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestRead0
 
@@ -175,11 +211,13 @@ Called from _internal.os_test._Os_test_testread0.Os_test_testread0_Fields_.testR
 open failed: Exception: /etc/group: Permission denied
 Called from go._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/go/_internal/os/Os_openfile.hx line 11 column 108)
 Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testreadclosed.Os_test_testreadclosed_Fields_.testReadClosed (golibs/_internal/os_test/Os_test_testreadclosed.hx line 10 column 13)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
-Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
 Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
+Called from _internal.os_test._Os_test_testreadclosed.Os_test_testreadclosed_Fields_.testReadClosed (golibs/_internal/os_test/Os_test_testreadclosed.hx line 10 column 13)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestReadClosed
 
@@ -193,38 +231,46 @@ Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_i
 === RUN  TestFileReaddir
 - SUBRUN  .
 Exception: File:os.readdir is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testfilereaddir.Os_test_testfilereaddir_Fields_.testFileReaddir (golibs/_internal/os_test/Os_test_testfilereaddir.hx line 6 column 9)
-Called from go._internal.testing.T__static_extension.run (golibs/go/_internal/testing/Testing_t__static_extension.hx line 13 column 9)
 Called from local function #1 (golibs/_internal/os_test/Os_test__testreaddir.hx line 120 column 34)
+Called from go._internal.testing.T__static_extension.run (golibs/go/_internal/testing/Testing_t__static_extension.hx line 13 column 9)
+Called from _internal.os_test._Os_test_testfilereaddir.Os_test_testfilereaddir_Fields_.testFileReaddir (golibs/_internal/os_test/Os_test_testfilereaddir.hx line 6 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestFileReaddir
 
 === RUN  TestFileReadDir
 - SUBRUN  .
 Exception: Cannot call null
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testfilereaddir.Os_test_testfilereaddir_Fields_.testFileReadDir (golibs/_internal/os_test/Os_test_testfilereaddir.hx line 16 column 9)
-Called from go._internal.testing.T__static_extension.run (golibs/go/_internal/testing/Testing_t__static_extension.hx line 13 column 9)
 Called from local function #1 (golibs/_internal/os_test/Os_test__testreaddir.hx line 295 column 34)
+Called from go._internal.testing.T__static_extension.run (golibs/go/_internal/testing/Testing_t__static_extension.hx line 13 column 9)
+Called from _internal.os_test._Os_test_testfilereaddir.Os_test_testfilereaddir_Fields_.testFileReadDir (golibs/_internal/os_test/Os_test_testfilereaddir.hx line 16 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestFileReadDir
 
 === RUN  TestReaddirnamesOneAtATime
 Exception: array out of bounds, index: 2131 length: 2131
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testreaddirnamesoneatatime.Os_test_testreaddirnamesoneatatime_Fields_.testReaddirnamesOneAtATime (golibs/_internal/os_test/Os_test_testreaddirnamesoneatatime.hx line 143 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestReaddirnamesOneAtATime
 
 === RUN  TestReaddirNValues
 test.short; skipping
 Exception: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testreaddirnvalues.Os_test_testreaddirnvalues_Fields_.testReaddirNValues (golibs/_internal/os_test/Os_test_testreaddirnvalues.hx line 6 column 21)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
-Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
 Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
+Called from _internal.os_test._Os_test_testreaddirnvalues.Os_test_testreaddirnvalues_Fields_.testReaddirNValues (golibs/_internal/os_test/Os_test_testreaddirnvalues.hx line 6 column 21)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestReaddirNValues
 
@@ -232,23 +278,29 @@ Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_i
 
 === RUN  TestReaddirStatFailures
 Exception: field access on null
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testreaddirstatfailures.Os_test_testreaddirstatfailures_Fields_.testReaddirStatFailures (golibs/_internal/os_test/Os_test_testreaddirstatfailures.hx line 254 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestReaddirStatFailures
 
 === RUN  TestReaddirOfFile
 golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 Exception: errors: *target must be interface or implement error
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testreaddiroffile.Os_test_testreaddiroffile_Fields_.testReaddirOfFile (golibs/_internal/os_test/Os_test_testreaddiroffile.hx line 113 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestReaddirOfFile
 
 === RUN  TestHardLink
 skipping test: hardlinks are not supported on js/wasmException: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testhardlink.Os_test_testhardlink_Fields_.testHardLink (golibs/_internal/os_test/Os_test_testhardlink.hx line 218 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestHardLink
 
@@ -256,77 +308,97 @@ Called from _internal.os_test._Os_test_testhardlink.Os_test_testhardlink_Fields_
 
 === RUN  TestSymlink
 Exception: :os.symlink is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testsymlink.Os_test_testsymlink_Fields_.testSymlink (golibs/_internal/os_test/Os_test_testsymlink.hx line 224 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestSymlink
 
 === RUN  TestLongSymlink
 Exception: :os.symlink is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testlongsymlink.Os_test_testlongsymlink_Fields_.testLongSymlink (golibs/_internal/os_test/Os_test_testlongsymlink.hx line 93 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestLongSymlink
 
 === RUN  TestRename
 Exception: :os.rename is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testrename.Os_test_testrename_Fields_.testRename (golibs/_internal/os_test/Os_test_testrename.hx line 116 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestRename
 
 === RUN  TestRenameOverwriteDest
 write file "renameto" failed: writeFile renameto: no such file or directoryException: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testrenameoverwritedest.Os_test_testrenameoverwritedest_Fields_.testRenameOverwriteDest (golibs/_internal/os_test/Os_test_testrenameoverwritedest.hx line 139 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestRenameOverwriteDest
 
 === RUN  TestRenameFailed
 Exception: :os.rename is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testrenamefailed.Os_test_testrenamefailed_Fields_.testRenameFailed (golibs/_internal/os_test/Os_test_testrenamefailed.hx line 111 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestRenameFailed
 
 === RUN  TestRenameNotExisting
 Exception: :os.rename is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testrenamenotexisting.Os_test_testrenamenotexisting_Fields_.testRenameNotExisting (golibs/_internal/os_test/Os_test_testrenamenotexisting.hx line 76 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestRenameNotExisting
 
 === RUN  TestRenameToDirFailed
 Exception: :os.rename is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testrenametodirfailed.Os_test_testrenametodirfailed_Fields_.testRenameToDirFailed (golibs/_internal/os_test/Os_test_testrenametodirfailed.hx line 115 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestRenameToDirFailed
 
 === RUN  TestRenameCaseDifference
 - SUBRUN  dir
 Exception: :os.isNotExist is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testrenamecasedifference.Os_test_testrenamecasedifference_Fields_.testRenameCaseDifference (golibs/_internal/os_test/Os_test_testrenamecasedifference.hx line 21 column 13)
-Called from go._internal.testing.T__static_extension.run (golibs/go/_internal/testing/Testing_t__static_extension.hx line 13 column 9)
 Called from local function #3 (golibs/_internal/os_test/Os_test_testrenamecasedifference.hx line 165 column 38)
+Called from go._internal.testing.T__static_extension.run (golibs/go/_internal/testing/Testing_t__static_extension.hx line 13 column 9)
+Called from _internal.os_test._Os_test_testrenamecasedifference.Os_test_testrenamecasedifference_Fields_.testRenameCaseDifference (golibs/_internal/os_test/Os_test_testrenamecasedifference.hx line 21 column 13)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestRenameCaseDifference
 
 === RUN  TestStartProcess
 golibs/go/_internal/os/exec/Exec_lookpath.hx:5: funclit
 Exception: not implemented: lookPath
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_teststartprocess.Os_test_teststartprocess_Fields_.testStartProcess (golibs/_internal/os_test/Os_test_teststartprocess.hx line 22 column 35)
 Called from go._internal.os.exec._Exec_lookpath.Exec_lookpath_Fields_.lookPath (golibs/go/_internal/os/exec/Exec_lookpath.hx line 6 column 9)
+Called from _internal.os_test._Os_test_teststartprocess.Os_test_teststartprocess_Fields_.testStartProcess (golibs/_internal/os_test/Os_test_teststartprocess.hx line 22 column 35)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestStartProcess
 
 === RUN  TestChmod
 Stat "/tmp/tmpfile_": mode 0302 want 0456
 Exception: File:os.chmod is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testchmod.Os_test_testchmod_Fields_.testChmod (golibs/_internal/os_test/Os_test_testchmod.hx line 114 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestChmod
 
@@ -334,8 +406,10 @@ Called from _internal.os_test._Os_test_testchmod.Os_test_testchmod_Fields_.testC
 Stat "/tmp/tmpfile_": size 0 want 13
 Stat "/tmp/tmpfile_": size 0 want 10
 Exception: OutsideBounds
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testftruncate.Os_test_testftruncate_Fields_.testFTruncate (golibs/_internal/os_test/Os_test_testftruncate.hx line 89 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestFTruncate
 
@@ -361,44 +435,56 @@ want an ErrNotExist PathError with path "tmpdir_/nonexistent"
 
 === RUN  TestChtimes
 Exception: Cannot call null
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testchtimes.Os_test_testchtimes_Fields_.testChtimes (golibs/_internal/os_test/Os_test_testchtimes.hx line 67 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestChtimes
 
 === RUN  TestChtimesWithZeroTimes
 Exception: Cannot call null
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testchtimeswithzerotimes.Os_test_testchtimeswithzerotimes_Fields_.testChtimesWithZeroTimes (golibs/_internal/os_test/Os_test_testchtimeswithzerotimes.hx line 228 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestChtimesWithZeroTimes
 
 === RUN  TestChtimesDir
 Exception: Cannot call null
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testchtimesdir.Os_test_testchtimesdir_Fields_.testChtimesDir (golibs/_internal/os_test/Os_test_testchtimesdir.hx line 63 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestChtimesDir
 
 === RUN  TestChtimesToUnixZero
 Exception: :os.chtimes is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testchtimestounixzero.Os_test_testchtimestounixzero_Fields_.testChtimesToUnixZero (golibs/_internal/os_test/Os_test_testchtimestounixzero.hx line 127 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestChtimesToUnixZero
 
 === RUN  TestFileChdir
 Exception: File:os.chdir is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testfilechdir.Os_test_testfilechdir_Fields_.testFileChdir (golibs/_internal/os_test/Os_test_testfilechdir.hx line 136 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestFileChdir
 
 === RUN  TestChdirAndGetwd
 Exception: :os.setenv is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testchdirandgetwd.Os_test_testchdirandgetwd_Fields_.testChdirAndGetwd (golibs/_internal/os_test/Os_test_testchdirandgetwd.hx line 86 column 21)
 Called from go._internal.os._Os_setenv.Os_setenv_Fields_.setenv (golibs/go/_internal/os/Os_setenv.hx line 2 column 64)
+Called from _internal.os_test._Os_test_testchdirandgetwd.Os_test_testchdirandgetwd_Fields_.testChdirAndGetwd (golibs/_internal/os_test/Os_test_testchdirandgetwd.hx line 86 column 21)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestChdirAndGetwd
 
@@ -443,19 +529,20 @@ golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Ca
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
 golibs/go/Go.hx:46: characters 4-10 : Called from here
 golibs/go/Go.hx:37: lines 37-50 : Called from here
-
--- PASS: TestProgWideChdir
-
-=== RUN  TestSeek
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
 golibs/go/Go.hx:46: characters 4-10 : Called from here
-golibs/go/Go.hx:37: lines 37-50 : Called from heregolibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
+golibs/go/Go.hx:37: lines 37-50 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
 golibs/go/Go.hx:46: characters 4-10 : Called from here
 golibs/go/Go.hx:37: lines 37-50 : Called from here
+
+-- PASS: TestProgWideChdir
+
+=== RUN  TestSeek
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
 #0: Seek(0, 1) = 0, <nil> want 13, nil
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
@@ -475,7 +562,6 @@ golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval ta
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
 #9: Seek(0, 1) = 0, <nil> want 4294967295, nil
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
-
 #10: Seek(8589934591, 0) = 0, <nil> want 8589934591, nil
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
 #11: Seek(0, 1) = 0, <nil> want 8589934591, nil
@@ -484,11 +570,13 @@ golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval ta
 
 === RUN  TestSeekError
 skipping test on jsException: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testseekerror.Os_test_testseekerror_Fields_.testSeekError (golibs/_internal/os_test/Os_test_testseekerror.hx line 8 column 65)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 90 column 100)
-Called from go._internal.testing.T_common_static_extension.skipf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
 Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.testing.T_common_static_extension.skipf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 90 column 100)
+Called from _internal.os_test._Os_test_testseekerror.Os_test_testseekerror_Fields_.testSeekError (golibs/_internal/os_test/Os_test_testseekerror.hx line 8 column 65)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestSeekError
 
@@ -497,8 +585,10 @@ Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_i
 === RUN  TestOpenError
 Open("/etc/no-such-file", 0) returns error of *.errors.errorString type; want *PathError
 Exception: null pointer dereference
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testopenerror.Os_test_testopenerror_Fields_.testOpenError (golibs/_internal/os_test/Os_test_testopenerror.hx line 43 column 50)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestOpenError
 
@@ -508,24 +598,30 @@ Called from _internal.os_test._Os_test_testopenerror.Os_test_testopenerror_Field
 
 === RUN  TestHostname
 Exception: :os.hostname is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testhostname.Os_test_testhostname_Fields_.testHostname (golibs/_internal/os_test/Os_test_testhostname.hx line 5 column 23)
 Called from go._internal.os._Os_hostname.Os_hostname_Fields_.hostname (golibs/go/_internal/os/Os_hostname.hx line 2 column 66)
+Called from _internal.os_test._Os_test_testhostname.Os_test_testhostname_Fields_.testHostname (golibs/_internal/os_test/Os_test_testhostname.hx line 5 column 23)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestHostname
 
 === RUN  TestReadAt
 ReadAt 7: 0, File.readAt failed: EofException: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testreadat.Os_test_testreadat_Fields_.testReadAt (golibs/_internal/os_test/Os_test_testreadat.hx line 87 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestReadAt
 
 === RUN  TestReadAtOffset
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
 ReadAt 7: 0, File.readAt failed: EofException: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testreadatoffset.Os_test_testreadatoffset_Fields_.testReadAtOffset (golibs/_internal/os_test/Os_test_testreadatoffset.hx line 111 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestReadAtOffset
 
@@ -537,8 +633,10 @@ ReadAt(-10) = 0, File.readAt failed: Eof; want 0, ..."negative offset"...
 
 === RUN  TestWriteAt
 after write: have "hello, world\nWORLD" want "hello, WORLD\n"Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testwriteat.Os_test_testwriteat_Fields_.testWriteAt (golibs/_internal/os_test/Os_test_testwriteat.hx line 99 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestWriteAt
 
@@ -550,15 +648,19 @@ WriteAt(-10) = 5, <nil>; want 0, ..."negative offset"...
 === RUN  TestWriteAtInAppendMode
 OpenFile: Exception: write_at_in_append_mode.txt: No such file or directory
 Called from go._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/go/_internal/os/Os_openfile.hx line 11 column 66)Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testwriteatinappendmode.Os_test_testwriteatinappendmode_Fields_.testWriteAtInAppendMode (golibs/_internal/os_test/Os_test_testwriteatinappendmode.hx line 111 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestWriteAtInAppendMode
 
 === RUN  TestAppend
 writeFile: have "|append" want "new|append"Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testappend.Os_test_testappend_Fields_.testAppend (golibs/_internal/os_test/Os_test_testappend.hx line 107 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestAppend
 
@@ -568,16 +670,20 @@ Called from _internal.os_test._Os_test_testappend.Os_test_testappend_Fields_.tes
 
 === RUN  TestNilProcessStateString
 Exception: ProcessState:os.string is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testnilprocessstatestring.Os_test_testnilprocessstatestring_Fields_.testNilProcessStateString (golibs/_internal/os_test/Os_test_testnilprocessstatestring.hx line 4 column 19)
 Called from go._internal.os.ProcessState_static_extension.string (golibs/go/_internal/os/Os_processstate_static_extension.hx line 14 column 105)
+Called from _internal.os_test._Os_test_testnilprocessstatestring.Os_test_testnilprocessstatestring_Fields_.testNilProcessStateString (golibs/_internal/os_test/Os_test_testnilprocessstatestring.hx line 4 column 19)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestNilProcessStateString
 
 === RUN  TestSameFile
 Exception: :os.sameFile is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testsamefile.Os_test_testsamefile_Fields_.testSameFile (golibs/_internal/os_test/Os_test_testsamefile.hx line 136 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestSameFile
 
@@ -594,11 +700,13 @@ Stat("/dev/null"): wrong file mode "-rw-rw-rw-": IsRegular returns true
 === RUN  TestLargeWriteToConsole
 skipping console-flooding test; enable with -large_write
 Exception: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testlargewritetoconsole.Os_test_testlargewritetoconsole_Fields_.testLargeWriteToConsole (golibs/_internal/os_test/Os_test_testlargewritetoconsole.hx line 6 column 21)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
-Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
 Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
+Called from _internal.os_test._Os_test_testlargewritetoconsole.Os_test_testlargewritetoconsole_Fields_.testLargeWriteToConsole (golibs/_internal/os_test/Os_test_testlargewritetoconsole.hx line 6 column 21)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestLargeWriteToConsole
 
@@ -611,66 +719,78 @@ Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_i
 === RUN  TestStatStdin
 Exception: field access on null
 Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_teststatstdin.Os_test_teststatstdin_Fields_.testStatStdin (golibs/_internal/os_test/Os_test_teststatstdin.hx line 35 column 23)
-Called from go._internal.os.File_static_extension.stat (golibs/go/_internal/os/Os_file_static_extension.hx line 6 column 102)
 
 -- FAIL: TestStatStdin
 
 === RUN  TestStatRelativeSymlink
 Exception: :os.symlink is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_teststatrelativesymlink.Os_test_teststatrelativesymlink_Fields_.testStatRelativeSymlink (golibs/_internal/os_test/Os_test_teststatrelativesymlink.hx line 157 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestStatRelativeSymlink
 
 === RUN  TestReadAtEOF
 ReadAt failed: File.readAt failed: EofException: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testreadateof.Os_test_testreadateof_Fields_.testReadAtEOF (golibs/_internal/os_test/Os_test_testreadateof.hx line 98 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestReadAtEOF
 
 === RUN  TestLongPath
 - SUBRUN  length=247
 Exception: :os.mkdirAll is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testlongpath.Os_test_testlongpath_Fields_.testLongPath (golibs/_internal/os_test/Os_test_testlongpath.hx line 249 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestLongPath
 
 === RUN  TestKillStartProcess
 Exception: T_:testing.deadline is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testkillstartprocess.Os_test_testkillstartprocess_Fields_.testKillStartProcess (golibs/_internal/os_test/Os_test_testkillstartprocess.hx line 4 column 9)
 Called from _internal.os_test._Os_test__testkillprocess.Os_test__testkillprocess_Fields_._testKillProcess (golibs/_internal/os_test/Os_test__testkillprocess.hx line 119 column 30)
+Called from _internal.os_test._Os_test_testkillstartprocess.Os_test_testkillstartprocess_Fields_.testKillStartProcess (golibs/_internal/os_test/Os_test_testkillstartprocess.hx line 4 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestKillStartProcess
 
 === RUN  TestGetppid
 Exception: T_:testing.deadline is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testgetppid.Os_test_testgetppid_Fields_.testGetppid (golibs/_internal/os_test/Os_test_testgetppid.hx line 19 column 20)
-Called from go._internal.internal.testenv._Testenv_command.Testenv_command_Fields_.command (golibs/go/_internal/internal/testenv/Testenv_command.hx line 21 column 16)
-Called from go._internal.internal.testenv._Testenv_commandcontext.Testenv_commandcontext_Fields_.commandContext (golibs/go/_internal/internal/testenv/Testenv_commandcontext.hx line 60 column 35)
-Called from go._internal.testing.T__asInterface.deadline (golibs/go/_internal/testing/Testing_t__asinterface.hx line 6 column 114)
 Called from go._internal.testing.T__static_extension.deadline (golibs/go/_internal/testing/Testing_t__static_extension.hx line 8 column 147)
+Called from go._internal.testing.T__asInterface.deadline (golibs/go/_internal/testing/Testing_t__asinterface.hx line 6 column 114)
+Called from go._internal.internal.testenv._Testenv_commandcontext.Testenv_commandcontext_Fields_.commandContext (golibs/go/_internal/internal/testenv/Testenv_commandcontext.hx line 60 column 35)
+Called from go._internal.internal.testenv._Testenv_command.Testenv_command_Fields_.command (golibs/go/_internal/internal/testenv/Testenv_command.hx line 21 column 16)
+Called from _internal.os_test._Os_test_testgetppid.Os_test_testgetppid_Fields_.testGetppid (golibs/_internal/os_test/Os_test_testgetppid.hx line 19 column 20)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestGetppid
 
 === RUN  TestKillFindProcess
 Exception: T_:testing.deadline is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testkillfindprocess.Os_test_testkillfindprocess_Fields_.testKillFindProcess (golibs/_internal/os_test/Os_test_testkillfindprocess.hx line 4 column 9)
 Called from _internal.os_test._Os_test__testkillprocess.Os_test__testkillprocess_Fields_._testKillProcess (golibs/_internal/os_test/Os_test__testkillprocess.hx line 119 column 30)
+Called from _internal.os_test._Os_test_testkillfindprocess.Os_test_testkillfindprocess_Fields_.testKillFindProcess (golibs/_internal/os_test/Os_test_testkillfindprocess.hx line 4 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestKillFindProcess
 
 === RUN  TestNilFileMethods
 Exception: File:os.chdir is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testnilfilemethods.Os_test_testnilfilemethods_Fields_.testNilFileMethods (golibs/_internal/os_test/Os_test_testnilfilemethods.hx line 8 column 24)
-Called from local function #1 (golibs/_internal/os_test/Os_test__nilfilemethodtests.hx line 5 column 12)
 Called from go._internal.os.File_static_extension.chdir (golibs/go/_internal/os/Os_file_static_extension.hx line 31 column 85)
+Called from local function #1 (golibs/_internal/os_test/Os_test__nilfilemethodtests.hx line 5 column 12)
+Called from _internal.os_test._Os_test_testnilfilemethods.Os_test_testnilfilemethods_Fields_.testNilFileMethods (golibs/_internal/os_test/Os_test_testnilfilemethods.hx line 8 column 24)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestNilFileMethods
 
@@ -682,8 +802,10 @@ Called from go._internal.os.File_static_extension.chdir (golibs/go/_internal/os/
 === RUN  TestPipeThreads
 skipping on js; no support for os.Pipe
 Exception: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testpipethreads.Os_test_testpipethreads_Fields_.testPipeThreads (golibs/_internal/os_test/Os_test_testpipethreads.hx line 216 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestPipeThreads
 
@@ -694,21 +816,25 @@ Called from _internal.os_test._Os_test_testpipethreads.Os_test_testpipethreads_F
 Exception: /etc/group: Permission denied
 Called from go._internal.os._Os_openfile.Os_openfile_Fields_.openFile (golibs/go/_internal/os/Os_openfile.hx line 11 column 108)
 Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testdoublecloseerror.Os_test_testdoublecloseerror_Fields_.testDoubleCloseError (golibs/_internal/os_test/Os_test_testdoublecloseerror.hx line 6 column 9)
-Called from go._internal.testing.T__static_extension.run (golibs/go/_internal/testing/Testing_t__static_extension.hx line 13 column 9)
-Called from local function #1 (golibs/_internal/os_test/Os_test__testdoublecloseerror.hx line 11 column 17)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
-Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
 Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
+Called from local function #1 (golibs/_internal/os_test/Os_test__testdoublecloseerror.hx line 11 column 17)
+Called from go._internal.testing.T__static_extension.run (golibs/go/_internal/testing/Testing_t__static_extension.hx line 13 column 9)
+Called from _internal.os_test._Os_test_testdoublecloseerror.Os_test_testdoublecloseerror_Fields_.testDoubleCloseError (golibs/_internal/os_test/Os_test_testdoublecloseerror.hx line 6 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestDoubleCloseError
 
 === RUN  TestUserHomeDir
 Exception: :os.userHomeDir is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testuserhomedir.Os_test_testuserhomedir_Fields_.testUserHomeDir (golibs/_internal/os_test/Os_test_testuserhomedir.hx line 5 column 23)
 Called from go._internal.os._Os_userhomedir.Os_userhomedir_Fields_.userHomeDir (golibs/go/_internal/os/Os_userhomedir.hx line 2 column 69)
+Called from _internal.os_test._Os_test_testuserhomedir.Os_test_testuserhomedir_Fields_.testUserHomeDir (golibs/_internal/os_test/Os_test_testuserhomedir.hx line 5 column 23)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestUserHomeDir
 
@@ -720,11 +846,13 @@ golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval ta
 === RUN  TestReaddirSmallSeek
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
 first names: [a], second names: []Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testreaddirsmallseek.Os_test_testreaddirsmallseek_Fields_.testReaddirSmallSeek (golibs/_internal/os_test/Os_test_testreaddirsmallseek.hx line 78 column 276)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
-Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
 Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
+Called from _internal.os_test._Os_test_testreaddirsmallseek.Os_test_testreaddirsmallseek_Fields_.testReaddirSmallSeek (golibs/_internal/os_test/Os_test_testreaddirsmallseek.hx line 78 column 276)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestReaddirSmallSeek
 
@@ -734,11 +862,13 @@ Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_i
 
 === RUN  TestDirFS
 Exception: Null Access
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testdirfs.Os_test_testdirfs_Fields_.testDirFS (golibs/_internal/os_test/Os_test_testdirfs.hx line 87 column 24)
-Called from go._internal.testing.fstest._Fstest_testfs.Fstest_testfs_Fields_.testFS (golibs/go/_internal/testing/fstest/Fstest_testfs.hx line 15 column 24)
-Called from go._internal.testing.fstest._Fstest__testfs.Fstest__testfs_Fields_._testFS (golibs/go/_internal/testing/fstest/Fstest__testfs.hx line 15 column 9)
 Called from go._internal.testing.fstest.T_fsTester_static_extension._checkDir (golibs/go/_internal/testing/fstest/Fstest_t_fstester_static_extension.hx line 1087 column 30)
+Called from go._internal.testing.fstest._Fstest__testfs.Fstest__testfs_Fields_._testFS (golibs/go/_internal/testing/fstest/Fstest__testfs.hx line 15 column 9)
+Called from go._internal.testing.fstest._Fstest_testfs.Fstest_testfs_Fields_.testFS (golibs/go/_internal/testing/fstest/Fstest_testfs.hx line 15 column 24)
+Called from _internal.os_test._Os_test_testdirfs.Os_test_testdirfs_Fields_.testDirFS (golibs/_internal/os_test/Os_test_testdirfs.hx line 87 column 24)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestDirFS
 
@@ -748,22 +878,26 @@ Called from go._internal.testing.fstest.T_fsTester_static_extension._checkDir (g
 
 === RUN  TestDirFSEmptyDir
 DirFS("").Open("testdata/dirfs/a") succeededException: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testdirfsemptydir.Os_test_testdirfsemptydir_Fields_.testDirFSEmptyDir (golibs/_internal/os_test/Os_test_testdirfsemptydir.hx line 13 column 77)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
-Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
 Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
+Called from _internal.os_test._Os_test_testdirfsemptydir.Os_test_testdirfsemptydir_Fields_.testDirFSEmptyDir (golibs/_internal/os_test/Os_test_testdirfsemptydir.hx line 13 column 77)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestDirFSEmptyDir
 
 === RUN  TestDirFSPathsValid
 writeFile tmpdir_/control.txt: no such file or directory
 Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testdirfspathsvalid.Os_test_testdirfspathsvalid_Fields_.testDirFSPathsValid (golibs/_internal/os_test/Os_test_testdirfspathsvalid.hx line 16 column 17)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
-Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
 Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
+Called from _internal.os_test._Os_test_testdirfspathsvalid.Os_test_testdirfspathsvalid_Fields_.testDirFSPathsValid (golibs/_internal/os_test/Os_test_testdirfspathsvalid.hx line 16 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestDirFSPathsValid
 
@@ -774,11 +908,13 @@ Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_i
 === RUN  TestDirFSReadFileProc
 
 Exception: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testdirfsreadfileproc.Os_test_testdirfsreadfileproc_Fields_.testDirFSReadFileProc (golibs/_internal/os_test/Os_test_testdirfsreadfileproc.hx line 12 column 17)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
-Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
 Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
+Called from _internal.os_test._Os_test_testdirfsreadfileproc.Os_test_testdirfsreadfileproc_Fields_.testDirFSReadFileProc (golibs/_internal/os_test/Os_test_testdirfsreadfileproc.hx line 12 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestDirFSReadFileProc
 
@@ -787,8 +923,10 @@ Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_i
 === RUN  TestWriteStringAlloc
 js allocates a lot during File.WriteString
 Exception: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testwritestringalloc.Os_test_testwritestringalloc_Fields_.testWriteStringAlloc (golibs/_internal/os_test/Os_test_testwritestringalloc.hx line 85 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestWriteStringAlloc
 
@@ -796,11 +934,13 @@ Called from _internal.os_test._Os_test_testwritestringalloc.Os_test_testwritestr
 
 === RUN  TestPipeIOCloseRace
 skipping on js: no pipesException: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testpipeiocloserace.Os_test_testpipeiocloserace_Fields_.testPipeIOCloseRace (golibs/_internal/os_test/Os_test_testpipeiocloserace.hx line 6 column 66)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 90 column 100)
-Called from go._internal.testing.T_common_static_extension.skipf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
 Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.testing.T_common_static_extension.skipf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 90 column 100)
+Called from _internal.os_test._Os_test_testpipeiocloserace.Os_test_testpipeiocloserace_Fields_.testPipeIOCloseRace (golibs/_internal/os_test/Os_test_testpipeiocloserace.hx line 6 column 66)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestPipeIOCloseRace
 
@@ -808,11 +948,13 @@ Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_i
 
 === RUN  TestPipeCloseRace
 skipping on js: no pipesException: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testpipecloserace.Os_test_testpipecloserace_Fields_.testPipeCloseRace (golibs/_internal/os_test/Os_test_testpipecloserace.hx line 6 column 66)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 90 column 100)
-Called from go._internal.testing.T_common_static_extension.skipf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
 Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.testing.T_common_static_extension.skipf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 90 column 100)
+Called from _internal.os_test._Os_test_testpipecloserace.Os_test_testpipecloserace_Fields_.testPipeCloseRace (golibs/_internal/os_test/Os_test_testpipecloserace.hx line 6 column 66)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestPipeCloseRace
 
@@ -820,44 +962,56 @@ Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_i
 
 === RUN  TestChown
 Exception: :os.getgid is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testchown.Os_test_testchown_Fields_.testChown (golibs/_internal/os_test/Os_test_testchown.hx line 156 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestChown
 
 === RUN  TestFileChown
 Exception: :os.getgid is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testfilechown.Os_test_testfilechown_Fields_.testFileChown (golibs/_internal/os_test/Os_test_testfilechown.hx line 156 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestFileChown
 
 === RUN  TestLchown
 Exception: :os.symlink is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testlchown.Os_test_testlchown_Fields_.testLchown (golibs/_internal/os_test/Os_test_testlchown.hx line 190 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestLchown
 
 === RUN  TestReaddirRemoveRace
 Exception: invalid memory address or nil pointer dereference
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testreaddirremoverace.Os_test_testreaddirremoverace_Fields_.testReaddirRemoveRace (golibs/_internal/os_test/Os_test_testreaddirremoverace.hx line 148 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestReaddirRemoveRace
 
 === RUN  TestMkdirStickyUmask
 Exception: :syscall.umask is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testmkdirstickyumask.Os_test_testmkdirstickyumask_Fields_.testMkdirStickyUmask (golibs/_internal/os_test/Os_test_testmkdirstickyumask.hx line 110 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestMkdirStickyUmask
 
 === RUN  TestNewFileBlock
 syscall.Pipe is not available on js.Exception: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testnewfileblock.Os_test_testnewfileblock_Fields_.testNewFileBlock (golibs/_internal/os_test/Os_test_testnewfileblock.hx line 6 column 9)
 Called from _internal.os_test._Os_test__newfiletest.Os_test__newfiletest_Fields_._newFileTest (golibs/_internal/os_test/Os_test__newfiletest.hx line 160 column 30)
+Called from _internal.os_test._Os_test_testnewfileblock.Os_test_testnewfileblock_Fields_.testNewFileBlock (golibs/_internal/os_test/Os_test_testnewfileblock.hx line 6 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestNewFileBlock
 
@@ -865,9 +1019,11 @@ Called from _internal.os_test._Os_test__newfiletest.Os_test__newfiletest_Fields_
 
 === RUN  TestNewFileNonBlock
 syscall.Pipe is not available on js.Exception: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testnewfilenonblock.Os_test_testnewfilenonblock_Fields_.testNewFileNonBlock (golibs/_internal/os_test/Os_test_testnewfilenonblock.hx line 6 column 9)
 Called from _internal.os_test._Os_test__newfiletest.Os_test__newfiletest_Fields_._newFileTest (golibs/_internal/os_test/Os_test__newfiletest.hx line 160 column 30)
+Called from _internal.os_test._Os_test_testnewfilenonblock.Os_test_testnewfilenonblock_Fields_.testNewFileNonBlock (golibs/_internal/os_test/Os_test_testnewfilenonblock.hx line 6 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestNewFileNonBlock
 
@@ -875,41 +1031,48 @@ Called from _internal.os_test._Os_test__newfiletest.Os_test__newfiletest_Fields_
 
 === RUN  TestNewFileInvalid
 Exception: :os.newFile is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testnewfileinvalid.Os_test_testnewfileinvalid_Fields_.testNewFileInvalid (golibs/_internal/os_test/Os_test_testnewfileinvalid.hx line 8 column 22)
 Called from go._internal.os._Os_newfile.Os_newfile_Fields_.newFile (golibs/go/_internal/os/Os_newfile.hx line 2 column 92)
+Called from _internal.os_test._Os_test_testnewfileinvalid.Os_test_testnewfileinvalid_Fields_.testNewFileInvalid (golibs/_internal/os_test/Os_test_testnewfileinvalid.hx line 8 column 22)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestNewFileInvalid
 
 === RUN  TestSplitPath
 Exception: Cannot call null
 Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testsplitpath.Os_test_testsplitpath_Fields_.testSplitPath (golibs/_internal/os_test/Os_test_testsplitpath.hx line 39 column 31)
 
 -- FAIL: TestSplitPath
 
 === RUN  TestMkdirAll
 Exception: :os.mkdirAll is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testmkdirall.Os_test_testmkdirall_Fields_.testMkdirAll (golibs/_internal/os_test/Os_test_testmkdirall.hx line 198 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestMkdirAll
 
 === RUN  TestMkdirAllWithSymlink
 Exception: :os.symlink is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testmkdirallwithsymlink.Os_test_testmkdirallwithsymlink_Fields_.testMkdirAllWithSymlink (golibs/_internal/os_test/Os_test_testmkdirallwithsymlink.hx line 27 column 24)
 Called from go._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/go/_internal/os/Os_symlink.hx line 2 column 71)
+Called from _internal.os_test._Os_test_testmkdirallwithsymlink.Os_test_testmkdirallwithsymlink_Fields_.testMkdirAllWithSymlink (golibs/_internal/os_test/Os_test_testmkdirallwithsymlink.hx line 27 column 24)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestMkdirAllWithSymlink
 
 === RUN  TestMkdirAllAtSlash
 skipping non-hermetic test outside of Go buildersException: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testmkdirallatslash.Os_test_testmkdirallatslash_Fields_.testMkdirAllAtSlash (golibs/_internal/os_test/Os_test_testmkdirallatslash.hx line 14 column 22)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 90 column 100)
-Called from go._internal.testing.T_common_static_extension.skipf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
 Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.testing.T_common_static_extension.skipf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 90 column 100)
+Called from _internal.os_test._Os_test_testmkdirallatslash.Os_test_testmkdirallatslash_Fields_.testMkdirAllAtSlash (golibs/_internal/os_test/Os_test_testmkdirallatslash.hx line 14 column 22)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestMkdirAllAtSlash
 
@@ -925,36 +1088,40 @@ Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_i
 
 === RUN  TestReadOnlyWriteFile
 Exception: :os.getuid is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testreadonlywritefile.Os_test_testreadonlywritefile_Fields_.testReadOnlyWriteFile (golibs/_internal/os_test/Os_test_testreadonlywritefile.hx line 123 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestReadOnlyWriteFile
 
 === RUN  TestReadDir
 Exception: rumpelstilzchen: No such file or directory
 Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testreaddir.Os_test_testreaddir_Fields_.testReadDir (golibs/_internal/os_test/Os_test_testreaddir.hx line 6 column 23)
-Called from go._internal.os._Os_readdir.Os_readdir_Fields_.readDir (golibs/go/_internal/os/Os_readdir.hx line 8 column 27)
 
 -- FAIL: TestReadDir
 
 === RUN  TestRemoveAll
 RemoveAll(""): file not found; want nil
 Exception: :os.mkdirAll is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testremoveall.Os_test_testremoveall_Fields_.testRemoveAll (golibs/_internal/os_test/Os_test_testremoveall.hx line 68 column 24)
 Called from go._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (golibs/go/_internal/os/Os_mkdirall.hx line 2 column 94)
+Called from _internal.os_test._Os_test_testremoveall.Os_test_testremoveall_Fields_.testRemoveAll (golibs/_internal/os_test/Os_test_testremoveall.hx line 68 column 24)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestRemoveAll
 
 === RUN  TestRemoveAllLarge
 skipping in short mode
 Exception: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testremovealllarge.Os_test_testremovealllarge_Fields_.testRemoveAllLarge (golibs/_internal/os_test/Os_test_testremovealllarge.hx line 6 column 21)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
-Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
 Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
+Called from _internal.os_test._Os_test_testremovealllarge.Os_test_testremovealllarge_Fields_.testRemoveAllLarge (golibs/_internal/os_test/Os_test_testremovealllarge.hx line 6 column 21)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestRemoveAllLarge
 
@@ -963,8 +1130,10 @@ Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_i
 === RUN  TestRemoveAllLongPath
 skipping for not implemented platforms
 Exception: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testremovealllongpath.Os_test_testremovealllongpath_Fields_.testRemoveAllLongPath (golibs/_internal/os_test/Os_test_testremovealllongpath.hx line 177 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestRemoveAllLongPath
 
@@ -976,9 +1145,11 @@ Called from _internal.os_test._Os_test_testremovealllongpath.Os_test_testremovea
 
 === RUN  TestRemoveAllDotDot
 Exception: :os.mkdirAll is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testremovealldotdot.Os_test_testremovealldotdot_Fields_.testRemoveAllDotDot (golibs/_internal/os_test/Os_test_testremovealldotdot.hx line 10 column 24)
 Called from go._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (golibs/go/_internal/os/Os_mkdirall.hx line 2 column 94)
+Called from _internal.os_test._Os_test_testremovealldotdot.Os_test_testremovealldotdot_Fields_.testRemoveAllDotDot (golibs/_internal/os_test/Os_test_testremovealldotdot.hx line 10 column 24)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestRemoveAllDotDot
 
@@ -988,8 +1159,10 @@ Called from go._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (golibs/go
 
 === RUN  TestRemoveAllButReadOnlyAndPathError
 skipping test on jsException: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testremoveallbutreadonlyandpatherror.Os_test_testremoveallbutreadonlyandpatherror_Fields_.testRemoveAllButReadOnlyAndPathError (golibs/_internal/os_test/Os_test_testremoveallbutreadonlyandpatherror.hx line 189 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestRemoveAllButReadOnlyAndPathError
 
@@ -997,11 +1170,13 @@ Called from _internal.os_test._Os_test_testremoveallbutreadonlyandpatherror.Os_t
 
 === RUN  TestRemoveUnreadableDir
 skipping test on jsException: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testremoveunreadabledir.Os_test_testremoveunreadabledir_Fields_.testRemoveUnreadableDir (golibs/_internal/os_test/Os_test_testremoveunreadabledir.hx line 8 column 65)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 90 column 100)
-Called from go._internal.testing.T_common_static_extension.skipf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
 Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.testing.T_common_static_extension.skipf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 46 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 90 column 100)
+Called from _internal.os_test._Os_test_testremoveunreadabledir.Os_test_testremoveunreadabledir_Fields_.testRemoveUnreadableDir (golibs/_internal/os_test/Os_test_testremoveunreadabledir.hx line 8 column 65)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestRemoveUnreadableDir
 
@@ -1010,8 +1185,10 @@ Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_i
 === RUN  TestRemoveAllWithMoreErrorThanReqSize
 skipping in short mode
 Exception: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testremoveallwithmoreerrorthanreqsize.Os_test_testremoveallwithmoreerrorthanreqsize_Fields_.testRemoveAllWithMoreErrorThanReqSize (golibs/_internal/os_test/Os_test_testremoveallwithmoreerrorthanreqsize.hx line 174 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestRemoveAllWithMoreErrorThanReqSize
 
@@ -1020,11 +1197,13 @@ Called from _internal.os_test._Os_test_testremoveallwithmoreerrorthanreqsize.Os_
 === RUN  TestRemoveAllNoFcntl
 skipping in short mode
 Exception: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testremoveallnofcntl.Os_test_testremoveallnofcntl_Fields_.testRemoveAllNoFcntl (golibs/_internal/os_test/Os_test_testremoveallnofcntl.hx line 6 column 21)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
-Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
 Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
+Called from _internal.os_test._Os_test_testremoveallnofcntl.Os_test_testremoveallnofcntl_Fields_.testRemoveAllNoFcntl (golibs/_internal/os_test/Os_test_testremoveallnofcntl.hx line 6 column 21)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- SKIP: TestRemoveAllNoFcntl
 
@@ -1032,50 +1211,60 @@ Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_i
 
 === RUN  TestDirAndSymlinkStats
 Exception: :os.sameFile is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testdirandsymlinkstats.Os_test_testdirandsymlinkstats_Fields_.testDirAndSymlinkStats (golibs/_internal/os_test/Os_test_testdirandsymlinkstats.hx line 25 column 9)
-Called from _internal.os_test._Os_test__testdirstats.Os_test__testdirstats_Fields_._testDirStats (golibs/_internal/os_test/Os_test__testdirstats.hx line 4 column 9)
 Called from _internal.os_test._Os_test__teststatandlstat.Os_test__teststatandlstat_Fields_._testStatAndLstat (golibs/_internal/os_test/Os_test__teststatandlstat.hx line 256 column 30)
+Called from _internal.os_test._Os_test__testdirstats.Os_test__testdirstats_Fields_._testDirStats (golibs/_internal/os_test/Os_test__testdirstats.hx line 4 column 9)
+Called from _internal.os_test._Os_test_testdirandsymlinkstats.Os_test_testdirandsymlinkstats_Fields_.testDirAndSymlinkStats (golibs/_internal/os_test/Os_test_testdirandsymlinkstats.hx line 25 column 9)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestDirAndSymlinkStats
 
 === RUN  TestFileAndSymlinkStats
 writeFile tmpdir_/file: no such file or directory
 Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testfileandsymlinkstats.Os_test_testfileandsymlinkstats_Fields_.testFileAndSymlinkStats (golibs/_internal/os_test/Os_test_testfileandsymlinkstats.hx line 14 column 17)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
-Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
 Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
+Called from _internal.os_test._Os_test_testfileandsymlinkstats.Os_test_testfileandsymlinkstats_Fields_.testFileAndSymlinkStats (golibs/_internal/os_test/Os_test_testfileandsymlinkstats.hx line 14 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestFileAndSymlinkStats
 
 === RUN  TestSymlinkWithTrailingSlash
 Exception: :os.symlink is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.os_test._Os_test_testsymlinkwithtrailingslash.Os_test_testsymlinkwithtrailingslash_Fields_.testSymlinkWithTrailingSlash (golibs/_internal/os_test/Os_test_testsymlinkwithtrailingslash.hx line 27 column 24)
 Called from go._internal.os._Os_symlink.Os_symlink_Fields_.symlink (golibs/go/_internal/os/Os_symlink.hx line 2 column 71)
+Called from _internal.os_test._Os_test_testsymlinkwithtrailingslash.Os_test_testsymlinkwithtrailingslash_Fields_.testSymlinkWithTrailingSlash (golibs/_internal/os_test/Os_test_testsymlinkwithtrailingslash.hx line 27 column 24)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestSymlinkWithTrailingSlash
 
 === RUN  TestCreateTemp
 Exception: tmpdir_/_not_exists_/tmpfile_: No such file or directory
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testcreatetemp.Os_test_testcreatetemp_Fields_.testCreateTemp (golibs/_internal/os_test/Os_test_testcreatetemp.hx line 90 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestCreateTemp
 
 === RUN  TestCreateTempPattern
-CreateTemp pattern "tempfile_test" created bad name "tmpfile_2"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*" created bad name "tmpfile_s"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_g"; want prefix "tempfile_test" & suffix "xyz"
+CreateTemp pattern "tempfile_test" created bad name "tmpfile_3"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*" created bad name "tmpfile_v"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_8"; want prefix "tempfile_test" & suffix "xyz"
 
 -- FAIL: TestCreateTempPattern
 
 === RUN  TestCreateTempBadPattern
 Exception: T_common:testing.name is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testcreatetempbadpattern.Os_test_testcreatetempbadpattern_Fields_.testCreateTempBadPattern (golibs/_internal/os_test/Os_test_testcreatetempbadpattern.hx line 177 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestCreateTempBadPattern
 
@@ -1083,36 +1272,38 @@ Called from _internal.os_test._Os_test_testcreatetempbadpattern.Os_test_testcrea
 MkdirTemp(`/_not_exists_`, `foo`) = tmpdir_, <nil>
 - SUBRUN  tempfile_test
 MkdirTemp("temp", "tempfile_test") created bad name
-	"tmpdir_r"
+	"tmpdir_8"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*
 MkdirTemp("temp", "tempfile_test*") created bad name
-	"tmpdir_y"
+	"tmpdir_t"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*xyz
 MkdirTemp("temp", "tempfile_test*xyz") created bad name
-	"tmpdir_a"
+	"tmpdir_4"
 did not match pattern
 	"^temp/tempfile_test[0-9]+xyz$"
 - SUBRUN  *xyz
 MkdirTemp("temp", "*xyz") created bad name
-	"tmpdir_0"
+	"tmpdir_h"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestMkdirTemp
 
 === RUN  TestMkdirTempBadDir
-TempDir error = <nil>; want PathError for path "tmpdir_8/not-exist" satisfying IsNotExist
+TempDir error = <nil>; want PathError for path "tmpdir_3/not-exist" satisfying IsNotExist
 
 -- FAIL: TestMkdirTempBadDir
 
 === RUN  TestMkdirTempBadPattern
 Exception: T_common:testing.name is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.os_test._Os_test_testmkdirtempbadpattern.Os_test_testmkdirtempbadpattern_Fields_.testMkdirTempBadPattern (golibs/_internal/os_test/Os_test_testmkdirtempbadpattern.hx line 112 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.os_test._Os_test_testmain.Os_test_testmain_Fields_.testMain (golibs/_internal/os_test/Os_test_testmain.hx line 13 column 38)
+Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_internal/osdottest/Osdottest.hx line 140 column 5)
 
 -- FAIL: TestMkdirTempBadPattern
 

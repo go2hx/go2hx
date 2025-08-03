@@ -1,11 +1,12 @@
 === RUN  TestGolden
 sha1[2](aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ) = 1f19f664d84d901a6cf9bd64507563c0ba369c1a want 76245dbf96f661bd221046197ab8b9f063f11badException: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from go._internal.crypto.sha1._Sha1_testgolden.Sha1_testgolden_Fields_.testGolden (golibs/go/_internal/crypto/sha1/Sha1_testgolden.hx line 80 column 478)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
-Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
 Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 55 column 101)
+Called from go._internal.crypto.sha1._Sha1_testgolden.Sha1_testgolden_Fields_.testGolden (golibs/go/_internal/crypto/sha1/Sha1_testgolden.hx line 80 column 478)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.crypto.sha1dottest._Sha1dottest.Sha1dottest_Fields_.main (golibs/_internal/crypto/sha1dottest/Sha1dottest.hx line 13 column 36)
 
 -- FAIL: TestGolden
 
@@ -24,16 +25,17 @@ Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_i
 === RUN  TestBlockGeneric
 golibs/go/_internal/syscall/js/Js_value_static_extension.hx:64: funclit
 Exception: not implemented: new_
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from go._internal.crypto.sha1._Sha1_testblockgeneric.Sha1_testblockgeneric_Fields_.testBlockGeneric (golibs/go/_internal/crypto/sha1/Sha1_testblockgeneric.hx line 39 column 17)
-Called from go._internal.crypto.rand._Rand_read.Rand_read_Fields_.read (golibs/go/_internal/crypto/rand/Rand_read.hx line 9 column 16)
-Called from go._internal.io._Io_readfull.Io_readfull_Fields_.readFull (golibs/go/_internal/io/Io_readfull.hx line 6 column 16)
-Called from go._internal.io._Io_readatleast.Io_readatleast_Fields_.readAtLeast (golibs/go/_internal/io/Io_readatleast.hx line 19 column 31)
-Called from go._internal.crypto.rand.T_reader_asInterface.read (golibs/go/_internal/crypto/rand/Rand_t_reader_asinterface.hx line 8 column 113)
-Called from go._internal.crypto.rand.T_reader_static_extension.read (golibs/go/_internal/crypto/rand/Rand_t_reader_static_extension.hx line 13 column 24)
-Called from local function #1 (golibs/go/_internal/crypto/rand/Rand__batched.hx line 18 column 36)
-Called from go._internal.crypto.rand._Rand__getrandom.Rand__getrandom_Fields_._getRandom (golibs/go/_internal/crypto/rand/Rand__getrandom.hx line 7 column 19)
 Called from go._internal.syscall.js.Value_static_extension.new_ (golibs/go/_internal/syscall/js/Js_value_static_extension.hx line 65 column 9)
+Called from go._internal.crypto.rand._Rand__getrandom.Rand__getrandom_Fields_._getRandom (golibs/go/_internal/crypto/rand/Rand__getrandom.hx line 7 column 19)
+Called from local function #1 (golibs/go/_internal/crypto/rand/Rand__batched.hx line 18 column 36)
+Called from go._internal.crypto.rand.T_reader_static_extension.read (golibs/go/_internal/crypto/rand/Rand_t_reader_static_extension.hx line 13 column 24)
+Called from go._internal.crypto.rand.T_reader_asInterface.read (golibs/go/_internal/crypto/rand/Rand_t_reader_asinterface.hx line 8 column 113)
+Called from go._internal.io._Io_readatleast.Io_readatleast_Fields_.readAtLeast (golibs/go/_internal/io/Io_readatleast.hx line 19 column 31)
+Called from go._internal.io._Io_readfull.Io_readfull_Fields_.readFull (golibs/go/_internal/io/Io_readfull.hx line 6 column 16)
+Called from go._internal.crypto.rand._Rand_read.Rand_read_Fields_.read (golibs/go/_internal/crypto/rand/Rand_read.hx line 9 column 16)
+Called from go._internal.crypto.sha1._Sha1_testblockgeneric.Sha1_testblockgeneric_Fields_.testBlockGeneric (golibs/go/_internal/crypto/sha1/Sha1_testblockgeneric.hx line 39 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.crypto.sha1dottest._Sha1dottest.Sha1dottest_Fields_.main (golibs/_internal/crypto/sha1dottest/Sha1dottest.hx line 13 column 36)
 
 -- FAIL: TestBlockGeneric
 

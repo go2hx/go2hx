@@ -1,22 +1,18 @@
 === RUN  TestAuto
 Exception: field access on null
 Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.math.rand_test._Rand_test_testauto.Rand_test_testauto_Fields_.testAuto (golibs/_internal/math/rand_test/Rand_test_testauto.hx line 8 column 41)
-Called from go._internal.math.rand._Rand_int63.Rand_int63_Fields_.int63 (golibs/go/_internal/math/rand/Rand_int63.hx line 6 column 16)
-Called from go._internal.math.rand._Rand__globalrand.Rand__globalrand_Fields_._globalRand (golibs/go/_internal/math/rand/Rand__globalrand.hx line 28 column 15)
-Called from go._internal.sync.atomic_.Pointer__static_extension.compareAndSwap__tp__0 (golibs/go/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 9 column 19)
-Called from go._Pointer.Pointer_Impl_.equals (golibs/go/Pointer.hx line 47 column 7)
 
 -- FAIL: TestAuto
 
 === RUN  TestDefaultRace
 skipping starting another executable in short mode
 Exception: __skip__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.math.rand_test._Rand_test_testdefaultrace.Rand_test_testdefaultrace_Fields_.testDefaultRace (golibs/_internal/math/rand_test/Rand_test_testdefaultrace.hx line 6 column 21)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
-Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
 Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
+Called from go._internal.testing.T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 80 column 84)
+Called from _internal.math.rand_test._Rand_test_testdefaultrace.Rand_test_testdefaultrace_Fields_.testDefaultRace (golibs/_internal/math/rand_test/Rand_test_testdefaultrace.hx line 6 column 21)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.math.randdottest._Randdottest.Randdottest_Fields_.main (golibs/_internal/math/randdottest/Randdottest.hx line 45 column 36)
 
 -- SKIP: TestDefaultRace
 
@@ -297,9 +293,10 @@ stddev NaN != 73.90083445627211 (allowed error 0.0072168783648703235, 0.00577350
 
 === RUN  TestRegress
 Exception: Value:reflect.method is not yet implemented
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.math.rand_test._Rand_test_testregress.Rand_test_testregress_Fields_.testRegress (golibs/_internal/math/rand_test/Rand_test_testregress.hx line 34 column 12)
 Called from go._internal.reflect.Value_static_extension.method (golibs/go/_internal/reflect/Reflect_value_static_extension.hx line 375 column 135)
+Called from _internal.math.rand_test._Rand_test_testregress.Rand_test_testregress_Fields_.testRegress (golibs/_internal/math/rand_test/Rand_test_testregress.hx line 34 column 12)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.math.randdottest._Randdottest.Randdottest_Fields_.main (golibs/_internal/math/randdottest/Randdottest.hx line 45 column 36)
 
 -- FAIL: TestRegress
 

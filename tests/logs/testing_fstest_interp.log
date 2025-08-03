@@ -10,11 +10,12 @@
 === RUN  TestSymlink
 writeFile tmpdir_/hello: no such file or directory
 Exception: __fail__
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from go._internal.testing.fstest._Fstest_testsymlink.Fstest_testsymlink_Fields_.testSymlink (golibs/go/_internal/testing/fstest/Fstest_testsymlink.hx line 24 column 17)
-Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
-Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
 Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
+Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
+Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
+Called from go._internal.testing.fstest._Fstest_testsymlink.Fstest_testsymlink_Fields_.testSymlink (golibs/go/_internal/testing/fstest/Fstest_testsymlink.hx line 24 column 17)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.testing.fstestdottest._Fstestdottest.Fstestdottest_Fields_.main (golibs/_internal/testing/fstestdottest/Fstestdottest.hx line 12 column 36)
 
 -- FAIL: TestSymlink
 

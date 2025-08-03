@@ -1,4 +1,4 @@
-golibs/stdgo/_internal/syscall/js/Js_value_static_extension.hx:80: funclit
+golibs/go/_internal/syscall/js/Js_value_static_extension.hx:80: funclit
 Uncaught exception: not implemented: call
-Called from stdgo._internal.syscall.js.$Value_static_extension.call(stdgo/_internal/syscall/js/Js_value_static_extension.hx:81)
+Called from go._internal.syscall.js.$Value_static_extension.call(go/_internal/syscall/js/Js_value_static_extension.hx:81)
 Called from .init(_internal/syscall/js_test/Js_test__dummys.hx:2)

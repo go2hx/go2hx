@@ -11,14 +11,10 @@
 -- PASS: TestValidPath
 
 === RUN  TestGlob
-Exception: SysError(Can't open  for writing)
-Called from stdgo._internal.io.fs._Fs_readdir.$Fs_readdir_Fields_.readDir (stdgo/_internal/io/fs/Fs_readdir.hx line 129)
-Called from stdgo._internal.io.fs._Fs__glob.$Fs__glob_Fields_._glob (stdgo/_internal/io/fs/Fs__glob.hx line 11)
-Called from stdgo._internal.io.fs._Fs__globwithlimit.$Fs__globwithlimit_Fields_._globWithLimit (stdgo/_internal/io/fs/Fs__globwithlimit.hx line 88)
-Called from stdgo._internal.io.fs._Fs_glob.$Fs_glob_Fields_.glob (stdgo/_internal/io/fs/Fs_glob.hx line 12)
-Called from _internal.io.fs_test._Fs_test_testglob.$Fs_test_testglob_Fields_.testGlob (_internal/io/fs_test/Fs_test_testglob.hx line 5)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.io.fsdottest._Fsdottest.$Fsdottest_Fields_.main (_internal/io/fsdottest/Fsdottest.hx line 26)
+Glob(`gl?b.go`) = []string(nil) want glob.go
+Glob(`gl\ob.go`) = []string(nil) want glob.go
+Glob(`*`) = []string(nil) want glob.go
+Glob(`*/glob.go`) = []string(nil) want fs/glob.go
 
 -- FAIL: TestGlob
 
@@ -65,13 +61,8 @@ Called from _internal.io.fsdottest._Fsdottest.$Fsdottest_Fields_.main (_internal
 chmod: invalid mode: ‘448’
 Try 'chmod --help' for more information.
 got directories [.], want [. a a/bad a/next]
-Uncaught exception: SysError(Failed to read directory tmpdir_/a/bad)
-Called from sys.$FileSystem.readDirectory(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/FileSystem.hx:98)
-Called from stdgo._internal.os._Os_removeall.$Os_removeall_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeall.hx:8)
-Called from stdgo._internal.os._Os_removeall.$Os_removeall_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeall.hx:11)
-Called from stdgo._internal.os._Os_removeall.$Os_removeall_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeall.hx:11)
-Called from stdgo._internal.os._Os_removeall.$Os_removeall_Fields_.removeAll(stdgo/_internal/os/Os_removeall.hx:23)
-Called from stdgo._internal.testing.$T_common_static_extension.~tempDir.1(stdgo/_internal/testing/Testing_t_common_static_extension.hx:20)
-Called from stdgo._internal.testing.$M_static_extension.run(stdgo/_internal/testing/Testing_m_static_extension.hx:47)
-Called from _internal.io.fsdottest._Fsdottest.$Fsdottest_Fields_.main(_internal/io/fsdottest/Fsdottest.hx:26)
-Called from .init(?:1)
+
+-- FAIL: TestIssue51617
+
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
+-- FAIL: TestIssue51617

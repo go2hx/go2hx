@@ -1,36 +1,404 @@
-[ERROR] golibs/_internal/image_test/Image_test_testdecode.hx:93: characters 21-70
+=== RUN  TestRectangle
+Intersect: r=(-1,-1)-(11,11), s=(-1,-1)-(11,11), a=(-1,-1)-(11,11), b=(-1,-1)-(11,11), i=0: intersection could be larger
+Intersect: r=(-1,-1)-(11,11), s=(-1,-1)-(11,11), a=(-1,-1)-(11,11), b=(-1,-1)-(11,11), i=1: intersection could be larger
+Intersect: r=(-1,-1)-(11,11), s=(-1,-1)-(11,11), a=(-1,-1)-(11,11), b=(-1,-1)-(11,11), i=2: intersection could be larger
+Intersect: r=(-1,-1)-(11,11), s=(-1,-1)-(11,11), a=(-1,-1)-(11,11), b=(-1,-1)-(11,11), i=3: intersection could be larger
+Intersect: r=(9,6)-(3,4), s=(4,6)-(10,10), a=(-1,-1)-(1,1), a not in r: f=(-1,-1)-(1,1), f.In((9,6)-(3,4)): got false, want true
+Intersect: r=(9,6)-(3,4), s=(4,6)-(10,10), a=(-1,-1)-(1,1), a not in s: f=(-1,-1)-(1,1), f.In((4,6)-(10,10)): got false, want true
+Intersect: r=(9,6)-(3,4), s=(4,6)-(10,10), a=(-1,-1)-(1,1): isZero=false same as overlaps=false
+Intersect: r=(9,6)-(3,4), s=(2,3)-(12,5), a=(-2,-2)-(2,2), a not in r: f=(-2,-2)-(2,2), f.In((9,6)-(3,4)): got false, want true
+Intersect: r=(9,6)-(3,4), s=(2,3)-(12,5), a=(-2,-2)-(2,2), a not in s: f=(-2,-2)-(2,2), f.In((2,3)-(12,5)): got false, want true
+Intersect: r=(9,6)-(3,4), s=(2,3)-(12,5), a=(-2,-2)-(2,2): isZero=false same as overlaps=false
+Intersect: r=(9,6)-(0,0), s=(-1,-2)-(0,0), a=(-3,-3)-(3,3), a not in r: f=(-3,-3)-(3,3), f.In((9,6)-(0,0)): got false, want true
+Intersect: r=(9,6)-(0,0), s=(-1,-2)-(0,0), a=(-3,-3)-(3,3), a not in s: f=(-3,-3)-(3,3), f.In((-1,-2)-(0,0)): got false, want true
+Intersect: r=(9,6)-(0,0), s=(-1,-2)-(0,0), a=(-3,-3)-(3,3): isZero=false same as overlaps=false
+Intersect: r=(9,6)-(0,0), s=(-1,-2)-(4,6), a=(-4,-4)-(4,4), a not in r: f=(-4,-4)-(4,4), f.In((9,6)-(0,0)): got false, want true
+Intersect: r=(9,6)-(0,0), s=(-1,-2)-(4,6), a=(-4,-4)-(4,4), a not in s: f=(-4,-4)-(4,4), f.In((-1,-2)-(4,6)): got false, want true
+Intersect: r=(9,6)-(0,0), s=(-1,-2)-(4,6), a=(-4,-4)-(4,4): isZero=false same as overlaps=false
+Intersect: r=(9,6)-(0,0), s=(-10,-20)-(30,40), a=(-5,-5)-(5,5), a not in r: f=(-5,-5)-(5,5), f.In((9,6)-(0,0)): got false, want true
+Intersect: r=(9,6)-(0,0), s=(-10,-20)-(30,40), a=(-5,-5)-(5,5): isZero=false same as overlaps=false
+Intersect: r=(9,8)-(0,0), s=(8,8)-(8,8), a=(-6,-6)-(6,6), a not in r: f=(-6,-6)-(6,6), f.In((9,8)-(0,0)): got false, want true
+Intersect: r=(9,8)-(0,0), s=(8,8)-(8,8), a=(-6,-6)-(6,6), a not in s: f=(-6,-6)-(6,6), f.In((8,8)-(8,8)): got false, want true
+Intersect: r=(9,8)-(0,0), s=(8,8)-(8,8), a=(-6,-6)-(6,6): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-7,-7)-(7,7), a not in r: f=(-7,-7)-(7,7), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-7,-7)-(7,7), a not in s: f=(-7,-7)-(7,7), f.In((88,88)-(88,88)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-7,-7)-(7,7): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-8,-8)-(8,8), a not in r: f=(-8,-8)-(8,8), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-8,-8)-(8,8), a not in s: f=(-8,-8)-(8,8), f.In((4,3)-(6,5)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-8,-8)-(8,8): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-9,-9)-(9,9), a not in r: f=(-9,-9)-(9,9), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-9,-9)-(9,9), a not in s: f=(-9,-9)-(9,9), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-9,-9)-(9,9): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-10,-10)-(10,10), a not in r: f=(-10,-10)-(10,10), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-10,-10)-(10,10), a not in s: f=(-10,-10)-(10,10), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-10,-10)-(10,10): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(1,2)-(3,4), a=(-11,-11)-(11,11), a not in r: f=(-11,-11)-(11,11), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(1,2)-(3,4), a=(-11,-11)-(11,11), a not in s: f=(-11,-11)-(11,11), f.In((1,2)-(3,4)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(1,2)-(3,4), a=(-11,-11)-(11,11): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(4,6)-(10,10), a=(-12,-12)-(12,12), a not in r: f=(-12,-12)-(12,12), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,6)-(10,10), a=(-12,-12)-(12,12), a not in s: f=(-12,-12)-(12,12), f.In((4,6)-(10,10)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,6)-(10,10), a=(-12,-12)-(12,12): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(2,3)-(12,5), a=(-13,-13)-(13,13), a not in r: f=(-13,-13)-(13,13), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(2,3)-(12,5), a=(-13,-13)-(13,13), a not in s: f=(-13,-13)-(13,13), f.In((2,3)-(12,5)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(2,3)-(12,5), a=(-13,-13)-(13,13): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(0,0), a=(-14,-14)-(14,14), a not in r: f=(-14,-14)-(14,14), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(0,0), a=(-14,-14)-(14,14), a not in s: f=(-14,-14)-(14,14), f.In((-1,-2)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(0,0), a=(-14,-14)-(14,14): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-15,-15)-(15,15), a not in r: f=(-15,-15)-(15,15), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-15,-15)-(15,15), a not in s: f=(-15,-15)-(15,15), f.In((-1,-2)-(4,6)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-15,-15)-(15,15): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-16,-16)-(16,16), a not in r: f=(-16,-16)-(16,16), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-16,-16)-(16,16), a not in s: f=(-16,-16)-(16,16), f.In((-10,-20)-(30,40)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-16,-16)-(16,16): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-17,-17)-(17,17), a not in r: f=(-17,-17)-(17,17), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-17,-17)-(17,17), a not in s: f=(-17,-17)-(17,17), f.In((8,8)-(8,8)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-17,-17)-(17,17): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-18,-18)-(18,18), a not in r: f=(-18,-18)-(18,18), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-18,-18)-(18,18), a not in s: f=(-18,-18)-(18,18), f.In((88,88)-(88,88)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-18,-18)-(18,18): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-19,-19)-(19,19), a not in r: f=(-19,-19)-(19,19), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-19,-19)-(19,19), a not in s: f=(-19,-19)-(19,19), f.In((4,3)-(6,5)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-19,-19)-(19,19): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-20,-20)-(20,20), a not in r: f=(-20,-20)-(20,20), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-20,-20)-(20,20), a not in s: f=(-20,-20)-(20,20), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-20,-20)-(20,20): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-21,-21)-(21,21), a not in r: f=(-21,-21)-(21,21), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-21,-21)-(21,21), a not in s: f=(-21,-21)-(21,21), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-21,-21)-(21,21): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-22,-22)-(22,22), a not in r: f=(-22,-22)-(22,22), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-22,-22)-(22,22), a not in s: f=(-22,-22)-(22,22), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-22,-22)-(22,22): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(4,6)-(10,10), a=(-23,-23)-(23,23), a not in r: f=(-23,-23)-(23,23), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,6)-(10,10), a=(-23,-23)-(23,23), a not in s: f=(-23,-23)-(23,23), f.In((4,6)-(10,10)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,6)-(10,10), a=(-23,-23)-(23,23): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(2,3)-(12,5), a=(-24,-24)-(24,24), a not in r: f=(-24,-24)-(24,24), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(2,3)-(12,5), a=(-24,-24)-(24,24), a not in s: f=(-24,-24)-(24,24), f.In((2,3)-(12,5)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(2,3)-(12,5), a=(-24,-24)-(24,24): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(0,0), a=(-25,-25)-(25,25), a not in r: f=(-25,-25)-(25,25), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(0,0), a=(-25,-25)-(25,25), a not in s: f=(-25,-25)-(25,25), f.In((-1,-2)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(0,0), a=(-25,-25)-(25,25): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-26,-26)-(26,26), a not in r: f=(-26,-26)-(26,26), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-26,-26)-(26,26), a not in s: f=(-26,-26)-(26,26), f.In((-1,-2)-(4,6)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-26,-26)-(26,26): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-27,-27)-(27,27), a not in r: f=(-27,-27)-(27,27), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-27,-27)-(27,27), a not in s: f=(-27,-27)-(27,27), f.In((-10,-20)-(30,40)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-27,-27)-(27,27): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-28,-28)-(28,28), a not in r: f=(-28,-28)-(28,28), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-28,-28)-(28,28), a not in s: f=(-28,-28)-(28,28), f.In((8,8)-(8,8)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-28,-28)-(28,28): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-29,-29)-(29,29), a not in r: f=(-29,-29)-(29,29), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-29,-29)-(29,29), a not in s: f=(-29,-29)-(29,29), f.In((88,88)-(88,88)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-29,-29)-(29,29): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-30,-30)-(30,30), a not in r: f=(-30,-30)-(30,30), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-30,-30)-(30,30), a not in s: f=(-30,-30)-(30,30), f.In((4,3)-(6,5)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-30,-30)-(30,30): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-31,-31)-(31,31), a not in r: f=(-31,-31)-(31,31), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-31,-31)-(31,31), a not in s: f=(-31,-31)-(31,31), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-31,-31)-(31,31): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-32,-32)-(32,32), a not in r: f=(-32,-32)-(32,32), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-32,-32)-(32,32), a not in s: f=(-32,-32)-(32,32), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-32,-32)-(32,32): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-33,-33)-(33,33), a not in r: f=(-33,-33)-(33,33), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-33,-33)-(33,33), a not in s: f=(-33,-33)-(33,33), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-33,-33)-(33,33): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-34,-34)-(34,34), a not in r: f=(-34,-34)-(34,34), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-34,-34)-(34,34), a not in s: f=(-34,-34)-(34,34), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-34,-34)-(34,34): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(2,3)-(12,5), a=(-35,-35)-(35,35), a not in r: f=(-35,-35)-(35,35), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(2,3)-(12,5), a=(-35,-35)-(35,35), a not in s: f=(-35,-35)-(35,35), f.In((2,3)-(12,5)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(2,3)-(12,5), a=(-35,-35)-(35,35): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(0,0), a=(-36,-36)-(36,36), a not in r: f=(-36,-36)-(36,36), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(0,0), a=(-36,-36)-(36,36), a not in s: f=(-36,-36)-(36,36), f.In((-1,-2)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(0,0), a=(-36,-36)-(36,36): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-37,-37)-(37,37), a not in r: f=(-37,-37)-(37,37), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-37,-37)-(37,37), a not in s: f=(-37,-37)-(37,37), f.In((-1,-2)-(4,6)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-37,-37)-(37,37): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-38,-38)-(38,38), a not in r: f=(-38,-38)-(38,38), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-38,-38)-(38,38), a not in s: f=(-38,-38)-(38,38), f.In((-10,-20)-(30,40)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-38,-38)-(38,38): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-39,-39)-(39,39), a not in r: f=(-39,-39)-(39,39), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-39,-39)-(39,39), a not in s: f=(-39,-39)-(39,39), f.In((8,8)-(8,8)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-39,-39)-(39,39): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-40,-40)-(40,40), a not in r: f=(-40,-40)-(40,40), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-40,-40)-(40,40), a not in s: f=(-40,-40)-(40,40), f.In((88,88)-(88,88)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-40,-40)-(40,40): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-41,-41)-(41,41), a not in r: f=(-41,-41)-(41,41), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-41,-41)-(41,41), a not in s: f=(-41,-41)-(41,41), f.In((4,3)-(6,5)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-41,-41)-(41,41): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-42,-42)-(42,42), a not in r: f=(-42,-42)-(42,42), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-42,-42)-(42,42), a not in s: f=(-42,-42)-(42,42), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-42,-42)-(42,42): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-43,-43)-(43,43), a not in r: f=(-43,-43)-(43,43), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-43,-43)-(43,43), a not in s: f=(-43,-43)-(43,43), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-43,-43)-(43,43): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-44,-44)-(44,44), a not in r: f=(-44,-44)-(44,44), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-44,-44)-(44,44), a not in s: f=(-44,-44)-(44,44), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-44,-44)-(44,44): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-45,-45)-(45,45), a not in r: f=(-45,-45)-(45,45), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-45,-45)-(45,45), a not in s: f=(-45,-45)-(45,45), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-45,-45)-(45,45): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-46,-46)-(46,46), a not in r: f=(-46,-46)-(46,46), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-46,-46)-(46,46), a not in s: f=(-46,-46)-(46,46), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-46,-46)-(46,46): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(0,0), a=(-47,-47)-(47,47), a not in r: f=(-47,-47)-(47,47), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(0,0), a=(-47,-47)-(47,47), a not in s: f=(-47,-47)-(47,47), f.In((-1,-2)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(0,0), a=(-47,-47)-(47,47): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-48,-48)-(48,48), a not in r: f=(-48,-48)-(48,48), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-48,-48)-(48,48), a not in s: f=(-48,-48)-(48,48), f.In((-1,-2)-(4,6)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-48,-48)-(48,48): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-49,-49)-(49,49), a not in r: f=(-49,-49)-(49,49), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-49,-49)-(49,49), a not in s: f=(-49,-49)-(49,49), f.In((-10,-20)-(30,40)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-49,-49)-(49,49): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-50,-50)-(50,50), a not in r: f=(-50,-50)-(50,50), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-50,-50)-(50,50), a not in s: f=(-50,-50)-(50,50), f.In((8,8)-(8,8)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-50,-50)-(50,50): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-51,-51)-(51,51), a not in r: f=(-51,-51)-(51,51), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-51,-51)-(51,51), a not in s: f=(-51,-51)-(51,51), f.In((88,88)-(88,88)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-51,-51)-(51,51): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-52,-52)-(52,52), a not in r: f=(-52,-52)-(52,52), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-52,-52)-(52,52), a not in s: f=(-52,-52)-(52,52), f.In((4,3)-(6,5)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-52,-52)-(52,52): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-53,-53)-(53,53), a not in r: f=(-53,-53)-(53,53), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-53,-53)-(53,53), a not in s: f=(-53,-53)-(53,53), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-53,-53)-(53,53): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-54,-54)-(54,54), a not in r: f=(-54,-54)-(54,54), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-54,-54)-(54,54), a not in s: f=(-54,-54)-(54,54), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-54,-54)-(54,54): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-55,-55)-(55,55), a not in r: f=(-55,-55)-(55,55), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-55,-55)-(55,55), a not in s: f=(-55,-55)-(55,55), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-55,-55)-(55,55): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-56,-56)-(56,56), a not in r: f=(-56,-56)-(56,56), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-56,-56)-(56,56), a not in s: f=(-56,-56)-(56,56), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-56,-56)-(56,56): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-57,-57)-(57,57), a not in r: f=(-57,-57)-(57,57), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-57,-57)-(57,57), a not in s: f=(-57,-57)-(57,57), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-57,-57)-(57,57): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-58,-58)-(58,58), a not in r: f=(-58,-58)-(58,58), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-58,-58)-(58,58), a not in s: f=(-58,-58)-(58,58), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-58,-58)-(58,58): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-59,-59)-(59,59), a not in r: f=(-59,-59)-(59,59), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-59,-59)-(59,59), a not in s: f=(-59,-59)-(59,59), f.In((-1,-2)-(4,6)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-1,-2)-(4,6), a=(-59,-59)-(59,59): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-60,-60)-(60,60), a not in r: f=(-60,-60)-(60,60), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-60,-60)-(60,60), a not in s: f=(-60,-60)-(60,60), f.In((-10,-20)-(30,40)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-60,-60)-(60,60): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-61,-61)-(61,61), a not in r: f=(-61,-61)-(61,61), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-61,-61)-(61,61), a not in s: f=(-61,-61)-(61,61), f.In((8,8)-(8,8)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-61,-61)-(61,61): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-62,-62)-(62,62), a not in r: f=(-62,-62)-(62,62), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-62,-62)-(62,62), a not in s: f=(-62,-62)-(62,62), f.In((88,88)-(88,88)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-62,-62)-(62,62): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-63,-63)-(63,63), a not in r: f=(-63,-63)-(63,63), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-63,-63)-(63,63), a not in s: f=(-63,-63)-(63,63), f.In((4,3)-(6,5)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-63,-63)-(63,63): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-64,-64)-(64,64), a not in r: f=(-64,-64)-(64,64), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-64,-64)-(64,64), a not in s: f=(-64,-64)-(64,64), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-64,-64)-(64,64): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-65,-65)-(65,65), a not in r: f=(-65,-65)-(65,65), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-65,-65)-(65,65), a not in s: f=(-65,-65)-(65,65), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-65,-65)-(65,65): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-66,-66)-(66,66), a not in r: f=(-66,-66)-(66,66), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-66,-66)-(66,66), a not in s: f=(-66,-66)-(66,66), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-66,-66)-(66,66): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-67,-67)-(67,67), a not in r: f=(-67,-67)-(67,67), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-67,-67)-(67,67), a not in s: f=(-67,-67)-(67,67), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-67,-67)-(67,67): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-68,-68)-(68,68), a not in r: f=(-68,-68)-(68,68), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-68,-68)-(68,68), a not in s: f=(-68,-68)-(68,68), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-68,-68)-(68,68): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-69,-69)-(69,69), a not in r: f=(-69,-69)-(69,69), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-69,-69)-(69,69), a not in s: f=(-69,-69)-(69,69), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-69,-69)-(69,69): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-70,-70)-(70,70), a not in r: f=(-70,-70)-(70,70), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-70,-70)-(70,70), a not in s: f=(-70,-70)-(70,70), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-70,-70)-(70,70): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-71,-71)-(71,71), a not in r: f=(-71,-71)-(71,71), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-71,-71)-(71,71), a not in s: f=(-71,-71)-(71,71), f.In((-10,-20)-(30,40)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(-10,-20)-(30,40), a=(-71,-71)-(71,71): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-72,-72)-(72,72), a not in r: f=(-72,-72)-(72,72), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-72,-72)-(72,72), a not in s: f=(-72,-72)-(72,72), f.In((8,8)-(8,8)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-72,-72)-(72,72): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-73,-73)-(73,73), a not in r: f=(-73,-73)-(73,73), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-73,-73)-(73,73), a not in s: f=(-73,-73)-(73,73), f.In((88,88)-(88,88)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-73,-73)-(73,73): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-74,-74)-(74,74), a not in r: f=(-74,-74)-(74,74), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-74,-74)-(74,74), a not in s: f=(-74,-74)-(74,74), f.In((4,3)-(6,5)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-74,-74)-(74,74): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-75,-75)-(75,75), a not in r: f=(-75,-75)-(75,75), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-75,-75)-(75,75), a not in s: f=(-75,-75)-(75,75), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-75,-75)-(75,75): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-76,-76)-(76,76), a not in r: f=(-76,-76)-(76,76), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-76,-76)-(76,76), a not in s: f=(-76,-76)-(76,76), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-76,-76)-(76,76): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-77,-77)-(77,77), a not in r: f=(-77,-77)-(77,77), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-77,-77)-(77,77), a not in s: f=(-77,-77)-(77,77), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-77,-77)-(77,77): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-78,-78)-(78,78), a not in r: f=(-78,-78)-(78,78), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-78,-78)-(78,78), a not in s: f=(-78,-78)-(78,78), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-78,-78)-(78,78): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-79,-79)-(79,79), a not in r: f=(-79,-79)-(79,79), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-79,-79)-(79,79), a not in s: f=(-79,-79)-(79,79), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-79,-79)-(79,79): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-80,-80)-(80,80), a not in r: f=(-80,-80)-(80,80), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-80,-80)-(80,80), a not in s: f=(-80,-80)-(80,80), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-80,-80)-(80,80): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-81,-81)-(81,81), a not in r: f=(-81,-81)-(81,81), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-81,-81)-(81,81), a not in s: f=(-81,-81)-(81,81), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-81,-81)-(81,81): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-82,-82)-(82,82), a not in r: f=(-82,-82)-(82,82), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-82,-82)-(82,82), a not in s: f=(-82,-82)-(82,82), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-82,-82)-(82,82): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-83,-83)-(83,83), a not in r: f=(-83,-83)-(83,83), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-83,-83)-(83,83), a not in s: f=(-83,-83)-(83,83), f.In((8,8)-(8,8)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(8,8)-(8,8), a=(-83,-83)-(83,83): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-84,-84)-(84,84), a not in r: f=(-84,-84)-(84,84), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-84,-84)-(84,84), a not in s: f=(-84,-84)-(84,84), f.In((88,88)-(88,88)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-84,-84)-(84,84): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-85,-85)-(85,85), a not in r: f=(-85,-85)-(85,85), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-85,-85)-(85,85), a not in s: f=(-85,-85)-(85,85), f.In((4,3)-(6,5)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-85,-85)-(85,85): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-86,-86)-(86,86), a not in r: f=(-86,-86)-(86,86), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-86,-86)-(86,86), a not in s: f=(-86,-86)-(86,86), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-86,-86)-(86,86): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-87,-87)-(87,87), a not in r: f=(-87,-87)-(87,87), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-87,-87)-(87,87), a not in s: f=(-87,-87)-(87,87), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-87,-87)-(87,87): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-88,-88)-(88,88), a not in r: f=(-88,-88)-(88,88), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-88,-88)-(88,88), a not in s: f=(-88,-88)-(88,88), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-88,-88)-(88,88): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-89,-89)-(89,89), a not in r: f=(-89,-89)-(89,89), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-89,-89)-(89,89), a not in s: f=(-89,-89)-(89,89), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-89,-89)-(89,89): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-90,-90)-(90,90), a not in r: f=(-90,-90)-(90,90), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-90,-90)-(90,90), a not in s: f=(-90,-90)-(90,90), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-90,-90)-(90,90): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-91,-91)-(91,91), a not in r: f=(-91,-91)-(91,91), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-91,-91)-(91,91), a not in s: f=(-91,-91)-(91,91), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-91,-91)-(91,91): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-92,-92)-(92,92), a not in r: f=(-92,-92)-(92,92), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-92,-92)-(92,92), a not in s: f=(-92,-92)-(92,92), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-92,-92)-(92,92): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-93,-93)-(93,93), a not in r: f=(-93,-93)-(93,93), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-93,-93)-(93,93), a not in s: f=(-93,-93)-(93,93), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-93,-93)-(93,93): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-94,-94)-(94,94), a not in r: f=(-94,-94)-(94,94), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-94,-94)-(94,94), a not in s: f=(-94,-94)-(94,94), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-94,-94)-(94,94): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-95,-95)-(95,95), a not in r: f=(-95,-95)-(95,95), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-95,-95)-(95,95), a not in s: f=(-95,-95)-(95,95), f.In((88,88)-(88,88)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(88,88), a=(-95,-95)-(95,95): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-96,-96)-(96,96), a not in r: f=(-96,-96)-(96,96), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-96,-96)-(96,96), a not in s: f=(-96,-96)-(96,96), f.In((4,3)-(6,5)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-96,-96)-(96,96): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-97,-97)-(97,97), a not in r: f=(-97,-97)-(97,97), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-97,-97)-(97,97), a not in s: f=(-97,-97)-(97,97), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-97,-97)-(97,97): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-98,-98)-(98,98), a not in r: f=(-98,-98)-(98,98), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-98,-98)-(98,98), a not in s: f=(-98,-98)-(98,98), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-98,-98)-(98,98): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-99,-99)-(99,99), a not in r: f=(-99,-99)-(99,99), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-99,-99)-(99,99), a not in s: f=(-99,-99)-(99,99), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-99,-99)-(99,99): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-100,-100)-(100,100), a not in r: f=(-100,-100)-(100,100), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-100,-100)-(100,100), a not in s: f=(-100,-100)-(100,100), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-100,-100)-(100,100): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-101,-101)-(101,101), a not in r: f=(-101,-101)-(101,101), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-101,-101)-(101,101), a not in s: f=(-101,-101)-(101,101), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-101,-101)-(101,101): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-102,-102)-(102,102), a not in r: f=(-102,-102)-(102,102), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-102,-102)-(102,102), a not in s: f=(-102,-102)-(102,102), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-102,-102)-(102,102): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-103,-103)-(103,103), a not in r: f=(-103,-103)-(103,103), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-103,-103)-(103,103), a not in s: f=(-103,-103)-(103,103), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-103,-103)-(103,103): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-104,-104)-(104,104), a not in r: f=(-104,-104)-(104,104), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-104,-104)-(104,104), a not in s: f=(-104,-104)-(104,104), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-104,-104)-(104,104): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-105,-105)-(105,105), a not in r: f=(-105,-105)-(105,105), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-105,-105)-(105,105), a not in s: f=(-105,-105)-(105,105), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-105,-105)-(105,105): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-106,-106)-(106,106), a not in r: f=(-106,-106)-(106,106), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-106,-106)-(106,106), a not in s: f=(-106,-106)-(106,106), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-106,-106)-(106,106): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-107,-107)-(107,107), a not in r: f=(-107,-107)-(107,107), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-107,-107)-(107,107), a not in s: f=(-107,-107)-(107,107), f.In((4,3)-(6,5)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(4,3)-(6,5), a=(-107,-107)-(107,107): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-108,-108)-(108,108), a not in r: f=(-108,-108)-(108,108), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-108,-108)-(108,108), a not in s: f=(-108,-108)-(108,108), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-108,-108)-(108,108): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-109,-109)-(109,109), a not in r: f=(-109,-109)-(109,109), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-109,-109)-(109,109), a not in s: f=(-109,-109)-(109,109), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-109,-109)-(109,109): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-110,-110)-(110,110), a not in r: f=(-110,-110)-(110,110), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-110,-110)-(110,110), a not in s: f=(-110,-110)-(110,110), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-110,-110)-(110,110): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-111,-111)-(111,111), a not in r: f=(-111,-111)-(111,111), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-111,-111)-(111,111), a not in s: f=(-111,-111)-(111,111), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-111,-111)-(111,111): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-112,-112)-(112,112), a not in r: f=(-112,-112)-(112,112), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-112,-112)-(112,112), a not in s: f=(-112,-112)-(112,112), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-112,-112)-(112,112): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-113,-113)-(113,113), a not in r: f=(-113,-113)-(113,113), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-113,-113)-(113,113), a not in s: f=(-113,-113)-(113,113), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-113,-113)-(113,113): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-114,-114)-(114,114), a not in r: f=(-114,-114)-(114,114), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-114,-114)-(114,114), a not in s: f=(-114,-114)-(114,114), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-114,-114)-(114,114): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-115,-115)-(115,115), a not in r: f=(-115,-115)-(115,115), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-115,-115)-(115,115), a not in s: f=(-115,-115)-(115,115), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-115,-115)-(115,115): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-116,-116)-(116,116), a not in r: f=(-116,-116)-(116,116), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-116,-116)-(116,116), a not in s: f=(-116,-116)-(116,116), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-116,-116)-(116,116): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-117,-117)-(117,117), a not in r: f=(-117,-117)-(117,117), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-117,-117)-(117,117), a not in s: f=(-117,-117)-(117,117), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-117,-117)-(117,117): isZero=false same as overlaps=false
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-118,-118)-(118,118), a not in r: f=(-118,-118)-(118,118), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-118,-118)-(118,118), a not in s: f=(-118,-118)-(118,118), f.In((88,88)-(0,0)): got false, want true
+Intersect: r=(88,88)-(0,0), s=(88,88)-(0,0), a=(-118,-118)-(118,118): isZero=false same as overlaps=false
 
-  93 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5373877
+-- FAIL: TestRectangle
 
-[ERROR] golibs/_internal/image_test/Image_test_testdecode.hx:122: characters 21-70
+=== RUN  TestImage
+*.image.Paletted: sub-image want bounds (3,2)-(9,8), got (6,3)-(7,4)
 
- 122 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5373877
+-- FAIL: TestImage
 
-[ERROR] golibs/_internal/image_test/Image_test_testdecode.hx:136: characters 21-70
+=== RUN  TestNewXxxBadRectangle
 
- 136 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5373877
+-- PASS: TestNewXxxBadRectangle
 
-[ERROR] golibs/_internal/image_test/Image_test_testdecode.hx:176: characters 21-70
+=== RUN  Test16BitsPerColorChannel
 
- 176 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5373877
+-- PASS: Test16BitsPerColorChannel
 
-[ERROR] golibs/_internal/image_test/Image_test_testdecode.hx:212: characters 21-70
+=== RUN  TestRGBA64Image
 
- 212 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5373877
+-- PASS: TestRGBA64Image
 
-[ERROR] golibs/_internal/image_test/Image_test_testdecode.hx:239: characters 21-70
+=== RUN  TestYCbCr
 
- 239 |                     _internal.image_test.Image_test__iterator_5373877._iterator_5373877++;
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.image_test.Image_test__iterator_5373877
+-- PASS: TestYCbCr
 
+=== RUN  TestYCbCrSlicesDontOverlap
+
+-- PASS: TestYCbCrSlicesDontOverlap
+
+=== RUN  TestDecode
+testdata/video-001.png: image: unknown format
+testdata/video-001.png: image: unknown format
+testdata/video-001.png: image: unknown format
+testdata/video-001.png: image: unknown format
+testdata/video-001.png: image: unknown format
+testdata/video-001.png: image: unknown format
+testdata/video-001.221212.png: image: unknown format
+testdata/video-001.cmyk.png: image: unknown format
+testdata/video-001.rgb.png: image: unknown format
+testdata/video-001.progressive.truncated.png: image: unknown format
+testdata/video-005.gray.png: image: unknown format
+testdata/video-005.gray.png: image: unknown format
+
+-- FAIL: TestDecode
+
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
+-- FAIL: TestDecode

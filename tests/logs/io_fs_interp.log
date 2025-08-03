@@ -11,13 +11,10 @@
 -- PASS: TestValidPath
 
 === RUN  TestGlob
-Exception: : No such file or directory
-Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
-Called from _internal.io.fs_test._Fs_test_testglob.Fs_test_testglob_Fields_.testGlob (golibs/_internal/io/fs_test/Fs_test_testglob.hx line 5 column 27)
-Called from go._internal.io.fs._Fs_glob.Fs_glob_Fields_.glob (golibs/go/_internal/io/fs/Fs_glob.hx line 12 column 50)
-Called from go._internal.io.fs._Fs__globwithlimit.Fs__globwithlimit_Fields_._globWithLimit (golibs/go/_internal/io/fs/Fs__globwithlimit.hx line 88 column 54)
-Called from go._internal.io.fs._Fs__glob.Fs__glob_Fields_._glob (golibs/go/_internal/io/fs/Fs__glob.hx line 11 column 23)
-Called from go._internal.io.fs._Fs_readdir.Fs_readdir_Fields_.readDir (golibs/go/_internal/io/fs/Fs_readdir.hx line 129 column 30)
+Glob(`gl?b.go`) = []string(nil) want glob.go
+Glob(`gl\ob.go`) = []string(nil) want glob.go
+Glob(`*`) = []string(nil) want glob.go
+Glob(`*/glob.go`) = []string(nil) want fs/glob.go
 
 -- FAIL: TestGlob
 
@@ -61,26 +58,11 @@ Called from go._internal.io.fs._Fs_readdir.Fs_readdir_Fields_.readDir (golibs/go
 -- PASS: TestWalkDir
 
 === RUN  TestIssue51617
+got directories [.], want [. a a/bad a/next]
+
+-- FAIL: TestIssue51617
+
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
+-- FAIL: TestIssue51617
 chmod: invalid mode: ‘448’
 Try 'chmod --help' for more information.
-[ERROR] golibs/go/_internal/os/Os_removeall.hx
-
-   | Uncaught exception tmpdir_/a/bad: Permission denied
-
-       | Called from here (2 times)
-
-       | Called from here
-
-    ->  golibs/go/_internal/testing/Testing_t_common_static_extension.hx
-
-       | Called from here
-
-    ->  golibs/go/_internal/testing/Testing_m_static_extension.hx
-
-       | Called from here
-
-    ->  golibs/_internal/io/fsdottest/Fsdottest.hx
-
-       | Called from here
-
-got directories [.], want [. a a/bad a/next]

@@ -1,6 +1,48 @@
-[ERROR] golibs/go/_internal/image/draw/Draw_testdraw.hx:228: characters 21-67
+=== RUN  TestClip
 
- 228 |                     go._internal.image.draw.Draw__iterator_5109377._iterator_5109377++;
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : go._internal.image.draw.Draw__iterator_5109377
+-- PASS: TestClip
 
+=== RUN  TestDraw
+draw (3,5)-(12,10) fillNil on *.image.RGBA: at (8, 8) {136 0 0 255} versus {88 0 90 255}
+Exception: Invalid operation: false * 10898085
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.image.draw._Draw_testdraw.Draw_testdraw_Fields_.testDraw (golibs/go/_internal/image/draw/Draw_testdraw.hx line 130 column 21)
+Called from go._internal.image.draw._Draw_drawmask.Draw_drawmask_Fields_.drawMask (golibs/go/_internal/image/draw/Draw_drawmask.hx line 52 column 37)
+Called from go._internal.image.draw._Draw__drawfillover.Draw__drawfillover_Fields_._drawFillOver (golibs/go/_internal/image/draw/Draw__drawfillover.hx line 25 column 18)
+Called from go._GoUInt32.GoUInt32_Impl_.mul (golibs/go/GoUInt32.hx line 63 column 16)
+
+-- FAIL: TestDraw
+
+=== RUN  TestDrawOverlap
+
+-- PASS: TestDrawOverlap
+
+=== RUN  TestNonZeroSrcPt
+
+-- PASS: TestNonZeroSrcPt
+
+=== RUN  TestFill
+
+-- PASS: TestFill
+
+=== RUN  TestDrawSrcNonpremultiplied
+
+-- PASS: TestDrawSrcNonpremultiplied
+
+=== RUN  TestFloydSteinbergCheckerboard
+
+-- PASS: TestFloydSteinbergCheckerboard
+
+=== RUN  TestPaletted
+decode: png: invalid format: not a PNG fileException: __fail__
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from go._internal.image.draw._Draw_testpaletted.Draw_testpaletted_Fields_.testPaletted (golibs/go/_internal/image/draw/Draw_testpaletted.hx line 282 column 30)
+
+-- FAIL: TestPaletted
+
+=== RUN  TestSqDiff
+
+-- PASS: TestSqDiff
+
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
+-- FAIL: TestPaletted

@@ -1,32 +1,32 @@
 === RUN  TestGet
 Exception: T_:testing.setenv is not yet implemented
-Called from stdgo._internal.testing.$T__static_extension.setenv (stdgo/_internal/testing/Testing_t__static_extension.hx line 18)
+Called from go._internal.testing.$T__static_extension.setenv (go/_internal/testing/Testing_t__static_extension.hx line 18)
 Called from _internal.internal.godebug_test._Godebug_test_testget.$Godebug_test_testget_Fields_.testGet (_internal/internal/godebug_test/Godebug_test_testget.hx line 20)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.internal.godebugdottest._Godebugdottest.$Godebugdottest_Fields_.main (_internal/internal/godebugdottest/Godebugdottest.hx line 12)
 
 -- FAIL: TestGet
 
 === RUN  TestMetrics
 NonDefault kind = 0, want uint64Exception: __fail__
-Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 94)
-Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 58)
-Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 55)
+Called from go._internal.testing.$T_common_static_extension.failNow (go/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from go._internal.testing.$T_common_static_extension.fatalf (go/_internal/testing/Testing_t_common_static_extension.hx line 58)
+Called from go._internal.testing.T_.~get_fatalf.0 (go/_internal/testing/Testing_t_.hx line 55)
 Called from _internal.internal.godebug_test._Godebug_test_testmetrics.$Godebug_test_testmetrics_Fields_.testMetrics (_internal/internal/godebug_test/Godebug_test_testmetrics.hx line 13)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.internal.godebugdottest._Godebugdottest.$Godebugdottest_Fields_.main (_internal/internal/godebugdottest/Godebugdottest.hx line 12)
 
 -- FAIL: TestMetrics
 
 === RUN  TestCmdBisect
 skipping test: 'go build' unavailable: <nil>Exception: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 40)
-Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 46)
-Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_t_.hx line 90)
-Called from stdgo._internal.testing.T__asInterface.skipf (stdgo/_internal/testing/Testing_t__asinterface.hx line 48)
-Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.$Testenv_musthavegobuild_Fields_.mustHaveGoBuild (stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 29)
+Called from go._internal.testing.$T_common_static_extension.skipNow (go/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from go._internal.testing.$T_common_static_extension.skipf (go/_internal/testing/Testing_t_common_static_extension.hx line 46)
+Called from go._internal.testing.T_.~get_skipf.0 (go/_internal/testing/Testing_t_.hx line 90)
+Called from go._internal.testing.T__asInterface.skipf (go/_internal/testing/Testing_t__asinterface.hx line 48)
+Called from go._internal.internal.testenv._Testenv_musthavegobuild.$Testenv_musthavegobuild_Fields_.mustHaveGoBuild (go/_internal/internal/testenv/Testenv_musthavegobuild.hx line 29)
 Called from _internal.internal.godebug_test._Godebug_test_testcmdbisect.$Godebug_test_testcmdbisect_Fields_.testCmdBisect (_internal/internal/godebug_test/Godebug_test_testcmdbisect.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.internal.godebugdottest._Godebugdottest.$Godebugdottest_Fields_.main (_internal/internal/godebugdottest/Godebugdottest.hx line 12)
 
 -- SKIP: TestCmdBisect
@@ -37,5 +37,5 @@ Called from _internal.internal.godebugdottest._Godebugdottest.$Godebugdottest_Fi
 
 -- PASS: TestBisectTestCase
 
-golibs/stdgo/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
 -- FAIL: TestMetrics

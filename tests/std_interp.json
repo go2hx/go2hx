@@ -31,5 +31,7 @@
  "interp|hash",
  "interp|slices",
  "interp|net/textproto",
- "interp|internal/godebugs"
+ "interp|internal/godebugs",
+ "interp|go/scanner",
+ "interp|image/draw"
 ]

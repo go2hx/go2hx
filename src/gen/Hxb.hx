@@ -21,6 +21,13 @@ private function getExports(instance:Compiler.CompilerInstanceData):Array<String
                     continue; // ignore .macro.hx
                 var exportPackage = Path.normalize(Path.withoutExtension(name)).split("/");
                 exportPackage.shift();
+                var hasInternal = false;
+                for (path in exportPackage) {
+                    if (path == "internal")
+                        hasInternal = true;
+                }
+                if (hasInternal)
+                    continue;
                 final export = exportPackage.join(".");
                 // trace(export);
                 exports.push(export);

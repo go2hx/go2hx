@@ -1,6 +1,5 @@
 {
     "passes": [
-        "TestStripCR"
     ],
     "fails": [
         "TestScan",

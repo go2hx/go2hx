@@ -14,7 +14,8 @@
         "TestWalkDir"
     ],
     "fails": [
-        "TestGlob"
+        "TestGlob",
+        "TestIssue51617"
     ],
     "runs": [
         "TestFormatFileInfo",

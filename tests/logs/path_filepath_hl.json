@@ -16,7 +16,10 @@
         "TestExt",
         "TestBase",
         "TestDir",
-        "TestIsAbs"
+        "TestIsAbs",
+        "TestRel",
+        "TestVolumeName",
+        "TestDriveLetterInEvalSymlinks"
     ],
     "fails": [
         "TestGlobSymlink",
@@ -28,7 +31,16 @@
         "TestWalkSymlinkRoot",
         "TestEvalSymlinks",
         "TestEvalSymlinksIsNotExist",
-        "TestIssue13582"
+        "TestIssue13582",
+        "TestRelativeSymlinkToAbsolute",
+        "TestAbs",
+        "TestAbsEmptyString",
+        "TestBug3486",
+        "TestWalkSymlink",
+        "TestIssue29372",
+        "TestEvalSymlinksAboveRoot",
+        "TestEvalSymlinksAboveRootChdir",
+        "TestIssue51617"
     ],
     "runs": [
         "TestMatch",
@@ -58,6 +70,17 @@
         "TestEvalSymlinks",
         "TestEvalSymlinksIsNotExist",
         "TestIssue13582",
-        "TestRelativeSymlinkToAbsolute"
+        "TestRelativeSymlinkToAbsolute",
+        "TestAbs",
+        "TestAbsEmptyString",
+        "TestRel",
+        "TestVolumeName",
+        "TestDriveLetterInEvalSymlinks",
+        "TestBug3486",
+        "TestWalkSymlink",
+        "TestIssue29372",
+        "TestEvalSymlinksAboveRoot",
+        "TestEvalSymlinksAboveRootChdir",
+        "TestIssue51617"
     ]
 }

@@ -8,14 +8,14 @@ function _fastrand64() {
 function intn(_n)
 	return std.Std.random(_n);
 
-function int31n()
-	return std.Std.random();
+function int31n(_n)
+	return std.Std.random(_n);
 
 function int()
-	return std.Std.random();
+	return std.Std.random(go.GoNumber.MAXINT);
 
 function int31()
-	return std.Std.random();
+	return std.Std.random(go.GoNumber.MAXINT);
 
 // invalid generic code
 function seed() {}

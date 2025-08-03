@@ -401,7 +401,9 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		fs.loopContinuePos[scopeIndex+1] = stmt.Pos()
 		init := []ast.Stmt{blank()}
 		if stmt.Init != nil {
-			init = fs.markJumps(stmt.Init, scopeIndex)
+			init = append([]ast.Stmt{}, jumpTo(stmt.For-1), setJump(stmt.For-1))
+			init = append(init, fs.markJumps(stmt.Init, scopeIndex+1)...)
+			// p(init)
 		}
 		if labelName, exists := fs.loopLabelMap[stmt.Pos()]; exists {
 			breakName := labelName + "Break"
@@ -467,6 +469,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			fs.tempVars[ident.Obj] = tempVarData{
 				Ident: ident,
 				Type:  ast.NewIdent("int"),
+				Value: createPos(0),
 			}
 			rhs := []ast.Expr{createPos(token.Pos(0))}
 			init := &ast.AssignStmt{Lhs: []ast.Expr{ident}, Tok: token.ASSIGN, TokPos: stmt.TokPos, Rhs: rhs}
@@ -703,6 +706,11 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		fs.changeVars(stmt.Call)
 	case *ast.LabeledStmt:
 		return append([]ast.Stmt{jumpTo(stmt.Label.Pos()), setJump(stmt.Label.Pos())}, fs.markJumps(stmt.Stmt, scopeIndex)...)
+	case *ast.GoStmt:
+		fs.changeVars(stmt.Call)
+	case *ast.EmptyStmt:
+	default:
+		println("not being handled:", reflect.TypeOf(stmt).String())
 	}
 	return []ast.Stmt{stmt}
 }
@@ -840,15 +848,14 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 					fs.labelMapLoop[labelName] = stmt.Stmt
 				case *ast.RangeStmt:
 					var x = ast.NewIdent("iterator_" + fmt.Sprint(child.Range))
-					switch t := fs.checker.TypeOf(child.X).Underlying().(type) {
+					t := fs.checker.TypeOf(child.X).Underlying()
+					switch t := t.(type) {
 					case *types.Array, *types.Slice:
 						_ = t
 						if child.Key != nil {
 							switch key := child.Key.(type) {
 							case *ast.Ident:
-								if key.Name != "_" {
-									x = key
-								}
+								x = key
 							}
 						} else {
 							x.Obj = ast.NewObj(ast.Var, x.Name)
@@ -1035,26 +1042,6 @@ func addToBlock(list []ast.Stmt, jumpPos int, jumps map[int][]ast.Stmt) []ast.St
 		}
 	}
 	return newStmts
-}
-
-func findGotoJump(stmt ast.Stmt) (pos int, found bool) {
-	switch stmt := stmt.(type) {
-	case *ast.AssignStmt:
-		if len(stmt.Lhs) == 1 && len(stmt.Rhs) == 1 {
-			switch ident := stmt.Lhs[0].(type) {
-			case *ast.Ident:
-				if ident.Name == "gotoNext" { // end
-					// execute
-					i, err := strconv.Atoi(stmt.Rhs[0].(*ast.BasicLit).Value)
-					if err != nil {
-						panic(err)
-					}
-					return i, true
-				}
-			}
-		}
-	}
-	return -1, false
 }
 
 func findGoto(stmt ast.Stmt) (pos int, labelBool bool) {

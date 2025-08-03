@@ -1,4 +1,6 @@
-[ERROR] (unknown position)
+[ERROR] golibs/_internal/go_/ast/Ast__summary.hx:56: characters 21-53
 
-   | Type not found : _internal.go.astdottest.Astdottest
+ 56 |                     _internal.go_.ast.Ast__loopbreak._loopBreak = true;
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | Type not found : _internal.go_.ast.Ast__loopbreak
 

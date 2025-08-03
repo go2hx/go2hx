@@ -201,7 +201,7 @@ function runTask(task:TaskData) {
 	ls.stderr.setEncoding('utf8');
 	var timeoutTimer = new haxe.Timer((1000 * 60) * 5);
 	timeoutTimer.run = () -> {
-		trace("TEST TIMEOUT: " + task.command + " " + task.args.join(" "));
+		trace("TEST TIMEOUT: " + task.path + " " + task.command + " " + task.args.join(" "));
 		if (task.runtime) {
 			suite.runtimeError(task);
 		} else {

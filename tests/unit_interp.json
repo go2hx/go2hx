@@ -265,10 +265,6 @@
  "interp|const0",
  "interp|ref4",
  "interp|runtimeVersion",
-<<<<<<< Updated upstream
  "interp|atomic0",
  "interp|os0"
-=======
- "interp|atomic0"
->>>>>>> Stashed changes
 ]

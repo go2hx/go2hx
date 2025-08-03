@@ -21,7 +21,7 @@ src:1: p
 
 === RUN  TestSource
 Exception: Null access
-Called from go.GoRefMap.get (golibs/go/GoMap.hx line 544)
+Called from go.GoRefMap.get (golibs/go/GoMap.hx line 536)
 Called from _internal.go_.ast._Ast__sortspecs.$Ast__sortspecs_Fields_._sortSpecs (golibs/_internal/go_/ast/Ast__sortspecs.hx line 142)
 Called from _internal.go_.ast._Ast_sortimports.$Ast_sortimports_Fields_.sortImports (golibs/_internal/go_/ast/Ast_sortimports.hx line 44)
 Called from _internal.go_.format._Format_source.$Format_source_Fields_.source (golibs/_internal/go_/format/Format_source.hx line 20)

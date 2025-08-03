@@ -13,8 +13,8 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 === RUN  TestLittleEndianWrite
 Exception: go.T_errorString_asInterface
 Called from go._AnyInterface.$AnyInterface_Impl_.equals (golibs/go/AnyInterface.hx line 172)
-Called from go.GoAnyInterfaceMap.compare (golibs/go/GoMap.hx line 705)
-Called from haxe.ds.BalancedTree.exists (haxe/ds/BalancedTree.hx line 104)
+Called from go.GoAnyInterfaceMap.compare (golibs/go/GoMap.hx line 771)
+Called from go.CompareMap.exists (golibs/go/GoMap.hx line 727)
 Called from go._internal.sync.$Map__static_extension.load (golibs/go/_internal/sync/Sync_map__static_extension.hx line 84)
 Called from go._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (golibs/go/_internal/encoding/binary/Binary__datasize.hx line 27)
 Called from go._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (golibs/go/_internal/encoding/binary/Binary_write.hx line 195)
@@ -33,8 +33,8 @@ Write LittleEndian: binary.Write: some values are not fixed-sized in type *.enco
 === RUN  TestBigEndianRead
 Exception: go.T_errorString_asInterface
 Called from go._AnyInterface.$AnyInterface_Impl_.equals (golibs/go/AnyInterface.hx line 172)
-Called from go.GoAnyInterfaceMap.compare (golibs/go/GoMap.hx line 705)
-Called from haxe.ds.BalancedTree.exists (haxe/ds/BalancedTree.hx line 104)
+Called from go.GoAnyInterfaceMap.compare (golibs/go/GoMap.hx line 771)
+Called from go.CompareMap.exists (golibs/go/GoMap.hx line 727)
 Called from go._internal.sync.$Map__static_extension.load (golibs/go/_internal/sync/Sync_map__static_extension.hx line 84)
 Called from go._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (golibs/go/_internal/encoding/binary/Binary__datasize.hx line 27)
 Called from go._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (golibs/go/_internal/encoding/binary/Binary_read.hx line 143)
@@ -48,8 +48,8 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 === RUN  TestBigEndianWrite
 Exception: go.T_errorString_asInterface
 Called from go._AnyInterface.$AnyInterface_Impl_.equals (golibs/go/AnyInterface.hx line 172)
-Called from go.GoAnyInterfaceMap.compare (golibs/go/GoMap.hx line 705)
-Called from haxe.ds.BalancedTree.exists (haxe/ds/BalancedTree.hx line 104)
+Called from go.GoAnyInterfaceMap.compare (golibs/go/GoMap.hx line 771)
+Called from go.CompareMap.exists (golibs/go/GoMap.hx line 727)
 Called from go._internal.sync.$Map__static_extension.load (golibs/go/_internal/sync/Sync_map__static_extension.hx line 84)
 Called from go._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (golibs/go/_internal/encoding/binary/Binary__datasize.hx line 27)
 Called from go._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (golibs/go/_internal/encoding/binary/Binary_write.hx line 195)

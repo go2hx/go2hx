@@ -212,6 +212,11 @@ function runTask(task:TaskData) {
 		if (task.path != "flag") {
 			trace("COMPLETE");
 			close(1);
+		}else{
+			timeout = 0;
+			timeoutTimer.stop();
+			lastTaskLogs.remove(taskString);
+			completeBool = true;
 		}
 	};
 	ls.stdout.on('data', function(data) {

@@ -640,12 +640,18 @@ class GoObjectMap<K, V> extends GoAnyInterfaceMap<V> {
 	}
 
 	override function exists(key:Dynamic):Bool {
+		final key = new AnyInterface(key, t);
 		return super.exists(key);
 	}
 
 	override function get(key:Dynamic):V {
 		final key = new AnyInterface(key, t);
-		return super.get(key);
+		for (i in 0..._keys.length) {
+			if (compare(key, _keys[i])) {
+				return _values[i];
+			}
+		}
+		return __defaultValue__();
 	}
 
 	override function remove(key:Dynamic):Bool {

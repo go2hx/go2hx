@@ -1,24 +1,24 @@
 === RUN  TestAuto
 Exception: Null access .underlying
-Called from go._Pointer.$Pointer_Impl_.equals (go/Pointer.hx line 47)
-Called from go._internal.sync.atomic_.$Pointer__static_extension.compareAndSwap__tp__0 (go/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 9)
-Called from go._internal.math.rand._Rand__globalrand.$Rand__globalrand_Fields_._globalRand (go/_internal/math/rand/Rand__globalrand.hx line 28)
-Called from go._internal.math.rand._Rand_int63.$Rand_int63_Fields_.int63 (go/_internal/math/rand/Rand_int63.hx line 6)
-Called from _internal.math.rand_test._Rand_test_testauto.$Rand_test_testauto_Fields_.testAuto (_internal/math/rand_test/Rand_test_testauto.hx line 8)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (_internal/math/randdottest/Randdottest.hx line 45)
+Called from go._Pointer.$Pointer_Impl_.equals (golibs/go/Pointer.hx line 47)
+Called from go._internal.sync.atomic_.$Pointer__static_extension.compareAndSwap__tp__0 (golibs/go/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 9)
+Called from go._internal.math.rand._Rand__globalrand.$Rand__globalrand_Fields_._globalRand (golibs/go/_internal/math/rand/Rand__globalrand.hx line 28)
+Called from go._internal.math.rand._Rand_int63.$Rand_int63_Fields_.int63 (golibs/go/_internal/math/rand/Rand_int63.hx line 6)
+Called from _internal.math.rand_test._Rand_test_testauto.$Rand_test_testauto_Fields_.testAuto (golibs/_internal/math/rand_test/Rand_test_testauto.hx line 8)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (golibs/_internal/math/randdottest/Randdottest.hx line 45)
 
 -- FAIL: TestAuto
 
 === RUN  TestDefaultRace
 skipping starting another executable in short mode
 Exception: __skip__
-Called from go._internal.testing.$T_common_static_extension.skipNow (go/_internal/testing/Testing_t_common_static_extension.hx line 40)
-Called from go._internal.testing.$T_common_static_extension.skip (go/_internal/testing/Testing_t_common_static_extension.hx line 52)
-Called from go._internal.testing.T_.~get_skip.0 (go/_internal/testing/Testing_t_.hx line 80)
-Called from _internal.math.rand_test._Rand_test_testdefaultrace.$Rand_test_testdefaultrace_Fields_.testDefaultRace (_internal/math/rand_test/Rand_test_testdefaultrace.hx line 6)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (_internal/math/randdottest/Randdottest.hx line 45)
+Called from go._internal.testing.$T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from go._internal.testing.$T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52)
+Called from go._internal.testing.T_.~get_skip.0 (golibs/go/_internal/testing/Testing_t_.hx line 80)
+Called from _internal.math.rand_test._Rand_test_testdefaultrace.$Rand_test_testdefaultrace_Fields_.testDefaultRace (golibs/_internal/math/rand_test/Rand_test_testdefaultrace.hx line 6)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (golibs/_internal/math/randdottest/Randdottest.hx line 45)
 
 -- SKIP: TestDefaultRace
 
@@ -147,18 +147,18 @@ mean NaN != 0.15625 (allowed error 0.1, 0.2)
 
 === RUN  TestNormTables
 Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32
-Called from _internal.math.rand_test._Rand_test_testnormtables.$Rand_test_testnormtables_Fields_.testNormTables (_internal/math/rand_test/Rand_test_testnormtables.hx line 14)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (_internal/math/randdottest/Randdottest.hx line 45)
+Called from _internal.math.rand_test._Rand_test_testnormtables.$Rand_test_testnormtables_Fields_.testNormTables (golibs/_internal/math/rand_test/Rand_test_testnormtables.hx line 14)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (golibs/_internal/math/randdottest/Randdottest.hx line 45)
 
 -- FAIL: TestNormTables
 
 === RUN  TestExpTables
 ke disagrees at index 0; 3801129273 != 2147483648
 Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32
-Called from _internal.math.rand_test._Rand_test_testexptables.$Rand_test_testexptables_Fields_.testExpTables (_internal/math/rand_test/Rand_test_testexptables.hx line 14)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (_internal/math/randdottest/Randdottest.hx line 45)
+Called from _internal.math.rand_test._Rand_test_testexptables.$Rand_test_testexptables_Fields_.testExpTables (golibs/_internal/math/rand_test/Rand_test_testexptables.hx line 14)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (golibs/_internal/math/randdottest/Randdottest.hx line 45)
 
 -- FAIL: TestExpTables
 
@@ -198,10 +198,10 @@ Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (_
 
 === RUN  TestRegress
 Exception: Value:reflect.method is not yet implemented
-Called from go._internal.reflect.$Value_static_extension.method (go/_internal/reflect/Reflect_value_static_extension.hx line 375)
-Called from _internal.math.rand_test._Rand_test_testregress.$Rand_test_testregress_Fields_.testRegress (_internal/math/rand_test/Rand_test_testregress.hx line 34)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (_internal/math/randdottest/Randdottest.hx line 45)
+Called from go._internal.reflect.$Value_static_extension.method (golibs/go/_internal/reflect/Reflect_value_static_extension.hx line 375)
+Called from _internal.math.rand_test._Rand_test_testregress.$Rand_test_testregress_Fields_.testRegress (golibs/_internal/math/rand_test/Rand_test_testregress.hx line 34)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (golibs/_internal/math/randdottest/Randdottest.hx line 45)
 
 -- FAIL: TestRegress
 

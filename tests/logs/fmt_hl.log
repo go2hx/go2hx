@@ -39,13 +39,13 @@ golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 Exception: Can't cast i32 to virtual<__underlying__:(go.AnyInterfaceData ()),string:(go._GoString.GoStringData ())>
-Called from go._internal.fmt.$T_pp_static_extension._handleMethods (go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1269)
-Called from go._internal.fmt.$T_pp_static_extension._printArg (go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1061)
-Called from go._internal.fmt.$T_pp_static_extension._doPrintf (go/_internal/fmt/Fmt_t_pp_static_extension.hx line 218)
-Called from go._internal.fmt._Fmt_sprintf.$Fmt_sprintf_Fields_.sprintf (go/_internal/fmt/Fmt_sprintf.hx line 15)
-Called from _internal.fmt_test._Fmt_test_testsprintf.$Fmt_test_testsprintf_Fields_.testSprintf (_internal/fmt_test/Fmt_test_testsprintf.hx line 5)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
+Called from go._internal.fmt.$T_pp_static_extension._handleMethods (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1269)
+Called from go._internal.fmt.$T_pp_static_extension._printArg (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1061)
+Called from go._internal.fmt.$T_pp_static_extension._doPrintf (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 218)
+Called from go._internal.fmt._Fmt_sprintf.$Fmt_sprintf_Fields_.sprintf (golibs/go/_internal/fmt/Fmt_sprintf.hx line 15)
+Called from _internal.fmt_test._Fmt_test_testsprintf.$Fmt_test_testsprintf_Fields_.testSprintf (golibs/_internal/fmt_test/Fmt_test_testsprintf.hx line 5)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (golibs/_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestSprintf
 
@@ -60,12 +60,12 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 === RUN  TestCountMallocs
 skipping malloc count in short mode
 Exception: __skip__
-Called from go._internal.testing.$T_common_static_extension.skipNow (go/_internal/testing/Testing_t_common_static_extension.hx line 40)
-Called from go._internal.testing.$T_common_static_extension.skip (go/_internal/testing/Testing_t_common_static_extension.hx line 52)
-Called from go._internal.testing.T_.~get_skip.0 (go/_internal/testing/Testing_t_.hx line 80)
-Called from _internal.fmt_test._Fmt_test_testcountmallocs.$Fmt_test_testcountmallocs_Fields_.testCountMallocs (_internal/fmt_test/Fmt_test_testcountmallocs.hx line 6)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
+Called from go._internal.testing.$T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40)
+Called from go._internal.testing.$T_common_static_extension.skip (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 52)
+Called from go._internal.testing.T_.~get_skip.0 (golibs/go/_internal/testing/Testing_t_.hx line 80)
+Called from _internal.fmt_test._Fmt_test_testcountmallocs.$Fmt_test_testcountmallocs_Fields_.testCountMallocs (golibs/_internal/fmt_test/Fmt_test_testcountmallocs.hx line 6)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (golibs/_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- SKIP: TestCountMallocs
 
@@ -142,34 +142,34 @@ Sprintf("%#v", [1]_internal.fmt_test.flagPrinter) = "[1]_internal.fmt_test.flagP
 
 === RUN  TestAppendf
 Appendf allocated a new sliceException: __fail__
-Called from go._internal.testing.$T_common_static_extension.failNow (go/_internal/testing/Testing_t_common_static_extension.hx line 94)
-Called from go._internal.testing.$T_common_static_extension.fatalf (go/_internal/testing/Testing_t_common_static_extension.hx line 58)
-Called from go._internal.testing.T_.~get_fatalf.0 (go/_internal/testing/Testing_t_.hx line 55)
-Called from _internal.fmt_test._Fmt_test_testappendf.$Fmt_test_testappendf_Fields_.testAppendf (_internal/fmt_test/Fmt_test_testappendf.hx line 14)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
+Called from go._internal.testing.$T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from go._internal.testing.$T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58)
+Called from go._internal.testing.T_.~get_fatalf.0 (golibs/go/_internal/testing/Testing_t_.hx line 55)
+Called from _internal.fmt_test._Fmt_test_testappendf.$Fmt_test_testappendf_Fields_.testAppendf (golibs/_internal/fmt_test/Fmt_test_testappendf.hx line 14)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (golibs/_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestAppendf
 
 === RUN  TestAppend
 Append allocated a new sliceException: __fail__
-Called from go._internal.testing.$T_common_static_extension.failNow (go/_internal/testing/Testing_t_common_static_extension.hx line 94)
-Called from go._internal.testing.$T_common_static_extension.fatalf (go/_internal/testing/Testing_t_common_static_extension.hx line 58)
-Called from go._internal.testing.T_.~get_fatalf.0 (go/_internal/testing/Testing_t_.hx line 55)
-Called from _internal.fmt_test._Fmt_test_testappend.$Fmt_test_testappend_Fields_.testAppend (_internal/fmt_test/Fmt_test_testappend.hx line 14)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
+Called from go._internal.testing.$T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from go._internal.testing.$T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58)
+Called from go._internal.testing.T_.~get_fatalf.0 (golibs/go/_internal/testing/Testing_t_.hx line 55)
+Called from _internal.fmt_test._Fmt_test_testappend.$Fmt_test_testappend_Fields_.testAppend (golibs/_internal/fmt_test/Fmt_test_testappend.hx line 14)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (golibs/_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestAppend
 
 === RUN  TestAppendln
 Appendln allocated a new sliceException: __fail__
-Called from go._internal.testing.$T_common_static_extension.failNow (go/_internal/testing/Testing_t_common_static_extension.hx line 94)
-Called from go._internal.testing.$T_common_static_extension.fatalf (go/_internal/testing/Testing_t_common_static_extension.hx line 58)
-Called from go._internal.testing.T_.~get_fatalf.0 (go/_internal/testing/Testing_t_.hx line 55)
-Called from _internal.fmt_test._Fmt_test_testappendln.$Fmt_test_testappendln_Fields_.testAppendln (_internal/fmt_test/Fmt_test_testappendln.hx line 14)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
+Called from go._internal.testing.$T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from go._internal.testing.$T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58)
+Called from go._internal.testing.T_.~get_fatalf.0 (golibs/go/_internal/testing/Testing_t_.hx line 55)
+Called from _internal.fmt_test._Fmt_test_testappendln.$Fmt_test_testappendln_Fields_.testAppendln (golibs/_internal/fmt_test/Fmt_test_testappendln.hx line 14)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (golibs/_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestAppendln
 
@@ -183,12 +183,12 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 
 === RUN  TestScanf
 Exception: array out of bounds, index: 0 length: 0
-Called from go._internal.fmt.$T_ss_static_extension._doScanf (go/_internal/fmt/Fmt_t_ss_static_extension.hx line 158)
-Called from go._internal.fmt._Fmt_fscanf.$Fmt_fscanf_Fields_.fscanf (go/_internal/fmt/Fmt_fscanf.hx line 16)
-Called from go._internal.fmt._Fmt_sscanf.$Fmt_sscanf_Fields_.sscanf (go/_internal/fmt/Fmt_sscanf.hx line 15)
-Called from _internal.fmt_test._Fmt_test_testscanf.$Fmt_test_testscanf_Fields_.testScanf (_internal/fmt_test/Fmt_test_testscanf.hx line 5)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
+Called from go._internal.fmt.$T_ss_static_extension._doScanf (golibs/go/_internal/fmt/Fmt_t_ss_static_extension.hx line 158)
+Called from go._internal.fmt._Fmt_fscanf.$Fmt_fscanf_Fields_.fscanf (golibs/go/_internal/fmt/Fmt_fscanf.hx line 16)
+Called from go._internal.fmt._Fmt_sscanf.$Fmt_sscanf_Fields_.sscanf (golibs/go/_internal/fmt/Fmt_sscanf.hx line 15)
+Called from _internal.fmt_test._Fmt_test_testscanf.$Fmt_test_testscanf_Fields_.testScanf (golibs/_internal/fmt_test/Fmt_test_testscanf.hx line 5)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (golibs/_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestScanf
 
@@ -232,11 +232,11 @@ Sscan <empty> expected error; got none
 
 === RUN  TestScanNotPointer
 Exception: Can't cast i32 to go.PointerData
-Called from go._internal.fmt.$T_ss_static_extension._doScan (go/_internal/fmt/Fmt_t_ss_static_extension.hx line 362)
-Called from go._internal.fmt._Fmt_fscan.$Fmt_fscan_Fields_.fscan (go/_internal/fmt/Fmt_fscan.hx line 16)
-Called from _internal.fmt_test._Fmt_test_testscannotpointer.$Fmt_test_testscannotpointer_Fields_.testScanNotPointer (_internal/fmt_test/Fmt_test_testscannotpointer.hx line 5)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
+Called from go._internal.fmt.$T_ss_static_extension._doScan (golibs/go/_internal/fmt/Fmt_t_ss_static_extension.hx line 362)
+Called from go._internal.fmt._Fmt_fscan.$Fmt_fscan_Fields_.fscan (golibs/go/_internal/fmt/Fmt_fscan.hx line 16)
+Called from _internal.fmt_test._Fmt_test_testscannotpointer.$Fmt_test_testscannotpointer_Fields_.testScanNotPointer (golibs/_internal/fmt_test/Fmt_test_testscannotpointer.hx line 5)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (golibs/_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestScanNotPointer
 
@@ -319,13 +319,13 @@ Sscanln: expected error; got none
 
 === RUN  TestScanInts
 bad scan: expected 801 got 0Exception: __fail__
-Called from go._internal.testing.$T_common_static_extension.failNow (go/_internal/testing/Testing_t_common_static_extension.hx line 94)
-Called from go._internal.testing.$T_common_static_extension.fatalf (go/_internal/testing/Testing_t_common_static_extension.hx line 58)
-Called from go._internal.testing.T_.~get_fatalf.0 (go/_internal/testing/Testing_t_.hx line 55)
-Called from _internal.fmt_test._Fmt_test__testscanints.$Fmt_test__testscanints_Fields_._testScanInts (_internal/fmt_test/Fmt_test__testscanints.hx line 28)
-Called from _internal.fmt_test._Fmt_test_testscanints.$Fmt_test_testscanints_Fields_.testScanInts (_internal/fmt_test/Fmt_test_testscanints.hx line 6)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
+Called from go._internal.testing.$T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from go._internal.testing.$T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58)
+Called from go._internal.testing.T_.~get_fatalf.0 (golibs/go/_internal/testing/Testing_t_.hx line 55)
+Called from _internal.fmt_test._Fmt_test__testscanints.$Fmt_test__testscanints_Fields_._testScanInts (golibs/_internal/fmt_test/Fmt_test__testscanints.hx line 28)
+Called from _internal.fmt_test._Fmt_test_testscanints.$Fmt_test_testscanints_Fields_.testScanInts (golibs/_internal/fmt_test/Fmt_test_testscanints.hx line 6)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (golibs/_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestScanInts
 
@@ -365,12 +365,12 @@ space vs newline no-percent 1110: expected error; got none
 
 === RUN  TestHexByte
 expected 0123 got 0000Exception: __fail__
-Called from go._internal.testing.$T_common_static_extension.failNow (go/_internal/testing/Testing_t_common_static_extension.hx line 94)
-Called from go._internal.testing.$T_common_static_extension.fatalf (go/_internal/testing/Testing_t_common_static_extension.hx line 58)
-Called from go._internal.testing.T_.~get_fatalf.0 (go/_internal/testing/Testing_t_.hx line 55)
-Called from _internal.fmt_test._Fmt_test_testhexbyte.$Fmt_test_testhexbyte_Fields_.testHexByte (_internal/fmt_test/Fmt_test_testhexbyte.hx line 25)
-Called from go._internal.testing.$M_static_extension.run (go/_internal/testing/Testing_m_static_extension.hx line 39)
-Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 105)
+Called from go._internal.testing.$T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94)
+Called from go._internal.testing.$T_common_static_extension.fatalf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 58)
+Called from go._internal.testing.T_.~get_fatalf.0 (golibs/go/_internal/testing/Testing_t_.hx line 55)
+Called from _internal.fmt_test._Fmt_test_testhexbyte.$Fmt_test_testhexbyte_Fields_.testHexByte (golibs/_internal/fmt_test/Fmt_test_testhexbyte.hx line 25)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (golibs/_internal/fmtdottest/Fmtdottest.hx line 105)
 
 -- FAIL: TestHexByte
 

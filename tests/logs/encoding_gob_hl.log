@@ -1,5 +1,5 @@
 Uncaught exception: not implemented name
-Called from go._internal.encoding.gob._Gob__buildtypeinfo.$Gob__buildtypeinfo_Fields_._buildTypeInfo(go/_internal/encoding/gob/Gob__buildtypeinfo.hx:246)
-Called from go._internal.encoding.gob._Gob__gettypeinfo.$Gob__gettypeinfo_Fields_._getTypeInfo(go/_internal/encoding/gob/Gob__gettypeinfo.hx:41)
-Called from go._internal.encoding.gob._Gob__mustgettypeinfo.$Gob__mustgettypeinfo_Fields_._mustGetTypeInfo(go/_internal/encoding/gob/Gob__mustgettypeinfo.hx:24)
-Called from .init(go/_internal/encoding/gob/Gob__twiretype.hx:23)
+Called from go._internal.encoding.gob._Gob__buildtypeinfo.$Gob__buildtypeinfo_Fields_._buildTypeInfo(golibs/go/_internal/encoding/gob/Gob__buildtypeinfo.hx:246)
+Called from go._internal.encoding.gob._Gob__gettypeinfo.$Gob__gettypeinfo_Fields_._getTypeInfo(golibs/go/_internal/encoding/gob/Gob__gettypeinfo.hx:41)
+Called from go._internal.encoding.gob._Gob__mustgettypeinfo.$Gob__mustgettypeinfo_Fields_._mustGetTypeInfo(golibs/go/_internal/encoding/gob/Gob__mustgettypeinfo.hx:24)
+Called from .init(golibs/go/_internal/encoding/gob/Gob__twiretype.hx:23)

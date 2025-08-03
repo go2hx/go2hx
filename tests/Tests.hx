@@ -536,6 +536,8 @@ function createRunnableStd(name:String, prefix:String, excludeFuncArgs:Array<Str
 	final targetLibs = BuildTools.targetLibs(target);
 	final outCmd = (BuildTools.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
 	final mainPathStd = main.split("/");
+	if (mainPathStd[0] == "go")
+		mainPathStd[0] = "go_";
 	final last = mainPathStd.pop() + "dottest";
 	mainPathStd.push(last);
 	mainPathStd.push(last.charAt(0).toUpperCase() + last.substr(1));

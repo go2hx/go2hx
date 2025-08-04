@@ -43,6 +43,34 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		this.__nil__ = data.__nil__;
 	}
 
+	@:from static function fromString(value:go.GoString):AnyInterface {
+		return createAnyInterface(value, basic(string_kind));
+	}
+
+	@:from static function fromString2(value:String):AnyInterface {
+		return createAnyInterface((value : go.GoString), basic(string_kind));
+	}
+
+	@:from static function fromArrayInt(value:Array<Int>):AnyInterface {
+		return createAnyInterface((value : go.Slice<go.GoInt>), sliceType({get: () -> basic(int_kind)}));
+	}
+
+	@:from static function fromArrayFloat(value:Array<Float>):AnyInterface {
+		return createAnyInterface((value : go.Slice<go.GoFloat64>), sliceType({get: () -> basic(float64_kind)}));
+	}
+
+	@:from static function fromArrayString(value:Array<String>):AnyInterface {
+		return createAnyInterface((value : go.Slice<go.GoString>), sliceType({get: () -> basic(string_kind)}));
+	}
+
+	@:from static function fromDynamic(value:Dynamic):AnyInterface {
+		return createAnyInterface(value, invalidType);
+	}
+
+	private static function createAnyInterface(value:Dynamic, gt) {
+		return new AnyInterface(value, new go._internal.internal.reflect.Reflect._Type(gt));
+	}
+
 	@:op(A != b) public static function notEquals(a:AnyInterface, b:AnyInterface):Bool {
 		return !equals(a, b);
 	}

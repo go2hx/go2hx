@@ -44,10 +44,12 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 			final toType = typeof(value.names[i], info, false);
 			e = typer.exprs.Expr.explicitConversion(t, toType, e, info, false);
 			final pos:Position = cast {min: posMin, max: 0, file: ""};
+			var doc:String = gen.Doc.getDocComment(value, value) + gen.Doc.getSource(value, info);
 			values.push({
 				name: name,
 				pos: pos,
 				pack: [],
+				doc: doc,
 				fields: [],
 				isExtern: isTitle(value.names[i]?.name ?? ""),
 				kind: TDField(FVar(type, e), [])
@@ -114,7 +116,7 @@ function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.Intermedi
 			// empty name
 			if (value.names[i].name == "_")
 				pkg.varOrder.push(name);
-			var doc:String = gen.Doc.getDocComment(value, value); // + getSource(value, info);
+			var doc:String = gen.Doc.getDocComment(value, value) + gen.Doc.getSource(value, info);
 			var access = [];
 			if (constant)
 				access.push(AFinal);

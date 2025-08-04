@@ -258,3 +258,8 @@ unicode
 unicode/utf16
 unicode/utf8
 unsafe
+crypto/chacha20
+crypto/chacha20poly1305
+crypto/cryptobyte/asn1
+crypto/cryptobyte
+crypto/hkdf

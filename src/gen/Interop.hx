@@ -9,7 +9,7 @@ function interopGen(td:TypeDefinition, path:String, cl:TypeDefinition):Array<Typ
 		return []; // TODO pull doc information
 	}
 	if (StringTools.endsWith(td.name, "_static_extension")
-		|| StringTools.endsWith(td.name, "_asInterface")
+		//|| StringTools.endsWith(td.name, "_asInterface")
 		|| StringTools.startsWith(td.name, "T_")
 		|| td.name == "__init_go2hx__") {
 		return [];
@@ -66,6 +66,7 @@ private function interopType(td:TypeDefinition, cl:TypeDefinition, path:String):
 		pack: [],
 		meta: [{name: ":eager", pos: null}, {name: ":follow", pos: null}],
 		fields: [],
+		doc: td.doc,
 		params: td.params,
 		pos: null,
 		kind: TDAlias(ct),
@@ -86,6 +87,7 @@ function interopGenVar(td:TypeDefinition, path:String, cl:TypeDefinition):Array<
 					{
 						name: td.name,
 						pos: td.pos,
+						doc: td.doc,
 						pack: td.pack,
 						fields: td.fields,
 						kind: TDField(FVar(convertedType, e)),
@@ -98,6 +100,7 @@ function interopGenVar(td:TypeDefinition, path:String, cl:TypeDefinition):Array<
 				{
 					name: td.name,
 					pos: td.pos,
+					doc: td.doc,
 					pack: td.pack,
 					fields: td.fields,
 					kind: TDField(FProp("get", "set", convertedType)),

@@ -28,6 +28,9 @@ private function getExports(instance:Compiler.CompilerInstanceData):Array<String
                 }
                 if (hasInternal)
                     continue;
+                // ignore package syscall
+                if (exportPackage.length >= 2 && exportPackage[1] == "syscall")
+                    continue; 
                 final export = exportPackage.join(".");
                 // trace(export);
                 exports.push(export);

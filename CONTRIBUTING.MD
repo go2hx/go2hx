@@ -30,7 +30,7 @@ Join the [Haxe discord](https://discord.gg/jgPcqC7DY2) and find the #go2hx chann
 
 If possible, please add unit tests when fixing bugs.
 
-Not all tests work, but any tests that pass are tracked and are required to work in the future.
+Not all tests pass, but any tests that do, are tracked and are required to work in the future.
 
 
 

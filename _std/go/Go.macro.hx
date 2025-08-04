@@ -283,6 +283,11 @@ class Go {
 			p = createTypePath(isLocal, "_static_extension");
 			p.params = null;
 			switch t {
+				case TType(_.get() => t2, _):
+					t = t2.type;
+				default:
+			}
+			switch t {
 				case TInst(_.get() => t, params):
 					final asInterfacePointer = t.meta.has(":pointer");
 					if (params != null && params.length > 0) { // has params

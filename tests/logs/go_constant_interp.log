@@ -1,14 +1,14 @@
-[ERROR] golibs/go/Go.macro.hx:348: characters 18-19
+[ERROR] golibs/go/Go.macro.hx:353: characters 18-19
 
- 348 |    return switch t {
+ 353 |    return switch t {
      |                  ^
      | Uncaught exception Null Access
 
-      370 |       return run();
+      375 |       return run();
           |              ^^^^^
           | Called from here
 
-      392 |   final result = run();
+      397 |   final result = run();
           |                  ^^^^^
           | Called from here
 

@@ -26,15 +26,15 @@
 
         ->  golibs/_internal/go_/constant/Constant_unaryop.hx:357: characters 28-214
 
-        357 |                     return go.Go.asInterface(!_y_56, _internal.gotype.Gotype___type___internaldotgo_dotconstantdotconstant_t_boolvaldott_boolval.__type___internaldotgo_dotconstantdotConstant_t_boolvaldotT_boolVal);
+        357 |                     return go.Go.asInterface(!_y_51, _internal.gotype.Gotype___type___internaldotgo_dotconstantdotconstant_t_boolvaldott_boolval.__type___internaldotgo_dotconstantdotConstant_t_boolvaldotT_boolVal);
             |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             | Called from here
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:16808: characters 97-105
 
- 16808 |                             final __t__ = (@:checkr _m_321 ?? throw "null pointer dereference")._obj_300;
+ 16808 |                             final __t__ = (@:checkr _m_321 ?? throw "null pointer dereference")._obj_315;
        |                                                                                                 ^^^^^^^^
-       | go.Ref<_internal.go_.types.Selection> has no field _obj_300
+       | go.Ref<_internal.go_.types.Selection> has no field _obj_315
 
 [ERROR] golibs/_internal/go_/types/Types_checker_static_extension.hx:16812: characters 66-80
 
@@ -44,7 +44,7 @@
 
 [ERROR] (macro) golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:83: characters 47-87
 
-    83 |                     _magic_56 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
+    83 |                     _magic_44 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
        |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Type not found : go._internal.internal.xcoff.Xcoff__magic
 

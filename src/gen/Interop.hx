@@ -42,7 +42,7 @@ function interopGen(td:TypeDefinition, path:String, cl:TypeDefinition):Array<Typ
 					cl.fields.push({
 						name: td.name,
 						pos: td.pos,
-						doc: td.doc,
+						doc: seeDoc(td.doc, td.name, path),
 						access: newAccess,
 						kind: FFun(interopGenFun(td.name, f, path, cl)),
 					});
@@ -53,6 +53,14 @@ function interopGen(td:TypeDefinition, path:String, cl:TypeDefinition):Array<Typ
 		default:
 			throw "interop type not supported: " + td.kind + " " + path;
 	}
+}
+
+private function seeDoc(doc, name, path:String) {
+	if (doc == null)
+		return doc;
+	path = path.substr("go/_internal/".length);
+	doc += "\n* @see https://pkg.go.dev/" + path + "/#" + title(name); 
+	return doc;
 }
 
 private function interopType(td:TypeDefinition, cl:TypeDefinition, path:String):TypeDefinition {
@@ -66,7 +74,7 @@ private function interopType(td:TypeDefinition, cl:TypeDefinition, path:String):
 		pack: [],
 		meta: [{name: ":eager", pos: null}, {name: ":follow", pos: null}],
 		fields: [],
-		doc: td.doc,
+		doc:  seeDoc(td.doc, td.name, td.doc),
 		params: td.params,
 		pos: null,
 		kind: TDAlias(ct),

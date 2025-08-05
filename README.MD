@@ -26,8 +26,7 @@ Think of go2hx as a replacement for nodejs + the npm ecosystem:
     - [Compatibility Haxe targets](#compatibility-haxe-targets)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Examples](#examples)
-    - [net/http](#nethttp)
+    - [Web server example](#web-server-example)
 - [Latest video on youtube](#latest-update-on-youtube)
 - [Setup from source](#setup-from-source)
 - [Community](#community)
@@ -55,9 +54,7 @@ traits | go2hx | nodejs |
 
 # Compatibility
 
-The compiler supports a sub-specification of the Go language, written about in detail [here](./doc/compatibility.md). The gist is that the language is compatible (besides a few corner cases). The stdlibs are partially compatible. 
-
-Finally outside of the sub-specification and therefore not supported are cgo, the runtime internals, unsafe, and syscall.
+The compiler supports a sub-specification of the Go language, written about in detail [here](./extra/docs/doc.md#sub-specification). The gist is that the language is compatible (besides a few corner cases). The stdlibs are partially compatible, and not supported are cgo, the runtime internals, unsafe, and syscall.
 
 
 ## Compatibility Haxe Targets
@@ -134,6 +131,8 @@ hl test.hl
 After ``starting!`` is shown navigate to the webserver: http://localhost:8090/hello
 
 Voila! A working all in Haxe webserver. The go2hx compiler only needs to be run again to add/update Go packages.
+
+For more information check the [documentation](./extra/docs/doc.md)!
 
 
 ### Latest update on Youtube

@@ -529,21 +529,21 @@ golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Ca
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
 golibs/go/Go.hx:46: characters 4-10 : Called from here
 golibs/go/Go.hx:37: lines 37-50 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
-golibs/go/Go.hx:46: characters 4-10 : Called from here
-golibs/go/Go.hx:37: lines 37-50 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
-golibs/go/Go.hx:46: characters 4-10 : Called from here
-golibs/go/Go.hx:37: lines 37-50 : Called from here
 
 -- PASS: TestProgWideChdir
 
 === RUN  TestSeek
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
+golibs/go/Go.hx:46: characters 4-10 : Called from here
+golibs/go/Go.hx:37: lines 37-50 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
+golibs/go/Go.hx:46: characters 4-10 : Called from here
+golibs/go/Go.hx:37: lines 37-50 : Called from here
 #0: Seek(0, 1) = 0, <nil> want 13, nil
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
@@ -1253,9 +1253,9 @@ Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_inter
 -- FAIL: TestCreateTemp
 
 === RUN  TestCreateTempPattern
-CreateTemp pattern "tempfile_test" created bad name "tmpfile_c"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*" created bad name "tmpfile_f"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_9"; want prefix "tempfile_test" & suffix "xyz"
+CreateTemp pattern "tempfile_test" created bad name "tmpfile_5"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*" created bad name "tmpfile_t"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_i"; want prefix "tempfile_test" & suffix "xyz"
 
 -- FAIL: TestCreateTempPattern
 
@@ -1272,29 +1272,29 @@ Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_inter
 MkdirTemp(`/_not_exists_`, `foo`) = tmpdir_, <nil>
 - SUBRUN  tempfile_test
 MkdirTemp("temp", "tempfile_test") created bad name
-	"tmpdir_o"
+	"tmpdir_c"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*
 MkdirTemp("temp", "tempfile_test*") created bad name
-	"tmpdir_p"
+	"tmpdir_y"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*xyz
 MkdirTemp("temp", "tempfile_test*xyz") created bad name
-	"tmpdir_e"
+	"tmpdir_c"
 did not match pattern
 	"^temp/tempfile_test[0-9]+xyz$"
 - SUBRUN  *xyz
 MkdirTemp("temp", "*xyz") created bad name
-	"tmpdir_2"
+	"tmpdir_a"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestMkdirTemp
 
 === RUN  TestMkdirTempBadDir
-TempDir error = <nil>; want PathError for path "tmpdir_a/not-exist" satisfying IsNotExist
+TempDir error = <nil>; want PathError for path "tmpdir_1/not-exist" satisfying IsNotExist
 
 -- FAIL: TestMkdirTempBadDir
 

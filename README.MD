@@ -74,13 +74,19 @@ Javascript can only be supported with a coroutine model.
 > Early alpha version, not able to compile most Go code correctly
 
 
-* [Download Haxe 5.0.0+](https://haxe.org/download/version/5.0.0-preview.1/)
-* Hxcpp haxe library is required for the compiler
+1. [Download Haxe 5.0.0+](https://haxe.org/download/version/5.0.0-preview.1/)
+2. Hxcpp haxe library is required for the compiler
 
 
 ```sh
 haxelib git hxcpp https://github.com/haxefoundation/hxcpp
 ```
+
+3. Install the compiler
+```sh
+haxelib git go2hx https://github.com/go2hx/go2hx
+```
+
 
 ## Usage
 
@@ -111,12 +117,11 @@ Create a Main.hx file:
 ```haxe
 import go.net.http.Http;
 function main() {
-    var mux = Http.newServeMux();
-    mux.handleFunc("/hello", (response:ResponseWriter, request:Request) -> {
+    Http.handleFunc("/hello", (response:ResponseWriter, request:Request) -> {
         response.write("HELLO THERE");
     });
     Sys.println("starting!");
-    Http.listenAndServe("127.0.0.1:8090", stdgo.Go.asInterface(mux));
+    Http.listenAndServe("127.0.0.1:8090", null);
 }
 ```
 

@@ -5,11 +5,7 @@ function starType(expr:GoAst.StarExpr, info:Info):ComplexType { // pointer type
 	var type = typeExprType(expr.x, info);
 	var t = typeof(expr.x, info, false);
 	if (isRefValue(t)) {
-		return TPath({
-			pack: ["go"],
-			name: "Ref",
-			params: type != null ? [TPType(type)] : [],
-		});
+		return type;
 	}
 
 	return TPath({

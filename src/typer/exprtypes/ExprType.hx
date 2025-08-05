@@ -891,7 +891,7 @@ function toComplexType(e:GoType, info:Info, isElem:Bool=false):ComplexType {
 	return switch e {
 		case refType(_.get() => elem):
 			final ct = toComplexType(elem, info, isElem);
-			TPath({pack: ["go"], name: "Ref", params: [TPType(ct)]});
+			ct;
 		case basic(kind):
 			switch kind {
 				case int64_kind: TPath({pack: ["go"], name: "GoInt64"});

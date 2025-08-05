@@ -367,9 +367,10 @@ function typeFunctionAnalyze(decl:GoAst.FuncDecl, data:Info, restricted:Array<St
 				case TPath(p):
 					var f = null;
 					f = (p:TypePath) -> {
-						if (p.pack.length == 1 && p.pack[0] == "go" && (p.name == "Pointer" || p.name == "Ref")) {
+						if (isPointer(varType) || isRef(varType)) {
 							switch p.params[0] {
 								case TPType(TPath(p)):
+									varType = getElem(varType);
 									return f(p);
 								default:
 							}

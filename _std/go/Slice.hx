@@ -63,6 +63,11 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	}
 
 	@:from
+	public static function fromStringArray(a:Array<String>):Slice<go.GoString> {
+		return a.map(s -> (s : go.GoString));
+	}
+
+	@:from
 	public static function fromStringBytes(str:String):Slice<GoByte> {
 		return (str : GoString);
 	}

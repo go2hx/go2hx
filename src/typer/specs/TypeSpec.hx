@@ -530,7 +530,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 						field.meta.push({name: ":interfacetypefprop", pos: null});
 						f.args.unshift({name: "t", type: TPath({name: splitDepFullPathName(name, info), pack: [], params: typer.HaxeAst.typeParamDeclsToTypeParams(params)})});
 						// interface struct creation
-						HaxeAst.addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
+						HaxeAst.addLocalMethod(field.name, field.pos, field.meta, field.doc, [], f, staticExtension, wrapper, false, false);
 						f.expr = null;
 						f.args.shift();
 					case FFun(f):
@@ -548,7 +548,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 							field.meta = [];
 						field.meta.push({name: ":interfacetypeffun", pos: null});
 						// interface struct creation
-						HaxeAst.addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
+						HaxeAst.addLocalMethod(field.name, field.pos, field.meta, field.doc, [], f, staticExtension, wrapper, false, false);
 						f.expr = null;
 						f.args.shift();
 					default:

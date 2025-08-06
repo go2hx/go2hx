@@ -73,6 +73,7 @@ function end(instance:CompilerInstanceData) {
 		checksum: "",
 	};
 	gen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
+	Sys.setCwd(instance.localPath);
 	if (instance.hxbBool) {
 		gen.Hxb.generateHxb(instance);
 	}

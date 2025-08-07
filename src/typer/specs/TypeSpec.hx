@@ -634,7 +634,7 @@ function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt 
 								throw "invalid";
 						});
 					default:
-						trace("struct incomplete: " + name);
+						//trace("struct incomplete: " + name);
 				}
 			}
 			return {

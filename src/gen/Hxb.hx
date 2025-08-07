@@ -56,23 +56,23 @@ function generateHxb(instance:Compiler.CompilerInstanceData):String {
     final procs = [];
     for (targetRun in targetRuns) {
         final command = 'haxe $filePath $targetRun';
-        trace(command);
-        procs.push(new sys.io.Process(command));
+        Sys.println("Running command: " + command);
+        procs.push({proc: new sys.io.Process(command), command: command});
     }
     while (procs.length > 0) {
         for (proc in procs) {
-            final code = proc.exitCode();
+            final code = proc.proc.exitCode();
             if (code == null)
                 continue;
             if (code != 0) {
-                Sys.println("failed to generate HXB");
-                Sys.println(proc.stderr.readAll().toString());
+                Sys.println("failed to generate HXB: " + proc.command);
+                Sys.println(proc.proc.stdout.readAll().toString());
+                Sys.println(proc.proc.stderr.readAll().toString());
                 for (proc in procs)
-                    proc.close();
+                    proc.proc.close();
                 return "";
             }
             procs.remove(proc);
-            Sys.println("Completed hxb part " + (targetRuns.length - procs.length));
         }
     }
     

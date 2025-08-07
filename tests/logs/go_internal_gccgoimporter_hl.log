@@ -26,7 +26,7 @@
 
         ->  golibs/go/_internal/go_/constant/Constant_unaryop.hx:357: characters 28-224
 
-        357 |                     return go.Go.asInterface(!_y_42, _internal.gotype.Gotype___type__godot_internaldotgo_dotconstantdotconstant_t_boolvaldott_boolval.__type__godot_internaldotgo_dotconstantdotConstant_t_boolvaldotT_boolVal);
+        357 |                     return go.Go.asInterface(!_y_30, _internal.gotype.Gotype___type__godot_internaldotgo_dotconstantdotconstant_t_boolvaldott_boolval.__type__godot_internaldotgo_dotconstantdotConstant_t_boolvaldotT_boolVal);
             |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             | Called from here
 
@@ -42,23 +42,23 @@
        |                                                                  ^^^^^^^^^^^^^^
        | Null<Any> has no field __underlying__
 
-[ERROR] golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:83: characters 47-87
+[ERROR] golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:83: characters 48-88
 
-    83 |                     _magic_82 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
-       |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    83 |                     _magic_102 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
+       |                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Type not found : go._internal.internal.xcoff.Xcoff__magic
 
             | For optional function argument 'get'
 
-[ERROR] golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:83: characters 21-95
+[ERROR] golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:83: characters 21-96
 
-    83 |                     _magic_82 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
-       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    83 |                     _magic_102 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
+       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Void should be go.GoUInt16
 
 [ERROR] golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:215: characters 44-80
 
-   215 |                     _l_135 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__l._l);
+   215 |                     _l_117 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__l._l);
        |                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Type not found : go._internal.internal.xcoff.Xcoff__l
 
@@ -66,7 +66,7 @@
 
 [ERROR] golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:215: characters 21-84
 
-   215 |                     _l_135 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__l._l);
+   215 |                     _l_117 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__l._l);
        |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Void should be go.GoUInt32
 

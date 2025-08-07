@@ -156,19 +156,27 @@ function typeGenericFunction(func:IntermediateFunctionType, finalDoc, comboList:
 	final genericName = func.name + "__tp__" + count;
 	info.typeParamMap = [];
 	final defs:Array<TypeDefinition> = [];
-	defs.push({
-		name: genericName,
-		pos: null,
-		pack: [],
-		fields: [],
-		meta: [],
-		kind: TDField(FFun({
-			ret: ret,
-			params: params,
-			args: args,
-			expr: block,
-		}), noOverloadAccess(access)) 
-	});
+	var exists = false;
+	for (def in defs) {
+		if (def.name == genericName) {
+			exists = true;
+			break;
+		}
+	}
+	if (!exists)
+		defs.push({
+			name: genericName,
+			pos: null,
+			pack: [],
+			fields: [],
+			meta: [],
+			kind: TDField(FFun({
+				ret: ret,
+				params: params,
+				args: args,
+				expr: block,
+			}), noOverloadAccess(access)) 
+		});
 	final funcArgs = args.map(arg -> macro $i{arg.name});
 	if (funcArgs.length > 0 && typer.HaxeAst.isRestType(args[args.length - 1].type)) {
 		funcArgs[funcArgs.length - 1] = macro...$e{funcArgs[funcArgs.length - 1]};

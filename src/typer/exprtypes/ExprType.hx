@@ -1163,6 +1163,7 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 			}
 			// new system goes below here
 			final defName = "__type__" + normalizeVarName(namedPathString);
+			Compiler.mutex.acquire();
 			var exists = false; //info.reflectTypesData
 			for (def in info.reflectTypesData.defs) {
 				if (def.name == defName) {
@@ -1170,6 +1171,7 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 					break;
 				}
 			}
+			Compiler.mutex.release();
 			if (!exists && !info.global.pathNames.exists(defName)) {
 				// new
 				info.global.pathNames[defName] = true;

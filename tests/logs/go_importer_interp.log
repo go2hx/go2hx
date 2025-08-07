@@ -44,7 +44,7 @@
 
 [ERROR] (macro) golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:83: characters 47-87
 
-    83 |                     _magic_17 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
+    83 |                     _magic_34 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
        |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Type not found : go._internal.internal.xcoff.Xcoff__magic
 

@@ -49,12 +49,13 @@ function receivedData(buff:Bytes) {
 	final module = typer.Package.typePackage(data, instance);
 	final typePackageTime = measureTime();
 	// generate the code
-	gen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
+	final interopPackage = gen.CodeGen.create(instance.localPath + instance.outputPath, module, instance.root);
 	mutex.acquire();
 	final countPkgs = modules.push(module);
 	mutex.release();
 	final codeGenTime = measureTime();
-	Sys.println(module.path + " " + countPkgs + "/" + instance.totalPkgs);
+
+	Sys.println(StringTools.rpad("import " + interopPackage + ";", " ", 100) + " " + countPkgs + "/" + instance.totalPkgs);
 	if (instance.times) {
 		Sys.println("- decodeData : " + decodeDataTime);
 		Sys.println("- typePackage: " + typePackageTime);
@@ -119,7 +120,7 @@ function runCompilerFromArgs(args:Array<String>) {
 
 	instance = createCompilerInstanceFromArgs(args);
 
-	Sys.println("Golang compiler instance");
+	Sys.println("Go imports for Haxe:");
 	setupCompiler(() -> {
 		if (onComplete == null)
 			onComplete = (modules, data) -> {

@@ -24,7 +24,7 @@ function cutPrefixComplexType(ct:ComplexType):ComplexType {
 	return ct;
 }
 
-function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
+function create(outputPath:String, module:typer.HaxeAst.Module, root:String):String {
 	final printer = new gen.Printer();
 	var actualPath = StringTools.replace(module.path, ".", "/");
 	final paths = actualPath.split("/");
@@ -62,6 +62,8 @@ function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
 	if (root.length > 0)
 		root += ".";
 	var pkgPath = 'package ${actualPath.split("/").join(".")};\n';
+	final clName = @:privateAccess io.Path.importClassName(paths.pop());
+	final interopPackage = actualPathInterop.split("/").join(".") + "." + clName;
 	var pkgPathInterop = 'package ${actualPathInterop.split("/").join(".")};\n';
 	var content:Array<TypeDefinition> = [];
 	var contentImports:String = "";
@@ -85,7 +87,7 @@ function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
 		final cl = macro class C {};
 		final clMacro = macro class C {};
 		var splitFiles = [];
-		cl.name = @:privateAccess io.Path.importClassName(paths.pop());
+		cl.name = clName;
 		clMacro.name = cl.name;
 		if (file != null && file.defs != null) {
 			for (def in file.defs) {
@@ -173,6 +175,7 @@ function create(outputPath:String, module:typer.HaxeAst.Module, root:String) {
 			File.saveContent(cachePath, module.checksum);
 		}catch(_) {}
 	}
+	return interopPackage;
 }
 
 private function runCmd(cmd:String) {

@@ -518,17 +518,17 @@ golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Un
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
 golibs/go/Go.hx:46: characters 4-10 : Called from here
-golibs/go/Go.hx:37: lines 37-50 : Called from heregolibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
-golibs/go/Go.hx:46: characters 4-10 : Called from here
-golibs/go/Go.hx:37: lines 37-50 : Called from heregolibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
+golibs/go/Go.hx:37: lines 37-50 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
 golibs/go/Go.hx:46: characters 4-10 : Called from here
 golibs/go/Go.hx:37: lines 37-50 : Called from here
-
-
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
+golibs/go/Go.hx:46: characters 4-10 : Called from here
+golibs/go/Go.hx:37: lines 37-50 : Called from here
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
@@ -1253,9 +1253,9 @@ Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_inter
 -- FAIL: TestCreateTemp
 
 === RUN  TestCreateTempPattern
-CreateTemp pattern "tempfile_test" created bad name "tmpfile_p"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*" created bad name "tmpfile_e"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_1"; want prefix "tempfile_test" & suffix "xyz"
+CreateTemp pattern "tempfile_test" created bad name "tmpfile_e"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*" created bad name "tmpfile_7"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_z"; want prefix "tempfile_test" & suffix "xyz"
 
 -- FAIL: TestCreateTempPattern
 
@@ -1272,29 +1272,29 @@ Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_inter
 MkdirTemp(`/_not_exists_`, `foo`) = tmpdir_, <nil>
 - SUBRUN  tempfile_test
 MkdirTemp("temp", "tempfile_test") created bad name
-	"tmpdir_2"
+	"tmpdir_5"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*
 MkdirTemp("temp", "tempfile_test*") created bad name
-	"tmpdir_8"
+	"tmpdir_1"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*xyz
 MkdirTemp("temp", "tempfile_test*xyz") created bad name
-	"tmpdir_d"
+	"tmpdir_9"
 did not match pattern
 	"^temp/tempfile_test[0-9]+xyz$"
 - SUBRUN  *xyz
 MkdirTemp("temp", "*xyz") created bad name
-	"tmpdir_w"
+	"tmpdir_q"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestMkdirTemp
 
 === RUN  TestMkdirTempBadDir
-TempDir error = <nil>; want PathError for path "tmpdir_g/not-exist" satisfying IsNotExist
+TempDir error = <nil>; want PathError for path "tmpdir_y/not-exist" satisfying IsNotExist
 
 -- FAIL: TestMkdirTempBadDir
 

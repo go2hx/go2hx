@@ -4,7 +4,7 @@ Exception: __fail__
 Called from go._internal.testing.T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94 column 9)
 Called from go._internal.testing.T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64 column 9)
 Called from local function #1 (golibs/go/_internal/testing/Testing_t_.hx line 50 column 85)
-Called from _internal.go_.format._Format_testnode.Format_testnode_Fields_.testNode (golibs/_internal/go_/format/Format_testnode.hx line 43 column 17)
+Called from go._internal.go_.format._Format_testnode.Format_testnode_Fields_.testNode (golibs/go/_internal/go_/format/Format_testnode.hx line 43 column 17)
 Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
 Called from _internal.go_.formatdottest._Formatdottest.Formatdottest_Fields_.main (golibs/_internal/go_/formatdottest/Formatdottest.hx line 13 column 36)
 

@@ -325,7 +325,7 @@ function setupNodeJS(rebuild:Bool, args:Array<String>) {
 }
 
 function setupCPP(rebuild:Bool, args:Array<String>, debug:Bool) {
-	Sys.println("C++ compiler version");
+	Sys.println("Building Haxe part of the compiler");
 	Sys.putEnv("HXCPP_COMPILE_THREADS", "4");
 	Sys.putEnv("HXCPP_COMPILE_CACHE", "~/hxcache");
 	final debugSuffix = debug ? "-debug" : "";

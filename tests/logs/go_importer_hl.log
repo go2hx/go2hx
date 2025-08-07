@@ -26,7 +26,7 @@
 
         ->  golibs/go/_internal/go_/constant/Constant_unaryop.hx:357: characters 28-224
 
-        357 |                     return go.Go.asInterface(!_y_52, _internal.gotype.Gotype___type__godot_internaldotgo_dotconstantdotconstant_t_boolvaldott_boolval.__type__godot_internaldotgo_dotconstantdotConstant_t_boolvaldotT_boolVal);
+        357 |                     return go.Go.asInterface(!_y_42, _internal.gotype.Gotype___type__godot_internaldotgo_dotconstantdotconstant_t_boolvaldott_boolval.__type__godot_internaldotgo_dotconstantdotConstant_t_boolvaldotT_boolVal);
             |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             | Called from here
 
@@ -42,10 +42,10 @@
        |                                                                  ^^^^^^^^^^^^^^
        | Null<Any> has no field __underlying__
 
-[ERROR] (macro) golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:83: characters 48-88
+[ERROR] (macro) golibs/go/_internal/internal/xcoff/Xcoff_newfile.hx:83: characters 47-87
 
-    83 |                     _magic_102 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
-       |                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    83 |                     _magic_68 = go.Go.pointer(go._internal.internal.xcoff.Xcoff__magic._magic);
+       |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Type not found : go._internal.internal.xcoff.Xcoff__magic
 
             | For optional function argument 'get'

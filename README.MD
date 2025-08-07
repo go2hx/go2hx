@@ -96,6 +96,7 @@ haxelib run go2hx [library_here]
 Now include the outputted code into your build hxml or equivalent:
 ```hxml
 --hxb-lib go2hx.zip
+-w -WStaticInitOrder # temporarily required to hide a Haxe compiler warning
 ```
 
 ## Web server example

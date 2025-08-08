@@ -76,6 +76,7 @@ Javascript can only be supported with a coroutine model.
 
 
 1. [Download Haxe 5.0.0+](https://haxe.org/download/version/5.0.0-preview.1/)
+2. [Git needs to be installed](https://git-scm.com/downloads)
 2. Hxcpp haxe library is required for the compiler
 
 
@@ -91,13 +92,15 @@ haxelib git go2hx https://github.com/go2hx/go2hx
 
 ## Usage
 
-To compile a given library run the following command:
+To compile a given library run the following command in the directory of your project:
 
 ```sh
 haxelib run go2hx [library_here]
 ```
 
-Now include the outputted code into your build hxml or equivalent:
+This will by default create a ``golibs`` folder and ``go2hx.*.zip`` HXB files ``*`` representing the supported Haxe targets.
+
+Now include the outputted code into your build hxml or equivalent (needs to be the same location, where the compiler was invoked):
 ```hxml
 --hxb-lib go2hx.zip
 -w -WStaticInitOrder # temporarily required to hide a Haxe compiler warning
@@ -108,12 +111,12 @@ Now include the outputted code into your build hxml or equivalent:
 1. go2hx [installed](#installation)
 2. hashlink [downloaded](https://hashlink.haxe.org/#download)
 
-For example, to compile ``net/http`` to build a web server, run the command:
+For example, to compile ``net/http`` to build a web server, run the command in a new project folder:
 ```sh
 haxelib run go2hx net/http
 ```
 
-Create a build.hxml file
+Create a build.hxml file, in the same directory:
 ```hxml
 -m Main
 --hxb-lib go2hx.zip

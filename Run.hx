@@ -326,6 +326,10 @@ function setupNodeJS(rebuild:Bool, args:Array<String>) {
 
 function setupCPP(rebuild:Bool, args:Array<String>, debug:Bool) {
 	Sys.println("Building Haxe part of the compiler");
+	final proc = new Process("haxe -cp extra/scripts --run SetupHxcpp");
+	if (proc.exitCode(true) != 0) {
+		trace(proc.stdout.readAll().toString(), proc.stderr.readAll().toString());
+	}
 	Sys.putEnv("HXCPP_COMPILE_THREADS", "4");
 	Sys.putEnv("HXCPP_COMPILE_CACHE", "~/hxcache");
 	final debugSuffix = debug ? "-debug" : "";

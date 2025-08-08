@@ -78,6 +78,7 @@ Javascript can only be supported with a coroutine model.
 1. [Download Haxe 5.0.0+](https://haxe.org/download/version/5.0.0-preview.1/)
 2. [Git needs to be installed](https://git-scm.com/downloads)
 2. Hxcpp haxe library is required for the compiler
+3. A C++ compiler is required to use Hxcpp, [for more information](https://haxe.org/manual/target-cpp-getting-started.html).
 
 
 ```sh

@@ -405,8 +405,10 @@ class GoFloat64Map<T> implements haxe.Constraints.IMap<GoFloat64, T>  {
 	public function new () {
 		bt = new BalancedTree();
 	}
+	#if haxe5
 	public function size():Int
 		return bt.size();
+	#end
 	function compare(k1:GoFloat64, k2:GoFloat64):Int {
 		return if (k1 == k2) {
 			0;
@@ -819,9 +821,10 @@ private class IntMap<V> {
 	public function new() {
 		map = new haxe.ds.IntMap<V>();
 	}
-
+	#if haxe5
 	public function size():Int
 		return map.size();
+	#end
 
 	public function clear()
 		map.clear();

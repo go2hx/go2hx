@@ -2,13 +2,16 @@ package go.net;
 
 function listen(_network, _address) {
 	@:define("sys", throw "net.Listen only implemented on sys targets") {
-		final network:String = _network;
-		final address:String = _address;
-		final colonIndex = address.indexOf(":");
-		if (colonIndex == -1)
-			throw "invalid address formatting: " + address;
-		final host = new sys.net.Host(address.substr(0, colonIndex));
-		final port = Std.parseInt(address.substr(colonIndex + 1));
+		 final network:String = _network;
+		var address:String = _address;
+		final colonIndex = address.lastIndexOf(":");
+		if (colonIndex == -1) throw "invalid address formatting: " + address;
+		final portString = address.substr(colonIndex + 1);
+		address = address.substr(0, colonIndex);
+		if (address == "")
+			address = "0.0.0.0";
+		final host = new sys.net.Host(address);
+		final port = Std.parseInt(portString);
 		final addr = new go._internal.net.Net_haxeaddr.HaxeAddr(network, host.toString(), port);
 		switch network {
 			case "tcp", "tcp4", "tcp6":
@@ -51,7 +54,7 @@ function _supportsIPv6()
 	return true;
 
 @:recv(T_ipStackCapabilities)
-function _probe() {
+function _probe(_p) {
 	_p._ipv4Enabled = true;
 }
 
@@ -60,19 +63,19 @@ function dialContext(_ctx, _network, _address) {
 	@:define("sys", throw "Dialer dialContext only implemented on sys targets") {
 		 final network:String = _network;
 		var address:String = _address;
-		final colonIndex = address.indexOf(":");
-		if (colonIndex == -1)
-			throw "invalid address formatting: " + address;
+		final colonIndex = address.lastIndexOf(":");
+		if (colonIndex == -1) throw "invalid address formatting: " + address;
+		final portString = address.substr(colonIndex + 1);
 		address = address.substr(0, colonIndex);
-		if (address == "")
+		if (address == "") 
 			address = "0.0.0.0";
 		final host = new sys.net.Host(address);
-		final port = Std.parseInt(address.substr(colonIndex + 1));
+		final port = Std.parseInt(portString);
 		final addr = new go._internal.net.Net_haxeaddr.HaxeAddr(network, host.toString(), port);
 		switch network {
 			case "tcp", "tcp4", "tcp6":
 				final s = new sys.net.Socket();
-				s.connect(host,port);
+				s.connect(host, port);
 				return {_0: new go._internal.net.Net_haxeconn.HaxeConn(addr, s), _1: null};
 			case "udp", "udp4", "udp6":
 				throw "unimplemented network: " + network;

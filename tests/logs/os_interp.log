@@ -1253,9 +1253,9 @@ Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_inter
 -- FAIL: TestCreateTemp
 
 === RUN  TestCreateTempPattern
-CreateTemp pattern "tempfile_test" created bad name "tmpfile_2"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*" created bad name "tmpfile_22"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_x"; want prefix "tempfile_test" & suffix "xyz"
+CreateTemp pattern "tempfile_test" created bad name "tmpfile_l"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*" created bad name "tmpfile_d"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_j"; want prefix "tempfile_test" & suffix "xyz"
 
 -- FAIL: TestCreateTempPattern
 
@@ -1272,29 +1272,29 @@ Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_inter
 MkdirTemp(`/_not_exists_`, `foo`) = tmpdir_, <nil>
 - SUBRUN  tempfile_test
 MkdirTemp("temp", "tempfile_test") created bad name
-	"tmpdir_w"
+	"tmpdir_4"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*
 MkdirTemp("temp", "tempfile_test*") created bad name
-	"tmpdir_1"
+	"tmpdir_z"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*xyz
 MkdirTemp("temp", "tempfile_test*xyz") created bad name
-	"tmpdir_u"
+	"tmpdir_y"
 did not match pattern
 	"^temp/tempfile_test[0-9]+xyz$"
 - SUBRUN  *xyz
 MkdirTemp("temp", "*xyz") created bad name
-	"tmpdir_8"
+	"tmpdir_e"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestMkdirTemp
 
 === RUN  TestMkdirTempBadDir
-TempDir error = <nil>; want PathError for path "tmpdir_s/not-exist" satisfying IsNotExist
+TempDir error = <nil>; want PathError for path "tmpdir_q/not-exist" satisfying IsNotExist
 
 -- FAIL: TestMkdirTempBadDir
 

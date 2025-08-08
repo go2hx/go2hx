@@ -22,7 +22,7 @@ Think of go2hx as a replacement for nodejs + the npm ecosystem:
 
 # Tables of contents
 - [Why?](#why)
-- [Compatibility](#compatibility)
+- [Language support](#language-support)
     - [Compatibility Haxe targets](#compatibility-haxe-targets)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -52,23 +52,27 @@ traits | go2hx | nodejs |
 | Can create a web server | ✅ | ✅
 | Underlying code statically typed | ️️✅ | ❌
 
-# Compatibility
+# Language support
 
-The compiler supports a sub-specification of the Go language, written about in detail [here](./extra/docs/doc.md#sub-specification). The gist is that the language is compatible (besides a few corner cases). The stdlibs are partially compatible, and not supported are cgo, the runtime internals, unsafe, and syscall.
+The compiler supports a sub-specification of the Go language, written about in detail [here](./extra/docs/doc.md#sub-specification). 
+
+The gist is that the language is compatible with Go's specification except when using cgo, [``runtime``](https://pkg.go.dev/runtime)/[``reflect``](https://pkg.go.dev/reflect) internals, [``unsafe``](https://pkg.go.dev/unsafe), or [``syscall``](https://pkg.go.dev/syscall).
+
+There are many edge cases that limit the compiler from being able to produce correct library code. If you are wondering does "library/feature X work yet", the best way is to try the compiler out yourself.
 
 
-## Compatibility Haxe Targets
 
-Supported: Eval, Hashlink.
+## Compatible Haxe Targets
 
-Want to support in the future: C++, Jvm, Javascript.
+Supported: Hashlink.
+
+Partially supported: Eval
+
+Planned: C++, Jvm, Javascript.
 
 Javascript can only be supported with a coroutine model.
 
 ## Installation
-
-> [!WARNING]  
-> Early alpha version, not able to compile most Go code correctly
 
 
 1. [Download Haxe 5.0.0+](https://haxe.org/download/version/5.0.0-preview.1/)
@@ -100,6 +104,10 @@ Now include the outputted code into your build hxml or equivalent:
 ```
 
 ## Web server example
+**Requires**
+1. go2hx [installed](#installation)
+2. hashlink [downloaded](https://hashlink.haxe.org/#download)
+
 For example, to compile ``net/http`` to build a web server, run the command:
 ```sh
 haxelib run go2hx net/http
@@ -109,6 +117,7 @@ Create a build.hxml file
 ```hxml
 -m Main
 --hxb-lib go2hx.zip
+-w -WStaticInitOrder # temporarily required to hide a Haxe compiler warning
 --hl test.hl
 ```
 Create a Main.hx file:

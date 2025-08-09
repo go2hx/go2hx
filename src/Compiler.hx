@@ -77,6 +77,20 @@ function end(instance:CompilerInstanceData) {
 	Sys.setCwd(instance.localPath);
 	if (instance.hxbBool) {
 		gen.Hxb.generateHxb(instance);
+		Sys.println("");
+		Sys.println("USER INSTRUCTIONS:");
+		Sys.println("");
+		Sys.println("1. Add to your hxml:");
+		Sys.println("");
+		Sys.println("--hxb-lib go2hx.zip");
+		Sys.println("-w -WStaticInitOrder");
+		Sys.println("");
+		Sys.println("2. Restart your language server, for vscode: F1 -> Haxe: Restart Language Server");
+		Sys.println("");
+		Sys.println("3. Add imports shown above, for example:");
+		Sys.println("");
+		Sys.println("import go.runtime.Runtime;");
+		Sys.println("");
 	}
 	// set back current working directory
 	Sys.setCwd(cwd);
@@ -120,7 +134,7 @@ function runCompilerFromArgs(args:Array<String>) {
 
 	instance = createCompilerInstanceFromArgs(args);
 
-	Sys.println("Go imports for Haxe:");
+	Sys.println("\nGo Imports for Haxe:");
 	setupCompiler(() -> {
 		if (onComplete == null)
 			onComplete = (modules, data) -> {
@@ -281,7 +295,6 @@ private function printDoc(handler:cli.Args.ArgHandler) {
 }
 
 function closeCompiler(code:Int = 0) {
-	Sys.println("CLOSE COMPILER");
 	Sys.exit(code);
 }
 
@@ -325,6 +338,7 @@ function accept(server:Socket, ready:Void->Void) {
 		instance.totalPkgs = getLength(client.input.read(8));
 		if (instance.totalPkgs == 0) {
 			Sys.println("0 packages to compile");
+			instance.hxbBool = false;
 			end(instance);
 			continue;
 		}

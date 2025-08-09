@@ -59,7 +59,8 @@ private function seeDoc(doc, name, path:String) {
 	if (doc == null)
 		return doc;
 	path = path.substr("go/_internal/".length);
-	doc += "\n* @see https://pkg.go.dev/" + path + "/#" + title(name); 
+	final seeLine = "\n* @see https://pkg.go.dev/" + path + "/#" + title(name);
+	doc += seeLine;
 	return doc;
 }
 
@@ -74,7 +75,7 @@ private function interopType(td:TypeDefinition, cl:TypeDefinition, path:String):
 		pack: [],
 		meta: [{name: ":eager", pos: null}, {name: ":follow", pos: null}],
 		fields: [],
-		doc:  seeDoc(td.doc, td.name, td.doc),
+		doc:  seeDoc(td.doc, td.name, path),
 		params: td.params,
 		pos: null,
 		kind: TDAlias(ct),

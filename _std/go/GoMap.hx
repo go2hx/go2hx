@@ -394,7 +394,7 @@ class GoUInt64Map<T> extends BalancedTree<GoUInt64, T> {
 	}
 }*/
 @:dox(hide)
-class GoFloat64Map<T>  {
+class GoFloat64Map<T> implements haxe.Constraints.IMap<GoFloat64, T>  {
 	public var bt:BalancedTree<GoFloat64, T>;
 	public var __defaultValue__:Void->T;
 	var root(get,set):TreeNode<GoFloat64, T>;
@@ -405,7 +405,9 @@ class GoFloat64Map<T>  {
 	public function new () {
 		bt = new BalancedTree();
 	}
-
+	public function size():Int {
+		return 0;
+	}
 	function compare(k1:GoFloat64, k2:GoFloat64):Int {
 		return if (k1 == k2) {
 			0;
@@ -681,7 +683,7 @@ class GoObjectMap<K, V> extends GoAnyInterfaceMap<V> {
 */
 
 @:dox(hide)
-class CompareMap<K,V> {
+class CompareMap<K,V> implements haxe.Constraints.IMap<K,V> {
 	public var _keys:Array<K> = [];
 	public var _values:Array<V> = [];
 	public function new() {}
@@ -817,6 +819,10 @@ private class IntMap<V> {
 
 	public function new() {
 		map = new haxe.ds.IntMap<V>();
+	}
+
+	public function size():Int {
+		return 0;
 	}
 
 	public function clear()

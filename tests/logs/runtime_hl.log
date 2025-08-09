@@ -26,15 +26,15 @@
 
         ->  golibs/go/_internal/go_/constant/Constant_unaryop.hx:357: characters 28-224
 
-        357 |                     return go.Go.asInterface(!_y_67, _internal.gotype.Gotype___type__godot_internaldotgo_dotconstantdotconstant_t_boolvaldott_boolval.__type__godot_internaldotgo_dotconstantdotConstant_t_boolvaldotT_boolVal);
+        357 |                     return go.Go.asInterface(!_y_62, _internal.gotype.Gotype___type__godot_internaldotgo_dotconstantdotconstant_t_boolvaldott_boolval.__type__godot_internaldotgo_dotconstantdotConstant_t_boolvaldotT_boolVal);
             |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             | Called from here
 
 [ERROR] golibs/go/_internal/go_/types/Types_checker_static_extension.hx:16808: characters 97-105
 
- 16808 |                             final __t__ = (@:checkr _m_318 ?? throw "null pointer dereference")._obj_281;
+ 16808 |                             final __t__ = (@:checkr _m_321 ?? throw "null pointer dereference")._obj_300;
        |                                                                                                 ^^^^^^^^
-       | go.Ref<go._internal.go_.types.Selection> has no field _obj_281
+       | go.Ref<go._internal.go_.types.Selection> has no field _obj_300
 
 [ERROR] golibs/go/_internal/go_/types/Types_checker_static_extension.hx:16812: characters 66-80
 

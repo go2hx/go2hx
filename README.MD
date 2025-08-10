@@ -27,7 +27,8 @@ Think of go2hx as a replacement for nodejs + the npm ecosystem:
 - [Installation](#installation)
 - [Usage](#usage)
     - [Web server example](#web-server-example)
-- [Latest video on youtube](#latest-update-on-youtube)
+- [Demo HTTP launch video on youtube](#demo-http-launch-video-on-youtube)
+    - [Demo source code](#demo-source-code)
 - [Setup from source](#setup-from-source)
 - [Community](#community)
 - [Credits](#credits)
@@ -148,8 +149,40 @@ Voila! A working all in Haxe webserver. The go2hx compiler only needs to be run 
 For more information check the [documentation](./extra/docs/doc.md)!
 
 
-### Latest update on Youtube
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/qVaynJJ941M/0.jpg)](https://www.youtube.com/watch?v=qVaynJJ941M)
+### Demo HTTP launch video on Youtube
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/C2aUqI7JHa8/0.jpg)](https://www.youtube.com/watch?v=C2aUqI7JHa8)
+
+### Demo source code
+
+```haxe
+import go.net.http.Http;
+
+function main() {
+    // "/hello" handle
+    Http.handleFunc("/hello", (response, request) -> {
+        // response.write("hello!");
+        // Let's redirect instead
+        Http.redirect(response, request, "/headers", statusFound);
+    });
+    // "/headers" handle
+    Http.handleFunc("/headers", (response, request) -> {
+        for (key => values in request.header) {
+            response.write(key + "\n");
+            for (value in values) {
+                response.write("   " + value + "\n");
+            }
+        }
+    });
+    // turn Dir into an interface, Dir -> FileSystem
+    final fileHandler = go.Go.asInterface(("." : Dir));
+    // "/" handle
+    Http.handle("/", Http.fileServer(fileHandler));
+    // starting web server
+    trace("starting!");
+    Http.listenAndServe(":3000", null);
+}
+```
+
 
 ## Setup from source
 

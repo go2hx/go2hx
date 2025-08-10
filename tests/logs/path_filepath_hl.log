@@ -205,7 +205,7 @@ Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fie
 -- FAIL: TestAbs
 
 === RUN  TestAbsEmptyString
-tmpdir_y: readFile tmpdir_y: no such file or directoryException: __fail__
+tmpdir_o: readFile tmpdir_o: no such file or directoryException: __fail__
 Called from _internal.path.filepath_test._Filepath_test_testabsemptystring.$Filepath_test_testabsemptystring_Fields_.testAbsEmptyString (golibs/_internal/path/filepath_test/Filepath_test_testabsemptystring.hx line 127)
 Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fields_.main (golibs/_internal/path/filepathdottest/Filepathdottest.hx line 51)
@@ -247,7 +247,7 @@ Called from _internal.path.filepathdottest._Filepathdottest.$Filepathdottest_Fie
 -- FAIL: TestWalkSymlink
 
 === RUN  TestIssue29372
-writeFile tmpdir_x/file.txt: no such file or directory
+writeFile tmpdir_o/file.txt: no such file or directory
 Exception: __fail__
 Called from go._internal.testing.$T_common_static_extension.failNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 94)
 Called from go._internal.testing.$T_common_static_extension.fatal (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 64)

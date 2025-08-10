@@ -77,17 +77,19 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):MacroExpr {
 						continue;
 					}
 					var toType = typeof(stmt.lhs[i], info, false);
-					if (op == OpAssign) {
-						// __append__ -> __append__
-						var callExpr:Expr = {expr: y.expr, pos: y.pos};
-						switch callExpr.expr {
-							case EParenthesis(e):
-								callExpr = e;
-							default:
-						}
-						// remove Haxe compiler error: "Assigning a value to itself"
-						if (isSelfAssignValue(x, y))
-							continue;
+					switch op {
+						case OpAssign:
+							// __append__ -> __append__
+							var callExpr:Expr = {expr: y.expr, pos: y.pos};
+							switch callExpr.expr {
+								case EParenthesis(e):
+									callExpr = e;
+								default:
+							}
+							// remove Haxe compiler error: "Assigning a value to itself"
+							if (isSelfAssignValue(x, y))
+								continue;
+						default:
 					}
 					var fromType = typeof(stmt.rhs[i], info, false);
 					y = typer.exprs.Expr.explicitConversion(fromType, toType, y, info);

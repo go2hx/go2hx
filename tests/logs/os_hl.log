@@ -566,6 +566,11 @@ Called from fun$3440(golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260)
 Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266)
 Called from go.$Go.~routine.0(golibs/go/Go.hx:46)
 Called from sys.thread._Thread.$HaxeThread.~create.0(sys/thread/Thread.hx:152)
+Uncaught exception: :os.sameFile is not yet implemented
+Called from fun$3440(golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260)
+Called from _internal.os_test._Os_test_testprogwidechdir.$Os_test_testprogwidechdir_Fields_.~testProgWideChdir.9(golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266)
+Called from go.$Go.~routine.0(golibs/go/Go.hx:46)
+Called from sys.thread._Thread.$HaxeThread.~create.0(sys/thread/Thread.hx:152)
 
 -- PASS: TestProgWideChdir
 
@@ -1294,9 +1299,9 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (golibs/_inte
 -- FAIL: TestCreateTemp
 
 === RUN  TestCreateTempPattern
-CreateTemp pattern "tempfile_test" created bad name "tmpfile_c"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*" created bad name "tmpfile_6"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_a"; want prefix "tempfile_test" & suffix "xyz"
+CreateTemp pattern "tempfile_test" created bad name "tmpfile_d"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*" created bad name "tmpfile_8"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_d5"; want prefix "tempfile_test" & suffix "xyz"
 
 -- FAIL: TestCreateTempPattern
 
@@ -1313,29 +1318,29 @@ Called from _internal.osdottest._Osdottest.$Osdottest_Fields_.main (golibs/_inte
 MkdirTemp(`/_not_exists_`, `foo`) = tmpdir_, <nil>
 - SUBRUN  tempfile_test
 MkdirTemp("temp", "tempfile_test") created bad name
-	"tmpdir_8"
+	"tmpdir_1"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*
 MkdirTemp("temp", "tempfile_test*") created bad name
-	"tmpdir_3"
+	"tmpdir_x"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*xyz
 MkdirTemp("temp", "tempfile_test*xyz") created bad name
-	"tmpdir_z"
+	"tmpdir_x"
 did not match pattern
 	"^temp/tempfile_test[0-9]+xyz$"
 - SUBRUN  *xyz
 MkdirTemp("temp", "*xyz") created bad name
-	"tmpdir_z"
+	"tmpdir_w"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestMkdirTemp
 
 === RUN  TestMkdirTempBadDir
-TempDir error = <nil>; want PathError for path "tmpdir_5/not-exist" satisfying IsNotExist
+TempDir error = <nil>; want PathError for path "tmpdir_c/not-exist" satisfying IsNotExist
 
 -- FAIL: TestMkdirTempBadDir
 

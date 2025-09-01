@@ -15,6 +15,7 @@ import (
 	"golang.org/x/tools/go/ast/astutil"
 )
 
+// data object to hold the function scope including breaks, continues, temp vars among other data
 type funcScope struct {
 	tempVars               map[*ast.Object]tempVarData
 	checker                *types.Checker
@@ -30,15 +31,18 @@ type funcScope struct {
 	fset                   *token.FileSet
 }
 
+// holds a function closure with an argument of the position and the scope index
 type breakData struct {
 	f          func(token.Pos)
 	scopeIndex int
 }
 
+// add next jump func closure function to the function scope
 func (fs *funcScope) nextJumpRun(f func(token.Pos)) {
 	fs.nextJumpFunc = append(fs.nextJumpFunc, f)
 }
 
+// create a new func scope with the checker filled in with the argument
 func newFuncScope(checker *types.Checker) *funcScope {
 	fs := &funcScope{
 		tempVars:     map[*ast.Object]tempVarData{},
@@ -52,6 +56,7 @@ func newFuncScope(checker *types.Checker) *funcScope {
 	return fs
 }
 
+// function scope change the name of an expr with the temp variables if valid
 func (fs *funcScope) changeVars(expr ast.Expr) ast.Expr {
 	astutil.Apply(expr, nil, func(c *astutil.Cursor) bool {
 		switch expr := c.Node().(type) {
@@ -65,6 +70,7 @@ func (fs *funcScope) changeVars(expr ast.Expr) ast.Expr {
 	return expr
 }
 
+// change the variable name if the name == from, then change it to to, if not return stmt
 func (fs *funcScope) changeVarsStmtSimple(stmt ast.Stmt, from string, to string) ast.Stmt {
 	astutil.Apply(stmt, nil, func(c *astutil.Cursor) bool {
 		switch node := c.Node().(type) {
@@ -78,6 +84,7 @@ func (fs *funcScope) changeVarsStmtSimple(stmt ast.Stmt, from string, to string)
 	return stmt
 }
 
+// mark a new jump block adding at the end of the stmt list of block the next jump location
 func (fs *funcScope) markJumpBlock(stmt *ast.BlockStmt, scopeIndex int, indepedent bool) *ast.BlockStmt {
 	newStmts := []ast.Stmt{} //make([]ast.Stmt, len(stmt.List))
 	if indepedent {
@@ -105,6 +112,7 @@ func (fs *funcScope) markJumpBlock(stmt *ast.BlockStmt, scopeIndex int, indepede
 	return stmt
 }
 
+// mark jumps of any stmt and return back the new list of stmts
 func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 	switch stmt := stmt.(type) {
 	case *ast.BlockStmt:
@@ -715,40 +723,51 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 	return []ast.Stmt{stmt}
 }
 
+// set the expr type to t, if the expr exists in function scope's checker
 func (fs *funcScope) addTypeWithExpr(t types.Type, e ast.Expr) {
 	fs.checker.Types[e] = types.TypeAndValue{Type: t}
 	//types.TypeAndValue{Type: types.NewSlice(t.Key())}
 }
 
+// create a blank statement
 func blank() ast.Stmt {
 	return assign(ast.NewIdent("_"), createPos(token.Pos(0)))
 }
 
+// create a jumpTo assign statement
 func jumpTo(pos token.Pos) ast.Stmt {
 	return assign(ast.NewIdent("gotoNext"), createPos(pos))
 }
 
+// create a position basic lit expr, for example: 22
 func createPos(pos token.Pos) ast.Expr {
 	return &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(pos)}
 }
+
+// create an if taking in the conditional, body and elseStatements
 func makeIf(cond ast.Expr, body []ast.Stmt, elseStmts []ast.Stmt) *ast.IfStmt {
 	return &ast.IfStmt{Cond: cond, Body: &ast.BlockStmt{List: body}, Else: &ast.BlockStmt{List: elseStmts}}
 }
 
+// create an assign expr with the key and value exprs, for example: x = y
 func assignExpr(key ast.Expr, value ast.Expr) ast.Stmt {
 	return &ast.AssignStmt{Lhs: []ast.Expr{key}, Tok: token.ASSIGN, Rhs: []ast.Expr{value}}
 }
 
+// create a define expr with the key and value exprs, for example: var x = y
 func defineExpr(key ast.Expr, value ast.Expr) ast.Stmt {
 	return &ast.AssignStmt{Lhs: []ast.Expr{key}, Tok: token.DEFINE, Rhs: []ast.Expr{value}}
 }
 
+// create an assign statement with the ident and value exprs
 func assign(ident *ast.Ident, value ast.Expr) ast.Stmt {
 	return &ast.AssignStmt{Lhs: []ast.Expr{ident}, Tok: token.ASSIGN, Rhs: []ast.Expr{value}}
 }
 
+// global counter to mark temporary variables in a unique manner
 var counter = 0
 
+// set ident as a temporary variable and set the type information as t
 func (fs *funcScope) tempVarWithTypeExpr(ident *ast.Ident, t ast.Expr) *ast.Ident {
 	nameObj := ident.Obj
 	if data, ok := fs.tempVars[nameObj]; ok {
@@ -760,6 +779,7 @@ func (fs *funcScope) tempVarWithTypeExpr(ident *ast.Ident, t ast.Expr) *ast.Iden
 	return ident
 }
 
+// a convenient wrapper around tempVarWithTypeExpr
 func (fs *funcScope) tempVar(ident *ast.Ident, t types.Type) *ast.Ident {
 	return fs.tempVarWithTypeExpr(ident, fs.typeToExpr(t))
 }
@@ -779,6 +799,7 @@ type tempVarData struct {
 	Value ast.Expr
 }
 
+// turn a type into an expr, for example string (type) -> string (expr)
 func (fs *funcScope) typeToExpr(t types.Type) ast.Expr {
 	if t == nil {
 		return ast.NewIdent("any")
@@ -802,6 +823,8 @@ func (fs *funcScope) typeToExpr(t types.Type) ast.Expr {
 
 var testBool = false
 
+// pick up all local goto jumps and mark the jumps
+// also flatten control flows of for loops, if statements etc
 func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet, setTestBool bool) {
 	testBool = setTestBool
 	// select functions that have gotos in them
@@ -1013,6 +1036,7 @@ type CaseData struct {
 	stmts []ast.Stmt
 }
 
+// find the gotos, add the jumps to the jumps list, and add a jump stmt to the end of the block
 func addToBlock(list []ast.Stmt, jumpPos int, jumps map[int][]ast.Stmt) []ast.Stmt {
 	newStmts := []ast.Stmt{}
 	addToBlockBool := true
@@ -1044,6 +1068,7 @@ func addToBlock(list []ast.Stmt, jumpPos int, jumps map[int][]ast.Stmt) []ast.St
 	return newStmts
 }
 
+// check a statement if it is a goto, if not return -1 and false, if found return the position and true
 func findGoto(stmt ast.Stmt) (pos int, labelBool bool) {
 	switch stmt := stmt.(type) {
 	case *ast.BlockStmt:
@@ -1086,14 +1111,17 @@ func findGoto(stmt ast.Stmt) (pos int, labelBool bool) {
 	return -1, false
 }
 
+// create a jump statement with the pos
 func setJump(pos token.Pos) ast.Stmt {
 	return assign(ast.NewIdent("_"), &ast.BinaryExpr{X: ast.NewIdent("gotoNext"), Y: createPos(pos), Op: token.EQL})
 }
 
+// create a define statement with the ident and value exprs
 func define(ident *ast.Ident, value ast.Expr) ast.Stmt {
 	return &ast.AssignStmt{Lhs: []ast.Expr{ident}, Tok: token.DEFINE, Rhs: []ast.Expr{value}}
 }
 
+// log out list of stmts using the ast printer
 func p(stmts []ast.Stmt) {
 	for i, stmt := range stmts {
 		fmt.Printf("/*%d*/ ", i)

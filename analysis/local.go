@@ -13,6 +13,7 @@ import (
 	"golang.org/x/tools/go/packages"
 )
 
+// turn a constant from basic and value params into an expr
 func GetConstant(basic *types.Basic, value constant.Value, node ast.Node, allowUnknown bool) (e ast.Expr) {
 	kind := basic.Kind()
 	info := basic.Info()
@@ -79,6 +80,7 @@ func GetConstant(basic *types.Basic, value constant.Value, node ast.Node, allowU
 	return e
 }
 
+// parse the local constants from a file using pkg and checker
 func ParseLocalConstants(file *ast.File, pkg *packages.Package, checker *types.Checker) {
 	apply := func(cursor *astutil.Cursor) bool {
 		switch node := cursor.Node().(type) {
@@ -105,6 +107,7 @@ func ParseLocalConstants(file *ast.File, pkg *packages.Package, checker *types.C
 	file = astutil.Apply(file, apply, nil).(*ast.File)
 }
 
+// parse the local type from a file
 func ParseLocalTypes(file *ast.File, pkg *packages.Package, checker *types.Checker, hashType func(t types.Type) (value uint32), countStruct *int, countInterface *int) {
 	interfaceTypes := make(map[uint32]*ast.Ident)
 	structTypes := make(map[uint32]*ast.Ident)

@@ -2,6 +2,7 @@ package analysis
 
 import "go/types"
 
+// utility function to replace a type of sub with by, inside of t, return back t
 func replaceType(t types.Type, sub types.Type, by types.Type) types.Type {
 	//fmt.Println("type:", t)
 	//fmt.Println("sub:", sub)

@@ -26,6 +26,7 @@ func PointerParseTest() {
 	all(dir+"/pointer", ParseLocalPointers)
 }
 
+// all utility function to handle any specific test system using the runFunc closure and dir params
 func all(dir string, runFunc func(file *ast.File, checker *types.Checker, fset *token.FileSet, testBool bool)) {
 	paths, err := os.ReadDir(dir)
 	if err != nil {
@@ -39,6 +40,7 @@ func all(dir string, runFunc func(file *ast.File, checker *types.Checker, fset *
 	}
 }
 
+// parse the code, create a new type checker, then run the function and print out the result
 func create(filePath string, fileName string, runFunc func(file *ast.File, checker *types.Checker, fset *token.FileSet, setTestBool bool)) {
 	// Parse the code
 	code, err := os.ReadFile(filePath + "/" + fileName)
@@ -87,12 +89,15 @@ func create(filePath string, fileName string, runFunc func(file *ast.File, check
 	run(oldPath, newPath)
 }
 
+// compare command outputs of runCmd
 func run(oldPath, newPath string) {
 	if runCmd(oldPath) != runCmd(newPath) {
 		panic("output not equal")
 	}
 }
 
+// run a command return the combined output
+// panicking if error is found
 func runCmd(runPath string) string {
 	out, err := exec.Command("go", "run", runPath).CombinedOutput()
 	fmt.Println(runPath + ":")

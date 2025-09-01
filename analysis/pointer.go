@@ -10,6 +10,7 @@ import (
 	"golang.org/x/tools/go/ast/astutil"
 )
 
+// parse the local pointers from a file
 func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.FileSet, setTestBool bool) {
 	const suffix = "__pointer__"
 	for _, decl := range file.Decls {
@@ -132,6 +133,7 @@ func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.File
 	}
 }
 
+// check if the t type is a valid pointer
 func isValidPointer(t types.Type) bool {
 	if t == nil {
 		return false
@@ -150,6 +152,7 @@ func isValidPointer(t types.Type) bool {
 	}
 }
 
+// if root has the correct parent and the address obj
 func hasAddrObj(obj *ast.Object, root ast.Node, parent ast.Node) bool {
 	hasAddr := false
 	astutil.Apply(root, nil, func(c *astutil.Cursor) bool {

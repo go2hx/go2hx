@@ -81,6 +81,8 @@ var testBool = false
 var systemGo = false
 var noCache = false
 
+// runs the compiler using the params, and sends the result through conn
+// resulting errors will panic
 func compile(conn net.Conn, params []string, debug bool) {
 	args := []string{}
 	testBool = false
@@ -137,6 +139,9 @@ func compile(conn net.Conn, params []string, debug bool) {
 	parsePkgList(conn, pkgs, excludes, checksumMap)
 }
 
+// process the packages, with the outputPath, use checksumMap to see if a given package has already been processed
+// excludes prevents an already processed package from being reprocessed
+// run refine on the processed package to output []*packages.Package data
 func processPkgs(outputPath string, checksumMap map[string]string, excludes map[string]bool, versionBytes []byte, args []string, skipPkgs map[string]bool) (newPkgs []*packages.Package) {
 	sizes := &types.StdSizes{WordSize: 4, MaxAlign: 8}
 	l, response, err := packages.Init(cfg, sizes, args...)
@@ -245,6 +250,8 @@ func processPkgs(outputPath string, checksumMap map[string]string, excludes map[
 	return initial
 }
 
+// combines the checksums of all of the given files + the version into a single checksum
+// return as string
 func combineCheckSums(checksums [][32]byte, versionBytes []byte) string {
 	singleCheckSum := make([]byte, 32*len(checksums))
 	for i := range checksums {
@@ -275,6 +282,7 @@ func normalizePath(path string) string {
 	return strings.Join(paths, "/")
 }
 
+// reserved keywords that should never be outputted
 var reserved = []string{
 	"iterator",
 	"keyValueIterator",
@@ -344,6 +352,7 @@ var reserved = []string{
 	"_new",
 }
 
+// panic if any error is found
 func panicIfError(err error) {
 	if err != nil {
 		panic(err)
@@ -352,6 +361,8 @@ func panicIfError(err error) {
 
 var mutex sync.Mutex
 
+// send any data through conn
+// zlib compress the data
 func sendData(conn net.Conn, data any) {
 	b, err := json.Marshal(data)
 	panicIfError(err)
@@ -367,6 +378,7 @@ func sendData(conn net.Conn, data any) {
 	}
 }
 
+// read the length of the incoming message
 func getLen(conn net.Conn) uint32 {
 	bytesBuff := make([]byte, 4)
 	n, err := conn.Read(bytesBuff)
@@ -383,6 +395,7 @@ func getLen(conn net.Conn) uint32 {
 	return binary.LittleEndian.Uint32(bytesBuff)
 }
 
+// send length of the message that will be sent next
 func sendLen(conn net.Conn, length int) {
 	bytesBuff := make([]byte, 8)
 	binary.LittleEndian.PutUint64(bytesBuff, uint64(length))
@@ -392,12 +405,15 @@ func sendLen(conn net.Conn, length int) {
 	}
 }
 
+// send a message with the length of the message as the first param as a uint64
 func createLenMessage(b []byte) []byte {
 	bytesBuff := make([]byte, 8)
 	binary.LittleEndian.PutUint64(bytesBuff, uint64(len(b)))
 	return append(bytesBuff, b...)
 }
 
+// get the packages that are not skipped and return them
+// respect excludes and add depth information to the packages
 func getPkgs(list []*packages.Package, excludes map[string]bool, skipPkgs map[string]bool, dep *depth) []*packages.Package {
 	newList := []*packages.Package{}
 	for i, pkg := range list {
@@ -441,11 +457,13 @@ func getPkgs(list []*packages.Package, excludes map[string]bool, skipPkgs map[st
 	return newList
 }
 
+// AST load config variable
 var cfg = &packages.Config{
 	Mode:       releaseMode,
 	BuildFlags: []string{"-tags", "netgo,purego,math_big_pure_go,compiler_bootstrap"}, // build tags
 }
 
+// load mode variable, pulling almost all possible data when parsing and typing the AST
 const releaseMode packages.LoadMode = packages.NeedName |
 	packages.NeedSyntax |
 	packages.NeedImports | packages.NeedDeps | packages.NeedEmbedFiles | packages.NeedEmbedPatterns |
@@ -453,6 +471,7 @@ const releaseMode packages.LoadMode = packages.NeedName |
 	packages.NeedTypes | packages.NeedTypesInfo |
 	packages.NeedModule | packages.NeedTypesSizes
 
+// main entry point
 func main() {
 	_ = make([]byte, 20<<20) // allocate 20 mb virtually
 
@@ -517,12 +536,14 @@ func main() {
 	}
 }
 
+// print out memory information
 func memoryStats() {
 	var m runtime.MemStats
 	runtime.ReadMemStats(&m)
 	println("memory:", m.Alloc/1024/1024)
 }
 
+// run analysis functions on a collection of files in a given package
 func parseLocalPackage(pkg *packages.Package, pkgData *PackageData, excludes map[string]bool, checker *types.Checker) {
 	if excludes[pkg.PkgPath] {
 		return
@@ -534,6 +555,7 @@ func parseLocalPackage(pkg *packages.Package, pkgData *PackageData, excludes map
 	}
 }
 
+// run analysis functions on the file
 func parseLocalFile(file *ast.File, pkg *packages.Package, pkgData *PackageData, countStruct *int, countInterface *int, checker *types.Checker, hashMap map[uint32]map[string]interface{}) {
 	hashType2 := func(t types.Type) uint32 {
 		hash := hashType(t, pkgData)
@@ -546,46 +568,12 @@ func parseLocalFile(file *ast.File, pkg *packages.Package, pkgData *PackageData,
 	analysis.ParseLocalGotos(file, checker, pkg.Fset, false)
 }
 
-func encodeString(s string) string {
-	buffer := bytes.NewBuffer(nil)
-	for _, r := range []byte(s) {
-		switch r {
-		case '\b':
-			buffer.WriteString(`\b`)
-		case '\f':
-			buffer.WriteString(`\f`)
-		case '\n':
-			buffer.WriteString(`\n`)
-		case '\r':
-			buffer.WriteString(`\r`)
-		case '\t':
-			buffer.WriteString(`\t`)
-		case '\v':
-			buffer.WriteString(`\v`)
-		case '"':
-			buffer.WriteString(`\"`)
-		case '\\':
-			buffer.WriteString(`\\`)
-		default:
-			if r < 0x20 || r > 0x7E {
-				fmt.Fprintf(buffer, `\x%02X`, r)
-				continue
-			}
-			buffer.WriteByte(r)
-		}
-	}
-	return `"` + buffer.String() + `"`
-}
-
-func typeParamsFromType(t *types.Type) []string {
-	return nil
-}
-
 // takes all of the Syntax from input and merges it and then puts a single *ast.File syntax into output
 func mergePackage(pkg *packages.Package) {
 	pkg.Syntax = []*ast.File{mergePackageToFile(pkg)}
 }
 
+// creates a file AST by merging the ASTs of the files belonging to a package. The mode flags control merging behavior.
 func mergePackageToFile(pkg *packages.Package) *ast.File {
 	files := make(map[string]*ast.File, len(pkg.Syntax))
 	if len(pkg.Syntax) != len(pkg.GoFiles) {
@@ -602,6 +590,7 @@ func mergePackageToFile(pkg *packages.Package) *ast.File {
 var countStruct = 0
 var countInterface = 0
 
+// creata a hash type value uint32 from a types.Type in a pkg *PackageData
 func hashType(t types.Type, pkg *PackageData) (value uint32) {
 	e := pkg.typeMap.At(t)
 	if e == nil {
@@ -614,6 +603,11 @@ func hashType(t types.Type, pkg *PackageData) (value uint32) {
 	return
 }
 
+// parse the package list
+// run
+// 1. mergePackage
+// 2. parseLocalPackage
+// 3. parsePkg
 func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]bool, checksumMap map[string]string) {
 	// merge packages
 	for i := 0; i < len(list); i++ {
@@ -691,6 +685,7 @@ func parsePkgList(conn net.Conn, list []*packages.Package, excludes map[string]b
 	}
 }
 
+// obtain the variable order information from checker, and then run parseFile on all of the files in the package
 func parsePkg(pkg *packages.Package, checker *types.Checker, pkgData *PackageData) *packageType {
 	data := &packageType{}
 	for _, obj := range pkg.TypesInfo.InitOrder {
@@ -734,6 +729,7 @@ func parsePkg(pkg *packages.Package, checker *types.Checker, pkgData *PackageDat
 	return data
 }
 
+// custom filterFile for filtering non export fields
 func filterFile(src *ast.File, f ast.Filter, export bool) bool {
 	j := 0
 	for _, d := range src.Decls {
@@ -746,6 +742,7 @@ func filterFile(src *ast.File, f ast.Filter, export bool) bool {
 	return j > 0
 }
 
+// custom filterDecl for filtering non export fields
 func filterDecl(decl ast.Decl, f ast.Filter, export bool) bool {
 	switch d := decl.(type) {
 	case *ast.GenDecl:
@@ -757,6 +754,7 @@ func filterDecl(decl ast.Decl, f ast.Filter, export bool) bool {
 	return true
 }
 
+// custom filterSpecList for filtering non export fields
 func filterSpecList(list []ast.Spec, f ast.Filter, export bool) []ast.Spec {
 	j := 0
 	for _, s := range list {
@@ -768,6 +766,7 @@ func filterSpecList(list []ast.Spec, f ast.Filter, export bool) []ast.Spec {
 	return list[0:j]
 }
 
+// custom filterSpec for filtering non export fields
 func filterSpec(spec ast.Spec, f ast.Filter, export bool) bool {
 	switch s := spec.(type) {
 	case *ast.ValueSpec:
@@ -800,6 +799,7 @@ func filterSpec(spec ast.Spec, f ast.Filter, export bool) bool {
 	return false
 }
 
+// custom filterCompositeLit for filtering non export fields
 func filterCompositeLit(lit *ast.CompositeLit, filter ast.Filter, export bool) {
 	n := len(lit.Elts)
 	lit.Elts = filterExprList(lit.Elts, filter, export)
@@ -808,6 +808,7 @@ func filterCompositeLit(lit *ast.CompositeLit, filter ast.Filter, export bool) {
 	}
 }
 
+// custom filterExprList for filtering non export fields
 func filterExprList(list []ast.Expr, filter ast.Filter, export bool) []ast.Expr {
 	j := 0
 	for _, exp := range list {
@@ -828,6 +829,7 @@ func filterExprList(list []ast.Expr, filter ast.Filter, export bool) []ast.Expr 
 	return list[0:j]
 }
 
+// custom filterIdentList for filtering non export fields
 func filterIdentList(list []*ast.Ident, f ast.Filter) []*ast.Ident {
 	j := 0
 	for _, x := range list {
@@ -839,6 +841,7 @@ func filterIdentList(list []*ast.Ident, f ast.Filter) []*ast.Ident {
 	return list[0:j]
 }
 
+// custom filterType for filtering non export fields
 func filterType(typ ast.Expr, f ast.Filter, export bool) bool {
 	switch t := typ.(type) {
 	case *ast.Ident:
@@ -871,6 +874,7 @@ func filterType(typ ast.Expr, f ast.Filter, export bool) bool {
 	return false
 }
 
+// custom filterParamList for filtering non export fields
 func filterParamList(fields *ast.FieldList, filter ast.Filter, export bool) bool {
 	if fields == nil {
 		return false
@@ -884,6 +888,7 @@ func filterParamList(fields *ast.FieldList, filter ast.Filter, export bool) bool
 	return b
 }
 
+// custom filterFieldList for filtering non export fields
 func filterFieldList(fields *ast.FieldList, filter ast.Filter, export bool) (removedFields bool) {
 	if fields == nil {
 		return false
@@ -937,6 +942,7 @@ func fieldName(x ast.Expr) *ast.Ident {
 	return nil
 }
 
+// parseFile, parse the file's declarations with parseData, and put the data in the resulting fileType data
 func parseFile(file *ast.File, path string, pkg *PackageData) fileType {
 	data := fileType{}
 	data.Location = path
@@ -972,6 +978,8 @@ func parseFile(file *ast.File, path string, pkg *PackageData) fileType {
 	}
 	return data
 }
+
+// parse the data of a list of ast.Stmt
 func parseBody(list []ast.Stmt, pkg *PackageData) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
@@ -979,6 +987,8 @@ func parseBody(list []ast.Stmt, pkg *PackageData) []map[string]interface{} {
 	}
 	return data
 }
+
+// parse the expr list of ast.Expr
 func parseExprList(list []ast.Expr, pkg *PackageData) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
@@ -989,6 +999,7 @@ func parseExprList(list []ast.Expr, pkg *PackageData) []map[string]interface{} {
 
 var methodCache typeutil.MethodSetCache
 
+// parse the spec list of ast.Spec
 func parseSpecList(list []ast.Spec, pkg *PackageData) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
@@ -1078,6 +1089,7 @@ func parseSpecList(list []ast.Spec, pkg *PackageData) []map[string]interface{} {
 	return data
 }
 
+// parse the methods from an object types.Type
 func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index int, marked map[string]bool, intuitionBool bool, pkg *PackageData) []map[string]interface{} {
 	setObj := methodCache.MethodSet(object)
 	var set []*types.Selection
@@ -1117,6 +1129,7 @@ type PackageData struct {
 	PkgPath      string
 }
 
+// parse the type information of node into json data
 func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[string]interface{} {
 	marked := copyMap(marked2)
 	data := make(map[string]interface{})
@@ -1311,6 +1324,7 @@ func parseType(node interface{}, marked2 map[string]bool, pkg *PackageData) map[
 	return data
 }
 
+// a utility to copy a map using make of the previous map's length and filling in the key values
 func copyMap(m map[string]bool) map[string]bool {
 	m2 := make(map[string]bool, len(m))
 	for k, v := range m {
@@ -1319,6 +1333,7 @@ func copyMap(m map[string]bool) map[string]bool {
 	return m2
 }
 
+// parse the data of most ast.* types and turn them into valid json data
 func parseData(node interface{}, pkg *PackageData) map[string]interface{} {
 	data := make(map[string]interface{})
 	switch node := node.(type) {
@@ -1518,6 +1533,8 @@ func parseData(node interface{}, pkg *PackageData) map[string]interface{} {
 	}
 	return data
 }
+
+// turn a list of comments into valid json data of CommentGroup
 func parseCommentGroup(value *ast.CommentGroup) map[string]interface{} {
 	var list []string
 	if value == nil {
@@ -1534,6 +1551,7 @@ func parseCommentGroup(value *ast.CommentGroup) map[string]interface{} {
 	}
 }
 
+// turn a list of *ast.Ident into valid json data
 func parseIdents(value []*ast.Ident, pkg *PackageData) []map[string]interface{} {
 	list := make([]map[string]interface{}, len(value))
 	for i := range value {
@@ -1541,6 +1559,8 @@ func parseIdents(value []*ast.Ident, pkg *PackageData) []map[string]interface{} 
 	}
 	return list
 }
+
+// turn a single *ast.Ident into valid json data
 func parseIdent(value *ast.Ident, pkg *PackageData) map[string]interface{} {
 	if value == nil {
 		return nil
@@ -1588,6 +1608,8 @@ func parseIdent(value *ast.Ident, pkg *PackageData) map[string]interface{} {
 	}
 	return data
 }
+
+// parse a basic lit and turn it into valid json data
 func parseBasicLit(expr *ast.BasicLit, pkg *PackageData) map[string]interface{} {
 	output := ""
 	if expr.Kind == token.STRING || expr.Kind == token.CHAR {
@@ -1672,16 +1694,19 @@ func parseBasicLit(expr *ast.BasicLit, pkg *PackageData) map[string]interface{} 
 	}
 }
 
+// parse the pos of a fileset, and turn it into an integer
 func parsePos(pos token.Pos, fset *token.FileSet) int {
 	fpos := fset.PositionFor(pos, true)
 	return fpos.Offset
 }
 
+// parse the location of a pos of fileset and turn it into a string with the line number
 func parseLocation(pos token.Pos, fset *token.FileSet) string {
 	fpos := fset.PositionFor(pos, true)
 	return fpos.Filename + "#L" + strconv.Itoa(fpos.Line)
 }
 
+// an alternative fall back parser for basic lit to turn the data into valid json data
 func basicLitFallback(expr *ast.BasicLit, pkg *PackageData) map[string]interface{} {
 	output := ""
 	switch expr.Kind {
@@ -1724,12 +1749,15 @@ func basicLitFallback(expr *ast.BasicLit, pkg *PackageData) map[string]interface
 	}
 }
 
+// get the id of an any obj
 func getId(obj interface{}) string {
 	if obj == nil {
 		return ""
 	}
 	return reflect.TypeOf(obj).Elem().Name()
 }
+
+// parse the list of *ast.Fields into valid json data
 func parseFieldList(list []*ast.Field, pkg *PackageData) map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, field := range list {
@@ -1740,6 +1768,8 @@ func parseFieldList(list []*ast.Field, pkg *PackageData) map[string]interface{} 
 		"list": data,
 	}
 }
+
+// parse a field into valid json data
 func parseField(field *ast.Field, pkg *PackageData) map[string]interface{} {
 	names := make([]map[string]interface{}, len(field.Names))
 	for i, name := range field.Names {
@@ -1761,6 +1791,7 @@ func parseField(field *ast.Field, pkg *PackageData) map[string]interface{} {
 	}
 }
 
+// use ast printer to print out an expr, with the given file set
 func printExpr(node any, fset *token.FileSet) {
 	var buf bytes.Buffer
 	printer.Fprint(&buf, fset, node)

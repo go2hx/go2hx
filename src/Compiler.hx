@@ -62,7 +62,12 @@ function receivedData(buff:Bytes) {
 		Sys.println("- codeGen    : " + codeGenTime);
 	}
 }
-
+/**
+ * end of running the compiler, create the gotype package
+ * print out instructions for use in Haxe's build system
+ * trigger onComplete function
+ * @param instance 
+ */
 function end(instance:CompilerInstanceData) {
 	gen.Std.moveStd(instance.localPath + instance.outputPath);
 	// create gotype module
@@ -102,14 +107,20 @@ function end(instance:CompilerInstanceData) {
 	programArgs = null;
 	modules = [];
 }
-
+/**
+ * decode the buff data by uncompressing it, and then parsing the JSON
+ * @param buff 
+ * @return Dynamic
+ */
 function decodeData(buff):Dynamic {
 	final uncompressedData = haxe.zip.Uncompress.run(buff);
 	final result = haxe.Json.parse(uncompressedData.toString());
 	// final result = haxe.Json.parse(buff.toString());
 	return result;
 }
-
+/**
+ * Run the GC for nodejs/hl/cpp
+ */
 function runGC() {
 	#if nodejs
 	if (js.Node.global.gc != null)
@@ -143,7 +154,12 @@ function runCompilerFromArgs(args:Array<String>) {
 		compileFromInstance(instance);
 	});
 }
-
+/**
+ * Remove argument from args
+ * @param args the list of args
+ * @param arg the arg to remove
+ * @return Bool if the argument has been removed
+ */
 private function removeArg(args:Array<String>, arg:String):Bool {
 	final index = args.indexOf(arg);
 	if (index != -1) {
@@ -152,7 +168,11 @@ private function removeArg(args:Array<String>, arg:String):Bool {
 	}
 	return false;
 }
-
+/**
+ * Create a compiler instance from arguments
+ * @param args 
+ * @return CompilerInstanceData
+ */
 function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData {
 	final args = args.copy();
 	final instance = new CompilerInstanceData();
@@ -282,7 +302,10 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 
 	return instance;
 }
-
+/**
+ * print doc information
+ * @param handler 
+ */
 private function printDoc(handler:cli.Args.ArgHandler) {
 	shared.Util.successMsg("go2hx");
 	Sys.print("\n");
@@ -293,13 +316,19 @@ private function printDoc(handler:cli.Args.ArgHandler) {
 		Sys.println(StringTools.rpad(option.flags[0], " ", max) + option.doc);
 	}
 }
-
+/**
+ * close compiler by calling Sys.exit with the code
+ * @param code 
+ */
 function closeCompiler(code:Int = 0) {
 	Sys.exit(code);
 }
 
 var resetCount = 0;
-
+/**
+ * setup the compiler in a default manner by hosting a server and starting the go4hx process
+ * @param ready 
+ */
 function setupCompiler(ready:Void->Void) {
 	var port = 0;
 	if (instance != null)
@@ -314,7 +343,11 @@ function setupCompiler(ready:Void->Void) {
 	startGo4hx(port);
 	accept(server, ready);
 }
-
+/**
+ * start the go4hx process, and connect to the port passed in, the go4hx is built using:
+ * go build .
+ * @param port 
+ */
 function startGo4hx(port:Int) {
 	// return;
 	resetCount = 0;
@@ -324,7 +357,11 @@ function startGo4hx(port:Int) {
 }
 
 var useThreadPool = false;
-
+/**
+ * Accept the go4hx connection as the server, when ready trigger the function
+ * @param server 
+ * @param ready 
+ */
 function accept(server:Socket, ready:Void->Void) {
 	if (instance == null)
 		instance = new CompilerInstanceData();
@@ -389,14 +426,21 @@ function accept(server:Socket, ready:Void->Void) {
 		end(instance);
 	}
 }
-
+/**
+ * copy and return the instance data
+ * @return CompilerInstanceData
+ */
 private inline function getInstanceData():CompilerInstanceData {
 	mutex.acquire();
 	final instanceCopy = instance.copy();
 	mutex.release();
 	return instanceCopy;
 }
-
+/**
+ * print out depth information for the compiled packages
+ * @param deps 
+ * @param tab 
+ */
 private function printDeps(deps:Array<Dep>, tab:String = "") {
 	for (dep in deps) {
 		var extra = "";
@@ -412,18 +456,32 @@ private function setBytes(buff:Bytes, bytes:Bytes, pos:Int):Int {
 	buff.blit(pos, bytes, 0, bytes.length);
 	return pos + bytes.length;
 }
-
+/**
+ * get length as int64 in bytes
+ * @param bytes 
+ * @return Int
+ */
 function getLength(bytes:haxe.io.Bytes):Int {
 	return haxe.Int64.toInt(bytes.getInt64(0));
 }
-
+/**
+ * create a buffer allocated by size of bytes
+ * @param client 
+ * @param bytes 
+ * @param instance 
+ * @return Bytes
+ */
 function createBuffer(client, bytes, instance):Bytes {
 	final len:Int = getLength(bytes);
 	instance.log("alloc " + len);
 	client.stream.size = len;
 	return Bytes.alloc(len);
 }
-
+/**
+ * from the modules find the main paths and return them
+ * @param modules 
+ * @return Array<String> main paths
+ */
 function mainPaths(modules:Array<typer.HaxeAst.Module>):Array<String> {
 	final paths:Array<String> = [];
 	for (module in modules) {
@@ -438,7 +496,11 @@ function mainPaths(modules:Array<typer.HaxeAst.Module>):Array<String> {
 	}
 	return paths;
 }
-
+/**
+ * from the modules find the main module package paths
+ * @param modules 
+ * @return Array<String> main module package paths
+ */
 function mainPkgs(modules:Array<typer.HaxeAst.Module>):Array<String> {
 	final paths:Array<String> = [];
 	for (module in modules) {
@@ -449,7 +511,11 @@ function mainPkgs(modules:Array<typer.HaxeAst.Module>):Array<String> {
 	}
 	return paths;
 }
-
+/**
+ * run the compiler from the instance
+ * @param inst 
+ * @return Bool if successful return true
+ */
 function compileFromInstance(inst:CompilerInstanceData):Bool {
 	instance = inst;
 	if (instance.localPath == "")
@@ -485,7 +551,11 @@ function compileFromInstance(inst:CompilerInstanceData):Bool {
 	}
 	return write(instance);
 }
-
+/**
+ * write the instance data to the client
+ * @param instance 
+ * @return Bool true if successful
+ */
 function write(instance:CompilerInstanceData):Bool {
 	final args = instance.args;
 	args.unshift(instance.outputPath);
@@ -497,7 +567,9 @@ function write(instance:CompilerInstanceData):Bool {
 	client.output.write(bytes);
 	return true;
 }
-
+/**
+ * Hold the needed Compiler data to construct an instance, and compile
+ */
 class CompilerInstanceData {
 	public var reflectTypesData:typer.HaxeAst.HaxeFileType = null;
 	public var tryBool:Bool = true;

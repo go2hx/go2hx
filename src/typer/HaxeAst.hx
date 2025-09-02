@@ -20,6 +20,11 @@ typedef HaxeFileType = {
 	isMain:Bool
 }; // location is the global path to the file
 
+/**
+ * if the complex type is of type void
+ * @param ct complex type
+ * @return Bool is void
+ */
 function isVoid(ct:ComplexType):Bool {
 	if (ct == null)
 		return true;
@@ -29,7 +34,11 @@ function isVoid(ct:ComplexType):Bool {
 			false;
 	}
 }
-
+/**
+ * if the expr is meta with name of :label, for example: @:label x;
+ * @param e expr
+ * @return Bool is label
+ */
 function isLabel(e:Expr):Bool {
 	return switch e.expr {
 		case EMeta(s, _):
@@ -38,7 +47,11 @@ function isLabel(e:Expr):Bool {
 			false;
 	}
 }
-
+/**
+ * get the name of the label from a meta expr with :label, if not found return empty string
+ * @param e expr
+ * @return String label name
+ */
 function getLabelName(e:Expr):String {
 	return switch e.expr {
 		case EMeta(s, e):
@@ -56,7 +69,11 @@ function getLabelName(e:Expr):String {
 			"";
 	}
 }
-
+/**
+ * get the string of a constant string
+ * @param e expr
+ * @return String string value
+ */
 function exprToStringValue(e:Expr):String {
 	switch e.expr {
 		case EConst(CString(s)):
@@ -65,7 +82,11 @@ function exprToStringValue(e:Expr):String {
 			throw "invalid expr for exprToString: " + e.expr;
 	}
 }
-
+/**
+ * remove parenthesis from an expr if present
+ * @param expr
+ * @return MacroExpr return expr with removed parenthesis
+ */
 function escapeParens(expr:Expr):MacroExpr {
 	return switch expr.expr {
 		case EParenthesis(e):
@@ -74,7 +95,14 @@ function escapeParens(expr:Expr):MacroExpr {
 			expr;
 	}
 }
-
+/**
+ * remove binop null coal or check type from assign expr
+ * null coal binop, example: x ?? y
+ * check type, example: (x : T)
+ * return x
+ * @param assign expr
+ * @return MacroExpr
+ */
 function removeCoalAndCheckType(assign:Expr):MacroExpr {
 	assign = escapeParens(assign);
 	switch assign.expr {
@@ -86,7 +114,11 @@ function removeCoalAndCheckType(assign:Expr):MacroExpr {
 	}
 	return assign;
 }
-
+/**
+ * check if complex type has any null sub complex types, making it invalid
+ * @param ct 
+ * @return Bool if invalid
+ */
 function isInvalidComplexType(ct:ComplexType):Bool {
 	if (ct == null)
 		return true;
@@ -106,7 +138,14 @@ function isInvalidComplexType(ct:ComplexType):Bool {
 			false;
 	}
 }
-
+/**
+ * translate a struct from fromType to toType for expr e
+ * @param e expr
+ * @param fromType 
+ * @param toType 
+ * @param info requires info context
+ * @return MacroExpr translated struct expr
+ */
 function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:Info):MacroExpr {
 	switch toType {
 		case refType(_.get() => elem):
@@ -136,16 +175,32 @@ function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:Info):Macr
 			throw info.panic() + "struct is unnamed: " + toType;
 	}
 }
-
+/**
+ * create an any interface complex type
+ * @return ComplexType
+	return TPath(
+ */
 function anyInterfaceType():ComplexType
 	return TPath({name: "AnyInterface", pack: ["go"]});
-
+/**
+ * create a null complex type, also known as invalid
+ * @return ComplexType
+	return null
+ */
 function invalidComplexType():ComplexType
 	return null;
-
+/**
+ * create an error complex type, go.Error
+ * @return ComplexType
+	return TPath(
+ */
 function errorType():ComplexType
 	return TPath({name: "Error", pack: ["go"]});
-
+/**
+ * create a wrapper type definition
+ * @param wrapperName 
+ * @param ct 
+ */
 function createWrapper(wrapperName:String, ct:ComplexType) {
 	return macro class $wrapperName {
 		public function new(__self__, __type__) {
@@ -162,7 +217,19 @@ function createWrapper(wrapperName:String, ct:ComplexType) {
 		var __type__:go._internal.internal.reflect.Reflect._Type;
 	};
 }
-
+/**
+ * add a local method to both static extension and wrapper type definitions
+ * @param name 
+ * @param pos 
+ * @param meta 
+ * @param doc 
+ * @param access 
+ * @param fun 
+ * @param staticExtension 
+ * @param wrapper 
+ * @param embedded 
+ * @param hasParams 
+ */
 function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Access>, fun:Function, staticExtension:TypeDefinition, wrapper:TypeDefinition,
 		embedded:Bool, hasParams:Bool) {
 	var isPointerArg = false;
@@ -177,27 +244,6 @@ function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Acces
 	}
 	final funcName = name;
 	final staticArgs = fun.args.copy();
-	if (isPointerArg) {
-		/*final t = exprOfType(staticArgs[0].type);
-			switch t {
-				case TPath(p):
-					switch p.params[0] { // Pointer<T>
-						case TPType(t):
-							final f:FunctionArg = {
-								name: "____",
-								type: access.indexOf(AMacro) == -1 ? t : TPath({
-									name: "Expr",
-									sub: "ExprOf",
-									pack: ["haxe", "macro"],
-									params: [TPType(t)]
-								}),
-							};
-							//staticArgs.unshift(f);
-						default:
-					}
-				default:
-		}*/
-	}
 	final funcName = name;
 	var staticFieldExpr:Expr = {expr: fun.expr.expr, pos: null};
 	final staticFieldAccess = access.copy();
@@ -273,6 +319,11 @@ function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Acces
 		staticExtension.fields.unshift(staticField);
 }
 
+/**
+ * transform an expr to change every occurrence of return to a special throw
+ * @param expr 
+ * @return MacroExpr
+ */
 function mapReturnToThrow(expr:Expr):MacroExpr {
 	var f = null;
 	f = expr -> {
@@ -289,7 +340,12 @@ function mapReturnToThrow(expr:Expr):MacroExpr {
 	}
 	return f(expr);
 }
-
+/**
+ * compare complex types a and b, and see if they are equal
+ * @param a 
+ * @param b 
+ * @return Bool is equal
+ */
 function compareComplexType(a:ComplexType, b:ComplexType):Bool {
 	if (a == null || b == null)
 		return false;

@@ -6,6 +6,8 @@
 ![Static Badge](https://img.shields.io/badge/target-eval-darkgreen)
  [![Discord](https://img.shields.io/discord/162395145352904705.svg?logo=discord)](https://discord.gg/jgPcqC7DY2)
 
+ ![demo](https://vhs.charm.sh/vhs-7xXylEiWoQAejyoWx9HNkl.gif)
+
 Import Go libraries into your Haxe projects.
 
 Imported Go libraries can be used across all supported [Haxe targets](#compatibility-haxe-targets).

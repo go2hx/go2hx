@@ -6,17 +6,9 @@
 ![Static Badge](https://img.shields.io/badge/target-eval-darkgreen)
  [![Discord](https://img.shields.io/discord/162395145352904705.svg?logo=discord)](https://discord.gg/jgPcqC7DY2)
 
- ![demo](https://vhs.charm.sh/vhs-7xXylEiWoQAejyoWx9HNkl.gif)
+ ![demo](https://vhs.charm.sh/vhs-2xnPqP1ctw7WTx54b5NO3Q.gif)
 
 Import Go libraries into your Haxe projects.
-
-Imported Go libraries can be used across all supported [Haxe targets](#compatibility-haxe-targets).
-
-Think of go2hx as a replacement for nodejs + the npm ecosystem:
-
-1. No externs required
-2. Concurrent by default
-3. No reliance on javascript
 
 > A spiritual successor to [Elliott Stoneham's compiler](#credits)
 
@@ -24,6 +16,7 @@ Think of go2hx as a replacement for nodejs + the npm ecosystem:
 
 # Tables of contents
 - [Why?](#why)
+    - [Why for Go devs](#why-for-go-devs)
 - [Language support](#language-support)
     - [Compatibility Haxe targets](#compatibility-haxe-targets)
 - [Installation](#installation)
@@ -42,7 +35,7 @@ The Go programming language fills in the gap for some of Haxe's biggest weakness
 - Lack of documentation
 - Lack of cross target libraries
 
-Go can be seen as an alternative to Nodejs:
+Go can be seen as an alternative to the Nodejs ecosystem:
 
 traits | go2hx | nodejs | 
 |-------|-----| ---- |
@@ -51,15 +44,21 @@ traits | go2hx | nodejs |
 | Large ecosystem | ✅ | ✅
 | Thread support | ✅ | ❌
 | Production ready | ❌ | ✅
-| Has tests | ✅ | ❌
+| Has tests on the Haxe side | ✅ | ❌
 | Can create a web server | ✅ | ✅
 | Underlying code statically typed | ️️✅ | ❌
+
+## Why for Go devs
+
+Makes Go code even more portable using go2hx to be able to compile to Javascript, Jvm, C++ and [more in the future](#compatible-haxe-targets).
+- Allows Go to be able to be used as a full stack programming language, both backend and frontend.
+- Makes Go the perfect language to develop library drivers for multiple languages, only writing once in Go.
 
 # Language support
 
 The compiler supports a sub-specification of the Go language, written about in detail [here](./extra/docs/doc.md#sub-specification). 
 
-The gist is that the language is compatible with Go's specification except when using cgo, [``runtime``](https://pkg.go.dev/runtime)/[``reflect``](https://pkg.go.dev/reflect) internals, [``unsafe``](https://pkg.go.dev/unsafe), or [``syscall``](https://pkg.go.dev/syscall).
+The gist is that the language is compatible with Go's specification except when using [``cgo``](https://go.dev/wiki/cgo), [``runtime``](https://pkg.go.dev/runtime)/[``reflect``](https://pkg.go.dev/reflect) internals, [``unsafe``](https://pkg.go.dev/unsafe), or [``syscall``](https://pkg.go.dev/syscall).
 
 There are many edge cases that limit the compiler from being able to produce correct library code. If you are wondering does "library/feature X work yet", the best way is to try the compiler out yourself.
 

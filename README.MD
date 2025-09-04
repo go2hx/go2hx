@@ -2,8 +2,9 @@
 
 <img src="extra/images/logo.svg" width="300"/>
 
-[![build](https://github.com/go2hx/go2hx/actions/workflows/main.yml/badge.svg)](https://github.com/go2hx/go2hx/actions/workflows/main.yml) ![Static Badge](https://img.shields.io/badge/target-hashlink-darkgreen)
-![Static Badge](https://img.shields.io/badge/target-eval-darkgreen)
+[![build](https://github.com/go2hx/go2hx/actions/workflows/main.yml/badge.svg)](https://github.com/go2hx/go2hx/actions/workflows/main.yml) 
+[![Static Badge](https://img.shields.io/badge/target-hashlink-darkgreen)](https://github.com/go2hx/go2hx/actions/workflows/main.yml)
+[![Static Badge](https://img.shields.io/badge/target-eval-darkgreen)](https://github.com/go2hx/go2hx/actions/workflows/main.yml)
  [![Discord](https://img.shields.io/discord/162395145352904705.svg?logo=discord)](https://discord.gg/jgPcqC7DY2)
 
  ![demo](https://vhs.charm.sh/vhs-2zNnc0kqQFxt929R7Uqdpb.gif)

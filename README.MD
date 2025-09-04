@@ -6,7 +6,7 @@
 ![Static Badge](https://img.shields.io/badge/target-eval-darkgreen)
  [![Discord](https://img.shields.io/discord/162395145352904705.svg?logo=discord)](https://discord.gg/jgPcqC7DY2)
 
- ![demo](https://vhs.charm.sh/vhs-2xnPqP1ctw7WTx54b5NO3Q.gif)
+ ![demo](https://vhs.charm.sh/vhs-2zNnc0kqQFxt929R7Uqdpb.gif)
 
 Import Go libraries into your Haxe projects.
 

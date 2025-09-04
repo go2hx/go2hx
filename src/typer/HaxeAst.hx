@@ -407,7 +407,14 @@ function isNull(e:Expr):Bool {
 	}
 	return false;
 }
-
+/**
+ * y expr of type fromType, have it be pass by copy, for example with GoString that uses
+ * underlying bytes, an explicit passByCopy call is required, because normally it is pass by reference
+ * @param fromType 
+ * @param y 
+ * @param info 
+ * @return MacroExpr
+ */
 function passByCopy(fromType:GoType, y:Expr, info:Info):MacroExpr {
 	if (y == null)
 		return y;
@@ -488,6 +495,13 @@ function passByCopy(fromType:GoType, y:Expr, info:Info):MacroExpr {
 	return y;
 }
 
+/**
+ * get the param elem of a complex type if applicable,
+ * otherwise return back ct
+ * @param ct 
+ * @param index 
+ * @return ComplexType
+ */
 function complexTypeElem(ct:ComplexType, index:Int = 0):ComplexType {
 	return switch ct {
 		case TPath(p):
@@ -506,10 +520,20 @@ function complexTypeElem(ct:ComplexType, index:Int = 0):ComplexType {
 	}
 }
 
+/**
+ * create a goto meta jump label
+ * @param label 
+ * @return MacroExpr
+ */
 function typeGoto(label:Expr):MacroExpr {
 	return macro @:goto $label;
 
 }
+/**
+ * get the ExprOf elem parameter if applicable, otherwise return t
+ * @param t 
+ * @return ComplexType
+ */
 function exprOfType(t:ComplexType):ComplexType {
 	if (t == null)
 		return TPath({name: "Void", pack: []});
@@ -527,7 +551,11 @@ function exprOfType(t:ComplexType):ComplexType {
 	}
 	return t;
 }
-
+/**
+ * get the x pointer value if pointer, otherwise return back the same inputs
+ * @param x 
+ * @param t 
+ */
 function destructureExpr(x:Expr, t:GoType):{x:Expr, t:GoType} {
 	t = getUnderlying(t);
 	if (isPointer(t)) {
@@ -536,7 +564,12 @@ function destructureExpr(x:Expr, t:GoType):{x:Expr, t:GoType} {
 	}
 	return {x: x, t: t};
 }
-
+/**
+ * create a deferstack loop to go over all defers and mark defer f function runs as ran = true
+ * @param info 
+ * @param nullcheck 
+ * @return MacroExpr
+ */
 function typeDeferReturn(info:Info, nullcheck:Bool):MacroExpr {
 	return macro for (defer in __deferstack__) {
 		if (defer.ran)
@@ -545,7 +578,12 @@ function typeDeferReturn(info:Info, nullcheck:Bool):MacroExpr {
 		defer.f();
 	};
 }
-
+/**
+ * check is an expr will return, useful to prevent Haxe compiler from hitting an error if
+ * it believes an expr can not be compiled because of no return
+ * @param expr 
+ * @return Bool
+ */
 function exprWillReturn(expr:Expr):Bool {
 	if (expr == null)
 		return false;
@@ -574,7 +612,11 @@ function exprWillReturn(expr:Expr):Bool {
 			false;
 	}
 }
-
+/**
+ * operator precedence for binary operations, follows Go's precedence
+ * @param op 
+ * @return Int
+ */
 function opPrecedence(op:Binop):Int {
 	return switch op {
 		case OpMult, OpDiv, OpMod, OpShr, OpShl, OpAnd:
@@ -591,7 +633,12 @@ function opPrecedence(op:Binop):Int {
 			throw "unknown operator";
 	}
 }
-
+/**
+ * add a @:to field casting for implicit casting to new wrapperType
+ * @param ct 
+ * @param wrapperType 
+ * @return Field
+ */
 function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field {
 	var name:String = "";
 	switch ct {
@@ -611,7 +658,12 @@ function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field {
 		access: [AInline],
 	};
 }
-
+/**
+ * check if td (type definition) already exists in the data.defs list of definitions
+ * @param td 
+ * @param info 
+ * @return Bool
+ */
 function alreadyExistsTypeDef(td:TypeDefinition, info:Info):Bool {
 	for (def in info.data.defs) {
 		if (def.name == td.name) {
@@ -620,7 +672,11 @@ function alreadyExistsTypeDef(td:TypeDefinition, info:Info):Bool {
 	}
 	return false;
 }
-
+/**
+ * turn complex type into an expr complex type
+ * @param t 
+ * @return MacroExpr
+ */
 function complexTypeToExpr(t:ComplexType):MacroExpr {
 	switch t {
 		case TPath(p):
@@ -634,19 +690,38 @@ function complexTypeToExpr(t:ComplexType):MacroExpr {
 			throw "unsupported complexTypeToExpr: " + t;
 	}
 }
-
+/**
+ * use the name to return if access is [APublic] or empty []
+ * @param name 
+ * @param isField 
+ * @return Array<Access>
+ */
 function typeAccess(name:String, isField:Bool = false):Array<Access> {
 	return StringTools.startsWith(name, "_") ? [] : (isField ? [APublic] : []);
 }
-
+/**
+ * create a constant string expr
+ * @param str 
+ * @param kind 
+ * @return MacroExpr
+ */
 function makeString(str:String, ?kind):MacroExpr {
 	return toExpr(EConst(CString(str, kind)));
 }
-
+/**
+ * convert Array<TypeParamDecl> -> Array<TypeParam>
+ * @param list 
+ * @return Array<TypeParam>
+ */
 function typeParamDeclsToTypeParams(list:Array<TypeParamDecl>):Array<TypeParam> {
 	return list.map(p -> TPType(TPath({name: p.name, pack: []})));
 }
-
+/**
+ * create temp variables
+ * @param vars 
+ * @param short 
+ * @return MacroExpr
+ */
 function createTempVars(vars:Array<Var>, short:Bool):MacroExpr {
 	final vars2:Array<Var> = [];
 	if (vars.length <= 1)
@@ -678,6 +753,11 @@ function createTempVars(vars:Array<Var>, short:Bool):MacroExpr {
 	// return vars2;
 }
 
+/**
+ * check if expr has a break statement as a child or is a break statement
+ * @param expr 
+ * @return Bool
+ */
 function hasBreak(expr:Expr):Bool {
 	var f = null;
 	var hasBreakBool = false;
@@ -695,7 +775,12 @@ function hasBreak(expr:Expr):Bool {
 	f(expr);
 	return hasBreakBool;
 }
-
+/**
+ * adds the functionality necessary to simulate continue in a switch as in Go
+ * requires setting up temporary variables
+ * @param expr 
+ * @return Bool if continue is found inside of the expr
+ */
 function continueInsideSwitch(expr:Expr):Bool {
 	var hasContinue = false;
 	var f = null;
@@ -726,6 +811,11 @@ function continueInsideSwitch(expr:Expr):Bool {
 	return hasContinue;
 }
 
+/**
+ * remove parenthesis and check type exprs and unwrap the expr
+ * @param e 
+ * @return MacroExpr unwrapped expr
+ */
 function escapeCheckType(e:Expr):MacroExpr {
 	return switch e.expr {
 		case ECheckType(e, _), EParenthesis(e):
@@ -734,7 +824,11 @@ function escapeCheckType(e:Expr):MacroExpr {
 			e;
 	}
 }
-
+/**
+ * check if complex type t is haxe.Rest
+ * @param t 
+ * @return Bool
+ */
 function isRestType(t:ComplexType):Bool {
 	return switch t {
 		case TPath(p): p.name == "Rest" && p.pack != null && p.pack.length == 1 && p.pack[0] == "haxe";
@@ -742,7 +836,11 @@ function isRestType(t:ComplexType):Bool {
 			false;
 	}
 }
-
+/**
+ * check if expr is a spread expr, example: ...x
+ * @param expr 
+ * @return Bool
+ */
 function isRestExpr(expr:Expr):Bool {
 	if (expr == null)
 		return false;
@@ -753,14 +851,26 @@ function isRestExpr(expr:Expr):Bool {
 			false;
 	}
 }
-
+/**
+ * map through array expr with data
+ * @param e 
+ * @param data 
+ * @param f 
+ * @return -> Expr):MacroExpr
+ */
 function mapExprArrayWithData<T>(el:Array<Expr>, data:T, f:(data:T, e:Expr) -> Expr):Array<Expr> {
 	var ret = [];
 	for (e in el)
 		ret.push(f(data, e));
 	return ret;
 }
-
+/**
+ * map expr with data
+ * @param e 
+ * @param data 
+ * @param f 
+ * @return -> Expr):MacroExpr
+ */
 function mapExprWithData<T>(e:Expr, data:T, f:(data:T, e:Expr) -> Expr):MacroExpr {
 	return {
 		pos: e.pos,
@@ -831,6 +941,13 @@ function mapExprWithData<T>(e:Expr, data:T, f:(data:T, e:Expr) -> Expr):MacroExp
 		}
 	};
 }
-
+/**
+ * run opt with data and e for function f if e is not null
+ * @param e Null<Expr>
+ * @param data T generic
+ * @param f closure function
+ * @return Expr null if e == null, otherwise return of f
+	return e == null ? null : f(data, e)
+ */
 function opt<T>(e:Null<Expr>, data:T, f:(data:T, Expr) -> Expr):Expr
 	return e == null ? null : f(data, e);

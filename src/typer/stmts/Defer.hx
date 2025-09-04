@@ -1,5 +1,11 @@
 package typer.stmts;
-
+/**
+ * defer statement translated
+ * @param stmt 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Defer_statements
+ */
 function typeDeferStmt(stmt:GoAst.DeferStmt, info:Info):MacroExpr {
 	info.global.deferBool = true;
 	var exprs:Array<Expr> = [];

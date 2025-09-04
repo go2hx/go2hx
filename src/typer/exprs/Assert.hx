@@ -1,5 +1,11 @@
 package typer.exprs;
-
+/**
+ * assert expr translated
+ * @param expr 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Type_assertions
+ */
 function typeAssertExpr(expr:GoAst.TypeAssertExpr, info:Info):MacroExpr { // a -> b conversion
 	var e = typer.exprs.Expr.typeExpr(expr.x, info);
 	if (expr.type == null)

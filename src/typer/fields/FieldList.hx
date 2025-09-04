@@ -1,5 +1,12 @@
 package typer.fields;
-
+/**
+ * field list translated
+ * @param list 
+ * @param info 
+ * @param access 
+ * @param defaultBool 
+ * @return Array<Field>
+ */
 function typeFieldListFields(list:GoAst.FieldList, info:Info, access:Array<Access> = null, defaultBool:Bool):Array<Field> {
 	final docs:Array<GoAst.CommentGroup> = [];
 	final comments:Array<GoAst.CommentGroup> = [];

@@ -1,5 +1,10 @@
 package typer.exprs;
-
+/**
+ * ellipsis translated
+ * @param expr 
+ * @param info 
+ * @return MacroExpr
+ */
 function typeEllipsis(expr:GoAst.Ellipsis, info:Info):MacroExpr {
 	var e = typer.exprs.Expr.typeExpr(expr.elt, info);
 	var t = typeof(expr.elt, info, false);

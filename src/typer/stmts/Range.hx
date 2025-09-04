@@ -1,5 +1,11 @@
 package typer.stmts;
-
+/**
+ * range statement translate
+ * @param stmt 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#For_range
+ */
 function typeRangeStmt(stmt:GoAst.RangeStmt, info:Info):MacroExpr { // for stmt
 	var x = typer.exprs.Expr.typeExpr(stmt.x, info);
 	var xType = typeof(stmt.x, info, false);

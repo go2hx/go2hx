@@ -1,5 +1,13 @@
 package typer.specs;
 
+/**
+ * spec translated
+ * @param spec 
+ * @param info 
+ * @param local 
+ * @return TypeDefinition
+ * @see https://go.dev/ref/spec#Types
+ */
 function typeSpec(spec:GoAst.TypeSpec, info:Info, local:Bool = false):TypeDefinition {
 	var hash:UInt = 0;
 	if (spec.type.type != null) {

@@ -1,5 +1,10 @@
 package typer.exprtypes;
-
+/**
+ * ident treated as type and translated
+ * @param expr 
+ * @param info 
+ * @return ComplexType
+ */
 function identType(expr:GoAst.Ident, info:Info):ComplexType {
 	var name = className(expr.name, info);
 	if (!info.renameClasses.exists(expr.name) && !info.global.renameClasses.exists(name)) {

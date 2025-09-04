@@ -1,5 +1,12 @@
 package typer.exprs;
-
+/**
+ * ident expr translated
+ * @param expr 
+ * @param info 
+ * @param isSelect 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Identifiers
+ */
 function typeIdent(expr:GoAst.Ident, info:Info, isSelect:Bool):MacroExpr {
 	var name = typer.exprs.Ident.nameIdent(expr.name, true, false, info, isSelect, expr.objPath);
 	return macro $i{name};

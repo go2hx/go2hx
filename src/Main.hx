@@ -1,5 +1,5 @@
 /**
- * Run the compiler based from the system arguments
+ * Run the compiler based on the system arguments
  */
 @:buildXml('
 <linker id="exe">

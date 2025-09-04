@@ -1,7 +1,15 @@
 package typer.specs;
 
 import haxe.macro.Expr.Position;
-
+/**
+ * value spec translated
+ * @param value 
+ * @param info 
+ * @param pkg 
+ * @param constant 
+ * @return Array<TypeDefinition>
+ * @see https://go.dev/ref/spec#Variables
+ */
 function typeValue(value:GoAst.ValueSpec, info:Info, pkg:typer.Package.IntermediatePackageType, constant:Bool):Array<TypeDefinition> {
 	final elem = hashTypeToExprType(value.names[0].type.elem, info);
 	var type:ComplexType = null;

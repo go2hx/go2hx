@@ -1,5 +1,11 @@
 package typer.exprs;
-
+/**
+ * star expr translated, for example in Go:
+ * x.value
+ * @param expr 
+ * @param info 
+ * @return Expr
+ */
 function typeStarExpr(expr:GoAst.StarExpr, info:Info):Expr {
 	final x = typer.exprs.Expr.typeExpr(expr.x, info);
 	final t = typeof(expr.x, info, false);

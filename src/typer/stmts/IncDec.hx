@@ -1,5 +1,11 @@
 package typer.stmts;
-
+/**
+ * increment decrement statement
+ * @param stmt 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#IncDec_statements
+ */
 function typeIncDecStmt(stmt:GoAst.IncDecStmt, info:Info):MacroExpr {
 	var x = typer.exprs.Expr.typeExpr(stmt.x, info);
 	x = HaxeAst.escapeParens(x);

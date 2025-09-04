@@ -1,5 +1,13 @@
 package typer.specs;
-
+/**
+ * type spec translated
+ * @param spec 
+ * @param info 
+ * @param local 
+ * @param hash 
+ * @return TypeDefinition
+ * @see https://go.dev/ref/spec#Types
+ */
 function typeType(spec:GoAst.TypeSpec, info:Info, local:Bool = false, hash:UInt = 0):TypeDefinition {
 	var name = className(spec.name.name, info);
 	info.global.renameClasses[spec.name.name] = name;

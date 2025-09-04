@@ -1,10 +1,20 @@
 package typer.stmts;
-
+/**
+ * assign statement, for example:
+ * x = y
+ * x += y
+ * also handles define as a special case for example:
+ * x := y
+ * which is similar to var x = y (though there are some subtle differences)
+ * @param stmt 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Assignment
+ */
 function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):MacroExpr {
 	switch stmt.tok {
 		case ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN, SHL_ASSIGN, SHR_ASSIGN, XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN, OR_ASSIGN:
 			// remove checkType from x in x = y
-
 			var assign = HaxeAst.removeCoalAndCheckType(typer.exprs.Expr.typeExpr(stmt.lhs[0], info));
 			var assignName = "";
 			var assignExpr = null;
@@ -343,7 +353,11 @@ function typeAssignStmt(stmt:GoAst.AssignStmt, info:Info):MacroExpr {
 			throw info.panic() + "type assign tok not found: " + stmt.tok;
 	}
 }
-
+/**
+ * assign token to it's not assign counter part
+ * @param tok 
+ * @return GoAst.Token
+ */
 private function nonAssignToken(tok:GoAst.Token):GoAst.Token {
 	return switch tok {
 		case ADD_ASSIGN: ADD;
@@ -360,7 +374,12 @@ private function nonAssignToken(tok:GoAst.Token):GoAst.Token {
 		default: throw "non assign token: " + tok;
 	}
 }
-
+/**
+ * create temporary to keep the order of operations constant when assigning
+ * @param inits 
+ * @param exprs 
+ * @return Array<Expr>
+ */
 private function orderOperations(inits:Array<Expr>, exprs:Array<Expr>):Array<Expr> {
 	var initsCount = inits.length;
 	for (i in 0...exprs.length) {
@@ -376,7 +395,12 @@ private function orderOperations(inits:Array<Expr>, exprs:Array<Expr>):Array<Exp
 	}
 	return inits.concat(exprs);
 }
-
+/**
+ * check if x and y are both the same constant identifier
+ * @param x 
+ * @param y 
+ * @return Bool
+ */
 function isSelfAssignValue(x:Expr, y:Expr):Bool {
 	switch x.expr {
 		case EConst(c):

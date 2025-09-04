@@ -25,7 +25,9 @@ typedef FileType = {
 	decls:Array<Decl>,
 	doc:GoAst.CommentGroup,
 };
-
+/**
+ * what type of object an expr is
+ */
 enum abstract ObjKind(Int) from Int to Int {
 	public final bad = 0; // for error handling
 	public final pkg = 1; // package
@@ -68,58 +70,32 @@ enum abstract BasicKind(Int) to Int {
 	@:to
 	static function toString(x:Int):String {
 		return switch x {
-			case invalid_kind:
-				"invalid_kind";
-			case bool_kind:
-				"bool_kind";
-			case int_kind:
-				"int_kind";
-			case int8_kind:
-				"int8_kind";
-			case int16_kind:
-				"int16_kind";
-			case int32_kind:
-				"int32_kind";
-			case int64_kind:
-				"int64_kind";
-			case uint_kind:
-				"uint_kind";
-			case uint8_kind:
-				"uint8_kind";
-			case uint16_kind:
-				"uint16_kind";
-			case uint32_kind:
-				"uint32_kind";
-			case uint64_kind:
-				"uint64_kind";
-			case uintptr_kind:
-				"uintptr_kind";
-			case float32_kind:
-				"float32_kind";
-			case float64_kind:
-				"float64_kind";
-			case complex64_kind:
-				"complex64_kind";
-			case complex128_kind:
-				"complex128_kind";
-			case string_kind:
-				"string_kind";
-			case unsafepointer_kind:
-				"unsafepointer_kind";
-			case untyped_bool_kind:
-				"untyped_bool_kind";
-			case untyped_int_kind:
-				"untyped_int_kind";
-			case untyped_float_kind:
-				"untyped_float_kind";
-			case untyped_complex_kind:
-				"untyped_complex_kind";
-			case untyped_string_kind:
-				"untyped_string_kind";
-			case untyped_nil_kind:
-				"untyped_nil_kind";
-			default:
-				throw 'Unknown BasicKind';
+			case invalid_kind: "invalid_kind";
+			case bool_kind: "bool_kind";
+			case int_kind: "int_kind";
+			case int8_kind: "int8_kind";
+			case int16_kind: "int16_kind";
+			case int32_kind: "int32_kind";
+			case int64_kind: "int64_kind";
+			case uint_kind: "uint_kind";
+			case uint8_kind: "uint8_kind";
+			case uint16_kind: "uint16_kind";
+			case uint32_kind: "uint32_kind";
+			case uint64_kind: "uint64_kind";
+			case uintptr_kind: "uintptr_kind";
+			case float32_kind: "float32_kind";
+			case float64_kind: "float64_kind";
+			case complex64_kind: "complex64_kind";
+			case complex128_kind: "complex128_kind";
+			case string_kind: "string_kind";
+			case unsafepointer_kind: "unsafepointer_kind";
+			case untyped_bool_kind: "untyped_bool_kind";
+			case untyped_int_kind: "untyped_int_kind";
+			case untyped_float_kind: "untyped_float_kind";
+			case untyped_complex_kind: "untyped_complex_kind";
+			case untyped_string_kind: "untyped_string_kind";
+			case untyped_nil_kind: "untyped_nil_kind";
+			default: throw 'Unknown BasicKind';
 		}
 	}
 }
@@ -136,6 +112,11 @@ enum abstract BasicInfo(Int) from Int to Int {
 	public final isNumeric = isInteger | isFloat | isComplex;
 	public final isConstType = isBoolean | isNumeric | isString;
 }
+
+/**
+ * These types ar directly modeled from the Go equivalents
+ * @see https://pkg.go.dev/go/ast
+ */
 
 typedef Comment = {
 	text:String,
@@ -793,7 +774,12 @@ function precedence(op:Token):Int {
 			return 0;
 	}
 }
-
+/**
+ * check if a Go Expr is listed as a class name
+ * @param x 
+ * @param info 
+ * @return Bool
+ */
 function isClass(x:GoAst.Expr, info:Info):Bool {
 	return switch x.id {
 		case "Ident":
@@ -804,7 +790,12 @@ function isClass(x:GoAst.Expr, info:Info):Bool {
 			false;
 	}
 }
-
+/**
+ * check if Go Expr is of a function
+ * @param expr 
+ * @param info 
+ * @return Bool
+ */
 function isFunction(expr:GoAst.Expr, info:Info):Bool {
 	expr = escapeParensRaw(expr);
 	final ft = typeof(expr, info, false);
@@ -815,7 +806,11 @@ function isFunction(expr:GoAst.Expr, info:Info):Bool {
 		notFunction = expr.id == "ParenExpr" && expr.x.id == "FuncType" || expr.id == "FuncType";
 	return !notFunction;
 }
-
+/**
+ * remove the parenthesis from a Go Expr
+ * @param expr 
+ * @return GoAst.Expr
+ */
 function escapeParensRaw(expr:GoAst.Expr):GoAst.Expr {
 	return switch expr.id {
 		case "ParenExpr":
@@ -824,7 +819,13 @@ function escapeParensRaw(expr:GoAst.Expr):GoAst.Expr {
 			expr;
 	}
 }
-
+/**
+ * perform a cast translate on a raw Go Expr, returning a Haxe Expr
+ * @param obj 
+ * @param e 
+ * @param info 
+ * @return MacroExpr
+ */
 function castTranslate(obj:GoAst.Expr, e:Expr, info:Info):MacroExpr {
 	return switch obj.id {
 		case "TypeAssertExpr":

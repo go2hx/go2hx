@@ -1,5 +1,11 @@
 package typer.exprtypes;
-
+/**
+ * translate an Expr as a type
+ * @param expr 
+ * @param info 
+ * @return ComplexType
+ * @see https://go.dev/ref/spec#Types
+ */
 function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the type of an expr
 	// typeof -> toComplexType
 	if (expr == null)

@@ -1,5 +1,10 @@
 package typer.exprtypes;
-
+/**
+ * binary expr treated as a type and translated
+ * @param expr 
+ * @param info 
+ * @return ComplexType
+ */
 function binaryType(expr:GoAst.BinaryExpr, info:Info):ComplexType {
 	function rec(e:GoAst.Expr):Array<ComplexType> {
 		switch e.id {

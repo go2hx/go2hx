@@ -1,5 +1,10 @@
 package typer.exprtypes;
-
+/**
+ * star expr treated as type and translated
+ * @param expr 
+ * @param info 
+ * @return ComplexType
+ */
 function starType(expr:GoAst.StarExpr, info:Info):ComplexType { // pointer type
 
 	var type = typeExprType(expr.x, info);

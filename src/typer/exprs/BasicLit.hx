@@ -1,7 +1,8 @@
 package typer.exprs;
 
 /**
- * BasicLiteral, for example:
+ * Basic literal translated
+ * for example:
  * "hello world"
  * 0
  * 0.2
@@ -9,6 +10,11 @@ package typer.exprs;
  * @param expr 
  * @param info 
  * @return Expr
+ * @see https://go.dev/ref/spec#Integer_literals
+ * @see https://go.dev/ref/spec#Floating-point_literals
+ * @see https://go.dev/ref/spec#Rune_literals
+ * @see https://go.dev/ref/spec#String_literals
+ * @see https://go.dev/ref/spec#Imaginary_literals
  */
 function typeBasicLit(expr:GoAst.BasicLit, info:Info):MacroExpr {
 	if (expr.basic) {

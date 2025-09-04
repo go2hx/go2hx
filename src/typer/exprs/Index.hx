@@ -1,5 +1,11 @@
 package typer.exprs;
-
+/**
+ * index expr translated
+ * @param expr 
+ * @param info 
+ * @return Expr
+ * @see https://go.dev/ref/spec#Index_expressions
+ */
 function typeIndexExpr(expr:GoAst.IndexExpr, info:Info):Expr {
 	var x = typer.exprs.Expr.typeExpr(expr.x, info);
 	switch x.expr {

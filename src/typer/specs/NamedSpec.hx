@@ -1,5 +1,12 @@
 package typer.specs;
-
+/**
+ * type specification translated, for example in Go:
+ * type X Y
+ * @param spec 
+ * @param info 
+ * @return TypeDefinition
+ * @see https://go.dev/ref/spec#Type_declarations
+ */
 function typeNamed(spec:GoAst.TypeSpec, info:Info):TypeDefinition {
 	final name = className(spec.name.name, info);
 	info.global.renameClasses[spec.name.name] = name;

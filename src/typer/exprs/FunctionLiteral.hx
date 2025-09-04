@@ -1,5 +1,11 @@
 package typer.exprs;
-
+/**
+ * function literal translated
+ * @param expr 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Function_literals
+ */
 function typeFuncLit(expr:GoAst.FuncLit, info:Info):MacroExpr {
 	final info = info.copy();
 	final args = typer.decls.Function.typeFieldListArgs(expr.type.params, info);

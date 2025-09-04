@@ -1,10 +1,12 @@
 package typer.stmts;
 
 /**
+ * type switch statement translate, for example in Go:
  * switch x.(type) {}
  * @param stmt 
  * @param info 
  * @return ExprDef
+ * @see https://go.dev/ref/spec#Type_switches
  */
 function typeTypeSwitchStmt(stmt:GoAst.TypeSwitchStmt, info:Info):MacroExpr { // a switch statement of a type
 	var init:Expr = stmt.init == null ? null : typer.stmts.Stmt.typeStmt(stmt.init, info);

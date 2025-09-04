@@ -1,5 +1,11 @@
 package typer.exprtypes;
-
+/**
+ * interface type translated
+ * @param expr 
+ * @param info 
+ * @return ComplexType
+ * @see https://go.dev/ref/spec#Interface_types
+ */
 function interfaceTypeExpr(expr:GoAst.InterfaceType, info:Info):ComplexType {
 	if (expr.methods.list.length == 0) {
 		// dynamic

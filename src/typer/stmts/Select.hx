@@ -1,5 +1,11 @@
 package typer.stmts;
-
+/**
+ * select statement translate
+ * @param stmt 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Select_statements
+ */
 function typeSelectStmt(stmt:GoAst.SelectStmt, info:Info):MacroExpr {
 	var defaultBlock:Expr = null;
 	var list:Array<Expr> = [];

@@ -1,5 +1,12 @@
 package typer.stmts;
-
+/**
+ * declaration statement translated, for example:
+ * TypeSpec
+ * ValueSpec
+ * @param stmt 
+ * @param info 
+ * @return MacroExpr
+ */
 function typeDeclStmt(stmt:GoAst.DeclStmt, info:Info):MacroExpr {
 	if (stmt.decl.decls == null)
 		return macro {}; // blank

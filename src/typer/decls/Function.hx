@@ -26,7 +26,19 @@ typedef IntermediateFunctionType = {
 	patchPack:String,
 	pkg:typer.Package.IntermediatePackageType,
 }
-
+/**
+ * function translated
+ * @param decl function declaration 
+ * @param data info
+ * @param restricted 
+ * @param isNamed 
+ * @param sel 
+ * @param pkg 
+ * @param defName 
+ * @param disableGenericCasting 
+ * @return Array<TypeDefinition>
+ * @see https://go.dev/ref/spec#Function_declarations
+ */
 function typeFunction(decl:GoAst.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = "",
 		pkg:typer.Package.IntermediatePackageType, defName:String = "", disableGenericCasting:Bool = false):Array<TypeDefinition> {
 	final func = typeFunctionAnalyze(decl, data, restricted, isNamed, sel, defName, pkg);

@@ -1,5 +1,11 @@
 package typer.stmts;
-
+/**
+ * statements switch
+ * @param stmt 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Statements
+ */
 function typeStmt(stmt:GoAst.Stmt, info:Info):MacroExpr {
 	if (stmt == null)
 		return null;

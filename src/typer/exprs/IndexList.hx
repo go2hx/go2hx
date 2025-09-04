@@ -1,5 +1,12 @@
 package typer.exprs;
-
+/**
+ * index list expr translated
+ * is only used for type parameters a.k.a generics
+ * @param expr 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Type_parameter_declarations
+ */
 function typeIndexListExpr(expr:GoAst.IndexListExpr, info:Info):MacroExpr {
 	final x = typer.exprs.Expr.typeExpr(expr.x, info);
 	final t = typeof(expr.x, info, false);

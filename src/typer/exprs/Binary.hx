@@ -5,6 +5,7 @@ package typer.exprs;
  * @param info 
  * @param walk walk the binaryExpr to figure out operator precedence
  * @return ExprDef
+ * @see https://go.dev/ref/spec#Operators
  */
 function typeBinaryExpr(expr:GoAst.BinaryExpr, info:Info, walk:Bool = true):MacroExpr {
 	var x = if (expr.x.id == "BinaryExpr") {

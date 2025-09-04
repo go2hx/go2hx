@@ -1,5 +1,11 @@
 package typer.stmts;
-
+/**
+ * go statement translated
+ * @param stmt 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Go_statements
+ */
 function typeGoStmt(stmt:GoAst.GoStmt, info:Info):MacroExpr {
 	var call = typer.exprs.Expr.typeExpr(stmt.call, info);
 	switch call.expr {

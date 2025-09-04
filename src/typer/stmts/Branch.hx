@@ -1,5 +1,20 @@
 package typer.stmts;
 
+/**
+ * branch statements translated into equivalent Haxe Exprs
+ * a branch statement for example:
+ * continue
+ * break
+ * fallthrough (unique to Go)
+ * goto (unique to Go)
+ * @param stmt 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Continue_statements
+ * @see https://go.dev/ref/spec#BreakStmt
+ * @see https://go.dev/ref/spec#Fallthrough_statements
+ * @see https://go.dev/ref/spec#Goto_statements
+ */
 function typeBranchStmt(stmt:GoAst.BranchStmt, info:Info):MacroExpr {
 	return switch stmt.tok {
 		case CONTINUE:

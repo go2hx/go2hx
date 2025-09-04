@@ -1,5 +1,11 @@
 package typer.exprtypes;
-
+/**
+ * array type translated
+ * @param expr 
+ * @param info 
+ * @return ComplexType
+ * @see https://go.dev/ref/spec#Array_types
+ */
 function arrayTypeExpr(expr:GoAst.ArrayType, info:Info):ComplexType {
 	// array is pass by copy, slice is pass by ref except for its length
 	var type = typeExprType(expr.elt, info);

@@ -1,5 +1,10 @@
 package typer.specs;
-
+/**
+ * import spec translated
+ * @param imp 
+ * @param info 
+ * @see https://go.dev/ref/spec#Import_declarations
+ */
 function typeImport(imp:GoAst.ImportSpec, info:Info) {
 	var doc = gen.Doc.getDocComment(imp);
 	imp.path = imp.path.substr(1, imp.path.length - 2); // remove quotes

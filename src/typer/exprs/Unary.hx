@@ -1,5 +1,10 @@
 package typer.exprs;
-
+/**
+ * unary expr translated
+ * @param expr 
+ * @param info 
+ * @return MacroExpr
+ */
 function typeUnaryExpr(expr:GoAst.UnaryExpr, info:Info):MacroExpr {
 	var x = typer.exprs.Expr.typeExpr(expr.x, info);
 	final t = typeof(expr, info, false); // use expr type potentially instead of expr.x?

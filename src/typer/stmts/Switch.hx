@@ -1,5 +1,11 @@
 package typer.stmts;
-
+/**
+ * switch statement translated
+ * @param stmt 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Switch_statements
+ */
 function typeSwitchStmt(stmt:GoAst.SwitchStmt, info:Info):MacroExpr { // always an if else chain to deal with int64s and complex numbers
 	if (stmt.body == null || stmt.body.list == null)
 		return macro {};

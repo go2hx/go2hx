@@ -82,6 +82,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 		}
 	}
 	var typeSpecNames:Array<String> = [];
+	// remove the long name test name by looking for this exact prefix, and not adding the definition if found
 	final longNamePrefix = "TheNameOfThisTypeIsExactly255BytesLong";
 	for (gen in declGens) {
 		for (spec in gen.specs) { // 2nd pass
@@ -95,8 +96,10 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 			}
 		}
 	}
+	// the parts of a file must be computed in a specific order
+
+	// compute values
 	var values = [];
-	// trace(declGens.length);
 	for (gen in declGens) {
 		// variables after so that all types can be referenced by a value and have it exist.
 		info.lastValue = null;
@@ -113,7 +116,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 			}
 		}
 	}
-
+	// sort the values
 	var valuesSorted = [];
 	for (name in pkg.varOrder) {
 		for (value in values) {
@@ -133,6 +136,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 			}
 		}
 	}
+	// add the sorted values into the init block to initialize them
 	if (pkg.varOrder.length > 0) {
 		final vars:Array<Var> = [];
 		for (i in 0...pkg.varOrder.length) {
@@ -147,7 +151,8 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 		valuesSorted = values.concat(valuesSorted);
 	}
 	data.defs = valuesSorted.concat(data.defs);
-
+	// compute specs
+	// if multiple specs share the same name, change the definition to the spec and break
 	for (key => specs in info.global.localSpecs) {
 		for (spec in specs) {
 			final spec = typer.specs.Spec.typeSpec(spec, info, true);
@@ -159,6 +164,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 			}
 		}
 	}
+	// compute functions
 	for (decl in declFuncs) { // parse function bodies last
 		if (decl.recv != null && decl.recv.list.length > 0) {
 			recvFunctions.push({decl: decl, path: file.path});
@@ -194,6 +200,7 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 			// gen.Patch.addFuncs.remove(key);
 		}
 	}
+	// check if type definitions from patch need to be added to the file
 	for (key => def in gen.Patch.addTypeDefs) {
 		final index = key.indexOf(":");
 		final path = key.substr(0, index);
@@ -266,7 +273,13 @@ function typeFile(file:GoAst.FileType, module:HaxeAst.Module, recvFunctions:Arra
 	pass2(data, info, recvFunctions, pkg);
 	return data;
 }
-
+/**
+ * handles static extension methods being added, and embeds
+ * @param data 
+ * @param info 
+ * @param recvFunctions 
+ * @param pkg 
+ */
 function pass2(data:HaxeAst.HaxeFileType, info:typer.Typer.Info, recvFunctions:Array<RecvFunction>, pkg:typer.Package.IntermediatePackageType) {
 	final defs = data.defs.copy();
 	for (def in defs) {

@@ -1,5 +1,15 @@
-package typer.exprs; function typeCompositeLit(expr:GoAst.CompositeLit, info:Info):MacroExpr {
+package typer.exprs; 
 
+
+
+/**
+ * composite literal translated
+ * @param expr 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Composite_literals
+ */
+function typeCompositeLit(expr:GoAst.CompositeLit, info:Info):MacroExpr {
 	var setToSliceType = false;
 	var sliceType:GoType = null;
 	if (expr.type == null) {

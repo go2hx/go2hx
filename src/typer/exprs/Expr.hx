@@ -1,5 +1,11 @@
 package typer.exprs;
-
+/**
+ * expr switch translated
+ * @param expr 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Expressions
+ */
 function typeExpr(expr:GoAst.Expr, info:Info):MacroExpr {
 	if (expr == null)
 		return null;

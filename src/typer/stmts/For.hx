@@ -1,5 +1,11 @@
 package typer.stmts;
-
+/**
+ * for statement
+ * @param stmt 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#For_statements
+ */
 function typeForStmt(stmt:GoAst.ForStmt, info:Info):MacroExpr {
 	final init = typer.stmts.Stmt.typeStmt(stmt.init, info);
 	final cond = stmt.cond == null ? toExpr(EConst(CIdent("true"))) : typer.exprs.Expr.typeExpr(stmt.cond, info);
@@ -25,7 +31,12 @@ function typeForStmt(stmt:GoAst.ForStmt, info:Info):MacroExpr {
 		expr;
 	}
 }
-
+/**
+ * c for post statement modify
+ * @param post 
+ * @param e 
+ * @return MacroExpr
+ */
 function cforPostContinue(post:MacroExpr, e:Expr):MacroExpr {
 	return switch e.expr {
 		case EMeta({pos: _, name: ":fallthrough", params: null}, _):

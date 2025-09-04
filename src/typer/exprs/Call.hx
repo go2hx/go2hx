@@ -1,5 +1,11 @@
 package typer.exprs;
-
+/**
+ * call expr translated
+ * @param expr 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Calls
+ */
 function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 	var args:Array<Expr> = [];
 	var tupleArg:Expr = null;
@@ -314,10 +320,11 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						final s = args[0];
 						switch t {
 							case sliceType(_.get() => elem):
-								final value = typer.exprs.Expr.defaultValue(elem, info, false);
+								final value = typer.exprs.Expr.defaultValue(elem, info, false) ?? macro null;
 								return (macro {
-									for (i in 0...$s.length) {
-										$s[i] = $value;
+									final s = $s;
+									for (i in 0...s.length) {
+										s[i] = $value;
 									}
 								});
 							default:

@@ -1,5 +1,12 @@
 package typer.exprs;
-
+/**
+ * slice expr translated, for example in Go:
+ * s[low:high:max]
+ * @param expr 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Slice_expressions
+ */
 function typeSliceExpr(expr:GoAst.SliceExpr, info:Info):MacroExpr {
 	var x = typer.exprs.Expr.typeExpr(expr.x, info);
 	final xType = typeof(expr.x, info, false);

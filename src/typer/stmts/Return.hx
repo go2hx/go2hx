@@ -10,7 +10,13 @@ typedef IntermediateReturnStmtType = {
 	results:Array<Dynamic>,
 	info:Info,
 };
-
+/**
+ * return statement translate
+ * @param stmt 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Return_statements
+ */
 function typeReturnStmt(stmt:GoAst.ReturnStmt, info:Info):MacroExpr {
 	final stmt = typeReturnStmtAnalyze(stmt, info);
 	return typeReturnStmtEmit(stmt);

@@ -1,5 +1,11 @@
 package typer.exprs;
-
+/**
+ * selector expr translated
+ * @param expr 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Selectors
+ */
 function typeSelectorExpr(expr:GoAst.SelectorExpr, info:Info):MacroExpr { // EField
 	var selName = typer.exprs.Ident.nameIdent(expr.sel.name, false, false, info, false, true);
 	expr.x = GoAst.escapeParensRaw(expr.x);

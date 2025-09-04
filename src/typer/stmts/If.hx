@@ -1,5 +1,11 @@
 package typer.stmts;
-
+/**
+ * if statement translate
+ * @param stmt 
+ * @param info 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#If_statements
+ */
 function typeIfStmt(stmt:GoAst.IfStmt, info:Info):MacroExpr {
 	// `else` field -> `elseStmt` field
 	elseToElseStmtField(stmt);

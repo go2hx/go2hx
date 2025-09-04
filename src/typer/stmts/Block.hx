@@ -1,5 +1,12 @@
 package typer.stmts;
-
+/**
+ * create a block statement from BlockStmt, process the stmt.list
+ * @param stmt 
+ * @param info 
+ * @param isFunc 
+ * @return MacroExpr
+ * @see https://go.dev/ref/spec#Block
+ */
 function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):MacroExpr {
 	if (stmt.list == null && (stmt.lbrace == -1 || info.returnTypes.length > 0)) {
 		if (isFunc) {
@@ -13,7 +20,13 @@ function typeBlockStmt(stmt:GoAst.BlockStmt, info:Info, isFunc:Bool):MacroExpr {
 	}
 	return typeStmtList(stmt.list, info, isFunc);
 }
-
+/**
+ * process the stmt.list and return a Haxe Expr
+ * @param list 
+ * @param info 
+ * @param isFunc 
+ * @return Expr EBlock + pos
+ */
 function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr {
 	if (isFunc) {
 		info.localIdents = info.localIdents.copy();
@@ -37,6 +50,7 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 			exprs.unshift(toExpr(EVars(vars)));
 		}
 	}
+	// add file location comments
 	if (list != null) { // file://./If.hx#10
 		final stmts = [for (stmt in list) typer.stmts.Stmt.typeStmt(stmt, info)];
 		var isWindows = Sys.systemName().toLowerCase() == "windows";
@@ -53,8 +67,8 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 		}
 		exprs = exprs.concat(stmts);
 	}
-	// trace(list != null, info.global.deferBool, isFunc);
-	if (list != null && info.global.deferBool && isFunc) { // defer system
+	// defer system
+	if (list != null && info.global.deferBool && isFunc) {
 		final ret = typer.stmts.Return.typeReturnStmt({returnPos: 0, results: []}, info);
 		final e = ret;
 		var catchBlock:Array<Expr> = [macro var exe:Dynamic = __exception__.native];
@@ -126,5 +140,6 @@ function typeStmtList(list:Array<typer.GoAst.Stmt>, info:Info, isFunc:Bool):Expr
 			exprs.push(trydef);
 		}
 	}
+	// return list of exprs making an EBlock -> EBlock + pos = Expr
 	return toExpr(EBlock(exprs));
 }

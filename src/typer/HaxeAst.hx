@@ -728,7 +728,7 @@ function createTempVars(vars:Array<Var>, short:Bool):MacroExpr {
 		return {expr: EVars(vars), pos: null};
 	final names:Map<String, String> = [];
 	function createTempName(i:Int):String
-		return "__" + i;
+		return "__tv" + i;
 	for (i in 0...vars.length) {
 		final tempName = createTempName(i);
 		final name = vars[i].name;

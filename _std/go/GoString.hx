@@ -2,7 +2,6 @@ package go;
 
 import haxe.io.Bytes;
 
-using GoString.GoStringTools;
 
 private class GoStringData {
 	public var bytes:Bytes;
@@ -30,15 +29,28 @@ private class GoStringData {
  * GoString is pass by ref and needs to manually call `__copy__` for pass by copy
  */
 abstract GoString(GoStringData) from GoStringData to GoStringData {
+
+	// utility functions
+	public function lastIndexOf(str:GoString, ?startIndex:Int):Int
+		return toString().lastIndexOf(str, startIndex);
+
+	public function indexOf(str:GoString, ?startIndex:Int):Int
+		return toString().indexOf(str, startIndex);
+
+	public function substr(pos:Int, ?len:Int):GoString
+		return toString().substr(pos, len);
+
+	public function charAt(pos:Int):GoString
+		return toString().charAt(pos);
+
+	// length property
 	public var length(get, never):GoInt;
 
 	function get_length():GoInt
 		return this == null ? 0 : this.high - this.low;
 
+	// code property
 	public var code(get, never):GoRune;
-
-	inline public static function isString(val:Dynamic):Bool
-		return Std.isOfType(val, GoStringData);
 
 	function get_code():GoRune {
 		final slice = __toSliceRune__();
@@ -46,6 +58,10 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 			return 0xFFFD;
 		return slice[0];
 	}
+
+	inline public static function isString(val:Dynamic):Bool
+		return Std.isOfType(val, GoStringData);
+
 
 	public function __copy__():GoString {
 		if (this == null || this.bytes == null)
@@ -318,15 +334,4 @@ private class GoStringKeyValueIterator {
 		return {key: key, value: value};
 		#end
 	}
-}
-
-class GoStringTools {
-	public static function lastIndexOf(s:GoString, str:GoString, ?startIndex:Int):Int
-		return s.toString().lastIndexOf(str, startIndex);
-
-	public static function indexOf(s:GoString, str:GoString, ?startIndex:Int):Int
-		return s.toString().indexOf(str, startIndex);
-
-	public static function substr(str:GoString, pos:Int, ?len:Int):GoString
-		return str.toString().substr(pos, len);
 }

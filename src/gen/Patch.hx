@@ -253,6 +253,8 @@ final addTypeDefs = [
 		};
 		@:local
 		private var _addr = null;
+		@:local
+		private var _closed = false;
 
 		public function new(addr, socket) {
 			this._addr = addr;
@@ -261,16 +263,23 @@ final addTypeDefs = [
 
 		public dynamic function accept():{_0:go._internal.net.Net_conn.Conn, _1:go.Error} {
 			@:define("sys") {
+				if (_closed)
+					return {_0: null, _1: go._internal.net.Net_errclosed.errClosed};
 				final s = _socket.accept();
+				if (_closed)
+					return {_0: null, _1: go._internal.net.Net_errclosed.errClosed};
 				return {_0: new go._internal.net.Net_haxeconn.HaxeConn(this._addr, s), _1: null};
 			}
 			return {_0: null, _1: null};
 		}
 
 		public dynamic function close():go.Error {
+			if (_closed)
+				return go._internal.net.Net_errclosed.errClosed;
 			@:define("sys") {
 				_socket.close();
 			}
+			_closed = true;
 			return null;
 		}
 
@@ -308,6 +317,9 @@ final addTypeDefs = [
 		@:local
 		private var _addr = null;
 
+		@:local
+		private var _closed = false;
+
 		public function new(addr, socket) {
 			this._socket = socket;
 			this._addr = addr;
@@ -319,7 +331,7 @@ final addTypeDefs = [
 				var i = 0;
 				try {
 					i = @:privateAccess _socket.input.readBytes(b, 0, b.length);
-				} catch (e:haxe.io.Eof) {
+				} catch (_) {
 					return {_0: 0, _1: go._internal.io.Io_eof.eOF};
 				}
 				final data = b.getData();
@@ -342,20 +354,31 @@ final addTypeDefs = [
 		}
 
 		public dynamic function close():go.Error {
+			if (_closed)
+				return go._internal.net.Net_errclosed.errClosed;
 			@:define("sys") {
 				_socket.close();
 			}
+			_closed = true;
 			return null;
 		}
 
 		public dynamic function localAddr():go._internal.net.Net_addr.Addr {
+			if (_closed)
+				return null;
+			if (_socket == null)
+				return null;
 			 final obj = _socket.host();
 			final addr = new go._internal.net.Net_haxeaddr.HaxeAddr(@:privateAccess _addr._network, obj.host.toString(), obj.port);
 			return addr;
 		}
 
 		public dynamic function remoteAddr():go._internal.net.Net_addr.Addr {
-			 final obj = _socket.peer();
+			if (_closed)
+				return null;
+			if (_socket == null)
+				return null;
+			final obj = _socket.peer();
 			final addr = new go._internal.net.Net_haxeaddr.HaxeAddr(@:privateAccess _addr._network, obj.host.toString(), obj.port);
 			return addr;
 		}

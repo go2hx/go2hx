@@ -298,6 +298,7 @@ class GoArrayData<T> {
 
 	public function __copy__() {
 		final slice = new GoArrayData<T>(0, -1);
+		slice.__nil__ = this.__nil__;
 		slice.capacity = this.capacity;
 		slice.length = this.length;
 		slice.offset = this.offset;
@@ -321,6 +322,9 @@ class GoArrayDataKeyValueIterator<T> {
 	var slice:GoArrayData<T>;
 
 	public inline function new(slice:GoArrayData<T>) {
+		if (slice.__nil__) {
+			throw "invalid memory address or nil pointer dereference";
+		}
 		this.slice = slice;
 	}
 

@@ -1,0 +1,28 @@
+{
+    "passes": [
+        "TestReadFile",
+        "TestWriteFile"
+    ],
+    "fails": [
+        "TestReadOnlyWriteFile",
+        "TestReadDir",
+        "TestTempFile",
+        "TestTempFile_pattern",
+        "TestTempFile_BadPattern",
+        "TestTempDir",
+        "TestTempDir_BadDir",
+        "TestTempDir_BadPattern"
+    ],
+    "runs": [
+        "TestReadFile",
+        "TestWriteFile",
+        "TestReadOnlyWriteFile",
+        "TestReadDir",
+        "TestTempFile",
+        "TestTempFile_pattern",
+        "TestTempFile_BadPattern",
+        "TestTempDir",
+        "TestTempDir_BadDir",
+        "TestTempDir_BadPattern"
+    ]
+}

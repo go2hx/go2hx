@@ -1,0 +1,89 @@
+=== RUN  TestReadFile
+
+-- PASS: TestReadFile
+
+=== RUN  TestWriteFile
+
+-- PASS: TestWriteFile
+
+=== RUN  TestReadOnlyWriteFile
+Exception: :os.getuid is not yet implemented
+Called from _internal.io.ioutil_test._Ioutil_test_testreadonlywritefile.Ioutil_test_testreadonlywritefile_Fields_.testReadOnlyWriteFile (golibs/_internal/io/ioutil_test/Ioutil_test_testreadonlywritefile.hx line 121 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.io.ioutildottest._Ioutildottest.Ioutildottest_Fields_.main (golibs/_internal/io/ioutildottest/Ioutildottest.hx line 12 column 36)
+
+-- FAIL: TestReadOnlyWriteFile
+
+=== RUN  TestReadDir
+Exception: File:os.readdir is not yet implemented
+Called from go._internal.os.File_static_extension.readdir (golibs/go/_internal/os/Os_file_static_extension.hx line 257 column 174)
+Called from go._internal.io.ioutil._Ioutil_readdir.Ioutil_readdir_Fields_.readDir (golibs/go/_internal/io/ioutil/Ioutil_readdir.hx line 12 column 23)
+Called from _internal.io.ioutil_test._Ioutil_test_testreaddir.Ioutil_test_testreaddir_Fields_.testReadDir (golibs/_internal/io/ioutil_test/Ioutil_test_testreaddir.hx line 11 column 23)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.io.ioutildottest._Ioutildottest.Ioutildottest_Fields_.main (golibs/_internal/io/ioutildottest/Ioutildottest.hx line 12 column 36)
+
+-- FAIL: TestReadDir
+
+=== RUN  TestTempFile
+Exception: tmpdir_/_not_exists_/tmpfile_: No such file or directory
+Called from _internal.io.ioutil_test._Ioutil_test_testtempfile.Ioutil_test_testtempfile_Fields_.testTempFile (golibs/_internal/io/ioutil_test/Ioutil_test_testtempfile.hx line 88 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.io.ioutildottest._Ioutildottest.Ioutildottest_Fields_.main (golibs/_internal/io/ioutildottest/Ioutildottest.hx line 12 column 36)
+
+-- FAIL: TestTempFile
+
+=== RUN  TestTempFile_pattern
+TempFile pattern "ioutil_test" created bad name "tmpfile_"; want prefix "ioutil_test" & suffix ""
+TempFile pattern "ioutil_test*" created bad name "tmpfile_e"; want prefix "ioutil_test" & suffix ""
+TempFile pattern "ioutil_test*xyz" created bad name "tmpfile_v"; want prefix "ioutil_test" & suffix "xyz"
+
+-- FAIL: TestTempFile_pattern
+
+=== RUN  TestTempFile_BadPattern
+Exception: T_common:testing.name is not yet implemented
+Called from _internal.io.ioutil_test._Ioutil_test_testtempfile_badpattern.Ioutil_test_testtempfile_badpattern_Fields_.testTempFile_BadPattern (golibs/_internal/io/ioutil_test/Ioutil_test_testtempfile_badpattern.hx line 178 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.io.ioutildottest._Ioutildottest.Ioutildottest_Fields_.main (golibs/_internal/io/ioutildottest/Ioutildottest.hx line 12 column 36)
+
+-- FAIL: TestTempFile_BadPattern
+
+=== RUN  TestTempDir
+TempDir(`/_not_exists_`, `foo`) = tmpdir_, <nil>
+- SUBRUN  ioutil_test
+TempDir("temp", "ioutil_test") created bad name
+	"tmpdir_d"
+did not match pattern
+	"^temp/ioutil_test[0-9]+$"
+- SUBRUN  ioutil_test*
+TempDir("temp", "ioutil_test*") created bad name
+	"tmpdir_k"
+did not match pattern
+	"^temp/ioutil_test[0-9]+$"
+- SUBRUN  ioutil_test*xyz
+TempDir("temp", "ioutil_test*xyz") created bad name
+	"tmpdir_7"
+did not match pattern
+	"^temp/ioutil_test[0-9]+xyz$"
+- SUBRUN  *xyz
+TempDir("temp", "*xyz") created bad name
+	"tmpdir_c"
+did not match pattern
+	"^temp/[0-9]+xyz$"
+
+-- FAIL: TestTempDir
+
+=== RUN  TestTempDir_BadDir
+TempDir error = <nil>; want PathError for path "tmpdir_8/not-exist" satisfying os.IsNotExist
+
+-- FAIL: TestTempDir_BadDir
+
+=== RUN  TestTempDir_BadPattern
+Exception: T_common:testing.name is not yet implemented
+Called from _internal.io.ioutil_test._Ioutil_test_testtempdir_badpattern.Ioutil_test_testtempdir_badpattern_Fields_.testTempDir_BadPattern (golibs/_internal/io/ioutil_test/Ioutil_test_testtempdir_badpattern.hx line 108 column 30)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.io.ioutildottest._Ioutildottest.Ioutildottest_Fields_.main (golibs/_internal/io/ioutildottest/Ioutildottest.hx line 12 column 36)
+
+-- FAIL: TestTempDir_BadPattern
+
+golibs/go/_internal/testing/Testing_m_static_extension.hx:97: exitCode: 1 exitCodeReason: 
+-- FAIL: TestTempDir_BadPattern

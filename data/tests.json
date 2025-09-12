@@ -10,7 +10,7 @@
     "strings",
     "flag",
     "io",
-    "io/util",
+    "io/ioutil",
     "io/fs",
     "testing/fstest",
     "testing/iotest",

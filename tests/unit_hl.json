@@ -274,5 +274,7 @@
  "hl|runtimeVersion",
  "hl|unsafeOffset",
  "hl|atomic0",
- "hl|os0"
+ "hl|os0",
+ "hl|issue256",
+ "hl|issue264"
 ]

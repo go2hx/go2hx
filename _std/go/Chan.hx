@@ -151,16 +151,6 @@ class ChanData<T> {
 		return r;
 	}
 
-	// here to make code clear
-	private inline function gosched():Void {
-		// TODO	use:	go._internal.runtime.gosched();
-		// TODO review when Haxe coroutines are implemented
-		go._internal.internal.Async.tick();
-		#if (target.threaded)
-		Sys.sleep(0.001); // wait 1 milisecond ... obviously, this is a kludge for thread-per-goroutine
-		#end
-	}
-
 	/**
 		Spec: 
 		The value of ok is true if the value received was delivered by a successful send operation to the channel, 
@@ -420,10 +410,23 @@ private class ChanIterator<T> {
 	 * For channels, the iteration values produced are the successive values sent on the channel until the channel is closed. If the channel is nil, the range expression blocks forever. 
 	 */
 	public inline function hasNext() {
+		while (chan == null) {
+			gosched();
+		}
 		return chan.__isGet__(false); // not in a select statement, so include "is-closed?" logic
 	}
 
 	public inline function next() {
 		return chan.__get__();
 	}
+}
+
+// here to make code clear
+private function gosched():Void {
+	// TODO	use:	go._internal.runtime.gosched();
+	// TODO review when Haxe coroutines are implemented
+	go._internal.internal.Async.tick();
+	#if (target.threaded)
+	Sys.sleep(0.001); // wait 1 milisecond ... obviously, this is a kludge for thread-per-goroutine
+	#end
 }

@@ -508,6 +508,15 @@ golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Un
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
 golibs/go/Go.hx:46: characters 4-10 : Called from here
+golibs/go/Go.hx:37: lines 37-50 : Called from heregolibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
+golibs/go/Go.hx:46: characters 4-10 : Called from here
+golibs/go/Go.hx:37: lines 37-50 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
+golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
+golibs/go/Go.hx:46: characters 4-10 : Called from here
 golibs/go/Go.hx:37: lines 37-50 : Called from here
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
@@ -519,11 +528,7 @@ golibs/go/Go.hx:37: lines 37-50 : Called from here
 
 === RUN  TestSeek
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
-golibs/go/Go.hx:46: characters 4-10 : Called from here
-golibs/go/Go.hx:37: lines 37-50 : Called from here
+
 #0: Seek(0, 1) = 0, <nil> want 13, nil
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
@@ -532,11 +537,6 @@ golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval ta
 #3: Seek(0, 2) = 0, <nil> want 13, nil
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
-golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
-golibs/go/Go.hx:46: characters 4-10 : Called from here
-golibs/go/Go.hx:37: lines 37-50 : Called from here
 #5: Seek(-1, 2) = 0, <nil> want 12, nil
 golibs/go/_internal/os/Os_file_static_extension.hx:102: not supported on eval target
 #6: Seek(8589934592, 0) = 0, <nil> want 8589934592, nil
@@ -562,12 +562,12 @@ golibs/go/Go.hx:37: lines 37-50 : Called from here
 #11: Seek(0, 1) = 0, <nil> want 8589934591, nil
 
 -- FAIL: TestSeek
+
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Uncaught exception :os.sameFile is not yet implemented
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:260: characters 50-55 : Called from here
 golibs/_internal/os_test/Os_test_testprogwidechdir.hx:266: characters 25-30 : Called from here
 golibs/go/Go.hx:46: characters 4-10 : Called from here
 golibs/go/Go.hx:37: lines 37-50 : Called from here
-
 === RUN  TestSeekError
 skipping test on jsException: __skip__
 Called from go._internal.testing.T_common_static_extension.skipNow (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 40 column 9)
@@ -1253,9 +1253,9 @@ Called from _internal.osdottest._Osdottest.Osdottest_Fields_.main (golibs/_inter
 -- FAIL: TestCreateTemp
 
 === RUN  TestCreateTempPattern
-CreateTemp pattern "tempfile_test" created bad name "tmpfile_1"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*" created bad name "tmpfile_o"; want prefix "tempfile_test" & suffix ""
-CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_k"; want prefix "tempfile_test" & suffix "xyz"
+CreateTemp pattern "tempfile_test" created bad name "tmpfile_g"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*" created bad name "tmpfile_y"; want prefix "tempfile_test" & suffix ""
+CreateTemp pattern "tempfile_test*xyz" created bad name "tmpfile_5"; want prefix "tempfile_test" & suffix "xyz"
 
 -- FAIL: TestCreateTempPattern
 
@@ -1277,24 +1277,24 @@ did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*
 MkdirTemp("temp", "tempfile_test*") created bad name
-	"tmpdir_9"
+	"tmpdir_6"
 did not match pattern
 	"^temp/tempfile_test[0-9]+$"
 - SUBRUN  tempfile_test*xyz
 MkdirTemp("temp", "tempfile_test*xyz") created bad name
-	"tmpdir_c"
+	"tmpdir_v"
 did not match pattern
 	"^temp/tempfile_test[0-9]+xyz$"
 - SUBRUN  *xyz
 MkdirTemp("temp", "*xyz") created bad name
-	"tmpdir_s"
+	"tmpdir_x"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestMkdirTemp
 
 === RUN  TestMkdirTempBadDir
-TempDir error = <nil>; want PathError for path "tmpdir_6/not-exist" satisfying IsNotExist
+TempDir error = <nil>; want PathError for path "tmpdir_3/not-exist" satisfying IsNotExist
 
 -- FAIL: TestMkdirTempBadDir
 

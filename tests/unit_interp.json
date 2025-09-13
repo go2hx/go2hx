@@ -266,5 +266,7 @@
  "interp|ref4",
  "interp|runtimeVersion",
  "interp|atomic0",
- "interp|os0"
+ "interp|os0",
+ "interp|issue256",
+ "interp|issue264"
 ]

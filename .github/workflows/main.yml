@@ -171,15 +171,16 @@ jobs:
     needs: [setup]
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        haxe-version: ["5.0.0-preview.1", latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - uses: krdlab/setup-haxe@v1
+      - uses: krdlab/setup-haxe@v2
         with:
-          haxe-version: latest  # Install 'haxe_latest.tar.gz' from https://build.haxe.org/builds/haxe/linux64/
+          haxe-version: ${{ matrix.haxe-version }}  # Install 'haxe_latest.tar.gz' from https://build.haxe.org/builds/haxe/linux64/
       - run: haxe -version
       # go2hx setup
       - name: Install hxcpp

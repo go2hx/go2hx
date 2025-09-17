@@ -68,6 +68,11 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	}
 
 	@:from
+	public static function fromArrayString(a:Array<String>):Slice<GoString> {
+		return a.map(f -> (f : GoString));
+	}
+
+	@:from
 	public static function fromBytes(bytes:haxe.io.Bytes):Slice<GoByte> {
 		return new Slice<GoByte>(bytes.length, bytes.length, ...[
 			for (i in 0...bytes.length)
@@ -80,15 +85,18 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 		return this;
 	}
 
+	public function toString():String
+		return this.toString();
+
 
 	@:to
-	public static function toBytes(slice:Slice<GoByte>):haxe.io.Bytes {
-		if (slice != null && slice.__bytes__ != null) {
-			return slice.__bytes__.sub(0, slice.length);
+	public function toBytes():haxe.io.Bytes {
+		if (this != null && this.bytes != null) {
+			return this.bytes.sub(0, this.length);
 		}
-		final bytes = haxe.io.Bytes.alloc(slice.length.toBasic());
+		final bytes = haxe.io.Bytes.alloc(this.length);
 		for (i in 0...bytes.length)
-			bytes.set(i, slice.__vector__.get(slice.__offset__ + i) ?? 0);
+			bytes.set(i, cast this.vector.get(this.offset + i) ?? cast 0);
 		return bytes;
 	}
 

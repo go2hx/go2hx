@@ -71,6 +71,10 @@ function create(outputPath:String, module:typer.HaxeAst.Module, root:String):Str
 	var interopMacroContent:Array<TypeDefinition> = [];
 	var macroContent:Array<TypeDefinition> = [];
 	var hasMacroDef = false;
+	// output cache load
+	// save(outputPath + actualPath + "/"
+	final cache = OutputCache.loadCache(outputPath + actualPath + "/");
+
 	for (file in module.files) {
 		contentImports = "";
 		if (file != null && file.imports != null) {
@@ -157,24 +161,28 @@ function create(outputPath:String, module:typer.HaxeAst.Module, root:String):Str
 		}
 		if (interopDefBool) {
 			interopContent.push(cl);
-			save(outputPath + actualPathInterop + "/", file?.name, interopContent, pkgPathInterop, "", false, splitFiles, printer);
+			save(outputPath + actualPathInterop + "/", file?.name, interopContent, pkgPathInterop, "", false, splitFiles, printer, cache);
 		}
-		save(outputPath + actualPath + "/", file?.name, content, pkgPath + contentImports, "", !file?.isMain, splitFiles, printer);
+		save(outputPath + actualPath + "/", file?.name, content, pkgPath + contentImports, "", !file?.isMain, splitFiles, printer, cache);
 		if (hasMacroDef) {
 			if (interopDefBool) {
 				interopMacroContent.push(clMacro);
-				save(outputPath + actualPathInterop + "/", file?.name, interopMacroContent, pkgPath, ".macro", false, splitFiles, printer);
+				save(outputPath + actualPathInterop + "/", file?.name, interopMacroContent, pkgPath, ".macro", false, splitFiles, printer, cache);
 			}
-			save(outputPath + actualPath + "/", file.name, macroContent, pkgPath, ".macro", false, splitFiles, printer);
+			save(outputPath + actualPath + "/", file.name, macroContent, pkgPath, ".macro", false, splitFiles, printer, cache);
 		}
 	}
-	// cache
+	// input cache
 	if (module.checksum != "") {
 		try {
 			final cachePath = outputPath + actualPath + '/.go2hx_cache';
 			File.saveContent(cachePath, module.checksum);
 		}catch(_) {}
 	}
+	// output cache
+	try {
+		OutputCache.saveCache(cache, outputPath + actualPath + "/");
+	}catch(_) {}
 	return interopPackage;
 }
 
@@ -194,17 +202,17 @@ private function runCmd(cmd:String) {
 	#end
 }
 
-private function save(dir:String, name:String, content:Array<TypeDefinition>, prefix:String, extension:String, splitDepsContent:Bool, splitFiles:Array<String>, printer:gen.Printer) {
+private function save(dir:String, name:String, content:Array<TypeDefinition>, prefix:String, extension:String, splitDepsContent:Bool, splitFiles:Array<String>, printer:gen.Printer, cache:OutputCache) {
 	if (content.length == 0)
 		return;
 	if (splitDepsContent)
-		content = splitDeps(dir, name, prefix, extension, content, splitFiles, printer); // clears out content and saves elsewhere
+		content = splitDeps(dir, name, prefix, extension, content, splitFiles, printer, cache); // clears out content and saves elsewhere
 	final contentString = prefix + content.map(f -> printer.printTypeDefinition(f, false)).join("");
 	// used to create the main file and/or hold the init func
-	saveRaw(dir, name, contentString, prefix, extension, splitDepsContent);
+	saveRaw(dir, name, contentString, prefix, extension, splitDepsContent, cache);
 }
 
-function splitDeps(dir:String, name:String, prefix:String, extension:String, content:Array<TypeDefinition>, splitFiles:Array<String>, printer:gen.Printer):Array<TypeDefinition> {
+function splitDeps(dir:String, name:String, prefix:String, extension:String, content:Array<TypeDefinition>, splitFiles:Array<String>, printer:gen.Printer, cache:OutputCache):Array<TypeDefinition> {
 	final newContent = [];
 	for (td in content) {
 		switch td.kind {
@@ -232,10 +240,10 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 		final fullPath = dir + "," + name + "_" + defName;
 		var contentString = printer.printTypeDefinition(td, false);
 		if (splitFiles.indexOf(fullPath) != -1) {
-			appendRaw(dir, name + "_" + defName, contentString, prefix, extension);
+			appendRaw(dir, name + "_" + defName, contentString, prefix, extension, cache);
 		} else {
 			contentString = prefix + contentString;
-			saveRaw(dir, name + "_" + defName, contentString, prefix, extension, true);
+			saveRaw(dir, name + "_" + defName, contentString, prefix, extension, true, cache);
 			splitFiles.push(fullPath);
 		}
 	}
@@ -249,7 +257,7 @@ private function removeTypeParamSuffix(name:String):String {
 	return name.substr(0, index);
 }
 
-private function saveRaw(dir:String, name:String, contentString, prefix:String, extension:String, splitFileBool:Bool) {
+private function saveRaw(dir:String, name:String, contentString, prefix:String, extension:String, splitFileBool:Bool, cache:OutputCache) {
 	if (!FileSystem.exists(dir)) {
 		try {
 			Compiler.mutex.acquire();
@@ -262,14 +270,20 @@ private function saveRaw(dir:String, name:String, contentString, prefix:String, 
 		}
 	}
 	final path = dir + name + extension + ".hx";
-	File.saveContent(path, contentString);
+	if (!OutputCache.checkHashAndWrite(cache, path, contentString)) {
+		//trace("skipped writing: " + path);
+	}
+	// File.saveContent(path, contentString);
 }
 
-private function appendRaw(dir:String, name:String, contentString, prefix:String, extension:String) {
+private function appendRaw(dir:String, name:String, contentString, prefix:String, extension:String, cache:OutputCache) {
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
 	final path = dir + name + extension + ".hx";
-	File.saveContent(path, File.getContent(path) + contentString);
+	if (!OutputCache.checkHashAndWrite(cache, path, File.getContent(path) + contentString)) {
+		//trace("skipped writing: " + path);
+	}
+	//File.saveContent(path, File.getContent(path) + contentString);
 }
 
 function stripComments(td:TypeDefinition):TypeDefinition {

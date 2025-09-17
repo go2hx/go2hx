@@ -89,6 +89,21 @@ final skipTests = [
 	"sync_test:testPoolRelease" => [], // uses runtime.GC()
 	"sync_test:testPoolDequeue" => [], // This test targets upstream pool implementation, which is not used by GopherJS.
 	"sync_test:testPoolChain" => [], // This test targets upstream pool implementation, which is not used by GopherJS.
+	// go/sync/atomic_test
+	"sync.atomic_test:testPointers" => [], // unsafe casting
+	"sync.atomic_test:testSwapPointer" => [], // unsafe casting
+	"sync.atomic_test:testSwapPointerMethod" => [], // unsafe casting
+	"sync.atomic_test:testCompareAndSwapPointer" => [], // unsafe casting
+	"sync.atomic_test:testCompareAndSwapPointerMethod" => [], // unsafe casting
+	"sync.atomic_test:testLoadPointer" => [], // unsafe casting
+	"sync.atomic_test:testStorePointer" => [], // unsafe casting
+	"sync.atomic_test:testStorePointerMethod" => [], // unsafe casting
+	"sync.atomic_test:testLoadPointerMethod" => [], // unsafe casting
+	"sync.atomic_test:testHammer32" => [], // unsafe casting
+	"sync.atomic_test:testHammer64" => [], // unsafe casting
+	"sync.atomic_test:testHammerStoreLoad" => [], // unsafe casting
+	"sync.atomic_test:testValueConcurrent" => [], // blocks forever
+	"sync.atomic_test:testValueCompareAndSwapConcurrent" => [], // blocks forever
 	// go/math_test
 	"math_test:testFloatMinMax" => [], // fmt formatter
 	"math:testGamma" => ["interp"], // high floating point precision

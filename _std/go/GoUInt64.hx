@@ -22,6 +22,9 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 		return toFloat32() + new GoComplex64(0, 0);
 	}
 
+	@:to inline function toUIntptr():go.GoUIntptr
+		return new GoUIntptr(this);
+
 	@:to inline function toInt():GoInt
 		return toIntInt64(this);
 

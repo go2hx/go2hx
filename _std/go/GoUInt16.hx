@@ -13,6 +13,9 @@ abstract GoUInt16(UInt16) from UInt16 from Int to UInt16 {
 	@:to inline function toInt64():GoInt64
 		return ofIntInt64(this);
 
+	@:to inline function toUIntptr():go.GoUIntptr
+		return new GoUIntptr(this);
+
 	@:to inline function toInt():GoInt
 		return this;
 

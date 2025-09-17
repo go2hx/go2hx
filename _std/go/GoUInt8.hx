@@ -13,6 +13,9 @@ abstract GoUInt8(UInt8) from UInt8 from Int to UInt8 {
 	public static inline function ofInt(x:Int)
 		return x;
 
+	@:to inline function toUIntptr():go.GoUIntptr
+		return new GoUIntptr(this);
+
 	@:to inline function toInt64():GoInt64
 		return ofIntInt64(this);
 

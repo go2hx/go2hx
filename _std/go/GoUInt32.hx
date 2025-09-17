@@ -13,6 +13,9 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 	@:to inline function toInt64():GoInt64
 		return ofUIntUInt64(this);
 
+	@:to inline function toUIntptr():go.GoUIntptr
+		return new GoUIntptr(this);
+
 	@:to inline function toInt():GoInt
 		return this;
 

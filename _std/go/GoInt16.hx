@@ -13,6 +13,9 @@ abstract GoInt16(Int16) from Int16 from Int to Int16 {
 	public static function ofInt(x:Int):GoInt16
 		return x;
 
+	@:to inline function toUIntptr():go.GoUIntptr
+		return new GoUIntptr(this);
+
 	@:to inline function toInt64():GoInt64
 		return ofIntInt64(this);
 

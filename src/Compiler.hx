@@ -210,7 +210,7 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> instance.outputPath = Path.addTrailingSlash(out),
 		@doc("set the root package for all generated files")
 		["-root", "--root", "-r", "--r"] => out -> instance.root = out,
-		["-threads", "--threads", "-thread", "--thread"] => threadCount -> {
+		["-threads", "--threads", "-thread", "--thread"] => (threadCount : Int) -> {
 			#if target.threaded
 			useThreadPool = true;
 			threadPool = new sys.thread.ElasticThreadPool(threadCount, 0.1);

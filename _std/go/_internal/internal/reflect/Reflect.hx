@@ -765,6 +765,8 @@ private function unroll(parent:GoType, child:GoType):GoType {
 			);
 		case invalidType:
 			invalidType;
+		case goType(t):
+			unroll(parent, t);
 		default:
 			throw "unsupported unroll gt type: " + child;
 	}

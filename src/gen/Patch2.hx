@@ -132,6 +132,8 @@ private function getBody(funcName:String, recvName:String, decls:Array<haxeparse
 				if (recvName != "" && !metaRecvNames.contains(recvName)) {
 					continue;
 				}
+				if (recvName == "" && metaRecvNames.length  > 0)
+					continue;
 				switch def.data {
 					case FFun(f):
 						return f.expr;

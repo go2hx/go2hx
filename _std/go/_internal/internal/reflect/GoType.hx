@@ -15,7 +15,8 @@ enum GoType {
 	arrayType(elem:GoTypeRef<GoType>, len:Int);
 	mapType(key:GoTypeRef<GoType>, value:GoTypeRef<GoType>);
 	chanType(dir:Int, elem:GoTypeRef<GoType>);
-	refType(elem:GoTypeRef<GoType>); // can hold named type therefore will ref the TypeInfo map
+	refType(elem:GoTypeRef<GoType>); // can hold named type therefore will ref the TypeInfo 
+	goType(type:GoType);
 }
 
 typedef GoTypeRef<T> = {

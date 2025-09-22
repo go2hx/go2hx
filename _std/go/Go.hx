@@ -123,7 +123,7 @@ class Go {
 		// trace(t._common());
 		// trace(toType);
 		// trace(e.type._common());
-		final b = e.type.assignableTo(new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(t), t));
+		final b = e.type.assignableTo(new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(t), null));
 		if (!b) {
 			// trace(e.type.string().toString());
 			// trace(t.string().toString());

@@ -191,6 +191,13 @@ function _directlyAssignable(tgt:GoType, vgt:GoType):Bool {
 	// trace("directlyAssignable underlying tgt:", tgt);
 	// trace("directlyAssignable underlying vgt:", vgt);
 	return switch tgt {
+		case goType(t):
+			switch vgt {
+				case goType(t2):
+					_directlyAssignable(t, t2);
+				default:
+					false;
+			}
 		case chanType(_, _.get() => elem), sliceType(_.get() => elem):
 			switch vgt {
 				case chanType(_,
@@ -219,8 +226,8 @@ function _directlyAssignable(tgt:GoType, vgt:GoType):Bool {
 					if (fields.length != fields2.length)
 						return false;
 					for (i in 0...fields.length) {
-						final i2 = new _Type_asInterface(Go.pointer(new _Type(fields[i].type.get())), new _Type(fields[i].type.get()));
-						final i3 = new _Type_asInterface(Go.pointer(new _Type(fields2[i].type.get())), new _Type(fields2[i].type.get()));
+						final i2 = new _Type_asInterface(Go.pointer(new _Type(fields[i].type.get())), null);
+						final i3 = new _Type_asInterface(Go.pointer(new _Type(fields2[i].type.get())), null);
 						if (!directlyAssignable(i2, i3))
 							return false;
 					}
@@ -445,8 +452,7 @@ function implementsMethod(t:Type, v:Type):Bool {
 							}
 							// if (!vgtIsPointer && isPointer(methods2[i].recv.get()) != vgtIsPointer)
 							// 	continue;
-							final b = !new _Type(methods[i].type.get()).assignableTo(new _Type_asInterface(Go.pointer(new _Type(methods2[j].type.get())),
-							new _Type(methods2[j].type.get())));
+							final b = !new _Type(methods[i].type.get()).assignableTo(new _Type_asInterface(Go.pointer(new _Type(methods2[j].type.get())), null));
 							if (b) {
 								//trace(methods[i].type.get());
 								//trace(methods[j].type.get());
@@ -816,11 +822,11 @@ function defaultValue(typ:Type):Any {
 					std.Type.createInstance(cl, []);
 				default:
 					var t = new _Type(type);
-					defaultValue(new _Type_asInterface(Go.pointer(t), t));
+					defaultValue(new _Type_asInterface(Go.pointer(t), null));
 			}
 		case arrayType(_.get() => elem, len):
 			var t = new _Type(elem);
-			final value = defaultValue(new _Type_asInterface(Go.pointer(t), t));
+			final value = defaultValue(new _Type_asInterface(Go.pointer(t), null));
 			new GoArray<Dynamic>(len, len, [for (i in 0...len) value]);
 		default: null;
 	}
@@ -865,11 +871,11 @@ function defaultValueInternal(typ:_Type):Any {
 					std.Type.createInstance(cl, []);
 				default:
 					var t = new _Type(type);
-					defaultValue(new _Type_asInterface(Go.pointer(t), t));
+					defaultValue(new _Type_asInterface(Go.pointer(t), null));
 			}
 		case arrayType(_.get() => elem, len):
 			var t = new _Type(elem);
-			final value = defaultValue(new _Type_asInterface(Go.pointer(t), t));
+			final value = defaultValue(new _Type_asInterface(Go.pointer(t), null));
 			new GoArray(len, len, [for (i in 0...len) value]);
 		default: null;
 	}
@@ -965,7 +971,7 @@ class _Type {
 		return switch gt {
 			case signature(_, _.get() => params, _, _, _):
 				var t = new _Type(params[_i.toBasic()]);
-				new _Type_asInterface(Go.pointer(t),t);
+				new _Type_asInterface(Go.pointer(t), null);
 			default:
 				throw "issue";
 		}
@@ -994,7 +1000,7 @@ class _Type {
 					return {
 						name: name,
 						pkgPath: module,
-						type: new _Type_asInterface(Go.pointer(t),t),
+						type: new _Type_asInterface(Go.pointer(t), null),
 						tag: field.tag,
 						index: new Slice(_i, _i, null),
 						anonymous: field.embedded,
@@ -1010,7 +1016,7 @@ class _Type {
 			case chanType(_, _.get() => elem), refType(_.get() => elem), pointerType(_.get() => elem), sliceType(_.get() => elem), arrayType(_.get() => elem, _):
 				var t = new _Type(elem);
 				// set internal Type
-				return new _Type_asInterface(new Pointer(() -> t, value -> t = value), t);
+				return new _Type_asInterface(new Pointer(() -> t, value -> t = value), null);
 			case interfaceType(_):
 				return null;
 			default:
@@ -1061,7 +1067,7 @@ class _Type {
 	static public function assignableTo(t:_Type, _u:Type):Bool {
 		if (_u == null)
 			throw "reflect: nil type passed to Type.AssignableTo";
-		final i = new _Type_asInterface(Go.pointer(t), t);
+		final i = new _Type_asInterface(Go.pointer(t), null);
 		final a = directlyAssignable(_u, i);
 		//trace("-SPLIT-");
 		final b = t.implements_(_u);
@@ -1081,7 +1087,7 @@ class _Type {
 		// trace(t.kind().string(), _u.kind().string());
 		// if (_u.kind() != KindType.interface_)
 		//	throw "reflect: non-interface type passed to Type.Implements: " + _u.kind().string();
-		return implementsMethod(_u, new _Type_asInterface(Go.pointer(t), t));
+		return implementsMethod(_u, new _Type_asInterface(Go.pointer(t), null));
 	}
 
 	static public function kind(t:_Type):ReflectKind {
@@ -1093,6 +1099,8 @@ class _Type {
 			return 0;
 		gt = getUnderlying(gt);
 		return switch gt {
+			case goType(type):
+				new _Type(type).kind();
 			case typeParam(_, _):
 				0;
 			case basic(kind):
@@ -1365,7 +1373,7 @@ class _Type {
 				final method = methods[_0];
 				m.name = method.name;
 				var methodType = new _Type(method.type.get());
-				m.type = new _Type_asInterface(Go.pointer(methodType), methodType);
+				m.type = new _Type_asInterface(Go.pointer(methodType), null);
 				return m;
 			case structType(_):
 				throw "not valid for structType";
@@ -1499,7 +1507,9 @@ class _Type_asInterface {
 
 	public function new(__self__, __type__) {
 		this.__self__ = __self__;
-		this.__type__ = __type__;
+		if (__type__ != null)
+			throw("Warning default type of Type is not null: " + __type__);
+		this.__type__ = new _Type(goType(__self__.value._common()));
 	}
 
 	public dynamic function __underlying__()

@@ -34,8 +34,8 @@ Called from _internal.io.ioutildottest._Ioutildottest.$Ioutildottest_Fields_.mai
 
 === RUN  TestTempFile_pattern
 TempFile pattern "ioutil_test" created bad name "tmpfile_"; want prefix "ioutil_test" & suffix ""
-TempFile pattern "ioutil_test*" created bad name "tmpfile_r"; want prefix "ioutil_test" & suffix ""
-TempFile pattern "ioutil_test*xyz" created bad name "tmpfile_s"; want prefix "ioutil_test" & suffix "xyz"
+TempFile pattern "ioutil_test*" created bad name "tmpfile_c"; want prefix "ioutil_test" & suffix ""
+TempFile pattern "ioutil_test*xyz" created bad name "tmpfile_6"; want prefix "ioutil_test" & suffix "xyz"
 
 -- FAIL: TestTempFile_pattern
 
@@ -51,29 +51,29 @@ Called from _internal.io.ioutildottest._Ioutildottest.$Ioutildottest_Fields_.mai
 TempDir(`/_not_exists_`, `foo`) = tmpdir_, <nil>
 - SUBRUN  ioutil_test
 TempDir("temp", "ioutil_test") created bad name
-	"tmpdir_o"
+	"tmpdir_a"
 did not match pattern
 	"^temp/ioutil_test[0-9]+$"
 - SUBRUN  ioutil_test*
 TempDir("temp", "ioutil_test*") created bad name
-	"tmpdir_t"
+	"tmpdir_6"
 did not match pattern
 	"^temp/ioutil_test[0-9]+$"
 - SUBRUN  ioutil_test*xyz
 TempDir("temp", "ioutil_test*xyz") created bad name
-	"tmpdir_q"
+	"tmpdir_c"
 did not match pattern
 	"^temp/ioutil_test[0-9]+xyz$"
 - SUBRUN  *xyz
 TempDir("temp", "*xyz") created bad name
-	"tmpdir_n"
+	"tmpdir_h"
 did not match pattern
 	"^temp/[0-9]+xyz$"
 
 -- FAIL: TestTempDir
 
 === RUN  TestTempDir_BadDir
-TempDir error = <nil>; want PathError for path "tmpdir_i/not-exist" satisfying os.IsNotExist
+TempDir error = <nil>; want PathError for path "tmpdir_l/not-exist" satisfying os.IsNotExist
 
 -- FAIL: TestTempDir_BadDir
 

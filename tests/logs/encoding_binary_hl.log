@@ -11,13 +11,10 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 -- FAIL: TestLittleEndianRead
 
 === RUN  TestLittleEndianWrite
-Exception: go.T_errorString_asInterface
-Called from go._AnyInterface.$AnyInterface_Impl_.equals (golibs/go/AnyInterface.hx line 172)
-Called from go.GoAnyInterfaceMap.compare (golibs/go/GoMap.hx line 777)
-Called from go.CompareMap.exists (golibs/go/GoMap.hx line 733)
-Called from go._internal.sync.$Map__static_extension.load (golibs/go/_internal/sync/Sync_map__static_extension.hx line 84)
-Called from go._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (golibs/go/_internal/encoding/binary/Binary__datasize.hx line 27)
-Called from go._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (golibs/go/_internal/encoding/binary/Binary_write.hx line 195)
+Exception: Value:reflect.canSet is not yet implemented
+Called from go._internal.reflect.$Value_static_extension.canSet (golibs/go/_internal/reflect/Reflect_value_static_extension.hx line 770)
+Called from go._internal.encoding.binary.$T_encoder_static_extension._value (golibs/go/_internal/encoding/binary/Binary_t_encoder_static_extension.hx line 51)
+Called from go._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (golibs/go/_internal/encoding/binary/Binary_write.hx line 204)
 Called from go._internal.encoding.binary._Binary__testwrite.$Binary__testwrite_Fields_._testWrite (golibs/go/_internal/encoding/binary/Binary__testwrite.hx line 12)
 Called from go._internal.encoding.binary._Binary_testlittleendianwrite.$Binary_testlittleendianwrite_Fields_.testLittleEndianWrite (golibs/go/_internal/encoding/binary/Binary_testlittleendianwrite.hx line 12)
 Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
@@ -31,13 +28,10 @@ Write LittleEndian: binary.Write: some values are not fixed-sized in type *.enco
 -- FAIL: TestLittleEndianPtrWrite
 
 === RUN  TestBigEndianRead
-Exception: go.T_errorString_asInterface
-Called from go._AnyInterface.$AnyInterface_Impl_.equals (golibs/go/AnyInterface.hx line 172)
-Called from go.GoAnyInterfaceMap.compare (golibs/go/GoMap.hx line 777)
-Called from go.CompareMap.exists (golibs/go/GoMap.hx line 733)
-Called from go._internal.sync.$Map__static_extension.load (golibs/go/_internal/sync/Sync_map__static_extension.hx line 84)
-Called from go._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (golibs/go/_internal/encoding/binary/Binary__datasize.hx line 27)
-Called from go._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (golibs/go/_internal/encoding/binary/Binary_read.hx line 143)
+Exception: Value:reflect.canSet is not yet implemented
+Called from go._internal.reflect.$Value_static_extension.canSet (golibs/go/_internal/reflect/Reflect_value_static_extension.hx line 770)
+Called from go._internal.encoding.binary.$T_decoder_static_extension._value (golibs/go/_internal/encoding/binary/Binary_t_decoder_static_extension.hx line 45)
+Called from go._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (golibs/go/_internal/encoding/binary/Binary_read.hx line 163)
 Called from go._internal.encoding.binary._Binary__testread.$Binary__testread_Fields_._testRead (golibs/go/_internal/encoding/binary/Binary__testread.hx line 12)
 Called from go._internal.encoding.binary._Binary_testbigendianread.$Binary_testbigendianread_Fields_.testBigEndianRead (golibs/go/_internal/encoding/binary/Binary_testbigendianread.hx line 12)
 Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
@@ -46,13 +40,10 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 -- FAIL: TestBigEndianRead
 
 === RUN  TestBigEndianWrite
-Exception: go.T_errorString_asInterface
-Called from go._AnyInterface.$AnyInterface_Impl_.equals (golibs/go/AnyInterface.hx line 172)
-Called from go.GoAnyInterfaceMap.compare (golibs/go/GoMap.hx line 777)
-Called from go.CompareMap.exists (golibs/go/GoMap.hx line 733)
-Called from go._internal.sync.$Map__static_extension.load (golibs/go/_internal/sync/Sync_map__static_extension.hx line 84)
-Called from go._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (golibs/go/_internal/encoding/binary/Binary__datasize.hx line 27)
-Called from go._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (golibs/go/_internal/encoding/binary/Binary_write.hx line 195)
+Exception: Value:reflect.canSet is not yet implemented
+Called from go._internal.reflect.$Value_static_extension.canSet (golibs/go/_internal/reflect/Reflect_value_static_extension.hx line 770)
+Called from go._internal.encoding.binary.$T_encoder_static_extension._value (golibs/go/_internal/encoding/binary/Binary_t_encoder_static_extension.hx line 51)
+Called from go._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (golibs/go/_internal/encoding/binary/Binary_write.hx line 204)
 Called from go._internal.encoding.binary._Binary__testwrite.$Binary__testwrite_Fields_._testWrite (golibs/go/_internal/encoding/binary/Binary__testwrite.hx line 12)
 Called from go._internal.encoding.binary._Binary_testbigendianwrite.$Binary_testbigendianwrite_Fields_.testBigEndianWrite (golibs/go/_internal/encoding/binary/Binary_testbigendianwrite.hx line 12)
 Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
@@ -91,8 +82,10 @@ Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Field
 -- FAIL: TestSliceRoundTrip
 
 === RUN  TestWriteT
-Exception: Can't cast go._internal.internal.reflect._Type to i32
-Called from go._internal.fmt.$T_pp_static_extension._printArg (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 994)
+Exception: Can't cast virtual<__underlying__:(go.AnyInterfaceData ()),align:(i32 ()),assignableTo:(bool (<...>)),bits:(i32 ()),chanDir:(i32 ()),comparable_:(bool ()),convertibleTo:(bool (<...>)),elem:(<...> ()),field:(go._internal.reflect.StructField (i32)),fieldAlign:(i32 ()),fieldByIndex:(go._internal.reflect.StructField (go.GoArrayData)),fieldByName:(virtual<_0:go._internal.reflect.StructField,_1:bool> (go._GoString.GoStringData)),fieldByNameFunc:(virtual<_0:go._internal.reflect.StructField,_1:bool> ((bool (go._GoString.GoStringData)))),implements_:(bool (<...>)),in_:(<...> (i32)),isVariadic:(bool ()),key:(<...> ()),kind:(i32 ()),len:(i32 ()),method:(go._internal.reflect.Method (i32)),methodByName:(virtual<_0:go._internal.reflect.Method,_1:bool> (go._GoString.GoStringData)),name:(go._GoString.GoStringData ()),numField:(i32 ()),numIn:(i32 ()),numMethod:(i32 ()),numOut:(i32 ()),out:(<...> (i32)),pkgPath:(go._GoString.GoStringData ()),size:(dynamic ()),string:(go._GoString.GoStringData ())> to i32
+Called from go._internal.reflect.$Value_static_extension.int_ (golibs/go/_internal/reflect/Reflect_value_static_extension.hx line 535)
+Called from go._internal.fmt.$T_pp_static_extension._printValue (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 662)
+Called from go._internal.fmt.$T_pp_static_extension._printArg (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1063)
 Called from go._internal.fmt.$T_pp_static_extension._doPrintf (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 218)
 Called from go._internal.fmt._Fmt_fprintf.$Fmt_fprintf_Fields_.fprintf (golibs/go/_internal/fmt/Fmt_fprintf.hx line 16)
 Called from go._internal.fmt._Fmt_printf.$Fmt_printf_Fields_.printf (golibs/go/_internal/fmt/Fmt_printf.hx line 15)
@@ -109,7 +102,21 @@ binary.Write: some values are not fixed-sized in type *.encoding.binary.BlankFie
 EOF
 binary.Write: some values are not fixed-sized in type *.encoding.binary.BlankFieldsProbe
 EOF
-.encoding.binary.BlankFields{A:0x499602d2, _0:0, B:2.718281828, _1:[4]int16{0, 0, 0, 0}, C:0x2a, _2:[7]uint8{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, _3:struct { f [8]float32 }{f:[8]float32{0, 0, 0, 0, 0, 0, 0, 0}}} != .encoding.binary.BlankFields{A:0x0, _0:0, B:0, _1:[4]int16{0, 0, 0, 0}, C:0x0, _2:[7]uint8{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, _3:struct { f [8]float32 }{f:[8]float32{0, 0, 0, 0, 0, 0, 0, 0}}}
+Exception: not found enum toString goType(arrayType({get : function#405B6F40},8))
+Called from go._internal.internal.reflect.$_Type_static_extension.string (golibs/go/_internal/internal/reflect/Reflect.hx line 1303)
+Called from go._internal.internal.reflect._Type_asInterface.string (golibs/go/_internal/internal/reflect/Reflect.hx line 1466)
+Called from go._internal.fmt.$T_pp_static_extension._printValue (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 840)
+Called from go._internal.fmt.$T_pp_static_extension._printValue (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 781)
+Called from go._internal.fmt.$T_pp_static_extension._printValue (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 781)
+Called from go._internal.fmt.$T_pp_static_extension._printArg (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 1063)
+Called from go._internal.fmt.$T_pp_static_extension._doPrintf (golibs/go/_internal/fmt/Fmt_t_pp_static_extension.hx line 218)
+Called from go._internal.fmt._Fmt_fprintf.$Fmt_fprintf_Fields_.fprintf (golibs/go/_internal/fmt/Fmt_fprintf.hx line 16)
+Called from go._internal.fmt._Fmt_printf.$Fmt_printf_Fields_.printf (golibs/go/_internal/fmt/Fmt_printf.hx line 15)
+Called from go._internal.testing.$T_common_static_extension.errorf (golibs/go/_internal/testing/Testing_t_common_static_extension.hx line 69)
+Called from go._internal.testing.T_.~get_errorf.0 (golibs/go/_internal/testing/Testing_t_.hx line 30)
+Called from go._internal.encoding.binary._Binary_testblankfields.$Binary_testblankfields_Fields_.testBlankFields (golibs/go/_internal/encoding/binary/Binary_testblankfields.hx line 83)
+Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
+Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (golibs/_internal/encoding/binarydottest/Binarydottest.hx line 69)
 
 -- FAIL: TestBlankFields
 

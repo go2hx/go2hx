@@ -14,8 +14,8 @@ Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.m
 
 === RUN  TestCheckProperty
 Exception: not implemented numOut
-Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925)
-Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397)
+Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 933)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1407)
 Called from go._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23)
 Called from go._internal.testing.quick._Quick_testcheckproperty.$Quick_testcheckproperty_Fields_.testCheckProperty (golibs/go/_internal/testing/quick/Quick_testcheckproperty.hx line 10)
 Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
@@ -25,8 +25,8 @@ Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.m
 
 === RUN  TestFailure
 Exception: not implemented numOut
-Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925)
-Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397)
+Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 933)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1407)
 Called from go._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23)
 Called from go._internal.testing.quick._Quick_testfailure.$Quick_testfailure_Fields_.testFailure (golibs/go/_internal/testing/quick/Quick_testfailure.hx line 13)
 Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
@@ -36,8 +36,8 @@ Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.m
 
 === RUN  TestRecursive
 Exception: not implemented numOut
-Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925)
-Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397)
+Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 933)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1407)
 Called from go._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23)
 Called from go._internal.testing.quick._Quick_testrecursive.$Quick_testrecursive_Fields_.testRecursive (golibs/go/_internal/testing/quick/Quick_testrecursive.hx line 15)
 Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
@@ -47,8 +47,8 @@ Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.m
 
 === RUN  TestEmptyStruct
 Exception: not implemented numOut
-Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925)
-Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397)
+Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 933)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1407)
 Called from go._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23)
 Called from go._internal.testing.quick._Quick_testemptystruct.$Quick_testemptystruct_Fields_.testEmptyStruct (golibs/go/_internal/testing/quick/Quick_testemptystruct.hx line 14)
 Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
@@ -58,8 +58,8 @@ Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.m
 
 === RUN  TestMutuallyRecursive
 Exception: not implemented numOut
-Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925)
-Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397)
+Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 933)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1407)
 Called from go._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23)
 Called from go._internal.testing.quick._Quick_testmutuallyrecursive.$Quick_testmutuallyrecursive_Fields_.testMutuallyRecursive (golibs/go/_internal/testing/quick/Quick_testmutuallyrecursive.hx line 14)
 Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
@@ -69,8 +69,8 @@ Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.m
 
 === RUN  TestNonZeroSliceAndMap
 Exception: not implemented numOut
-Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925)
-Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397)
+Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 933)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1407)
 Called from go._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23)
 Called from go._internal.testing.quick._Quick_testnonzerosliceandmap.$Quick_testnonzerosliceandmap_Fields_.testNonZeroSliceAndMap (golibs/go/_internal/testing/quick/Quick_testnonzerosliceandmap.hx line 14)
 Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
@@ -80,8 +80,8 @@ Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.m
 
 === RUN  TestInt64
 Exception: not implemented numOut
-Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 925)
-Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1397)
+Called from go._internal.internal.reflect.$_Type_static_extension.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 933)
+Called from go._internal.internal.reflect._Type_asInterface.numOut (golibs/go/_internal/internal/reflect/Reflect.hx line 1407)
 Called from go._internal.testing.quick._Quick_check.$Quick_check_Fields_.check (golibs/go/_internal/testing/quick/Quick_check.hx line 23)
 Called from go._internal.testing.quick._Quick_testint64.$Quick_testint64_Fields_.testInt64 (golibs/go/_internal/testing/quick/Quick_testint64.hx line 24)
 Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)

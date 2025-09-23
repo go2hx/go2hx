@@ -54,13 +54,9 @@
 === RUN  TestAs
 golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
 golibs/go/_internal/reflect/Reflect_value_static_extension.hx:476: hasSet: false
-- SUBRUN  0:As(Errorf(..., <nil>), 0x1)
-- SUBRUN  1:As(Errorf(..., pitied the fool), errorT())
-Exception: errors: *target must be interface or implement error
-Called from go._internal.errors._Errors_as.$Errors_as_Fields_.as (golibs/go/_internal/errors/Errors_as.hx line 28)
-Called from _internal.errors_test._Errors_test_testas.$Errors_test_testas_Fields_.~testAs.213 (golibs/_internal/errors_test/Errors_test_testas.hx line 99)
-Called from go._internal.testing.$T__static_extension.run (golibs/go/_internal/testing/Testing_t__static_extension.hx line 13)
-Called from _internal.errors_test._Errors_test_testas.$Errors_test_testas_Fields_.testAs (golibs/_internal/errors_test/Errors_test_testas.hx line 98)
+Exception: Can't cast go.PointerData to go._internal.internal.reflect._Type
+Called from go._internal.reflect._Reflect_zero.$Reflect_zero_Fields_.zero (golibs/go/_internal/reflect/Reflect_zero.hx line 3)
+Called from _internal.errors_test._Errors_test_testas.$Errors_test_testas_Fields_.testAs (golibs/_internal/errors_test/Errors_test_testas.hx line 96)
 Called from go._internal.testing.$M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39)
 Called from _internal.errorsdottest._Errorsdottest.$Errorsdottest_Fields_.main (golibs/_internal/errorsdottest/Errorsdottest.hx line 12)
 

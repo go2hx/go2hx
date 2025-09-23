@@ -431,6 +431,7 @@ function passByCopy(fromType:GoType, y:Expr, info:Info):MacroExpr {
 			trace(info.panic(), "fromType is null");
 		}
 		switch fromType {
+			case goType(_):
 			case typeParam(_):
 			case basic(basicKind):
 				switch basicKind {

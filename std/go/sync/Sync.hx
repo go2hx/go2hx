@@ -144,7 +144,7 @@ function rLocker(_rw) {
 }
 
 @:recv(RWMutex)
-function unlock(_m) {
+function unlock(_rw) {
 	@:privateAccess @:define("target.threaded") _rw.wmutex.release();
 }
 

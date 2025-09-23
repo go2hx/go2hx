@@ -105,7 +105,7 @@ private function getBody(funcName:String, recvName:String, decls:Array<haxeparse
 			case EStatic(def):
 				if (def.name != funcName)
 					continue;
-				var metaRecvName = "";
+				var metaRecvNames = [];
 				for (m in def.meta) {
 					if (m.name == ":recv") {
 						if (m.params[0] == null) {
@@ -113,13 +113,26 @@ private function getBody(funcName:String, recvName:String, decls:Array<haxeparse
 						}
 						switch m.params[0].expr {
 							case EConst(CIdent(s)):
-								metaRecvName = s;
+								metaRecvNames = [s];
+								break;
+							case EArrayDecl(values):
+								metaRecvNames = [];
+								for (value in values) {
+									switch value.expr {
+										case EConst(CIdent(s)):
+											metaRecvNames.push(s);
+										default:
+									}
+								}
 								break;
 							default:
 						}
 					}
 				}
-				if (recvName != metaRecvName)
+				if (recvName != "" && !metaRecvNames.contains(recvName)) {
+					continue;
+				}
+				if (recvName == "" && metaRecvNames.length  > 0)
 					continue;
 				switch def.data {
 					case FFun(f):

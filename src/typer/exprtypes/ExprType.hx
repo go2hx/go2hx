@@ -387,6 +387,7 @@ enum GoType {
 	mapType(key:Ref<GoType>, value:Ref<GoType>);
 	chanType(dir:Int, elem:Ref<GoType>);
 	refType(elem:Ref<GoType>); // can hold named type therefore will ref the TypeInfo map
+	goType(type:GoType);
 }
 
 @:structInit
@@ -1109,6 +1110,8 @@ function addPointerSuffix(ct:ComplexType, info:Info) {
 
 function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bool):MacroExpr {
 	return switch t {
+		case goType(type):
+			toReflectType(type, info, paths, equalityBool);
 		case typeParam(name, params):
 			final name = HaxeAst.makeString(name);
 			final params = macro [];
@@ -1333,6 +1336,13 @@ function goTypesEqual(a:GoType, b:GoType, depth:Int):Bool {
 	if (a == null || b == null)
 		return true;
 	return switch a {
+		case goType(type):
+			switch b {
+				case goType(type2):
+					goTypesEqual(type, type2, depth);
+				default:
+					false;
+			}
 		case structType(fields):
 			switch b {
 				case structType(fields2):

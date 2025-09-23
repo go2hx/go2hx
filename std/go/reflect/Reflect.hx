@@ -5,7 +5,7 @@ function typeOf(_i) {
 	if (_i == null)
 		return null;
 	// set internal Type
-	return new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(_i.type), _i.type);
+	return new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(_i.type), null);
 }
 
 function valueOf(_i) {
@@ -156,9 +156,9 @@ function zero(_typ) {
 function type(_v) {
 	if (@:privateAccess _v.value == null) {
 		var t = new go._internal.internal.reflect.Reflect._Type(go._internal.internal.reflect.GoType.invalidType);
-		return @:privateAccess new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(t), t);
+		return @:privateAccess new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(t), null);
 	}
-	return @:privateAccess new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(_v.value.type), _v.value.type);
+	return @:privateAccess new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(_v.value.type), null);
 }
 
 @:recv(Value)
@@ -292,7 +292,7 @@ function pointer(_v) {
 function pointerTo(_t) {
 	final gt = @:privateAccess (_t : Dynamic)._common();
 	var t = new go._internal.internal.reflect.Reflect._Type(pointerType({get: () -> gt}));
-	return new go._internal.internal.reflect.Reflect._Type_asInterface(new go.Pointer(() -> t, value -> t = value), t);
+	return new go._internal.internal.reflect.Reflect._Type_asInterface(new go.Pointer(() -> t, value -> t = value), null);
 }
 
 inline function ptrTo(_t)

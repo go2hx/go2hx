@@ -123,7 +123,7 @@ class Go {
 		// trace(t._common());
 		// trace(toType);
 		// trace(e.type._common());
-		final b = e.type.assignableTo(new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(t), t));
+		final b = e.type.assignableTo(new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(t), null));
 		if (!b) {
 			// trace(e.type.string().toString());
 			// trace(t.string().toString());
@@ -192,7 +192,7 @@ class Go {
 			// used for pointer can not be final
 			var t2 = new go._internal.internal.reflect.Reflect._Type(t2);
 			try {
-				final b = t.assignableTo(new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(t2), t2));
+				final b = t.assignableTo(new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(t2), null));
 				if (b) {
 					if (t2.kind() != go._internal.internal.reflect.Reflect.KindType.pointer
 						&& t.kind() == go._internal.internal.reflect.Reflect.KindType.pointer

@@ -92,10 +92,12 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		// set internal Type
 		var aType = new go._internal.internal.reflect.Reflect._Type(gt);
 		var bType = new go._internal.internal.reflect.Reflect._Type(gt2);
-		if (!aType.assignableTo(cast new go._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> bType, value -> bType = value), bType))) {
+		if (!aType.assignableTo(cast new go._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> bType, value -> bType = value), null))) {
 			return false;
 		}
 		return switch gt {
+			case goType(_):
+				true;
 			case refType(_):
 				switch gt2 {
 					case refType(_):

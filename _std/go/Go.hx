@@ -192,7 +192,7 @@ class Go {
 			// used for pointer can not be final
 			var t2 = new go._internal.internal.reflect.Reflect._Type(t2);
 			try {
-				final b = t.assignableTo(new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(t2), t2));
+				final b = t.assignableTo(new go._internal.internal.reflect.Reflect._Type_asInterface(go.Go.pointer(t2), null));
 				if (b) {
 					if (t2.kind() != go._internal.internal.reflect.Reflect.KindType.pointer
 						&& t.kind() == go._internal.internal.reflect.Reflect.KindType.pointer

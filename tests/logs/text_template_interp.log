@@ -335,8 +335,12 @@ Called from _internal.text.templatedottest._Templatedottest.Templatedottest_Fiel
 -- FAIL: TestExecutePanicDuringCall
 
 === RUN  TestIssue31810
-expected error with no call, got none
-{{ (call .)  }} got "", expected "result"
+Exception: not found enum toString goType(signature(false,{get: #fun},{get: #fun},{get: #fun},null))
+Called from go._internal.text.template.Template_static_extension._execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 884 column 30)
+Called from go._internal.text.template.Template_static_extension.execute (golibs/go/_internal/text/template/Template_template_static_extension.hx line 895 column 16)
+Called from go._internal.text.template._Template_testissue31810.Template_testissue31810_Fields_.testIssue31810 (golibs/go/_internal/text/template/Template_testissue31810.hx line 59 column 16)
+Called from go._internal.testing.M_static_extension.run (golibs/go/_internal/testing/Testing_m_static_extension.hx line 39 column 17)
+Called from _internal.text.templatedottest._Templatedottest.Templatedottest_Fields_.main (golibs/_internal/text/templatedottest/Templatedottest.hx line 58 column 36)
 
 -- FAIL: TestIssue31810
 

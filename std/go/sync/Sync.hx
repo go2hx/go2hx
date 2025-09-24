@@ -44,9 +44,7 @@ function load(_m, _key) {
 
 @:recv(Map_)
 function store(_m, _key, _value) {
-	@:privateAccess _m._mu.lock();
-	@:privateAccess _m.map.set(_key, _value);
-	@:privateAccess _m._mu.unlock();
+	_m.swap(_key,_value);
 }
 
 @:recv(Map_)

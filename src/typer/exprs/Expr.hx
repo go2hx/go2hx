@@ -602,7 +602,7 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 			}
 		case named(path, _, underlying, alias, _):
 			switch getUnderlying(underlying) {
-				case chanType(_, _):
+				case chanType(_, _), sliceType(_):
 					final ct = ct();
 					macro(null : $ct);
 				case refType(_), pointerType(_), interfaceType(_), mapType(_, _), signature(_, _):
@@ -624,10 +624,6 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 						e = createNamedObjectDecl(fields, (_, type) -> typer.exprs.Expr.defaultValue(type, info), info);
 					}
 					macro($e : $ct);
-				case sliceType(_.get() => elem):
-					var t = namedTypePath(path, info);
-					final ct = ct();
-					macro(new $t(0, 0) : $ct);
 				case arrayType(_.get() => elem, len):
 					final t = namedTypePath(path, info);
 					final elem = typer.exprs.Expr.defaultValue(elem, info);

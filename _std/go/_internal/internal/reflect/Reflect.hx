@@ -821,7 +821,11 @@ function defaultValue(typ:Type):Any {
 					final pack = path.split(".");
 					pack.remove(pack[pack.length - 2]);
 					var cl = std.Type.resolveClass(pack.join("."));
-					std.Type.createInstance(cl, []);
+					try {
+						std.Type.createInstance(cl, []);
+					}catch(_) {
+						{};
+					}
 				default:
 					var t = new _Type(type);
 					defaultValue(new _Type_asInterface(Go.pointer(t), null));
@@ -1341,10 +1345,10 @@ class _Type {
 	}
 
 	static public function pkgPath(t:_Type):GoString
-		throw "not implemented pkgPath";
+		return "";
 
 	static public function name(t:_Type):GoString
-		throw "not implemented name";
+		return t.string();
 
 	static public function numMethod(t:_Type):GoInt {
 		switch t._common() {

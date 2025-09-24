@@ -99,6 +99,7 @@ final skipTests = [
 	"sync.atomic_test:testStorePointer" => [], // unsafe casting
 	"sync.atomic_test:testStorePointerMethod" => [], // unsafe casting
 	"sync.atomic_test:testLoadPointerMethod" => [], // unsafe casting
+	"sync.atomic_test:hammerswapuintptr32method" => [], // unsafe casting
 	"sync.atomic_test:testHammer32" => [], // unsafe casting
 	"sync.atomic_test:testHammer64" => [], // unsafe casting
 	"sync.atomic_test:testHammerStoreLoad" => [], // unsafe casting

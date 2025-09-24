@@ -298,6 +298,11 @@ function pointerTo(_t) {
 inline function ptrTo(_t)
 	return go._internal.reflect.Reflect_pointerto.pointerTo(_t);
 
+@:recv(StructField)
+function isExported(_f) {
+	return _f.name.toString().charCodeAt(0) != "_".code;
+}
+
 @:recv(Value)
 function field(_v) {
 	final initgt = @:privateAccess _v.value.type._common();

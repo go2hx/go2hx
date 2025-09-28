@@ -602,9 +602,13 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 			}
 		case named(path, _, underlying, alias, _):
 			switch getUnderlying(underlying) {
-				case chanType(_, _), sliceType(_):
+				case chanType(_, _):
 					final ct = ct();
 					macro(null : $ct);
+				case sliceType(_.get() => elem):
+					var t = namedTypePath(path, info);
+					final ct = ct();
+					macro(new $t(0, 0).__setNil__() : $ct);
 				case refType(_), pointerType(_), interfaceType(_), mapType(_, _), signature(_, _):
 					final ct = ct();
 					if (ct != null) {

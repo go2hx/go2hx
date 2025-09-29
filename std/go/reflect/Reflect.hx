@@ -22,7 +22,7 @@ function indirect(_v) {
 
 function makeSlice(_typ, _len, _cap) {
 	// (_typ:Type, _len:GoInt, _cap:GoInt)
-	final value = go._internal.internal.reflect.Reflect.defaultValue(_typ);
+	final value = go._internal.internal.reflect.Reflect.newValue(_typ);
 	final slice = new go.Slice(_len, _cap.toBasic(), ...[for (i in 0..._len.toBasic()) value]);
 	final t = @:privateAccess (cast _typ : go._internal.internal.reflect.Reflect._Type_asInterface).__type__;
 	return new go._internal.reflect.Reflect_value.Value(new go.AnyInterface(slice, t));
@@ -674,7 +674,7 @@ function index(_v) {
 }
 
 function new_() {
-	var value = go._internal.internal.reflect.Reflect.defaultValue(_typ);
+	var value = go._internal.internal.reflect.Reflect.newValue(_typ);
 	var ptr = new Pointer(() -> value, x -> value = x);
 	return new go._internal.reflect.Reflect_value.Value(new go.AnyInterface(ptr,
 		new go._internal.internal.reflect.Reflect._Type(go._internal.internal.reflect.GoType.pointerType({

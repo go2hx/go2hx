@@ -838,6 +838,47 @@ function defaultValue(typ:Type):Any {
 	}
 }
 
+function newValue(typ:Type):Any {
+	final t:GoType = @:privateAccess (typ : Dynamic)._common();
+	return switch (t : go._internal.internal.reflect.GoType) {
+		case basic(kind):
+			switch kind {
+				case string_kind: ("" : GoString);
+				case bool_kind: false;
+				case int64_kind: (0 : GoInt64);
+				case uint64_kind: (0 : GoUInt64);
+				case uint_kind: (0 : GoUInt);
+				case uint32_kind: (0 : GoUInt32);
+				case complex64_kind: (0 : GoComplex64);
+				case complex128_kind: (0 : GoComplex128);
+				default: 0;
+			}
+		case named(path, methods, type,_,_):
+			switch type {
+				case structType(_):
+					final pack = path.split(".");
+					pack.remove(pack[pack.length - 2]);
+					var cl = std.Type.resolveClass(pack.join("."));
+					try {
+						std.Type.createInstance(cl, []);
+					}catch(_) {
+						{};
+					}
+				default:
+					var t = new _Type(type);
+					defaultValue(new _Type_asInterface(Go.pointer(t), null));
+			}
+		case arrayType(_.get() => elem, len):
+			var t = new _Type(elem);
+			final value = defaultValue(new _Type_asInterface(Go.pointer(t), null));
+			new GoArray<Dynamic>(len, len, [for (i in 0...len) value]);
+		case sliceType(_.get() => elem):
+			var t = new _Type(elem);
+			new Slice<Dynamic>(0,0);
+		default: null;
+	}
+}
+
 function _set(value:ReflectValue) {
 	if (@:privateAccess value.underlyingValue != null) {
 		if (@:privateAccess value.underlyingIndex == -1) {

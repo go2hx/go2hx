@@ -154,7 +154,9 @@ function typeCompositeLit(expr:GoAst.CompositeLit, info:Info):MacroExpr {
 		default:
 			throw info.panic() + "not supported CompositeLit type: " + underlying;
 	}
-} function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):MacroExpr {
+} 
+
+function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:GoAst.CompositeLit, info:Info):MacroExpr {
 
 	final p = getTypePath(toComplexType(underlying, info), info);
 	var value = typer.exprs.Expr.defaultValue(elem, info, false);
@@ -355,7 +357,9 @@ function typeCompositeLit(expr:GoAst.CompositeLit, info:Info):MacroExpr {
 			return true;
 	}
 	return false;
-} function createSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info, sets:Array<Expr>):MacroExpr {
+} 
+
+function createSlice(p:TypePath, elem:GoType, size:Expr, cap:Expr, returnExpr:Expr->Expr, info:Info, sets:Array<Expr>):MacroExpr {
 
 	var param = toComplexType(elem, info);
 	var value = typer.exprs.Expr.defaultValue(elem, info);

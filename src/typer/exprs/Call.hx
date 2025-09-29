@@ -381,7 +381,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						switch t {
 							case TPath(_), TFunction(_, _), TAnonymous(_):
 								var t = typeof(expr.args[0], info, false);
-								var value = typer.exprs.Expr.defaultValue(t, info);
+								var value = typer.exprs.Expr.newValue(t, info);
 								if (!isRefValue(t)) {
 									value = macro go.Go.pointer($value);
 								} else {

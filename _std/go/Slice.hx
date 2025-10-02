@@ -5,7 +5,7 @@ import haxe.Rest;
 import go.GoArray;
 import go.GoInt;
 
-@:forward(__ref__)
+@:forward(__ref__, __setData__)
 @:forward.new
 //@:generic
 /**
@@ -20,14 +20,6 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 
 	public function __copy__():Slice<T> {
 		return this.__copy__();
-	}
-
-	public inline function __setData__(data:GoArrayData<T>) {
-		if (this == null) {
-			this = data;
-		}else{
-			this.__setData__(data);
-		}
 	}
 
 	public function __setNumber32__():Slice<T>

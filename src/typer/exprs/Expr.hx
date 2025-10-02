@@ -469,15 +469,9 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 			case refType(_), interfaceType(true, _):
 				switch op {
 					case OpEq:
-						return macro({
-							final value = $value;
-							(value == null || (value : Dynamic).__nil__);
-						});
+						return macro($value == null);
 					default:
-						return macro({
-							final value = $value;
-							(value != null && ((value : Dynamic).__nil__ == null || (!(value : Dynamic).__nil__)));
-						});
+						return macro($value != null);
 				}
 			default:
 		}
@@ -510,7 +504,9 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 			if (isRef(t)) {
 				switch getElem(t) {
 					case sliceType(_):
-						// pointer slice is redunant as slice acts already like a pointer
+						// pointer slice is redundant as slice acts already like a pointer
+						x = macro ($x == null || ($x : Dynamic).__nil__);
+						run = false;
 					default:
 						run = false;
 				}
@@ -776,9 +772,9 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 					final ct = ct();
 					macro(null : $ct);
 				case sliceType(_.get() => elem):
-					var t = namedTypePath(path, info);
+					//var t = namedTypePath(path, info);
 					final ct = ct();
-					macro(new $t(0, 0).__setNil__() : $ct);
+					macro(null : $ct);
 				case refType(_), pointerType(_), interfaceType(_), mapType(_, _), signature(_, _):
 					final ct = ct();
 					if (ct != null) {

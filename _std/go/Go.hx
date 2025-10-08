@@ -249,13 +249,6 @@ class Go {
 	@:dox(hide)
 	public static macro function multireturn(expr:Expr):Expr;
 
-	/**
-	 * Create a Ref (simulated Go pointer but for a Haxe type that is pass by ref) regardless if the type is null or not.
-	 * @param expr 
-	 * @return Expr
-	 */
-	public static macro function setRef(expr:Expr):Expr;
-
 	@:deprecated
 	@:dox(hide)
 	public static macro function refPointer(expr:Expr):Expr;

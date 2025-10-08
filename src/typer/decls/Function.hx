@@ -518,7 +518,7 @@ function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.Fie
 					final t = recvArg.vt;
 					final ct = toComplexType(t, info);
 					final gt = toReflectType(t, info, [], false);
-					expr = macro (go.Go.setRef($expr, $gt) : $ct);
+					expr = typer.exprs.Expr.setRef(expr, t);
 				}
 				exprs.unshift(macro @:recv var $name:$ct = $expr);
 				

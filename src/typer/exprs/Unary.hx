@@ -16,9 +16,7 @@ function typeUnaryExpr(expr:GoAst.UnaryExpr, info:Info):MacroExpr {
 					return macro go.Go.pointer($x);
 				} else {
 					final t = typeof(expr, info, false);
-					final ct = toComplexType(t, info);
-					final gt = toReflectType(t, info, [], false);
-					return macro (go.Go.setRef($x, $gt) : $ct);
+					return typer.exprs.Expr.setRef(x, t);
 				}
 			case pointerType(_):
 				return macro go.Go.pointer($x);

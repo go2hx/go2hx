@@ -469,9 +469,15 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 			case refType(_), interfaceType(true, _):
 				switch op {
 					case OpEq:
-						return macro($value == null);
+						return macro({
+							final value = $value;
+							(value == null || (value : Dynamic).__nil__);
+						});
 					default:
-						return macro($value != null);
+						return macro({
+							final value = $value;
+							(value != null && ((value : Dynamic).__nil__ == null || (!(value : Dynamic).__nil__)));
+						});
 				}
 			default:
 		}
@@ -534,6 +540,19 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 		default:
 	}
 	return toExpr(EBinop(op, x, toExpr(EParenthesis(y))));
+}
+
+
+function setRef(expr:Expr, t:GoType):Expr {
+	t = getUnderlying(getElem(t));
+	switch t {
+		case sliceType(_):
+			return macro @setref ($expr == null ? new go.Slice(0, -1).__setNil__() : $expr);
+		case chanType(_, _):
+			return macro @setref ($expr == null ? new go.Chan(0, -1).__setNil__() : $expr);
+		default:
+	}
+	return macro @:setref $expr;
 }
 
 function newValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=false):MacroExpr {

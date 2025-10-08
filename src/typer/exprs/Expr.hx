@@ -469,15 +469,9 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 			case refType(_), interfaceType(true, _):
 				switch op {
 					case OpEq:
-						return macro({
-							final value = $value;
-							(value == null || (value : Dynamic).__nil__);
-						});
+						return macro($value == null);
 					default:
-						return macro({
-							final value = $value;
-							(value != null && ((value : Dynamic).__nil__ == null || (!(value : Dynamic).__nil__)));
-						});
+						return macro($value != null);
 				}
 			default:
 		}

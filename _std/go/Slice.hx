@@ -81,7 +81,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	}
 
 	@:to
-	public function toGoArray():go.Ref<GoArray<T>> {
+	public function toGoArray():GoArray<T> {
 		return this;
 	}
 

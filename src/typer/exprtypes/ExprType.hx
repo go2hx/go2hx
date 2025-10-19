@@ -594,6 +594,8 @@ function isRefValue(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
+		case interfaceType(_, _):
+			false;
 		case named(path, _, t, _):
 			// T__Pointer is Pointer version
 			if (path == "comparable" || path == "T__") {
@@ -614,8 +616,6 @@ function isRefValue(type:GoType):Bool {
 			false;
 		case basic(_):
 			false;
-		case interfaceType(empty, _):
-			!empty;
 		case signature(_, _, _, _, _):
 			false;
 		case typeParam(_, _):
@@ -898,7 +898,7 @@ function toComplexType(e:GoType, info:Info, isElem:Bool=false):ComplexType {
 	return switch e {
 		case refType(_.get() => elem):
 			final ct = toComplexType(elem, info, isElem);
-			TPath({pack: ["go"], name: "Ref", params: [TPType(ct)]});
+			ct;
 		case basic(kind):
 			switch kind {
 				case int64_kind: TPath({pack: ["go"], name: "GoInt64"});

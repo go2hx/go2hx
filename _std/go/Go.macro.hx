@@ -352,11 +352,6 @@ class Go {
 		function run():Expr {
 			return switch t {
 				case TType(_.get() => ct, params):
-					if (ct.name == "Ref" && ct.pack != null && ct.pack.length == 1 && ct.pack[0] == "go") {
-						t = params[0];
-						// selfPointer = true;
-						return run();
-					}
 					if (ct.meta.has(":follow")) {
 						t = ct.type;
 						return run();
@@ -402,31 +397,6 @@ class Go {
 	// deprecated
 	public static macro function select(e:Expr)
 		return macro null;
-
-	public static macro function refPointer(expr:Expr):Expr {
-		final exprType = Context.typeof(expr);
-		if (exprType != null) {
-			final ct = Context.toComplexType(exprType);
-			// add support for the tuple case
-			switch ct {
-				case TPath(p):
-					if (p.name == "Ref" && p.pack.length == 1 && p.pack[0] == "go") {
-						switch p.params[0] {
-							case TPType(TPath(p)):
-								switch p.name {
-									case "GoString", "GoInt", "GoInt8", "GoInt16", "GoInt32", "GoInt64", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32",
-										"GoUInt64", "GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128", "GoByte", "GoRune":
-										return macro go.Go.pointer($expr);
-									default:
-								}
-							default:
-						}
-					}
-				default:
-			}
-		}
-		return expr;
-	}
 
 	static function escapeParens(expr:Expr):Expr {
 		return switch expr.expr {

@@ -641,6 +641,8 @@ function isRefValue(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
+		case interfaceType(_, _):
+			false;
 		case named(_, _, t, _):
 			isRefValue(t);
 		case refType(_.get() => t):
@@ -965,10 +967,10 @@ class _Type {
 	static public function overflowUint(t:_Type, _x:go.GoUInt64):Bool
 		throw "not implemented overflowUInt";
 
-	static public function _uncommon(t:_Type):Ref<Dynamic>
+	static public function _uncommon(t:_Type):Dynamic
 		throw "not implemented _uncommon";
 
-	static public function _common(t:_Type):Ref<Dynamic>
+	static public function _common(t:_Type):Dynamic
 		throw "not implemented _common";
 
 	static public function out(t:_Type, _i:GoInt):Type

@@ -619,7 +619,7 @@ function newValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=false
 					final s = typer.exprs.Expr.newValue(elem, info, strict);
 					macro $s.__setNil__();
 				default:
-					macro(null : go.Ref<$ct>); // pointer can be nil
+					macro(null : $ct); // pointer can be nil
 			}
 		case named(path, _, underlying, alias, _):
 			switch getUnderlying(underlying) {
@@ -757,7 +757,7 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 			macro(null : go.GoMap<$keyComplexType, $valueComplexType>);
 		case sliceType(_.get() => elem):
 			final t = toComplexType(elem, info, true);
-			macro(null : go.Slice<$t>);
+			macro new go.Slice<$t>(0,-1).__setNil__();
 		case arrayType(_.get() => elem, len):
 			final param = toComplexType(elem, info, true);
 			final size = makeExpr(len);
@@ -785,21 +785,21 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 		case refType(_.get() => elem):
 			final ct = toComplexType(elem, info, true);
 			switch elem {
-				case arrayType(_):
+				case arrayType(_), sliceType(_):
 					final s = typer.exprs.Expr.defaultValue(elem, info, strict);
 					macro $s.__setNil__();
 				default:
-					macro(null : go.Ref<$ct>); // pointer can be nil
+					macro(null : $ct); // pointer can be nil
 			}
 		case named(path, _, underlying, alias, _):
-			switch getUnderlying(underlying) {
+			final t = getUnderlying(underlying);
+			switch t {
 				case chanType(_, _):
 					final ct = ct();
 					macro(null : $ct);
-				case sliceType(_.get() => elem):
-					//var t = namedTypePath(path, info);
-					final ct = ct();
-					macro(null : $ct);
+				case sliceType(_):
+					final s = typer.exprs.Expr.defaultValue(t, info, strict);
+					macro $s.__setNil__();
 				case refType(_), pointerType(_), interfaceType(_), mapType(_, _), signature(_, _):
 					final ct = ct();
 					if (ct != null) {

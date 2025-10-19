@@ -130,6 +130,10 @@ class GoArrayData<T> {
 
 	public #if hl inline #end function __append__(args:Rest<T>):Slice<T> {
 		final slice:GoArrayData<T> = __ref__();
+		if(args.length == 0) {
+			slice.__nil__ = this.__nil__;
+			return slice;
+		}
 		// Don't set slice.offset to this value because it needs to be computed in the case of a grow.
 		final startOffset = slice.length;
 		final cap = args.length - slice.capacity + slice.length + slice.offset + 1;

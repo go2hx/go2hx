@@ -466,25 +466,13 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 		if (isNamed(nilType))
 			nilType = getUnderlying(nilType);
 		switch nilType {
-			case interfaceType(true, _):
+			case sliceType(_), refType(_):
+				// pointer slice is redundant as slice acts already like a pointer
 				switch op {
 					case OpEq:
-						return macro({
-							final value = $value;
-							(value == null || (value : Dynamic).__nil__);
-						});
+						return macro ($x == null || ($x : Dynamic).__nil__);
 					default:
-						return macro({
-							final value = $value;
-							(value != null && ((value : Dynamic).__nil__ == null || (!(value : Dynamic).__nil__)));
-						});
-				}
-			case refType(_):
-				switch op {
-					case OpEq:
-						return macro($value == null);
-					default:
-						return macro($value != null);
+						return macro !($x == null || ($x : Dynamic).__nil__);
 				}
 			default:
 		}

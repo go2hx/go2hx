@@ -385,7 +385,7 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 								if (!isRefValue(t)) {
 									value = macro go.Go.pointer($value);
 								} else {
-									value = typer.exprs.Expr.setRef(value, t);
+									value = typer.exprs.Expr.setRef(value, t, info);
 								}
 								return returnExpr(value);
 							default:

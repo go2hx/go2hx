@@ -536,13 +536,14 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 }
 
 
-function setRef(expr:Expr, t:GoType):Expr {
+function setRef(expr:Expr, t:GoType, info:Info):Expr {
+	final ct = toComplexType(t, info);
 	t = getUnderlying(getElem(t));
 	switch t {
 		case sliceType(_):
-			return macro @setref ($expr == null ? new go.Slice(0, -1).__setNil__() : $expr);
+			return macro @:setref (($expr == null ? new go.Slice(0, -1).__setNil__() : $expr) : $ct);
 		case chanType(_, _):
-			return macro @setref ($expr == null ? new go.Chan(0, -1).__setNil__() : $expr);
+			return macro @:setref (($expr == null ? new go.Chan(0, -1).__setNil__() : $expr) : $ct);
 		default:
 	}
 	return macro @:setref $expr;

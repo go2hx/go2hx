@@ -506,7 +506,6 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 				switch getElem(t) {
 					case sliceType(_):
 						// pointer slice is redundant as slice acts already like a pointer
-						x = macro ($x == null || ($x : Dynamic).__nil__);
 					default:
 						run = false;
 				}

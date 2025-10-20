@@ -134,6 +134,7 @@ class GoArrayData<T> {
 			slice.__nil__ = this.__nil__;
 			return slice;
 		}
+		slice.__nil__ = false;
 		// Don't set slice.offset to this value because it needs to be computed in the case of a grow.
 		final startOffset = slice.length;
 		final cap = args.length - slice.capacity + slice.length + slice.offset + 1;
@@ -141,6 +142,7 @@ class GoArrayData<T> {
 			if (this.vector == null && this.bytes == null)
 				slice.vector = new haxe.ds.Vector<T>(cap);
 			slice.length += args.length;
+			slice.capacity += args.length;
 			if (slice.bytes != null) {
 				for (i in 0...args.length) {
 					slice.bytes.set(startOffset + slice.offset + i, untyped args[i]);
@@ -302,8 +304,8 @@ class GoArrayData<T> {
 
 	public function __copy__() {
 		// handle nil case of copy
-		if (this.__nil__)
-			return this;
+		//if (this.__nil__)
+		//	return this;
 		final slice = new GoArrayData<T>(0, -1);
 		slice.capacity = this.capacity;
 		slice.length = this.length;

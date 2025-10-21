@@ -261,10 +261,12 @@ class GoArrayData<T> {
 		return Std.string(toArray());
 	}
 
-	public inline function toArray():Array<T> { // unrolling
+	public function toArray():Array<T> { // unrolling
 		if (bytes != null) {
 			return [for (i in 0...length) untyped cast bytes.get(i + offset)];
 		}
+		if (vector == null)
+			return [];
 		#if hl
 		return vector.toData().slice(offset, offset + length);
 		#else
@@ -310,16 +312,18 @@ class GoArrayData<T> {
 		slice.capacity = this.capacity;
 		slice.length = this.length;
 		slice.offset = this.offset;
+		slice.isNumber32 = this.isNumber32;
+		slice.isNumber64 = this.isNumber64;
+		slice.isString = this.isString;
 		if (this.bytes != null) {
 			final bytes = haxe.io.Bytes.alloc(this.bytes.length);
 			bytes.blit(0, this.bytes, 0, this.bytes.length);
 			slice.bytes = bytes;
 			return slice;
 		}
-		slice.vector = this.vector.copy();
-		slice.isNumber32 = this.isNumber32;
-		slice.isNumber64 = this.isNumber64;
-		slice.isString = this.isString;
+		if (this.vector != null) {
+			slice.vector = this.vector.copy();
+		}
 		return slice;
 	}
 }

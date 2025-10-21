@@ -465,8 +465,10 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 	if (value != null) {
 		if (isNamed(nilType))
 			nilType = getUnderlying(nilType);
+		if (isRef(nilType))
+			nilType = getElem(nilType);
 		switch nilType {
-			case sliceType(_):
+			case sliceType(_), arrayType(_,_):
 				// pointer slice is redundant as slice acts already like a pointer
 				switch op {
 					case OpEq:

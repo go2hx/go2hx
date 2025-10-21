@@ -468,7 +468,7 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 		if (isRef(nilType))
 			nilType = getElem(nilType);
 		switch nilType {
-			case sliceType(_), arrayType(_,_):
+			case sliceType(_), arrayType(_,_), interfaceType(true, _):
 				// pointer slice is redundant as slice acts already like a pointer
 				switch op {
 					case OpEq:
@@ -500,13 +500,13 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 	}
 	var t = getUnderlying(typeX);
 	switch t {
-		case structType(_), arrayType(_, _):
+		case structType(_):
 			return toExpr(EBinop(op, typer.exprs.Expr.toAnyInterface(x, typeX, info, false), typer.exprs.Expr.toAnyInterface(y, typeY, info, false)));
-		case sliceType(_), refType(_):
+		case sliceType(_), arrayType(_, _), refType(_):
 			var run = true;
 			if (isRef(t)) {
 				switch getElem(t) {
-					case sliceType(_):
+					case sliceType(_), arrayType(_):
 						// pointer slice is redundant as slice acts already like a pointer
 					default:
 						run = false;

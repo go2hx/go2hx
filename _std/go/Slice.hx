@@ -82,6 +82,8 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 
 	@:to
 	public function toGoArray():GoArray<T> {
+		if (this.__nil__)
+			return null;
 		return this;
 	}
 

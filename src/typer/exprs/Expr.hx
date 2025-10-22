@@ -472,9 +472,15 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 				// pointer slice is redundant as slice acts already like a pointer
 				switch op {
 					case OpEq:
-						return macro ($x == null || ($x : Dynamic).__nil__);
+						return macro({
+							final value = $value;
+							(value == null || (value : Dynamic).__nil__);
+						});
 					default:
-						return macro !($x == null || ($x : Dynamic).__nil__);
+						return macro({
+							final value = $value;
+							(value != null && ((value : Dynamic).__nil__ == null || (!(value : Dynamic).__nil__)));
+						});
 				}
 			default:
 		}
@@ -500,6 +506,18 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 	}
 	var t = getUnderlying(typeX);
 	switch t {
+		case arrayType(_, _):
+			switch getUnderlying(typeY) {
+				case arrayType(_, _):
+					// set x and y to AnyInterface
+					x = typer.exprs.Expr.toAnyInterface(x, typeX, info, false);
+					y = typer.exprs.Expr.toAnyInterface(y, typeY, info, false);
+					return toExpr(EBinop(op, x, y));
+				default:
+			}
+		default:
+	}
+	switch t {
 		case structType(_):
 			return toExpr(EBinop(op, typer.exprs.Expr.toAnyInterface(x, typeX, info, false), typer.exprs.Expr.toAnyInterface(y, typeY, info, false)));
 		case sliceType(_), arrayType(_, _), refType(_):
@@ -519,18 +537,6 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 						return (macro !$e);
 					default:
 				}
-			}
-		default:
-	}
-	switch t {
-		case arrayType(_, _):
-			switch getUnderlying(typeY) {
-				case arrayType(_, _):
-					// set x and y to AnyInterface
-					x = typer.exprs.Expr.toAnyInterface(x, typeX, info, false);
-					y = typer.exprs.Expr.toAnyInterface(y, typeY, info, false);
-					return toExpr(EBinop(op, x, y));
-				default:
 			}
 		default:
 	}

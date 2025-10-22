@@ -11,8 +11,8 @@ class GoArrayData<T> {
 	public var bytes:haxe.io.Bytes = null;
 
 	public var offset:Int = 0;
-	public var length:Int = 0;
-	public var capacity:Int = 0;
+	public var length:GoInt = 0;
+	public var capacity:GoInt = 0;
 	public var __nil__:Bool = false;
 
 	var isNumber32:Bool = false;
@@ -20,7 +20,7 @@ class GoArrayData<T> {
 	var isString:Bool = false;
 	var noArgs = false;
 
-	public function new(length:Int, capacity:Int, args:Rest<T>) {
+	public function new(length:GoInt, capacity:GoInt, args:Rest<T>) {
 		noArgs = args.length == 0;
 		if (capacity != -1) {
 			final vectorLength = if (length > capacity) {
@@ -142,11 +142,12 @@ class GoArrayData<T> {
 			if (this.vector == null && this.bytes == null)
 				slice.vector = new haxe.ds.Vector<T>(cap);
 			slice.length += args.length;
-			slice.capacity += args.length;
+			slice.capacity = cap;
 			if (slice.bytes != null) {
 				for (i in 0...args.length) {
 					slice.bytes.set(startOffset + slice.offset + i, untyped args[i]);
 				}
+				slice.capacity = slice.bytes.length;
 				return slice;
 			}
 			for (i in 0...args.length) {

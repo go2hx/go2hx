@@ -465,22 +465,34 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 	if (value != null) {
 		if (isNamed(nilType))
 			nilType = getUnderlying(nilType);
-		if (isRef(nilType))
+		var refTypeBool = false;
+		if (isRef(nilType)) {
+			refTypeBool = true;
 			nilType = getElem(nilType);
+		}
 		switch nilType {
 			case sliceType(_), arrayType(_,_), interfaceType(true, _):
 				// pointer slice is redundant as slice acts already like a pointer
-				switch op {
-					case OpEq:
-						return macro({
-							final value = $value;
-							(value == null || (value : Dynamic).__nil__);
-						});
+				
+				final sliceTypeBool = switch nilType {
+					case sliceType(_):
+						true;
 					default:
-						return macro({
-							final value = $value;
-							(value != null && ((value : Dynamic).__nil__ == null || (!(value : Dynamic).__nil__)));
-						});
+						false; 
+				}
+				if (!refTypeBool || !sliceTypeBool) {
+					switch op {
+						case OpEq:
+							return macro({
+								final value = $value;
+								(value == null || (value : Dynamic).__nil__);
+							});
+						default:
+							return macro({
+								final value = $value;
+								(value != null && ((value : Dynamic).__nil__ == null || (!(value : Dynamic).__nil__)));
+							});
+					}
 				}
 			default:
 		}
@@ -504,6 +516,7 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 		if (!isAnyInterface(getElem(typeY)))
 			y = typer.exprs.Expr.toAnyInterface(y, typeY, info);
 	}
+	
 	var t = getUnderlying(typeX);
 	switch t {
 		case arrayType(_, _):

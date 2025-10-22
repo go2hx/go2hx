@@ -155,7 +155,7 @@ class GoArrayData<T> {
 			}
 			return slice;
 		}
-		var newcap = slice.capacity;
+		var newcap:Int = slice.capacity;
 		final doublecap = newcap + newcap;
 		if (cap > doublecap) {
 			newcap = cap;

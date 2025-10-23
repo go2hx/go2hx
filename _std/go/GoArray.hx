@@ -142,12 +142,10 @@ class GoArrayData<T> {
 			if (this.vector == null && this.bytes == null)
 				slice.vector = new haxe.ds.Vector<T>(cap);
 			slice.length += args.length;
-			slice.capacity = cap;
 			if (slice.bytes != null) {
 				for (i in 0...args.length) {
 					slice.bytes.set(startOffset + slice.offset + i, untyped args[i]);
 				}
-				slice.capacity = slice.bytes.length;
 				return slice;
 			}
 			for (i in 0...args.length) {
@@ -306,9 +304,6 @@ class GoArrayData<T> {
 	}
 
 	public function __copy__() {
-		// handle nil case of copy
-		//if (this.__nil__)
-		//	return this;
 		final slice = new GoArrayData<T>(0, -1);
 		slice.capacity = this.capacity;
 		slice.length = this.length;

@@ -129,11 +129,12 @@ class GoArrayData<T> {
 	}
 
 	public #if hl inline #end function __append__(args:Rest<T>):Slice<T> {
-		final slice:GoArrayData<T> = __ref__();
-		if(args.length == 0) {
-			slice.__nil__ = this.__nil__;
-			return slice;
+		if (this.__nil__) {
+			if (args.length == 0)
+				return this;
+			return new GoArrayData<T>(args.length, args.length, ...args);
 		}
+		final slice:GoArrayData<T> = __ref__();
 		slice.__nil__ = false;
 		// Don't set slice.offset to this value because it needs to be computed in the case of a grow.
 		final startOffset = slice.length;

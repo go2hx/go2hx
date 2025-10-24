@@ -101,6 +101,22 @@ function typeOp(token:GoAst.Token):Binop {
 function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):MacroExpr {
 	fromType = cleanType(fromType);
 	toType = cleanType(toType);
+	if (expr != null) {
+		switch expr.expr {
+			case EBinop(_, _, _):
+				expr = macro($expr);
+			case EConst(c):
+				switch c {
+					case CIdent(i):
+						if (i == "null") {
+							var value = typer.exprs.Expr.defaultValue(toType, info, true);
+							return value;
+						}
+					default:
+				}
+			default:
+		}
+	}
 	//trace(fromType, toType);
 	//trace(getElem(fromType), getElem(toType));
 	if (goTypesEqual(fromType, toType, 0)) {
@@ -302,7 +318,7 @@ function wrapperExpr(t:GoType, y:Expr, info:Info):MacroExpr {
 
 // explicit conversion: assignTranslate
 function implicitConversion(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):MacroExpr {
-	// trace(fromType, toType);
+	//trace(fromType, toType);
 	if (e != null) {
 		switch e.expr {
 			case EBinop(_, _, _):
@@ -427,7 +443,7 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 						nilType = typeY;
 					}
 				default:
-					final ct = toComplexType(typeX, info);
+					final ct = toComplexType(typeY, info);
 					if (ct != null) x = macro($x : $ct);
 			}
 		default:
@@ -441,7 +457,7 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 						nilType = typeX;
 					}
 				default:
-					final ct = toComplexType(typeY, info);
+					final ct = toComplexType(typeX, info);
 					if (ct != null) y = macro($y : $ct);
 			}
 		default:
@@ -462,6 +478,7 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 		}
 	}
 	var value = nilExpr;
+	// trace(value != null, nilType);
 	if (value != null) {
 		if (isNamed(nilType))
 			nilType = getUnderlying(nilType);

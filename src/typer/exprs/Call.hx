@@ -381,13 +381,11 @@ function typeCallExpr(expr:GoAst.CallExpr, info:Info):MacroExpr {
 						switch t {
 							case TPath(_), TFunction(_, _), TAnonymous(_):
 								var t = typeof(expr.args[0], info, false);
-								var value = typer.exprs.Expr.defaultValue(t, info);
+								var value = typer.exprs.Expr.newValue(t, info);
 								if (!isRefValue(t)) {
 									value = macro go.Go.pointer($value);
 								} else {
-									final ct = TPath({name: "Ref", pack: ["go"], params: [TPType(toComplexType(t, info))]});
-									final gt = toReflectType(refType({get: () -> t}), info, [], false);
-									value = macro(go.Go.setRef($value, $gt) : $ct);
+									value = typer.exprs.Expr.setRef(value, t, info);
 								}
 								return returnExpr(value);
 							default:

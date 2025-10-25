@@ -235,6 +235,7 @@ runtime/pprof
 runtime/race
 runtime/race/internal/amd64v1
 runtime/trace
+time/trace
 slices
 sort
 strconv

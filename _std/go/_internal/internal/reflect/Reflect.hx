@@ -641,6 +641,8 @@ function isRefValue(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
+		case interfaceType(_, _):
+			false;
 		case named(_, _, t, _):
 			isRefValue(t);
 		case refType(_.get() => t):
@@ -821,7 +823,11 @@ function defaultValue(typ:Type):Any {
 					final pack = path.split(".");
 					pack.remove(pack[pack.length - 2]);
 					var cl = std.Type.resolveClass(pack.join("."));
-					std.Type.createInstance(cl, []);
+					try {
+						std.Type.createInstance(cl, []);
+					}catch(_) {
+						{};
+					}
 				default:
 					var t = new _Type(type);
 					defaultValue(new _Type_asInterface(Go.pointer(t), null));
@@ -830,6 +836,47 @@ function defaultValue(typ:Type):Any {
 			var t = new _Type(elem);
 			final value = defaultValue(new _Type_asInterface(Go.pointer(t), null));
 			new GoArray<Dynamic>(len, len, [for (i in 0...len) value]);
+		default: null;
+	}
+}
+
+function newValue(typ:Type):Any {
+	final t:GoType = @:privateAccess (typ : Dynamic)._common();
+	return switch (t : go._internal.internal.reflect.GoType) {
+		case basic(kind):
+			switch kind {
+				case string_kind: ("" : GoString);
+				case bool_kind: false;
+				case int64_kind: (0 : GoInt64);
+				case uint64_kind: (0 : GoUInt64);
+				case uint_kind: (0 : GoUInt);
+				case uint32_kind: (0 : GoUInt32);
+				case complex64_kind: (0 : GoComplex64);
+				case complex128_kind: (0 : GoComplex128);
+				default: 0;
+			}
+		case named(path, methods, type,_,_):
+			switch type {
+				case structType(_):
+					final pack = path.split(".");
+					pack.remove(pack[pack.length - 2]);
+					var cl = std.Type.resolveClass(pack.join("."));
+					try {
+						std.Type.createInstance(cl, []);
+					}catch(_) {
+						{};
+					}
+				default:
+					var t = new _Type(type);
+					defaultValue(new _Type_asInterface(Go.pointer(t), null));
+			}
+		case arrayType(_.get() => elem, len):
+			var t = new _Type(elem);
+			final value = defaultValue(new _Type_asInterface(Go.pointer(t), null));
+			new GoArray<Dynamic>(len, len, [for (i in 0...len) value]);
+		case sliceType(_.get() => elem):
+			var t = new _Type(elem);
+			new Slice<Dynamic>(0,0);
 		default: null;
 	}
 }
@@ -920,10 +967,10 @@ class _Type {
 	static public function overflowUint(t:_Type, _x:go.GoUInt64):Bool
 		throw "not implemented overflowUInt";
 
-	static public function _uncommon(t:_Type):Ref<Dynamic>
+	static public function _uncommon(t:_Type):Dynamic
 		throw "not implemented _uncommon";
 
-	static public function _common(t:_Type):Ref<Dynamic>
+	static public function _common(t:_Type):Dynamic
 		throw "not implemented _common";
 
 	static public function out(t:_Type, _i:GoInt):Type
@@ -1341,10 +1388,10 @@ class _Type {
 	}
 
 	static public function pkgPath(t:_Type):GoString
-		throw "not implemented pkgPath";
+		return "";
 
 	static public function name(t:_Type):GoString
-		throw "not implemented name";
+		return t.string();
 
 	static public function numMethod(t:_Type):GoInt {
 		switch t._common() {

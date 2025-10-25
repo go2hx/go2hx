@@ -138,7 +138,6 @@
     "runtime/pprof",
     "runtime/race",
     "runtime/trace",
-    "runtime/trace_",
     "sort",
     "strconv",
     "strings",

@@ -11,8 +11,8 @@ class GoArrayData<T> {
 	public var bytes:haxe.io.Bytes = null;
 
 	public var offset:Int = 0;
-	public var length:Int = 0;
-	public var capacity:Int = 0;
+	public var length:GoInt = 0;
+	public var capacity:GoInt = 0;
 	public var __nil__:Bool = false;
 
 	var isNumber32:Bool = false;
@@ -20,7 +20,7 @@ class GoArrayData<T> {
 	var isString:Bool = false;
 	var noArgs = false;
 
-	public function new(length:Int, capacity:Int, args:Rest<T>) {
+	public function new(length:GoInt, capacity:GoInt, args:Rest<T>) {
 		noArgs = args.length == 0;
 		if (capacity != -1) {
 			final vectorLength = if (length > capacity) {
@@ -129,7 +129,13 @@ class GoArrayData<T> {
 	}
 
 	public #if hl inline #end function __append__(args:Rest<T>):Slice<T> {
+		if (this.__nil__) {
+			if (args.length == 0)
+				return this;
+			return new GoArrayData<T>(args.length, args.length, ...args);
+		}
 		final slice:GoArrayData<T> = __ref__();
+		slice.__nil__ = false;
 		// Don't set slice.offset to this value because it needs to be computed in the case of a grow.
 		final startOffset = slice.length;
 		final cap = args.length - slice.capacity + slice.length + slice.offset + 1;
@@ -148,7 +154,7 @@ class GoArrayData<T> {
 			}
 			return slice;
 		}
-		var newcap = slice.capacity;
+		var newcap:Int = slice.capacity;
 		final doublecap = newcap + newcap;
 		if (cap > doublecap) {
 			newcap = cap;
@@ -255,10 +261,12 @@ class GoArrayData<T> {
 		return Std.string(toArray());
 	}
 
-	public inline function toArray():Array<T> { // unrolling
+	public function toArray():Array<T> { // unrolling
 		if (bytes != null) {
 			return [for (i in 0...length) untyped cast bytes.get(i + offset)];
 		}
+		if (vector == null)
+			return [];
 		#if hl
 		return vector.toData().slice(offset, offset + length);
 		#else
@@ -298,19 +306,22 @@ class GoArrayData<T> {
 
 	public function __copy__() {
 		final slice = new GoArrayData<T>(0, -1);
+		slice.__nil__ = this.__nil__;
 		slice.capacity = this.capacity;
 		slice.length = this.length;
 		slice.offset = this.offset;
+		slice.isNumber32 = this.isNumber32;
+		slice.isNumber64 = this.isNumber64;
+		slice.isString = this.isString;
 		if (this.bytes != null) {
 			final bytes = haxe.io.Bytes.alloc(this.bytes.length);
 			bytes.blit(0, this.bytes, 0, this.bytes.length);
 			slice.bytes = bytes;
 			return slice;
 		}
-		slice.vector = this.vector.copy();
-		slice.isNumber32 = this.isNumber32;
-		slice.isNumber64 = this.isNumber64;
-		slice.isString = this.isString;
+		if (this.vector != null) {
+			slice.vector = this.vector.copy();
+		}
 		return slice;
 	}
 }

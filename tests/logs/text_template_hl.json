@@ -2,7 +2,6 @@
     "passes": [
         "TestJSEscaping",
         "TestExecuteOnNewTemplate",
-        "TestFinalForPrintf",
         "TestBadFuncNames",
         "TestBlock",
         "TestMaxExecDepth",

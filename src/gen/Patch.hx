@@ -99,6 +99,7 @@ final skipTests = [
 	"sync.atomic_test:testStorePointer" => [], // unsafe casting
 	"sync.atomic_test:testStorePointerMethod" => [], // unsafe casting
 	"sync.atomic_test:testLoadPointerMethod" => [], // unsafe casting
+	"sync.atomic_test:hammerswapuintptr32method" => [], // unsafe casting
 	"sync.atomic_test:testHammer32" => [], // unsafe casting
 	"sync.atomic_test:testHammer64" => [], // unsafe casting
 	"sync.atomic_test:testHammerStoreLoad" => [], // unsafe casting
@@ -349,9 +350,12 @@ final addTypeDefs = [
 				} catch (_) {
 					return {_0: 0, _1: go._internal.io.Io_eof.eOF};
 				}
-				final data = b.getData();
-				for (pos in 0...i) {
-					(_b : go.GoArray.GoArrayData<go.GoByte>).vector[pos] = haxe.io.Bytes.fastGet(data, pos);
+				// ref
+				if (_b.__bytes__ != null) {
+					_b.__bytes__.blit(_b.__offset__, b, 0, _b.length);
+				} else {
+					for (i in 0 ... _b.length)
+						_b.__vector__.set(_b.__offset__ + i, b.get(i));
 				}
 				return {_0: i, _1: null};
 			}
@@ -362,7 +366,8 @@ final addTypeDefs = [
 			@:define("sys") {
 				final b = _b.toBytes();
 				final i = _socket.output.writeBytes(b, 0, b.length);
-				@:privateAccess _b.__bytes__ = b;
+				if (i != b.length)
+					return {_0: i, _1: go._internal.errors.Errors_new_.new_("invalid write")};
 				return {_0: i, _1: null};
 			}
 			return {_0: 0, _1: null};

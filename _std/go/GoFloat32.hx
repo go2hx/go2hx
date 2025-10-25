@@ -91,15 +91,17 @@ abstract GoFloat32(Float32) from Float32 to Float32 {
 		return a.toBasic() / b.toBasic();
 	}
 
-	@:op(-A) private static function neg(t:GoFloat32):GoFloat32
-		return t.toBasic() * -1;
+	@:op(-A) private static function neg(t:GoFloat32):GoFloat32 {
+		trace(t);
+		return t.toBasic() * (-1 : Float32);
+	}
 
 	@:op(A++) private inline function postInc():GoFloat32 {
-		return this = this + 1;
+		return this = this + (1 : Float32);
 	}
 
 	@:op(A--) private inline function postDec():GoFloat32 {
-		return this = this - 1;
+		return this = this - (1 : Float32);
 	}
 
 	@:op(A > B) private static function gt(a:GoFloat32, b:GoFloat32):Bool

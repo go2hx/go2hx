@@ -6,7 +6,7 @@ abstract UnsafePointer(go.AnyInterface) from go.AnyInterface to go.AnyInterface 
 	private function new(value) {
 		this = value;
 	}
-	public function __toRef__():go.Ref<Dynamic>
+	public function __toRef__():Dynamic
 		return this.value;
 
 	public function __convert__(toType:go._internal.internal.reflect.GoType):Any {

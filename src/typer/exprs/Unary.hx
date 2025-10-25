@@ -8,7 +8,7 @@ package typer.exprs;
 function typeUnaryExpr(expr:GoAst.UnaryExpr, info:Info):MacroExpr {
 	var x = typer.exprs.Expr.typeExpr(expr.x, info);
 	final t = typeof(expr, info, false); // use expr type potentially instead of expr.x?
-	final isNamed = isNamed(t);
+	final isNamed = isNamed(t); // turn to pointer
 	if (expr.op == AND) {
 		return switch t {
 			case refType(_.get() => elem):
@@ -16,9 +16,7 @@ function typeUnaryExpr(expr:GoAst.UnaryExpr, info:Info):MacroExpr {
 					return macro go.Go.pointer($x);
 				} else {
 					final t = typeof(expr, info, false);
-					final ct = toComplexType(t, info);
-					final gt = toReflectType(t, info, [], false);
-					return macro (go.Go.setRef($x, $gt) : $ct);
+					return typer.exprs.Expr.setRef(x, t, info);
 				}
 			case pointerType(_):
 				return macro go.Go.pointer($x);

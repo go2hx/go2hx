@@ -528,12 +528,12 @@ typedef GoComplex64Map<T> = GoComplex128Map<T>;
 
 // ref
 @:dox(hide)
-class GoRefMap<K, V> extends CompareMap<Ref<K>, V> {
+class GoRefMap<K, V> extends CompareMap<K, V> {
 	public var __defaultValue__:Void->V;
-	override function compare(k1:Ref<K>, k2:Ref<K>):Bool {
+	override function compare(k1:K, k2:K):Bool {
 		return k1 == k2;
 	}
-	override function get(key:Ref<K>):V {
+	override function get(key:K):V {
 		if (exists(key))
 			return super.get(key);
 		return __defaultValue__();

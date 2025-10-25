@@ -580,8 +580,6 @@ function setRef(expr:Expr, t:GoType, info:Info):Expr {
 	switch t {
 		case sliceType(_):
 			return macro @:setref (($expr == null ? new go.Slice(0, -1).__setNil__() : $expr) : $ct);
-		case chanType(_, _):
-			return macro @:setref (($expr == null ? new go.Chan(0, -1).__setNil__() : $expr) : $ct);
 		default:
 	}
 	return macro @:setref $expr;
@@ -828,7 +826,12 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 					macro(null : $ct);
 				case sliceType(_):
 					final s = typer.exprs.Expr.defaultValue(t, info, strict);
-					macro $s.__setNil__();
+					final ct = ct();
+					if (ct != null) {
+						macro($s.__setNil__() : $ct);
+					} else {
+						macro $s.__setNil__();
+					}
 				case refType(_), pointerType(_), interfaceType(_), mapType(_, _), signature(_, _):
 					final ct = ct();
 					if (ct != null) {

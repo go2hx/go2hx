@@ -93,7 +93,6 @@ final reserved = [
 	"map",
 	"comparable",
 	"environ",
-	"trace",
 	"haxe",
 	"std",
 	"_new",

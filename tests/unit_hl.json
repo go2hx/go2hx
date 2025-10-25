@@ -276,5 +276,11 @@
  "hl|atomic0",
  "hl|os0",
  "hl|issue256",
- "hl|issue264"
+ "hl|issue264",
+ "hl|appendnil0",
+ "hl|appendnil1",
+ "hl|buf0",
+ "hl|buf1",
+ "hl|chan15",
+ "hl|slice7"
 ]

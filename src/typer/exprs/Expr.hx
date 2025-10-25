@@ -109,7 +109,7 @@ function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info
 				switch c {
 					case CIdent(i):
 						if (i == "null") {
-							var value = typer.exprs.Expr.defaultValue(toType, info, true);
+							var value = typer.exprs.Expr.defaultValue(toType, info);
 							return value;
 						}
 					default:
@@ -815,7 +815,10 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 					final s = typer.exprs.Expr.defaultValue(elem, info, strict);
 					macro $s.__setNil__();
 				default:
-					macro(null : $ct); // pointer can be nil
+					// do not set complexType because it messes up generic function where all refTypes are pointers, because the type is not known
+					// from the function signature
+					macro null;
+					//macro(null : $ct); // pointer can be nil
 			}
 		case named(path, _, underlying, alias, _):
 			final t = getUnderlying(underlying);

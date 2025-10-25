@@ -306,6 +306,7 @@ class GoArrayData<T> {
 
 	public function __copy__() {
 		final slice = new GoArrayData<T>(0, -1);
+		slice.__nil__ = this.__nil__;
 		slice.capacity = this.capacity;
 		slice.length = this.length;
 		slice.offset = this.offset;

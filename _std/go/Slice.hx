@@ -40,7 +40,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public inline function __append__(args:Rest<T>):Slice<T> {
 		if (this == null) {
 			if (args.length == 0)
-				return null;
+				return this.__copy__();
 			return new GoArrayData<T>(args.length, args.length, ...args);
 		}
 		return this.__append__(...args);
@@ -53,7 +53,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 
 	public function __slice__(args:haxe.Rest<GoInt>):Slice<T> {
 		if (this == null || this.__nil__)
-			return null;
+			return this.__copy__();
 		return this.__slice__(...args);
 	}
 
@@ -83,7 +83,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	@:to
 	public function toGoArray():GoArray<T> {
 		if (this.__nil__)
-			return null;
+			return this.__copy__();
 		return this;
 	}
 

@@ -616,6 +616,8 @@ function isRefValue(type:GoType):Bool {
 			false;
 		case basic(_):
 			false;
+		case interfaceType(empty, _):
+			!empty;
 		case signature(_, _, _, _, _):
 			false;
 		case typeParam(_, _):

@@ -34,7 +34,7 @@ class Go {
 		}; __a__();", func);*/
 		throw "Channels and Goroutines are not supported in javascript yet"
 		#elseif (target.threaded)
-		Thread.createWithEventLoop(() -> {
+		Thread.create(() -> {
 			/*try {
 					func();
 				}catch(e) {

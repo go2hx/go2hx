@@ -973,11 +973,26 @@ class _Type {
 	static public function _common(t:_Type):Dynamic
 		throw "not implemented _common";
 
-	static public function out(t:_Type, _i:GoInt):Type
-		throw "not implemented _out";
+	static public function out(t:_Type, _i:GoInt):Type {
+		final gt = t._common();
+		return switch gt {
+			case signature(_, _, _.get() => results, _, _):
+				var t = new _Type(unroll(gt, results[_i]));
+				new _Type_asInterface(Go.pointer(t), null);
+			default:
+				throw "issue";
+		}
+	}
 
-	static public function numOut(t:_Type):GoInt
-		throw "not implemented numOut";
+	static public function numOut(t:_Type):GoInt {
+		final gt = t._common();
+		return switch gt {
+			case signature(_, _, _.get() => results, _, _):
+				results.length;
+			default:
+				throw "issue";
+		}	
+	}
 
 	static public function numIn(t:_Type):GoInt {
 		final gt = t._common();
@@ -1074,8 +1089,15 @@ class _Type {
 		}
 	}
 
-	static public function isVariadic(t:_Type):Bool
-		throw "not implemented isVariadic";
+	static public function isVariadic(t:_Type):Bool {
+		final gt = t._common();
+		return switch gt {
+			case signature(variadic, _, _, _):
+				variadic;
+			default:
+				throw "issue";
+		}	
+	}
 
 	static public function chanDir(t:_Type):ReflectChanDir
 		throw "not implemented chanDir";

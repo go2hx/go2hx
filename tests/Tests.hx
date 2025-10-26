@@ -552,6 +552,10 @@ function createRunnableStd(name:String, prefix:String, excludeFuncArgs:Array<Str
 	if (ciBool)
 		args.unshift("haxe");
 	args = commandArgs(args);
+	if (hxbBool) {
+		args.push("--hxb-lib");
+		args.push("go2hx.zip");
+	}
 	trace(args.join(" "));
 	tasks.push({
 		command: ciBool ? "npx" : "haxe",

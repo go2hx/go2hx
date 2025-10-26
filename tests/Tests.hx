@@ -9,7 +9,7 @@ using haxe.io.Path;
 
 final path = Sys.getCwd();
 var ciBool = false;
-var hxbBool = false;
+var hxbBool = true;
 var noDepsBool = false;
 var testBool = false;
 var globalPath = "";

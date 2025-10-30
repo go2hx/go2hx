@@ -268,5 +268,11 @@
  "interp|atomic0",
  "interp|os0",
  "interp|issue256",
- "interp|issue264"
+ "interp|issue264",
+ "interp|appendnil0",
+ "interp|appendnil1",
+ "interp|buf0",
+ "interp|buf1",
+ "interp|chan15",
+ "interp|slice7"
 ]

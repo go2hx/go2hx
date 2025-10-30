@@ -36,5 +36,8 @@
  "interp|image/draw",
  "interp|encoding/binary",
  "interp|fmt",
- "interp|math"
+ "interp|math",
+ "interp|encoding/gob",
+ "interp|go/token",
+ "interp|math/big"
 ]

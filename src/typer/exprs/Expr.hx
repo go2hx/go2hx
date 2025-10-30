@@ -101,6 +101,22 @@ function typeOp(token:GoAst.Token):Binop {
 function explicitConversion(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):MacroExpr {
 	fromType = cleanType(fromType);
 	toType = cleanType(toType);
+	if (expr != null) {
+		switch expr.expr {
+			case EBinop(_, _, _):
+				expr = macro($expr);
+			case EConst(c):
+				switch c {
+					case CIdent(i):
+						if (i == "null") {
+							var value = typer.exprs.Expr.defaultValue(toType, info);
+							return value;
+						}
+					default:
+				}
+			default:
+		}
+	}
 	//trace(fromType, toType);
 	//trace(getElem(fromType), getElem(toType));
 	if (goTypesEqual(fromType, toType, 0)) {
@@ -302,7 +318,7 @@ function wrapperExpr(t:GoType, y:Expr, info:Info):MacroExpr {
 
 // explicit conversion: assignTranslate
 function implicitConversion(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):MacroExpr {
-	// trace(fromType, toType);
+	//trace(fromType, toType);
 	if (e != null) {
 		switch e.expr {
 			case EBinop(_, _, _):
@@ -427,7 +443,7 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 						nilType = typeY;
 					}
 				default:
-					final ct = toComplexType(typeX, info);
+					final ct = toComplexType(typeY, info);
 					if (ct != null) x = macro($x : $ct);
 			}
 		default:
@@ -441,7 +457,7 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 						nilType = typeX;
 					}
 				default:
-					final ct = toComplexType(typeY, info);
+					final ct = toComplexType(typeX, info);
 					if (ct != null) y = macro($y : $ct);
 			}
 		default:
@@ -462,22 +478,38 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 		}
 	}
 	var value = nilExpr;
+	// trace(value != null, nilType);
 	if (value != null) {
 		if (isNamed(nilType))
 			nilType = getUnderlying(nilType);
+		var refTypeBool = false;
+		if (isRef(nilType)) {
+			refTypeBool = true;
+			nilType = getElem(nilType);
+		}
 		switch nilType {
-			case refType(_), interfaceType(true, _):
-				switch op {
-					case OpEq:
-						return macro({
-							final value = $value;
-							(value == null || (value : Dynamic).__nil__);
-						});
+			case sliceType(_), arrayType(_,_), interfaceType(true, _):
+				// pointer slice is redundant as slice acts already like a pointer
+				
+				final sliceTypeBool = switch nilType {
+					case sliceType(_):
+						true;
 					default:
-						return macro({
-							final value = $value;
-							(value != null && ((value : Dynamic).__nil__ == null || (!(value : Dynamic).__nil__)));
-						});
+						false; 
+				}
+				if (!refTypeBool || !sliceTypeBool) {
+					switch op {
+						case OpEq:
+							return macro({
+								final value = $value;
+								(value == null || (value : Dynamic).__nil__);
+							});
+						default:
+							return macro({
+								final value = $value;
+								(value != null && ((value : Dynamic).__nil__ == null || (!(value : Dynamic).__nil__)));
+							});
+					}
 				}
 			default:
 		}
@@ -501,16 +533,29 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 		if (!isAnyInterface(getElem(typeY)))
 			y = typer.exprs.Expr.toAnyInterface(y, typeY, info);
 	}
+	
 	var t = getUnderlying(typeX);
 	switch t {
-		case structType(_), arrayType(_, _):
+		case arrayType(_, _):
+			switch getUnderlying(typeY) {
+				case arrayType(_, _):
+					// set x and y to AnyInterface
+					x = typer.exprs.Expr.toAnyInterface(x, typeX, info, false);
+					y = typer.exprs.Expr.toAnyInterface(y, typeY, info, false);
+					return toExpr(EBinop(op, x, y));
+				default:
+			}
+		default:
+	}
+	switch t {
+		case structType(_):
 			return toExpr(EBinop(op, typer.exprs.Expr.toAnyInterface(x, typeX, info, false), typer.exprs.Expr.toAnyInterface(y, typeY, info, false)));
-		case sliceType(_), refType(_):
+		case sliceType(_), arrayType(_, _), refType(_):
 			var run = true;
 			if (isRef(t)) {
 				switch getElem(t) {
-					case sliceType(_):
-						// pointer slice is redunant as slice acts already like a pointer
+					case sliceType(_), arrayType(_):
+						// pointer slice is redundant as slice acts already like a pointer
 					default:
 						run = false;
 				}
@@ -525,19 +570,189 @@ function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, i
 			}
 		default:
 	}
+	return toExpr(EBinop(op, x, toExpr(EParenthesis(y))));
+}
+
+
+function setRef(expr:Expr, t:GoType, info:Info):Expr {
+	final ct = toComplexType(t, info);
+	t = getUnderlying(getElem(t));
 	switch t {
-		case arrayType(_, _):
-			switch getUnderlying(typeY) {
-				case arrayType(_, _):
-					// set x and y to AnyInterface
-					x = typer.exprs.Expr.toAnyInterface(x, typeX, info, false);
-					y = typer.exprs.Expr.toAnyInterface(y, typeY, info, false);
-					return toExpr(EBinop(op, x, y));
-				default:
-			}
+		case sliceType(_):
+			return macro @:setref (($expr == null ? new go.Slice(0, -1).__setNil__() : $expr) : $ct);
 		default:
 	}
-	return toExpr(EBinop(op, x, toExpr(EParenthesis(y))));
+	return macro @:setref $expr;
+}
+
+function newValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=false):MacroExpr {
+	function ct():ComplexType {
+		return toComplexType(type, info);
+	}
+	if (type == null)
+		return macro @:unknown_default_value null;
+	return switch type {
+		case mapType(_.get() => key, _.get() => value):
+			final keyComplexType = toComplexType(key, info, true && strict);
+			final valueComplexType = toComplexType(value, info, true && strict);
+			final keyUnderlying = getUnderlying(key);
+			switch keyUnderlying {
+				case structType(_):
+					return macro(({
+						final x:go.GoMap.GoObjectMap<$keyComplexType, $valueComplexType> = null;
+						// x.t = new go._internal.internal.reflect.Reflect._Type($keyT);
+						// x.__typer.exprs.Expr.defaultValue__ = () -> $typer.exprs.Expr.defaultValueExpr;
+						// @:mergeBlock $b{exprs};
+						cast x;
+					} : go.GoMap<$keyComplexType, $valueComplexType>));
+				default:
+					// trace(keyUnderlying);
+			}
+			macro(null : go.GoMap<$keyComplexType, $valueComplexType>);
+		case sliceType(_.get() => elem):
+			final t = toComplexType(elem, info, true);
+			macro new go.Slice<$t>(0,0);
+		case arrayType(_.get() => elem, len):
+			final param = toComplexType(elem, info, true);
+			final size = makeExpr(len);
+			final cap = size;
+			final p:TypePath = {name: "GoArray", params: [TPType(param)], pack: ["go"]};
+			final s = CompositeLiteral.createSlice(p, elem, size, cap, e -> e, info, null);
+			s;
+		case interfaceType(_):
+			final ct = ct();
+			macro(null : $ct);
+		case chanType(_, _.get() => elem):
+			final t = toComplexType(elem, info, true && strict);
+			var value = typer.exprs.Expr.newValue(elem, info);
+			macro(null : go.Chan<$t>);
+		case pointerType(_.get() => elem):
+			switch elem {
+				case typeParam(_, _):
+					macro null;
+				default:
+					final t = toComplexType(elem, info);
+					macro(null : go.Pointer<$t>);
+			}
+		case signature(_, _, _, _):
+			macro null;
+		case refType(_.get() => elem):
+			final ct = toComplexType(elem, info, true);
+			switch elem {
+				case arrayType(_):
+					final s = typer.exprs.Expr.newValue(elem, info, strict);
+					macro $s.__setNil__();
+				default:
+					macro(null : $ct); // pointer can be nil
+			}
+		case named(path, _, underlying, alias, _):
+			switch getUnderlying(underlying) {
+				case chanType(_, _):
+					final ct = ct();
+					macro(null : $ct);
+				case sliceType(_.get() => elem):
+					var t = namedTypePath(path, info);
+					final ct = ct();
+					macro(new $t(0, 0) : $ct);
+				case refType(_), pointerType(_), interfaceType(_), mapType(_, _), signature(_, _):
+					final ct = ct();
+					if (ct != null) {
+						macro(null : $ct);
+					} else {
+						macro null;
+					}
+				case basic(_):
+					final ct = ct();
+					final e = typer.exprs.Expr.newValue(underlying, info);
+					macro($e : $ct);
+				case structType(fields):
+					final ct = ct();
+					final fs:Array<ObjectField> = [];
+					var e = macro {};
+					if (alias) {
+						e = createNamedObjectDecl(fields, (_, type) -> typer.exprs.Expr.newValue(type, info), info);
+					}
+					macro($e : $ct);
+				case arrayType(_.get() => elem, len):
+					final t = namedTypePath(path, info);
+					final elem = typer.exprs.Expr.newValue(elem, info);
+					final len = makeExpr(len);
+					macro new $t($len, $len, ...[for (i in 0...$len) $elem]);
+				case invalidType:
+					macro null;
+				default:
+					var t = namedTypePath(path, info);
+					macro new $t();
+			}
+		case basic(kind):
+			if (strict) {
+				switch kind {
+					case bool_kind: macro false;
+					case int_kind: macro(0 : go.GoInt);
+					case int8_kind: macro(0 : go.GoInt8);
+					case int16_kind: macro(0 : go.GoInt16);
+					case int32_kind: macro(0 : go.GoInt32);
+					case int64_kind: macro(0 : go.GoInt64);
+					case string_kind: macro("" : go.GoString);
+					case uint_kind: macro(0 : go.GoUInt);
+					case uint8_kind: macro(0 : go.GoUInt8);
+					case uint16_kind: macro(0 : go.GoUInt16);
+					case uint32_kind: macro(0 : go.GoUInt32);
+					case uint64_kind: macro(0 : go.GoUInt64);
+					case uintptr_kind: macro new go.GoUIntptr(0);
+					case float32_kind: macro(0 : go.GoFloat32);
+					case float64_kind: macro(0 : go.GoFloat64);
+					case complex64_kind: macro new go.GoComplex64(0, 0);
+					case complex128_kind: macro new go.GoComplex128(0, 0);
+					case untyped_bool_kind, untyped_rune_kind, untyped_string_kind, untyped_int_kind, untyped_float_kind, untyped_complex_kind:
+						throw info.panic() + "untyped kind: " + kind;
+					default: macro @:default_value null;
+				}
+			} else {
+				switch kind {
+					case bool_kind: macro false;
+					case string_kind: macro "";
+					case int_kind, int8_kind, int16_kind, int32_kind, int64_kind: macro 0;
+					case uint_kind, uint8_kind, uint16_kind, uint32_kind, uint64_kind: macro 0;
+					case uintptr_kind: macro new go.GoUIntptr(0);
+					case float32_kind, float64_kind: macro 0;
+					case complex64_kind: macro new go.GoComplex64(0, 0);
+					case complex128_kind: macro new go.GoComplex128(0, 0);
+					default: macro @:default_value_kind
+						null;
+				}
+			}
+		case structType(fields):
+			if (fields.length == 0)
+				return macro {};
+			var fs:Array<ObjectField> = [];
+			for (field in fields) {
+				if (field.optional)
+					continue;
+				fs.push({
+					field: field.name,
+					expr: typer.exprs.Expr.newValue(field.type.get(), info, true && strict),
+				});
+			}
+			toExpr(EObjectDecl(fs));
+		case invalidType:
+			macro @:invalid_type null;
+		case tuple(_, _.get() => vars):
+			toExpr(EObjectDecl([
+				for (i in 0...vars.length) {
+					{
+						field: "_" + i,
+						expr: typer.exprs.Expr.newValue(vars[i], info),
+					}
+				}
+			]));
+		case typeParam(name, _):
+			@:unknown_typeParam_defaultValue null;
+		case _var(_, _.get() => type):
+			newValue(type, info, strict);
+		default:
+			throw info.panic() + "unsupported default value type: " + type;
+	}
 }
 
 function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=false):MacroExpr {
@@ -566,7 +781,7 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 			macro(null : go.GoMap<$keyComplexType, $valueComplexType>);
 		case sliceType(_.get() => elem):
 			final t = toComplexType(elem, info, true);
-			macro(null : go.Slice<$t>);
+			macro new go.Slice<$t>(0,-1).__setNil__();
 		case arrayType(_.get() => elem, len):
 			final param = toComplexType(elem, info, true);
 			final size = makeExpr(len);
@@ -594,17 +809,29 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 		case refType(_.get() => elem):
 			final ct = toComplexType(elem, info, true);
 			switch elem {
-				case arrayType(_):
+				case arrayType(_), sliceType(_):
 					final s = typer.exprs.Expr.defaultValue(elem, info, strict);
 					macro $s.__setNil__();
 				default:
-					macro(null : go.Ref<$ct>); // pointer can be nil
+					// do not set complexType because it messes up generic function where all refTypes are pointers, because the type is not known
+					// from the function signature
+					macro null;
+					//macro(null : $ct); // pointer can be nil
 			}
 		case named(path, _, underlying, alias, _):
-			switch getUnderlying(underlying) {
+			final t = getUnderlying(underlying);
+			switch t {
 				case chanType(_, _):
 					final ct = ct();
 					macro(null : $ct);
+				case sliceType(_):
+					final s = typer.exprs.Expr.defaultValue(t, info, strict);
+					final ct = ct();
+					if (ct != null) {
+						macro($s.__setNil__() : $ct);
+					} else {
+						macro $s.__setNil__();
+					}
 				case refType(_), pointerType(_), interfaceType(_), mapType(_, _), signature(_, _):
 					final ct = ct();
 					if (ct != null) {
@@ -624,10 +851,6 @@ function defaultValue(type:GoType, info:Info, strict:Bool = true, isField:Bool=f
 						e = createNamedObjectDecl(fields, (_, type) -> typer.exprs.Expr.defaultValue(type, info), info);
 					}
 					macro($e : $ct);
-				case sliceType(_.get() => elem):
-					var t = namedTypePath(path, info);
-					final ct = ct();
-					macro(new $t(0, 0) : $ct);
 				case arrayType(_.get() => elem, len):
 					final t = namedTypePath(path, info);
 					final elem = typer.exprs.Expr.defaultValue(elem, info);

@@ -1,8 +1,9 @@
 {
-    "passes": [],
+    "passes": [
+        "TestNodeNoModify"
+    ],
     "fails": [
         "TestNode",
-        "TestNodeNoModify",
         "TestSource",
         "TestPartial"
     ],

@@ -298,7 +298,6 @@ function runTask(task:TaskData) {
 					final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
 					final analyzeDataFileName = "tests/logs/" + name + ".json";
 					final data = analyzeStdLog(output);
-					File.saveContent("tests/logs/" + name + ".log", output);
 					var failed = false;
 					if (FileSystem.exists(analyzeDataFileName)) {
 						final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
@@ -321,7 +320,6 @@ function runTask(task:TaskData) {
 					final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
 					final analyzeDataFileName = "tests/logs/" + name + ".json";
 					final data = analyzeStdLog(output);
-					File.saveContent("tests/logs/" + name + ".log", output);
 
 					if (FileSystem.exists(analyzeDataFileName)) {
 						final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));

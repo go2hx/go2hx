@@ -61,6 +61,7 @@ function main() {
 			rebuild = true;
 		}
 	} else {
+		trace("no version");
 		rebuild = true; // rebuild if no version present for good measure
 	}
 	File.saveContent("version.txt", version);
@@ -308,7 +309,7 @@ function build(rebuild:Bool) {
 			Sys.exit(code);
 		}
 	}
-	setupCPP(true, [], false);
+	setupCPP(rebuild, [], false);
 }
 
 function setupNodeJS(rebuild:Bool, args:Array<String>) {

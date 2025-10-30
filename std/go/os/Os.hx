@@ -357,7 +357,7 @@ function openFile(_name:go.GoString, _flag, _perm) {
 			{_0: {_file: {_name: _name}, _input: null, _output: null}, _1: null};
 		}else{
 			try {
-				{_0: {_file: {_name: _name}, _input: sys.io.File.read(_name, false), _output: sys.io.File.update(_name)}, _1: null};
+				{_0: {_file: {_name: _name}, _input: sys.io.File.read(_name), _output: sys.io.File.update(_name)}, _1: null};
 			} catch (e) {
 				{_0: null, _1: go._internal.errors.Errors_new_.new_(e.details())};
 			}

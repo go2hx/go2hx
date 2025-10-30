@@ -64,7 +64,7 @@ class ChanData<T> {
 		return r;
 	}
 
-	public function new(length:GoInt, defaultValue) {
+	public function new(length:GoInt, defaultValue:Void->T) {
 		mutex.acquire();
 		buffered = length > 0;
 		this.capacity = length;

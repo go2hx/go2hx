@@ -512,9 +512,16 @@ function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:GoAst.Fie
 			if (recvArg != null && !isPointer(recvArg.vt) && !hasPatch) {
 				final name = recvArg.name;
 				info.localIdents.push(name);
-				final expr = HaxeAst.passByCopy(recvArg.vt, macro $i{name}, info);
+				var expr = HaxeAst.passByCopy(recvArg.vt, macro $i{name}, info);
 				final ct = recvArg.type;
+				if (isRef(recvArg.vt)) {
+					final t = recvArg.vt;
+					final ct = toComplexType(t, info);
+					final gt = toReflectType(t, info, [], false);
+					expr = typer.exprs.Expr.setRef(expr, t, info);
+				}
 				exprs.unshift(macro @:recv var $name:$ct = $expr);
+				
 			}
 			if (!hasPatch) {
 				for (arg in args) {

@@ -34,7 +34,7 @@ class Go {
 		}; __a__();", func);*/
 		throw "Channels and Goroutines are not supported in javascript yet"
 		#elseif (target.threaded)
-		Thread.create(() -> {
+		haxe.EventLoop.addTask(() -> {
 			/*try {
 					func();
 				}catch(e) {
@@ -47,7 +47,7 @@ class Go {
 			grMutex.acquire();
 			goroutines--;
 			grMutex.release();
-		});
+		}, false);
 		#end
 	}
 

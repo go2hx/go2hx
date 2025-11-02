@@ -1180,7 +1180,6 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 					break;
 				}
 			}
-			Compiler.mutex.release();
 			if (!exists && !info.global.pathNames.exists(defName)) {
 				// new
 				info.global.pathNames[defName] = true;
@@ -1202,10 +1201,9 @@ function toReflectType(t:GoType, info:Info, paths:Array<String>, equalityBool:Bo
 					meta: [{name: ":noCompletion", pos: null}],
 					kind: TDField(FVar(null, e)),
 				};
-				Compiler.mutex.acquire();
 				info.reflectTypesData.defs.push(def);
-				Compiler.mutex.release();
 			}
+			Compiler.mutex.release();
 			return macro $i{'_internal.gotype.Gotype_${defName.toLowerCase()}.$defName'};
 		case previouslyNamed(path):
 			final path = HaxeAst.makeString(path);

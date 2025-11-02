@@ -18,7 +18,7 @@ var onUnknownExit:Void->Void = null;
 var modules:Array<typer.HaxeAst.Module> = [];
 var instance:CompilerInstanceData = null;
 #if target.threaded
-var threadPool = new sys.thread.ElasticThreadPool(4, 0.1);
+var threadPool = new ElasticThreadPool(4, 0.1);
 #end
 
 /**
@@ -213,7 +213,7 @@ function createCompilerInstanceFromArgs(args:Array<String>):CompilerInstanceData
 		["-threads", "--threads", "-thread", "--thread"] => (threadCount : Int) -> {
 			#if target.threaded
 			useThreadPool = true;
-			threadPool = new sys.thread.ElasticThreadPool(threadCount, 0.1);
+			threadPool = new ElasticThreadPool(threadCount, 0.1);
 			#end
 		},
 		["-notry","--notry"] => () -> {

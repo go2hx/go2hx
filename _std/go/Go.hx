@@ -26,6 +26,10 @@ class Go {
 	#end
 
 	public static function routine(func:Void->Void) {
+		if (haxe.macro.Compiler.getDefine("disable_goroutine") != null) {
+			func();
+			return;
+		}
 		if (goroutines >= GOMAXPROCS)
 			throw "too many active goroutines";
 		#if js
@@ -34,7 +38,7 @@ class Go {
 		}; __a__();", func);*/
 		throw "Channels and Goroutines are not supported in javascript yet"
 		#elseif (target.threaded)
-		Thread.createWithEventLoop(() -> {
+		haxe.EventLoop.addTask(() -> {
 			/*try {
 					func();
 				}catch(e) {
@@ -47,7 +51,7 @@ class Go {
 			grMutex.acquire();
 			goroutines--;
 			grMutex.release();
-		});
+		}, false);
 		#end
 	}
 

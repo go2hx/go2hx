@@ -26,6 +26,10 @@ class Go {
 	#end
 
 	public static function routine(func:Void->Void) {
+		if (haxe.macro.Compiler.getDefine("disable_goroutine") != null) {
+			func();
+			return;
+		}
 		if (goroutines >= GOMAXPROCS)
 			throw "too many active goroutines";
 		#if js

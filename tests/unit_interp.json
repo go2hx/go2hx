@@ -274,5 +274,6 @@
  "interp|buf0",
  "interp|buf1",
  "interp|chan15",
- "interp|slice7"
+ "interp|slice7",
+ "interp|defer0"
 ]

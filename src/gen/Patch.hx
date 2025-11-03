@@ -271,10 +271,13 @@ final addTypeDefs = [
 		private var _addr = null;
 		@:local
 		private var _closed = false;
+		@:local
+		private var secure = false;
 
-		public function new(addr, socket) {
+		public function new(addr, socket, secure=false) {
 			this._addr = addr;
 			this._socket = socket;
+			this.secure = secure;
 		}
 
 		public dynamic function accept():{_0:go._internal.net.Net_conn.Conn, _1:go.Error} {
@@ -282,6 +285,10 @@ final addTypeDefs = [
 				if (_closed)
 					return {_0: null, _1: go._internal.net.Net_errclosed.errClosed};
 				final s = _socket.accept();
+				if (secure) {
+					// perform handshake
+					cast(s, sys.ssl.Socket).handshake();
+				}
 				if (_closed)
 					return {_0: null, _1: go._internal.net.Net_errclosed.errClosed};
 				return {_0: new go._internal.net.Net_haxeconn.HaxeConn(this._addr, s), _1: null};

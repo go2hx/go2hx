@@ -27,7 +27,8 @@ function typeDeferStmt(stmt:GoAst.DeferStmt, info:Info):MacroExpr {
 		localIdents.push(name);
 		final e = macro var $name = $arg;
 		exprs.push(e);
-		call.args[i] = {id: "Ident", name: 'a$i', type: call.args[i].type}; // switch out call arguments
+		// trace(call.args[i].type);
+		call.args[i] = {id: "Ident", name: 'a$i', type: call.args[i]}; // switch out call arguments
 	}
 	info.localIdents = info.localIdents.concat(localIdents);
 	// otherwise its Ident, Selector etc

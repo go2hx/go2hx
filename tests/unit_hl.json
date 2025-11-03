@@ -282,5 +282,6 @@
  "hl|buf0",
  "hl|buf1",
  "hl|chan15",
- "hl|slice7"
+ "hl|slice7",
+ "hl|defer0"
 ]

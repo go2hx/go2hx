@@ -9,6 +9,9 @@ function caller() {
 	};
 }
 
+function callers(_skip, _pc)
+	return 0;
+
 function version()
 	return "go1.21.3";
 

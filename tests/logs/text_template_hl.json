@@ -4,11 +4,14 @@
         "TestExecuteOnNewTemplate",
         "TestMessageForExecuteEmpty",
         "TestUnterminatedStringError",
+        "TestGoodFuncNames",
         "TestBadFuncNames",
         "TestBlock",
         "TestMaxExecDepth",
         "TestIssue39807",
         "TestMultiParse",
+        "TestParseFilesWithData",
+        "TestParseGlobWithData",
         "TestClone",
         "TestAddParseTree",
         "TestAddParseTreeToUnparsedTemplate",
@@ -33,7 +36,6 @@
         "TestComparison",
         "TestMissingMapKey",
         "TestExecuteGivesExecError",
-        "TestGoodFuncNames",
         "TestEvalFieldErrors",
         "TestAddrOfIndex",
         "TestInterfaceValues",
@@ -44,9 +46,7 @@
         "TestMultiExecute",
         "TestParseFiles",
         "TestParseGlob",
-        "TestParseFS",
-        "TestParseFilesWithData",
-        "TestParseGlobWithData"
+        "TestParseFS"
     ],
     "runs": [
         "TestExecute",

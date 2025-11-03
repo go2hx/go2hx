@@ -39,5 +39,6 @@
  "interp|math",
  "interp|encoding/gob",
  "interp|go/token",
- "interp|math/big"
+ "interp|math/big",
+ "interp|testing/quick"
 ]

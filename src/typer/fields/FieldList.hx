@@ -40,6 +40,7 @@ function typeFieldListFieldTypes(list:GoAst.FieldList, info:Info, access:Array<A
 			case "StarExpr": getName(type.x);
 			case "Pointer": getName(type.elem);
 			case "IndexExpr": getName(type.x);
+			case "IndexListExpr": getName(type.x);
 			default: throw info.panic() + "unknown embedded: " + type.id;
 		}
 	}

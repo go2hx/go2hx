@@ -9,6 +9,12 @@ function main() {
 	if (haxe.macro.Compiler.getDefine("nocache") != null) {
 		args.push("-nocache");
 	}
+	if (haxe.macro.Compiler.getDefine("threads") != null) {
+		args.push("-thread " + haxe.macro.Compiler.getDefine("threads"));
+	}
+	if (haxe.macro.Compiler.getDefine("thread") != null) {
+		args.push("-thread " + haxe.macro.Compiler.getDefine("thread"));
+	}
 	if (haxe.macro.Compiler.getDefine("compiler_debug") != null)
 		args.push("-compiler_debug");
 	if (haxe.macro.Compiler.getDefine("_hl") != null) {
@@ -24,23 +30,55 @@ function main() {
 	if (code != 0)
 		throw "failed to compile";
 	final main = "_internal.githubdotcom.go2hx.go4hx.testbed.Testbed";
-	code = runCommand("haxe", [
-		"-cp",
-		"golibs",
-		"-main",
-		main,
-		"-w",
-		"-WStaticInitOrder",
-		"--hl",
-		"testbed_go.hl",
-	]);
-	if (code != 0)
-		throw "failed to build";
-	final command = "hl testbed_go.hl";
-	Sys.println(command);
-	code = Sys.command(command);
-	if (code != 0)
-		throw "failed to run";
+	final runHashlink = false;
+	
+	if (runHashlink) {
+		code = runCommand("haxe", [
+			"-cp",
+			"golibs",
+			"-main",
+			main,
+			"-w",
+			"-WStaticInitOrder",
+			"--hl",
+			"testbed_go.hl",
+		]);
+
+		if (code != 0)
+			throw "failed to build";
+			final command = "hl testbed_go.hl";
+		Sys.println(command);
+		code = Sys.command(command);
+		if (code != 0)
+			throw "failed to run";
+	}else{
+		code = runCommand("haxe", [
+			"-cp",
+			"golibs",
+			"-main",
+			main,
+			"-w",
+			"-WStaticInitOrder",
+			"-D",
+			"nolinkstd",
+			"-lib",
+			"hxjava",
+			// "-D",
+			// "no-inline",
+			"--jvm",
+			"testbed_go.jar",
+		]);
+
+		if (code != 0)
+			throw "failed to build";
+		// -Xint = set interp mode
+		// 
+		final command = "java -jar testbed_go.jar";
+		Sys.println(command);
+		code = Sys.command(command);
+		if (code != 0)
+			throw "failed to run";
+	}
 	Sys.println("~~~~~~~~~~~~~~~~~~~~");
 	code = Sys.command("haxelib run go2hx go run ./testbed");
 	if (code != 0)

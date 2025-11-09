@@ -6,6 +6,7 @@ import go.AnyInterface;
 import go.GoInt;
 
 @:dox(hide)
+@:genericClassPerMethod
 class GoArrayData<T> {
 	public var vector:haxe.ds.Vector<T> = null;
 	public var bytes:haxe.io.Bytes = null;
@@ -19,7 +20,7 @@ class GoArrayData<T> {
 	var isNumber64:Bool = false;
 	var isString:Bool = false;
 	var noArgs = false;
-
+	// Array invariance on jvm https://github.com/HaxeFoundation/haxe/issues/11907
 	public function new(length:GoInt, capacity:GoInt, args:Rest<T>) {
 		noArgs = args.length == 0;
 		if (capacity != -1) {
@@ -81,8 +82,8 @@ class GoArrayData<T> {
 		@:privateAccess this.isString = true;
 		return this;
 	}
-
-	public inline function __ref__():GoArrayData<T> {
+	// not allowed to be inline because of JVM
+	public function __ref__():GoArrayData<T> {
 		if (this == null) {
 			final s = new GoArrayData<T>(0, -1);
 			s.capacity = 0;
@@ -128,11 +129,14 @@ class GoArrayData<T> {
 		return obj;
 	}
 
-	public #if hl inline #end function __append__(args:Rest<T>):Slice<T> {
+	public inline function __append__(args:haxe.Rest<T>):Slice<T> {
 		if (this.__nil__) {
 			if (args.length == 0)
 				return this;
-			return new GoArrayData<T>(args.length, args.length, ...args);
+			final x = new GoArrayData<T>(args.length, args.length);
+			for (i in 0...args.length)
+				x.set(i, args[i]);
+			return x;
 		}
 		final slice:GoArrayData<T> = __ref__();
 		slice.__nil__ = false;
@@ -350,7 +354,7 @@ class GoArrayDataIterator<T> {
 	var pos:Int = 0;
 	var slice:GoArrayData<T>;
 
-	public inline function new(slice:GoArrayData<T>) {
+	public function new(slice:GoArrayData<T>) {
 		this.slice = slice;
 	}
 
@@ -424,8 +428,11 @@ abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	}
 
 	@:from
-	public static function fromArray<T>(array:Array<T>):GoArray<T> {
-		return new GoArray(array.length, array.length, ...array);
+	public static function fromArray<T>(args:Array<T>):GoArray<T> {
+		final x = new GoArray<T>(args.length, args.length);
+		for (i in 0...args.length)
+				x.__set__(i, args[i]);
+		return x;
 	}
 
 	// maybe bound checks are not required, because the length is already known for GoArrays

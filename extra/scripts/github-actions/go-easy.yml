@@ -58,7 +58,7 @@ steps:
     run: go run ./extra/scripts/sortTests ci
   # run go easy tests
   - name: Run go easy tests
-    run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=::target:: #-D hxb
+    run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D target=::target:: -D hxb
   # add go_easy.json regression 
   - uses: EndBug/add-and-commit@v9
     with:

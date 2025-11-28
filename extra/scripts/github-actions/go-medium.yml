@@ -52,7 +52,7 @@ steps:
     run: haxelib run go2hx go run ./extra/scripts/sortTests ci
   # run go medium tests
   - name: Run go medium tests
-    run: haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D target=::target:: #-D hxb
+    run: haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs -D target=::target:: -D hxb
   # add go_medium.json regression 
   - uses: EndBug/add-and-commit@v9
     with:

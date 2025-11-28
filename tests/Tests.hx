@@ -9,7 +9,7 @@ using haxe.io.Path;
 
 final path = Sys.getCwd();
 var ciBool = false;
-var hxbBool = true;
+var hxbBool = false;
 var noDepsBool = false;
 var testBool = false;
 var globalPath = "";
@@ -23,7 +23,7 @@ var tasks:Array<TaskData> = [];
 var type:String = "";
 
 // cpp tests take a long time to compile, so sometimes its not run if quick testing is required
-var target = "hl";
+var target = "jvm";
 var suite = new TestSuite();
 var completeBool = false;
 var sortMode = "";
@@ -341,7 +341,7 @@ function runTask(task:TaskData) {
 }
 
 function update() {
-	//Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + lastTaskLogs.length);
+	// Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + lastTaskLogs.length);
 	if (completeBool && tests.length == 0 && tasks.length == 0 && lastTaskLogs.length == 0) {
 		trace("COMPLETE");
 		close();
@@ -387,6 +387,7 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 }
 
 private function complete(main:String, excludes:Array<String>) {
+	trace("COMPLETE!!!!");
 	timeout = 0;
 	completeBool = true;
 	if (type != "std" && type != "libs")
@@ -395,6 +396,7 @@ private function complete(main:String, excludes:Array<String>) {
 }
 
 function spawnTargets(path:String, excludes:Array<String>) {
+	trace("path:", path);
 	if (path == "")
 		return;
 	// spawn target

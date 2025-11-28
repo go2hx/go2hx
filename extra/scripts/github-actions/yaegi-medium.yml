@@ -42,7 +42,7 @@ steps:
   - name: Sort tests
     run: go run ./extra/scripts/sortTests ci
   - name: Run yaegi medium tests
-    run: haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D target=::target:: #-D hxb
+    run: haxe tests/tests.hxml -D yaegi -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D target=::target:: -D hxb
   # add yaegi_medium.json regression 
   - uses: EndBug/add-and-commit@v9
     with:

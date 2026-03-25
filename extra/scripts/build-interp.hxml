@@ -1,6 +1,5 @@
 extra/scripts/build-each.hxml
 -cp src
--main Main
 -D no-deprecation-warnings
 -D std-encoding-utf8
 -D nolinkstd

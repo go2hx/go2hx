@@ -594,8 +594,8 @@ function isRefValue(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case interfaceType(_, _):
-			false;
+		case interfaceType(empty, _):
+			!empty;
 		case named(path, _, t, _):
 			// T__Pointer is Pointer version
 			if (path == "comparable" || path == "T__") {

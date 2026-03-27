@@ -41,7 +41,10 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 		if (this == null) {
 			if (args.length == 0)
 				return this.__copy__();
-			return new GoArrayData<T>(args.length, args.length, ...args);
+			final x = new GoArrayData<T>(args.length, args.length);
+			for (i in 0...args.length)
+				x.set(i, args[i]);
+			return x;
 		}
 		return this.__append__(...args);
 	}
@@ -74,6 +77,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 
 	@:from
 	public static function fromBytes(bytes:haxe.io.Bytes):Slice<GoByte> {
+		return new Slice<GoByte>(0,0);
 		return new Slice<GoByte>(bytes.length, bytes.length, ...[
 			for (i in 0...bytes.length)
 				bytes.get(i)
@@ -93,6 +97,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 
 	@:to
 	public function toBytes():haxe.io.Bytes {
+		return haxe.io.Bytes.alloc(0);
 		if (this != null && this.bytes != null) {
 			return this.bytes.sub(0, this.length);
 		}
@@ -103,7 +108,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	}
 
 	@:from
-	public static function fromArray<T>(array:Array<T>):Slice<T> {
+	public static inline function fromArray<T>(array:Array<T>):Slice<T> {
 		#if hl
 		final data = new GoArrayData<T>(0, -1);
 		data.vector = cast array;
@@ -111,12 +116,15 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 		data.capacity = array.length;
 		return data;
 		#else
-		return new Slice(array.length, array.length, ...array);
+		final x = new Slice<T>(array.length, array.length);
+		for (i in 0...array.length)
+				x.__set__(i, array[i]);
+		return x;
 		#end
 	}
 
 	@:from
-	public static function fromVector<T>(vector:haxe.ds.Vector<T>):Slice<T> {
+	public static inline function fromVector<T>(vector:haxe.ds.Vector<T>):Slice<T> {
 		final data = new GoArrayData<T>(0, -1);
 		data.vector = vector;
 		data.length = vector.length;

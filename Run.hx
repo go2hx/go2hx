@@ -89,14 +89,14 @@ function main() {
 		args.remove(args[index]);
 		debug = true;
 	}
-	if ((index = args.indexOf("-compiler_cpp")) != -1 || (index = args.indexOf("--compiler_cpp")) != -1) {
-		args.remove(args[index]);
-		setupCPP(rebuild, args, debug);
-		return;
-	}
 	if ((index = args.indexOf("-compiler_hl")) != -1 || (index = args.indexOf("--compiler_hl")) != -1) {
 		args.remove(args[index]);
 		setupHashlink(rebuild, args);
+		return;
+	}
+	if ((index = args.indexOf("-compiler_cpp")) != -1 || (index = args.indexOf("--compiler_cpp")) != -1) {
+		args.remove(args[index]);
+		setupCPP(rebuild, args, debug);
 		return;
 	}
 	if ((index = args.indexOf("-compiler_interp")) != -1 || (index = args.indexOf("--compiler_interp")) != -1) {
@@ -309,7 +309,6 @@ function build(rebuild:Bool) {
 			Sys.exit(code);
 		}
 	}
-	setupCPP(rebuild, [], false);
 }
 
 function setupNodeJS(rebuild:Bool, args:Array<String>) {
@@ -332,7 +331,6 @@ function setupCPP(rebuild:Bool, args:Array<String>, debug:Bool) {
 		trace(proc.stdout.readAll().toString(), proc.stderr.readAll().toString());
 	}
 	Sys.putEnv("HXCPP_COMPILE_THREADS", "4");
-	Sys.putEnv("HXCPP_COMPILE_CACHE", "~/hxcache");
 	final debugSuffix = debug ? "-debug" : "";
 
 	final fileName = executable('export/cpp/Main$debugSuffix');

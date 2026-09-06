@@ -13,6 +13,9 @@ Import Go libraries into your Haxe projects.
 
 > A spiritual successor to [Elliott Stoneham's compiler](#credits)
 
+
+This project is not currently being worked on, we have changed focus to working on a [Go target for Haxe](https://github.com/go2hx/hx2go). We took much of what we learned here to write it, along with the automatic extern generator it uses!
+
 </div>
 
 # Tables of contents
